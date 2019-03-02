@@ -53,6 +53,16 @@ STM32_INCLUDES = \
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
+OPT = ${LLVM_ADIN_PATH}/opt
+
+ifndef LLVM_ADIN_PATH
+$(error "LLVM_ADIN_PATH variable not set!")
+endif
+
+OPT_FLAGS = -S -adin
+
+ADIN_SUFFIX = adin
+
 CFLAGS += -S -emit-llvm
 
 DEFS = -DUSE_STDPERIPH_DRIVER -DSTM32F4XX
@@ -75,14 +85,12 @@ all: $(BUILD_DIR) $(TARGET).$(SUFFIX)
 
 $(TARGET).$(SUFFIX): $(OBJS)
 	$(LD) -v $(BUILD_DIR)/*.$(SUFFIX) -S -o $(BUILD_DIR)/$@
+	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$@ -o  $(BUILD_DIR)/$(TARGET).${ADIN_SUFFIX}.$(SUFFIX)
 
 # compile
 #------------------------------------------------------------------------------- 
 %.$(SUFFIX): %.c
 	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $@)
-
-$(EXECUTABLE): $(SRC) $(STARTUP)
-	$(CC) $(CFLAGS) $^ -o $@
 
 #-------------------------------------------------------------------------------
 .PHONY: clean
