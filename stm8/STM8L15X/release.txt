@@ -1,0 +1,37 @@
+================================================================================
+                          STM8L-Discovery_WavesGenerator PACKAGE
+                                 Release Notes
+================================================================================
+
+V2.0.1 / 26-AUG-2011
+--------------------
+- Errors in the LCD character coding matrix fixed in file stm8l_discovery_lcd.c:
+      { E , D , P   , J  }
+      { M , C , COL , H  }
+      { B , A , K   , N  }
+      { G , F , Q   , DP }
+
+V2.0 / 04-JAN-2011
+------------------
+
+ - Content:
+
+   o STM8L Standard Peripherals Library V1.4.1
+   o STM8L152 examples :
+     - Discover V1.2.4 : IAR optimization level moved from Low to Medium due to code size 
+       higher than 8KB in order to be compliant with IAR Embedded Workbench kick start edition 
+       limited to 8KB.
+     - WavesGenerator v2.0 : minor user button management issue solved.
+
+
+V1.0 / 20-SEPT-2010
+-------------------
+
+ - Content:
+
+   o STM8L Standard Peripherals Library V1.3.1
+   o STM8L152 examples :
+     Discover is provided with both Cosmic and Raisonance projects (STVD) but also with IAR Embedded Workbench
+     WavesGenerator is provided with both Cosmic and Raisonance projects (STVD) but also with IAR Embedded Workbench
+     
+   
