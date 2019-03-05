@@ -13,7 +13,7 @@ PERIPHDRIVERS += stm8l15x_flash
 PERIPHDRIVERS += stm8l15x_gpio
 PERIPHDRIVERS += stm8l15x_i2c
 PERIPHDRIVERS += stm8l15x_irtim
-PERIPHDRIVERS += stm8l15x_itc
+#PERIPHDRIVERS += stm8l15x_itc
 PERIPHDRIVERS += stm8l15x_iwdg
 PERIPHDRIVERS += stm8l15x_lcd
 PERIPHDRIVERS += stm8l15x_pwr
@@ -50,11 +50,12 @@ OBJS += $(addprefix $(STDPERIPH_SRC_PATH)/, $(addsuffix .ll, $(PERIPHDRIVERS)))
 $(OUTPUT): $(OBJS)
 	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
 	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
+	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
 
 # compile
 #------------------------------------------------------------------------------- 
 %.ll: %.c
 	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).ll
 	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
-	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).o
+	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
 

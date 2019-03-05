@@ -12,3 +12,4 @@
 *.includes
 *.ll
 build/
+*.lib/
