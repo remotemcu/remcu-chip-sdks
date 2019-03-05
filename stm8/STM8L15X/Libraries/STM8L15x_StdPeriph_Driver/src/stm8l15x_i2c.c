@@ -767,11 +767,11 @@ uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx)
 
 uint8_t I2C_ReadRegister(I2C_TypeDef* I2Cx, I2C_Register_TypeDef I2C_Register)
 {
-  __IO uint16_t tmp = 0;
+  __IO uint32_t tmp = 0;
   /* Check the parameters */
   assert_param(IS_I2C_REGISTER(I2C_Register));
 
-  tmp = (uint16_t) I2Cx;
+  tmp = (uint32_t) I2Cx;
   tmp += I2C_Register;
 
   /* Return the selected register value */

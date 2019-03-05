@@ -64,7 +64,7 @@
 #elif defined(__ICCSTM8__)
  #define _IAR_
 #else
- #error "Unsupported Compiler!"          /* Compiler defines not found */
+ //#pragma message ("Unsupported Compiler!")          /* Compiler defines not found */
 #endif
 
 #if !defined  USE_STDPERIPH_DRIVER
@@ -126,6 +126,7 @@
  #define IN_RAM  
 #endif /* __CSMC__ */
 
+#if 0
 #if defined (STM8L15X_MD) || defined (STM8L15X_MDP)
 /*!< Used with memory Models for code smaller than 64K */
  #define PointerAttr NEAR
@@ -133,6 +134,9 @@
 /*!< Used with memory Models for code higher than 64K */
  #define PointerAttr FAR
 #endif /* STM8L15X_MD or STM8L15X_MDP */
+#else
+ #define PointerAttr
+#endif
 
 /* Uncomment the line below to enable the FLASH functions execution from RAM */
 #if defined(_COSMIC_)
@@ -203,7 +207,7 @@ typedef uint16_t u16;
 typedef uint8_t  u8;
 
 
-typedef enum {FALSE = 0, TRUE = !FALSE} bool;
+typedef enum {FALSE1 = 0, TRUE1 = !FALSE1} bool1;
 
 typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus, BitStatus, BitAction;
 
@@ -2757,7 +2761,7 @@ AES_TypeDef;
  #define wfe() {_asm("wfe\n");} /*!<Wait for event */
  #define halt() {_asm("halt\n");} /*!<Halt */
 #else /*_IAR*/
- #include <intrinsics.h>
+ //#include <intrinsics.h>
  #define enableInterrupts() {asm("rim\n");} /* enable interrupts */
  #define disableInterrupts() {asm("sim\n");} /* disable interrupts */
  #define rim() {asm("rim\n");} /* enable interrupts */
