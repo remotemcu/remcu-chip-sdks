@@ -1,0 +1,19 @@
+================ Revision history ============================================
+5.1.2:
+ - Minor changes.
+
+5.1.1:
+ - First release were kit examples are moved to a separate directory.
+   Kit examples are now in app/mcu_example folder.
+ - Added support for new radio boards:
+   EFR32BG12_BRD4103A, EFR32MG12_BRD4161A, EFR32MG12_BRD4162A,
+   EFR32MG12_BRD4163A, EFR32MG12_BRD4164A, EFR32MG13_BRD4165B.
+
+5.1.0:
+ - Added SLSTK3402A_EFM32PG12 kit support.
+ - Added support for new radio boards EFR32MG13_BRD4158A and EFR32MG13_BRD4165A.
+
+5.0.0:
+ - kits/common/drivers/rtcdrv.c/h removed. Please use RTCDRV instead.
+ - retargetswo: BSP_TraceSwoSetup updated to calculate SWO frequency based on
+   debug clock.

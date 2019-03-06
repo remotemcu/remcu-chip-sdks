@@ -1,0 +1,5 @@
+
+What's New in this Gecko SDK Suite Release:
+  * Gecko SDK Suite including all wireless SDKs
+  * Support for EFR32MG12
+  * Gecko bootloader support for BLE, zigbee, and Thread

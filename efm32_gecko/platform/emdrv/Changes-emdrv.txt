@@ -1,0 +1,105 @@
+================ Revision history ============================================
+5.1.2:
+ - Fixed C-STAT warnings in spidrv, uartdrv and rtcdriver.
+
+5.1.1:
+ - USTIMER: Add support for TIMER4-6 and WTIMER0-3.
+
+5.1.0:
+ - SLEEP: Changed ATOMIC region in SLEEP_Sleep() to CRITICAL as ATOMIC can mask
+   wakeup.
+ - UARTDRV: Fixed issue that can cause UARTDRV_ForceTransmit() to deadlock.
+ - UARTDRV: Fixed issue with calling UARTDRV_Abort() when no buffers were queued.
+ - UARTDRV: Fixed issue where UARTDRV_Abort() wouldn't call the callback on all
+   aborted transfers.
+
+5.0.0:
+ - Update to use em_core instead of em_int to implement critical regions.
+ - TEMPDRV: Errata fix is now using calibration values to initialize the
+   temperature transition points.
+ - TEMPDRV: Errata fix is initiated on Pearl and Jade devices in addition
+   to the EFR32 devices.
+ - UARTDRV: Fixed issue with LEUART on low frequencies.
+ - UARTDRV: Fixed issue with UARTDRV_Abort() where buffers weren't dequeued.
+ - Configuration files moved from emdrv\config\ to emdrv\<driver>\config\
+ - RTCDRV: Interrupt handler updated to only process interrupts that are enabled.
+   This prevents potential deadlocks.
+ - NVM: Fixed definition of error codes to use ECODE_EMDRV_NVM_BASE.
+
+4.4.0:
+ - UARTDRV: Fix race condition for GPIO flow control.
+ - RTCDRV: Fixed bug where a high remaining time could cause an incorrect
+   result from the RTCDRV_TimeRemaining function.
+ - UARTDRV: Added support for LEUART peripherals using the UARTDRV_InitLeuart()
+   init function.
+
+4.3.1:
+ - UARTDRV: Added support for pausing and resuming active transmit operations.
+ - UARTDRV: SW flow control bytes now interrupt the active transmit operation to
+   ensure timely delivery.
+ - UARTDRV: Added support for setting the peer flow control state for manual SW
+   flow control management.
+ - UARTDRV: Fixed multiple instances of NULL pointer dereferencing.
+
+4.3.0:
+ - UARTDRV: Added support for a new flow control mode which is using the built
+   in hardware flow control capabilities on platform 2 devices. The new flow
+   control mode is called "uartdrvFlowControlHwUart"
+ - UARTDRV: Fixed bug where tx bytes could be dropped when using the flow
+   control mode called "uartdrvFlowControlHw".
+ - SLEEP driver will no longer allow blocking of EM1 energy mode.
+ - EZRADIODRV now supports Si4468 radio based parts.
+ - Made ezradio_comm_GetResp non-blocker in EZRADIODRV.
+ - Made ezradio_comm_PollCTS non-blocker if used together with GPIO1 in EZRADIODRV.
+ - EZRADIODRV transmit and receive plugins use the generated channel number instead of the 0.
+ - EZRADIODRV now supports 4-wire SPI mode (not available for EZR32 based devices).
+
+4.2.3:
+ - DMADRV added functions for pausing and resuming a DMA transfer
+ - UARTDRV changed the way an ongoing transfer is stopped when the CTS pin
+   goes high.
+
+4.2.1:
+ - No changes.
+
+4.2.0:
+ - Added TEMPDRV, a temperature sensor driver.
+
+4.1.1:
+ - NVM Wear-Leveling driver page headers re-organized to have natural alignment.
+   Reads are therefore done as as aligned accesses only. The offset of the version member in the
+   header is maintained.
+ - NVM driver is updated to work with SCB_CCR_UNALIGN_TRP enabled.
+ - NVM driver version (in headers) incremented from 2 to 3.
+ - NVMHAL code disabled by default (in #if blocks) is removed.
+ - NVM driver code and documentation is updated.
+
+4.1.0:
+ - EZRADIODRV now supports the plugin system layer. Transmit, receive, CRC
+   error, auto acknowledge, PN9, direct receive, direct transmit and unmodulated
+   carrier plugins are added.
+ - EZRADIODRV now supports Si4461 radio based parts.
+ - EZRADIODRV radio API layer is reworked.
+ - Updated EZRADIODRV documentation and examples.
+
+4.0.0:
+ - In GPIOINTERRUPT, fixed race condition in GPIOINT_IRQDispatcher.
+
+3.20.13:
+ - Removed obsolete include statement in EZRADIODRV.
+
+3.20.12:
+ - Changes and bugfixes in all drivers.
+
+3.20.5:
+ - Added RTCDRV and SPIDRV drivers.
+ - All NVM driver configuration parameters moved to emdrv\config\nvm_config.h and nvm_config.c
+ - NVM driver now uses Ecode error codes.
+ - Updated NVM driver documentation and example.
+ - Updated GPIOINT driver documentation.
+
+3.20.2:
+ - Added SLEEP driver.
+
+3.20.0:
+ - First version with NVM and GPIOINTERRUPT drivers.

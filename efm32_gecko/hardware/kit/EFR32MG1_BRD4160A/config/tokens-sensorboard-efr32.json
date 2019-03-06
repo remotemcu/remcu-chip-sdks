@@ -1,0 +1,59 @@
+[
+  {
+    "name": "SB_RADIO_CTUNE",
+    "page": "USERDATA",
+    "offset": "0x100",
+    "sizeB": 2,
+    "description": ""
+  },
+  {
+    "name": "SB_RADIO_OUTPUT_POWER",
+    "page": "USERDATA",
+    "offset": "0x702",
+    "sizeB": 2,
+    "description": ""
+  },
+  {
+    "name": "SB_RADIO_CHANNEL",
+    "page": "USERDATA",
+    "offset": "0x704",
+    "sizeB": 2,
+    "description": ""
+  },
+  {
+    "name": "SB_RADIO_NODE_ID",
+    "page": "USERDATA",
+    "offset": "0x706",
+    "sizeB": 1,
+    "description": ""
+  },
+  {
+    "name": "SB_RADIO_NODE_ROLE",
+    "page": "USERDATA",
+    "offset": "0x707",
+    "sizeB": 1,
+    "description": ""
+  },
+  {
+    "name": "SB_RADIO_BEACON_PERIOD",
+    "page": "USERDATA",
+    "offset": "0x708",
+    "sizeB": 2,
+    "description": ""
+  },
+  {
+    "name": "SB_NODE_COLOUR",
+    "page": "USERDATA",
+    "offset": "0x710",
+    "sizeB": 4,
+    "description": "24 bit RGB colour"
+  },
+  {
+    "name": "SB_NODE_COUNT",
+    "page": "USERDATA",
+    "offset": "0x714",
+    "sizeB": 1,
+    "description": "Number of nodes in the set"
+  }
+  
+]
