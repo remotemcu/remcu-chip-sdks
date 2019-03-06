@@ -15,7 +15,7 @@
 
 #include <string.h>
 #include "em_device.h"
-#include "em_cmu.h"
+//#include "em_cmu.h"
 #include "em_gpio.h"
 #include "bsp.h"
 #if defined( BSP_STK_USE_EBI )
@@ -303,7 +303,7 @@ int BSP_PeripheralAccess(BSP_Peripheral_TypeDef perf, bool enable)
 #endif
 }
 /** @endcond */
-
+#if 0
 /**************************************************************************//**
  * @brief Request AEM (Advanced Energy Monitoring) current from board controller.
  *
@@ -370,5 +370,5 @@ float BSP_VoltageGet( void )
 
 /** @} (end group BSP_STK) */
 /** @} (end group BSP) */
-
+#endif
 #endif /* BSP_STK */
