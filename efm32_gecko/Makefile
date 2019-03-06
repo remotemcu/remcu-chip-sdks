@@ -6,12 +6,12 @@ include $(REMCU_PATH_MK)/remcu.mk
 BUILD_DIR = build
 
 INCLUDEPATHS += \
--I platform/CMSIS/Include \
 -I platform/emlib/inc \
 -I hardware/kit/common/bsp \
 -I platform/Device/SiliconLabs/EFM32TG/Include \
 -I hardware/kit/EFM32TG_STK3300/config
 
+#-I platform/CMSIS/Include \
 
 C_CXX_SRC +=  \
  platform/emlib/src/em_assert.c \
