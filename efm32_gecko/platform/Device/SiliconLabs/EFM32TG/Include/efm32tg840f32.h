@@ -146,8 +146,8 @@ typedef enum IRQn
 #define RAM_CODE_MEM_BITS    ((uint32_t) 0x14UL)       /**< RAM_CODE used bits  */
 
 /** Bit banding area */
-#define BITBAND_PER_BASE     ((uint32_t) 0x42000000UL) /**< Peripheral Address Space bit-band area */
-#define BITBAND_RAM_BASE     ((uint32_t) 0x22000000UL) /**< SRAM Address Space bit-band area */
+//#define BITBAND_PER_BASE     ((uint32_t) 0x42000000UL) /**< Peripheral Address Space bit-band area */
+//#define BITBAND_RAM_BASE     ((uint32_t) 0x22000000UL) /**< SRAM Address Space bit-band area */
 
 /** Flash and SRAM limits for EFM32TG840F32 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */

@@ -225,7 +225,7 @@
 /*@} end of group Cortex_M3 */
 
 
-
+#if 0
 /*******************************************************************************
  *                 Register Abstraction
   Core Register contain:
@@ -1613,6 +1613,7 @@ __STATIC_INLINE void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGr
   \brief   System Reset
   \details Initiates a system reset request to reset the MCU.
  */
+
 __STATIC_INLINE void NVIC_SystemReset(void)
 {
   __DSB();                                                          /* Ensure all outstanding memory accesses included
@@ -1752,7 +1753,7 @@ __STATIC_INLINE int32_t ITM_CheckChar (void)
 /*@} end of CMSIS_core_DebugFunctions */
 
 
-
+#endif
 
 #ifdef __cplusplus
 }

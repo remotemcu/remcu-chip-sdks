@@ -36,7 +36,7 @@
 #include <limits.h>
 #include "em_assert.h"
 #include "em_bus.h"
-#include "em_emu.h"
+//#include "em_emu.h"
 #include "em_cmu.h"
 #include "em_system.h"
 #include "em_common.h"

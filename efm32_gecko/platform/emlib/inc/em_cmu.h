@@ -1296,7 +1296,7 @@ __STATIC_INLINE void CMU_CalibrateStop(void)
 }
 #endif
 
-
+#if 0
 /***************************************************************************//**
  * @brief
  *   Convert dividend to logarithmic value. Only works for even
@@ -1320,7 +1320,7 @@ __STATIC_INLINE uint32_t CMU_DivToLog2(CMU_ClkDiv_TypeDef div)
 
   return log2;
 }
-
+#endif
 
 /***************************************************************************//**
  * @brief
@@ -1451,7 +1451,7 @@ __STATIC_INLINE uint32_t CMU_Log2ToDiv(uint32_t log2)
   return 1 << log2;
 }
 
-
+#if 0
 #if defined( _SILICON_LABS_32B_SERIES_1 )
 /***************************************************************************//**
  * @brief
@@ -1480,7 +1480,7 @@ __STATIC_INLINE uint32_t CMU_PrescToLog2(CMU_ClkPresc_TypeDef presc)
   return log2;
 }
 #endif
-
+#endif
 
 /***************************************************************************//**
  * @brief
