@@ -15,7 +15,8 @@ FILE(GLOB COPY_SOURCE_FROM_LIB
 	"${CMAKE_CURRENT_LIST_DIR}/platform/emlib/inc/*.h"
 	"${CMAKE_CURRENT_LIST_DIR}/hardware/kit/common/bsp/*.h"
 	"${CMAKE_CURRENT_LIST_DIR}/platform/Device/SiliconLabs/EFM32TG/Include/*.h"
-	"${CMAKE_CURRENT_LIST_DIR}/hardware/kit/EFM32TG_STK3300/config/*.h")
+	"${CMAKE_CURRENT_LIST_DIR}/hardware/kit/EFM32TG_STK3300/config/*.h"
+	"${CMAKE_CURRENT_LIST_DIR}/hardware/kit/common/drivers/segmentlcd.h")
 FILE(GLOB COPY_DESCRIPTION_FROM_LIB "${CMAKE_CURRENT_LIST_DIR}/README.txt")
 
 set(CONF_SOURCE ${CMAKE_CURRENT_LIST_DIR}/conf.cpp)

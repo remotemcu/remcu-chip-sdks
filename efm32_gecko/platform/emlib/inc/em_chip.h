@@ -67,6 +67,8 @@ extern "C" {
  * as similar as later revisions as possible, to improve software compatibility
  * with newer parts. See the device specific errata for details.
  *****************************************************************************/
+void CHIP_Init(void);
+#if 0
 __STATIC_INLINE void CHIP_Init(void)
 {
 #if defined(_SILICON_LABS_32B_SERIES_0) && defined(_EFM32_GECKO_FAMILY)
@@ -277,7 +279,7 @@ __STATIC_INLINE void CHIP_Init(void)
 
 
 }
-
+#endif
 /** @} (end addtogroup CHIP) */
 /** @} (end addtogroup emlib) */
 

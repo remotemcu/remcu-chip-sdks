@@ -8,9 +8,10 @@ BUILD_DIR = build
 INCLUDEPATHS += \
 -I platform/emlib/inc \
 -I platform/Device/SiliconLabs/EFM32TG/Include \
-
-#-I hardware/kit/common/bsp \
-#-I hardware/kit/EFM32TG_STK3300/config
+-I hardware/kit/common/bsp \
+-I hardware/kit/EFM32TG_STK3300/config \
+-I hardware/kit/common/drivers \
+-I platform/emdrv/common/inc \
 
 #-I platform/CMSIS/Include \
 
@@ -18,13 +19,15 @@ C_CXX_SRC +=  \
  platform/emlib/src/em_assert.c \
  platform/emlib/src/em_cmu.c \
  platform/emlib/src/em_gpio.c \
- platform/emlib/src/em_system.c \
- platform/emlib/src/em_usart.c \
  platform/Device/SiliconLabs/EFM32TG/Source/system_efm32tg.c \
+ hardware/kit/common/bsp/bsp_stk.c \
+ hardware/kit/common/bsp/bsp_stk_leds.c \
+ hardware/kit/common/bsp/bsp_bcc.c \
+ platform/emlib/src/em_usart.c \
+ hardware/kit/common/drivers/segmentlcd.c \
+ platform/emlib/src/em_lcd.c \
 
- #hardware/kit/common/bsp/bsp_bcc.c \
- #hardware/kit/common/bsp/bsp_stk.c \
- #hardware/kit/common/bsp/bsp_stk_leds.c \ 
+ 
  #platform/emlib/src/em_emu.c \
 
 

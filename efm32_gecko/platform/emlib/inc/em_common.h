@@ -180,7 +180,7 @@ extern "C" {
 #define SL_ATTRIBUTE_SECTION(X) __attribute__ ((section(X)))
 
 #endif // !defined(__GNUC__)
-
+#if 0
 /***************************************************************************//**
  * @brief
  *   Count trailing number of zeros. Use CLZ instruction if available.
@@ -209,7 +209,7 @@ __STATIC_INLINE uint32_t EFM32_CTZ(uint32_t value)
 {
   return SL_CTZ(value);
 }
-
+#endif
 
 /** @} (end addtogroup COMMON) */
 /** @} (end addtogroup emlib) */

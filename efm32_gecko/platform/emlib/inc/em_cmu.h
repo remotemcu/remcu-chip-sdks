@@ -1296,7 +1296,7 @@ __STATIC_INLINE void CMU_CalibrateStop(void)
 }
 #endif
 
-#if 0
+#if 1
 /***************************************************************************//**
  * @brief
  *   Convert dividend to logarithmic value. Only works for even
@@ -1316,7 +1316,8 @@ __STATIC_INLINE uint32_t CMU_DivToLog2(CMU_ClkDiv_TypeDef div)
   EFM_ASSERT((div > 0U) && (div <= 32768U));
 
   /* Count leading zeroes and "reverse" result */
-  log2 = (31U - __CLZ(div));
+  //log2 = (31U - __CLZ(div));
+  log2 = (31U - __builtin_clz(div));
 
   return log2;
 }
