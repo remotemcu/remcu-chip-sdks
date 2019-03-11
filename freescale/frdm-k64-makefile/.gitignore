@@ -1,0 +1,49 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.a
+*.elf
+*.bin
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# mbed object files and libraries should be versioned
+!mbed/**/*.o
+!mbed/**/*.a
+
+# Eclipse project files
+.settings
+.project
+.cproject
+language.settings.xml
+*.launch
+
+# ignore contents of build directory
+build/**
