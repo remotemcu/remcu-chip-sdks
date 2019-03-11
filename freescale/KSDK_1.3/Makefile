@@ -25,7 +25,7 @@ C_CXX_SRC +=  \
      board/board.c \
  platform/devices/MK64F12/startup/system_MK64F12.c \
 
-C_CXX_SRC_33 += platform/utilities/src/fsl_misc_utilities.c \
+C_CXX_SRC_UNCESS += platform/utilities/src/fsl_misc_utilities.c \
  platform/utilities/src/fsl_debug_console.c \
  platform/utilities/src/print_scan.c \
      hello_world/main.c \
@@ -128,14 +128,13 @@ platform/drivers/src/vref/fsl_vref_driver.c \
 
 C_CXX_SRC += platform/osa/src/fsl_os_abstraction_bm.c \
 
-C_CXX_SRC1 +=  platform/hal/src/smc/fsl_smc_hal.c \
+C_CXX_SRC_UNCESS +=  platform/hal/src/smc/fsl_smc_hal.c \
 platform/system/src/hwtimer/fsl_hwtimer_systick.c \
+platform/system/src/power/fsl_power_manager.c \
+platform/hal/src/smc/fsl_smc_hal.c \
+platform/system/src/interrupt/fsl_interrupt_manager.c \
 
-#platform/system/src/power/fsl_power_manager.c \
-#platform/hal/src/smc/fsl_smc_hal.c \
-#platform/system/src/interrupt/fsl_interrupt_manager.c \
-
-C_CXX_SRC2 +=  platform/hal/src/enet/fsl_enet_hal.c \
+C_CXX_SRC_UNCESS +=  platform/hal/src/enet/fsl_enet_hal.c \
 platform/drivers/src/enet/fsl_enet_driver.c \
 platform/drivers/src/enet/fsl_enet_common.c \
 platform/hal/src/wdog/fsl_wdog_hal.c \
@@ -148,24 +147,17 @@ CXX_SRC = $(filter %.cpp, $(C_CXX_SRC))
 
 IR_FILES += $(C_SRC:.c=.ll)
 
-#LOCAL_CFLAGS += -D$(DEVICE)
-
 LOCAL_CFLAGS +=-DDEBUG
 LOCAL_CFLAGS +=-DCPU_$(DEVICE)
-#MK64FN1M0VMD12
-#LOCAL_CFLAGS +=-DFRDM_K64F
-#LOCAL_CFLAGS +=-DFREEDOM
 
 LOCAL_CXXFLAGS += -D$(DEVICE)
 
 $(OUTPUT): $(IR_FILES)
-	#$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-	#$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
-	$(CLANG) $(BUILD_DIR)/*.o -o $@
+	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
+	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
 
 # Create objects from C SRC files
 %.ll: %.c
 	@echo "Building file: $<"
-	$(CLANG) $(LOCAL_CFLAGS) $(INCLUDEPATHS) -c  $< -o $(BUILD_DIR)/$(notdir $<).o
-	#$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) $(INCLUDEPATHS) -c  $< -o $(BUILD_DIR)/$(notdir $<).ll
-	#$(OPT) $(OPT_FLAGS)  $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
+	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) $(INCLUDEPATHS) -c  $< -o $(BUILD_DIR)/$(notdir $<).ll
+	$(OPT) $(OPT_FLAGS)  $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll

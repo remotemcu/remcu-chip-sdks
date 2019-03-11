@@ -242,11 +242,11 @@ static inline uint32_t CLOCK_SYS_GetSystickFreq(void)
     return CLOCK_SYS_GetCoreClockFreq();
 }
 #endif // FSL_FEATURE_SYSTICK_HAS_EXT_REF
-
+#endif
 #if defined(__cplusplus)
 }
 #endif /* __cplusplus*/
-#endif
+
 /*
  * Include the CPU-specific clock API header files.
  */
