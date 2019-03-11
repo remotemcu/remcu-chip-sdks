@@ -180,13 +180,14 @@ void BOARD_ClockInit(void)
     CLOCK_SetBootConfig(&g_defaultClockConfigRun);
 #endif
 }
-
+#if 0
 void dbg_uart_init(void)
 {
     configure_uart_pins(BOARD_DEBUG_UART_INSTANCE);
 
     DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, BOARD_DEBUG_UART_BAUD, kDebugConsoleUART);
 }
+#endif
 /******************************************************************************
  *
  *   @name      usb_device_board_init

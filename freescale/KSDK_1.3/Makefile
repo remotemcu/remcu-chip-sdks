@@ -20,17 +20,17 @@ INCLUDEPATHS += \
 #-I platform/CMSIS/Include \
 
 C_CXX_SRC +=  \
-     hello_world/main.c \
-     hello_world/fsl_lptmr_irq.c \
-     hello_world/hardware_init.c \
      board/gpio_pins.c \
      board/pin_mux.c \
      board/board.c \
- platform/utilities/src/fsl_debug_console.c \
- platform/utilities/src/print_scan.c \
  platform/devices/MK64F12/startup/system_MK64F12.c \
 
-#platform/utilities/src/fsl_misc_utilities.c \
+C_CXX_SRC_33 += platform/utilities/src/fsl_misc_utilities.c \
+ platform/utilities/src/fsl_debug_console.c \
+ platform/utilities/src/print_scan.c \
+     hello_world/main.c \
+     hello_world/fsl_lptmr_irq.c \
+     hello_world/hardware_init.c \
 
 C_CXX_SRC +=  \
 platform/system/src/clock/fsl_clock_manager.c \
@@ -151,9 +151,10 @@ IR_FILES += $(C_SRC:.c=.ll)
 #LOCAL_CFLAGS += -D$(DEVICE)
 
 LOCAL_CFLAGS +=-DDEBUG
-LOCAL_CFLAGS +=-DCPU_MK64FN1M0VMD12
-LOCAL_CFLAGS +=-DFRDM_K64F
-LOCAL_CFLAGS +=-DFREEDOM
+LOCAL_CFLAGS +=-DCPU_$(DEVICE)
+#MK64FN1M0VMD12
+#LOCAL_CFLAGS +=-DFRDM_K64F
+#LOCAL_CFLAGS +=-DFREEDOM
 
 LOCAL_CXXFLAGS += -D$(DEVICE)
 
