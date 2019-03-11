@@ -1,0 +1,163 @@
+Release Name: MCUXpresso Software Development Kit (SDK)
+Release Version: 2.2.0
+
+C++ option-parser          version: NA                                       
+                           Location: middleware/multicore_2.2.0/erpc/erpcgen/
+                           src/options.cpp                                   
+                           Description: C++ option-parser                    
+                           License: Brad Appleton's license                  
+                           Author: Brad Appleton    bradapp@enteract.com     
+                           name: C++ option-parser                           
+                           Format: Plain Text                                
+                           URL: http://www.bradapp.com/ftp/src/libs/C++/Optio
+                           ns.html                                           
+
+CMSIS Core header files    Author: ARM                                       
+                           parentversion: 4.5                                
+                           URL: http://silver.arm.com                        
+                           name: CMSIS Core header files                     
+                           Format: source code                               
+                           License: Open Source - BSD-3-Clause               
+                           Location: CMSIS/Include                           
+                           version: 4.3 (CMSIS Download 4.5)                 
+                           Description: Industry-standard header files       
+                           distributes by ARM for cortex-M cores             
+
+CPP Template               version: NA                                       
+                           Location: middleware/multicore_2.2.0/erpc/erpcgen/
+                           src/cpptemplate                                   
+                           Description: CPP Template                         
+                           License: Open Source - MIT                        
+                           Author: Ryan Ginstrom & Martinho Fernandes        
+                           name: CPP Template                                
+                           Format: source code                               
+
+DMA Manager                Format: source code                               
+                           Location: middleware/dma_manager_2.1.0            
+                           Description: A software component used for manage 
+                           on-chip DMA channel resources.                    
+                           name: DMA Manager                                 
+                           License: Open Source - BSD-3-Clause               
+                           version: 2.1.0                                    
+                           Author: Freescale                                 
+
+FatFs                      Approved Open Source License: Yes                 
+                           Author: Electronic Lives Mfg. by ChaN of Ageo     
+                           city, Japan (hobbyist)                            
+                           Description: FatFs is a generic FAT file system   
+                           module for small embedded systems.                
+                           Format: source code                               
+                           License: Open Source - FatFs License,             
+                           <rootfolder>/middleware/fatfs/doc/en/appnote.html 
+                           Location: middleware/fatfs_0.12b                  
+                           name: FatFs                                       
+                           URL: http://elm-chan.org/fsw/ff/00index_e.html    
+                           version: 0.12b                                    
+
+FreeRTOS(tm)               Author: Real Time Engineers, Ltd.                 
+                           Description: A real-time operating system(RTOS)   
+                           from Real Time Engineers, Ltd.                    
+                           Format: source code                               
+                           License: Modified GPLv2. See                      
+                           ,<rootfolder>/rtos/freertos/License/license.txt.  
+                           Location: rtos/freertos_9.0.0                     
+                           name: FreeRTOS(tm)                                
+                           URL: http://www.freertos.org                      
+                           version: 9.0.0                                    
+
+KSDK CMSIS Peripheral      Author: Freescale                                 
+Drivers                    version: 2.x.x                                    
+                           Format: source code                               
+                           Description: CMSIS Peripheral drivers are designed
+                           to provide hardware independent APIs which make   
+                           application reusable across a wide range of       
+                           supported microcontroller devices.                
+                           name: KSDK CMSIS Peripheral Drivers               
+                           Location: devices/<device>/cmsis_drivers          
+                           License: Open Source - Apache 2.0 & BSD-3-Clause  
+
+KSDK Peripheral Driver     Description: Peripherral drivers are designed for 
+                           the most common use cases indentified for         
+                           the underlying hardware block.                    
+                           Author: Freescale                                 
+                           Version: 2.x.x                                    
+                           License: Open Source - BSD-3-Clause               
+                           Format: source code                               
+                           Location: devices/<device_name>/drivers           
+
+Multicore SDK              version: 2.2.0                                    
+                           Location: middleware/multicore_2.2.0              
+                           Description: Freescale Multicore Software         
+                           Development Kit.                                  
+                           License: Proprietary. See LA_OPT_Base_License.htm.
+                           Author: Freescale                                 
+                           name: Multicore SDK                               
+                           Format: source code                               
+
+Percepio Tracealyzer -     version: 3.0.9                                    
+Snapshot Demo              Location: boards/<board>/rtos_examples/visualizati
+                           on/freertos_percepio_snapshot                     
+                           Description: Percepio Tracealyzer                 
+                           License: Open Source - BSD-3-Clause               
+                           Author: Percepio                                  
+                           name: Percepio Tracealyzer - Snapshot Demo        
+                           Format: source code                               
+
+SD MMC Card middleware     name: SD MMC Card middleware                      
+                           Location: middleware/sdmmc_2.1.2                  
+                           License: Open Source - BSD-3-Clause               
+                           Description: A software componnet support SD card,
+                           eMMC card.                                        
+                           Author: Freescale                                 
+                           version: 2.1.2                                    
+                           Format: source code                               
+
+Segger SystemView Demo     version: 2.40a                                    
+                           Location: boards/<board>/rtos_examples/visualizati
+                           on/freertos_segger_sysview                        
+                           Description: Segger systemview demo               
+                           License: Open Source - BSD-3-Clause               
+                           Author: Segger                                    
+                           name: Segger SystemView Demo                      
+                           Format: source code                               
+
+The Bus Pirate             version: NA                                       
+                           Location: middleware/multicore_2.2.0/erpc/erpc_c/p
+                           ort/serial.h, middleware/multicore_2.2.0/erpc/erpc
+                           _c/port/serial.cpp                                
+                           Description: OS independent serial interface      
+                           License: Open Source - CC0 (Public Domain         
+                           Dedication License)                               
+                           Author: Community                                 
+                           name: The Bus Pirate                              
+                           Format: source code                               
+                           URL: http://code.google.com/p/the-bus-pirate/     
+
+USB                        version: 1.6.3                                    
+                           Location: middleware/usb_1.6.3                    
+                           Description: Freescale USB stack. This is a       
+                           version of the USB stack that has been integrated 
+                           with the MCUXpresso SDK.                          
+                           License: Open Source - BSD-3-Clause               
+                           Author: Freescale                                 
+                           name: USB                                         
+                           Format: source code                               
+
+lwIP TCP/IP Stack          Author: Swedish Institute of Computer Science     
+                           Description: A light-weight TCP/IP stack          
+                           Format: source code                               
+                           License: Open Source - BSD-3-Clause               
+                           Location: middleware/lwip_2.0.0                   
+                           name: lwIP TCP/IP Stack                           
+                           URL: http://savannah.nongnu.org/projects/lwip     
+                           version: 2.0.0                                    
+
+mmCAU S/W Library          Author: Freescale                                 
+                           Description: S/W library that works with the      
+                           memory-mapped cryptographic acceleration unit     
+                           present on some MCUXpresso SoCs                   
+                           Format: source code                               
+                           License: Open Source - BSD-3-Clause               
+                           Location: middleware/mmcau_2.0.0                  
+                           name: mmCAU S/W Library                           
+                           version: 2.0.0                                    
