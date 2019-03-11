@@ -158,9 +158,11 @@ clock_manager_error_code_t CLOCK_SYS_GetFreq(clock_names_t clockName,
         case kLpoClock:
             *frequency = CLOCK_SYS_GetLpoClockFreq();
             break;
+#if 0
         case kSystickClock:
             *frequency = CLOCK_SYS_GetSystickFreq();
             break;
+#endif
         default:
             *frequency = 0U;
             returnCode = kClockManagerNoSuchClockName;

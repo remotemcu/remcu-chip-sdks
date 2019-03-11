@@ -60,6 +60,12 @@ extern "C" {
 /*! @name interrupt_manager APIs*/
 /*@{*/
 
+__STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn){}
+
+__STATIC_INLINE void NVIC_DisableIRQ(IRQn_Type IRQn){}
+
+__STATIC_INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn){}
+
 /*!
  * @brief Installs an interrupt handler routine for a given IRQ number. 
  *

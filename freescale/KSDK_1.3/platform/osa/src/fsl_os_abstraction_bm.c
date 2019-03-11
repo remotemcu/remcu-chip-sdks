@@ -50,6 +50,9 @@
 #define __WEAK_FUNC __weak
 #endif
 
+void INT_SYS_DisableIRQGlobal(){}
+void INT_SYS_EnableIRQGlobal(){}
+
 /*FUNCTION**********************************************************************
  *
  * Function Name : OSA_TimeInit
@@ -921,7 +924,7 @@ __WEAK_FUNC uint32_t OSA_TimeGetMsec(void)
     return 0U;
 #endif
 }
-
+#if 0
 /*FUNCTION**********************************************************************
  *
  * Function Name : interrupt_handler_register
@@ -939,7 +942,7 @@ _Pragma ("diag_suppress = Pm138")
 _Pragma ("diag_remark = PM138")
 #endif
 }
-
+#endif
 /*FUNCTION**********************************************************************
  *
  * Function Name : OSA_EnterCritical

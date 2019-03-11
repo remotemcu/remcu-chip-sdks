@@ -1792,7 +1792,7 @@
 /* SysTick module features */
 
 /* @brief Systick has external reference clock. */
-#define FSL_FEATURE_SYSTICK_HAS_EXT_REF (0)
+#define FSL_FEATURE_SYSTICK_HAS_EXT_REF (1)
 /* @brief Systick external reference clock is core clock divided by this value. */
 #define FSL_FEATURE_SYSTICK_EXT_REF_CORE_DIV (0)
 

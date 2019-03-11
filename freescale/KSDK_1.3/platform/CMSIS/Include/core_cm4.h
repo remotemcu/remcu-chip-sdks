@@ -66,7 +66,7 @@
 /** \ingroup Cortex_M4
   @{
  */
-
+#if 0
 /*  CMSIS CM4 definitions */
 #define __CM4_CMSIS_VERSION_MAIN  (0x04)                                   /*!< [31:16] CMSIS HAL main version   */
 #define __CM4_CMSIS_VERSION_SUB   (0x00)                                   /*!< [15:0]  CMSIS HAL sub version    */
@@ -74,7 +74,7 @@
                                     __CM4_CMSIS_VERSION_SUB          )     /*!< CMSIS HAL version number         */
 
 #define __CORTEX_M                (0x04)                                   /*!< Cortex-M Core                    */
-
+#endif
 
 #if   defined ( __CC_ARM )
   #define __ASM            __asm                                      /*!< asm keyword for ARM Compiler          */
@@ -107,7 +107,7 @@
   #define __STATIC_INLINE  static inline
 
 #endif
-
+#if 0
 /** __FPU_USED indicates whether an FPU is used or not.
     For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and functions.
 */
@@ -183,11 +183,11 @@
     #define __FPU_USED         0
   #endif
 #endif
-
+#endif
 #include <stdint.h>                      /* standard types definitions                      */
-#include <core_cmInstr.h>                /* Core Instruction Access                         */
-#include <core_cmFunc.h>                 /* Core Function Access                            */
-#include <core_cmSimd.h>                 /* Compiler specific SIMD Intrinsics               */
+//#include <core_cmInstr.h>                /* Core Instruction Access                         */
+//#include <core_cmFunc.h>                 /* Core Function Access                            */
+//#include <core_cmSimd.h>                 /* Compiler specific SIMD Intrinsics               */
 
 #ifdef __cplusplus
 }
@@ -203,7 +203,7 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-
+#if 0
 /* check device defines and use defaults */
 #if defined __CHECK_DEVICE_DEFINES
   #ifndef __CM4_REV
@@ -231,7 +231,7 @@
     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
   #endif
 #endif
-
+#endif
 /* IO definitions (access restrictions to peripheral registers) */
 /**
     \defgroup CMSIS_glob_defs CMSIS Global Defines
@@ -250,7 +250,7 @@
 
 /*@} end of group Cortex_M4 */
 
-
+#if 0
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -1846,7 +1846,7 @@ __STATIC_INLINE int32_t ITM_CheckChar (void) {
 
 /*@} end of CMSIS_core_DebugFunctions */
 
-
+#endif
 
 
 #ifdef __cplusplus

@@ -91,7 +91,7 @@ typedef enum _clock_names {
    kFlexBusClock,                   /*!< FlexBus clock */
    kFlashClock,                     /*!< Flash clock */
    kFastPeripheralClock,            /*!< Flash peripheral clock */
-   kSystickClock,                   /*!< Clock for Systick. */
+   //kSystickClock,                   /*!< Clock for Systick. */
 
    /* other internal clocks used by peripherals*/
    /* osc clock*/
@@ -209,7 +209,7 @@ static inline uint32_t CLOCK_SYS_GetLpoClockFreq(void)
 {
     return CPU_LPO_CLK_HZ;
 }
-
+#if 0
 /*!
  * @brief Sets the Systick clock source SYST_CSR[CLKSOURCE].
  *
@@ -246,7 +246,7 @@ static inline uint32_t CLOCK_SYS_GetSystickFreq(void)
 #if defined(__cplusplus)
 }
 #endif /* __cplusplus*/
-
+#endif
 /*
  * Include the CPU-specific clock API header files.
  */

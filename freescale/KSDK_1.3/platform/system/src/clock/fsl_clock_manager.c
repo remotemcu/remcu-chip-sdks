@@ -61,7 +61,7 @@
  * Code
  ******************************************************************************/
 static clock_manager_state_t g_clockState;
-
+#if 0
 #if FSL_FEATURE_SYSTICK_HAS_EXT_REF
 uint32_t CLOCK_SYS_GetSystickFreq(void)
 {
@@ -80,7 +80,7 @@ uint32_t CLOCK_SYS_GetSystickFreq(void)
     }
 }
 #endif
-
+#endif
 /*FUNCTION**********************************************************************
  *
  * Function Name : CLOCK_SYS_Init
