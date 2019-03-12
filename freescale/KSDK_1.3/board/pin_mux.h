@@ -55,7 +55,9 @@
 
 /* MODULE pin_mux. */
 
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 /*
 ** ===================================================================
 **     Method      :  configure_can_pins (component PinSettings)
@@ -198,6 +200,10 @@ void configure_spi_pins(uint32_t instance);
 void configure_uart_pins(uint32_t instance);
 
 void configure_ftm_pins(uint32_t instance);
+
+#ifdef __cplusplus
+} //extern "C"
+#endif
 
 /* END pin_mux. */
 #endif /* #ifndef __pin_mux_H_ */
