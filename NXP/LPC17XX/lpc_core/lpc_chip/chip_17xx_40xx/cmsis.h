@@ -33,7 +33,7 @@
 #define __CMSIS_H_
 
 #include "lpc_types.h"
-#include "sys_config.h"
+//#include "sys_config.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,18 +41,18 @@ extern "C" {
 
 /* Select correct CMSIS include file based on CHIP_* definition */
 #if defined(CHIP_LPC175X_6X)
-#include "cmsis_175x_6x.h"
-typedef LPC175X_6X_IRQn_Type IRQn_Type;
+//#include "cmsis_175x_6x.h"
+//typedef LPC175X_6X_IRQn_Type IRQn_Type;
 #include "core_cm3.h"						/*!< Cortex-M3 processor and core peripherals */
 
 #elif defined(CHIP_LPC177X_8X)
 #include "cmsis_177x_8x.h"
-typedef LPC177X_8X_IRQn_Type IRQn_Type;
+//typedef LPC177X_8X_IRQn_Type IRQn_Type;
 #include "core_cm3.h"						/*!< Cortex-M3 processor and core peripherals */
 
 #elif defined(CHIP_LPC40XX)
 #include "cmsis_40xx.h"
-typedef LPC40XX_IRQn_Type IRQn_Type;
+//typedef LPC40XX_IRQn_Type IRQn_Type;
 #include "core_cm4.h"						/*!< Cortex-M4 processor and core peripherals */
 
 #else

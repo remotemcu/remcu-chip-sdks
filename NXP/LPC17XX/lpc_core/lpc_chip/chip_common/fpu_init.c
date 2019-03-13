@@ -31,7 +31,7 @@
 
 #if defined(CORE_M4)
 
-#include "sys_config.h"
+//#include "sys_config.h"
 #include "cmsis.h"
 #include "stdint.h"
 

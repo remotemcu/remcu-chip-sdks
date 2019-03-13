@@ -33,7 +33,7 @@
 #define __CMSIS_177X_8X_H_
 
 #include "lpc_types.h"
-#include "sys_config.h"
+//#include "sys_config.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -128,7 +128,7 @@
 
 #elif defined ( __TASKING__ )
   #if defined __FPU_VFP__
-    #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+    #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
   #endif
 #endif
 
@@ -184,7 +184,7 @@
 
 /*@} end of group Cortex_M3 */
 
-
+#if 0
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -1616,6 +1616,8 @@ __STATIC_INLINE int32_t ITM_CheckChar (void) {
   }
 }
 
+#endif
+  
 /*@} end of CMSIS_core_DebugFunctions */
 
 #endif /* __CORE_CM3_H_DEPENDANT */

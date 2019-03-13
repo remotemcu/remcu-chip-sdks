@@ -843,7 +843,7 @@ STATIC INLINE uint32_t Chip_Clock_GetEMCClockRate(void)
  * dividers (except to RTC ) that may alter the peripheral clock rate.
  */
 uint32_t Chip_Clock_GetPeripheralClockRate(void);
-
+1
 #else
 /**
  * @brief	Returns clock rate for a peripheral (from peripheral clock)

@@ -33,7 +33,7 @@
 #define __CHIP_LPC40XX_H_
 
 #include "lpc_types.h"
-#include "sys_config.h"
+//#include "sys_config.h"
 #include "cmsis.h"
 
 #ifdef __cplusplus
