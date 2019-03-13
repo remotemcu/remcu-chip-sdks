@@ -43,7 +43,11 @@ lpc_core/lpc_chip/chip_17xx_40xx/chip_17xx_40xx.c \
 lpc_core/lpc_chip/chip_17xx_40xx/sysctl_17xx_40xx.c \
 lpc_core/lpc_chip/chip_17xx_40xx/lcd_17xx_40xx.c
 
-
+C_CXX_SRC += \
+lpc_core/lpc_chip/chip_common/eeprom.c \
+lpc_core/lpc_chip/chip_common/ring_buffer.c \
+lpc_core/lpc_chip/chip_common/fpu_init.c \
+lpc_core/lpc_chip/chip_common/iap.c
 
 C_CXX_SRC_UNCESS +=  \
 lpc_core/lpc_chip/chip_17xx_40xx/pmu_17xx_40xx.c \

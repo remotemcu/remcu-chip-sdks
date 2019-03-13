@@ -31,6 +31,21 @@
 
 #include "chip.h"
 
+ void Chip_GPIO_SetPinState(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin, bool setting)
+{
+	if (setting) {	/* Set Port */
+		pGPIO[port].SET |= 1UL << pin;
+	}
+	else {	/* Clear Port */
+		pGPIO[port].CLR |= 1UL << pin;
+	}
+}
+
+void Chip_GPIO_SetPinDIROutput(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin)
+{
+	pGPIO[port].DIR |= 1UL << pin;
+}
+
 /*****************************************************************************
  * Private types/enumerations/variables
  ****************************************************************************/

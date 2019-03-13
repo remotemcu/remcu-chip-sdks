@@ -85,16 +85,7 @@ STATIC INLINE void Chip_GPIO_DeInit(LPC_GPIO_T *pGPIO)
  * @return	Nothing
  * @note	This function replaces Chip_GPIO_WritePortBit()
  */
-STATIC INLINE void Chip_GPIO_SetPinState(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin, bool setting)
-{
-	if (setting) {	/* Set Port */
-		pGPIO[port].SET |= 1UL << pin;
-	}
-	else {	/* Clear Port */
-		pGPIO[port].CLR |= 1UL << pin;
-	}
-}
-
+void Chip_GPIO_SetPinState(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin, bool setting);
 /**
  * @brief	Set a GPIO port/bit state
  * @param	pGPIO	: The base of GPIO peripheral on the chip
@@ -141,10 +132,7 @@ STATIC INLINE bool Chip_GPIO_ReadPortBit(LPC_GPIO_T *pGPIO, uint32_t port, uint8
  * @param	pin		: GPIO pin to set direction on as output
  * @return	Nothing
  */
-STATIC INLINE void Chip_GPIO_SetPinDIROutput(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin)
-{
-	pGPIO[port].DIR |= 1UL << pin;
-}
+void Chip_GPIO_SetPinDIROutput(LPC_GPIO_T *pGPIO, uint8_t port, uint8_t pin);
 
 /**
  * @brief	Set GPIO direction for a single GPIO pin to an input
