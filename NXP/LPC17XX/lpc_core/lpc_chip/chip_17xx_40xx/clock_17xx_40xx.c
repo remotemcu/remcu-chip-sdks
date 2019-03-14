@@ -512,5 +512,50 @@ uint32_t Chip_Clock_GetPeripheralClockRate(void)
 
 	return clkrate;
 }
-
 #endif
+bool Chip_Clock_IsMainPLLConnected(void)
+{
+	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_CONNECTED) != 0);
+}
+
+bool Chip_Clock_IsMainPLLEnabled(void)
+{
+#if defined(CHIP_LPC175X_6X)
+	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_ENABLED) != 0);
+#else
+	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLLSTS_ENABLED) != 0);
+#endif
+}
+
+bool Chip_Clock_IsCrystalEnabled(void)
+{
+	return (LPC_SYSCTL->SCS & SYSCTL_OSCSTAT) != 0;
+}
+
+void Chip_Clock_SetMainPLLSource(CHIP_SYSCTL_PLLCLKSRC_T src)
+{
+	LPC_SYSCTL->CLKSRCSEL = src;
+}
+
+bool Chip_Clock_IsMainPLLLocked(void)
+{
+#if defined(CHIP_LPC175X_6X)
+	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_LOCKED) != 0);
+#else
+	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLLSTS_LOCKED) != 0);
+#endif
+}
+
+void Chip_SYSCTL_SetFLASHAccess(FMC_FLASHTIM_T clks)
+{
+	uint32_t tmp = LPC_SYSCTL->FLASHCFG & 0xFFF;
+
+	/* Don't alter lower bits */
+	LPC_SYSCTL->FLASHCFG = tmp | (clks << 12);
+}
+
+
+void Chip_Clock_EnableCrystal(void)
+{
+	LPC_SYSCTL->SCS |= SYSCTL_OSCEC;
+}

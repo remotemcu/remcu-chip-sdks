@@ -51,7 +51,7 @@
 void Chip_DAC_Init(LPC_DAC_T *pDAC)
 {
 #if defined(CHIP_LPC177X_8X) || defined(CHIP_LPC40XX)
-	Chip_SYSCTL_PeriphReset(SYSCTL_RESET_DAC);
+	Chip_SYSCTL_PeriphReset(SYSCTL_RESET_DAC);1
 #endif
 
 	/* Set maximum update rate 1MHz */
@@ -81,4 +81,22 @@ void Chip_DAC_SetBias(LPC_DAC_T *pDAC, uint32_t bias)
 	if (bias  == DAC_MAX_UPDATE_RATE_400kHz) {
 		pDAC->CR |= DAC_BIAS_EN;
 	}
+}
+
+IntStatus Chip_DAC_GetIntStatus(LPC_DAC_T *pDAC)
+{
+	return (pDAC->CTRL & 0x01) ? SET : RESET;
+}
+
+void Chip_DAC_SetDMATimeOut(LPC_DAC_T *pDAC, uint32_t time_out)
+{
+	pDAC->CNTVAL = DAC_CCNT_VALUE(time_out);
+}
+
+void Chip_DAC_ConfigDAConverterControl(LPC_DAC_T *pDAC, uint32_t dacFlags)
+{
+	uint32_t temp;
+
+	temp = pDAC->CTRL & ~DAC_DACCTRL_MASK;
+	pDAC->CTRL = temp | dacFlags;
 }

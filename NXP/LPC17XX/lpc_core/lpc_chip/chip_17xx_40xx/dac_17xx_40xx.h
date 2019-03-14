@@ -126,13 +126,7 @@ void Chip_DAC_SetBias(LPC_DAC_T *pDAC, uint32_t bias);
  * @return	Nothing
  * @note	Pass an Or'ed value of the DAC flags to enable those options.
  */
-STATIC INLINE void Chip_DAC_ConfigDAConverterControl(LPC_DAC_T *pDAC, uint32_t dacFlags)
-{
-	uint32_t temp;
-
-	temp = pDAC->CTRL & ~DAC_DACCTRL_MASK;
-	pDAC->CTRL = temp | dacFlags;
-}
+void Chip_DAC_ConfigDAConverterControl(LPC_DAC_T *pDAC, uint32_t dacFlags);
 
 /**
  * @brief	Set reload value for interrupt/DMA counter
@@ -140,21 +134,14 @@ STATIC INLINE void Chip_DAC_ConfigDAConverterControl(LPC_DAC_T *pDAC, uint32_t d
  * @param	time_out	: time out to reload for interrupt/DMA counter
  * @return	Nothing
  */
-STATIC INLINE void Chip_DAC_SetDMATimeOut(LPC_DAC_T *pDAC, uint32_t time_out)
-{
-	pDAC->CNTVAL = DAC_CCNT_VALUE(time_out);
-}
+void Chip_DAC_SetDMATimeOut(LPC_DAC_T *pDAC, uint32_t time_out);
 
 /**
  * @brief	Get status for interrupt/DMA time out
  * @param	pDAC	: pointer to LPC_DAC_T
  * @return	interrupt/DMA time out status, should be SET or RESET
  */
-STATIC INLINE IntStatus Chip_DAC_GetIntStatus(LPC_DAC_T *pDAC)
-{
-	return (pDAC->CTRL & 0x01) ? SET : RESET;
-}
-
+IntStatus Chip_DAC_GetIntStatus(LPC_DAC_T *pDAC);
 /**
  * @}
  */

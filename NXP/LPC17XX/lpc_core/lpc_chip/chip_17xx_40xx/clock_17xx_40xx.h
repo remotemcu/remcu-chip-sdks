@@ -117,14 +117,7 @@ STATIC INLINE uint32_t Chip_Clock_GetPLLStatus(CHIP_SYSCTL_PLL_T PLLNum)
  * @brief	Read PLL0 enable status
  * @return	true of the PLL0 is enabled. false if not enabled
  */
-STATIC INLINE bool Chip_Clock_IsMainPLLEnabled(void)
-{
-#if defined(CHIP_LPC175X_6X)
-	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_ENABLED) != 0);
-#else
-	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLLSTS_ENABLED) != 0);
-#endif
-}
+bool Chip_Clock_IsMainPLLEnabled(void);
 
 /**
  * @brief	Read PLL1 enable status
@@ -143,14 +136,7 @@ STATIC INLINE bool Chip_Clock_IsUSBPLLEnabled(void)
  * @brief	Read PLL0 lock status
  * @return	true of the PLL0 is locked. false if not locked
  */
-STATIC INLINE bool Chip_Clock_IsMainPLLLocked(void)
-{
-#if defined(CHIP_LPC175X_6X)
-	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_LOCKED) != 0);
-#else
-	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLLSTS_LOCKED) != 0);
-#endif
-}
+bool Chip_Clock_IsMainPLLLocked(void);
 
 /**
  * @brief	Read PLL1 lock status
@@ -170,10 +156,7 @@ STATIC INLINE bool Chip_Clock_IsUSBPLLLocked(void)
  * @brief	Read PLL0 connect status
  * @return	true of the PLL0 is connected. false if not connected
  */
-STATIC INLINE bool Chip_Clock_IsMainPLLConnected(void)
-{
-	return (bool) ((LPC_SYSCTL->PLL[0].PLLSTAT & SYSCTL_PLL0STS_CONNECTED) != 0);
-}
+bool Chip_Clock_IsMainPLLConnected(void);
 
 /**
  * @brief	Read PLL1 lock status
@@ -189,19 +172,13 @@ STATIC INLINE bool Chip_Clock_IsUSBPLLConnected(void)
  * @brief	Enables the external Crystal oscillator
  * @return	Nothing
  */
-STATIC INLINE void Chip_Clock_EnableCrystal(void)
-{
-	LPC_SYSCTL->SCS |= SYSCTL_OSCEC;
-}
+void Chip_Clock_EnableCrystal(void);
 
 /**
  * @brief	Checks if the external Crystal oscillator is enabled
  * @return	true if enabled, false otherwise
  */
-STATIC INLINE bool Chip_Clock_IsCrystalEnabled(void)
-{
-	return (LPC_SYSCTL->SCS & SYSCTL_OSCSTAT) != 0;
-}
+bool Chip_Clock_IsCrystalEnabled(void);
 
 /**
  * @brief Sets the external crystal oscillator range to 15Mhz - 25MHz
@@ -485,10 +462,7 @@ typedef enum CHIP_SYSCTL_PLLCLKSRC {
  * @note	SYSCLK is used for sourcing PLL0, SPIFI FLASH, the USB clock
  * divider, and the CPU clock divider.
  */
-STATIC INLINE void Chip_Clock_SetMainPLLSource(CHIP_SYSCTL_PLLCLKSRC_T src)
-{
-	LPC_SYSCTL->CLKSRCSEL = src;
-}
+void Chip_Clock_SetMainPLLSource(CHIP_SYSCTL_PLLCLKSRC_T src);
 
 /**
  * @brief	Returns the input clock source for SYSCLK

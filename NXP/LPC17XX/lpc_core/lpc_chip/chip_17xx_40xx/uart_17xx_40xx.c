@@ -531,3 +531,22 @@ void Chip_UART_ABCmd(LPC_USART_T *pUART, uint32_t mode, bool autorestart, Functi
 	}
 }
 
+void Chip_UART_ConfigData(LPC_USART_T *pUART, uint32_t config)
+{
+	pUART->LCR = config;
+}
+
+void Chip_UART_SetupFIFOS(LPC_USART_T *pUART, uint32_t fcr)
+{
+	pUART->FCR = fcr;
+}
+
+void Chip_UART_SendByte(LPC_USART_T *pUART, uint8_t data)
+{
+	pUART->THR = (uint32_t) data;
+}
+
+uint8_t Chip_UART_ReadByte(LPC_USART_T *pUART)
+{
+	return (uint8_t) (pUART->RBR & UART_RBR_MASKBIT);
+}

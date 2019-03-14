@@ -150,13 +150,7 @@ typedef enum {
  * @note	See the user manual for valid settings for this register for when
  * power boot is enabled or off.
  */
-STATIC INLINE void Chip_SYSCTL_SetFLASHAccess(FMC_FLASHTIM_T clks)
-{
-	uint32_t tmp = LPC_SYSCTL->FLASHCFG & 0xFFF;
-
-	/* Don't alter lower bits */
-	LPC_SYSCTL->FLASHCFG = tmp | (clks << 12);
-}
+void Chip_SYSCTL_SetFLASHAccess(FMC_FLASHTIM_T clks);
 
 /**
  * System memory remap modes used to remap interrupt vectors

@@ -306,10 +306,7 @@ typedef struct {					/*!< USARTn Structure       */
  * @note	This function attempts to place a byte into the UART transmit
  *			FIFO or transmit hold register regard regardless of UART state
  */
-STATIC INLINE void Chip_UART_SendByte(LPC_USART_T *pUART, uint8_t data)
-{
-	pUART->THR = (uint32_t) data;
-}
+ void Chip_UART_SendByte(LPC_USART_T *pUART, uint8_t data);
 
 /**
  * @brief	Read a single byte data from the UART peripheral
@@ -319,10 +316,7 @@ STATIC INLINE void Chip_UART_SendByte(LPC_USART_T *pUART, uint8_t data)
  *			receive hold register regard regardless of UART state. The
  *			FIFO status should be read first prior to using this function
  */
-STATIC INLINE uint8_t Chip_UART_ReadByte(LPC_USART_T *pUART)
-{
-	return (uint8_t) (pUART->RBR & UART_RBR_MASKBIT);
-}
+ uint8_t Chip_UART_ReadByte(LPC_USART_T *pUART);
 
 /**
  * @brief	Enable UART interrupts
@@ -387,10 +381,7 @@ STATIC INLINE uint32_t Chip_UART_ReadIntIDReg(LPC_USART_T *pUART)
  *			with a RX trip level of 8 characters, use something like
  *			(UART_FCR_FIFO_EN | UART_FCR_TRG_LEV2)
  */
-STATIC INLINE void Chip_UART_SetupFIFOS(LPC_USART_T *pUART, uint32_t fcr)
-{
-	pUART->FCR = fcr;
-}
+void Chip_UART_SetupFIFOS(LPC_USART_T *pUART, uint32_t fcr);
 
 /**
  * @brief	Configure data width, parity and stop bits
@@ -402,10 +393,7 @@ STATIC INLINE void Chip_UART_SetupFIFOS(LPC_USART_T *pUART, uint32_t fcr)
  *			stop bit, and even (enabled) parity would be
  *			(UART_LCR_WLEN8 | UART_LCR_SBS_1BIT | UART_LCR_PARITY_EN | UART_LCR_PARITY_EVEN)
  */
-STATIC INLINE void Chip_UART_ConfigData(LPC_USART_T *pUART, uint32_t config)
-{
-	pUART->LCR = config;
-}
+void Chip_UART_ConfigData(LPC_USART_T *pUART, uint32_t config);
 
 /**
  * @brief	Enable access to Divisor Latches
