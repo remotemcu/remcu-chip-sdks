@@ -1,5 +1,5 @@
 
-include $(REMCU_PATH_MK)/remcu.mk
+include $(TARGET_MK)
 
 PERIPHDRIVERS = stm8l15x_adc
 PERIPHDRIVERS += stm8l15x_aes
@@ -36,7 +36,7 @@ STM8_INCLUDES = 	-I./Libraries/STM8L15x_StdPeriph_Driver/inc/
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-DEFS = -DUSE_STDPERIPH_DRIVER -D$(TARGET)
+DEFS = -DUSE_STDPERIPH_DRIVER -D$(DEVICE)
 
 LOCAL_CFLAGS = $(DEFS) -I./ -I./ $(STM8_INCLUDES)
 
@@ -55,7 +55,7 @@ $(OUTPUT): $(OBJS)
 # compile
 #------------------------------------------------------------------------------- 
 %.ll: %.c
-	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).ll
+	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
 	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
 	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
 
