@@ -41,3 +41,12 @@ file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/Libraries/STM8L15x_StdPeriph_Driver/in
       DESTINATION ${ALL_INCLUDE_DIR}
       FILES_MATCHING PATTERN "*.h"
       )
+
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Libraries/file_exports/defines_${MCU_TYPE}.h"
+      DESTINATION ${ALL_INCLUDE_DIR}
+      )
+file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
+            ${ALL_INCLUDE_DIR}/device_defines.h
+      )
+
+add_subdirectory(test)

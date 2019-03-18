@@ -49,6 +49,8 @@
 
  */
 
+#include "device_defines.h"
+
 #if !defined (STM8L15X_MD) && !defined (STM8L15X_MDP) && !defined (STM8L15X_HD)
  #error "Please select first the target STM8L device used in your application (in stm8l15x.h file)"
 #endif
