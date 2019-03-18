@@ -432,6 +432,10 @@ void LCD_BlinkConfig(LCD_BlinkMode_TypeDef LCD_BlinkMode,
                      LCD_BlinkFrequency_TypeDef LCD_BlinkFrequency);
 void LCD_PortMaskConfig(LCD_PortMaskRegister_TypeDef LCD_PortMaskRegister, uint8_t LCD_Mask);
 void LCD_WriteRAM(LCD_RAMRegister_TypeDef LCD_RAMRegister, uint8_t LCD_Data);
+
+enum LCD_WriteRAM_OP{ OP_AND = 0, OP_OR};
+void LCD_WriteRAM_withOP(LCD_RAMRegister_TypeDef LCD_RAMRegister, const enum LCD_WriteRAM_OP, const uint8_t LCD_Data);
+
 void LCD_PageSelect(LCD_PageSelection_TypeDef LCD_PageSelection);
 FlagStatus LCD_GetFlagStatus(void);
 void LCD_ClearFlag(void);

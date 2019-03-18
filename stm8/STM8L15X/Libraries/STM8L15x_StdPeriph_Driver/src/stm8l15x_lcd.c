@@ -297,6 +297,18 @@ void LCD_WriteRAM(LCD_RAMRegister_TypeDef LCD_RAMRegister, uint8_t LCD_Data)
 
 }
 
+void LCD_WriteRAM_withOP(LCD_RAMRegister_TypeDef LCD_RAMRegister, const enum LCD_WriteRAM_OP op, const uint8_t LCD_Data){
+/* Check function parameters */
+  assert_param(IS_LCD_RAM_REGISTER(LCD_RAMRegister));
+
+  if(op == OP_AND){
+    /* Copy data bytes to RAM register */
+    LCD->RAM[LCD_RAMRegister] &=  LCD_Data;
+  } else {
+    LCD->RAM[LCD_RAMRegister] |=  LCD_Data;
+  }
+}
+
 /**
   * @brief  Select the LCD page where the data will be writen.
   * @param  LCD_Page: The accessed LCD page.
