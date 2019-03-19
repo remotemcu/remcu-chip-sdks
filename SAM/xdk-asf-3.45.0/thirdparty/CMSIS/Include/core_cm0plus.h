@@ -145,8 +145,10 @@
 #endif
 
 #include <stdint.h>                      /* standard types definitions                      */
-#include <core_cmInstr.h>                /* Core Instruction Access                         */
-#include <core_cmFunc.h>                 /* Core Function Access                            */
+#ifndef REMCU_LIB
+  #include <core_cmInstr.h>                /* Core Instruction Access                         */
+  #include <core_cmFunc.h>                 /* Core Function Access                            */
+#endif
 
 #ifdef __cplusplus
 }
@@ -163,6 +165,7 @@
  extern "C" {
 #endif
 
+#ifndef REMCU_LIB
 /* check device defines and use defaults */
 #if defined __CHECK_DEVICE_DEFINES
   #ifndef __CM0PLUS_REV
@@ -189,6 +192,7 @@
     #define __Vendor_SysTickConfig    0
     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
   #endif
+#endif
 #endif
 
 /* IO definitions (access restrictions to peripheral registers) */
@@ -229,7 +233,7 @@
     \brief  Core Register type definitions.
   @{
  */
-
+#ifndef REMCU_LIB
 /** \brief  Union type to access the Application Program Status Register (APSR).
  */
 typedef union
@@ -810,7 +814,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 
 /*@} end of CMSIS_Core_SysTickFunctions */
 
-
+#endif
 
 
 #ifdef __cplusplus

@@ -43,7 +43,9 @@
 #elif UC3
 #  include "interrupt/interrupt_avr32.h"
 #elif SAM || SAMB
-#  include "interrupt/interrupt_sam_nvic.h"
+	#ifndef REMCU_LIB
+	#  include "interrupt/interrupt_sam_nvic.h"
+	#endif
 #else
 #  error Unsupported device.
 #endif

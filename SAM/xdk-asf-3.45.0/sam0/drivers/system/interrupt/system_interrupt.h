@@ -126,7 +126,7 @@ extern "C" {
  * \section asfdoc_sam0_system_interrupt_api_overview API Overview
  * @{
  */
-
+#ifndef REMCU_LIB
 #include <compiler.h>
 #include <core_cm0plus.h>
 #include "system_interrupt_features.h"
@@ -312,6 +312,19 @@ enum status_code system_interrupt_set_priority(
 enum system_interrupt_priority_level system_interrupt_get_priority(
 		const enum system_interrupt_vector vector);
 
+
+#else
+
+static inline void system_interrupt_enter_critical_section(void)
+{
+}
+
+static inline void system_interrupt_leave_critical_section(void)
+{
+}
+
+
+#endif
 /** @} */
 
 /** @} */

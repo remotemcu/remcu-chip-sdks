@@ -1,0 +1,75 @@
+
+include $(TARGET_MK)
+
+
+# List of C source files.
+C_SRC = \
+       $(ASF_ROOT)/sam0/drivers/port/port.c                           \
+       $(ASF_ROOT)/sam0/drivers/system/clock/clock_samd20/clock.c     \
+       $(ASF_ROOT)/sam0/drivers/system/clock/clock_samd20/gclk.c      \
+       $(ASF_ROOT)/sam0/drivers/system/pinmux/pinmux.c                \
+       $(ASF_ROOT)/sam0/drivers/system/system.c                       \
+       $(ASF_ROOT)/sam0/utils/cmsis/samd20/source/system_samd20.c     \
+
+SRC_UNCESS = \
+       $(ASF_ROOT)/sam0/applications/led_toggle/led_toggle.c          \
+       $(ASF_ROOT)/sam0/drivers/system/interrupt/system_interrupt.c   \
+       $(ASF_ROOT)/common/utils/interrupt/interrupt_sam_nvic.c        \
+       $(ASF_ROOT)/sam0/boards/samd20_xplained_pro/board_init.c       \
+	$(ASF_ROOT)/sam0/utils/syscalls/gcc/syscalls.c
+
+# List of include paths.
+INC_PATH = \
+       $(ASF_ROOT)/common/utils                                       \
+       $(ASF_ROOT)/sam0/applications/led_toggle/samd20_xplained_pro   \
+       $(ASF_ROOT)/sam0/boards                                        \
+       $(ASF_ROOT)/sam0/boards/samd20_xplained_pro                    \
+       $(ASF_ROOT)/sam0/drivers/port                                  \
+       $(ASF_ROOT)/sam0/drivers/system                                \
+       $(ASF_ROOT)/sam0/drivers/system/clock                          \
+       $(ASF_ROOT)/sam0/drivers/system/clock/clock_samd20             \
+       $(ASF_ROOT)/sam0/drivers/system/pinmux                         \
+       $(ASF_ROOT)/sam0/drivers/system/power                          \
+       $(ASF_ROOT)/sam0/drivers/system/power/power_sam_d_r_h          \
+       $(ASF_ROOT)/sam0/drivers/system/reset                          \
+       $(ASF_ROOT)/sam0/drivers/system/reset/reset_sam_d_r_h          \
+       $(ASF_ROOT)/sam0/utils                                         \
+       $(ASF_ROOT)/sam0/utils/cmsis/samd20/include                    \
+       $(ASF_ROOT)/sam0/utils/cmsis/samd20/source                     \
+       $(ASF_ROOT)/sam0/utils/header_files                            \
+       $(ASF_ROOT)/sam0/utils/preprocessor                            \
+       $(ASF_ROOT)/thirdparty/CMSIS/Include                           \
+       $(ASF_ROOT)/sam0/drivers/system/interrupt                      \
+
+
+INC_EXTRA = \
+       $(ASF_ROOT)/common/boards                                      \
+       $(ASF_ROOT)/sam0/drivers/system/interrupt/system_interrupt_samd20 \
+       $(ASF_ROOT)/thirdparty/CMSIS/Lib/GCC 							\
+       $(ASF_ROOT)/sam0/applications/led_toggle                       \
+       $(ASF_ROOT)/sam0/applications/led_toggle/samd20_xplained_pro/gcc \
+
+# TOOLCHAIN OPTIONS
+#-------------------------------------------------------------------------------
+
+DEFS = -D__$(DEVICE)__ -DREMCU_LIB -DBOARD=SAMD20_XPLAINED_PRO 
+
+INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
+LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)
+
+IR_FILES += $(C_SRC:.c=.ll)
+
+
+$(OUTPUT): $(IR_FILES)
+	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
+	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
+	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
+
+# compile
+#------------------------------------------------------------------------------- 
+%.ll: %.c
+	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
+	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
+	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
+

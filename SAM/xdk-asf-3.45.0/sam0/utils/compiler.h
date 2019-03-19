@@ -73,12 +73,13 @@
  * \def barrier
  * \brief Memory barrier
  */
-#ifdef __GNUC__
-#  define barrier()        asm volatile("" ::: "memory")
-#else
-#  define barrier()        asm ("")
+#ifndef REMCU_LIB
+  #ifdef __GNUC__
+  #  define barrier()        asm volatile("" ::: "memory")
+  #else
+  #  define barrier()        asm ("")
+  #endif
 #endif
-
 /**
  * \brief Emit the compiler pragma \a arg.
  *
@@ -99,7 +100,7 @@
  */
 #define COMPILER_PACK_RESET()         COMPILER_PRAGMA(pack())
 
-
+#ifndef REMCU_LIB
 /**
  * \brief Set aligned boundary.
  */
@@ -174,6 +175,12 @@
 #  define Assert(expr) ((void) 0)
 #endif
 
+#else
+
+  #define Assert(expr) ((void) 0)
+
+#endif
+
 /* Define WEAK attribute */
 #if defined   ( __CC_ARM   )
 #   define WEAK __attribute__ ((weak))
@@ -192,7 +199,9 @@
 #   define NO_INIT __attribute__((section(".no_init")))
 #endif
 
-#include "interrupt.h"
+#ifndef REMCU_LIB
+  #include "interrupt.h"
+#endif
 
 /** \name Usual Types
  * @{ */
