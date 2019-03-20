@@ -76,6 +76,12 @@
 
 #include <asf.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include "remcu.h"
+
 
 /** Handler for the device SysTick module, called when the SysTick counter
  *  reaches the set period.
@@ -84,10 +90,6 @@
  *        and must not be altered to ensure it is hooked into the device's
  *        vector table.
  */
-void SysTick_Handler(void)
-{
-	port_pin_toggle_output_level(LED_0_PIN);
-}
 
 /** Configure LED0, turn it off*/
 static void config_led(void)
@@ -102,10 +104,16 @@ static void config_led(void)
 
 int main(void)
 {
+	remcu_connect2GDB("localhost", 3333, 1);
+remcu_resetRemoteUnit(__HALT);
+remcu_setVerboseLevel(__INFO);
+
 	system_init();
 
 	config_led();
 
 	while (true) {
+		port_pin_toggle_output_level(LED_0_PIN);
+		sleep(1);
 	}
 }

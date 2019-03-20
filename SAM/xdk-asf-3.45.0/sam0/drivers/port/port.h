@@ -458,14 +458,8 @@ void port_group_set_config(
  *
  *  \return Status of the port pin's input buffer.
  */
-static inline bool port_pin_get_input_level(
-		const uint8_t gpio_pin)
-{
-	PortGroup *const port_base = port_get_group_from_gpio_pin(gpio_pin);
-	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
-
-	return (port_base->IN.reg & pin_mask);
-}
+bool port_pin_get_input_level(
+		const uint8_t gpio_pin);
 
 /**
  *  \brief Retrieves the state of a port pin that is configured as an output.
@@ -477,14 +471,8 @@ static inline bool port_pin_get_input_level(
  *
  *  \return Status of the port pin's output buffer.
  */
-static inline bool port_pin_get_output_level(
-		const uint8_t gpio_pin)
-{
-	PortGroup *const port_base = port_get_group_from_gpio_pin(gpio_pin);
-	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
-
-	return (port_base->OUT.reg & pin_mask);
-}
+bool port_pin_get_output_level(
+		const uint8_t gpio_pin);
 
 /**
  *  \brief Sets the state of a port pin that is configured as an output.
@@ -494,20 +482,9 @@ static inline bool port_pin_get_output_level(
  *  \param[in] gpio_pin  Index of the GPIO pin to write to
  *  \param[in] level     Logical level to set the given pin to
  */
-static inline void port_pin_set_output_level(
+void port_pin_set_output_level(
 		const uint8_t gpio_pin,
-		const bool level)
-{
-	PortGroup *const port_base = port_get_group_from_gpio_pin(gpio_pin);
-	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
-
-	/* Set the pin to high or low atomically based on the requested level */
-	if (level) {
-		port_base->OUTSET.reg = pin_mask;
-	} else {
-		port_base->OUTCLR.reg = pin_mask;
-	}
-}
+		const bool level);
 
 /**
  *  \brief Toggles the state of a port pin that is configured as an output.
@@ -516,15 +493,8 @@ static inline void port_pin_set_output_level(
  *
  *  \param[in] gpio_pin  Index of the GPIO pin to toggle
  */
-static inline void port_pin_toggle_output_level(
-		const uint8_t gpio_pin)
-{
-	PortGroup *const port_base = port_get_group_from_gpio_pin(gpio_pin);
-	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
-
-	/* Toggle pin output level */
-	port_base->OUTTGL.reg = pin_mask;
-}
+void port_pin_toggle_output_level(
+		const uint8_t gpio_pin);
 
 /** @} */
 
