@@ -143,7 +143,7 @@ static inline void system_voltage_reference_disable(
  * @}
  */
 
-
+#ifndef REMCU_LIB
 /**
  * \name Device Sleep Control
  * @{
@@ -226,7 +226,7 @@ static inline void system_sleep(void)
 	__DSB();
 	__WFI();
 }
-
+#endif
 /**
  * @}
  */

@@ -60,6 +60,8 @@ FILE(GLOB COPY_HEADER_FROM_LIB
       "${ASF_ROOT}/sam0/applications/led_toggle/samd20_xplained_pro/*.h"
       "${ASF_ROOT}/sam0/boards/*.h"
       "${ASF_ROOT}/sam0/drivers/port/*.h"
+      "${ASF_ROOT}/sam0/drivers/adc/adc.h"
+      "${ASF_ROOT}/sam0/drivers/adc/adc_sam_d_r_h/adc_feature.h"
       "${ASF_ROOT}/sam0/drivers/system/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/clock_samd20/*.h"
@@ -121,3 +123,4 @@ file(INSTALL
 "${ASF_ROOT}/common/utils"
        ]]
 add_subdirectory(test_gpio)
+add_subdirectory(test_adc_light)

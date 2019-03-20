@@ -40,8 +40,8 @@
 #include <clock.h>
 #include <gclk.h>
 #include <pinmux.h>
+#include <power.h>
 #ifndef REMCU_LIB
-	#include <power.h>
 	#include <reset.h>
 #endif
 

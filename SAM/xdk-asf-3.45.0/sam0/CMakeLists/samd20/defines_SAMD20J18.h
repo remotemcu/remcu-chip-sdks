@@ -2,4 +2,6 @@
 
 #define __SAMD20J18__
 
-#define BOARD SAMD20_XPLAINED_PRO 
+#define BOARD SAMD20_XPLAINED_PRO
+
+#define ADC_CALLBACK_MODE false

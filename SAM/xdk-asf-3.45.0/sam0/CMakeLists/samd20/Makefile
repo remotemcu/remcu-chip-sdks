@@ -7,6 +7,7 @@ C_SRC = \
        $(ASF_ROOT)/sam0/drivers/port/port.c                           \
        $(ASF_ROOT)/sam0/drivers/system/clock/clock_samd20/clock.c     \
        $(ASF_ROOT)/sam0/drivers/system/clock/clock_samd20/gclk.c      \
+       $(ASF_ROOT)/sam0/drivers/adc/adc_sam_d_r_h/adc.c               \
        $(ASF_ROOT)/sam0/drivers/system/pinmux/pinmux.c                \
        $(ASF_ROOT)/sam0/drivers/system/system.c                       \
        $(ASF_ROOT)/sam0/utils/cmsis/samd20/source/system_samd20.c     \
@@ -40,6 +41,8 @@ INC_PATH = \
        $(ASF_ROOT)/sam0/utils/preprocessor                            \
        $(ASF_ROOT)/thirdparty/CMSIS/Include                           \
        $(ASF_ROOT)/sam0/drivers/system/interrupt                      \
+       $(ASF_ROOT)/sam0/drivers/adc                                   \
+       $(ASF_ROOT)/sam0/drivers/adc/adc_sam_d_r_h                     \
 
 
 INC_EXTRA = \
@@ -52,7 +55,7 @@ INC_EXTRA = \
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-DEFS = -D__$(DEVICE)__ -DREMCU_LIB -DBOARD=SAMD20_XPLAINED_PRO 
+DEFS = -D__$(DEVICE)__ -DREMCU_LIB -DBOARD=SAMD20_XPLAINED_PRO -DADC_CALLBACK_MODE=false
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 
