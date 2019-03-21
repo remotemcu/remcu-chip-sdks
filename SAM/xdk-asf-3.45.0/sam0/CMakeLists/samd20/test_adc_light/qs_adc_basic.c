@@ -56,6 +56,7 @@ void configure_adc(void)
 //! [setup_config_defaults]
 	adc_get_config_defaults(&config_adc);
 //! [setup_config_defaults]
+	config_adc.positive_input                = 18 ;
 
 //! [setup_set_config]
 #if (SAMC21)
@@ -69,11 +70,27 @@ void configure_adc(void)
 	adc_enable(&adc_instance);
 //! [setup_enable]
 }
+
+uint16_t adc_start_read_result(void)
+{
+	uint16_t adc_result = 0;
+	
+	adc_start_conversion(&adc_instance);
+	//while((adc_get_status(&adc_instance) & ADC_STATUS_RESULT_READY) != 1);
+	//sleep(1);
+	do {
+    } while(adc_read(&(adc_instance), &adc_result) == STATUS_BUSY);   // 12 bit value
+	enum status_code ret = adc_read(&adc_instance, &adc_result);
+	printf("status_code : %d\n", ret);
+	
+	return adc_result;
+}
 //! [setup]
 
 int main(void)
 {
-	remcu_connect2GDB("localhost", 3333, 1);
+	//remcu_connect2GDB("localhost", 3333, 1);
+	remcu_connect2OpenOCD("localhost", 6666, 1);
 remcu_resetRemoteUnit(__HALT);
 remcu_setVerboseLevel(__INFO);
 
@@ -82,23 +99,29 @@ remcu_setVerboseLevel(__INFO);
 //! [setup_init]
 	configure_adc();
 //! [setup_init]
+	struct system_pinmux_config config;
+        system_pinmux_get_config_defaults(&config);
+
+        /* Analog functions are all on MUX setting B */
+        config.input_pull   = SYSTEM_PINMUX_PIN_PULL_NONE;
+        config.mux_position = 1;
+
+        system_pinmux_pin_set_config(PIN_PA10B_ADC_AIN18, &config);
 
 //! [main]
-//! [start_conv]
-	adc_start_conversion(&adc_instance);
 //! [start_conv]
 
 //! [get_res]
 	uint16_t result;
 
-	do {
-		/* Wait for conversion to be done and read out result */
-	} while (adc_read(&adc_instance, &result) == STATUS_BUSY);
 //! [get_res]
 
 //! [inf_loop]
 	while (1) {
 		/* Infinite loop */
+	
+	printf("adc_read : %x\n", adc_start_read_result());
+
 	}
 //! [inf_loop]
 //! [main]

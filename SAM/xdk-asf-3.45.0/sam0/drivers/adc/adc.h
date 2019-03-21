@@ -496,36 +496,8 @@ void adc_regular_ain_channel(
  *                                  window range
  * \retval ADC_STATUS_OVERRUN       ADC result has overrun
  */
-static inline uint32_t adc_get_status(
-		struct adc_module *const module_inst)
-{
-	/* Sanity check arguments */
-	Assert(module_inst);
-	Assert(module_inst->hw);
-
-	Adc *const adc_module = module_inst->hw;
-
-	uint32_t int_flags = adc_module->INTFLAG.reg;
-
-	uint32_t status_flags = 0;
-
-	/* Check for ADC Result Ready */
-	if (int_flags & ADC_INTFLAG_RESRDY) {
-		status_flags |= ADC_STATUS_RESULT_READY;
-	}
-
-	/* Check for ADC Window Match */
-	if (int_flags & ADC_INTFLAG_WINMON) {
-		status_flags |= ADC_STATUS_WINDOW;
-	}
-
-	/* Check for ADC Overrun */
-	if (int_flags & ADC_INTFLAG_OVERRUN) {
-		status_flags |= ADC_STATUS_OVERRUN;
-	}
-
-	return status_flags;
-}
+uint32_t adc_get_status(
+		struct adc_module *const module_inst);
 
 /**
  * \brief Clears a module status flag.
@@ -580,41 +552,8 @@ static inline void adc_clear_status(
  *
  * \param[in] module_inst  Pointer to the ADC software instance struct
  */
-static inline enum status_code adc_enable(
-		struct adc_module *const module_inst)
-{
-	Assert(module_inst);
-	Assert(module_inst->hw);
-
-	Adc *const adc_module = module_inst->hw;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-
-#if ADC_CALLBACK_MODE == true
-#   if (ADC_INST_NUM > 1)
-	system_interrupt_enable(_adc_interrupt_get_interrupt_vector(
-			_adc_get_inst_index(adc_module)));
-#   elif (SAMC20)
-		system_interrupt_enable(SYSTEM_INTERRUPT_MODULE_ADC0);
-#	else
-		system_interrupt_enable(SYSTEM_INTERRUPT_MODULE_ADC);
-#   endif
-#endif
-
-	/* Disbale interrupt */
-	adc_module->INTENCLR.reg = ADC_INTENCLR_MASK;
-	/* Clear interrupt flag */
-	adc_module->INTFLAG.reg = ADC_INTFLAG_MASK;
-
-	adc_module->CTRLA.reg |= ADC_CTRLA_ENABLE;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-	return STATUS_OK;
-}
+enum status_code adc_enable(
+		struct adc_module *const module_inst);
 
 /**
  * \brief Disables the ADC module.
@@ -770,24 +709,8 @@ static inline void adc_disable_events(
  *
  * \param[in] module_inst  Pointer to the ADC software instance struct
  */
-static inline void adc_start_conversion(
-		struct adc_module *const module_inst)
-{
-	Assert(module_inst);
-	Assert(module_inst->hw);
-
-	Adc *const adc_module = module_inst->hw;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-
-	adc_module->SWTRIG.reg |= ADC_SWTRIG_START;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-}
+void adc_start_conversion(
+		struct adc_module *const module_inst);
 
 /**
  * \brief Reads the ADC result.
@@ -803,40 +726,9 @@ static inline void adc_start_conversion(
  * \retval STATUS_ERR_OVERFLOW The result register has been overwritten by the
  *                             ADC module before the result was read by the software
  */
-static inline enum status_code adc_read(
+enum status_code adc_read(
 		struct adc_module *const module_inst,
-		uint16_t *result)
-{
-	Assert(module_inst);
-	Assert(module_inst->hw);
-	Assert(result);
-
-	if (!(adc_get_status(module_inst) & ADC_STATUS_RESULT_READY)) {
-		/* Result not ready */
-		return STATUS_BUSY;
-	}
-
-	Adc *const adc_module = module_inst->hw;
-
-#if (SAMD) || (SAMHA1) || (SAMHA0) || (SAMR21)
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-#endif
-
-	/* Get ADC result */
-	*result = adc_module->RESULT.reg;
-
-	/* Reset ready flag */
-	adc_clear_status(module_inst, ADC_STATUS_RESULT_READY);
-
-	if (adc_get_status(module_inst) & ADC_STATUS_OVERRUN) {
-		adc_clear_status(module_inst, ADC_STATUS_OVERRUN);
-		return STATUS_ERR_OVERFLOW;
-	}
-
-	return STATUS_OK;
-}
+		uint16_t *result);
 
 /** @} */
 
@@ -854,24 +746,9 @@ static inline enum status_code adc_read(
  *
  * \param[in] module_inst  Pointer to the ADC software instance struct
  */
-static inline void adc_flush(
-		struct adc_module *const module_inst)
-{
-	Assert(module_inst);
-	Assert(module_inst->hw);
+void adc_flush(
+		struct adc_module *const module_inst);
 
-	Adc *const adc_module = module_inst->hw;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-
-	adc_module->SWTRIG.reg |= ADC_SWTRIG_FLUSH;
-
-	while (adc_is_syncing(module_inst)) {
-		/* Wait for synchronization */
-	}
-}
 void adc_set_window_mode(
 		struct adc_module *const module_inst,
 		const enum adc_window_mode window_mode,

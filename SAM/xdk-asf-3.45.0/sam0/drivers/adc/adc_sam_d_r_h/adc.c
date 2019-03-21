@@ -667,6 +667,7 @@ void adc_regular_ain_channel(uint32_t *pin_array, uint8_t size)
  * \retval STATUS_BUSY          The module is busy with a reset operation
  * \retval STATUS_ERR_DENIED        The module is enabled
  */
+#include <stdio.h>
 enum status_code adc_init(
 		struct adc_module *const module_inst,
 		Adc *hw,
@@ -679,10 +680,10 @@ enum status_code adc_init(
 
 	/* Associate the software module instance with the hardware module */
 	module_inst->hw = hw;
-
+printf("11111111111111\n");
 	/* Turn on the digital interface clock */
 	system_apb_clock_set_mask(SYSTEM_CLOCK_APB_APBC, PM_APBCMASK_ADC);
-
+printf("222222222222222\n");
 	if (hw->CTRLA.reg & ADC_CTRLA_SWRST) {
 		/* We are in the middle of a reset. Abort. */
 		return STATUS_BUSY;
@@ -698,9 +699,10 @@ enum status_code adc_init(
 
 	/* Make sure bandgap is enabled if requested by the config */
 	if (module_inst->reference == ADC_REFERENCE_INT1V) {
+		printf("333333333\n");
 		system_voltage_reference_enable(SYSTEM_VOLTAGE_REFERENCE_BANDGAP);
 	}
-
+printf("44444444444\n");
 #if ADC_CALLBACK_MODE == true
 	for (uint8_t i = 0; i < ADC_CALLBACK_N; i++) {
 		module_inst->callback[i] = NULL;
@@ -720,7 +722,200 @@ enum status_code adc_init(
 		module_inst->software_trigger = false;
 	}
 #endif
-
+printf("555555555555555555\n");
 	/* Write configuration to module */
-	return _adc_set_config(module_inst, config);
+	enum status_code qq = _adc_set_config(module_inst, config);
+	printf("666666666666\n");
+	return qq;
+}
+
+
+/**
+ * \brief Starts an ADC conversion.
+ *
+ * Starts a new ADC conversion.
+ *
+ * \param[in] module_inst  Pointer to the ADC software instance struct
+ */
+void adc_start_conversion(
+		struct adc_module *const module_inst)
+{
+	Assert(module_inst);
+	Assert(module_inst->hw);
+
+	Adc *const adc_module = module_inst->hw;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+
+	adc_module->SWTRIG.reg |= ADC_SWTRIG_START;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+}
+/**
+ * \brief Reads the ADC result.
+ *
+ * Reads the result from an ADC conversion that was previously started.
+ *
+ * \param[in]  module_inst  Pointer to the ADC software instance struct
+ * \param[out] result       Pointer to store the result value in
+ *
+ * \return Status of the ADC read request.
+ * \retval STATUS_OK           The result was retrieved successfully
+ * \retval STATUS_BUSY         A conversion result was not ready
+ * \retval STATUS_ERR_OVERFLOW The result register has been overwritten by the
+ *                             ADC module before the result was read by the software
+ */
+enum status_code adc_read(
+		struct adc_module *const module_inst,
+		uint16_t *result)
+{
+	Assert(module_inst);
+	Assert(module_inst->hw);
+	Assert(result);
+
+	if (!(adc_get_status(module_inst) & ADC_STATUS_RESULT_READY)) {
+		/* Result not ready */
+		return STATUS_BUSY;
+	}
+
+	Adc *const adc_module = module_inst->hw;
+
+#if (SAMD) || (SAMHA1) || (SAMHA0) || (SAMR21)
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+#endif
+
+	/* Get ADC result */
+	*result = adc_module->RESULT.reg;
+
+	/* Reset ready flag */
+	adc_clear_status(module_inst, ADC_STATUS_RESULT_READY);
+
+	if (adc_get_status(module_inst) & ADC_STATUS_OVERRUN) {
+		adc_clear_status(module_inst, ADC_STATUS_OVERRUN);
+		return STATUS_ERR_OVERFLOW;
+	}
+
+	return STATUS_OK;
+}
+
+/**
+ * \brief Flushes the ADC pipeline.
+ *
+ * Flushes the pipeline and restarts the ADC clock on the next peripheral clock
+ * edge. All conversions in progress will be lost. When flush is complete, the
+ * module will resume where it left off.
+ *
+ * \param[in] module_inst  Pointer to the ADC software instance struct
+ */
+void adc_flush(
+		struct adc_module *const module_inst)
+{
+	Assert(module_inst);
+	Assert(module_inst->hw);
+
+	Adc *const adc_module = module_inst->hw;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+
+	adc_module->SWTRIG.reg |= ADC_SWTRIG_FLUSH;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+}
+
+/**
+ * \brief Enables the ADC module.
+ *
+ * Enables an ADC module that has previously been configured. If any internal reference
+ * is selected it will be enabled.
+ *
+ * \param[in] module_inst  Pointer to the ADC software instance struct
+ */
+enum status_code adc_enable(
+		struct adc_module *const module_inst)
+{
+	Assert(module_inst);
+	Assert(module_inst->hw);
+
+	Adc *const adc_module = module_inst->hw;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+
+#if ADC_CALLBACK_MODE == true
+#   if (ADC_INST_NUM > 1)
+	system_interrupt_enable(_adc_interrupt_get_interrupt_vector(
+			_adc_get_inst_index(adc_module)));
+#   elif (SAMC20)
+		system_interrupt_enable(SYSTEM_INTERRUPT_MODULE_ADC0);
+#	else
+		system_interrupt_enable(SYSTEM_INTERRUPT_MODULE_ADC);
+#   endif
+#endif
+
+	/* Disbale interrupt */
+	adc_module->INTENCLR.reg = ADC_INTENCLR_MASK;
+	/* Clear interrupt flag */
+	adc_module->INTFLAG.reg = ADC_INTFLAG_MASK;
+
+	adc_module->CTRLA.reg |= ADC_CTRLA_ENABLE;
+
+	while (adc_is_syncing(module_inst)) {
+		/* Wait for synchronization */
+	}
+	return STATUS_OK;
+}
+/**
+ * \brief Retrieves the current module status.
+ *
+ * Retrieves the status of the module, giving overall state information.
+ *
+ * \param[in] module_inst  Pointer to the ADC software instance struct
+ *
+ * \return Bitmask of \c ADC_STATUS_* flags.
+ *
+ * \retval ADC_STATUS_RESULT_READY  ADC result is ready to be read
+ * \retval ADC_STATUS_WINDOW        ADC has detected a value inside the set
+ *                                  window range
+ * \retval ADC_STATUS_OVERRUN       ADC result has overrun
+ */
+uint32_t adc_get_status(
+		struct adc_module *const module_inst)
+{
+	/* Sanity check arguments */
+	Assert(module_inst);
+	Assert(module_inst->hw);
+
+	Adc *const adc_module = module_inst->hw;
+
+	uint32_t int_flags = adc_module->INTFLAG.reg;
+
+	uint32_t status_flags = 0;
+
+	/* Check for ADC Result Ready */
+	if (int_flags & ADC_INTFLAG_RESRDY) {
+		status_flags |= ADC_STATUS_RESULT_READY;
+	}
+
+	/* Check for ADC Window Match */
+	if (int_flags & ADC_INTFLAG_WINMON) {
+		status_flags |= ADC_STATUS_WINDOW;
+	}
+
+	/* Check for ADC Overrun */
+	if (int_flags & ADC_INTFLAG_OVERRUN) {
+		status_flags |= ADC_STATUS_OVERRUN;
+	}
+
+	return status_flags;
 }
