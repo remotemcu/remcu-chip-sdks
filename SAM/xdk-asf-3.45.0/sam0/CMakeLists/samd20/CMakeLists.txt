@@ -62,6 +62,8 @@ FILE(GLOB COPY_HEADER_FROM_LIB
       "${ASF_ROOT}/sam0/drivers/port/*.h"
       "${ASF_ROOT}/sam0/drivers/adc/adc.h"
       "${ASF_ROOT}/sam0/drivers/adc/adc_sam_d_r_h/adc_feature.h"
+      "${ASF_ROOT}/sam0/drivers/dac/dac.h"
+      "${ASF_ROOT}/sam0/drivers/dac/dac_sam_d_c_h/dac_feature.h"
       "${ASF_ROOT}/sam0/drivers/system/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/clock_samd20/*.h"
@@ -124,3 +126,4 @@ file(INSTALL
        ]]
 add_subdirectory(test_gpio)
 add_subdirectory(test_adc_light)
+add_subdirectory(test_dac)

@@ -11,6 +11,7 @@ C_SRC = \
        $(ASF_ROOT)/sam0/drivers/system/pinmux/pinmux.c                \
        $(ASF_ROOT)/sam0/drivers/system/system.c                       \
        $(ASF_ROOT)/sam0/utils/cmsis/samd20/source/system_samd20.c     \
+       $(ASF_ROOT)/sam0/drivers/dac/dac_sam_d_c_h/dac.c               \
 
 SRC_UNCESS = \
        $(ASF_ROOT)/sam0/applications/led_toggle/led_toggle.c          \
@@ -43,6 +44,8 @@ INC_PATH = \
        $(ASF_ROOT)/sam0/drivers/system/interrupt                      \
        $(ASF_ROOT)/sam0/drivers/adc                                   \
        $(ASF_ROOT)/sam0/drivers/adc/adc_sam_d_r_h                     \
+       $(ASF_ROOT)/sam0/drivers/dac                                   \
+       $(ASF_ROOT)/sam0/drivers/dac/dac_sam_d_c_h                     \
 
 
 INC_EXTRA = \
