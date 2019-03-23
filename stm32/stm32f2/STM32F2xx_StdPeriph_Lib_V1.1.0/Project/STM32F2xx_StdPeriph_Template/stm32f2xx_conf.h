@@ -34,7 +34,6 @@
 #include "stm32f2xx_adc.h"
 #include "stm32f2xx_can.h"
 #include "stm32f2xx_crc.h"
-#include "stm32f2xx_cryp.h"
 #include "stm32f2xx_dac.h"
 #include "stm32f2xx_dbgmcu.h"
 #include "stm32f2xx_dcmi.h"
@@ -42,7 +41,6 @@
 #include "stm32f2xx_exti.h"
 #include "stm32f2xx_flash.h"
 #include "stm32f2xx_fsmc.h"
-#include "stm32f2xx_hash.h"
 #include "stm32f2xx_gpio.h"
 #include "stm32f2xx_i2c.h"
 #include "stm32f2xx_iwdg.h"
@@ -56,7 +54,9 @@
 #include "stm32f2xx_usart.h"
 #include "stm32f2xx_wwdg.h"
 #ifndef REMCU_LIB
+#include "stm32f2xx_cryp.h"
 #include "stm32f2xx_pwr.h"
+#include "stm32f2xx_hash.h"
 #include "misc.h" /* High level functions for NVIC and SysTick (add-on to CMSIS functions) */
 #endif //REMCU_LIB
 /* Exported types ------------------------------------------------------------*/
