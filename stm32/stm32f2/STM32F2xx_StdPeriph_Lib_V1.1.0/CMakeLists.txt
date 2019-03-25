@@ -55,8 +55,5 @@ FILE(GLOB COPY_HEADER_FROM_LIB
 file(INSTALL ${COPY_HEADER_FROM_LIB}
             DESTINATION  ${ALL_INCLUDE_DIR}
             )
-#[[
-add_subdirectory(test_gpio)
-add_subdirectory(test_adc_light)
-add_subdirectory(test_dac)
-]]
+
+add_subdirectory(test)
