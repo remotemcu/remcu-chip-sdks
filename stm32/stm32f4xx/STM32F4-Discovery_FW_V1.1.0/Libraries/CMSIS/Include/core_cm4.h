@@ -141,9 +141,9 @@
 #endif
 
 #include <stdint.h>                      /*!< standard types definitions                      */
-//#include <core_cmInstr.h>                /*!< Core Instruction Access                         */
-//#include <core_cmFunc.h>                 /*!< Core Function Access                            */
-//#include <core_cm4_simd.h>               /*!< Compiler specific SIMD Intrinsics               */
+#include <core_cmInstr.h>                /*!< Core Instruction Access                         */
+#include <core_cmFunc.h>                 /*!< Core Function Access                            */
+#include <core_cm4_simd.h>               /*!< Compiler specific SIMD Intrinsics               */
 
 #endif /* __CORE_CM4_H_GENERIC */
 
@@ -191,7 +191,7 @@
 
 /*@} end of group CMSIS_core_definitions */
 
-#if 0
+
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -1366,8 +1366,6 @@ static __INLINE int32_t ITM_CheckChar (void) {
     return (1);                                 /*    character available */
   }
 }
-
-#endif
 
 /*@} end of CMSIS_core_DebugFunctions */
 
