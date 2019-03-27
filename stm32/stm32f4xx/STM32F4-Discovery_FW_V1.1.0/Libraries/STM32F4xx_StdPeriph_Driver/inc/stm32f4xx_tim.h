@@ -1127,6 +1127,8 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState);
 /* Specific remapping management **********************************************/
 void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap);
 
+uint16_t get_TIM_CR1(TIM_TypeDef* TIMx);
+
 #ifdef __cplusplus
 }
 #endif
