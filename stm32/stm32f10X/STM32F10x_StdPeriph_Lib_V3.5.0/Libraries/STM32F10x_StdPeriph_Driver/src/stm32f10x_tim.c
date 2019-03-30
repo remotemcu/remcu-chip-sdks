@@ -2878,7 +2878,11 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 /**
   * @}
   */
-
+#ifdef REMCU_LIB
+uint16_t get_TIM_CR1(TIM_TypeDef* TIMx){
+  return TIMx->CR1;
+}
+#endif
 /**
   * @}
   */

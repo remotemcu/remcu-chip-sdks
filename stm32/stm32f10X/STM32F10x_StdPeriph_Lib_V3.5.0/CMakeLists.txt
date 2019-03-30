@@ -24,6 +24,7 @@ include(McuCommon)
 
 add_custom_target( MCU_LIB
                    COMMAND make all
+                   DEVICE=${MCU_TYPE}
                    MCU_UTIL_PATH=${MCU_UTIL_PATH}
                    TARGET_MK=${MCU_INCLUDE_MK_FILE}
                    OUTPUT=${MCU_OBJECT_FILE}
@@ -44,10 +45,10 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
       )
 
 FILE(GLOB COPY_HEADER_FROM_LIB 
-      Libraries/CMSIS/Include/core_cm3.h
-      Libraries/CMSIS/Device/ST/STM32F2xx/Include/*.h
+      Libraries/CMSIS/CM3/CoreSupport/core_cm3.h
+      Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/*.h
       Libraries/STM32F10x_StdPeriph_Driver/inc/*.h
-      Project/STM32F2xx_StdPeriph_Template/stm32f2xx_conf.h
+      Project/STM32F10x_StdPeriph_Template/stm32f10x_conf.h
       )
 
 #message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")

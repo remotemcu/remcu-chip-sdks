@@ -46,7 +46,7 @@ INC_EXTRA = \
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-DEFS = -DREMCU_LIB -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD
+DEFS = -DREMCU_LIB -DUSE_STDPERIPH_DRIVER -D$(DEVICE)
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 

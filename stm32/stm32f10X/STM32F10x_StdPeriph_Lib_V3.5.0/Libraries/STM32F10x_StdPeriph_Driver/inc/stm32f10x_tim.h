@@ -1144,6 +1144,10 @@ void TIM_ClearFlag(TIM_TypeDef* TIMx, uint16_t TIM_FLAG);
 ITStatus TIM_GetITStatus(TIM_TypeDef* TIMx, uint16_t TIM_IT);
 void TIM_ClearITPendingBit(TIM_TypeDef* TIMx, uint16_t TIM_IT);
 
+#ifdef REMCU_LIB
+uint16_t get_TIM_CR1(TIM_TypeDef* TIMx);
+#endif
+
 #ifdef __cplusplus
 }
 #endif
