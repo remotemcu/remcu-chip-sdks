@@ -67,13 +67,10 @@ int main(int argc, char** argv)
     const uint16_t port = (atoi(argv[2]) & 0xFFFF);
     printf("port : %d\n", port);
 
-  if(port == 3333){
-    remcu_connect2GDB(host, 3333, 3);
-  } else if (port == 6666){
+  if (port == 6666){
     remcu_connect2OpenOCD(host, 6666, 3);
   } else {
-    printf("unknown port");
-    exit(-1);
+    remcu_connect2GDB(host, port, 3);
   }
 
   remcu_resetRemoteUnit(__HALT);
