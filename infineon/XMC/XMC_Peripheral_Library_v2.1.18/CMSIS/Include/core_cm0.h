@@ -51,7 +51,7 @@
      Function-like macros are used to allow more efficient code.
  */
 
-
+#ifndef REMCU_LIB
 /*******************************************************************************
  *                 CMSIS definitions
  ******************************************************************************/
@@ -112,8 +112,11 @@
 
 #endif
 
+#endif //REMCU_LIB
+
 #include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
 
+#ifndef REMCU_LIB
 
 #ifdef __cplusplus
 }
@@ -147,6 +150,7 @@
     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
   #endif
 #endif
+#endif //REMCU_LIB
 
 /* IO definitions (access restrictions to peripheral registers) */
 /**
@@ -171,7 +175,7 @@
 
 /*@} end of group Cortex_M0 */
 
-
+#ifndef REMCU_LIB
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -876,7 +880,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 
 /*@} end of CMSIS_Core_SysTickFunctions */
 
-
+#endif //REMCU_LIB
 
 
 #ifdef __cplusplus

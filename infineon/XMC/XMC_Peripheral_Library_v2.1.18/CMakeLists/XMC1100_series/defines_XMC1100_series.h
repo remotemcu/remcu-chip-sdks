@@ -1,0 +1,3 @@
+#define REMCU_LIB
+
+#define XMC1100_Q024x0064
