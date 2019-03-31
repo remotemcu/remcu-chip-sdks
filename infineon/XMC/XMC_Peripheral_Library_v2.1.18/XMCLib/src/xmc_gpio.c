@@ -79,3 +79,11 @@ void XMC_GPIO_SetHardwareControl(XMC_GPIO_PORT_t *const port, const uint8_t pin,
   port->HWSEL &= ~(uint32_t)((uint32_t)PORT_HWSEL_Msk << ((uint32_t)pin << 1U));
   port->HWSEL |= (uint32_t)hwctrl << ((uint32_t)pin << 1U);
 }
+
+
+void XMC_GPIO_ToggleOutput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+{
+  XMC_ASSERT("XMC_GPIO_ToggleOutput: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+
+  port->OMR = 0x10001U << pin;
+}

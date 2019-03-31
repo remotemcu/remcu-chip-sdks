@@ -66,7 +66,7 @@ file(INSTALL ${COPY_HEADER_FROM_LIB}
             )
 
 
-add_subdirectory(${XMC_ROOT}/test test)
-#add_subdirectory(test_gpio)
+#add_subdirectory(${XMC_ROOT}/test test)
+add_subdirectory(test)
 #add_subdirectory(test_adc_light)
 #add_subdirectory(test_dac)

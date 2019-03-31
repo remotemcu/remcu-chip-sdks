@@ -305,12 +305,7 @@ __STATIC_INLINE void XMC_GPIO_SetOutputLow(XMC_GPIO_PORT_t *const port, const ui
  *
  */
 
-__STATIC_INLINE void XMC_GPIO_ToggleOutput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
-{
-  XMC_ASSERT("XMC_GPIO_ToggleOutput: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
-
-  port->OMR = 0x10001U << pin;
-}
+void XMC_GPIO_ToggleOutput(XMC_GPIO_PORT_t *const port, const uint8_t pin);
 
 /**
  *
