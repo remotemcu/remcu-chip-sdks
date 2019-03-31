@@ -214,3 +214,14 @@ void XMC_UART_CH_DisableEvent(XMC_USIC_CH_t *const channel, const uint32_t event
   channel->CCR &= (uint32_t)~(event&0x1fc00U);
   channel->PCR_ASCMode &= (uint32_t)~(event&0xf8U);
 }
+
+void XMC_UART_CH_SetInputSource(XMC_USIC_CH_t *const channel, const XMC_UART_CH_INPUT_t input, const uint8_t source)
+{
+  channel->DXCR[input] = (uint32_t)(channel->DXCR[input] & (~(USIC_CH_DX0CR_INSW_Msk|USIC_CH_DX0CR_DSEN_Msk)));
+  XMC_USIC_CH_SetInputSource(channel, (XMC_USIC_CH_INPUT_t)input, source);
+}
+
+void XMC_UART_CH_Start(XMC_USIC_CH_t *const channel)
+{
+  channel->CCR = (uint32_t)(((channel->CCR) & (~USIC_CH_CCR_MODE_Msk)) | (uint32_t)XMC_USIC_CH_OPERATING_MODE_UART);
+}

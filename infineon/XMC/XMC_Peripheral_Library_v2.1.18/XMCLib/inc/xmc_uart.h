@@ -275,10 +275,7 @@ void XMC_UART_CH_Init(XMC_USIC_CH_t *const channel, const XMC_UART_CH_CONFIG_t *
  * \par<b>Related APIs:</b><BR>
  * XMC_UART_CH_Stop(), XMC_UART_CH_Transmit()\n\n\n
  */
-__STATIC_INLINE void XMC_UART_CH_Start(XMC_USIC_CH_t *const channel)
-{
-  channel->CCR = (uint32_t)(((channel->CCR) & (~USIC_CH_CCR_MODE_Msk)) | (uint32_t)XMC_USIC_CH_OPERATING_MODE_UART);
-}
+void XMC_UART_CH_Start(XMC_USIC_CH_t *const channel);
 
 /**
  * @param channel Constant pointer to USIC channel handle of type @ref XMC_USIC_CH_t \n
@@ -582,11 +579,7 @@ __STATIC_INLINE void XMC_UART_CH_ClearStatusFlag(XMC_USIC_CH_t *const channel, c
  * \par<b>Related APIs:</b><BR>
  * XMC_UART_CH_EnableInputInversion() \n\n\n
  */
-__STATIC_INLINE void XMC_UART_CH_SetInputSource(XMC_USIC_CH_t *const channel, const XMC_UART_CH_INPUT_t input, const uint8_t source)
-{
-  channel->DXCR[input] = (uint32_t)(channel->DXCR[input] & (~(USIC_CH_DX0CR_INSW_Msk|USIC_CH_DX0CR_DSEN_Msk)));
-  XMC_USIC_CH_SetInputSource(channel, (XMC_USIC_CH_INPUT_t)input, source);
-}
+void XMC_UART_CH_SetInputSource(XMC_USIC_CH_t *const channel, const XMC_UART_CH_INPUT_t input, const uint8_t source);
 
 /**
  * @param channel Constant pointer to USIC channel handle of type @ref XMC_USIC_CH_t \n
