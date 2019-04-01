@@ -20,6 +20,7 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
+#include "device_defines.h"
 #include "stm8l_discovery_lcd.h"
 #include "discover_board.h"
 
@@ -137,7 +138,7 @@ void LCD_contrast()
      contrast=LCD_Contrast_2V6;
   
     LCD_ContrastConfig(contrast);
-    delay_ms(100);
+    usleep(1000*100);
   }
 }
 
@@ -542,7 +543,7 @@ void LCD_GLASS_ScrollSentence(uint8_t* ptr, uint16_t nScroll, uint16_t ScrollSpe
   ptr1 = ptr;
   
   LCD_GLASS_DisplayString(ptr);
-  delay_ms(ScrollSpeed);
+  usleep(1000*ScrollSpeed);
           
 /* To shift the string for scrolling display*/
   for (Repetition=0; Repetition<nScroll; Repetition++)
@@ -558,7 +559,7 @@ void LCD_GLASS_ScrollSentence(uint8_t* ptr, uint16_t nScroll, uint16_t ScrollSpe
       LCD_GLASS_Clear();
       LCD_GLASS_DisplayString(str);
      		
-      delay_ms(ScrollSpeed);
+      usleep(1000*ScrollSpeed);
     }	
   }
 
