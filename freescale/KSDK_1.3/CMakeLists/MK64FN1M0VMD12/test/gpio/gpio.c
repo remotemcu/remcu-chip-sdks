@@ -70,6 +70,8 @@ remcu_setVerboseLevel(__ERROR);
 
   assert(remcu_is_connected());
 
+  SystemInit();
+
     // Initialize standard SDK demo application pins
       /* enable clock for PORTs */
   CLOCK_SYS_EnablePortClock(PORTA_IDX);

@@ -83,6 +83,8 @@ remcu_setVerboseLevel(__ERROR);
 
   assert(remcu_is_connected());
 
+  SystemInit();
+
     ftm_pwm_param_t xAxisParams, yAxisParams;
     accel_dev_t accDev;
     accel_dev_interface_t accDevice;
@@ -104,13 +106,13 @@ remcu_setVerboseLevel(__ERROR);
     accDev.slave.address        = BOARD_ACCEL_ADDR;
     accDev.bus                  = BOARD_ACCEL_I2C_INSTANCE;
 
-/* Enable I2C pins */
-  configure_i2c_pins(0);
-    // Initialize standard SDK demo application pins.
-    hardware_init();
+  /* Enable clock for PORTs */
+  CLOCK_SYS_EnablePortClock(PORTA_IDX);
+  CLOCK_SYS_EnablePortClock(PORTB_IDX);
+  CLOCK_SYS_EnablePortClock(PORTE_IDX);
 
-    // Accel device driver utilizes the OSA, so initialize it.
-    OSA_Init();
+  /* Enable I2C pins */
+  configure_i2c_pins(0);
 
     // Initialize the LEDs used by this application.
     LED2_EN;
