@@ -1,6 +1,0 @@
-[submodule "libs/xXx"]
-	path = libs/xXx
-	url = git@github.com:XMrVertigoX/xXx_CPP.git
-[submodule "libs/SEGGER_RTT"]
-	path = libs/SEGGER_RTT
-	url = git@github.com:XMrVertigoX/SEGGER_RTT.git
