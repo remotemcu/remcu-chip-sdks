@@ -180,7 +180,7 @@ extern "C" {
 #define SL_ATTRIBUTE_SECTION(X) __attribute__ ((section(X)))
 
 #endif // !defined(__GNUC__)
-#if 0
+#ifndef REMCU_LIB
 /***************************************************************************//**
  * @brief
  *   Count trailing number of zeros. Use CLZ instruction if available.

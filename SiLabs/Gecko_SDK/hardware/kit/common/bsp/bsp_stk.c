@@ -303,7 +303,7 @@ int BSP_PeripheralAccess(BSP_Peripheral_TypeDef perf, bool enable)
 #endif
 }
 /** @endcond */
-#if 0
+#ifndef REMCU_LIB
 /**************************************************************************//**
  * @brief Request AEM (Advanced Energy Monitoring) current from board controller.
  *

@@ -1452,7 +1452,7 @@ __STATIC_INLINE uint32_t CMU_Log2ToDiv(uint32_t log2)
   return 1 << log2;
 }
 
-#if 0
+#ifndef REMCU_LIB
 #if defined( _SILICON_LABS_32B_SERIES_1 )
 /***************************************************************************//**
  * @brief

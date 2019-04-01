@@ -47,6 +47,7 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
       )
 
 FILE(GLOB COPY_SOURCE_FROM_LIB 
+	${GECKO_SDK_ROOT}/platform/CMSIS/Include/core_cm3.h
 	"${GECKO_SDK_ROOT}/platform/emlib/inc/*.h"
 	"${GECKO_SDK_ROOT}/hardware/kit/common/bsp/*.h"
 	"${GECKO_SDK_ROOT}/platform/Device/SiliconLabs/EFM32TG/Include/*.h"

@@ -114,7 +114,6 @@ uint32_t BOARD_init( void )
    GPIO_PinModeSet( BOARD_BUTTON_LEFT_PORT,  BOARD_BUTTON_LEFT_PIN,  gpioModeInput, 0 );
    GPIO_PinModeSet( BOARD_BUTTON_RIGHT_PORT, BOARD_BUTTON_RIGHT_PIN, gpioModeInput, 0 );
 
-#if 0
    /* Route INT pin from IO-expander to PF6 */
    CMU_ClockEnable( cmuClock_PRS, true );
    CMU_ClockEnable( cmuClock_GPIO, true );
@@ -124,7 +123,6 @@ uint32_t BOARD_init( void )
    PRS->ROUTEPEN  = PRS_ROUTEPEN_CH0PEN;
    PRS->ROUTELOC0 = PRS_ROUTELOC0_CH0LOC_LOC6;
    GPIO_PinModeSet( gpioPortF, 6, gpioModePushPull, 0 );
-#endif
 
    /*********************************************************************/
    /** PIC Config                                                    **/

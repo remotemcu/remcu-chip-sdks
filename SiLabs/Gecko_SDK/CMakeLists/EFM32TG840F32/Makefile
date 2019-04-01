@@ -2,6 +2,7 @@
 include $(TARGET_MK)
 
 INC_PATH += \
+$(GECKO_SDK_ROOT)/platform/CMSIS/Include \
 $(GECKO_SDK_ROOT)/platform/emlib/inc \
 $(GECKO_SDK_ROOT)/platform/Device/SiliconLabs/EFM32TG/Include \
 $(GECKO_SDK_ROOT)/hardware/kit/common/bsp \

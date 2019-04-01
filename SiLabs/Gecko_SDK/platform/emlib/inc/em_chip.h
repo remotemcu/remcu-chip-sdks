@@ -67,8 +67,9 @@ extern "C" {
  * as similar as later revisions as possible, to improve software compatibility
  * with newer parts. See the device specific errata for details.
  *****************************************************************************/
+#ifdef REMCU_LIB
 void CHIP_Init(void);
-#if 0
+#else
 __STATIC_INLINE void CHIP_Init(void)
 {
 #if defined(_SILICON_LABS_32B_SERIES_0) && defined(_EFM32_GECKO_FAMILY)

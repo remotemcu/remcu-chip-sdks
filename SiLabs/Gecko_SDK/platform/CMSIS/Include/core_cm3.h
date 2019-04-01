@@ -69,7 +69,6 @@
   \ingroup Cortex_M3
   @{
  */
-
 /*  CMSIS CM3 definitions */
 #define __CM3_CMSIS_VERSION_MAIN  (0x04U)                                      /*!< [31:16] CMSIS HAL main version */
 #define __CM3_CMSIS_VERSION_SUB   (0x1EU)                                      /*!< [15:0]  CMSIS HAL sub version */
@@ -114,9 +113,13 @@
   #define __INLINE         inline                                    /*!< inline keyword for COSMIC Compiler. Use -pc99 on compile line */
   #define __STATIC_INLINE  static inline
 
+#elif defined ( REMCU_LIB )
+
 #else
   #error Unknown compiler
 #endif
+
+#ifndef REMCU_LIB
 
 /** __FPU_USED indicates whether an FPU is used or not.
     This core does not support an FPU at all
@@ -160,12 +163,14 @@
 
 #endif
 
-//#include "core_cmInstr.h"                /* Core Instruction Access */
-//#include "core_cmFunc.h"                 /* Core Function Access */
+#include "core_cmInstr.h"                /* Core Instruction Access */
+#include "core_cmFunc.h"                 /* Core Function Access */
 
 #ifdef __cplusplus
 }
 #endif
+
+#endif //REMCU_LIB
 
 #endif /* __CORE_CM3_H_GENERIC */
 
@@ -178,6 +183,7 @@
  extern "C" {
 #endif
 
+#ifndef REMCU_LIB
 /* check device defines and use defaults */
 #if defined __CHECK_DEVICE_DEFINES
   #ifndef __CM3_REV
@@ -200,7 +206,7 @@
     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
   #endif
 #endif
-
+#endif //REMCU_LIB
 /* IO definitions (access restrictions to peripheral registers) */
 /**
     \defgroup CMSIS_glob_defs CMSIS Global Defines
@@ -224,7 +230,7 @@
 
 /*@} end of group Cortex_M3 */
 
-
+#ifndef REMCU_LIB
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -1751,7 +1757,7 @@ __STATIC_INLINE int32_t ITM_CheckChar (void)
 
 /*@} end of CMSIS_core_DebugFunctions */
 
-
+#endif //REMCU_LIB
 
 
 #ifdef __cplusplus
