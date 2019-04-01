@@ -1,0 +1,3 @@
+#define REMCU_LIB
+
+#define CPU_MK64FN1M0VMD12

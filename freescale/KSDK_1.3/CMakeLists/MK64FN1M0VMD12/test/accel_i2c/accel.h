@@ -32,6 +32,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include "device_defines.h"
 #include "fsl_i2c_master_driver.h"
 
 

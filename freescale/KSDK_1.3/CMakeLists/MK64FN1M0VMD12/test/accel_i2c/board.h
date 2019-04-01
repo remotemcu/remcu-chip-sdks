@@ -32,6 +32,7 @@
 #define __BOARD_H__
 
 #include <stdint.h>
+#include "device_defines.h"
 #include "pin_mux.h"
 #include "gpio_pins.h"
 

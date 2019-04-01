@@ -69,3 +69,134 @@ void PORT_HAL_SetHighGlobalPinCtrl(PORT_Type * base, uint16_t highPinSelect, uin
  * EOF
  ******************************************************************************/
 
+#ifdef REMCU_LIB
+
+void PORT_HAL_SetMuxMode(PORT_Type * base,
+                                       uint32_t pin,
+                                       port_mux_t mux)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_MUX(base, pin, mux);
+}
+
+#if FSL_FEATURE_PORT_HAS_OPEN_DRAIN
+/*!
+ * @brief Enables or disables the open drain.
+ *
+ * @param base  port base pointer
+ * @param pin  port pin number
+ * @param isOpenDrainEnabled  enable open drain or not
+ *        - false: Open Drain output is disabled on the corresponding pin.
+ *        - true : Open Drain output is disabled on the corresponding pin.
+ */
+void PORT_HAL_SetOpenDrainCmd(PORT_Type * base,
+                                                 uint32_t pin,
+                                                 bool isOpenDrainEnabled)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_ODE(base, pin, isOpenDrainEnabled);
+}
+#endif
+
+#if FSL_FEATURE_PORT_HAS_PULL_ENABLE
+/*!
+ * @brief Enables or disables the internal pull resistor.
+ *
+ * @param base  port base pointer
+ * @param pin       port pin number
+ * @param isPullEnabled  internal pull resistor enable or disable
+ *        - true : internal pull resistor is enabled.
+ *        - false: internal pull resistor is disabled.
+ */
+void PORT_HAL_SetPullCmd(PORT_Type * base,
+                                       uint32_t pin,
+                                       bool isPullEnabled)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_PE(base, pin, isPullEnabled);
+}
+#endif
+
+#if FSL_FEATURE_PORT_HAS_PULL_SELECTION
+/*!
+ * @brief Selects the internal resistor as pull-down or pull-up.
+ *
+ * Pull configuration is valid in all digital pin muxing modes.
+ *
+ * @param base  port base pointer.
+ * @param pin       port pin number
+ * @param pullSelect  internal resistor pull feature selection
+ *        - kPortPullDown: internal pull-down resistor is enabled.
+ *        - kPortPullUp  : internal pull-up resistor is enabled.
+ */
+void PORT_HAL_SetPullMode(PORT_Type * base,
+                                        uint32_t pin,
+                                        port_pull_t pullSelect)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_PS(base, pin, pullSelect);
+}
+#endif
+
+#if FSL_FEATURE_PORT_HAS_PASSIVE_FILTER
+/*!
+ * @brief Configures the passive filter if the pin is used as a digital input.
+ *
+ * If enabled, a low pass filter (10 MHz to 30 MHz bandwidth)  is enabled
+ * on the digital input path. Disable the Passive Input Filter when supporting
+ * high speed interfaces (> 2 MHz) on the pin.
+ *
+ * @param base  port base pointer
+ * @param pin  port pin number
+ * @param isPassiveFilterEnabled  passive filter configuration
+ *        - false: passive filter is disabled.
+ *        - true : passive filter is enabled.
+ */
+void PORT_HAL_SetPassiveFilterCmd(PORT_Type * base,
+                                                uint32_t pin,
+                                                bool isPassiveFilterEnabled)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_PFE(base, pin, isPassiveFilterEnabled);
+}
+#endif
+
+#if FSL_FEATURE_PORT_HAS_SLEW_RATE
+/*!
+ * @brief Configures the fast/slow slew rate if the pin is used as a digital output.
+ *
+ * @param base  port base pointer
+ * @param pin  port pin number
+ * @param rateSelect  slew rate selection
+ *        - kPortFastSlewRate: fast slew rate is configured.
+ *        - kPortSlowSlewRate: slow slew rate is configured.
+ */
+void PORT_HAL_SetSlewRateMode(PORT_Type * base,
+                                            uint32_t pin,
+                                            port_slew_rate_t rateSelect)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_SRE(base, pin, rateSelect);
+}
+#endif
+
+#if FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH
+/*!
+ * @brief Configures the drive strength if the pin is used as a digital output.
+ *
+ * @param base  port base pointer
+ * @param pin  port pin number
+ * @param driveSelect  drive strength selection
+ *        - kLowDriveStrength : low drive strength is configured.
+ *        - kHighDriveStrength: high drive strength is configured.
+ */
+void PORT_HAL_SetDriveStrengthMode(PORT_Type * base,
+                                                 uint32_t pin,
+                                                 port_drive_strength_t driveSelect)
+{
+    assert(pin < 32U);
+    PORT_BWR_PCR_DSE(base, pin, driveSelect);
+}
+#endif
+
+#endif //REMCU_LIB

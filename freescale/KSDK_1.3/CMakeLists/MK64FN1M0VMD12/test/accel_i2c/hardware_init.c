@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 -2014, Freescale Semiconductor, Inc.
+ * Copyright (c) 2013-2014, Freescale Semiconductor, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -27,48 +27,31 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+#include "device_defines.h"
+#include "board.h"
+#include "pin_mux.h"
+#include "fsl_clock_manager.h"
 
-#include <stdint.h>
-#include <stdbool.h>
-#include "fsl_lptmr_driver.h"
+void hardware_init(void) {
 
-/******************************************************************************
- * Code
- *****************************************************************************/
+  /* Enable clock for PORTs */
+  CLOCK_SYS_EnablePortClock(PORTA_IDX);
+  CLOCK_SYS_EnablePortClock(PORTB_IDX);
+  CLOCK_SYS_EnablePortClock(PORTE_IDX);
 
-#if FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER
-/* LPTMR IRQ handler that would cover the same name's APIs in startup code */
-void LPTMR0_LPTMR1_IRQHandler(void)
-{
-    if (g_lptmrStatePtr[0] != NULL)
-    {
-        LPTMR_DRV_IRQHandler(0U);
-    }
-    if (g_lptmrStatePtr[1] != NULL)
-    {
-        LPTMR_DRV_IRQHandler(1U);
-    }
+  /* Enable I2C pins */
+  configure_i2c_pins(0);
+
 }
 
-#else
-
-#if (FSL_FEATURE_SOC_LPTMR_COUNT > 0U)
-void LPTMR0_IRQHandler(void)
-{
-    LPTMR_DRV_IRQHandler(0U);
-}
-#endif
-
-#if (FSL_FEATURE_SOC_LPTMR_COUNT > 1U)
-void LPTMR1_IRQHandler(void)
-{
-    LPTMR_DRV_IRQHandler(1U);
-}
-#endif
-
-#endif /* FSL_FEATURE_LPTMR_HAS_SHARED_IRQ_HANDLER */
-
-/******************************************************************************
- * EOF
- *****************************************************************************/
-
+/*!
+** @}
+*/
+/*
+** ###################################################################
+**
+**     This file was created by Processor Expert 10.4 [05.10]
+**     for the Freescale Kinetis series of microcontrollers.
+**
+** ###################################################################
+*/

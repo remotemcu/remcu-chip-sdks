@@ -61,7 +61,8 @@
  * Code
  ******************************************************************************/
 static clock_manager_state_t g_clockState;
-#if 0
+
+#ifndef REMCU_LIB
 #if FSL_FEATURE_SYSTICK_HAS_EXT_REF
 uint32_t CLOCK_SYS_GetSystickFreq(void)
 {
@@ -80,7 +81,8 @@ uint32_t CLOCK_SYS_GetSystickFreq(void)
     }
 }
 #endif
-#endif
+#endif //REMCU_LIB
+
 /*FUNCTION**********************************************************************
  *
  * Function Name : CLOCK_SYS_Init

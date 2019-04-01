@@ -51,7 +51,7 @@
 */
 
 /* MODULE pin_mux. */
-
+#include "device_defines.h"
 #include "fsl_device_registers.h"
 #include "fsl_port_hal.h"
 #include "fsl_sim_hal.h"

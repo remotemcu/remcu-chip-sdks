@@ -249,7 +249,9 @@ typedef struct EDMAErrorStatusAll {
 #endif
     bool transferCancelledError;            /*!< Transfer cancelled */
     bool orOfAllError;                      /*!< Logical OR  all ERR status bits */
+#ifdef REMCU_LIB
     uint64_t dummy;
+#endif //REMCU_LIB
 } edma_error_status_all_t;
 
 /*! @brief Bandwidth control configuration */

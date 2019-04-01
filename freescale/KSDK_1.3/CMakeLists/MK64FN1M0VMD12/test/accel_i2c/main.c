@@ -33,7 +33,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <stdlib.h>
 #include <unistd.h>
+
 // SDK Included Files
+#include "device_defines.h"
 #include "board.h"
 #include "fsl_device_registers.h"
 #include "fsl_interrupt_manager.h"
@@ -55,14 +57,31 @@ uint16_t g_xValue, g_yValue = 0;
 /*!
  * @brief Main demo function.
  */
-int main (void)
+int main(int argc, char** argv)
 {
+  printf("argc : %d\n", argc);
 
+  if(argc < 3){
+        printf("test requare 2 arguments: host and port\n");
+        return -1;
+    }
+    const char * host = argv[1];
+    printf("argv[1] : %s\n", argv[1]);
+    printf("argv[2] : %s\n", argv[2]);
+    const uint16_t port = (atoi(argv[2]) & 0xFFFF);
+    printf("port : %d\n", port);
 
-    remcu_connect2OpenOCD("localhost", 6666);
-remcu_resetRemoteUnit(ResetType::__HALT);
+  if (port == 6666){
+    remcu_connect2OpenOCD(host, 6666, 3);
+  } else {
+    remcu_connect2GDB(host, port, 3);
+  }
+
+remcu_resetRemoteUnit(__HALT);
 //remcu_setVerboseLevel(LevelDebug::__INFO);
-remcu_setVerboseLevel(LevelDebug::__ERROR);
+remcu_setVerboseLevel(__ERROR);
+
+  assert(remcu_is_connected());
 
     ftm_pwm_param_t xAxisParams, yAxisParams;
     accel_dev_t accDev;
@@ -105,59 +124,12 @@ remcu_setVerboseLevel(LevelDebug::__ERROR);
 
     // Turn on the clock to the FTM.
     CLOCK_SYS_EnableFtmClock(BOARD_FTM_INSTANCE);
-#if 0
-    // Initialize the FTM module.
-    FTM_HAL_Init(BOARD_FTM_BASE);
 
-    // Configure the sync mode to software.
-    FTM_HAL_SetSyncMode(BOARD_FTM_BASE, kFtmUseSoftwareTrig);
-
-    // Enable the overflow interrupt.
-    FTM_HAL_EnableTimerOverflowInt(BOARD_FTM_BASE);
-
-    // Set the FTM clock divider to /16.
-    FTM_HAL_SetClockPs(BOARD_FTM_BASE, kFtmDividedBy16);
-
-    // Configure the FTM channel used for the X-axis.  Initial duty cycle is 0%.
-    xAxisParams.mode = kFtmEdgeAlignedPWM;
-    xAxisParams.edgeMode = kFtmHighTrue;
-
-    FTM_HAL_EnablePwmMode(BOARD_FTM_BASE, &xAxisParams, BOARD_FTM_X_CHANNEL);
-    FTM_HAL_SetChnCountVal(BOARD_FTM_BASE, BOARD_FTM_X_CHANNEL, 0);
-
-    // Configure the FTM channel used for the Y-axis.  Initial duty cycle is 0%.
-    yAxisParams.mode = kFtmEdgeAlignedPWM;
-    yAxisParams.edgeMode = kFtmHighTrue;
-
-    FTM_HAL_EnablePwmMode(BOARD_FTM_BASE, &yAxisParams, BOARD_FTM_Y_CHANNEL);
-    FTM_HAL_SetChnCountVal(BOARD_FTM_BASE, BOARD_FTM_Y_CHANNEL, 0);
-
-    // Get the FTM reference clock and calculate the modulo value.
-    ftmModulo = (CLOCK_SYS_GetFtmSystemClockFreq(BOARD_FTM_INSTANCE) /
-                  (1 << FTM_HAL_GetClockPs(BOARD_FTM_BASE))) /
-                  (BOARD_FTM_PERIOD_HZ - 1);
-
-    // Initialize the FTM counter.
-    FTM_HAL_SetCounterInitVal(BOARD_FTM_BASE, 0);
-    FTM_HAL_SetMod(BOARD_FTM_BASE, ftmModulo);
-
-    // Set the clock source to start the FTM.
-    FTM_HAL_SetClockSource(BOARD_FTM_BASE, kClock_source_FTM_SystemClk);
-
-    // Enable the FTM interrupt at the NVIC level.
-    INT_SYS_EnableIRQ(BOARD_FTM_IRQ_VECTOR);
-#endif
     // Main loop.  Get sensor data and update globals for the FTM timer update.
     while(1)
     {
-        // Wait 5 ms in between samples (accelerometer updates at 200Hz).
-        //sleep(1);
-
         // Get new accelerometer data.
           accDev.accel->accel_read_sensor_data(&accDev,&accelData);
-
-        // Turn off interrupts (FTM) while updating new duty cycle values.
-        INT_SYS_DisableIRQGlobal();
 
         // Get the X and Y data from the sensor data structure.
         xData = (int16_t)((accelData.data.accelXMSB << 8) | accelData.data.accelXLSB);
@@ -172,9 +144,6 @@ remcu_setVerboseLevel(LevelDebug::__ERROR);
         // for whether to turn the LED on or not.
         g_xValue = (xAngle > 5) ? (uint16_t)((xAngle / 90.0) * ftmModulo) : 0;
         g_yValue = (yAngle > 5) ? (uint16_t)((yAngle / 90.0) * ftmModulo) : 0;
-
-        // Re-enable interrupts.
-        INT_SYS_EnableIRQGlobal();
 
         // Print out the raw accelerometer data.
         printf("x= %d y = %d\r\n", xData, yData);

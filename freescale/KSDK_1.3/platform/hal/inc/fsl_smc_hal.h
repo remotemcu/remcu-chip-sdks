@@ -234,11 +234,14 @@ smc_hal_error_code_t SMC_HAL_SetMode(SMC_Type * base,
  * @param base  Base address for current SMC instance.
  * @param allowedModes Bitmap of the allowed power modes.
  */
+#ifdef REMCU_LIB
+    void SMC_HAL_SetProtection(SMC_Type * base, uint8_t allowedModes);
+#else
 static inline void SMC_HAL_SetProtection(SMC_Type * base, uint8_t allowedModes)
 {
     SMC_WR_PMPROT(base, allowedModes);
 }
-
+#endif //REMCU_LIB
 /*!
  * @brief Gets the power mode protection setting.
  *

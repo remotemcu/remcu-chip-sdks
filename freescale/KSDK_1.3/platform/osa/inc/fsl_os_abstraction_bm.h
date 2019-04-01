@@ -48,7 +48,11 @@
 
 /*! @brief Configure what timer is used in Bare Metal. */
 #ifndef FSL_OSA_BM_TIMER_CONFIG
-#define FSL_OSA_BM_TIMER_CONFIG FSL_OSA_BM_TIMER_NONE
+#ifdef REMCU_LIB
+    #define FSL_OSA_BM_TIMER_CONFIG FSL_OSA_BM_TIMER_NONE
+#else
+    #define FSL_OSA_BM_TIMER_CONFIG FSL_OSA_BM_TIMER_LPTMER
+#endif //REMCU_LIB
 #endif
 
 /*! @brief Type for an semaphore */
@@ -122,7 +126,12 @@ typedef msg_queue_t*  msg_queue_handler_t;
 #define OSA_WAIT_FOREVER  0xFFFFFFFFU
 
 /*! @brief How many tasks can the bare metal support. */
-#define TASK_MAX_NUM  0
+#ifdef REMCU_LIB
+    #define TASK_MAX_NUM  0
+#else
+    #define TASK_MAX_NUM  5
+#endif //REMCU_LIB
+
 
 /*! @brief OSA's time range in millisecond, OSA time wraps if exceeds this value. */
 #define FSL_OSA_TIME_RANGE 0xFFFFU

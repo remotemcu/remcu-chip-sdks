@@ -282,6 +282,11 @@ power_mode_stat_t SMC_HAL_GetStat(SMC_Type * base)
 {
     return (power_mode_stat_t)SMC_RD_PMSTAT(base); 
 }
+
+void SMC_HAL_SetProtection(SMC_Type * base, uint8_t allowedModes)
+{
+    SMC_WR_PMPROT(base, allowedModes);
+}
 #endif
 
 /*******************************************************************************

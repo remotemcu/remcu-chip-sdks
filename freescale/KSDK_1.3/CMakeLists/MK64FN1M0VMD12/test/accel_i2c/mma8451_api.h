@@ -30,7 +30,7 @@
 
 #ifndef __MMA8451_API_H__
 #define __MMA8451_API_H__
-
+#include "device_defines.h"
 #include "accel.h"
 
 /*!

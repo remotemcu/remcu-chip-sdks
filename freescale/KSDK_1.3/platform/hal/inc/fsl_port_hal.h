@@ -130,6 +130,11 @@ extern "C" {
  *        - kPortPullDown: internal pull-down resistor is enabled.
  *        - kPortPullUp  : internal pull-up resistor is enabled.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetPullMode(PORT_Type * base,
+                                        uint32_t pin,
+                                        port_pull_t pullSelect);
+#else
 static inline void PORT_HAL_SetPullMode(PORT_Type * base,
                                         uint32_t pin,
                                         port_pull_t pullSelect)
@@ -138,6 +143,7 @@ static inline void PORT_HAL_SetPullMode(PORT_Type * base,
     PORT_BWR_PCR_PS(base, pin, pullSelect);
 }
 #endif
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_PULL_ENABLE
 /*!
@@ -149,6 +155,11 @@ static inline void PORT_HAL_SetPullMode(PORT_Type * base,
  *        - true : internal pull resistor is enabled.
  *        - false: internal pull resistor is disabled.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetPullCmd(PORT_Type * base,
+                                       uint32_t pin,
+                                       bool isPullEnabled);
+#else
 static inline void PORT_HAL_SetPullCmd(PORT_Type * base,
                                        uint32_t pin,
                                        bool isPullEnabled)
@@ -157,6 +168,7 @@ static inline void PORT_HAL_SetPullCmd(PORT_Type * base,
     PORT_BWR_PCR_PE(base, pin, isPullEnabled);
 }
 #endif
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_SLEW_RATE
 /*!
@@ -168,6 +180,11 @@ static inline void PORT_HAL_SetPullCmd(PORT_Type * base,
  *        - kPortFastSlewRate: fast slew rate is configured.
  *        - kPortSlowSlewRate: slow slew rate is configured.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetSlewRateMode(PORT_Type * base,
+                                            uint32_t pin,
+                                            port_slew_rate_t rateSelect);
+#else
 static inline void PORT_HAL_SetSlewRateMode(PORT_Type * base,
                                             uint32_t pin,
                                             port_slew_rate_t rateSelect)
@@ -176,6 +193,7 @@ static inline void PORT_HAL_SetSlewRateMode(PORT_Type * base,
     PORT_BWR_PCR_SRE(base, pin, rateSelect);
 }
 #endif
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_PASSIVE_FILTER
 /*!
@@ -191,6 +209,11 @@ static inline void PORT_HAL_SetSlewRateMode(PORT_Type * base,
  *        - false: passive filter is disabled.
  *        - true : passive filter is enabled.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetPassiveFilterCmd(PORT_Type * base,
+                                                uint32_t pin,
+                                                bool isPassiveFilterEnabled);
+#else
 static inline void PORT_HAL_SetPassiveFilterCmd(PORT_Type * base,
                                                 uint32_t pin,
                                                 bool isPassiveFilterEnabled)
@@ -199,6 +222,7 @@ static inline void PORT_HAL_SetPassiveFilterCmd(PORT_Type * base,
     PORT_BWR_PCR_PFE(base, pin, isPassiveFilterEnabled);
 }
 #endif
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_OPEN_DRAIN
 /*!
@@ -210,6 +234,11 @@ static inline void PORT_HAL_SetPassiveFilterCmd(PORT_Type * base,
  *        - false: Open Drain output is disabled on the corresponding pin.
  *        - true : Open Drain output is disabled on the corresponding pin.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetOpenDrainCmd(PORT_Type * base,
+                                                 uint32_t pin,
+                                                 bool isOpenDrainEnabled);
+#else
 static inline void PORT_HAL_SetOpenDrainCmd(PORT_Type * base,
                                                  uint32_t pin,
                                                  bool isOpenDrainEnabled)
@@ -218,6 +247,7 @@ static inline void PORT_HAL_SetOpenDrainCmd(PORT_Type * base,
     PORT_BWR_PCR_ODE(base, pin, isOpenDrainEnabled);
 }
 #endif
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_DRIVE_STRENGTH
 /*!
@@ -229,6 +259,11 @@ static inline void PORT_HAL_SetOpenDrainCmd(PORT_Type * base,
  *        - kLowDriveStrength : low drive strength is configured.
  *        - kHighDriveStrength: high drive strength is configured.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetDriveStrengthMode(PORT_Type * base,
+                                                 uint32_t pin,
+                                                 port_drive_strength_t driveSelect);
+#else
 static inline void PORT_HAL_SetDriveStrengthMode(PORT_Type * base,
                                                  uint32_t pin,
                                                  port_drive_strength_t driveSelect)
@@ -237,6 +272,7 @@ static inline void PORT_HAL_SetDriveStrengthMode(PORT_Type * base,
     PORT_BWR_PCR_DSE(base, pin, driveSelect);
 }
 #endif
+#endif //REMCU_LIB
 
 /*!
  * @brief Configures the pin muxing.
@@ -248,6 +284,11 @@ static inline void PORT_HAL_SetDriveStrengthMode(PORT_Type * base,
  *        - kPortMuxAsGpio  : Set as GPIO.
  *        - others          : chip-specific.
  */
+#ifdef REMCU_LIB
+    void PORT_HAL_SetMuxMode(PORT_Type * base,
+                                       uint32_t pin,
+                                       port_mux_t mux);
+#else
 static inline void PORT_HAL_SetMuxMode(PORT_Type * base,
                                        uint32_t pin,
                                        port_mux_t mux)
@@ -255,6 +296,7 @@ static inline void PORT_HAL_SetMuxMode(PORT_Type * base,
     assert(pin < 32U);
     PORT_BWR_PCR_MUX(base, pin, mux);
 }
+#endif //REMCU_LIB
 
 #if FSL_FEATURE_PORT_HAS_PIN_CONTROL_LOCK
 /*!
