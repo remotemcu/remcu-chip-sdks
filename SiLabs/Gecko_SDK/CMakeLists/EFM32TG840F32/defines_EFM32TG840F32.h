@@ -1,0 +1,3 @@
+#define REMCU_LIB
+
+#define EFM32TG840F32

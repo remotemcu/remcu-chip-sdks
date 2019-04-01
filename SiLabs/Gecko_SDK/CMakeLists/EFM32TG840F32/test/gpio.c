@@ -14,6 +14,10 @@
  ******************************************************************************/
 #include <unistd.h>
 #include <stdio.h>
+#include <assert.h>
+
+#include "device_defines.h"
+
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -31,14 +35,31 @@ struct {
 /**************************************************************************//**
  * @brief  Main function
  *****************************************************************************/
-int main(void)
+int main(int argc, char** argv)
 {
+  printf("argc : %d\n", argc);
 
-  printf("# %d - %d\n\n", ledArray1.port , ledArray1.pin);
+  if(argc < 3){
+        printf("test requare 2 arguments: host and port\n");
+        return -1;
+    }
+    const char * host = argv[1];
+    printf("argv[1] : %s\n", argv[1]);
+    printf("argv[2] : %s\n", argv[2]);
+    const uint16_t port = (atoi(argv[2]) & 0xFFFF);
+    printf("port : %d\n", port);
 
-  remcu_connect2OpenOCD("localhost", 6666);
-remcu_resetRemoteUnit(ResetType::__HALT);
-remcu_setVerboseLevel(LevelDebug::__INFO);
+  if (port == 6666){
+    remcu_connect2OpenOCD(host, 6666, 3);
+  } else {
+    remcu_connect2GDB(host, port, 3);
+  }
+
+remcu_resetRemoteUnit(__HALT);
+//remcu_setVerboseLevel(LevelDebug::__INFO);
+remcu_setVerboseLevel(__ERROR);
+
+  assert(remcu_is_connected());
 
 /* Chip errata */
   CHIP_Init(); //nah
