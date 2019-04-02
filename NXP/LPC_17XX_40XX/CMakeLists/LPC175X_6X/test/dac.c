@@ -11,6 +11,8 @@
 const uint32_t OscRateIn = 12000000;
 const uint32_t RTCOscRateIn = 32768;
 
+
+
 #define HW_PLL_XTAL_MSEL_m1         (15)                    ///< FCCO = ((15+1) * 2 * 12MHz) / (0+1) = 384 MHz 
 #define HW_PLLXTAL_CPU_CLK_DIV_m1   (3)                     ///< 384 MHz / (3+1) = 96 MHz
     #define HW_FLASHTIM_CPU_WC          (FLASHTIM_100MHZ_CPU)   ///< flash wait cycles, see enum 'FMC_FLASHTIM_T'
@@ -119,16 +121,8 @@ HW_PinsMuxing(void)
     
     Chip_IOCON_Init(LPC_IOCON);
     //Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 26, (IOCON_FUNC2 | IOCON_DAC_EN ));
-    Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 25, (IOCON_FUNC1 | IOCON_MODE_INACT ));
+    Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 26, (  (0x1 << 16)	 | IOCON_FUNC2));
 }
-
-
-/**
- * @brief	Main program body
- * @return	Does not return
- */
-#define _LPC_ADC_ID LPC_ADC
-#define _ADC_CHANNLE ADC_CH2
 
 int main(int argc, char** argv)
 {
@@ -150,42 +144,50 @@ int main(int argc, char** argv)
     remcu_connect2GDB(host, port, 3);
   }
 
-static ADC_CLOCK_SETUP_T ADCSetup;
-
-	//HW_SetupIrcClocking();
+//HW_SetupIrcClocking();
     HW_SetupXtalClocking();
 
     sleep(2);
 
     HW_PinsMuxing();    // after it led_pin = 0V 
 
+
 	Chip_GPIO_WriteDirBit(LPC_GPIO, 1, 18, true);
 
-	Chip_ADC_Init(_LPC_ADC_ID, &ADCSetup);
-	Chip_ADC_EnableChannel(_LPC_ADC_ID, _ADC_CHANNLE, ENABLE);
 
-	Chip_ADC_SetBurstCmd(_LPC_ADC_ID, ENABLE);
+	/* Setup DAC pins for board and common CHIP code */
+	Chip_DAC_Init(LPC_DAC);
 
-	Chip_ADC_SetSampleRate(_LPC_ADC_ID, &ADCSetup, 1000);
+	Chip_Clock_SetPCLKDiv(SYSCTL_PCLK_DAC, SYSCTL_CLKDIV_1);
 
-			uint16_t dataADC;
+	//Chip_DAC_SetDMATimeOut(LPC_DAC, 0x3FF);
+
+	uint32_t dacClk = Chip_Clock_GetPeripheralClockRate(SYSCTL_PCLK_DAC);
+
+	//Chip_DAC_ConfigDAConverterControl(LPC_DAC, DAC_CNT_ENA | DAC_DMA_ENA);
+
+	printf("dacClk %x \n", dacClk);
+
+	//return 0;
+
+	/* Enable count and DMA support */
+	//Chip_DAC_ConfigDAConverterControl(LPC_DAC, DAC_CNT_ENA );
 		
 		while(1){
 		printf("!\n");
 		Chip_GPIO_WritePortBit(LPC_GPIO, 1, 18, true);
 
-		/* Start A/D conversion if not using burst mode */
-		Chip_ADC_SetStartMode(_LPC_ADC_ID, ADC_START_NOW, ADC_TRIGGERMODE_RISING);
-		/* Waiting for A/D conversion complete */
-		while (Chip_ADC_ReadStatus(_LPC_ADC_ID, _ADC_CHANNLE, ADC_DR_DONE_STAT) != SET) {}
-		/* Read ADC value */
-		Chip_ADC_ReadValue(_LPC_ADC_ID, _ADC_CHANNLE, &dataADC);
+		Chip_DAC_UpdateValue(LPC_DAC, 1000);
+		/* Wait for DAC (DMA) interrupt request */
+		//while (!(Chip_DAC_GetIntStatus(LPC_DAC))) {}
 
-	printf("dataADC : 0x%x\n",dataADC);
+		sleep(1);
 
 		Chip_GPIO_WritePortBit(LPC_GPIO, 1, 18, false);
 
-
+		Chip_DAC_UpdateValue(LPC_DAC, 0);
+		/* Wait for DAC (DMA) interrupt request */
+		//while (!(Chip_DAC_GetIntStatus(LPC_DAC))) {}
 
 		sleep(1);
 	}
