@@ -78,9 +78,6 @@ int main(int argc, char** argv)
   //remcu_setVerboseLevel(__INFO);
   remcu_setVerboseLevel(__ALL_LOG);
 
-  Remcu_Options_t op = { .align = __32BIT_ALIGN };
-  //remcu_setOptions(op);
-
   assert(remcu_is_connected());
 
   SystemInit();

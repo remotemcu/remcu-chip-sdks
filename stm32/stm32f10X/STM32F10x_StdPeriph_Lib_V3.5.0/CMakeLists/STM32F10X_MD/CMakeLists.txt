@@ -22,12 +22,15 @@ set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 
 include(McuCommon)
 
+set(MCU_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../..)
+
 add_custom_target( MCU_LIB
                    COMMAND make all
                    DEVICE=${MCU_TYPE}
                    MCU_UTIL_PATH=${MCU_UTIL_PATH}
                    TARGET_MK=${MCU_INCLUDE_MK_FILE}
                    OUTPUT=${MCU_OBJECT_FILE}
+                   MCU_SDK_PATH=${MCU_SDK_PATH}
                    CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                    BUILD_DIRECTORY=${BUILD_DIRECTORY}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -45,10 +48,10 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
       )
 
 FILE(GLOB COPY_HEADER_FROM_LIB 
-      Libraries/CMSIS/CM3/CoreSupport/core_cm3.h
-      Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/*.h
-      Libraries/STM32F10x_StdPeriph_Driver/inc/*.h
-      Project/STM32F10x_StdPeriph_Template/stm32f10x_conf.h
+      ${MCU_SDK_PATH}/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h
+      ${MCU_SDK_PATH}/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/*.h
+      ${MCU_SDK_PATH}/Libraries/STM32F10x_StdPeriph_Driver/inc/*.h
+      ${MCU_SDK_PATH}/Project/STM32F10x_StdPeriph_Template/stm32f10x_conf.h
       )
 
 #message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")
