@@ -421,6 +421,10 @@ static inline void port_group_toggle_output_level(
  *
  *  \param[out] config  Configuration structure to initialize to default values
  */
+#ifdef REMCU_LIB
+void port_get_config_defaults(
+		struct port_config *const config);
+#else
 static inline void port_get_config_defaults(
 		struct port_config *const config)
 {
@@ -432,7 +436,7 @@ static inline void port_get_config_defaults(
 	config->input_pull = PORT_PIN_PULL_UP;
 	config->powersave  = false;
 }
-
+#endif
 void port_pin_set_config(
 		const uint8_t gpio_pin,
 		const struct port_config *const config);

@@ -57,13 +57,16 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
 
 FILE(GLOB COPY_HEADER_FROM_LIB 
       "${ASF_ROOT}/common/utils/*.h"
-      "${ASF_ROOT}/sam0/applications/led_toggle/samd20_xplained_pro/*.h"
+      #"${ASF_ROOT}/sam0/applications/led_toggle/samd20_xplained_pro/*.h"
       "${ASF_ROOT}/sam0/boards/*.h"
+      "${ASF_ROOT}/sam0/boards/samd20_xplained_pro/board_config/*.h"
       "${ASF_ROOT}/sam0/drivers/port/*.h"
       "${ASF_ROOT}/sam0/drivers/adc/adc.h"
       "${ASF_ROOT}/sam0/drivers/adc/adc_sam_d_r_h/adc_feature.h"
       "${ASF_ROOT}/sam0/drivers/dac/dac.h"
       "${ASF_ROOT}/sam0/drivers/dac/dac_sam_d_c_h/dac_feature.h"
+      "${ASF_ROOT}/sam0/drivers/sercom/*.h"
+      "${ASF_ROOT}/sam0/drivers/sercom/spi/*.h"
       "${ASF_ROOT}/sam0/drivers/system/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/*.h"
       "${ASF_ROOT}/sam0/drivers/system/clock/clock_samd20/*.h"
@@ -124,6 +127,4 @@ file(INSTALL
 
 "${ASF_ROOT}/common/utils"
        ]]
-add_subdirectory(test_gpio)
-add_subdirectory(test_adc_light)
-add_subdirectory(test_dac)
+add_subdirectory(test)

@@ -174,3 +174,17 @@ void port_group_set_config(
 
 	system_pinmux_group_set_config(port, mask, &pinmux_config);
 }
+
+#ifdef REMCU_LIB
+void port_get_config_defaults(
+		struct port_config *const config)
+{
+	/* Sanity check arguments */
+	Assert(config);
+
+	/* Default configuration values */
+	config->direction  = PORT_PIN_DIR_INPUT;
+	config->input_pull = PORT_PIN_PULL_UP;
+	config->powersave  = false;
+}
+#endif

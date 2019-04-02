@@ -5,3 +5,5 @@
 #define BOARD SAMD20_XPLAINED_PRO
 
 #define ADC_CALLBACK_MODE false
+
+#define SPI_CALLBACK_MODE false

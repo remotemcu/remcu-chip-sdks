@@ -850,6 +850,10 @@ struct spi_config {
  * \retval false  Module synchronization is not ongoing
  *
  */
+#ifdef REMCU_LIB
+bool spi_is_syncing(
+		struct spi_module *const module);
+#else
 static inline bool spi_is_syncing(
 		struct spi_module *const module)
 {
@@ -867,7 +871,7 @@ static inline bool spi_is_syncing(
 	return (spi_module->STATUS.reg & SERCOM_SPI_STATUS_SYNCBUSY);
 #  endif
 }
-
+#endif
 /**
  * \name Driver Initialization and Configuration
  * @{
@@ -1008,6 +1012,10 @@ enum status_code spi_init(
  *
  * \param[in,out] module  Pointer to the software instance struct
  */
+#ifdef REMCU_LIB
+void spi_enable(
+		struct spi_module *const module);
+#else
 static inline void spi_enable(
 		struct spi_module *const module)
 {
@@ -1028,7 +1036,7 @@ static inline void spi_enable(
 	/* Enable SPI */
 	spi_module->CTRLA.reg |= SERCOM_SPI_CTRLA_ENABLE;
 }
-
+#endif
 /**
  * \brief Disables the SERCOM SPI module
  *

@@ -12,6 +12,8 @@ C_SRC = \
        $(ASF_ROOT)/sam0/drivers/system/system.c                       \
        $(ASF_ROOT)/sam0/utils/cmsis/samd20/source/system_samd20.c     \
        $(ASF_ROOT)/sam0/drivers/dac/dac_sam_d_c_h/dac.c               \
+       $(ASF_ROOT)/sam0/drivers/sercom/sercom.c                       \
+       $(ASF_ROOT)/sam0/drivers/sercom/spi/spi.c                      \
 
 SRC_UNCESS = \
        $(ASF_ROOT)/sam0/applications/led_toggle/led_toggle.c          \
@@ -23,9 +25,9 @@ SRC_UNCESS = \
 # List of include paths.
 INC_PATH = \
        $(ASF_ROOT)/common/utils                                       \
-       $(ASF_ROOT)/sam0/applications/led_toggle/samd20_xplained_pro   \
        $(ASF_ROOT)/sam0/boards                                        \
        $(ASF_ROOT)/sam0/boards/samd20_xplained_pro                    \
+       $(ASF_ROOT)/sam0/boards/samd20_xplained_pro/board_config       \
        $(ASF_ROOT)/sam0/drivers/port                                  \
        $(ASF_ROOT)/sam0/drivers/system                                \
        $(ASF_ROOT)/sam0/drivers/system/clock                          \
@@ -46,6 +48,8 @@ INC_PATH = \
        $(ASF_ROOT)/sam0/drivers/adc/adc_sam_d_r_h                     \
        $(ASF_ROOT)/sam0/drivers/dac                                   \
        $(ASF_ROOT)/sam0/drivers/dac/dac_sam_d_c_h                     \
+       $(ASF_ROOT)/sam0/drivers/sercom                                \
+       $(ASF_ROOT)/sam0/drivers/sercom/spi                            \
 
 
 INC_EXTRA = \
@@ -54,11 +58,13 @@ INC_EXTRA = \
        $(ASF_ROOT)/thirdparty/CMSIS/Lib/GCC 							\
        $(ASF_ROOT)/sam0/applications/led_toggle                       \
        $(ASF_ROOT)/sam0/applications/led_toggle/samd20_xplained_pro/gcc \
+       $(ASF_ROOT)/sam0/applications/led_toggle/samd20_xplained_pro   \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
 DEFS = -D__$(DEVICE)__ -DREMCU_LIB -DBOARD=SAMD20_XPLAINED_PRO -DADC_CALLBACK_MODE=false
+DEFS += -DSPI_CALLBACK_MODE=false
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 

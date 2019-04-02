@@ -1253,3 +1253,46 @@ enum status_code spi_transceive_buffer_wait(
 #  endif
 	return STATUS_OK;
 }
+
+#ifdef REMCU_LIB
+bool spi_is_syncing(
+		struct spi_module *const module)
+{
+	/* Sanity check arguments */
+	Assert(module);
+	Assert(module->hw);
+
+	SercomSpi *const spi_module = &(module->hw->SPI);
+
+#  ifdef FEATURE_SPI_SYNC_SCHEME_VERSION_2
+	/* Return synchronization status */
+	return (spi_module->SYNCBUSY.reg);
+#  else
+	/* Return synchronization status */
+	return (spi_module->STATUS.reg & SERCOM_SPI_STATUS_SYNCBUSY);
+#  endif
+}
+
+void spi_enable(
+		struct spi_module *const module)
+{
+	/* Sanity check arguments */
+	Assert(module);
+	Assert(module->hw);
+
+	SercomSpi *const spi_module = &(module->hw->SPI);
+
+#  if SPI_CALLBACK_MODE == true
+	system_interrupt_enable(_sercom_get_interrupt_vector(module->hw));
+#  endif
+
+	while (spi_is_syncing(module)) {
+		/* Wait until the synchronization is complete */
+	}
+
+	/* Enable SPI */
+	spi_module->CTRLA.reg |= SERCOM_SPI_CTRLA_ENABLE;
+}
+
+
+#endif
