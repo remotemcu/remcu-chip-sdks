@@ -66,7 +66,7 @@
 /** \ingroup Cortex_M0
   @{
  */
-
+#ifndef REMCU_LIB
 /*  CMSIS CM0 definitions */
 #define __CM0_CMSIS_VERSION_MAIN  (0x03)                                   /*!< [31:16] CMSIS HAL main version   */
 #define __CM0_CMSIS_VERSION_SUB   (0x20)                                   /*!< [15:0]  CMSIS HAL sub version    */
@@ -152,6 +152,10 @@
   #endif
 #endif
 
+#endif //REMCU_LIB
+
+#include <stdint.h>                      /* standard types definitions                      */
+
 /* IO definitions (access restrictions to peripheral registers) */
 /**
     \defgroup CMSIS_glob_defs CMSIS Global Defines
@@ -170,7 +174,7 @@
 
 /*@} end of group Cortex_M0 */
 
-
+#ifndef REMCU_LIB
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -671,7 +675,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 /*@} end of CMSIS_Core_SysTickFunctions */
 
 
-
+#endif //REMCU_LIB
 
 #endif /* __CORE_CM0_H_DEPENDANT */
 
