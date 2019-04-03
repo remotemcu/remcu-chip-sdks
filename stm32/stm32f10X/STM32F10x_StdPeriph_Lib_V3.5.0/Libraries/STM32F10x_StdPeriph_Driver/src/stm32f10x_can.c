@@ -55,7 +55,8 @@
 #define FMR_FINIT    ((uint32_t)0x00000001) /* Filter init mode */
 
 /* Time out for INAK bit */
-#define INAK_TIMEOUT        ((uint32_t)0x0000FFFF)
+//#define INAK_TIMEOUT        ((uint32_t)0x0000FFFF)
+#define INAK_TIMEOUT        ((uint32_t)0x0000000F)
 /* Time out for SLAK bit */
 #define SLAK_TIMEOUT        ((uint32_t)0x0000FFFF)
 
