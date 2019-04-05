@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 {
   printf("argc : %d\n", argc);
 
-  if(argc < 3){
+  if(argc < 4){
         printf("test requare 2 arguments: host and verbose level\n");
         printf("optional 3-d arg: testOpenocd(bool)\n");
         return -1;
@@ -66,17 +66,19 @@ int main(int argc, char** argv)
     printf("argv[2] : %s\n", argv[2]);
     const uint16_t port = (atoi(argv[2]) & 0xFFFF);
     printf("port : %d\n", port);
+    const uint8_t debug = (atoi(argv[3]) & 0xF);
+    printf("debug : %d\n", debug);
 
   if (port == 6666){
     remcu_connect2OpenOCD(host, 6666, 3);
   } else {
     remcu_connect2GDB(host, port, 3);
   }
+  
+  remcu_setVerboseLevel(debug);
 
   remcu_resetRemoteUnit(__HALT);
-    //remcu_resetRemoteUnit(__RUN);
-  //remcu_setVerboseLevel(__INFO);
-  remcu_setVerboseLevel(__ALL_LOG);
+
 
   assert(remcu_is_connected());
 
