@@ -87,7 +87,7 @@ static const uint32_t DAC_DHR12R1_ADDRESS = (uint32_t)&(DAC->DHR12R1);
   * @param  None
   * @retval None
   */
-int main(void)
+int main(int argc, char** argv)
 {
   /*!< At this stage the microcontroller clock setting is already configured, 
        this is done through SystemInit() function which is called from startup
@@ -95,17 +95,34 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f2xx.c file
      */
-  //remcu_connect2GDB("localhost", 3333, 1);
-  remcu_connect2GDB("192.168.0.10", 3333, 3);
-  //remcu_connect2OpenOCD("localhost", 6666, 1);
-remcu_resetRemoteUnit(__HALT);
-  //remcu_resetRemoteUnit(__RUN);
-remcu_setVerboseLevel(__INFO);
-  //remcu_setVerboseLevel(__ALL_LOG);
+  printf("argc : %d\n", argc);
 
-printf("! %x\n\n", DAC_DHR12R1_ADDRESS);
+  if(argc < 4){
+        printf("test requare 2 arguments: host and verbose level\n");
+        printf("optional 3-d arg: testOpenocd(bool)\n");
+        return -1;
+    }
+    const char * host = argv[1];
+    printf("argv[1] : %s\n", argv[1]);
+    printf("argv[2] : %s\n", argv[2]);
+    const uint16_t port = (atoi(argv[2]) & 0xFFFF);
+    printf("port : %d\n", port);
+    const uint8_t debug = (atoi(argv[3]) & 0xF);
+    printf("debug : %d\n", debug);
+
+    remcu_setVerboseLevel(debug);
+
+  if (port == 6666){
+    remcu_connect2OpenOCD(host, 6666, 3);
+  } else {
+    remcu_connect2GDB(host, port, 3);
+  }
+
+  remcu_resetRemoteUnit(__HALT);
 
   assert(remcu_is_connected());
+
+  printf("! %x\n\n", DAC_DHR12R1_ADDRESS);
 
   SystemInit();
 

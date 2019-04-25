@@ -26,15 +26,14 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
-#include "device_defines.h"
+#include "remcu.h"
+
 #include "stm32f4xx.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <assert.h>
 
-#include "remcu.h"
 
 /** @addtogroup STM32F2xx_StdPeriph_Examples
   * @{
@@ -56,8 +55,8 @@ int main(int argc, char** argv)
 {
   printf("argc : %d\n", argc);
 
-  if(argc < 3){
-        printf("test requare 2 arguments: host and verbose level\n");
+  if(argc < 4){
+        printf("test requare 2 arguments: host, port and verbose level\n");
         printf("optional 3-d arg: testOpenocd(bool)\n");
         return -1;
     }
@@ -66,6 +65,11 @@ int main(int argc, char** argv)
     printf("argv[2] : %s\n", argv[2]);
     const uint16_t port = (atoi(argv[2]) & 0xFFFF);
     printf("port : %d\n", port);
+    const uint8_t debug = (atoi(argv[3]) & 0xF);
+    printf("debug : %d\n", debug);
+
+    remcu_setVerboseLevel(debug);
+
 
   if (port == 6666){
     remcu_connect2OpenOCD(host, 6666, 3);
@@ -75,7 +79,6 @@ int main(int argc, char** argv)
 
   remcu_resetRemoteUnit(__HALT);
     //remcu_resetRemoteUnit(__RUN);
-  remcu_setVerboseLevel(__INFO);
   //remcu_setVerboseLevel(__ALL_LOG);
 
   assert(remcu_is_connected());
