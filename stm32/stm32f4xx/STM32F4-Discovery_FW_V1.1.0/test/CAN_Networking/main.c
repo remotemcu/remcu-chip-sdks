@@ -131,16 +131,16 @@ int main(int argc, char** argv)
   TransmitMailbox = CAN_Transmit(CANx, &TxMessage);
 
 int i = 0;
-   while((CAN_TransmitStatus(CANx, TransmitMailbox) != CANTXOK) && (i != 0xF))
+   while((CAN_TransmitStatus(CANx, TransmitMailbox) != CANTXOK))
   {
     printf("CAN_TransmitStatus(CANx, TransmitMailbox) %d\n", CAN_TransmitStatus(CANx, TransmitMailbox));
-    i++;
+
   }
 
   CanRxMsg RxMessage;
 
   i = 0;
-  while((CAN_MessagePending(CANx, CAN_FIFO0) < 1) && (i != 0xF))
+  while((CAN_MessagePending(CANx, CAN_FIFO0) < 1))
   {
     printf("(CAN_MessagePending(CANx, CAN_FIFO0) < 1) && (i != 0xF) %d\n", (CAN_MessagePending(CANx, CAN_FIFO0)));
     i++;
@@ -155,29 +155,10 @@ int i = 0;
   CAN_Receive(CANx, CAN_FIFO0, &RxMessage);
 
   printf("RxMessage.StdId %x\n",RxMessage.StdId);
+  printf("RxMessage.DLC %x\n",RxMessage.DLC);  
   printf("RxMessage.Data[0] %x\n",RxMessage.Data[0]);
+  printf("RxMessage.Data[1] %x\n",RxMessage.Data[1]);
 
-  assert(RxMessage.StdId==0x11);
-
-
-  assert(RxMessage.IDE==CAN_ID_STD);
-
-
-  assert(RxMessage.DLC==2);
-
-
-  assert((RxMessage.Data[0]<<8|RxMessage.Data[1])==0xCAFE);
-
-        return 0;
- 
-  /* Infinite loop */
-  for(uint8_t i= 1; i < 255; i++)
-  {
-        TxMessage.Data[0] = i;
-        CAN_Transmit(CANx, &TxMessage);
-        printf("CAN_Transmit %d\n", i);
-        sleep(1);
-      }
 }
 
 
@@ -231,8 +212,8 @@ void CAN_Config(void)
   /* CAN Baudrate = 1 MBps (CAN clocked at 30 MHz) */
   CAN_InitStructure.CAN_BS1 = CAN_BS1_6tq;
   CAN_InitStructure.CAN_BS2 = CAN_BS2_8tq;
-  CAN_InitStructure.CAN_Prescaler = 2;
-  //CAN_InitStructure.CAN_Prescaler = 2*4;
+  //CAN_InitStructure.CAN_Prescaler = 2;
+  CAN_InitStructure.CAN_Prescaler = 2*8;
   CAN_Init(CANx, &CAN_InitStructure);
 
   /* CAN filter init */
