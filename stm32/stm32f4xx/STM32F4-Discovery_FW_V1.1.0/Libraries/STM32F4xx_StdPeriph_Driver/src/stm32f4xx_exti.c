@@ -58,8 +58,9 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f4xx_exti.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F4xx_StdPeriph_Driver
   * @{
   */

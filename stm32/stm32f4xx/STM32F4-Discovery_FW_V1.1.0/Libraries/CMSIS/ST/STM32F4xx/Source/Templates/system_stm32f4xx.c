@@ -119,9 +119,9 @@
 /** @addtogroup STM32F4xx_System_Private_Includes
   * @{
   */
-
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f4xx.h"
-
+#include "remcu_exports_symbol_exit.h"
 /**
   * @}
   */
