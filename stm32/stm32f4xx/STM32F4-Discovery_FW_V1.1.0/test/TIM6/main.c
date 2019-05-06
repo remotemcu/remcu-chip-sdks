@@ -35,13 +35,9 @@
 #include <assert.h>
 
 
-/** @addtogroup STM32F2xx_StdPeriph_Examples
-  * @{
-  */
-
-/** @addtogroup DAC_SignalsGeneration
-  * @{
-  */ 
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
