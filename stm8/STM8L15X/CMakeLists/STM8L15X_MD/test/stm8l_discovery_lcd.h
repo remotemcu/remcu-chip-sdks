@@ -24,6 +24,7 @@
 #define __stm8l_discovery_lcd
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu.h"
 #include "stm8l15x.h"
 #include <stdbool.h>
    

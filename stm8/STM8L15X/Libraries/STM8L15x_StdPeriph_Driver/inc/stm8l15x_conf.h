@@ -24,7 +24,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8l15x.h"
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 /* Uncomment the line below to enable peripheral header file inclusion */
 #include "stm8l15x_adc.h"
 #include "stm8l15x_beep.h"
@@ -53,6 +55,9 @@
 #include "stm8l15x_wfe.h"
 #include "stm8l15x_wwdg.h"
 
+#ifdef __cplusplus
+}
+#endif
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Uncomment the line below to expanse the "assert_param" macro in the

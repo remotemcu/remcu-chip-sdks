@@ -20,9 +20,12 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
-#include "device_defines.h"
+
 #include "stm8l_discovery_lcd.h"
-#include "discover_board.h"
+
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 
 		
 /* LCD BAR status: We don't write directly in LCD RAM for save the bar setting */
@@ -117,29 +120,6 @@ void LCD_GLASS_Init(void)
   
   /* Enable LCD peripheral */ 
   LCD_Cmd(ENABLE);
-}
-
-/**
-  * @brief  LCD contrast setting min-->max-->min by pressing user button
-  * @param  None
-  * @retval None
-  */
-void LCD_contrast()
-{
-  LCD_Contrast_TypeDef contrast;
-  
-  /* To get the actual contrast value in register */
-  contrast = (LCD_Contrast_TypeDef) (LCD->CR2 & LCD_Contrast_3V3);
-  
-  while ((GPIOC->IDR & USER_GPIO_PIN) == 0x0)
-  {
-    contrast+=2;	
-    if (contrast>LCD_Contrast_3V3)
-     contrast=LCD_Contrast_2V6;
-  
-    LCD_ContrastConfig(contrast);
-    usleep(1000*100);
-  }
 }
 
 /**
@@ -543,7 +523,7 @@ void LCD_GLASS_ScrollSentence(uint8_t* ptr, uint16_t nScroll, uint16_t ScrollSpe
   ptr1 = ptr;
   
   LCD_GLASS_DisplayString(ptr);
-  usleep(1000*ScrollSpeed);
+  sleep(1);
           
 /* To shift the string for scrolling display*/
   for (Repetition=0; Repetition<nScroll; Repetition++)
@@ -559,7 +539,7 @@ void LCD_GLASS_ScrollSentence(uint8_t* ptr, uint16_t nScroll, uint16_t ScrollSpe
       LCD_GLASS_Clear();
       LCD_GLASS_DisplayString(str);
      		
-      usleep(1000*ScrollSpeed);
+      sleep(1);
     }	
   }
 

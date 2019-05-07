@@ -19,9 +19,9 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "remcu_exports_symbol_enter.h"
 #include "stm8l15x_clk.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM8L15x_StdPeriph_Driver
   * @{
   */

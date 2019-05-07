@@ -19,9 +19,10 @@
   */
  
 #include <stdlib.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <stdio.h>
 /* Includes ------------------------------------------------------------------*/
 #include "device_defines.h"
 #include "stm8l15x.h"
@@ -30,6 +31,11 @@
 
 #include "remcu.h"
 
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#else
+#include <unistd.h>
+#endif
 
 /**
   * @brief main entry point.
