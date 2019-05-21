@@ -175,7 +175,7 @@ int i = 0;
         return 0;
  
   /* Infinite loop */
-  for(uint8_t i= 1; i < 255; i++)
+  for(i= 1; i < 255; i++)
   {
         TxMessage.Data[0] = i;
         CAN_Transmit(CANx, &TxMessage);
