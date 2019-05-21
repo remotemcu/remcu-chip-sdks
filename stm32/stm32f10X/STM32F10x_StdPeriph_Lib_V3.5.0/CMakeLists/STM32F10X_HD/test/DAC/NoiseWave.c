@@ -52,7 +52,7 @@ void Delay(__IO uint32_t nCount);
   */
 int main(void)
 {
-  if(remcu_connect2OpenOCD("localhost", 6666, 3) == false){
+  if(remcu_connect2GDB("localhost", 3333, 1) == false){
     printf("Connection error. Run OpenOCD server!");
     return -1;
   }
