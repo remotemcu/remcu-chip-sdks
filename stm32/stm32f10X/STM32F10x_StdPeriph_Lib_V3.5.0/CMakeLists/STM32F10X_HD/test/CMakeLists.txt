@@ -26,3 +26,30 @@ target_include_directories(test_CAN_Networking PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(test_CAN_Networking PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(test_CAN_Networking remcu)
+
+add_executable(TriangleWave
+	DAC/TriangleWave.c
+	)
+
+target_include_directories(TriangleWave PRIVATE ${ALL_INCLUDE_DIR})
+target_include_directories(TriangleWave PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TriangleWave remcu)
+
+add_executable(NoiseWave
+	DAC/NoiseWave.c
+	)
+
+target_include_directories(NoiseWave PRIVATE ${ALL_INCLUDE_DIR})
+target_include_directories(NoiseWave PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(NoiseWave remcu)
+
+add_executable(DAC_DMA_Escalator
+	DAC/DAC_DMA_Escalator.c
+	)
+
+target_include_directories(DAC_DMA_Escalator PRIVATE ${ALL_INCLUDE_DIR})
+target_include_directories(DAC_DMA_Escalator PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(DAC_DMA_Escalator remcu)
