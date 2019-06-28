@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.5)
 
 set(LICENSE_TYPE EDU)
 
-set(MCU_TYPE STM32F2X)
+set(MCU_TYPE STM32F2XX)
 
 set(MCU_LIB_NAME StdPeriph_Lib)
 
