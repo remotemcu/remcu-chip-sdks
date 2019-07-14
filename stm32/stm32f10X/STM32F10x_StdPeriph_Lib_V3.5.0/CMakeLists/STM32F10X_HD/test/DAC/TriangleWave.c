@@ -119,6 +119,12 @@ int main(int argc, char** argv)
   /* TIM2 enable counter */
   TIM_Cmd(TIM2, ENABLE);
 
+  if(remcu_getErrorCount() > 0){
+    printf("Error connect to server or hardware problem.\n");
+    return -1;
+  }
+  
+  printf("Success. Generating waveform...\n");
   return 0;
 }
 
