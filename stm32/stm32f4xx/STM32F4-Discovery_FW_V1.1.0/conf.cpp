@@ -6,7 +6,7 @@ namespace remcu {
 
 void setConfig(){
     clearConfig();
-    add_to_adin_interval(0x20000000,  0x20000000 + (112)*1024); //SRAM
+    add_to_mem_interval(0x20000000, 0x20000000 + (112)*1024); 			//SRAM
     add_to_adin_interval(0x40000000,  0x40008000); //APB1
     add_to_adin_interval(0x40010000,  0x40016C00); //APB2
     add_to_adin_interval(0x40020000,  0x40080000); //AHB1
