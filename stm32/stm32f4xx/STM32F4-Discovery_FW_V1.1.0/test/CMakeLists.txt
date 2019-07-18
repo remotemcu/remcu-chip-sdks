@@ -40,3 +40,12 @@ target_include_directories(CAN_Networking PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(CAN_Networking PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(CAN_Networking remcu)
+
+add_executable(DAC
+	DAC/main.c
+	)
+
+target_include_directories(DAC PRIVATE ${ALL_INCLUDE_DIR})
+target_include_directories(DAC PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(DAC remcu)
