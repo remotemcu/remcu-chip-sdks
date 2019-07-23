@@ -1,0 +1,572 @@
+/* Provide Declarations */
+#include <stdarg.h>
+#include <setjmp.h>
+#include <limits.h>
+#include <stdint.h>
+#include <math.h>
+#ifndef __cplusplus
+typedef unsigned char bool;
+#endif
+
+#ifndef _MSC_VER
+#define __forceinline __attribute__((always_inline)) inline
+#endif
+
+#if defined(__GNUC__)
+#define  __ATTRIBUTELIST__(x) __attribute__(x)
+#else
+#define  __ATTRIBUTELIST__(x)  
+#endif
+
+#ifdef _MSC_VER  /* Can only support "linkonce" vars with GCC */
+#define __attribute__(X)
+#endif
+
+
+
+/* Global Declarations */
+
+/* Types Declarations */
+struct l_struct_struct_OC_HASH_InitTypeDef;
+struct l_struct_struct_OC_HASH_TypeDef;
+struct l_struct_struct_OC_HASH_MsgDigest;
+struct l_struct_struct_OC_HASH_Context;
+
+/* Function definitions */
+
+/* Types Definitions */
+struct l_struct_struct_OC_HASH_InitTypeDef {
+  uint32_t field0;
+  uint32_t field1;
+  uint32_t field2;
+  uint32_t field3;
+};
+struct l_array_5_uint32_t {
+  uint32_t array[5];
+};
+struct l_array_52_uint32_t {
+  uint32_t array[52];
+};
+struct l_array_51_uint32_t {
+  uint32_t array[51];
+};
+struct l_struct_struct_OC_HASH_TypeDef {
+  uint32_t field0;
+  uint32_t field1;
+  uint32_t field2;
+  struct l_array_5_uint32_t field3;
+  uint32_t field4;
+  uint32_t field5;
+  struct l_array_52_uint32_t field6;
+  struct l_array_51_uint32_t field7;
+};
+struct l_struct_struct_OC_HASH_MsgDigest {
+  struct l_array_5_uint32_t field0;
+};
+struct l_struct_struct_OC_HASH_Context {
+  uint32_t field0;
+  uint32_t field1;
+  uint32_t field2;
+  struct l_array_51_uint32_t field3;
+};
+
+/* Function Declarations */
+void HASH_DeInit(void) __ATTRIBUTELIST__((noinline, nothrow));
+void RCC_AHB2PeriphResetCmd(uint32_t, uint32_t);
+void HASH_Init(struct l_struct_struct_OC_HASH_InitTypeDef*) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_StructInit(struct l_struct_struct_OC_HASH_InitTypeDef*) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_Reset(void) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_SetLastWordValidBitsNbr(uint16_t) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_DataIn(uint32_t) __ATTRIBUTELIST__((noinline, nothrow));
+uint8_t HASH_GetInFIFOWordsNbr(void) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_GetDigest(struct l_struct_struct_OC_HASH_MsgDigest*) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_StartDigest(void) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_SaveContext(struct l_struct_struct_OC_HASH_Context*) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_RestoreContext(struct l_struct_struct_OC_HASH_Context*) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_DMACmd(uint32_t) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_ITConfig(uint8_t, uint32_t) __ATTRIBUTELIST__((noinline, nothrow));
+uint32_t HASH_GetFlagStatus(uint16_t) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_ClearFlag(uint16_t) __ATTRIBUTELIST__((noinline, nothrow));
+uint32_t HASH_GetITStatus(uint8_t) __ATTRIBUTELIST__((noinline, nothrow));
+void HASH_ClearITPendingBit(uint8_t) __ATTRIBUTELIST__((noinline, nothrow));
+void __adin_store_(uint8_t*, uint64_t, uint32_t, uint32_t);
+uint64_t __adin_load_(uint8_t*, uint32_t, uint32_t);
+void __adin_memcpy_(uint8_t*, uint8_t*, uint32_t);
+void __adin_memset_(uint8_t*, uint8_t, uint32_t);
+
+
+/* REMCU Intrinsic Builtin Function Bodies */
+static __forceinline uint8_t llvm_add_u8(uint8_t a, uint8_t b) {
+  uint8_t r = a + b;
+  return r;
+}
+static __forceinline uint32_t llvm_lshr_u32(uint32_t a, uint32_t b) {
+  uint32_t r = a >> b;
+  return r;
+}
+
+
+/* Function Bodies */
+
+void HASH_DeInit(void) {
+  RCC_AHB2PeriphResetCmd(32, 1);
+  RCC_AHB2PeriphResetCmd(32, 0);
+}
+
+
+void HASH_Init(struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__1) {
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__2;    /* Address-exposed local */
+  uint64_t var_name_load_i32_;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__3;
+  uint64_t var_name_load_i32_1;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__4;
+  uint64_t var_name_load_i32_4;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__5;
+  uint64_t var_name_load_i32_7;
+  uint64_t var_name_load_i32_9;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__6;
+  uint64_t var_name_load_i32_13;
+  uint64_t var_name_load_i32_15;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__7;
+  uint64_t var_name_load_i32_19;
+  uint64_t var_name_load_i32_21;
+  uint64_t var_name_load_i32_24;
+
+  var_name_tmp__2 = var_name_tmp__1;
+  var_name_load_i32_ = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) & -241))), 32, 4);
+  var_name_tmp__3 = var_name_tmp__2;
+  var_name_load_i32_1 = __adin_load_((((uint8_t*)((&var_name_tmp__3->field0)))), 32, 4);
+  var_name_tmp__4 = var_name_tmp__2;
+  var_name_load_i32_4 = __adin_load_((((uint8_t*)((&var_name_tmp__4->field2)))), 32, 4);
+  var_name_tmp__5 = var_name_tmp__2;
+  var_name_load_i32_7 = __adin_load_((((uint8_t*)((&var_name_tmp__5->field1)))), 32, 4);
+  var_name_load_i32_9 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_9)) | (((((uint32_t)var_name_load_i32_1)) | (((uint32_t)var_name_load_i32_4))) | (((uint32_t)var_name_load_i32_7)))))), 32, 4);
+  var_name_tmp__6 = var_name_tmp__2;
+  var_name_load_i32_13 = __adin_load_((((uint8_t*)((&var_name_tmp__6->field1)))), 32, 4);
+  if (((((((uint32_t)var_name_load_i32_13)) == 64u)&1))) {
+    goto var_name_tmp__8;
+  } else {
+    goto var_name_tmp__9;
+  }
+
+var_name_tmp__8:
+  var_name_load_i32_15 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_15)) & -65537))), 32, 4);
+  var_name_tmp__7 = var_name_tmp__2;
+  var_name_load_i32_19 = __adin_load_((((uint8_t*)((&var_name_tmp__7->field3)))), 32, 4);
+  var_name_load_i32_21 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_21)) | (((uint32_t)var_name_load_i32_19))))), 32, 4);
+  goto var_name_tmp__9;
+
+var_name_tmp__9:
+  var_name_load_i32_24 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_24)) | 4))), 32, 4);
+}
+
+
+void HASH_StructInit(struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__10) {
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__11;    /* Address-exposed local */
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__12;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__13;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__14;
+  struct l_struct_struct_OC_HASH_InitTypeDef* var_name_tmp__15;
+
+  var_name_tmp__11 = var_name_tmp__10;
+  var_name_tmp__12 = var_name_tmp__11;
+  __adin_store_((((uint8_t*)((&var_name_tmp__12->field0)))), UINT64_C(0), 32, 4);
+  var_name_tmp__13 = var_name_tmp__11;
+  __adin_store_((((uint8_t*)((&var_name_tmp__13->field1)))), UINT64_C(0), 32, 4);
+  var_name_tmp__14 = var_name_tmp__11;
+  __adin_store_((((uint8_t*)((&var_name_tmp__14->field2)))), UINT64_C(0), 32, 4);
+  var_name_tmp__15 = var_name_tmp__11;
+  __adin_store_((((uint8_t*)((&var_name_tmp__15->field3)))), UINT64_C(0), 32, 4);
+}
+
+
+void HASH_Reset(void) {
+  uint64_t var_name_load_i32_;
+
+  var_name_load_i32_ = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) | 4))), 32, 4);
+}
+
+
+void HASH_SetLastWordValidBitsNbr(uint16_t var_name_tmp__16) {
+  uint16_t var_name_tmp__17;    /* Address-exposed local */
+  uint64_t var_name_load_i32_;
+  uint16_t var_name_tmp__18;
+  uint64_t var_name_load_i32_1;
+
+  var_name_tmp__17 = var_name_tmp__16;
+  var_name_load_i32_ = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) & -32))), 32, 4);
+  var_name_tmp__18 = var_name_tmp__17;
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_1)) | (((uint32_t)(uint16_t)var_name_tmp__18))))), 32, 4);
+}
+
+
+void HASH_DataIn(uint32_t var_name_tmp__19) {
+  uint32_t var_name_tmp__20;    /* Address-exposed local */
+  uint32_t var_name_tmp__21;
+
+  var_name_tmp__20 = var_name_tmp__19;
+  var_name_tmp__21 = var_name_tmp__20;
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field1))), (((uint64_t)(uint32_t)var_name_tmp__21)), 32, 4);
+}
+
+
+uint8_t HASH_GetInFIFOWordsNbr(void) {
+  uint64_t var_name_load_i32_;
+
+  var_name_load_i32_ = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  return (((uint8_t)(llvm_lshr_u32(((((uint32_t)var_name_load_i32_)) & 3840), 8))));
+}
+
+
+void HASH_GetDigest(struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__22) {
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__23;    /* Address-exposed local */
+  uint64_t var_name_load_i32_;
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__24;
+  uint64_t var_name_load_i32_1;
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__25;
+  uint64_t var_name_load_i32_5;
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__26;
+  uint64_t var_name_load_i32_9;
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__27;
+  uint64_t var_name_load_i32_13;
+  struct l_struct_struct_OC_HASH_MsgDigest* var_name_tmp__28;
+
+  var_name_tmp__23 = var_name_tmp__22;
+  var_name_load_i32_ = __adin_load_(
+    (
+      (uint8_t*)(
+        (&
+          ((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field3[((int64_t)UINT64_C(0))]
+          )
+        )
+      ),
+     32,
+     4
+    );
+  var_name_tmp__24 = var_name_tmp__23;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__24->field0))).array[((int64_t)UINT64_C(0))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_)))), 32, 4);
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field3[((int64_t)UINT64_C(1))]))), 32, 4);
+  var_name_tmp__25 = var_name_tmp__23;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__25->field0))).array[((int64_t)UINT64_C(1))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_1)))), 32, 4);
+  var_name_load_i32_5 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field3[((int64_t)UINT64_C(2))]))), 32, 4);
+  var_name_tmp__26 = var_name_tmp__23;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__26->field0))).array[((int64_t)UINT64_C(2))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_5)))), 32, 4);
+  var_name_load_i32_9 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field3[((int64_t)UINT64_C(3))]))), 32, 4);
+  var_name_tmp__27 = var_name_tmp__23;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__27->field0))).array[((int64_t)UINT64_C(3))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_9)))), 32, 4);
+  var_name_load_i32_13 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field3[((int64_t)UINT64_C(4))]))), 32, 4);
+  var_name_tmp__28 = var_name_tmp__23;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__28->field0))).array[((int64_t)UINT64_C(4))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_13)))), 32, 4);
+}
+
+
+void HASH_StartDigest(void) {
+  uint64_t var_name_load_i32_;
+
+  var_name_load_i32_ = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) | 256))), 32, 4);
+}
+
+
+void HASH_SaveContext(struct l_struct_struct_OC_HASH_Context* var_name_tmp__29) {
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__30;    /* Address-exposed local */
+  uint8_t var_name_tmp__31;    /* Address-exposed local */
+  uint64_t var_name_load_i32_;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__32;
+  uint64_t var_name_load_i32_1;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__33;
+  uint64_t var_name_load_i32_5;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__34;
+  uint8_t var_name_tmp__35;
+  uint8_t var_name_tmp__36;
+  uint64_t var_name_load_i32_10;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__37;
+  uint8_t var_name_tmp__38;
+  uint8_t var_name_tmp__39;
+
+  var_name_tmp__30 = var_name_tmp__29;
+  var_name_tmp__31 = 0;
+  var_name_load_i32_ = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), 32, 4);
+  var_name_tmp__32 = var_name_tmp__30;
+  __adin_store_((((uint8_t*)((&var_name_tmp__32->field0)))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_)))), 32, 4);
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), 32, 4);
+  var_name_tmp__33 = var_name_tmp__30;
+  __adin_store_((((uint8_t*)((&var_name_tmp__33->field1)))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_1)))), 32, 4);
+  var_name_load_i32_5 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  var_name_tmp__34 = var_name_tmp__30;
+  __adin_store_((((uint8_t*)((&var_name_tmp__34->field2)))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_5)))), 32, 4);
+  var_name_tmp__31 = 0;
+  goto var_name_tmp__40;
+
+  do {     /* Syntactic loop '' to make GCC happy */
+var_name_tmp__40:
+  var_name_tmp__35 = var_name_tmp__31;
+  if ((((((int32_t)(((uint32_t)(uint8_t)var_name_tmp__35))) <= ((int32_t)50u))&1))) {
+    goto var_name_tmp__41;
+  } else {
+    goto var_name_tmp__42;
+  }
+
+var_name_tmp__41:
+  var_name_tmp__36 = var_name_tmp__31;
+  var_name_load_i32_10 = __adin_load_((((uint8_t*)((&(*((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field7))).array[((int64_t)(((uint64_t)(uint8_t)var_name_tmp__36)))])))), 32, 4);
+  var_name_tmp__37 = var_name_tmp__30;
+  var_name_tmp__38 = var_name_tmp__31;
+  __adin_store_((((uint8_t*)((&(*((&var_name_tmp__37->field3))).array[((int64_t)(((uint64_t)(uint8_t)var_name_tmp__38)))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_10)))), 32, 4);
+  goto var_name_tmp__43;
+
+var_name_tmp__43:
+  var_name_tmp__39 = var_name_tmp__31;
+  var_name_tmp__31 = (llvm_add_u8(var_name_tmp__39, 1));
+  goto var_name_tmp__40;
+
+  } while (1); /* end of syntactic loop '' */
+var_name_tmp__42:
+  return;
+}
+
+
+void HASH_RestoreContext(struct l_struct_struct_OC_HASH_Context* var_name_tmp__44) {
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__45;    /* Address-exposed local */
+  uint8_t var_name_tmp__46;    /* Address-exposed local */
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__47;
+  uint64_t var_name_load_i32_;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__48;
+  uint64_t var_name_load_i32_2;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__49;
+  uint64_t var_name_load_i32_6;
+  uint64_t var_name_load_i32_9;
+  uint8_t var_name_tmp__50;
+  struct l_struct_struct_OC_HASH_Context* var_name_tmp__51;
+  uint8_t var_name_tmp__52;
+  uint64_t var_name_load_i32_13;
+  uint8_t var_name_tmp__53;
+  uint8_t var_name_tmp__54;
+
+  var_name_tmp__45 = var_name_tmp__44;
+  var_name_tmp__46 = 0;
+  var_name_tmp__47 = var_name_tmp__45;
+  var_name_load_i32_ = __adin_load_((((uint8_t*)((&var_name_tmp__47->field0)))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_)))), 32, 4);
+  var_name_tmp__48 = var_name_tmp__45;
+  var_name_load_i32_2 = __adin_load_((((uint8_t*)((&var_name_tmp__48->field1)))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field2))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_2)))), 32, 4);
+  var_name_tmp__49 = var_name_tmp__45;
+  var_name_load_i32_6 = __adin_load_((((uint8_t*)((&var_name_tmp__49->field2)))), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_6)))), 32, 4);
+  var_name_load_i32_9 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_9)) | 4))), 32, 4);
+  var_name_tmp__46 = 0;
+  goto var_name_tmp__55;
+
+  do {     /* Syntactic loop '' to make GCC happy */
+var_name_tmp__55:
+  var_name_tmp__50 = var_name_tmp__46;
+  if ((((((int32_t)(((uint32_t)(uint8_t)var_name_tmp__50))) <= ((int32_t)50u))&1))) {
+    goto var_name_tmp__56;
+  } else {
+    goto var_name_tmp__57;
+  }
+
+var_name_tmp__56:
+  var_name_tmp__51 = var_name_tmp__45;
+  var_name_tmp__52 = var_name_tmp__46;
+  var_name_load_i32_13 = __adin_load_((((uint8_t*)((&(*((&var_name_tmp__51->field3))).array[((int64_t)(((uint64_t)(uint8_t)var_name_tmp__52)))])))), 32, 4);
+  var_name_tmp__53 = var_name_tmp__46;
+  __adin_store_((((uint8_t*)((&(*((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field7))).array[((int64_t)(((uint64_t)(uint8_t)var_name_tmp__53)))])))), (((uint64_t)(uint32_t)(((uint32_t)var_name_load_i32_13)))), 32, 4);
+  goto var_name_tmp__58;
+
+var_name_tmp__58:
+  var_name_tmp__54 = var_name_tmp__46;
+  var_name_tmp__46 = (llvm_add_u8(var_name_tmp__54, 1));
+  goto var_name_tmp__55;
+
+  } while (1); /* end of syntactic loop '' */
+var_name_tmp__57:
+  return;
+}
+
+
+void HASH_DMACmd(uint32_t var_name_tmp__59) {
+  uint32_t var_name_tmp__60;    /* Address-exposed local */
+  uint32_t var_name_tmp__61;
+  uint64_t var_name_load_i32_;
+  uint64_t var_name_load_i32_1;
+
+  var_name_tmp__60 = var_name_tmp__59;
+  var_name_tmp__61 = var_name_tmp__60;
+  if ((((var_name_tmp__61 != 0u)&1))) {
+    goto var_name_tmp__62;
+  } else {
+    goto var_name_tmp__63;
+  }
+
+var_name_tmp__62:
+  var_name_load_i32_ = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) | 8))), 32, 4);
+  goto var_name_tmp__64;
+
+var_name_tmp__63:
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  __adin_store_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_1)) & -9))), 32, 4);
+  goto var_name_tmp__64;
+
+var_name_tmp__64:
+  return;
+}
+
+
+void HASH_ITConfig(uint8_t var_name_tmp__65, uint32_t var_name_tmp__66) {
+  uint8_t var_name_tmp__67;    /* Address-exposed local */
+  uint32_t var_name_tmp__68;    /* Address-exposed local */
+  uint32_t var_name_tmp__69;
+  uint8_t var_name_tmp__70;
+  uint64_t var_name_load_i32_;
+  uint8_t var_name_tmp__71;
+  uint64_t var_name_load_i32_1;
+
+  var_name_tmp__67 = var_name_tmp__65;
+  var_name_tmp__68 = var_name_tmp__66;
+  var_name_tmp__69 = var_name_tmp__68;
+  if ((((var_name_tmp__69 != 0u)&1))) {
+    goto var_name_tmp__72;
+  } else {
+    goto var_name_tmp__73;
+  }
+
+var_name_tmp__72:
+  var_name_tmp__70 = var_name_tmp__67;
+  var_name_load_i32_ = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_)) | (((uint32_t)(uint8_t)var_name_tmp__70))))), 32, 4);
+  goto var_name_tmp__74;
+
+var_name_tmp__73:
+  var_name_tmp__71 = var_name_tmp__67;
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), 32, 4);
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), (((uint64_t)(uint32_t)((((uint32_t)var_name_load_i32_1)) & (((uint32_t)(uint8_t)(((uint8_t)(~((((uint32_t)(uint8_t)var_name_tmp__71))))))))))), 32, 4);
+  goto var_name_tmp__74;
+
+var_name_tmp__74:
+  return;
+}
+
+
+uint32_t HASH_GetFlagStatus(uint16_t var_name_tmp__75) {
+  uint16_t var_name_tmp__76;    /* Address-exposed local */
+  uint32_t var_name_tmp__77;    /* Address-exposed local */
+  uint32_t var_name_tmp__78;    /* Address-exposed local */
+  uint16_t var_name_tmp__79;
+  uint64_t var_name_load_i32_;
+  uint64_t var_name_load_i32_1;
+  uint32_t var_name_tmp__80;
+  uint16_t var_name_tmp__81;
+  uint32_t var_name_tmp__82;
+
+  var_name_tmp__76 = var_name_tmp__75;
+  var_name_tmp__77 = 0;
+  var_name_tmp__78 = 0;
+  var_name_tmp__79 = var_name_tmp__76;
+  if ((((((((uint32_t)(uint16_t)var_name_tmp__79)) & 4096) != 0u)&1))) {
+    goto var_name_tmp__83;
+  } else {
+    goto var_name_tmp__84;
+  }
+
+var_name_tmp__83:
+  var_name_load_i32_ = __adin_load_(((uint8_t*)(uintptr_t)UINT64_C(1342571520)), 32, 4);
+  var_name_tmp__78 = (((uint32_t)var_name_load_i32_));
+  goto var_name_tmp__85;
+
+var_name_tmp__84:
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field5))), 32, 4);
+  var_name_tmp__78 = (((uint32_t)var_name_load_i32_1));
+  goto var_name_tmp__85;
+
+var_name_tmp__85:
+  var_name_tmp__80 = var_name_tmp__78;
+  var_name_tmp__81 = var_name_tmp__76;
+  if (((((var_name_tmp__80 & (((uint32_t)(uint16_t)var_name_tmp__81))) != 0u)&1))) {
+    goto var_name_tmp__86;
+  } else {
+    goto var_name_tmp__87;
+  }
+
+var_name_tmp__86:
+  var_name_tmp__77 = 1;
+  goto var_name_tmp__88;
+
+var_name_tmp__87:
+  var_name_tmp__77 = 0;
+  goto var_name_tmp__88;
+
+var_name_tmp__88:
+  var_name_tmp__82 = var_name_tmp__77;
+  return var_name_tmp__82;
+}
+
+
+void HASH_ClearFlag(uint16_t var_name_tmp__89) {
+  uint16_t var_name_tmp__90;    /* Address-exposed local */
+  uint16_t var_name_tmp__91;
+
+  var_name_tmp__90 = var_name_tmp__89;
+  var_name_tmp__91 = var_name_tmp__90;
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field5))), (((uint64_t)(uint32_t)(~((((uint32_t)(uint16_t)var_name_tmp__91)))))), 32, 4);
+}
+
+
+uint32_t HASH_GetITStatus(uint8_t var_name_tmp__92) {
+  uint8_t var_name_tmp__93;    /* Address-exposed local */
+  uint32_t var_name_tmp__94;    /* Address-exposed local */
+  uint32_t var_name_tmp__95;    /* Address-exposed local */
+  uint64_t var_name_load_i32_;
+  uint64_t var_name_load_i32_1;
+  uint32_t var_name_tmp__96;
+  uint8_t var_name_tmp__97;
+  uint32_t var_name_tmp__98;
+
+  var_name_tmp__93 = var_name_tmp__92;
+  var_name_tmp__94 = 0;
+  var_name_tmp__95 = 0;
+  var_name_load_i32_ = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field5))), 32, 4);
+  var_name_tmp__95 = (((uint32_t)var_name_load_i32_));
+  var_name_load_i32_1 = __adin_load_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field4))), 32, 4);
+  var_name_tmp__96 = var_name_tmp__95;
+  var_name_tmp__97 = var_name_tmp__93;
+  if (((((((((uint32_t)var_name_load_i32_1)) & var_name_tmp__96) & (((uint32_t)(uint8_t)var_name_tmp__97))) != 0u)&1))) {
+    goto var_name_tmp__99;
+  } else {
+    goto var_name_tmp__100;
+  }
+
+var_name_tmp__99:
+  var_name_tmp__94 = 1;
+  goto var_name_tmp__101;
+
+var_name_tmp__100:
+  var_name_tmp__94 = 0;
+  goto var_name_tmp__101;
+
+var_name_tmp__101:
+  var_name_tmp__98 = var_name_tmp__94;
+  return var_name_tmp__98;
+}
+
+
+void HASH_ClearITPendingBit(uint8_t var_name_tmp__102) {
+  uint8_t var_name_tmp__103;    /* Address-exposed local */
+  uint8_t var_name_tmp__104;
+
+  var_name_tmp__103 = var_name_tmp__102;
+  var_name_tmp__104 = var_name_tmp__103;
+  __adin_store_(((uint8_t*)((&((struct l_struct_struct_OC_HASH_TypeDef*)(uintptr_t)UINT64_C(1342571520))->field5))), (((uint64_t)(uint32_t)(((uint32_t)(uint8_t)(((uint8_t)(~((((uint32_t)(uint8_t)var_name_tmp__104)))))))))), 32, 4);
+}
+

@@ -66,10 +66,15 @@ $(OUTPUT): $(IR_FILES)
 	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
 	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
 
+REMCU_C: $(IR_FILES)
+	@echo done
+
 # compile
 #------------------------------------------------------------------------------- 
 %.ll: %.c
 	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
 	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
+	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).adin.ll -o $(OUTPUT_DIR)/$(notdir $<).remcu.c
+	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX) -o $(OUTPUT_MCU_DIR)/$(notdir $<).mcu.c
 	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
 
