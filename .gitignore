@@ -11,5 +11,6 @@
 *.files
 *.includes
 *.ll
-build/
+build*
+*.build
 *.lib/
