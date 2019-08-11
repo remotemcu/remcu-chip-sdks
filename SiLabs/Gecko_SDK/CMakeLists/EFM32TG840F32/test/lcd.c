@@ -52,8 +52,8 @@ remcu_setVerboseLevel(__ERROR);
 
   SegmentLCD_AllOff();
 
-  SegmentLCD_Symbol(LCD_SYMBOL_PAD0, 1);
-  SegmentLCD_Symbol(LCD_SYMBOL_PAD1, 1);
+  //SegmentLCD_Symbol(LCD_SYMBOL_PAD0, 1);
+  //SegmentLCD_Symbol(LCD_SYMBOL_PAD1, 1);
 
   sleep(1);
   SegmentLCD_Symbol(LCD_SYMBOL_GECKO, 1);
@@ -61,7 +61,7 @@ remcu_setVerboseLevel(__ERROR);
 
   while(1){
       sleep(1);
-      SegmentLCD_Write(" TINY");
+      SegmentLCD_Write("REMCU");
 
       sleep(1);
       SegmentLCD_Write("     ");
