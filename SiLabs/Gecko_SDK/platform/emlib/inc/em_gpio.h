@@ -878,13 +878,16 @@ __STATIC_INLINE void GPIO_PinOutSet(GPIO_Port_TypeDef port, unsigned int pin)
  * @param[in] pin
  *   The pin to toggle.
  ******************************************************************************/
+#ifdef REMCU_LIB
+void GPIO_PinOutToggle(GPIO_Port_TypeDef port, unsigned int pin);
+#else
 __STATIC_INLINE void GPIO_PinOutToggle(GPIO_Port_TypeDef port, unsigned int pin)
 {
   EFM_ASSERT(GPIO_PORT_PIN_VALID(port, pin));
 
   GPIO->P[port].DOUTTGL = 1 << pin;
 }
-
+#endif //REMCU_LIB
 /***************************************************************************//**
  * @brief
  *   Read the pad values for GPIO port.

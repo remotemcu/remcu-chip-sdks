@@ -65,12 +65,15 @@ remcu_setVerboseLevel(__ERROR);
   CHIP_Init(); //nah
 
   /* Initialize LED driver */
-  BSP_LedsInit();
+  //BSP_LedsInit();
+  CMU_ClockEnable(cmuClock_HFPER, true);
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  GPIO_PinModeSet(gpioPortD, 7, gpioModePushPull, 0);
 
   /* Infinite blink loop */
   while (1)
   {
-    printf(" %d\n",BSP_LedToggle(0));
+    GPIO_PinOutToggle(gpioPortD, 7);
     //GPIO_PinModeSet(gpioPortD, 7,gpioModePushPull, 1);
     sleep(1);
   }

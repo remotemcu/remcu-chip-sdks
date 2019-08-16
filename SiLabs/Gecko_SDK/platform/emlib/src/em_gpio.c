@@ -387,3 +387,15 @@ void GPIO_EM4EnablePinWakeup(uint32_t pinmask, uint32_t polaritymask)
 /** @} (end addtogroup emlib) */
 
 #endif /* defined(GPIO_COUNT) && (GPIO_COUNT > 0) */
+
+
+#ifdef REMCU_LIB
+
+void GPIO_PinOutToggle(GPIO_Port_TypeDef port, unsigned int pin)
+{
+  EFM_ASSERT(GPIO_PORT_PIN_VALID(port, pin));
+
+  GPIO->P[port].DOUTTGL = 1 << pin;
+}
+
+#endif //REMCU_LIB
