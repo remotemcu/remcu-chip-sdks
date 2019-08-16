@@ -35,7 +35,9 @@
 #define EFM32TG840F32_H
 
 #ifdef __cplusplus
-extern "C" {
+  #ifndef REMCU_LIB
+    extern "C" {
+  #endif
 #endif
 
 /**************************************************************************//**
