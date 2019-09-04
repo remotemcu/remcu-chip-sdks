@@ -48,6 +48,7 @@ FILE(GLOB COPY_HEADER_FROM_LIB
       Libraries/CMSIS/Device/ST/STM32F2xx/Include/*.h
       Libraries/STM32F2xx_StdPeriph_Driver/inc/*.h
       Project/STM32F2xx_StdPeriph_Template/stm32f2xx_conf.h
+      Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/system_stm32f2xx.c
       )
 
 #message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")
