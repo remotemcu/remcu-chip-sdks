@@ -1806,13 +1806,11 @@ static __INLINE int ITM_CheckChar (void) {
 }
 
 /*@}*/ /* end of group CMSIS_CM3_core_DebugInterface */
-
+#endif //REMCU_LIB
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //REMCU_LIB
 
 /*@}*/ /* end of group CMSIS_CM3_core_definitions */
 

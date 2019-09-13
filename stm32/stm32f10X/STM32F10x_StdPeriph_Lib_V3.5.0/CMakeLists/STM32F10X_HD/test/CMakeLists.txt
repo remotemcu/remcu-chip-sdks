@@ -1,7 +1,7 @@
 project(test C)
 
 add_executable(test_TIM6
-	TIM6/main.c
+	TIM6/main.cpp
 	)
 
 target_include_directories(test_TIM6 PRIVATE ${ALL_INCLUDE_DIR})
