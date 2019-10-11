@@ -124,20 +124,20 @@ RTC_AlarmMask_TypeDef;
 typedef enum
 {
   RTC_AlarmSubSecondMask_All      =  ((uint8_t)0x00), /*!< All Alarm SS fields are masked. There is no comparison on sub seconds for Alarm */
-  RTC_AlarmSubSecondMask_SS14_1   =  ((uint8_t)0x01), /*!< SS[14:1] are don’t care in Alarm comparison. Only SS[0] is compared. */
-  RTC_AlarmSubSecondMask_SS14_2   =  ((uint8_t)0x02), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_3   =  ((uint8_t)0x03), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_4   =  ((uint8_t)0x04), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_5   =  ((uint8_t)0x05), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_6   =  ((uint8_t)0x06), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_7   =  ((uint8_t)0x07), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_8   =  ((uint8_t)0x08), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_9   =  ((uint8_t)0x09), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_10  =  ((uint8_t)0x0A), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_11  =  ((uint8_t)0x0B), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_12  =  ((uint8_t)0x0C), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14_13  =  ((uint8_t)0x0D), /*!< SS[14:2] are don’t care in Alarm A comparison. Only SS[1:0] are compared */
-  RTC_AlarmSubSecondMask_SS14     =  ((uint8_t)0x0E), /*!< SS[14] is don’t care in Alarm A comparison. Only SS[13:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_1   =  ((uint8_t)0x01), /*!< SS[14:1] are dont care in Alarm comparison. Only SS[0] is compared. */
+  RTC_AlarmSubSecondMask_SS14_2   =  ((uint8_t)0x02), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_3   =  ((uint8_t)0x03), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_4   =  ((uint8_t)0x04), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_5   =  ((uint8_t)0x05), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_6   =  ((uint8_t)0x06), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_7   =  ((uint8_t)0x07), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_8   =  ((uint8_t)0x08), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_9   =  ((uint8_t)0x09), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_10  =  ((uint8_t)0x0A), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_11  =  ((uint8_t)0x0B), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_12  =  ((uint8_t)0x0C), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14_13  =  ((uint8_t)0x0D), /*!< SS[14:2] are dont care in Alarm A comparison. Only SS[1:0] are compared */
+  RTC_AlarmSubSecondMask_SS14     =  ((uint8_t)0x0E), /*!< SS[14] is dont care in Alarm A comparison. Only SS[13:0] are compared */
   RTC_AlarmSubSecondMask_None     =  ((uint8_t)0x0F) /*!< SS[14:0] are compared and must match to activate alarm. */
 }
 RTC_AlarmSubSecondMask_TypeDef;
@@ -234,9 +234,9 @@ typedef enum
                                               shift operation has completed.  */
 
   RTC_FLAG_WUTWF   = ((uint16_t)0x0400), /*!< Wake up Timer write Flag. If set, Wake up Timer update is allowed */
-  RTC_FLAG_RECALPF = ((uint16_t)0x0200), /*!<   Recalibration pending Flag, The status flag RECALPF is automatically set to ‘1’ when software
+  RTC_FLAG_RECALPF = ((uint16_t)0x0200), /*!<   Recalibration pending Flag, The status flag RECALPF is automatically set to "1" when software
                                                 writes to the register RTC_CALRL, indicating that the RTC_CALRx registers are blocked.
-                                                When the new calibration settings are taken into account, this Flag returns by hardware to ‘0’. */
+                                                When the new calibration settings are taken into account, this Flag returns by hardware to "0". */
   RTC_FLAG_ALRAWF  = ((uint16_t)0x0100)  /*!< Alarm  A write Flag. If set, Alarm A update is allowed   */
 }
 RTC_Flag_TypeDef;
