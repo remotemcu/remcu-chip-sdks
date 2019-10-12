@@ -55,7 +55,7 @@ for set_of_files in options.sets_of_files:
 compile_options = options.compile_options
 
 for d in options.dirs:
-	f_list = glob.glob(d + "*.h")
+	f_list = glob.glob(d + "/*.h")
 	files.extend(f_list)
 	compile_options += " -I" + d
 
@@ -66,6 +66,7 @@ compile_options = compile_options.split(" ")
 
 debug = int(options.debug_level) > 0
 
+print(files)
 
 pytext.text = """# -*- coding: utf-8 -*-
 #
