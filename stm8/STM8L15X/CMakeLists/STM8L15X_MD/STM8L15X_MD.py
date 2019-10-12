@@ -30,8 +30,8 @@ __WARNING = 1
 __INFO = 2
 __DEBUG = 3
 __ALL_LOG = 4
-__DEFAULT_OPENOCD_PORT = 6666
-__DEFAULT_GDB_PORT = 3333
+DEFAULT_OPENOCD_PORT = 6666
+DEFAULT_GDB_PORT = 3333
 
 
 # file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_wwdg.h : 
