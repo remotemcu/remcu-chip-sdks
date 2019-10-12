@@ -37,13 +37,19 @@ add_custom_target( MCU_LIB
                    COMMENT "---------------- Generating ADIN IR ----------------"
 )
 
+set(ARCHIVE_FILES ${CMAKE_CURRENT_BINARY_DIR}/${MCU_TYPE}.py)
+
 include(shared)
 
 
 file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
-      "${CMAKE_CURRENT_SOURCE_DIR}/REMCU_${MCU_TYPE}.py"
       DESTINATION ${ALL_INCLUDE_DIR}
       )
+
+file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}.py"
+      DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+      )
+
 file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
             ${ALL_INCLUDE_DIR}/device_defines.h
       )
