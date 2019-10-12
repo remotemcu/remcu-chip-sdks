@@ -66,17 +66,43 @@ compile_options = compile_options.split(" ")
 
 debug = int(options.debug_level) > 0
 
-pytext.text = "import ctypes\n\n"
-pytext.text += "__RUN = 0\n"
-pytext.text += "__HALT = 1\n"
-pytext.text += "__ERROR = 0\n"
-pytext.text += "__WARNING = 1\n"
-pytext.text += "__INFO = 2\n"
-pytext.text += "__DEBUG = 3\n"
-pytext.text += "__ALL_LOG = 4\n"
-pytext.text += "DEFAULT_OPENOCD_PORT = 6666\n"
-pytext.text += "DEFAULT_GDB_PORT = 3333\n"
-pytext.text += "\n\n"
+
+pytext.text = """# -*- coding: utf-8 -*-
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# To improve the quality of the software, users are encouraged to share modifications, enhancements or bug fixes with
+# remotemcu.com (remcu@remotemcu.com)
+#
+# It is python header file for using REMCU library
+#
+# version: 1.0r
+#
+# word size : 32 bit
+# pointer size : 64 bit
+#
+#
+
+
+import ctypes
+
+__RUN = 0
+__HALT = 1
+__ERROR = 0
+__WARNING = 1
+__INFO = 2
+__DEBUG = 3
+__ALL_LOG = 4
+DEFAULT_OPENOCD_PORT = 6666
+DEFAULT_GDB_PORT = 3333
+\n\n"""
+
 
 for f in files:
 	pytext.addComment("file %s : \n" % f)
