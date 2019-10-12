@@ -1,5 +1,16 @@
 import ctypes
 
+__RUN = 0
+__HALT = 1
+__ERROR = 0
+__WARNING = 1
+__INFO = 2
+__DEBUG = 3
+__ALL_LOG = 4
+__DEFAULT_OPENOCD_PORT = 6666
+__DEFAULT_GDB_PORT = 3333
+
+
 # file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_wwdg.h : 
 
 # empty define __STM8L15x_WWDG_H

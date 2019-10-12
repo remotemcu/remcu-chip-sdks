@@ -35,7 +35,8 @@ add_custom_target( MCU_LIB
 
 include(shared)
 
-file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
+file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h" 
+      "${CMAKE_CURRENT_SOURCE_DIR}/REMCU_${MCU_TYPE}.py"
       DESTINATION ${ALL_INCLUDE_DIR}
       )
 file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
