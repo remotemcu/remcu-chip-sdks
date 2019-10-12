@@ -660,7 +660,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div)
  |---------------|----------------|----------------|-----------------|-----------------| 
  |7WS(8CPU cycle)|      NA        |      NA        |120 < HCLK <= 138|112 < HCLK <= 120| 
  +-------------------------------------------------------------------------------------+    
-   @note When VOS bit (in PWR_CR register) is reset to '0’, the maximum value of HCLK is 144 MHz.
+   @note When VOS bit (in PWR_CR register) is reset to '0', the maximum value of HCLK is 144 MHz.
          You can use PWR_MainRegulatorModeConfig() function to set or reset this bit.
 
 @endverbatim

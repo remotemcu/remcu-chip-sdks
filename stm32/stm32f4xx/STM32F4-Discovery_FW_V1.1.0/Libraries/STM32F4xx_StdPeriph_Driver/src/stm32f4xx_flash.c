@@ -134,7 +134,7 @@
  |---------------|----------------|----------------|-----------------|-----------------|-----------------------------|   
  |PSIZE[1:0]     |      10        |               01                 |       00        |           11                |
  +-------------------------------------------------------------------------------------------------------------------+  
-   @note When VOS bit (in PWR_CR register) is reset to '0’, the maximum value of HCLK is 144 MHz.
+   @note When VOS bit (in PWR_CR register) is reset to '0' , the maximum value of HCLK is 144 MHz.
          You can use PWR_MainRegulatorModeConfig() function to set or reset this bit.
              
     - void FLASH_PrefetchBufferCmd(FunctionalState NewState)
