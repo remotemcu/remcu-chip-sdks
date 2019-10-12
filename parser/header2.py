@@ -74,8 +74,8 @@ pytext.text += "__WARNING = 1\n"
 pytext.text += "__INFO = 2\n"
 pytext.text += "__DEBUG = 3\n"
 pytext.text += "__ALL_LOG = 4\n"
-pytext.text += "__DEFAULT_OPENOCD_PORT = 6666\n"
-pytext.text += "__DEFAULT_GDB_PORT = 3333\n"
+pytext.text += "DEFAULT_OPENOCD_PORT = 6666\n"
+pytext.text += "DEFAULT_GDB_PORT = 3333\n"
 pytext.text += "\n\n"
 
 for f in files:
