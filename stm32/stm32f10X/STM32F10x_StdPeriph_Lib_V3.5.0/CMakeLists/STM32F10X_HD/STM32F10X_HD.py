@@ -34,7 +34,7 @@ DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
 
 
-# file ../../Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h : 
+# file stm32f10x.h : 
 
 # Enum FlagStatus , ITStatus
 RESET = 0x0
@@ -5668,7 +5668,7 @@ class WWDG_TypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file ../../Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.h : 
+# file system_stm32f10x.h : 
 
 # empty define __SYSTEM_STM32F10X_H
 # Skip SystemCoreClock : no need parse

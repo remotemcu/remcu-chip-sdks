@@ -34,7 +34,7 @@ DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
 
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h : 
+# file stm32f4xx_tim.h : 
 
 # empty define __STM32F4xx_TIM_H
 TIM_OCMode_Timing = 0x0
@@ -307,7 +307,7 @@ class TIM_BDTRInitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_iwdg.h : 
+# file stm32f4xx_iwdg.h : 
 
 # empty define __STM32F4xx_IWDG_H
 IWDG_WriteAccess_Enable = 0x5555
@@ -323,7 +323,7 @@ IWDG_FLAG_PVU = 0x1
 IWDG_FLAG_RVU = 0x2
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h : 
+# file stm32f4xx_flash.h : 
 
 # Enum FLASH_Status
 FLASH_BUSY = 0x1
@@ -409,12 +409,12 @@ OPTCR_BYTE1_ADDRESS = 0x40023C15
 OPTCR_BYTE2_ADDRESS = 0x40023C16
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_crc.h : 
+# file stm32f4xx_crc.h : 
 
 # empty define __STM32F4xx_CRC_H
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_pwr.h : 
+# file stm32f4xx_pwr.h : 
 
 # empty define __STM32F4xx_PWR_H
 PWR_PVDLevel_0 = 0x0
@@ -439,7 +439,7 @@ PWR_FLAG_VOSRDY = 0x4000
 PWR_FLAG_REGRDY = 0x4000
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h : 
+# file stm32f4xx_gpio.h : 
 
 # Enum GPIOMode_TypeDef
 GPIO_Mode_IN = 0x0
@@ -555,7 +555,7 @@ class GPIO_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h : 
+# file stm32f4xx_adc.h : 
 
 # empty define __STM32F4xx_ADC_H
 ADC_Mode_Independent = 0x0
@@ -723,7 +723,7 @@ class ADC_CommonInitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h : 
+# file stm32f4xx_wwdg.h : 
 
 # empty define __STM32F4xx_WWDG_H
 WWDG_Prescaler_1 = 0x0
@@ -732,7 +732,7 @@ WWDG_Prescaler_4 = 0x100
 WWDG_Prescaler_8 = 0x180
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h : 
+# file stm32f4xx_usart.h : 
 
 # empty define __STM32F4xx_USART_H
 USART_WordLength_8b = 0x0
@@ -819,7 +819,7 @@ class USART_ClockInitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dcmi.h : 
+# file stm32f4xx_dcmi.h : 
 
 # empty define __STM32F4xx_DCMI_H
 DCMI_CaptureMode_Continuous = 0x0
@@ -901,7 +901,7 @@ class DCMI_CodesInitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_exti.h : 
+# file stm32f4xx_exti.h : 
 
 # Enum EXTIMode_TypeDef
 EXTI_Mode_Interrupt = 0x0
@@ -949,7 +949,7 @@ class EXTI_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h : 
+# file stm32f4xx_rcc.h : 
 
 # empty define __STM32F4xx_RCC_H
 RCC_HSE_OFF = 0x0
@@ -1130,7 +1130,7 @@ class RCC_ClocksTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h : 
+# file stm32f4xx_dma.h : 
 
 # empty define __STM32F4xx_DMA_H
 DMA_Channel_0 = 0x0
@@ -1297,7 +1297,7 @@ class DMA_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_hash.h : 
+# file stm32f4xx_hash.h : 
 
 # empty define __STM32F4xx_HASH_H
 HASH_AlgoSelection_SHA1 = 0x0
@@ -1336,7 +1336,7 @@ class HASH_InitTypeDef(ctypes.Structure):
 # struct HASH_Context : field is array
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fsmc.h : 
+# file stm32f4xx_fsmc.h : 
 
 # empty define __STM32F4xx_FSMC_H
 FSMC_Bank1_NORSRAM1 = 0x0
@@ -1429,7 +1429,7 @@ class FSMC_NAND_PCCARDTimingInitTypeDef(ctypes.Structure):
 # struct FSMC_PCCARDInitTypeDef : field is class
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_spi.h : 
+# file stm32f4xx_spi.h : 
 
 # empty define __STM32F4xx_SPI_H
 SPI_Direction_2Lines_FullDuplex = 0x0
@@ -1562,7 +1562,7 @@ class I2S_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_cryp.h : 
+# file stm32f4xx_cryp.h : 
 
 # empty define __STM32F4xx_CRYP_H
 CRYP_AlgoDir_Encrypt = 0x0
@@ -1662,7 +1662,7 @@ class CRYP_Context(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h : 
+# file misc.h : 
 
 # empty define __MISC_H
 NVIC_VectTab_RAM = 0x20000000
@@ -1692,7 +1692,7 @@ class NVIC_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dbgmcu.h : 
+# file stm32f4xx_dbgmcu.h : 
 
 # empty define __STM32F4xx_DBGMCU_H
 DBGMCU_SLEEP = 0x1
@@ -1722,7 +1722,7 @@ DBGMCU_TIM10_STOP = 0x20000
 DBGMCU_TIM11_STOP = 0x40000
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_syscfg.h : 
+# file stm32f4xx_syscfg.h : 
 
 # empty define __STM32F4xx_SYSCFG_H
 EXTI_PortSourceGPIOA = 0x0
@@ -1758,7 +1758,7 @@ SYSCFG_ETH_MediaInterface_MII = 0x0
 SYSCFG_ETH_MediaInterface_RMII = 0x1
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_i2c.h : 
+# file stm32f4xx_i2c.h : 
 
 # empty define __STM32F4xx_I2C_H
 I2C_Mode_I2C = 0x0
@@ -1859,7 +1859,7 @@ class I2C_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h : 
+# file stm32f4xx_dac.h : 
 
 # empty define __STM32F4xx_DAC_H
 DAC_Trigger_None = 0x0
@@ -1924,7 +1924,7 @@ class DAC_InitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rtc.h : 
+# file stm32f4xx_rtc.h : 
 
 # empty define __STM32F4xx_RTC_H
 RTC_HourFormat_24 = 0x0
@@ -2118,7 +2118,7 @@ class RTC_DateTypeDef(ctypes.Structure):
 # struct RTC_AlarmTypeDef : field is class
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sdio.h : 
+# file stm32f4xx_sdio.h : 
 
 # empty define __STM32F4xx_SDIO_H
 SDIO_ClockEdge_Rising = 0x0
@@ -2263,7 +2263,7 @@ class SDIO_DataInitTypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rng.h : 
+# file stm32f4xx_rng.h : 
 
 # empty define __STM32F4xx_RNG_H
 RNG_FLAG_DRDY = 0x1
@@ -2273,7 +2273,7 @@ RNG_IT_CEI = 0x20
 RNG_IT_SEI = 0x40
 # ----------------------------------------
 
-# file Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_can.h : 
+# file stm32f4xx_can.h : 
 
 # empty define __STM32F4xx_CAN_H
 CAN_InitStatus_Failed = 0x0

@@ -105,7 +105,8 @@ DEFAULT_GDB_PORT = 3333
 
 
 for f in files:
-	pytext.addComment("file %s : \n" % f)
+	base_name = os.path.basename(f)
+	pytext.addComment("file %s : \n" % base_name)
 	parser = ParseHeader(f, compile_options, debug)
 	pt = parser.parse()
 	pytext.add(pt)

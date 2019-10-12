@@ -34,12 +34,12 @@ DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
 
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_wwdg.h : 
+# file stm8l15x_wwdg.h : 
 
 # empty define __STM8L15x_WWDG_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_wfe.h : 
+# file stm8l15x_wfe.h : 
 
 # Enum WFE_Source_TypeDef
 WFE_Source_TIM2_EV0 = 0x101
@@ -76,7 +76,7 @@ WFE_Source_AES_EV = 0x440
 # empty define __STM8L15x_WFE_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_tim4.h : 
+# file stm8l15x_tim4.h : 
 
 # Enum TIM4_Prescaler_TypeDef
 TIM4_Prescaler_1 = 0x0
@@ -133,7 +133,7 @@ TIM4_DMASource_Update = 0x1
 # empty define __STM8L15x_TIM4_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_flash.h : 
+# file stm8l15x_flash.h : 
 
 # Enum FLASH_MemType_TypeDef
 FLASH_MemType_Program = 0xFD
@@ -181,7 +181,7 @@ FLASH_RASS_KEY2 = 0xAE
 FLASH_READOUTPROTECTION_KEY = 0xAA
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_lcd.h : 
+# file stm8l15x_lcd.h : 
 
 # Enum LCD_Duty_TypeDef
 LCD_Duty_Static = 0x0
@@ -310,7 +310,7 @@ OP_OR = 0x1
 # empty define __STM8L15x_LCD_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_syscfg.h : 
+# file stm8l15x_syscfg.h : 
 
 # Enum RI_InputCapture_TypeDef
 RI_InputCapture_IC2 = 0x2
@@ -414,7 +414,7 @@ REMAP_DMA1Channel_TIM4ToChannel3 = 0xFC
 # empty define __STM8L15x_SYSCFG_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_rtc.h : 
+# file stm8l15x_rtc.h : 
 
 # Enum RTC_Weekday_TypeDef
 RTC_Weekday_Monday = 0x1
@@ -598,7 +598,7 @@ class RTC_DateTypeDef(ctypes.Structure):
 # struct RTC_AlarmTypeDef : field is class
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_rst.h : 
+# file stm8l15x_rst.h : 
 
 # Enum RST_FLAG_TypeDef
 RST_FLAG_PORF = 0x1
@@ -610,7 +610,7 @@ RST_FLAG_BORF = 0x20
 # empty define __STM8L15x_RST_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_tim3.h : 
+# file stm8l15x_tim3.h : 
 
 # Enum TIM3_ForcedAction_TypeDef
 TIM3_ForcedAction_Active = 0x50
@@ -751,12 +751,12 @@ TIM3_DMASource_CC2 = 0x4
 # empty define __STM8L15x_TIM3_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_irtim.h : 
+# file stm8l15x_irtim.h : 
 
 # empty define __STM8L15x_IRTIM_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x.h : 
+# file stm8l15x.h : 
 
 # Enum bool
 # Skip FALSE1 : no need parse
@@ -2338,12 +2338,12 @@ class AES_TypeDef(ctypes.Structure):
 
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_conf.h : 
+# file stm8l15x_conf.h : 
 
 # empty define __STM8L15x_CONF_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_dma.h : 
+# file stm8l15x_dma.h : 
 
 # Enum DMA_DIR_TypeDef
 DMA_DIR_PeripheralToMemory = 0x0
@@ -2400,7 +2400,7 @@ DMA1_IT_HT3 = 0x84
 # empty define __STM8L15x_DMA_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_beep.h : 
+# file stm8l15x_beep.h : 
 
 # Enum BEEP_Frequency_TypeDef
 BEEP_Frequency_1KHz = 0x0
@@ -2412,7 +2412,7 @@ LSI_FREQUENCY_MIN = 0x61A8
 LSI_FREQUENCY_MAX = 0x124F8
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_tim5.h : 
+# file stm8l15x_tim5.h : 
 
 # Enum TIM5_ForcedAction_TypeDef
 TIM5_ForcedAction_Active = 0x50
@@ -2553,7 +2553,7 @@ TIM5_DMASource_CC2 = 0x4
 # empty define __STM8L15x_TIM5_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_clk.h : 
+# file stm8l15x_clk.h : 
 
 # Enum CLK_HSE_TypeDef
 CLK_HSE_OFF = 0x0
@@ -2662,7 +2662,7 @@ CLK_Halt_SlowWakeup = 0x10
 # empty define __STM8L15x_CLK_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_usart.h : 
+# file stm8l15x_usart.h : 
 
 # Enum USART_FLAG_TypeDef
 USART_FLAG_TXE = 0x80
@@ -2727,7 +2727,7 @@ USART_ADDRESS_MAX = 0x10
 USART_DATA_9BITS_MAX = 0x1FF
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_exti.h : 
+# file stm8l15x_exti.h : 
 
 # Enum EXTI_Trigger_TypeDef
 EXTI_Trigger_Falling_Low = 0x0
@@ -2781,7 +2781,7 @@ EXTI_IT_PortH = 0x120
 # empty define __STM8L15x_EXTI_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_tim2.h : 
+# file stm8l15x_tim2.h : 
 
 # Enum TIM2_ForcedAction_TypeDef
 TIM2_ForcedAction_Active = 0x50
@@ -2922,7 +2922,7 @@ TIM2_DMASource_CC2 = 0x4
 # empty define __STM8L15x_TIM2_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_pwr.h : 
+# file stm8l15x_pwr.h : 
 
 # Enum PWR_PVDLevel_TypeDef
 PWR_PVDLevel_1V85 = 0x0
@@ -2940,7 +2940,7 @@ PWR_FLAG_VREFINTF = 0x1
 # empty define __STM8L15x_PWR_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_adc.h : 
+# file stm8l15x_adc.h : 
 
 # Enum ADC_Channel_TypeDef
 ADC_Channel_0 = 0x301
@@ -3051,7 +3051,7 @@ ADC_FLAG_OVER = 0x4
 # empty define __STM8L15x_ADC_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_aes.h : 
+# file stm8l15x_aes.h : 
 
 # Enum AES_Operation_TypeDef
 AES_Operation_Encryp = 0x0
@@ -3070,7 +3070,7 @@ AES_DMATransfer_InOut = 0x80
 # empty define __STM8L15x_AES_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_dac.h : 
+# file stm8l15x_dac.h : 
 
 # Enum DAC_Trigger_TypeDef
 DAC_Trigger_None = 0x30
@@ -3129,7 +3129,7 @@ CH1RDHRH_Offset = 0x8
 CH2RDHRH_Offset = 0x14
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_iwdg.h : 
+# file stm8l15x_iwdg.h : 
 
 # Enum IWDG_WriteAccess_TypeDef
 IWDG_WriteAccess_Enable = 0x55
@@ -3147,7 +3147,7 @@ IWDG_KEY_REFRESH = 0xAA
 IWDG_KEY_ENABLE = 0xCC
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_gpio.h : 
+# file stm8l15x_gpio.h : 
 
 # Enum GPIO_Mode_TypeDef
 GPIO_Mode_In_FL_No_IT = 0x0
@@ -3177,7 +3177,7 @@ GPIO_Pin_All = 0xFF
 # empty define __STM8L15x_GPIO_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_spi.h : 
+# file stm8l15x_spi.h : 
 
 # Enum SPI_DirectionMode_TypeDef
 SPI_Direction_2Lines_FullDuplex = 0x0
@@ -3236,7 +3236,7 @@ SPI_IT_ERR = 0x5
 # empty define __STM8L15x_SPI_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_i2c.h : 
+# file stm8l15x_i2c.h : 
 
 # Enum I2C_Mode_TypeDef
 I2C_Mode_I2C = 0x0
@@ -3343,7 +3343,7 @@ I2C_MAX_STANDARD_FREQ = 0x186A0
 I2C_MAX_FAST_FREQ = 0x61A80
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_itc.h : 
+# file stm8l15x_itc.h : 
 
 # Enum ITC_PriorityLevel_TypeDef
 ITC_PriorityLevel_0 = 0x2
@@ -3355,7 +3355,7 @@ CPU_SOFT_INT_DISABLED = 0x28
 # Skip IS_ITC_INTERRUPTS_DISABLED : no need parse
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_comp.h : 
+# file stm8l15x_comp.h : 
 
 # Enum COMP_Selection_TypeDef
 COMP_Selection_COMP1 = 0x1
@@ -3394,7 +3394,7 @@ COMP_OutputLevel_High = 0x1
 # empty define __STM8L15X_COMP_H
 # ----------------------------------------
 
-# file ../../Libraries/STM8L15x_StdPeriph_Driver/inc/stm8l15x_tim1.h : 
+# file stm8l15x_tim1.h : 
 
 # Enum TIM1_OCMode_TypeDef
 TIM1_OCMode_Timing = 0x0
