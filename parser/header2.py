@@ -67,6 +67,16 @@ compile_options = compile_options.split(" ")
 debug = int(options.debug_level) > 0
 
 pytext.text = "import ctypes\n\n"
+pytext.text += "__RUN = 0\n"
+pytext.text += "__HALT = 1\n"
+pytext.text += "__ERROR = 0\n"
+pytext.text += "__WARNING = 1\n"
+pytext.text += "__INFO = 2\n"
+pytext.text += "__DEBUG = 3\n"
+pytext.text += "__ALL_LOG = 4\n"
+pytext.text += "__DEFAULT_OPENOCD_PORT = 6666\n"
+pytext.text += "__DEFAULT_GDB_PORT = 3333\n"
+pytext.text += "\n\n"
 
 for f in files:
 	pytext.addComment("file %s : \n" % f)
