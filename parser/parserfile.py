@@ -140,7 +140,9 @@ class ParseHeader(object):
 			name_field = field['name']
 			result, error = self.sizeOfField(name_class, name_field)
 			if error != "":
-				return "error time size field " + name_field
+				if self.debug:
+					print("error time size field " + name_field)
+				continue
 			size = int(result)
 			if size > 4 or size == 0 or size == 3:
 				return "error size of %s is %s " %(name_field, result)
@@ -162,6 +164,8 @@ class ParseHeader(object):
 			for field in public_fields:
 				name_field = field['name']
 				result, error = self.sizeOfField(name_class, name_field)
+				if error != "":
+					continue
 				size = int(result)
 				ctypes = {1 : "ctypes.c_uint8",
 					2: "ctypes.c_uint16",
