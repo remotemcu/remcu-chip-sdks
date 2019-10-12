@@ -34,6 +34,2010 @@ DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
 
 
+# file stm32f10x_rtc.h : 
+
+# empty define __STM32F10x_RTC_H
+RTC_IT_OW = 0x4
+RTC_IT_ALR = 0x2
+RTC_IT_SEC = 0x1
+RTC_FLAG_RTOFF = 0x20
+RTC_FLAG_RSF = 0x8
+RTC_FLAG_OW = 0x4
+RTC_FLAG_ALR = 0x2
+RTC_FLAG_SEC = 0x1
+# ----------------------------------------
+
+# file stm32f10x_pwr.h : 
+
+# empty define __STM32F10x_PWR_H
+PWR_PVDLevel_2V2 = 0x0
+PWR_PVDLevel_2V3 = 0x20
+PWR_PVDLevel_2V4 = 0x40
+PWR_PVDLevel_2V5 = 0x60
+PWR_PVDLevel_2V6 = 0x80
+PWR_PVDLevel_2V7 = 0xA0
+PWR_PVDLevel_2V8 = 0xC0
+PWR_PVDLevel_2V9 = 0xE0
+PWR_Regulator_ON = 0x0
+PWR_Regulator_LowPower = 0x1
+PWR_STOPEntry_WFI = 0x1
+PWR_STOPEntry_WFE = 0x2
+PWR_FLAG_WU = 0x1
+PWR_FLAG_SB = 0x2
+PWR_FLAG_PVDO = 0x4
+# ----------------------------------------
+
+# file stm32f10x_iwdg.h : 
+
+# empty define __STM32F10x_IWDG_H
+IWDG_WriteAccess_Enable = 0x5555
+IWDG_WriteAccess_Disable = 0x0
+IWDG_Prescaler_4 = 0x0
+IWDG_Prescaler_8 = 0x1
+IWDG_Prescaler_16 = 0x2
+IWDG_Prescaler_32 = 0x3
+IWDG_Prescaler_64 = 0x4
+IWDG_Prescaler_128 = 0x5
+IWDG_Prescaler_256 = 0x6
+IWDG_FLAG_PVU = 0x1
+IWDG_FLAG_RVU = 0x2
+# ----------------------------------------
+
+# file stm32f10x_usart.h : 
+
+# empty define __STM32F10x_USART_H
+USART_WordLength_8b = 0x0
+USART_WordLength_9b = 0x1000
+USART_StopBits_1 = 0x0
+USART_StopBits_0_5 = 0x1000
+USART_StopBits_2 = 0x2000
+USART_StopBits_1_5 = 0x3000
+USART_Parity_No = 0x0
+USART_Parity_Even = 0x400
+USART_Parity_Odd = 0x600
+USART_Mode_Rx = 0x4
+USART_Mode_Tx = 0x8
+USART_HardwareFlowControl_None = 0x0
+USART_HardwareFlowControl_RTS = 0x100
+USART_HardwareFlowControl_CTS = 0x200
+USART_HardwareFlowControl_RTS_CTS = 0x300
+USART_Clock_Disable = 0x0
+USART_Clock_Enable = 0x800
+USART_CPOL_Low = 0x0
+USART_CPOL_High = 0x400
+USART_CPHA_1Edge = 0x0
+USART_CPHA_2Edge = 0x200
+USART_LastBit_Disable = 0x0
+USART_LastBit_Enable = 0x100
+USART_IT_PE = 0x28
+USART_IT_TXE = 0x727
+USART_IT_TC = 0x626
+USART_IT_RXNE = 0x525
+USART_IT_IDLE = 0x424
+USART_IT_LBD = 0x846
+USART_IT_CTS = 0x96A
+USART_IT_ERR = 0x60
+USART_IT_ORE = 0x360
+USART_IT_NE = 0x260
+USART_IT_FE = 0x160
+USART_DMAReq_Tx = 0x80
+USART_DMAReq_Rx = 0x40
+USART_WakeUp_IdleLine = 0x0
+USART_WakeUp_AddressMark = 0x800
+USART_LINBreakDetectLength_10b = 0x0
+USART_LINBreakDetectLength_11b = 0x20
+USART_IrDAMode_LowPower = 0x4
+USART_IrDAMode_Normal = 0x0
+USART_FLAG_CTS = 0x200
+USART_FLAG_LBD = 0x100
+USART_FLAG_TXE = 0x80
+USART_FLAG_TC = 0x40
+USART_FLAG_RXNE = 0x20
+USART_FLAG_IDLE = 0x10
+USART_FLAG_ORE = 0x8
+USART_FLAG_NE = 0x4
+USART_FLAG_FE = 0x2
+USART_FLAG_PE = 0x1
+# struct USART_InitTypeDef
+
+class USART_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('USART_BaudRate',	ctypes.c_uint32),
+		('USART_WordLength',	ctypes.c_uint16),
+		('USART_StopBits',	ctypes.c_uint16),
+		('USART_Parity',	ctypes.c_uint16),
+		('USART_Mode',	ctypes.c_uint16),
+		('USART_HardwareFlowControl',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct USART_ClockInitTypeDef
+
+class USART_ClockInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('USART_Clock',	ctypes.c_uint16),
+		('USART_CPOL',	ctypes.c_uint16),
+		('USART_CPHA',	ctypes.c_uint16),
+		('USART_LastBit',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_dbgmcu.h : 
+
+# empty define __STM32F10x_DBGMCU_H
+DBGMCU_SLEEP = 0x1
+DBGMCU_STOP = 0x2
+DBGMCU_STANDBY = 0x4
+DBGMCU_IWDG_STOP = 0x100
+DBGMCU_WWDG_STOP = 0x200
+DBGMCU_TIM1_STOP = 0x400
+DBGMCU_TIM2_STOP = 0x800
+DBGMCU_TIM3_STOP = 0x1000
+DBGMCU_TIM4_STOP = 0x2000
+DBGMCU_CAN1_STOP = 0x4000
+DBGMCU_I2C1_SMBUS_TIMEOUT = 0x8000
+DBGMCU_I2C2_SMBUS_TIMEOUT = 0x10000
+DBGMCU_TIM8_STOP = 0x20000
+DBGMCU_TIM5_STOP = 0x40000
+DBGMCU_TIM6_STOP = 0x80000
+DBGMCU_TIM7_STOP = 0x100000
+DBGMCU_CAN2_STOP = 0x200000
+DBGMCU_TIM15_STOP = 0x400000
+DBGMCU_TIM16_STOP = 0x800000
+DBGMCU_TIM17_STOP = 0x1000000
+DBGMCU_TIM12_STOP = 0x2000000
+DBGMCU_TIM13_STOP = 0x4000000
+DBGMCU_TIM14_STOP = 0x8000000
+DBGMCU_TIM9_STOP = 0x10000000
+DBGMCU_TIM10_STOP = 0x20000000
+DBGMCU_TIM11_STOP = 0x40000000
+# ----------------------------------------
+
+# file stm32f10x_exti.h : 
+
+# Enum EXTIMode_TypeDef
+EXTI_Mode_Interrupt = 0x0
+EXTI_Mode_Event = 0x4
+# Enum EXTITrigger_TypeDef
+EXTI_Trigger_Rising = 0x8
+EXTI_Trigger_Falling = 0xC
+EXTI_Trigger_Rising_Falling = 0x10
+# empty define __STM32F10x_EXTI_H
+EXTI_Line0 = 0x1
+EXTI_Line1 = 0x2
+EXTI_Line2 = 0x4
+EXTI_Line3 = 0x8
+EXTI_Line4 = 0x10
+EXTI_Line5 = 0x20
+EXTI_Line6 = 0x40
+EXTI_Line7 = 0x80
+EXTI_Line8 = 0x100
+EXTI_Line9 = 0x200
+EXTI_Line10 = 0x400
+EXTI_Line11 = 0x800
+EXTI_Line12 = 0x1000
+EXTI_Line13 = 0x2000
+EXTI_Line14 = 0x4000
+EXTI_Line15 = 0x8000
+EXTI_Line16 = 0x10000
+EXTI_Line17 = 0x20000
+EXTI_Line18 = 0x40000
+EXTI_Line19 = 0x80000
+# struct EXTI_InitTypeDef
+
+class EXTI_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('EXTI_Line',	ctypes.c_uint32),
+		('EXTI_Mode',	ctypes.c_uint32),
+		('EXTI_Trigger',	ctypes.c_uint32),
+		('EXTI_LineCmd',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_spi.h : 
+
+# empty define __STM32F10x_SPI_H
+SPI_Direction_2Lines_FullDuplex = 0x0
+SPI_Direction_2Lines_RxOnly = 0x400
+SPI_Direction_1Line_Rx = 0x8000
+SPI_Direction_1Line_Tx = 0xC000
+SPI_Mode_Master = 0x104
+SPI_Mode_Slave = 0x0
+SPI_DataSize_16b = 0x800
+SPI_DataSize_8b = 0x0
+SPI_CPOL_Low = 0x0
+SPI_CPOL_High = 0x2
+SPI_CPHA_1Edge = 0x0
+SPI_CPHA_2Edge = 0x1
+SPI_NSS_Soft = 0x200
+SPI_NSS_Hard = 0x0
+SPI_BaudRatePrescaler_2 = 0x0
+SPI_BaudRatePrescaler_4 = 0x8
+SPI_BaudRatePrescaler_8 = 0x10
+SPI_BaudRatePrescaler_16 = 0x18
+SPI_BaudRatePrescaler_32 = 0x20
+SPI_BaudRatePrescaler_64 = 0x28
+SPI_BaudRatePrescaler_128 = 0x30
+SPI_BaudRatePrescaler_256 = 0x38
+SPI_FirstBit_MSB = 0x0
+SPI_FirstBit_LSB = 0x80
+I2S_Mode_SlaveTx = 0x0
+I2S_Mode_SlaveRx = 0x100
+I2S_Mode_MasterTx = 0x200
+I2S_Mode_MasterRx = 0x300
+I2S_Standard_Phillips = 0x0
+I2S_Standard_MSB = 0x10
+I2S_Standard_LSB = 0x20
+I2S_Standard_PCMShort = 0x30
+I2S_Standard_PCMLong = 0xB0
+I2S_DataFormat_16b = 0x0
+I2S_DataFormat_16bextended = 0x1
+I2S_DataFormat_24b = 0x3
+I2S_DataFormat_32b = 0x5
+I2S_MCLKOutput_Enable = 0x200
+I2S_MCLKOutput_Disable = 0x0
+I2S_AudioFreq_192k = 0x2EE00
+I2S_AudioFreq_96k = 0x17700
+I2S_AudioFreq_48k = 0xBB80
+I2S_AudioFreq_44k = 0xAC44
+I2S_AudioFreq_32k = 0x7D00
+I2S_AudioFreq_22k = 0x5622
+I2S_AudioFreq_16k = 0x3E80
+I2S_AudioFreq_11k = 0x2B11
+I2S_AudioFreq_8k = 0x1F40
+I2S_AudioFreq_Default = 0x2
+I2S_CPOL_Low = 0x0
+I2S_CPOL_High = 0x8
+SPI_I2S_DMAReq_Tx = 0x2
+SPI_I2S_DMAReq_Rx = 0x1
+SPI_NSSInternalSoft_Set = 0x100
+SPI_NSSInternalSoft_Reset = 0xFEFF
+SPI_CRC_Tx = 0x0
+SPI_CRC_Rx = 0x1
+SPI_Direction_Rx = 0xBFFF
+SPI_Direction_Tx = 0x4000
+SPI_I2S_IT_TXE = 0x71
+SPI_I2S_IT_RXNE = 0x60
+SPI_I2S_IT_ERR = 0x50
+SPI_I2S_IT_OVR = 0x56
+SPI_IT_MODF = 0x55
+SPI_IT_CRCERR = 0x54
+I2S_IT_UDR = 0x53
+SPI_I2S_FLAG_RXNE = 0x1
+SPI_I2S_FLAG_TXE = 0x2
+I2S_FLAG_CHSIDE = 0x4
+I2S_FLAG_UDR = 0x8
+SPI_FLAG_CRCERR = 0x10
+SPI_FLAG_MODF = 0x20
+SPI_I2S_FLAG_OVR = 0x40
+SPI_I2S_FLAG_BSY = 0x80
+# struct SPI_InitTypeDef
+
+class SPI_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('SPI_Direction',	ctypes.c_uint16),
+		('SPI_Mode',	ctypes.c_uint16),
+		('SPI_DataSize',	ctypes.c_uint16),
+		('SPI_CPOL',	ctypes.c_uint16),
+		('SPI_CPHA',	ctypes.c_uint16),
+		('SPI_NSS',	ctypes.c_uint16),
+		('SPI_BaudRatePrescaler',	ctypes.c_uint16),
+		('SPI_FirstBit',	ctypes.c_uint16),
+		('SPI_CRCPolynomial',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct I2S_InitTypeDef
+
+class I2S_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('I2S_Mode',	ctypes.c_uint16),
+		('I2S_Standard',	ctypes.c_uint16),
+		('I2S_DataFormat',	ctypes.c_uint16),
+		('I2S_MCLKOutput',	ctypes.c_uint16),
+		('I2S_AudioFreq',	ctypes.c_uint32),
+		('I2S_CPOL',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_adc.h : 
+
+# empty define __STM32F10x_ADC_H
+ADC_Mode_Independent = 0x0
+ADC_Mode_RegInjecSimult = 0x10000
+ADC_Mode_RegSimult_AlterTrig = 0x20000
+ADC_Mode_InjecSimult_FastInterl = 0x30000
+ADC_Mode_InjecSimult_SlowInterl = 0x40000
+ADC_Mode_InjecSimult = 0x50000
+ADC_Mode_RegSimult = 0x60000
+ADC_Mode_FastInterl = 0x70000
+ADC_Mode_SlowInterl = 0x80000
+ADC_Mode_AlterTrig = 0x90000
+ADC_ExternalTrigConv_T1_CC1 = 0x0
+ADC_ExternalTrigConv_T1_CC2 = 0x20000
+ADC_ExternalTrigConv_T2_CC2 = 0x60000
+ADC_ExternalTrigConv_T3_TRGO = 0x80000
+ADC_ExternalTrigConv_T4_CC4 = 0xA0000
+ADC_ExternalTrigConv_Ext_IT11_TIM8_TRGO = 0xC0000
+ADC_ExternalTrigConv_T1_CC3 = 0x40000
+ADC_ExternalTrigConv_None = 0xE0000
+ADC_ExternalTrigConv_T3_CC1 = 0x0
+ADC_ExternalTrigConv_T2_CC3 = 0x20000
+ADC_ExternalTrigConv_T8_CC1 = 0x60000
+ADC_ExternalTrigConv_T8_TRGO = 0x80000
+ADC_ExternalTrigConv_T5_CC1 = 0xA0000
+ADC_ExternalTrigConv_T5_CC3 = 0xC0000
+ADC_DataAlign_Right = 0x0
+ADC_DataAlign_Left = 0x800
+ADC_Channel_0 = 0x0
+ADC_Channel_1 = 0x1
+ADC_Channel_2 = 0x2
+ADC_Channel_3 = 0x3
+ADC_Channel_4 = 0x4
+ADC_Channel_5 = 0x5
+ADC_Channel_6 = 0x6
+ADC_Channel_7 = 0x7
+ADC_Channel_8 = 0x8
+ADC_Channel_9 = 0x9
+ADC_Channel_10 = 0xA
+ADC_Channel_11 = 0xB
+ADC_Channel_12 = 0xC
+ADC_Channel_13 = 0xD
+ADC_Channel_14 = 0xE
+ADC_Channel_15 = 0xF
+ADC_Channel_16 = 0x10
+ADC_Channel_17 = 0x11
+ADC_Channel_TempSensor = 0x10
+ADC_Channel_Vrefint = 0x11
+ADC_SampleTime_1Cycles5 = 0x0
+ADC_SampleTime_7Cycles5 = 0x1
+ADC_SampleTime_13Cycles5 = 0x2
+ADC_SampleTime_28Cycles5 = 0x3
+ADC_SampleTime_41Cycles5 = 0x4
+ADC_SampleTime_55Cycles5 = 0x5
+ADC_SampleTime_71Cycles5 = 0x6
+ADC_SampleTime_239Cycles5 = 0x7
+ADC_ExternalTrigInjecConv_T2_TRGO = 0x2000
+ADC_ExternalTrigInjecConv_T2_CC1 = 0x3000
+ADC_ExternalTrigInjecConv_T3_CC4 = 0x4000
+ADC_ExternalTrigInjecConv_T4_TRGO = 0x5000
+ADC_ExternalTrigInjecConv_Ext_IT15_TIM8_CC4 = 0x6000
+ADC_ExternalTrigInjecConv_T1_TRGO = 0x0
+ADC_ExternalTrigInjecConv_T1_CC4 = 0x1000
+ADC_ExternalTrigInjecConv_None = 0x7000
+ADC_ExternalTrigInjecConv_T4_CC3 = 0x2000
+ADC_ExternalTrigInjecConv_T8_CC2 = 0x3000
+ADC_ExternalTrigInjecConv_T8_CC4 = 0x4000
+ADC_ExternalTrigInjecConv_T5_TRGO = 0x5000
+ADC_ExternalTrigInjecConv_T5_CC4 = 0x6000
+ADC_InjectedChannel_1 = 0x14
+ADC_InjectedChannel_2 = 0x18
+ADC_InjectedChannel_3 = 0x1C
+ADC_InjectedChannel_4 = 0x20
+ADC_AnalogWatchdog_SingleRegEnable = 0x800200
+ADC_AnalogWatchdog_SingleInjecEnable = 0x400200
+ADC_AnalogWatchdog_SingleRegOrInjecEnable = 0xC00200
+ADC_AnalogWatchdog_AllRegEnable = 0x800000
+ADC_AnalogWatchdog_AllInjecEnable = 0x400000
+ADC_AnalogWatchdog_AllRegAllInjecEnable = 0xC00000
+ADC_AnalogWatchdog_None = 0x0
+ADC_IT_EOC = 0x220
+ADC_IT_AWD = 0x140
+ADC_IT_JEOC = 0x480
+ADC_FLAG_AWD = 0x1
+ADC_FLAG_EOC = 0x2
+ADC_FLAG_JEOC = 0x4
+ADC_FLAG_JSTRT = 0x8
+ADC_FLAG_STRT = 0x10
+# struct ADC_InitTypeDef
+
+class ADC_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('ADC_Mode',	ctypes.c_uint32),
+		('ADC_ScanConvMode',	ctypes.c_uint32),
+		('ADC_ContinuousConvMode',	ctypes.c_uint32),
+		('ADC_ExternalTrigConv',	ctypes.c_uint32),
+		('ADC_DataAlign',	ctypes.c_uint32),
+		('ADC_NbrOfChannel',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_can.h : 
+
+# empty define __STM32F10x_CAN_H
+CAN_InitStatus_Failed = 0x0
+CAN_InitStatus_Success = 0x1
+CAN_Mode_Normal = 0x0
+CAN_Mode_LoopBack = 0x1
+CAN_Mode_Silent = 0x2
+CAN_Mode_Silent_LoopBack = 0x3
+CAN_OperatingMode_Initialization = 0x0
+CAN_OperatingMode_Normal = 0x1
+CAN_OperatingMode_Sleep = 0x2
+CAN_ModeStatus_Failed = 0x0
+CAN_ModeStatus_Success = 0x1
+CAN_SJW_1tq = 0x0
+CAN_SJW_2tq = 0x1
+CAN_SJW_3tq = 0x2
+CAN_SJW_4tq = 0x3
+CAN_BS1_1tq = 0x0
+CAN_BS1_2tq = 0x1
+CAN_BS1_3tq = 0x2
+CAN_BS1_4tq = 0x3
+CAN_BS1_5tq = 0x4
+CAN_BS1_6tq = 0x5
+CAN_BS1_7tq = 0x6
+CAN_BS1_8tq = 0x7
+CAN_BS1_9tq = 0x8
+CAN_BS1_10tq = 0x9
+CAN_BS1_11tq = 0xA
+CAN_BS1_12tq = 0xB
+CAN_BS1_13tq = 0xC
+CAN_BS1_14tq = 0xD
+CAN_BS1_15tq = 0xE
+CAN_BS1_16tq = 0xF
+CAN_BS2_1tq = 0x0
+CAN_BS2_2tq = 0x1
+CAN_BS2_3tq = 0x2
+CAN_BS2_4tq = 0x3
+CAN_BS2_5tq = 0x4
+CAN_BS2_6tq = 0x5
+CAN_BS2_7tq = 0x6
+CAN_BS2_8tq = 0x7
+CAN_FilterMode_IdMask = 0x0
+CAN_FilterMode_IdList = 0x1
+CAN_FilterScale_16bit = 0x0
+CAN_FilterScale_32bit = 0x1
+CAN_Filter_FIFO0 = 0x0
+CAN_Filter_FIFO1 = 0x1
+CAN_Id_Standard = 0x0
+CAN_Id_Extended = 0x4
+CAN_RTR_Data = 0x0
+CAN_RTR_Remote = 0x2
+CAN_TxStatus_Failed = 0x0
+CAN_TxStatus_Ok = 0x1
+CAN_TxStatus_Pending = 0x2
+CAN_TxStatus_NoMailBox = 0x4
+CAN_FIFO0 = 0x0
+CAN_FIFO1 = 0x1
+CAN_Sleep_Failed = 0x0
+CAN_Sleep_Ok = 0x1
+CAN_WakeUp_Failed = 0x0
+CAN_WakeUp_Ok = 0x1
+CAN_ErrorCode_NoErr = 0x0
+CAN_ErrorCode_StuffErr = 0x10
+CAN_ErrorCode_FormErr = 0x20
+CAN_ErrorCode_ACKErr = 0x30
+CAN_ErrorCode_BitRecessiveErr = 0x40
+CAN_ErrorCode_BitDominantErr = 0x50
+CAN_ErrorCode_CRCErr = 0x60
+CAN_ErrorCode_SoftwareSetErr = 0x70
+CAN_FLAG_RQCP0 = 0x38000001
+CAN_FLAG_RQCP1 = 0x38000100
+CAN_FLAG_RQCP2 = 0x38010000
+CAN_FLAG_FMP0 = 0x12000003
+CAN_FLAG_FF0 = 0x32000008
+CAN_FLAG_FOV0 = 0x32000010
+CAN_FLAG_FMP1 = 0x14000003
+CAN_FLAG_FF1 = 0x34000008
+CAN_FLAG_FOV1 = 0x34000010
+CAN_FLAG_WKU = 0x31000008
+CAN_FLAG_SLAK = 0x31000012
+CAN_FLAG_EWG = 0x10F00001
+CAN_FLAG_EPV = 0x10F00002
+CAN_FLAG_BOF = 0x10F00004
+CAN_FLAG_LEC = 0x30F00070
+CAN_IT_TME = 0x1
+CAN_IT_FMP0 = 0x2
+CAN_IT_FF0 = 0x4
+CAN_IT_FOV0 = 0x8
+CAN_IT_FMP1 = 0x10
+CAN_IT_FF1 = 0x20
+CAN_IT_FOV1 = 0x40
+CAN_IT_WKU = 0x10000
+CAN_IT_SLK = 0x20000
+CAN_IT_EWG = 0x100
+CAN_IT_EPV = 0x200
+CAN_IT_BOF = 0x400
+CAN_IT_LEC = 0x800
+CAN_IT_ERR = 0x8000
+CAN_IT_RQCP0 = 0x1
+CAN_IT_RQCP1 = 0x1
+CAN_IT_RQCP2 = 0x1
+CANINITFAILED = 0x0
+CANINITOK = 0x1
+CAN_FilterFIFO0 = 0x0
+CAN_FilterFIFO1 = 0x1
+CAN_ID_STD = 0x0
+CAN_ID_EXT = 0x4
+CAN_RTR_DATA = 0x0
+CAN_RTR_REMOTE = 0x2
+CANTXFAILE = 0x0
+CANTXOK = 0x1
+CANTXPENDING = 0x2
+CAN_NO_MB = 0x4
+CANSLEEPFAILED = 0x0
+CANSLEEPOK = 0x1
+CANWAKEUPFAILED = 0x0
+CANWAKEUPOK = 0x1
+# struct CAN_InitTypeDef
+
+class CAN_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CAN_Prescaler',	ctypes.c_uint16),
+		('CAN_Mode',	ctypes.c_uint8),
+		('CAN_SJW',	ctypes.c_uint8),
+		('CAN_BS1',	ctypes.c_uint8),
+		('CAN_BS2',	ctypes.c_uint8),
+		('CAN_TTCM',	ctypes.c_uint32),
+		('CAN_ABOM',	ctypes.c_uint32),
+		('CAN_AWUM',	ctypes.c_uint32),
+		('CAN_NART',	ctypes.c_uint32),
+		('CAN_RFLM',	ctypes.c_uint32),
+		('CAN_TXFP',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct CAN_FilterInitTypeDef
+
+class CAN_FilterInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CAN_FilterIdHigh',	ctypes.c_uint16),
+		('CAN_FilterIdLow',	ctypes.c_uint16),
+		('CAN_FilterMaskIdHigh',	ctypes.c_uint16),
+		('CAN_FilterMaskIdLow',	ctypes.c_uint16),
+		('CAN_FilterFIFOAssignment',	ctypes.c_uint16),
+		('CAN_FilterNumber',	ctypes.c_uint8),
+		('CAN_FilterMode',	ctypes.c_uint8),
+		('CAN_FilterScale',	ctypes.c_uint8),
+		('CAN_FilterActivation',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct CanTxMsg
+# struct CanTxMsg : field is array
+# struct CanRxMsg
+# struct CanRxMsg : field is array
+# ----------------------------------------
+
+# file stm32f10x_crc.h : 
+
+# empty define __STM32F10x_CRC_H
+# ----------------------------------------
+
+# file stm32f10x_bkp.h : 
+
+# empty define __STM32F10x_BKP_H
+BKP_TamperPinLevel_High = 0x0
+BKP_TamperPinLevel_Low = 0x1
+BKP_RTCOutputSource_None = 0x0
+BKP_RTCOutputSource_CalibClock = 0x80
+BKP_RTCOutputSource_Alarm = 0x100
+BKP_RTCOutputSource_Second = 0x300
+BKP_DR1 = 0x4
+BKP_DR2 = 0x8
+BKP_DR3 = 0xC
+BKP_DR4 = 0x10
+BKP_DR5 = 0x14
+BKP_DR6 = 0x18
+BKP_DR7 = 0x1C
+BKP_DR8 = 0x20
+BKP_DR9 = 0x24
+BKP_DR10 = 0x28
+BKP_DR11 = 0x40
+BKP_DR12 = 0x44
+BKP_DR13 = 0x48
+BKP_DR14 = 0x4C
+BKP_DR15 = 0x50
+BKP_DR16 = 0x54
+BKP_DR17 = 0x58
+BKP_DR18 = 0x5C
+BKP_DR19 = 0x60
+BKP_DR20 = 0x64
+BKP_DR21 = 0x68
+BKP_DR22 = 0x6C
+BKP_DR23 = 0x70
+BKP_DR24 = 0x74
+BKP_DR25 = 0x78
+BKP_DR26 = 0x7C
+BKP_DR27 = 0x80
+BKP_DR28 = 0x84
+BKP_DR29 = 0x88
+BKP_DR30 = 0x8C
+BKP_DR31 = 0x90
+BKP_DR32 = 0x94
+BKP_DR33 = 0x98
+BKP_DR34 = 0x9C
+BKP_DR35 = 0xA0
+BKP_DR36 = 0xA4
+BKP_DR37 = 0xA8
+BKP_DR38 = 0xAC
+BKP_DR39 = 0xB0
+BKP_DR40 = 0xB4
+BKP_DR41 = 0xB8
+BKP_DR42 = 0xBC
+# ----------------------------------------
+
+# file stm32f10x_fsmc.h : 
+
+# empty define __STM32F10x_FSMC_H
+FSMC_Bank1_NORSRAM1 = 0x0
+FSMC_Bank1_NORSRAM2 = 0x2
+FSMC_Bank1_NORSRAM3 = 0x4
+FSMC_Bank1_NORSRAM4 = 0x6
+FSMC_Bank2_NAND = 0x10
+FSMC_Bank3_NAND = 0x100
+FSMC_Bank4_PCCARD = 0x1000
+FSMC_DataAddressMux_Disable = 0x0
+FSMC_DataAddressMux_Enable = 0x2
+FSMC_MemoryType_SRAM = 0x0
+FSMC_MemoryType_PSRAM = 0x4
+FSMC_MemoryType_NOR = 0x8
+FSMC_MemoryDataWidth_8b = 0x0
+FSMC_MemoryDataWidth_16b = 0x10
+FSMC_BurstAccessMode_Disable = 0x0
+FSMC_BurstAccessMode_Enable = 0x100
+FSMC_AsynchronousWait_Disable = 0x0
+FSMC_AsynchronousWait_Enable = 0x8000
+FSMC_WaitSignalPolarity_Low = 0x0
+FSMC_WaitSignalPolarity_High = 0x200
+FSMC_WrapMode_Disable = 0x0
+FSMC_WrapMode_Enable = 0x400
+FSMC_WaitSignalActive_BeforeWaitState = 0x0
+FSMC_WaitSignalActive_DuringWaitState = 0x800
+FSMC_WriteOperation_Disable = 0x0
+FSMC_WriteOperation_Enable = 0x1000
+FSMC_WaitSignal_Disable = 0x0
+FSMC_WaitSignal_Enable = 0x2000
+FSMC_ExtendedMode_Disable = 0x0
+FSMC_ExtendedMode_Enable = 0x4000
+FSMC_WriteBurst_Disable = 0x0
+FSMC_WriteBurst_Enable = 0x80000
+FSMC_AccessMode_A = 0x0
+FSMC_AccessMode_B = 0x10000000
+FSMC_AccessMode_C = 0x20000000
+FSMC_AccessMode_D = 0x30000000
+FSMC_Waitfeature_Disable = 0x0
+FSMC_Waitfeature_Enable = 0x2
+FSMC_ECC_Disable = 0x0
+FSMC_ECC_Enable = 0x40
+FSMC_ECCPageSize_256Bytes = 0x0
+FSMC_ECCPageSize_512Bytes = 0x20000
+FSMC_ECCPageSize_1024Bytes = 0x40000
+FSMC_ECCPageSize_2048Bytes = 0x60000
+FSMC_ECCPageSize_4096Bytes = 0x80000
+FSMC_ECCPageSize_8192Bytes = 0xA0000
+FSMC_IT_RisingEdge = 0x8
+FSMC_IT_Level = 0x10
+FSMC_IT_FallingEdge = 0x20
+FSMC_FLAG_RisingEdge = 0x1
+FSMC_FLAG_Level = 0x2
+FSMC_FLAG_FallingEdge = 0x4
+FSMC_FLAG_FEMPT = 0x40
+# struct FSMC_NORSRAMTimingInitTypeDef
+
+class FSMC_NORSRAMTimingInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('FSMC_AddressSetupTime',	ctypes.c_uint32),
+		('FSMC_AddressHoldTime',	ctypes.c_uint32),
+		('FSMC_DataSetupTime',	ctypes.c_uint32),
+		('FSMC_BusTurnAroundDuration',	ctypes.c_uint32),
+		('FSMC_CLKDivision',	ctypes.c_uint32),
+		('FSMC_DataLatency',	ctypes.c_uint32),
+		('FSMC_AccessMode',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct FSMC_NORSRAMInitTypeDef
+# struct FSMC_NORSRAMInitTypeDef : field is class
+# struct FSMC_NAND_PCCARDTimingInitTypeDef
+
+class FSMC_NAND_PCCARDTimingInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('FSMC_SetupTime',	ctypes.c_uint32),
+		('FSMC_WaitSetupTime',	ctypes.c_uint32),
+		('FSMC_HoldSetupTime',	ctypes.c_uint32),
+		('FSMC_HiZSetupTime',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct FSMC_NANDInitTypeDef
+# struct FSMC_NANDInitTypeDef : field is class
+# struct FSMC_PCCARDInitTypeDef
+# struct FSMC_PCCARDInitTypeDef : field is class
+# ----------------------------------------
+
+# file misc.h : 
+
+# empty define __MISC_H
+NVIC_VectTab_RAM = 0x20000000
+NVIC_VectTab_FLASH = 0x8000000
+NVIC_LP_SEVONPEND = 0x10
+NVIC_LP_SLEEPDEEP = 0x4
+NVIC_LP_SLEEPONEXIT = 0x2
+NVIC_PriorityGroup_0 = 0x700
+NVIC_PriorityGroup_1 = 0x600
+NVIC_PriorityGroup_2 = 0x500
+NVIC_PriorityGroup_3 = 0x400
+NVIC_PriorityGroup_4 = 0x300
+SysTick_CLKSource_HCLK_Div8 = 0xFFFFFFFB
+SysTick_CLKSource_HCLK = 0x4
+# struct NVIC_InitTypeDef
+
+class NVIC_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('NVIC_IRQChannel',	ctypes.c_uint8),
+		('NVIC_IRQChannelPreemptionPriority',	ctypes.c_uint8),
+		('NVIC_IRQChannelSubPriority',	ctypes.c_uint8),
+		('NVIC_IRQChannelCmd',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_gpio.h : 
+
+# Enum GPIOSpeed_TypeDef
+GPIO_Speed_10MHz = 0x1
+GPIO_Speed_2MHz = 0x2
+GPIO_Speed_50MHz = 0x3
+# Enum GPIOMode_TypeDef
+GPIO_Mode_AIN = 0x0
+GPIO_Mode_IN_FLOATING = 0x4
+GPIO_Mode_IPD = 0x28
+GPIO_Mode_IPU = 0x48
+GPIO_Mode_Out_OD = 0x14
+GPIO_Mode_Out_PP = 0x10
+GPIO_Mode_AF_OD = 0x1C
+GPIO_Mode_AF_PP = 0x18
+# Enum BitAction
+Bit_RESET = 0x0
+Bit_SET = 0x1
+# empty define __STM32F10x_GPIO_H
+GPIO_Pin_0 = 0x1
+GPIO_Pin_1 = 0x2
+GPIO_Pin_2 = 0x4
+GPIO_Pin_3 = 0x8
+GPIO_Pin_4 = 0x10
+GPIO_Pin_5 = 0x20
+GPIO_Pin_6 = 0x40
+GPIO_Pin_7 = 0x80
+GPIO_Pin_8 = 0x100
+GPIO_Pin_9 = 0x200
+GPIO_Pin_10 = 0x400
+GPIO_Pin_11 = 0x800
+GPIO_Pin_12 = 0x1000
+GPIO_Pin_13 = 0x2000
+GPIO_Pin_14 = 0x4000
+GPIO_Pin_15 = 0x8000
+GPIO_Pin_All = 0xFFFF
+GPIO_Remap_SPI1 = 0x1
+GPIO_Remap_I2C1 = 0x2
+GPIO_Remap_USART1 = 0x4
+GPIO_Remap_USART2 = 0x8
+GPIO_PartialRemap_USART3 = 0x140010
+GPIO_FullRemap_USART3 = 0x140030
+GPIO_PartialRemap_TIM1 = 0x160040
+GPIO_FullRemap_TIM1 = 0x1600C0
+GPIO_PartialRemap1_TIM2 = 0x180100
+GPIO_PartialRemap2_TIM2 = 0x180200
+GPIO_FullRemap_TIM2 = 0x180300
+GPIO_PartialRemap_TIM3 = 0x1A0800
+GPIO_FullRemap_TIM3 = 0x1A0C00
+GPIO_Remap_TIM4 = 0x1000
+GPIO_Remap1_CAN1 = 0x1D4000
+GPIO_Remap2_CAN1 = 0x1D6000
+GPIO_Remap_PD01 = 0x8000
+GPIO_Remap_TIM5CH4_LSI = 0x200001
+GPIO_Remap_ADC1_ETRGINJ = 0x200002
+GPIO_Remap_ADC1_ETRGREG = 0x200004
+GPIO_Remap_ADC2_ETRGINJ = 0x200008
+GPIO_Remap_ADC2_ETRGREG = 0x200010
+GPIO_Remap_ETH = 0x200020
+GPIO_Remap_CAN2 = 0x200040
+GPIO_Remap_SWJ_NoJTRST = 0x300100
+GPIO_Remap_SWJ_JTAGDisable = 0x300200
+GPIO_Remap_SWJ_Disable = 0x300400
+GPIO_Remap_SPI3 = 0x201100
+GPIO_Remap_TIM2ITR1_PTP_SOF = 0x202000
+GPIO_Remap_PTP_PPS = 0x204000
+GPIO_Remap_TIM15 = 0x80000001
+GPIO_Remap_TIM16 = 0x80000002
+GPIO_Remap_TIM17 = 0x80000004
+GPIO_Remap_CEC = 0x80000008
+GPIO_Remap_TIM1_DMA = 0x80000010
+GPIO_Remap_TIM9 = 0x80000020
+GPIO_Remap_TIM10 = 0x80000040
+GPIO_Remap_TIM11 = 0x80000080
+GPIO_Remap_TIM13 = 0x80000100
+GPIO_Remap_TIM14 = 0x80000200
+GPIO_Remap_FSMC_NADV = 0x80000400
+GPIO_Remap_TIM67_DAC_DMA = 0x80000800
+GPIO_Remap_TIM12 = 0x80001000
+GPIO_Remap_MISC = 0x80002000
+GPIO_PortSourceGPIOA = 0x0
+GPIO_PortSourceGPIOB = 0x1
+GPIO_PortSourceGPIOC = 0x2
+GPIO_PortSourceGPIOD = 0x3
+GPIO_PortSourceGPIOE = 0x4
+GPIO_PortSourceGPIOF = 0x5
+GPIO_PortSourceGPIOG = 0x6
+GPIO_PinSource0 = 0x0
+GPIO_PinSource1 = 0x1
+GPIO_PinSource2 = 0x2
+GPIO_PinSource3 = 0x3
+GPIO_PinSource4 = 0x4
+GPIO_PinSource5 = 0x5
+GPIO_PinSource6 = 0x6
+GPIO_PinSource7 = 0x7
+GPIO_PinSource8 = 0x8
+GPIO_PinSource9 = 0x9
+GPIO_PinSource10 = 0xA
+GPIO_PinSource11 = 0xB
+GPIO_PinSource12 = 0xC
+GPIO_PinSource13 = 0xD
+GPIO_PinSource14 = 0xE
+GPIO_PinSource15 = 0xF
+GPIO_ETH_MediaInterface_MII = 0x0
+GPIO_ETH_MediaInterface_RMII = 0x1
+# struct GPIO_InitTypeDef
+
+class GPIO_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('GPIO_Pin',	ctypes.c_uint16),
+		('GPIO_Speed',	ctypes.c_uint32),
+		('GPIO_Mode',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_dma.h : 
+
+# empty define __STM32F10x_DMA_H
+DMA_DIR_PeripheralDST = 0x10
+DMA_DIR_PeripheralSRC = 0x0
+DMA_PeripheralInc_Enable = 0x40
+DMA_PeripheralInc_Disable = 0x0
+DMA_MemoryInc_Enable = 0x80
+DMA_MemoryInc_Disable = 0x0
+DMA_PeripheralDataSize_Byte = 0x0
+DMA_PeripheralDataSize_HalfWord = 0x100
+DMA_PeripheralDataSize_Word = 0x200
+DMA_MemoryDataSize_Byte = 0x0
+DMA_MemoryDataSize_HalfWord = 0x400
+DMA_MemoryDataSize_Word = 0x800
+DMA_Mode_Circular = 0x20
+DMA_Mode_Normal = 0x0
+DMA_Priority_VeryHigh = 0x3000
+DMA_Priority_High = 0x2000
+DMA_Priority_Medium = 0x1000
+DMA_Priority_Low = 0x0
+DMA_M2M_Enable = 0x4000
+DMA_M2M_Disable = 0x0
+DMA_IT_TC = 0x2
+DMA_IT_HT = 0x4
+DMA_IT_TE = 0x8
+DMA1_IT_GL1 = 0x1
+DMA1_IT_TC1 = 0x2
+DMA1_IT_HT1 = 0x4
+DMA1_IT_TE1 = 0x8
+DMA1_IT_GL2 = 0x10
+DMA1_IT_TC2 = 0x20
+DMA1_IT_HT2 = 0x40
+DMA1_IT_TE2 = 0x80
+DMA1_IT_GL3 = 0x100
+DMA1_IT_TC3 = 0x200
+DMA1_IT_HT3 = 0x400
+DMA1_IT_TE3 = 0x800
+DMA1_IT_GL4 = 0x1000
+DMA1_IT_TC4 = 0x2000
+DMA1_IT_HT4 = 0x4000
+DMA1_IT_TE4 = 0x8000
+DMA1_IT_GL5 = 0x10000
+DMA1_IT_TC5 = 0x20000
+DMA1_IT_HT5 = 0x40000
+DMA1_IT_TE5 = 0x80000
+DMA1_IT_GL6 = 0x100000
+DMA1_IT_TC6 = 0x200000
+DMA1_IT_HT6 = 0x400000
+DMA1_IT_TE6 = 0x800000
+DMA1_IT_GL7 = 0x1000000
+DMA1_IT_TC7 = 0x2000000
+DMA1_IT_HT7 = 0x4000000
+DMA1_IT_TE7 = 0x8000000
+DMA2_IT_GL1 = 0x10000001
+DMA2_IT_TC1 = 0x10000002
+DMA2_IT_HT1 = 0x10000004
+DMA2_IT_TE1 = 0x10000008
+DMA2_IT_GL2 = 0x10000010
+DMA2_IT_TC2 = 0x10000020
+DMA2_IT_HT2 = 0x10000040
+DMA2_IT_TE2 = 0x10000080
+DMA2_IT_GL3 = 0x10000100
+DMA2_IT_TC3 = 0x10000200
+DMA2_IT_HT3 = 0x10000400
+DMA2_IT_TE3 = 0x10000800
+DMA2_IT_GL4 = 0x10001000
+DMA2_IT_TC4 = 0x10002000
+DMA2_IT_HT4 = 0x10004000
+DMA2_IT_TE4 = 0x10008000
+DMA2_IT_GL5 = 0x10010000
+DMA2_IT_TC5 = 0x10020000
+DMA2_IT_HT5 = 0x10040000
+DMA2_IT_TE5 = 0x10080000
+DMA1_FLAG_GL1 = 0x1
+DMA1_FLAG_TC1 = 0x2
+DMA1_FLAG_HT1 = 0x4
+DMA1_FLAG_TE1 = 0x8
+DMA1_FLAG_GL2 = 0x10
+DMA1_FLAG_TC2 = 0x20
+DMA1_FLAG_HT2 = 0x40
+DMA1_FLAG_TE2 = 0x80
+DMA1_FLAG_GL3 = 0x100
+DMA1_FLAG_TC3 = 0x200
+DMA1_FLAG_HT3 = 0x400
+DMA1_FLAG_TE3 = 0x800
+DMA1_FLAG_GL4 = 0x1000
+DMA1_FLAG_TC4 = 0x2000
+DMA1_FLAG_HT4 = 0x4000
+DMA1_FLAG_TE4 = 0x8000
+DMA1_FLAG_GL5 = 0x10000
+DMA1_FLAG_TC5 = 0x20000
+DMA1_FLAG_HT5 = 0x40000
+DMA1_FLAG_TE5 = 0x80000
+DMA1_FLAG_GL6 = 0x100000
+DMA1_FLAG_TC6 = 0x200000
+DMA1_FLAG_HT6 = 0x400000
+DMA1_FLAG_TE6 = 0x800000
+DMA1_FLAG_GL7 = 0x1000000
+DMA1_FLAG_TC7 = 0x2000000
+DMA1_FLAG_HT7 = 0x4000000
+DMA1_FLAG_TE7 = 0x8000000
+DMA2_FLAG_GL1 = 0x10000001
+DMA2_FLAG_TC1 = 0x10000002
+DMA2_FLAG_HT1 = 0x10000004
+DMA2_FLAG_TE1 = 0x10000008
+DMA2_FLAG_GL2 = 0x10000010
+DMA2_FLAG_TC2 = 0x10000020
+DMA2_FLAG_HT2 = 0x10000040
+DMA2_FLAG_TE2 = 0x10000080
+DMA2_FLAG_GL3 = 0x10000100
+DMA2_FLAG_TC3 = 0x10000200
+DMA2_FLAG_HT3 = 0x10000400
+DMA2_FLAG_TE3 = 0x10000800
+DMA2_FLAG_GL4 = 0x10001000
+DMA2_FLAG_TC4 = 0x10002000
+DMA2_FLAG_HT4 = 0x10004000
+DMA2_FLAG_TE4 = 0x10008000
+DMA2_FLAG_GL5 = 0x10010000
+DMA2_FLAG_TC5 = 0x10020000
+DMA2_FLAG_HT5 = 0x10040000
+DMA2_FLAG_TE5 = 0x10080000
+# struct DMA_InitTypeDef
+
+class DMA_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('DMA_PeripheralBaseAddr',	ctypes.c_uint32),
+		('DMA_MemoryBaseAddr',	ctypes.c_uint32),
+		('DMA_DIR',	ctypes.c_uint32),
+		('DMA_BufferSize',	ctypes.c_uint32),
+		('DMA_PeripheralInc',	ctypes.c_uint32),
+		('DMA_MemoryInc',	ctypes.c_uint32),
+		('DMA_PeripheralDataSize',	ctypes.c_uint32),
+		('DMA_MemoryDataSize',	ctypes.c_uint32),
+		('DMA_Mode',	ctypes.c_uint32),
+		('DMA_Priority',	ctypes.c_uint32),
+		('DMA_M2M',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_i2c.h : 
+
+# empty define __STM32F10x_I2C_H
+I2C_Mode_I2C = 0x0
+I2C_Mode_SMBusDevice = 0x2
+I2C_Mode_SMBusHost = 0xA
+I2C_DutyCycle_16_9 = 0x4000
+I2C_DutyCycle_2 = 0xBFFF
+I2C_Ack_Enable = 0x400
+I2C_Ack_Disable = 0x0
+I2C_Direction_Transmitter = 0x0
+I2C_Direction_Receiver = 0x1
+I2C_AcknowledgedAddress_7bit = 0x4000
+I2C_AcknowledgedAddress_10bit = 0xC000
+I2C_Register_CR1 = 0x0
+I2C_Register_CR2 = 0x4
+I2C_Register_OAR1 = 0x8
+I2C_Register_OAR2 = 0xC
+I2C_Register_DR = 0x10
+I2C_Register_SR1 = 0x14
+I2C_Register_SR2 = 0x18
+I2C_Register_CCR = 0x1C
+I2C_Register_TRISE = 0x20
+I2C_SMBusAlert_Low = 0x2000
+I2C_SMBusAlert_High = 0xDFFF
+I2C_PECPosition_Next = 0x800
+I2C_PECPosition_Current = 0xF7FF
+I2C_NACKPosition_Next = 0x800
+I2C_NACKPosition_Current = 0xF7FF
+I2C_IT_BUF = 0x400
+I2C_IT_EVT = 0x200
+I2C_IT_ERR = 0x100
+I2C_IT_SMBALERT = 0x1008000
+I2C_IT_TIMEOUT = 0x1004000
+I2C_IT_PECERR = 0x1001000
+I2C_IT_OVR = 0x1000800
+I2C_IT_AF = 0x1000400
+I2C_IT_ARLO = 0x1000200
+I2C_IT_BERR = 0x1000100
+I2C_IT_TXE = 0x6000080
+I2C_IT_RXNE = 0x6000040
+I2C_IT_STOPF = 0x2000010
+I2C_IT_ADD10 = 0x2000008
+I2C_IT_BTF = 0x2000004
+I2C_IT_ADDR = 0x2000002
+I2C_IT_SB = 0x2000001
+I2C_FLAG_DUALF = 0x800000
+I2C_FLAG_SMBHOST = 0x400000
+I2C_FLAG_SMBDEFAULT = 0x200000
+I2C_FLAG_GENCALL = 0x100000
+I2C_FLAG_TRA = 0x40000
+I2C_FLAG_BUSY = 0x20000
+I2C_FLAG_MSL = 0x10000
+I2C_FLAG_SMBALERT = 0x10008000
+I2C_FLAG_TIMEOUT = 0x10004000
+I2C_FLAG_PECERR = 0x10001000
+I2C_FLAG_OVR = 0x10000800
+I2C_FLAG_AF = 0x10000400
+I2C_FLAG_ARLO = 0x10000200
+I2C_FLAG_BERR = 0x10000100
+I2C_FLAG_TXE = 0x10000080
+I2C_FLAG_RXNE = 0x10000040
+I2C_FLAG_STOPF = 0x10000010
+I2C_FLAG_ADD10 = 0x10000008
+I2C_FLAG_BTF = 0x10000004
+I2C_FLAG_ADDR = 0x10000002
+I2C_FLAG_SB = 0x10000001
+I2C_EVENT_MASTER_MODE_SELECT = 0x30001
+I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED = 0x70082
+I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED = 0x30002
+I2C_EVENT_MASTER_MODE_ADDRESS10 = 0x30008
+I2C_EVENT_MASTER_BYTE_RECEIVED = 0x30040
+I2C_EVENT_MASTER_BYTE_TRANSMITTING = 0x70080
+I2C_EVENT_MASTER_BYTE_TRANSMITTED = 0x70084
+I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED = 0x20002
+I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED = 0x60082
+I2C_EVENT_SLAVE_RECEIVER_SECONDADDRESS_MATCHED = 0x820000
+I2C_EVENT_SLAVE_TRANSMITTER_SECONDADDRESS_MATCHED = 0x860080
+I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED = 0x120000
+I2C_EVENT_SLAVE_BYTE_RECEIVED = 0x20040
+I2C_EVENT_SLAVE_STOP_DETECTED = 0x10
+I2C_EVENT_SLAVE_BYTE_TRANSMITTED = 0x60084
+I2C_EVENT_SLAVE_BYTE_TRANSMITTING = 0x60080
+I2C_EVENT_SLAVE_ACK_FAILURE = 0x400
+# struct I2C_InitTypeDef
+
+class I2C_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('I2C_ClockSpeed',	ctypes.c_uint32),
+		('I2C_Mode',	ctypes.c_uint16),
+		('I2C_DutyCycle',	ctypes.c_uint16),
+		('I2C_OwnAddress1',	ctypes.c_uint16),
+		('I2C_Ack',	ctypes.c_uint16),
+		('I2C_AcknowledgedAddress',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_flash.h : 
+
+# Enum FLASH_Status
+FLASH_BUSY = 0x1
+FLASH_ERROR_PG = 0x2
+FLASH_ERROR_WRP = 0x3
+FLASH_COMPLETE = 0x4
+FLASH_TIMEOUT = 0x5
+# empty define __STM32F10x_FLASH_H
+FLASH_Latency_0 = 0x0
+FLASH_Latency_1 = 0x1
+FLASH_Latency_2 = 0x2
+FLASH_HalfCycleAccess_Enable = 0x8
+FLASH_HalfCycleAccess_Disable = 0x0
+FLASH_PrefetchBuffer_Enable = 0x10
+FLASH_PrefetchBuffer_Disable = 0x0
+FLASH_WRProt_Pages0to3 = 0x1
+FLASH_WRProt_Pages4to7 = 0x2
+FLASH_WRProt_Pages8to11 = 0x4
+FLASH_WRProt_Pages12to15 = 0x8
+FLASH_WRProt_Pages16to19 = 0x10
+FLASH_WRProt_Pages20to23 = 0x20
+FLASH_WRProt_Pages24to27 = 0x40
+FLASH_WRProt_Pages28to31 = 0x80
+FLASH_WRProt_Pages32to35 = 0x100
+FLASH_WRProt_Pages36to39 = 0x200
+FLASH_WRProt_Pages40to43 = 0x400
+FLASH_WRProt_Pages44to47 = 0x800
+FLASH_WRProt_Pages48to51 = 0x1000
+FLASH_WRProt_Pages52to55 = 0x2000
+FLASH_WRProt_Pages56to59 = 0x4000
+FLASH_WRProt_Pages60to63 = 0x8000
+FLASH_WRProt_Pages64to67 = 0x10000
+FLASH_WRProt_Pages68to71 = 0x20000
+FLASH_WRProt_Pages72to75 = 0x40000
+FLASH_WRProt_Pages76to79 = 0x80000
+FLASH_WRProt_Pages80to83 = 0x100000
+FLASH_WRProt_Pages84to87 = 0x200000
+FLASH_WRProt_Pages88to91 = 0x400000
+FLASH_WRProt_Pages92to95 = 0x800000
+FLASH_WRProt_Pages96to99 = 0x1000000
+FLASH_WRProt_Pages100to103 = 0x2000000
+FLASH_WRProt_Pages104to107 = 0x4000000
+FLASH_WRProt_Pages108to111 = 0x8000000
+FLASH_WRProt_Pages112to115 = 0x10000000
+FLASH_WRProt_Pages116to119 = 0x20000000
+FLASH_WRProt_Pages120to123 = 0x40000000
+FLASH_WRProt_Pages124to127 = 0x80000000
+FLASH_WRProt_Pages0to1 = 0x1
+FLASH_WRProt_Pages2to3 = 0x2
+FLASH_WRProt_Pages4to5 = 0x4
+FLASH_WRProt_Pages6to7 = 0x8
+FLASH_WRProt_Pages8to9 = 0x10
+FLASH_WRProt_Pages10to11 = 0x20
+FLASH_WRProt_Pages12to13 = 0x40
+FLASH_WRProt_Pages14to15 = 0x80
+FLASH_WRProt_Pages16to17 = 0x100
+FLASH_WRProt_Pages18to19 = 0x200
+FLASH_WRProt_Pages20to21 = 0x400
+FLASH_WRProt_Pages22to23 = 0x800
+FLASH_WRProt_Pages24to25 = 0x1000
+FLASH_WRProt_Pages26to27 = 0x2000
+FLASH_WRProt_Pages28to29 = 0x4000
+FLASH_WRProt_Pages30to31 = 0x8000
+FLASH_WRProt_Pages32to33 = 0x10000
+FLASH_WRProt_Pages34to35 = 0x20000
+FLASH_WRProt_Pages36to37 = 0x40000
+FLASH_WRProt_Pages38to39 = 0x80000
+FLASH_WRProt_Pages40to41 = 0x100000
+FLASH_WRProt_Pages42to43 = 0x200000
+FLASH_WRProt_Pages44to45 = 0x400000
+FLASH_WRProt_Pages46to47 = 0x800000
+FLASH_WRProt_Pages48to49 = 0x1000000
+FLASH_WRProt_Pages50to51 = 0x2000000
+FLASH_WRProt_Pages52to53 = 0x4000000
+FLASH_WRProt_Pages54to55 = 0x8000000
+FLASH_WRProt_Pages56to57 = 0x10000000
+FLASH_WRProt_Pages58to59 = 0x20000000
+FLASH_WRProt_Pages60to61 = 0x40000000
+FLASH_WRProt_Pages62to127 = 0x80000000
+FLASH_WRProt_Pages62to255 = 0x80000000
+FLASH_WRProt_Pages62to511 = 0x80000000
+FLASH_WRProt_AllPages = 0xFFFFFFFF
+OB_IWDG_SW = 0x1
+OB_IWDG_HW = 0x0
+OB_STOP_NoRST = 0x2
+OB_STOP_RST = 0x0
+OB_STDBY_NoRST = 0x4
+OB_STDBY_RST = 0x0
+# Skip FLASH_BOOT_Bank1 : no need parse
+# Skip FLASH_BOOT_Bank2 : no need parse
+# Skip FLASH_IT_BANK2_ERROR : no need parse
+# Skip FLASH_IT_BANK2_EOP : no need parse
+FLASH_IT_BANK1_ERROR = 0x400
+FLASH_IT_BANK1_EOP = 0x1000
+FLASH_IT_ERROR = 0x400
+FLASH_IT_EOP = 0x1000
+FLASH_IT_ERROR = 0x400
+FLASH_IT_EOP = 0x1000
+FLASH_IT_BANK1_ERROR = 0x400
+FLASH_IT_BANK1_EOP = 0x1000
+# Skip FLASH_FLAG_BANK2_BSY : no need parse
+# Skip FLASH_FLAG_BANK2_EOP : no need parse
+# Skip FLASH_FLAG_BANK2_PGERR : no need parse
+# Skip FLASH_FLAG_BANK2_WRPRTERR : no need parse
+FLASH_FLAG_BANK1_BSY = 0x1
+FLASH_FLAG_BANK1_EOP = 0x20
+FLASH_FLAG_BANK1_PGERR = 0x4
+FLASH_FLAG_BANK1_WRPRTERR = 0x10
+FLASH_FLAG_BSY = 0x1
+FLASH_FLAG_EOP = 0x20
+FLASH_FLAG_PGERR = 0x4
+FLASH_FLAG_WRPRTERR = 0x10
+FLASH_FLAG_OPTERR = 0x1
+FLASH_FLAG_BSY = 0x1
+FLASH_FLAG_EOP = 0x20
+FLASH_FLAG_PGERR = 0x4
+FLASH_FLAG_WRPRTERR = 0x10
+FLASH_FLAG_OPTERR = 0x1
+FLASH_FLAG_BANK1_BSY = 0x1
+FLASH_FLAG_BANK1_EOP = 0x20
+FLASH_FLAG_BANK1_PGERR = 0x4
+FLASH_FLAG_BANK1_WRPRTERR = 0x10
+# ----------------------------------------
+
+# file stm32f10x_dac.h : 
+
+# empty define __STM32F10x_DAC_H
+DAC_Trigger_None = 0x0
+DAC_Trigger_T6_TRGO = 0x4
+DAC_Trigger_T8_TRGO = 0xC
+DAC_Trigger_T3_TRGO = 0xC
+DAC_Trigger_T7_TRGO = 0x14
+DAC_Trigger_T5_TRGO = 0x1C
+DAC_Trigger_T15_TRGO = 0x1C
+DAC_Trigger_T2_TRGO = 0x24
+DAC_Trigger_T4_TRGO = 0x2C
+DAC_Trigger_Ext_IT9 = 0x34
+DAC_Trigger_Software = 0x3C
+DAC_WaveGeneration_None = 0x0
+DAC_WaveGeneration_Noise = 0x40
+DAC_WaveGeneration_Triangle = 0x80
+DAC_LFSRUnmask_Bit0 = 0x0
+DAC_LFSRUnmask_Bits1_0 = 0x100
+DAC_LFSRUnmask_Bits2_0 = 0x200
+DAC_LFSRUnmask_Bits3_0 = 0x300
+DAC_LFSRUnmask_Bits4_0 = 0x400
+DAC_LFSRUnmask_Bits5_0 = 0x500
+DAC_LFSRUnmask_Bits6_0 = 0x600
+DAC_LFSRUnmask_Bits7_0 = 0x700
+DAC_LFSRUnmask_Bits8_0 = 0x800
+DAC_LFSRUnmask_Bits9_0 = 0x900
+DAC_LFSRUnmask_Bits10_0 = 0xA00
+DAC_LFSRUnmask_Bits11_0 = 0xB00
+DAC_TriangleAmplitude_1 = 0x0
+DAC_TriangleAmplitude_3 = 0x100
+DAC_TriangleAmplitude_7 = 0x200
+DAC_TriangleAmplitude_15 = 0x300
+DAC_TriangleAmplitude_31 = 0x400
+DAC_TriangleAmplitude_63 = 0x500
+DAC_TriangleAmplitude_127 = 0x600
+DAC_TriangleAmplitude_255 = 0x700
+DAC_TriangleAmplitude_511 = 0x800
+DAC_TriangleAmplitude_1023 = 0x900
+DAC_TriangleAmplitude_2047 = 0xA00
+DAC_TriangleAmplitude_4095 = 0xB00
+DAC_OutputBuffer_Enable = 0x0
+DAC_OutputBuffer_Disable = 0x2
+DAC_Channel_1 = 0x0
+DAC_Channel_2 = 0x10
+DAC_Align_12b_R = 0x0
+DAC_Align_12b_L = 0x4
+DAC_Align_8b_R = 0x8
+DAC_Wave_Noise = 0x40
+DAC_Wave_Triangle = 0x80
+# Skip DAC_IT_DMAUDR : no need parse
+# Skip DAC_FLAG_DMAUDR : no need parse
+# struct DAC_InitTypeDef
+
+class DAC_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('DAC_Trigger',	ctypes.c_uint32),
+		('DAC_WaveGeneration',	ctypes.c_uint32),
+		('DAC_LFSRUnmask_TriangleAmplitude',	ctypes.c_uint32),
+		('DAC_OutputBuffer',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_cec.h : 
+
+# empty define __STM32F10x_CEC_H
+CEC_BitTimingStdMode = 0x0
+CEC_BitTimingErrFreeMode = 0x4
+CEC_BitPeriodStdMode = 0x0
+CEC_BitPeriodFlexibleMode = 0x8
+CEC_IT_TERR = 0x4
+CEC_IT_TBTRF = 0x8
+CEC_IT_RERR = 0x40
+CEC_IT_RBTF = 0x80
+CEC_FLAG_BTE = 0x10010000
+CEC_FLAG_BPE = 0x10020000
+CEC_FLAG_RBTFE = 0x10040000
+CEC_FLAG_SBE = 0x10080000
+CEC_FLAG_ACKE = 0x10100000
+CEC_FLAG_LINE = 0x10200000
+CEC_FLAG_TBTFE = 0x10400000
+CEC_FLAG_TEOM = 0x2
+CEC_FLAG_TERR = 0x4
+CEC_FLAG_TBTRF = 0x8
+CEC_FLAG_RSOM = 0x10
+CEC_FLAG_REOM = 0x20
+CEC_FLAG_RERR = 0x40
+CEC_FLAG_RBTF = 0x80
+# struct CEC_InitTypeDef
+
+class CEC_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CEC_BitTimingMode',	ctypes.c_uint16),
+		('CEC_BitPeriodMode',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_wwdg.h : 
+
+# empty define __STM32F10x_WWDG_H
+WWDG_Prescaler_1 = 0x0
+WWDG_Prescaler_2 = 0x80
+WWDG_Prescaler_4 = 0x100
+WWDG_Prescaler_8 = 0x180
+# ----------------------------------------
+
+# file stm32f10x_tim.h : 
+
+# empty define __STM32F10x_TIM_H
+TIM_OCMode_Timing = 0x0
+TIM_OCMode_Active = 0x10
+TIM_OCMode_Inactive = 0x20
+TIM_OCMode_Toggle = 0x30
+TIM_OCMode_PWM1 = 0x60
+TIM_OCMode_PWM2 = 0x70
+TIM_OPMode_Single = 0x8
+TIM_OPMode_Repetitive = 0x0
+TIM_Channel_1 = 0x0
+TIM_Channel_2 = 0x4
+TIM_Channel_3 = 0x8
+TIM_Channel_4 = 0xC
+TIM_CKD_DIV1 = 0x0
+TIM_CKD_DIV2 = 0x100
+TIM_CKD_DIV4 = 0x200
+TIM_CounterMode_Up = 0x0
+TIM_CounterMode_Down = 0x10
+TIM_CounterMode_CenterAligned1 = 0x20
+TIM_CounterMode_CenterAligned2 = 0x40
+TIM_CounterMode_CenterAligned3 = 0x60
+TIM_OCPolarity_High = 0x0
+TIM_OCPolarity_Low = 0x2
+TIM_OCNPolarity_High = 0x0
+TIM_OCNPolarity_Low = 0x8
+TIM_OutputState_Disable = 0x0
+TIM_OutputState_Enable = 0x1
+TIM_OutputNState_Disable = 0x0
+TIM_OutputNState_Enable = 0x4
+TIM_CCx_Enable = 0x1
+TIM_CCx_Disable = 0x0
+TIM_CCxN_Enable = 0x4
+TIM_CCxN_Disable = 0x0
+TIM_Break_Enable = 0x1000
+TIM_Break_Disable = 0x0
+TIM_BreakPolarity_Low = 0x0
+TIM_BreakPolarity_High = 0x2000
+TIM_AutomaticOutput_Enable = 0x4000
+TIM_AutomaticOutput_Disable = 0x0
+TIM_LOCKLevel_OFF = 0x0
+TIM_LOCKLevel_1 = 0x100
+TIM_LOCKLevel_2 = 0x200
+TIM_LOCKLevel_3 = 0x300
+TIM_OSSIState_Enable = 0x400
+TIM_OSSIState_Disable = 0x0
+TIM_OSSRState_Enable = 0x800
+TIM_OSSRState_Disable = 0x0
+TIM_OCIdleState_Set = 0x100
+TIM_OCIdleState_Reset = 0x0
+TIM_OCNIdleState_Set = 0x200
+TIM_OCNIdleState_Reset = 0x0
+TIM_ICPolarity_Rising = 0x0
+TIM_ICPolarity_Falling = 0x2
+TIM_ICPolarity_BothEdge = 0xA
+TIM_ICSelection_DirectTI = 0x1
+TIM_ICSelection_IndirectTI = 0x2
+TIM_ICSelection_TRC = 0x3
+TIM_ICPSC_DIV1 = 0x0
+TIM_ICPSC_DIV2 = 0x4
+TIM_ICPSC_DIV4 = 0x8
+TIM_ICPSC_DIV8 = 0xC
+TIM_IT_Update = 0x1
+TIM_IT_CC1 = 0x2
+TIM_IT_CC2 = 0x4
+TIM_IT_CC3 = 0x8
+TIM_IT_CC4 = 0x10
+TIM_IT_COM = 0x20
+TIM_IT_Trigger = 0x40
+TIM_IT_Break = 0x80
+TIM_DMABase_CR1 = 0x0
+TIM_DMABase_CR2 = 0x1
+TIM_DMABase_SMCR = 0x2
+TIM_DMABase_DIER = 0x3
+TIM_DMABase_SR = 0x4
+TIM_DMABase_EGR = 0x5
+TIM_DMABase_CCMR1 = 0x6
+TIM_DMABase_CCMR2 = 0x7
+TIM_DMABase_CCER = 0x8
+TIM_DMABase_CNT = 0x9
+TIM_DMABase_PSC = 0xA
+TIM_DMABase_ARR = 0xB
+TIM_DMABase_RCR = 0xC
+TIM_DMABase_CCR1 = 0xD
+TIM_DMABase_CCR2 = 0xE
+TIM_DMABase_CCR3 = 0xF
+TIM_DMABase_CCR4 = 0x10
+TIM_DMABase_BDTR = 0x11
+TIM_DMABase_DCR = 0x12
+TIM_DMABurstLength_1Transfer = 0x0
+TIM_DMABurstLength_2Transfers = 0x100
+TIM_DMABurstLength_3Transfers = 0x200
+TIM_DMABurstLength_4Transfers = 0x300
+TIM_DMABurstLength_5Transfers = 0x400
+TIM_DMABurstLength_6Transfers = 0x500
+TIM_DMABurstLength_7Transfers = 0x600
+TIM_DMABurstLength_8Transfers = 0x700
+TIM_DMABurstLength_9Transfers = 0x800
+TIM_DMABurstLength_10Transfers = 0x900
+TIM_DMABurstLength_11Transfers = 0xA00
+TIM_DMABurstLength_12Transfers = 0xB00
+TIM_DMABurstLength_13Transfers = 0xC00
+TIM_DMABurstLength_14Transfers = 0xD00
+TIM_DMABurstLength_15Transfers = 0xE00
+TIM_DMABurstLength_16Transfers = 0xF00
+TIM_DMABurstLength_17Transfers = 0x1000
+TIM_DMABurstLength_18Transfers = 0x1100
+TIM_DMA_Update = 0x100
+TIM_DMA_CC1 = 0x200
+TIM_DMA_CC2 = 0x400
+TIM_DMA_CC3 = 0x800
+TIM_DMA_CC4 = 0x1000
+TIM_DMA_COM = 0x2000
+TIM_DMA_Trigger = 0x4000
+TIM_ExtTRGPSC_OFF = 0x0
+TIM_ExtTRGPSC_DIV2 = 0x1000
+TIM_ExtTRGPSC_DIV4 = 0x2000
+TIM_ExtTRGPSC_DIV8 = 0x3000
+TIM_TS_ITR0 = 0x0
+TIM_TS_ITR1 = 0x10
+TIM_TS_ITR2 = 0x20
+TIM_TS_ITR3 = 0x30
+TIM_TS_TI1F_ED = 0x40
+TIM_TS_TI1FP1 = 0x50
+TIM_TS_TI2FP2 = 0x60
+TIM_TS_ETRF = 0x70
+TIM_TIxExternalCLK1Source_TI1 = 0x50
+TIM_TIxExternalCLK1Source_TI2 = 0x60
+TIM_TIxExternalCLK1Source_TI1ED = 0x40
+TIM_ExtTRGPolarity_Inverted = 0x8000
+TIM_ExtTRGPolarity_NonInverted = 0x0
+TIM_PSCReloadMode_Update = 0x0
+TIM_PSCReloadMode_Immediate = 0x1
+TIM_ForcedAction_Active = 0x50
+TIM_ForcedAction_InActive = 0x40
+TIM_EncoderMode_TI1 = 0x1
+TIM_EncoderMode_TI2 = 0x2
+TIM_EncoderMode_TI12 = 0x3
+TIM_EventSource_Update = 0x1
+TIM_EventSource_CC1 = 0x2
+TIM_EventSource_CC2 = 0x4
+TIM_EventSource_CC3 = 0x8
+TIM_EventSource_CC4 = 0x10
+TIM_EventSource_COM = 0x20
+TIM_EventSource_Trigger = 0x40
+TIM_EventSource_Break = 0x80
+TIM_UpdateSource_Global = 0x0
+TIM_UpdateSource_Regular = 0x1
+TIM_OCPreload_Enable = 0x8
+TIM_OCPreload_Disable = 0x0
+TIM_OCFast_Enable = 0x4
+TIM_OCFast_Disable = 0x0
+TIM_OCClear_Enable = 0x80
+TIM_OCClear_Disable = 0x0
+TIM_TRGOSource_Reset = 0x0
+TIM_TRGOSource_Enable = 0x10
+TIM_TRGOSource_Update = 0x20
+TIM_TRGOSource_OC1 = 0x30
+TIM_TRGOSource_OC1Ref = 0x40
+TIM_TRGOSource_OC2Ref = 0x50
+TIM_TRGOSource_OC3Ref = 0x60
+TIM_TRGOSource_OC4Ref = 0x70
+TIM_SlaveMode_Reset = 0x4
+TIM_SlaveMode_Gated = 0x5
+TIM_SlaveMode_Trigger = 0x6
+TIM_SlaveMode_External1 = 0x7
+TIM_MasterSlaveMode_Enable = 0x80
+TIM_MasterSlaveMode_Disable = 0x0
+TIM_FLAG_Update = 0x1
+TIM_FLAG_CC1 = 0x2
+TIM_FLAG_CC2 = 0x4
+TIM_FLAG_CC3 = 0x8
+TIM_FLAG_CC4 = 0x10
+TIM_FLAG_COM = 0x20
+TIM_FLAG_Trigger = 0x40
+TIM_FLAG_Break = 0x80
+TIM_FLAG_CC1OF = 0x200
+TIM_FLAG_CC2OF = 0x400
+TIM_FLAG_CC3OF = 0x800
+TIM_FLAG_CC4OF = 0x1000
+TIM_DMABurstLength_1Byte = 0x0
+TIM_DMABurstLength_2Bytes = 0x100
+TIM_DMABurstLength_3Bytes = 0x200
+TIM_DMABurstLength_4Bytes = 0x300
+TIM_DMABurstLength_5Bytes = 0x400
+TIM_DMABurstLength_6Bytes = 0x500
+TIM_DMABurstLength_7Bytes = 0x600
+TIM_DMABurstLength_8Bytes = 0x700
+TIM_DMABurstLength_9Bytes = 0x800
+TIM_DMABurstLength_10Bytes = 0x900
+TIM_DMABurstLength_11Bytes = 0xA00
+TIM_DMABurstLength_12Bytes = 0xB00
+TIM_DMABurstLength_13Bytes = 0xC00
+TIM_DMABurstLength_14Bytes = 0xD00
+TIM_DMABurstLength_15Bytes = 0xE00
+TIM_DMABurstLength_16Bytes = 0xF00
+TIM_DMABurstLength_17Bytes = 0x1000
+TIM_DMABurstLength_18Bytes = 0x1100
+# struct TIM_TimeBaseInitTypeDef
+
+class TIM_TimeBaseInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('TIM_Prescaler',	ctypes.c_uint16),
+		('TIM_CounterMode',	ctypes.c_uint16),
+		('TIM_Period',	ctypes.c_uint16),
+		('TIM_ClockDivision',	ctypes.c_uint16),
+		('TIM_RepetitionCounter',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct TIM_OCInitTypeDef
+
+class TIM_OCInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('TIM_OCMode',	ctypes.c_uint16),
+		('TIM_OutputState',	ctypes.c_uint16),
+		('TIM_OutputNState',	ctypes.c_uint16),
+		('TIM_Pulse',	ctypes.c_uint16),
+		('TIM_OCPolarity',	ctypes.c_uint16),
+		('TIM_OCNPolarity',	ctypes.c_uint16),
+		('TIM_OCIdleState',	ctypes.c_uint16),
+		('TIM_OCNIdleState',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct TIM_ICInitTypeDef
+
+class TIM_ICInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('TIM_Channel',	ctypes.c_uint16),
+		('TIM_ICPolarity',	ctypes.c_uint16),
+		('TIM_ICSelection',	ctypes.c_uint16),
+		('TIM_ICPrescaler',	ctypes.c_uint16),
+		('TIM_ICFilter',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct TIM_BDTRInitTypeDef
+
+class TIM_BDTRInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('TIM_OSSRState',	ctypes.c_uint16),
+		('TIM_OSSIState',	ctypes.c_uint16),
+		('TIM_LOCKLevel',	ctypes.c_uint16),
+		('TIM_DeadTime',	ctypes.c_uint16),
+		('TIM_Break',	ctypes.c_uint16),
+		('TIM_BreakPolarity',	ctypes.c_uint16),
+		('TIM_AutomaticOutput',	ctypes.c_uint16),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_rcc.h : 
+
+# empty define __STM32F10x_RCC_H
+RCC_HSE_OFF = 0x0
+RCC_HSE_ON = 0x10000
+RCC_HSE_Bypass = 0x40000
+RCC_PLLSource_HSI_Div2 = 0x0
+RCC_PLLSource_HSE_Div1 = 0x10000
+RCC_PLLSource_HSE_Div2 = 0x30000
+# Skip RCC_PLLSource_PREDIV1 : no need parse
+RCC_PLLMul_2 = 0x0
+RCC_PLLMul_3 = 0x40000
+RCC_PLLMul_4 = 0x80000
+RCC_PLLMul_5 = 0xC0000
+RCC_PLLMul_6 = 0x100000
+RCC_PLLMul_7 = 0x140000
+RCC_PLLMul_8 = 0x180000
+RCC_PLLMul_9 = 0x1C0000
+RCC_PLLMul_10 = 0x200000
+RCC_PLLMul_11 = 0x240000
+RCC_PLLMul_12 = 0x280000
+RCC_PLLMul_13 = 0x2C0000
+RCC_PLLMul_14 = 0x300000
+RCC_PLLMul_15 = 0x340000
+RCC_PLLMul_16 = 0x380000
+RCC_PLLMul_4 = 0x80000
+RCC_PLLMul_5 = 0xC0000
+RCC_PLLMul_6 = 0x100000
+RCC_PLLMul_7 = 0x140000
+RCC_PLLMul_8 = 0x180000
+RCC_PLLMul_9 = 0x1C0000
+# Skip RCC_PLLMul_6_5 : no need parse
+# Skip RCC_PREDIV1_Div1 : no need parse
+# Skip RCC_PREDIV1_Div2 : no need parse
+# Skip RCC_PREDIV1_Div3 : no need parse
+# Skip RCC_PREDIV1_Div4 : no need parse
+# Skip RCC_PREDIV1_Div5 : no need parse
+# Skip RCC_PREDIV1_Div6 : no need parse
+# Skip RCC_PREDIV1_Div7 : no need parse
+# Skip RCC_PREDIV1_Div8 : no need parse
+# Skip RCC_PREDIV1_Div9 : no need parse
+# Skip RCC_PREDIV1_Div10 : no need parse
+# Skip RCC_PREDIV1_Div11 : no need parse
+# Skip RCC_PREDIV1_Div12 : no need parse
+# Skip RCC_PREDIV1_Div13 : no need parse
+# Skip RCC_PREDIV1_Div14 : no need parse
+# Skip RCC_PREDIV1_Div15 : no need parse
+# Skip RCC_PREDIV1_Div16 : no need parse
+# Skip RCC_PREDIV1_Source_HSE : no need parse
+# Skip RCC_PREDIV1_Source_PLL2 : no need parse
+# Skip RCC_PREDIV1_Source_HSE : no need parse
+# Skip RCC_PREDIV2_Div1 : no need parse
+# Skip RCC_PREDIV2_Div2 : no need parse
+# Skip RCC_PREDIV2_Div3 : no need parse
+# Skip RCC_PREDIV2_Div4 : no need parse
+# Skip RCC_PREDIV2_Div5 : no need parse
+# Skip RCC_PREDIV2_Div6 : no need parse
+# Skip RCC_PREDIV2_Div7 : no need parse
+# Skip RCC_PREDIV2_Div8 : no need parse
+# Skip RCC_PREDIV2_Div9 : no need parse
+# Skip RCC_PREDIV2_Div10 : no need parse
+# Skip RCC_PREDIV2_Div11 : no need parse
+# Skip RCC_PREDIV2_Div12 : no need parse
+# Skip RCC_PREDIV2_Div13 : no need parse
+# Skip RCC_PREDIV2_Div14 : no need parse
+# Skip RCC_PREDIV2_Div15 : no need parse
+# Skip RCC_PREDIV2_Div16 : no need parse
+# Skip RCC_PLL2Mul_8 : no need parse
+# Skip RCC_PLL2Mul_9 : no need parse
+# Skip RCC_PLL2Mul_10 : no need parse
+# Skip RCC_PLL2Mul_11 : no need parse
+# Skip RCC_PLL2Mul_12 : no need parse
+# Skip RCC_PLL2Mul_13 : no need parse
+# Skip RCC_PLL2Mul_14 : no need parse
+# Skip RCC_PLL2Mul_16 : no need parse
+# Skip RCC_PLL2Mul_20 : no need parse
+# Skip RCC_PLL3Mul_8 : no need parse
+# Skip RCC_PLL3Mul_9 : no need parse
+# Skip RCC_PLL3Mul_10 : no need parse
+# Skip RCC_PLL3Mul_11 : no need parse
+# Skip RCC_PLL3Mul_12 : no need parse
+# Skip RCC_PLL3Mul_13 : no need parse
+# Skip RCC_PLL3Mul_14 : no need parse
+# Skip RCC_PLL3Mul_16 : no need parse
+# Skip RCC_PLL3Mul_20 : no need parse
+RCC_SYSCLKSource_HSI = 0x0
+RCC_SYSCLKSource_HSE = 0x1
+RCC_SYSCLKSource_PLLCLK = 0x2
+RCC_SYSCLK_Div1 = 0x0
+RCC_SYSCLK_Div2 = 0x80
+RCC_SYSCLK_Div4 = 0x90
+RCC_SYSCLK_Div8 = 0xA0
+RCC_SYSCLK_Div16 = 0xB0
+RCC_SYSCLK_Div64 = 0xC0
+RCC_SYSCLK_Div128 = 0xD0
+RCC_SYSCLK_Div256 = 0xE0
+RCC_SYSCLK_Div512 = 0xF0
+RCC_HCLK_Div1 = 0x0
+RCC_HCLK_Div2 = 0x400
+RCC_HCLK_Div4 = 0x500
+RCC_HCLK_Div8 = 0x600
+RCC_HCLK_Div16 = 0x700
+RCC_IT_LSIRDY = 0x1
+RCC_IT_LSERDY = 0x2
+RCC_IT_HSIRDY = 0x4
+RCC_IT_HSERDY = 0x8
+RCC_IT_PLLRDY = 0x10
+RCC_IT_CSS = 0x80
+# Skip RCC_IT_PLL2RDY : no need parse
+# Skip RCC_IT_PLL3RDY : no need parse
+RCC_USBCLKSource_PLLCLK_1Div5 = 0x0
+RCC_USBCLKSource_PLLCLK_Div1 = 0x1
+# Skip RCC_OTGFSCLKSource_PLLVCO_Div3 : no need parse
+# Skip RCC_OTGFSCLKSource_PLLVCO_Div2 : no need parse
+# Skip RCC_I2S2CLKSource_SYSCLK : no need parse
+# Skip RCC_I2S2CLKSource_PLL3_VCO : no need parse
+# Skip RCC_I2S3CLKSource_SYSCLK : no need parse
+# Skip RCC_I2S3CLKSource_PLL3_VCO : no need parse
+RCC_PCLK2_Div2 = 0x0
+RCC_PCLK2_Div4 = 0x4000
+RCC_PCLK2_Div6 = 0x8000
+RCC_PCLK2_Div8 = 0xC000
+RCC_LSE_OFF = 0x0
+RCC_LSE_ON = 0x1
+RCC_LSE_Bypass = 0x4
+RCC_RTCCLKSource_LSE = 0x100
+RCC_RTCCLKSource_LSI = 0x200
+RCC_RTCCLKSource_HSE_Div128 = 0x300
+RCC_AHBPeriph_DMA1 = 0x1
+RCC_AHBPeriph_DMA2 = 0x2
+RCC_AHBPeriph_SRAM = 0x4
+RCC_AHBPeriph_FLITF = 0x10
+RCC_AHBPeriph_CRC = 0x40
+RCC_AHBPeriph_FSMC = 0x100
+RCC_AHBPeriph_SDIO = 0x400
+# Skip RCC_AHBPeriph_OTG_FS : no need parse
+# Skip RCC_AHBPeriph_ETH_MAC : no need parse
+# Skip RCC_AHBPeriph_ETH_MAC_Tx : no need parse
+# Skip RCC_AHBPeriph_ETH_MAC_Rx : no need parse
+RCC_APB2Periph_AFIO = 0x1
+RCC_APB2Periph_GPIOA = 0x4
+RCC_APB2Periph_GPIOB = 0x8
+RCC_APB2Periph_GPIOC = 0x10
+RCC_APB2Periph_GPIOD = 0x20
+RCC_APB2Periph_GPIOE = 0x40
+RCC_APB2Periph_GPIOF = 0x80
+RCC_APB2Periph_GPIOG = 0x100
+RCC_APB2Periph_ADC1 = 0x200
+RCC_APB2Periph_ADC2 = 0x400
+RCC_APB2Periph_TIM1 = 0x800
+RCC_APB2Periph_SPI1 = 0x1000
+RCC_APB2Periph_TIM8 = 0x2000
+RCC_APB2Periph_USART1 = 0x4000
+RCC_APB2Periph_ADC3 = 0x8000
+RCC_APB2Periph_TIM15 = 0x10000
+RCC_APB2Periph_TIM16 = 0x20000
+RCC_APB2Periph_TIM17 = 0x40000
+RCC_APB2Periph_TIM9 = 0x80000
+RCC_APB2Periph_TIM10 = 0x100000
+RCC_APB2Periph_TIM11 = 0x200000
+RCC_APB1Periph_TIM2 = 0x1
+RCC_APB1Periph_TIM3 = 0x2
+RCC_APB1Periph_TIM4 = 0x4
+RCC_APB1Periph_TIM5 = 0x8
+RCC_APB1Periph_TIM6 = 0x10
+RCC_APB1Periph_TIM7 = 0x20
+RCC_APB1Periph_TIM12 = 0x40
+RCC_APB1Periph_TIM13 = 0x80
+RCC_APB1Periph_TIM14 = 0x100
+RCC_APB1Periph_WWDG = 0x800
+RCC_APB1Periph_SPI2 = 0x4000
+RCC_APB1Periph_SPI3 = 0x8000
+RCC_APB1Periph_USART2 = 0x20000
+RCC_APB1Periph_USART3 = 0x40000
+RCC_APB1Periph_UART4 = 0x80000
+RCC_APB1Periph_UART5 = 0x100000
+RCC_APB1Periph_I2C1 = 0x200000
+RCC_APB1Periph_I2C2 = 0x400000
+RCC_APB1Periph_USB = 0x800000
+RCC_APB1Periph_CAN1 = 0x2000000
+RCC_APB1Periph_CAN2 = 0x4000000
+RCC_APB1Periph_BKP = 0x8000000
+RCC_APB1Periph_PWR = 0x10000000
+RCC_APB1Periph_DAC = 0x20000000
+RCC_APB1Periph_CEC = 0x40000000
+RCC_MCO_NoClock = 0x0
+RCC_MCO_SYSCLK = 0x4
+RCC_MCO_HSI = 0x5
+RCC_MCO_HSE = 0x6
+RCC_MCO_PLLCLK_Div2 = 0x7
+# Skip RCC_MCO_PLL2CLK : no need parse
+# Skip RCC_MCO_PLL3CLK_Div2 : no need parse
+# Skip RCC_MCO_XT1 : no need parse
+# Skip RCC_MCO_PLL3CLK : no need parse
+RCC_FLAG_HSIRDY = 0x21
+RCC_FLAG_HSERDY = 0x31
+RCC_FLAG_PLLRDY = 0x39
+RCC_FLAG_LSERDY = 0x41
+RCC_FLAG_LSIRDY = 0x61
+RCC_FLAG_PINRST = 0x7A
+RCC_FLAG_PORRST = 0x7B
+RCC_FLAG_SFTRST = 0x7C
+RCC_FLAG_IWDGRST = 0x7D
+RCC_FLAG_WWDGRST = 0x7E
+RCC_FLAG_LPWRRST = 0x7F
+# Skip RCC_FLAG_PLL2RDY : no need parse
+# Skip RCC_FLAG_PLL3RDY : no need parse
+# struct RCC_ClocksTypeDef
+
+class RCC_ClocksTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('SYSCLK_Frequency',	ctypes.c_uint32),
+		('HCLK_Frequency',	ctypes.c_uint32),
+		('PCLK1_Frequency',	ctypes.c_uint32),
+		('PCLK2_Frequency',	ctypes.c_uint32),
+		('ADCCLK_Frequency',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
+# file stm32f10x_sdio.h : 
+
+# empty define __STM32F10x_SDIO_H
+SDIO_ClockEdge_Rising = 0x0
+SDIO_ClockEdge_Falling = 0x2000
+SDIO_ClockBypass_Disable = 0x0
+SDIO_ClockBypass_Enable = 0x400
+SDIO_ClockPowerSave_Disable = 0x0
+SDIO_ClockPowerSave_Enable = 0x200
+SDIO_BusWide_1b = 0x0
+SDIO_BusWide_4b = 0x800
+SDIO_BusWide_8b = 0x1000
+SDIO_HardwareFlowControl_Disable = 0x0
+SDIO_HardwareFlowControl_Enable = 0x4000
+SDIO_PowerState_OFF = 0x0
+SDIO_PowerState_ON = 0x3
+SDIO_IT_CCRCFAIL = 0x1
+SDIO_IT_DCRCFAIL = 0x2
+SDIO_IT_CTIMEOUT = 0x4
+SDIO_IT_DTIMEOUT = 0x8
+SDIO_IT_TXUNDERR = 0x10
+SDIO_IT_RXOVERR = 0x20
+SDIO_IT_CMDREND = 0x40
+SDIO_IT_CMDSENT = 0x80
+SDIO_IT_DATAEND = 0x100
+SDIO_IT_STBITERR = 0x200
+SDIO_IT_DBCKEND = 0x400
+SDIO_IT_CMDACT = 0x800
+SDIO_IT_TXACT = 0x1000
+SDIO_IT_RXACT = 0x2000
+SDIO_IT_TXFIFOHE = 0x4000
+SDIO_IT_RXFIFOHF = 0x8000
+SDIO_IT_TXFIFOF = 0x10000
+SDIO_IT_RXFIFOF = 0x20000
+SDIO_IT_TXFIFOE = 0x40000
+SDIO_IT_RXFIFOE = 0x80000
+SDIO_IT_TXDAVL = 0x100000
+SDIO_IT_RXDAVL = 0x200000
+SDIO_IT_SDIOIT = 0x400000
+SDIO_IT_CEATAEND = 0x800000
+SDIO_Response_No = 0x0
+SDIO_Response_Short = 0x40
+SDIO_Response_Long = 0xC0
+SDIO_Wait_No = 0x0
+SDIO_Wait_IT = 0x100
+SDIO_Wait_Pend = 0x200
+SDIO_CPSM_Disable = 0x0
+SDIO_CPSM_Enable = 0x400
+SDIO_RESP1 = 0x0
+SDIO_RESP2 = 0x4
+SDIO_RESP3 = 0x8
+SDIO_RESP4 = 0xC
+SDIO_DataBlockSize_1b = 0x0
+SDIO_DataBlockSize_2b = 0x10
+SDIO_DataBlockSize_4b = 0x20
+SDIO_DataBlockSize_8b = 0x30
+SDIO_DataBlockSize_16b = 0x40
+SDIO_DataBlockSize_32b = 0x50
+SDIO_DataBlockSize_64b = 0x60
+SDIO_DataBlockSize_128b = 0x70
+SDIO_DataBlockSize_256b = 0x80
+SDIO_DataBlockSize_512b = 0x90
+SDIO_DataBlockSize_1024b = 0xA0
+SDIO_DataBlockSize_2048b = 0xB0
+SDIO_DataBlockSize_4096b = 0xC0
+SDIO_DataBlockSize_8192b = 0xD0
+SDIO_DataBlockSize_16384b = 0xE0
+SDIO_TransferDir_ToCard = 0x0
+SDIO_TransferDir_ToSDIO = 0x2
+SDIO_TransferMode_Block = 0x0
+SDIO_TransferMode_Stream = 0x4
+SDIO_DPSM_Disable = 0x0
+SDIO_DPSM_Enable = 0x1
+SDIO_FLAG_CCRCFAIL = 0x1
+SDIO_FLAG_DCRCFAIL = 0x2
+SDIO_FLAG_CTIMEOUT = 0x4
+SDIO_FLAG_DTIMEOUT = 0x8
+SDIO_FLAG_TXUNDERR = 0x10
+SDIO_FLAG_RXOVERR = 0x20
+SDIO_FLAG_CMDREND = 0x40
+SDIO_FLAG_CMDSENT = 0x80
+SDIO_FLAG_DATAEND = 0x100
+SDIO_FLAG_STBITERR = 0x200
+SDIO_FLAG_DBCKEND = 0x400
+SDIO_FLAG_CMDACT = 0x800
+SDIO_FLAG_TXACT = 0x1000
+SDIO_FLAG_RXACT = 0x2000
+SDIO_FLAG_TXFIFOHE = 0x4000
+SDIO_FLAG_RXFIFOHF = 0x8000
+SDIO_FLAG_TXFIFOF = 0x10000
+SDIO_FLAG_RXFIFOF = 0x20000
+SDIO_FLAG_TXFIFOE = 0x40000
+SDIO_FLAG_RXFIFOE = 0x80000
+SDIO_FLAG_TXDAVL = 0x100000
+SDIO_FLAG_RXDAVL = 0x200000
+SDIO_FLAG_SDIOIT = 0x400000
+SDIO_FLAG_CEATAEND = 0x800000
+SDIO_ReadWaitMode_CLK = 0x1
+SDIO_ReadWaitMode_DATA2 = 0x0
+# struct SDIO_InitTypeDef
+
+class SDIO_InitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('SDIO_ClockEdge',	ctypes.c_uint32),
+		('SDIO_ClockBypass',	ctypes.c_uint32),
+		('SDIO_ClockPowerSave',	ctypes.c_uint32),
+		('SDIO_BusWide',	ctypes.c_uint32),
+		('SDIO_HardwareFlowControl',	ctypes.c_uint32),
+		('SDIO_ClockDiv',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct SDIO_CmdInitTypeDef
+
+class SDIO_CmdInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('SDIO_Argument',	ctypes.c_uint32),
+		('SDIO_CmdIndex',	ctypes.c_uint32),
+		('SDIO_Response',	ctypes.c_uint32),
+		('SDIO_Wait',	ctypes.c_uint32),
+		('SDIO_CPSM',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# struct SDIO_DataInitTypeDef
+
+class SDIO_DataInitTypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('SDIO_DataTimeOut',	ctypes.c_uint32),
+		('SDIO_DataLength',	ctypes.c_uint32),
+		('SDIO_DataBlockSize',	ctypes.c_uint32),
+		('SDIO_TransferDir',	ctypes.c_uint32),
+		('SDIO_TransferMode',	ctypes.c_uint32),
+		('SDIO_DPSM',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
+# ----------------------------------------
+
 # file stm32f10x.h : 
 
 # Enum FlagStatus , ITStatus
@@ -5675,75 +7679,497 @@ class WWDG_TypeDef(ctypes.Structure):
 # ----------------------------------------
 
 
-__all__ =  ['RESET', 'SET', 'DISABLE', 'ENABLE', 'ERROR', 'SUCCESS', 'HSE_VALUE', 'HSE_VALUE',
-    'HSE_STARTUP_TIMEOUT', 'HSI_VALUE', '__STM32F10X_STDPERIPH_VERSION_MAIN',
-    '__STM32F10X_STDPERIPH_VERSION_SUB1', '__STM32F10X_STDPERIPH_VERSION_SUB2',
-    '__STM32F10X_STDPERIPH_VERSION_RC', '__STM32F10X_STDPERIPH_VERSION',
-    '__MPU_PRESENT', '__MPU_PRESENT', '__NVIC_PRIO_BITS', '__Vendor_SysTickConfig',
-    'HSEStartUp_TimeOut', 'HSE_Value', 'HSI_Value', 'FLASH_BASE', 'SRAM_BASE',
-    'PERIPH_BASE', 'SRAM_BB_BASE', 'PERIPH_BB_BASE', 'FSMC_R_BASE', 'APB1PERIPH_BASE',
-    'APB2PERIPH_BASE', 'AHBPERIPH_BASE', 'TIM2_BASE', 'TIM3_BASE', 'TIM4_BASE',
-    'TIM5_BASE', 'TIM6_BASE', 'TIM7_BASE', 'TIM12_BASE', 'TIM13_BASE', 'TIM14_BASE',
-    'RTC_BASE', 'WWDG_BASE', 'IWDG_BASE', 'SPI2_BASE', 'SPI3_BASE', 'USART2_BASE',
-    'USART3_BASE', 'UART4_BASE', 'UART5_BASE', 'I2C1_BASE', 'I2C2_BASE', 'CAN1_BASE',
-    'CAN2_BASE', 'BKP_BASE', 'PWR_BASE', 'DAC_BASE', 'CEC_BASE', 'AFIO_BASE',
-    'EXTI_BASE', 'GPIOA_BASE', 'GPIOB_BASE', 'GPIOC_BASE', 'GPIOD_BASE', 'GPIOE_BASE',
-    'GPIOF_BASE', 'GPIOG_BASE', 'ADC1_BASE', 'ADC2_BASE', 'TIM1_BASE', 'SPI1_BASE',
-    'TIM8_BASE', 'USART1_BASE', 'ADC3_BASE', 'TIM15_BASE', 'TIM16_BASE', 'TIM17_BASE',
-    'TIM9_BASE', 'TIM10_BASE', 'TIM11_BASE', 'SDIO_BASE', 'DMA1_BASE',
-    'DMA1_Channel1_BASE', 'DMA1_Channel2_BASE', 'DMA1_Channel3_BASE',
-    'DMA1_Channel4_BASE', 'DMA1_Channel5_BASE', 'DMA1_Channel6_BASE',
-    'DMA1_Channel7_BASE', 'DMA2_BASE', 'DMA2_Channel1_BASE', 'DMA2_Channel2_BASE',
-    'DMA2_Channel3_BASE', 'DMA2_Channel4_BASE', 'DMA2_Channel5_BASE', 'RCC_BASE',
-    'CRC_BASE', 'FLASH_R_BASE', 'OB_BASE', 'ETH_BASE', 'ETH_MAC_BASE', 'ETH_MMC_BASE',
-    'ETH_PTP_BASE', 'ETH_DMA_BASE', 'FSMC_Bank1_R_BASE', 'FSMC_Bank1E_R_BASE',
-    'FSMC_Bank2_R_BASE', 'FSMC_Bank3_R_BASE', 'FSMC_Bank4_R_BASE', 'DBGMCU_BASE',
-    'TIM2', 'TIM3', 'TIM4', 'TIM5', 'TIM6', 'TIM7', 'TIM12', 'TIM13', 'TIM14', 'RTC',
-    'WWDG', 'IWDG', 'SPI2', 'SPI3', 'USART2', 'USART3', 'UART4', 'UART5', 'I2C1',
-    'I2C2', 'CAN1', 'CAN2', 'BKP', 'PWR', 'DAC', 'CEC', 'AFIO', 'EXTI', 'GPIOA',
-    'GPIOB', 'GPIOC', 'GPIOD', 'GPIOE', 'GPIOF', 'GPIOG', 'ADC1', 'ADC2', 'TIM1',
-    'SPI1', 'TIM8', 'USART1', 'ADC3', 'TIM15', 'TIM16', 'TIM17', 'TIM9', 'TIM10',
-    'TIM11', 'SDIO', 'DMA1', 'DMA2', 'DMA1_Channel1', 'DMA1_Channel2', 'DMA1_Channel3',
-    'DMA1_Channel4', 'DMA1_Channel5', 'DMA1_Channel6', 'DMA1_Channel7', 'DMA2_Channel1',
-    'DMA2_Channel2', 'DMA2_Channel3', 'DMA2_Channel4', 'DMA2_Channel5', 'RCC', 'CRC',
-    'FLASH', 'OB', 'ETH', 'FSMC_Bank1', 'FSMC_Bank1E', 'FSMC_Bank2', 'FSMC_Bank3',
-    'FSMC_Bank4', 'DBGMCU', 'CRC_DR_DR', 'CRC_IDR_IDR', 'CRC_CR_RESET', 'PWR_CR_LPDS',
-    'PWR_CR_PDDS', 'PWR_CR_CWUF', 'PWR_CR_CSBF', 'PWR_CR_PVDE', 'PWR_CR_PLS',
-    'PWR_CR_PLS_0', 'PWR_CR_PLS_1', 'PWR_CR_PLS_2', 'PWR_CR_PLS_2V2', 'PWR_CR_PLS_2V3',
-    'PWR_CR_PLS_2V4', 'PWR_CR_PLS_2V5', 'PWR_CR_PLS_2V6', 'PWR_CR_PLS_2V7',
-    'PWR_CR_PLS_2V8', 'PWR_CR_PLS_2V9', 'PWR_CR_DBP', 'PWR_CSR_WUF', 'PWR_CSR_SBF',
-    'PWR_CSR_PVDO', 'PWR_CSR_EWUP', 'BKP_DR1_D', 'BKP_DR2_D', 'BKP_DR3_D', 'BKP_DR4_D',
-    'BKP_DR5_D', 'BKP_DR6_D', 'BKP_DR7_D', 'BKP_DR8_D', 'BKP_DR9_D', 'BKP_DR10_D',
-    'BKP_DR11_D', 'BKP_DR12_D', 'BKP_DR13_D', 'BKP_DR14_D', 'BKP_DR15_D', 'BKP_DR16_D',
-    'BKP_DR17_D', 'BKP_DR18_D', 'BKP_DR19_D', 'BKP_DR20_D', 'BKP_DR21_D', 'BKP_DR22_D',
-    'BKP_DR23_D', 'BKP_DR24_D', 'BKP_DR25_D', 'BKP_DR26_D', 'BKP_DR27_D', 'BKP_DR28_D',
-    'BKP_DR29_D', 'BKP_DR30_D', 'BKP_DR31_D', 'BKP_DR32_D', 'BKP_DR33_D', 'BKP_DR34_D',
-    'BKP_DR35_D', 'BKP_DR36_D', 'BKP_DR37_D', 'BKP_DR38_D', 'BKP_DR39_D', 'BKP_DR40_D',
-    'BKP_DR41_D', 'BKP_DR42_D', 'BKP_RTCCR_CAL', 'BKP_RTCCR_CCO', 'BKP_RTCCR_ASOE',
-    'BKP_RTCCR_ASOS', 'BKP_CR_TPE', 'BKP_CR_TPAL', 'BKP_CSR_CTE', 'BKP_CSR_CTI',
-    'BKP_CSR_TPIE', 'BKP_CSR_TEF', 'BKP_CSR_TIF', 'RCC_CR_HSION', 'RCC_CR_HSIRDY',
-    'RCC_CR_HSITRIM', 'RCC_CR_HSICAL', 'RCC_CR_HSEON', 'RCC_CR_HSERDY', 'RCC_CR_HSEBYP',
-    'RCC_CR_CSSON', 'RCC_CR_PLLON', 'RCC_CR_PLLRDY', 'RCC_CFGR_SW', 'RCC_CFGR_SW_0',
-    'RCC_CFGR_SW_1', 'RCC_CFGR_SW_HSI', 'RCC_CFGR_SW_HSE', 'RCC_CFGR_SW_PLL',
-    'RCC_CFGR_SWS', 'RCC_CFGR_SWS_0', 'RCC_CFGR_SWS_1', 'RCC_CFGR_SWS_HSI',
-    'RCC_CFGR_SWS_HSE', 'RCC_CFGR_SWS_PLL', 'RCC_CFGR_HPRE', 'RCC_CFGR_HPRE_0',
-    'RCC_CFGR_HPRE_1', 'RCC_CFGR_HPRE_2', 'RCC_CFGR_HPRE_3', 'RCC_CFGR_HPRE_DIV1',
-    'RCC_CFGR_HPRE_DIV2', 'RCC_CFGR_HPRE_DIV4', 'RCC_CFGR_HPRE_DIV8',
-    'RCC_CFGR_HPRE_DIV16', 'RCC_CFGR_HPRE_DIV64', 'RCC_CFGR_HPRE_DIV128',
-    'RCC_CFGR_HPRE_DIV256', 'RCC_CFGR_HPRE_DIV512', 'RCC_CFGR_PPRE1',
-    'RCC_CFGR_PPRE1_0', 'RCC_CFGR_PPRE1_1', 'RCC_CFGR_PPRE1_2', 'RCC_CFGR_PPRE1_DIV1',
-    'RCC_CFGR_PPRE1_DIV2', 'RCC_CFGR_PPRE1_DIV4', 'RCC_CFGR_PPRE1_DIV8',
-    'RCC_CFGR_PPRE1_DIV16', 'RCC_CFGR_PPRE2', 'RCC_CFGR_PPRE2_0', 'RCC_CFGR_PPRE2_1',
-    'RCC_CFGR_PPRE2_2', 'RCC_CFGR_PPRE2_DIV1', 'RCC_CFGR_PPRE2_DIV2',
-    'RCC_CFGR_PPRE2_DIV4', 'RCC_CFGR_PPRE2_DIV8', 'RCC_CFGR_PPRE2_DIV16',
-    'RCC_CFGR_ADCPRE', 'RCC_CFGR_ADCPRE_0', 'RCC_CFGR_ADCPRE_1', 'RCC_CFGR_ADCPRE_DIV2',
-    'RCC_CFGR_ADCPRE_DIV4', 'RCC_CFGR_ADCPRE_DIV6', 'RCC_CFGR_ADCPRE_DIV8',
-    'RCC_CFGR_PLLSRC', 'RCC_CFGR_PLLXTPRE', 'RCC_CFGR_PLLMULL', 'RCC_CFGR_PLLMULL_0',
-    'RCC_CFGR_PLLMULL_1', 'RCC_CFGR_PLLMULL_2', 'RCC_CFGR_PLLMULL_3',
-    'RCC_CFGR_PLLSRC_HSI_Div2', 'RCC_CFGR_PLLMULL4', 'RCC_CFGR_PLLMULL5',
-    'RCC_CFGR_PLLMULL6', 'RCC_CFGR_PLLMULL7', 'RCC_CFGR_PLLMULL8', 'RCC_CFGR_PLLMULL9',
-    'RCC_CFGR_MCO', 'RCC_CFGR_MCO_0', 'RCC_CFGR_MCO_1', 'RCC_CFGR_MCO_2',
-    'RCC_CFGR_MCO_NOCLOCK', 'RCC_CFGR_MCO_SYSCLK', 'RCC_CFGR_MCO_HSI',
+__all__ =  ['RTC_IT_OW', 'RTC_IT_ALR', 'RTC_IT_SEC', 'RTC_FLAG_RTOFF', 'RTC_FLAG_RSF',
+    'RTC_FLAG_OW', 'RTC_FLAG_ALR', 'RTC_FLAG_SEC', 'PWR_PVDLevel_2V2',
+    'PWR_PVDLevel_2V3', 'PWR_PVDLevel_2V4', 'PWR_PVDLevel_2V5', 'PWR_PVDLevel_2V6',
+    'PWR_PVDLevel_2V7', 'PWR_PVDLevel_2V8', 'PWR_PVDLevel_2V9', 'PWR_Regulator_ON',
+    'PWR_Regulator_LowPower', 'PWR_STOPEntry_WFI', 'PWR_STOPEntry_WFE', 'PWR_FLAG_WU',
+    'PWR_FLAG_SB', 'PWR_FLAG_PVDO', 'IWDG_WriteAccess_Enable',
+    'IWDG_WriteAccess_Disable', 'IWDG_Prescaler_4', 'IWDG_Prescaler_8',
+    'IWDG_Prescaler_16', 'IWDG_Prescaler_32', 'IWDG_Prescaler_64', 'IWDG_Prescaler_128',
+    'IWDG_Prescaler_256', 'IWDG_FLAG_PVU', 'IWDG_FLAG_RVU', 'USART_WordLength_8b',
+    'USART_WordLength_9b', 'USART_StopBits_1', 'USART_StopBits_0_5', 'USART_StopBits_2',
+    'USART_StopBits_1_5', 'USART_Parity_No', 'USART_Parity_Even', 'USART_Parity_Odd',
+    'USART_Mode_Rx', 'USART_Mode_Tx', 'USART_HardwareFlowControl_None',
+    'USART_HardwareFlowControl_RTS', 'USART_HardwareFlowControl_CTS',
+    'USART_HardwareFlowControl_RTS_CTS', 'USART_Clock_Disable', 'USART_Clock_Enable',
+    'USART_CPOL_Low', 'USART_CPOL_High', 'USART_CPHA_1Edge', 'USART_CPHA_2Edge',
+    'USART_LastBit_Disable', 'USART_LastBit_Enable', 'USART_IT_PE', 'USART_IT_TXE',
+    'USART_IT_TC', 'USART_IT_RXNE', 'USART_IT_IDLE', 'USART_IT_LBD', 'USART_IT_CTS',
+    'USART_IT_ERR', 'USART_IT_ORE', 'USART_IT_NE', 'USART_IT_FE', 'USART_DMAReq_Tx',
+    'USART_DMAReq_Rx', 'USART_WakeUp_IdleLine', 'USART_WakeUp_AddressMark',
+    'USART_LINBreakDetectLength_10b', 'USART_LINBreakDetectLength_11b',
+    'USART_IrDAMode_LowPower', 'USART_IrDAMode_Normal', 'USART_FLAG_CTS',
+    'USART_FLAG_LBD', 'USART_FLAG_TXE', 'USART_FLAG_TC', 'USART_FLAG_RXNE',
+    'USART_FLAG_IDLE', 'USART_FLAG_ORE', 'USART_FLAG_NE', 'USART_FLAG_FE',
+    'USART_FLAG_PE', 'USART_InitTypeDef', 'USART_ClockInitTypeDef', 'DBGMCU_SLEEP',
+    'DBGMCU_STOP', 'DBGMCU_STANDBY', 'DBGMCU_IWDG_STOP', 'DBGMCU_WWDG_STOP',
+    'DBGMCU_TIM1_STOP', 'DBGMCU_TIM2_STOP', 'DBGMCU_TIM3_STOP', 'DBGMCU_TIM4_STOP',
+    'DBGMCU_CAN1_STOP', 'DBGMCU_I2C1_SMBUS_TIMEOUT', 'DBGMCU_I2C2_SMBUS_TIMEOUT',
+    'DBGMCU_TIM8_STOP', 'DBGMCU_TIM5_STOP', 'DBGMCU_TIM6_STOP', 'DBGMCU_TIM7_STOP',
+    'DBGMCU_CAN2_STOP', 'DBGMCU_TIM15_STOP', 'DBGMCU_TIM16_STOP', 'DBGMCU_TIM17_STOP',
+    'DBGMCU_TIM12_STOP', 'DBGMCU_TIM13_STOP', 'DBGMCU_TIM14_STOP', 'DBGMCU_TIM9_STOP',
+    'DBGMCU_TIM10_STOP', 'DBGMCU_TIM11_STOP', 'EXTI_Mode_Interrupt', 'EXTI_Mode_Event',
+    'EXTI_Trigger_Rising', 'EXTI_Trigger_Falling', 'EXTI_Trigger_Rising_Falling',
+    'EXTI_Line0', 'EXTI_Line1', 'EXTI_Line2', 'EXTI_Line3', 'EXTI_Line4', 'EXTI_Line5',
+    'EXTI_Line6', 'EXTI_Line7', 'EXTI_Line8', 'EXTI_Line9', 'EXTI_Line10',
+    'EXTI_Line11', 'EXTI_Line12', 'EXTI_Line13', 'EXTI_Line14', 'EXTI_Line15',
+    'EXTI_Line16', 'EXTI_Line17', 'EXTI_Line18', 'EXTI_Line19', 'EXTI_InitTypeDef',
+    'SPI_Direction_2Lines_FullDuplex', 'SPI_Direction_2Lines_RxOnly',
+    'SPI_Direction_1Line_Rx', 'SPI_Direction_1Line_Tx', 'SPI_Mode_Master',
+    'SPI_Mode_Slave', 'SPI_DataSize_16b', 'SPI_DataSize_8b', 'SPI_CPOL_Low',
+    'SPI_CPOL_High', 'SPI_CPHA_1Edge', 'SPI_CPHA_2Edge', 'SPI_NSS_Soft', 'SPI_NSS_Hard',
+    'SPI_BaudRatePrescaler_2', 'SPI_BaudRatePrescaler_4', 'SPI_BaudRatePrescaler_8',
+    'SPI_BaudRatePrescaler_16', 'SPI_BaudRatePrescaler_32', 'SPI_BaudRatePrescaler_64',
+    'SPI_BaudRatePrescaler_128', 'SPI_BaudRatePrescaler_256', 'SPI_FirstBit_MSB',
+    'SPI_FirstBit_LSB', 'I2S_Mode_SlaveTx', 'I2S_Mode_SlaveRx', 'I2S_Mode_MasterTx',
+    'I2S_Mode_MasterRx', 'I2S_Standard_Phillips', 'I2S_Standard_MSB',
+    'I2S_Standard_LSB', 'I2S_Standard_PCMShort', 'I2S_Standard_PCMLong',
+    'I2S_DataFormat_16b', 'I2S_DataFormat_16bextended', 'I2S_DataFormat_24b',
+    'I2S_DataFormat_32b', 'I2S_MCLKOutput_Enable', 'I2S_MCLKOutput_Disable',
+    'I2S_AudioFreq_192k', 'I2S_AudioFreq_96k', 'I2S_AudioFreq_48k', 'I2S_AudioFreq_44k',
+    'I2S_AudioFreq_32k', 'I2S_AudioFreq_22k', 'I2S_AudioFreq_16k', 'I2S_AudioFreq_11k',
+    'I2S_AudioFreq_8k', 'I2S_AudioFreq_Default', 'I2S_CPOL_Low', 'I2S_CPOL_High',
+    'SPI_I2S_DMAReq_Tx', 'SPI_I2S_DMAReq_Rx', 'SPI_NSSInternalSoft_Set',
+    'SPI_NSSInternalSoft_Reset', 'SPI_CRC_Tx', 'SPI_CRC_Rx', 'SPI_Direction_Rx',
+    'SPI_Direction_Tx', 'SPI_I2S_IT_TXE', 'SPI_I2S_IT_RXNE', 'SPI_I2S_IT_ERR',
+    'SPI_I2S_IT_OVR', 'SPI_IT_MODF', 'SPI_IT_CRCERR', 'I2S_IT_UDR', 'SPI_I2S_FLAG_RXNE',
+    'SPI_I2S_FLAG_TXE', 'I2S_FLAG_CHSIDE', 'I2S_FLAG_UDR', 'SPI_FLAG_CRCERR',
+    'SPI_FLAG_MODF', 'SPI_I2S_FLAG_OVR', 'SPI_I2S_FLAG_BSY', 'SPI_InitTypeDef',
+    'I2S_InitTypeDef', 'ADC_Mode_Independent', 'ADC_Mode_RegInjecSimult',
+    'ADC_Mode_RegSimult_AlterTrig', 'ADC_Mode_InjecSimult_FastInterl',
+    'ADC_Mode_InjecSimult_SlowInterl', 'ADC_Mode_InjecSimult', 'ADC_Mode_RegSimult',
+    'ADC_Mode_FastInterl', 'ADC_Mode_SlowInterl', 'ADC_Mode_AlterTrig',
+    'ADC_ExternalTrigConv_T1_CC1', 'ADC_ExternalTrigConv_T1_CC2',
+    'ADC_ExternalTrigConv_T2_CC2', 'ADC_ExternalTrigConv_T3_TRGO',
+    'ADC_ExternalTrigConv_T4_CC4', 'ADC_ExternalTrigConv_Ext_IT11_TIM8_TRGO',
+    'ADC_ExternalTrigConv_T1_CC3', 'ADC_ExternalTrigConv_None',
+    'ADC_ExternalTrigConv_T3_CC1', 'ADC_ExternalTrigConv_T2_CC3',
+    'ADC_ExternalTrigConv_T8_CC1', 'ADC_ExternalTrigConv_T8_TRGO',
+    'ADC_ExternalTrigConv_T5_CC1', 'ADC_ExternalTrigConv_T5_CC3', 'ADC_DataAlign_Right',
+    'ADC_DataAlign_Left', 'ADC_Channel_0', 'ADC_Channel_1', 'ADC_Channel_2',
+    'ADC_Channel_3', 'ADC_Channel_4', 'ADC_Channel_5', 'ADC_Channel_6', 'ADC_Channel_7',
+    'ADC_Channel_8', 'ADC_Channel_9', 'ADC_Channel_10', 'ADC_Channel_11',
+    'ADC_Channel_12', 'ADC_Channel_13', 'ADC_Channel_14', 'ADC_Channel_15',
+    'ADC_Channel_16', 'ADC_Channel_17', 'ADC_Channel_TempSensor', 'ADC_Channel_Vrefint',
+    'ADC_SampleTime_1Cycles5', 'ADC_SampleTime_7Cycles5', 'ADC_SampleTime_13Cycles5',
+    'ADC_SampleTime_28Cycles5', 'ADC_SampleTime_41Cycles5', 'ADC_SampleTime_55Cycles5',
+    'ADC_SampleTime_71Cycles5', 'ADC_SampleTime_239Cycles5',
+    'ADC_ExternalTrigInjecConv_T2_TRGO', 'ADC_ExternalTrigInjecConv_T2_CC1',
+    'ADC_ExternalTrigInjecConv_T3_CC4', 'ADC_ExternalTrigInjecConv_T4_TRGO',
+    'ADC_ExternalTrigInjecConv_Ext_IT15_TIM8_CC4', 'ADC_ExternalTrigInjecConv_T1_TRGO',
+    'ADC_ExternalTrigInjecConv_T1_CC4', 'ADC_ExternalTrigInjecConv_None',
+    'ADC_ExternalTrigInjecConv_T4_CC3', 'ADC_ExternalTrigInjecConv_T8_CC2',
+    'ADC_ExternalTrigInjecConv_T8_CC4', 'ADC_ExternalTrigInjecConv_T5_TRGO',
+    'ADC_ExternalTrigInjecConv_T5_CC4', 'ADC_InjectedChannel_1',
+    'ADC_InjectedChannel_2', 'ADC_InjectedChannel_3', 'ADC_InjectedChannel_4',
+    'ADC_AnalogWatchdog_SingleRegEnable', 'ADC_AnalogWatchdog_SingleInjecEnable',
+    'ADC_AnalogWatchdog_SingleRegOrInjecEnable', 'ADC_AnalogWatchdog_AllRegEnable',
+    'ADC_AnalogWatchdog_AllInjecEnable', 'ADC_AnalogWatchdog_AllRegAllInjecEnable',
+    'ADC_AnalogWatchdog_None', 'ADC_IT_EOC', 'ADC_IT_AWD', 'ADC_IT_JEOC',
+    'ADC_FLAG_AWD', 'ADC_FLAG_EOC', 'ADC_FLAG_JEOC', 'ADC_FLAG_JSTRT', 'ADC_FLAG_STRT',
+    'ADC_InitTypeDef', 'CAN_InitStatus_Failed', 'CAN_InitStatus_Success',
+    'CAN_Mode_Normal', 'CAN_Mode_LoopBack', 'CAN_Mode_Silent',
+    'CAN_Mode_Silent_LoopBack', 'CAN_OperatingMode_Initialization',
+    'CAN_OperatingMode_Normal', 'CAN_OperatingMode_Sleep', 'CAN_ModeStatus_Failed',
+    'CAN_ModeStatus_Success', 'CAN_SJW_1tq', 'CAN_SJW_2tq', 'CAN_SJW_3tq',
+    'CAN_SJW_4tq', 'CAN_BS1_1tq', 'CAN_BS1_2tq', 'CAN_BS1_3tq', 'CAN_BS1_4tq',
+    'CAN_BS1_5tq', 'CAN_BS1_6tq', 'CAN_BS1_7tq', 'CAN_BS1_8tq', 'CAN_BS1_9tq',
+    'CAN_BS1_10tq', 'CAN_BS1_11tq', 'CAN_BS1_12tq', 'CAN_BS1_13tq', 'CAN_BS1_14tq',
+    'CAN_BS1_15tq', 'CAN_BS1_16tq', 'CAN_BS2_1tq', 'CAN_BS2_2tq', 'CAN_BS2_3tq',
+    'CAN_BS2_4tq', 'CAN_BS2_5tq', 'CAN_BS2_6tq', 'CAN_BS2_7tq', 'CAN_BS2_8tq',
+    'CAN_FilterMode_IdMask', 'CAN_FilterMode_IdList', 'CAN_FilterScale_16bit',
+    'CAN_FilterScale_32bit', 'CAN_Filter_FIFO0', 'CAN_Filter_FIFO1', 'CAN_Id_Standard',
+    'CAN_Id_Extended', 'CAN_RTR_Data', 'CAN_RTR_Remote', 'CAN_TxStatus_Failed',
+    'CAN_TxStatus_Ok', 'CAN_TxStatus_Pending', 'CAN_TxStatus_NoMailBox', 'CAN_FIFO0',
+    'CAN_FIFO1', 'CAN_Sleep_Failed', 'CAN_Sleep_Ok', 'CAN_WakeUp_Failed',
+    'CAN_WakeUp_Ok', 'CAN_ErrorCode_NoErr', 'CAN_ErrorCode_StuffErr',
+    'CAN_ErrorCode_FormErr', 'CAN_ErrorCode_ACKErr', 'CAN_ErrorCode_BitRecessiveErr',
+    'CAN_ErrorCode_BitDominantErr', 'CAN_ErrorCode_CRCErr',
+    'CAN_ErrorCode_SoftwareSetErr', 'CAN_FLAG_RQCP0', 'CAN_FLAG_RQCP1',
+    'CAN_FLAG_RQCP2', 'CAN_FLAG_FMP0', 'CAN_FLAG_FF0', 'CAN_FLAG_FOV0', 'CAN_FLAG_FMP1',
+    'CAN_FLAG_FF1', 'CAN_FLAG_FOV1', 'CAN_FLAG_WKU', 'CAN_FLAG_SLAK', 'CAN_FLAG_EWG',
+    'CAN_FLAG_EPV', 'CAN_FLAG_BOF', 'CAN_FLAG_LEC', 'CAN_IT_TME', 'CAN_IT_FMP0',
+    'CAN_IT_FF0', 'CAN_IT_FOV0', 'CAN_IT_FMP1', 'CAN_IT_FF1', 'CAN_IT_FOV1',
+    'CAN_IT_WKU', 'CAN_IT_SLK', 'CAN_IT_EWG', 'CAN_IT_EPV', 'CAN_IT_BOF', 'CAN_IT_LEC',
+    'CAN_IT_ERR', 'CAN_IT_RQCP0', 'CAN_IT_RQCP1', 'CAN_IT_RQCP2', 'CANINITFAILED',
+    'CANINITOK', 'CAN_FilterFIFO0', 'CAN_FilterFIFO1', 'CAN_ID_STD', 'CAN_ID_EXT',
+    'CAN_RTR_DATA', 'CAN_RTR_REMOTE', 'CANTXFAILE', 'CANTXOK', 'CANTXPENDING',
+    'CAN_NO_MB', 'CANSLEEPFAILED', 'CANSLEEPOK', 'CANWAKEUPFAILED', 'CANWAKEUPOK',
+    'CAN_InitTypeDef', 'CAN_FilterInitTypeDef', 'BKP_TamperPinLevel_High',
+    'BKP_TamperPinLevel_Low', 'BKP_RTCOutputSource_None',
+    'BKP_RTCOutputSource_CalibClock', 'BKP_RTCOutputSource_Alarm',
+    'BKP_RTCOutputSource_Second', 'BKP_DR1', 'BKP_DR2', 'BKP_DR3', 'BKP_DR4', 'BKP_DR5',
+    'BKP_DR6', 'BKP_DR7', 'BKP_DR8', 'BKP_DR9', 'BKP_DR10', 'BKP_DR11', 'BKP_DR12',
+    'BKP_DR13', 'BKP_DR14', 'BKP_DR15', 'BKP_DR16', 'BKP_DR17', 'BKP_DR18', 'BKP_DR19',
+    'BKP_DR20', 'BKP_DR21', 'BKP_DR22', 'BKP_DR23', 'BKP_DR24', 'BKP_DR25', 'BKP_DR26',
+    'BKP_DR27', 'BKP_DR28', 'BKP_DR29', 'BKP_DR30', 'BKP_DR31', 'BKP_DR32', 'BKP_DR33',
+    'BKP_DR34', 'BKP_DR35', 'BKP_DR36', 'BKP_DR37', 'BKP_DR38', 'BKP_DR39', 'BKP_DR40',
+    'BKP_DR41', 'BKP_DR42', 'FSMC_Bank1_NORSRAM1', 'FSMC_Bank1_NORSRAM2',
+    'FSMC_Bank1_NORSRAM3', 'FSMC_Bank1_NORSRAM4', 'FSMC_Bank2_NAND', 'FSMC_Bank3_NAND',
+    'FSMC_Bank4_PCCARD', 'FSMC_DataAddressMux_Disable', 'FSMC_DataAddressMux_Enable',
+    'FSMC_MemoryType_SRAM', 'FSMC_MemoryType_PSRAM', 'FSMC_MemoryType_NOR',
+    'FSMC_MemoryDataWidth_8b', 'FSMC_MemoryDataWidth_16b',
+    'FSMC_BurstAccessMode_Disable', 'FSMC_BurstAccessMode_Enable',
+    'FSMC_AsynchronousWait_Disable', 'FSMC_AsynchronousWait_Enable',
+    'FSMC_WaitSignalPolarity_Low', 'FSMC_WaitSignalPolarity_High',
+    'FSMC_WrapMode_Disable', 'FSMC_WrapMode_Enable',
+    'FSMC_WaitSignalActive_BeforeWaitState', 'FSMC_WaitSignalActive_DuringWaitState',
+    'FSMC_WriteOperation_Disable', 'FSMC_WriteOperation_Enable',
+    'FSMC_WaitSignal_Disable', 'FSMC_WaitSignal_Enable', 'FSMC_ExtendedMode_Disable',
+    'FSMC_ExtendedMode_Enable', 'FSMC_WriteBurst_Disable', 'FSMC_WriteBurst_Enable',
+    'FSMC_AccessMode_A', 'FSMC_AccessMode_B', 'FSMC_AccessMode_C', 'FSMC_AccessMode_D',
+    'FSMC_Waitfeature_Disable', 'FSMC_Waitfeature_Enable', 'FSMC_ECC_Disable',
+    'FSMC_ECC_Enable', 'FSMC_ECCPageSize_256Bytes', 'FSMC_ECCPageSize_512Bytes',
+    'FSMC_ECCPageSize_1024Bytes', 'FSMC_ECCPageSize_2048Bytes',
+    'FSMC_ECCPageSize_4096Bytes', 'FSMC_ECCPageSize_8192Bytes', 'FSMC_IT_RisingEdge',
+    'FSMC_IT_Level', 'FSMC_IT_FallingEdge', 'FSMC_FLAG_RisingEdge', 'FSMC_FLAG_Level',
+    'FSMC_FLAG_FallingEdge', 'FSMC_FLAG_FEMPT', 'FSMC_NORSRAMTimingInitTypeDef',
+    'FSMC_NAND_PCCARDTimingInitTypeDef', 'NVIC_VectTab_RAM', 'NVIC_VectTab_FLASH',
+    'NVIC_LP_SEVONPEND', 'NVIC_LP_SLEEPDEEP', 'NVIC_LP_SLEEPONEXIT',
+    'NVIC_PriorityGroup_0', 'NVIC_PriorityGroup_1', 'NVIC_PriorityGroup_2',
+    'NVIC_PriorityGroup_3', 'NVIC_PriorityGroup_4', 'SysTick_CLKSource_HCLK_Div8',
+    'SysTick_CLKSource_HCLK', 'NVIC_InitTypeDef', 'GPIO_Speed_10MHz', 'GPIO_Speed_2MHz',
+    'GPIO_Speed_50MHz', 'GPIO_Mode_AIN', 'GPIO_Mode_IN_FLOATING', 'GPIO_Mode_IPD',
+    'GPIO_Mode_IPU', 'GPIO_Mode_Out_OD', 'GPIO_Mode_Out_PP', 'GPIO_Mode_AF_OD',
+    'GPIO_Mode_AF_PP', 'Bit_RESET', 'Bit_SET', 'GPIO_Pin_0', 'GPIO_Pin_1', 'GPIO_Pin_2',
+    'GPIO_Pin_3', 'GPIO_Pin_4', 'GPIO_Pin_5', 'GPIO_Pin_6', 'GPIO_Pin_7', 'GPIO_Pin_8',
+    'GPIO_Pin_9', 'GPIO_Pin_10', 'GPIO_Pin_11', 'GPIO_Pin_12', 'GPIO_Pin_13',
+    'GPIO_Pin_14', 'GPIO_Pin_15', 'GPIO_Pin_All', 'GPIO_Remap_SPI1', 'GPIO_Remap_I2C1',
+    'GPIO_Remap_USART1', 'GPIO_Remap_USART2', 'GPIO_PartialRemap_USART3',
+    'GPIO_FullRemap_USART3', 'GPIO_PartialRemap_TIM1', 'GPIO_FullRemap_TIM1',
+    'GPIO_PartialRemap1_TIM2', 'GPIO_PartialRemap2_TIM2', 'GPIO_FullRemap_TIM2',
+    'GPIO_PartialRemap_TIM3', 'GPIO_FullRemap_TIM3', 'GPIO_Remap_TIM4',
+    'GPIO_Remap1_CAN1', 'GPIO_Remap2_CAN1', 'GPIO_Remap_PD01', 'GPIO_Remap_TIM5CH4_LSI',
+    'GPIO_Remap_ADC1_ETRGINJ', 'GPIO_Remap_ADC1_ETRGREG', 'GPIO_Remap_ADC2_ETRGINJ',
+    'GPIO_Remap_ADC2_ETRGREG', 'GPIO_Remap_ETH', 'GPIO_Remap_CAN2',
+    'GPIO_Remap_SWJ_NoJTRST', 'GPIO_Remap_SWJ_JTAGDisable', 'GPIO_Remap_SWJ_Disable',
+    'GPIO_Remap_SPI3', 'GPIO_Remap_TIM2ITR1_PTP_SOF', 'GPIO_Remap_PTP_PPS',
+    'GPIO_Remap_TIM15', 'GPIO_Remap_TIM16', 'GPIO_Remap_TIM17', 'GPIO_Remap_CEC',
+    'GPIO_Remap_TIM1_DMA', 'GPIO_Remap_TIM9', 'GPIO_Remap_TIM10', 'GPIO_Remap_TIM11',
+    'GPIO_Remap_TIM13', 'GPIO_Remap_TIM14', 'GPIO_Remap_FSMC_NADV',
+    'GPIO_Remap_TIM67_DAC_DMA', 'GPIO_Remap_TIM12', 'GPIO_Remap_MISC',
+    'GPIO_PortSourceGPIOA', 'GPIO_PortSourceGPIOB', 'GPIO_PortSourceGPIOC',
+    'GPIO_PortSourceGPIOD', 'GPIO_PortSourceGPIOE', 'GPIO_PortSourceGPIOF',
+    'GPIO_PortSourceGPIOG', 'GPIO_PinSource0', 'GPIO_PinSource1', 'GPIO_PinSource2',
+    'GPIO_PinSource3', 'GPIO_PinSource4', 'GPIO_PinSource5', 'GPIO_PinSource6',
+    'GPIO_PinSource7', 'GPIO_PinSource8', 'GPIO_PinSource9', 'GPIO_PinSource10',
+    'GPIO_PinSource11', 'GPIO_PinSource12', 'GPIO_PinSource13', 'GPIO_PinSource14',
+    'GPIO_PinSource15', 'GPIO_ETH_MediaInterface_MII', 'GPIO_ETH_MediaInterface_RMII',
+    'GPIO_InitTypeDef', 'DMA_DIR_PeripheralDST', 'DMA_DIR_PeripheralSRC',
+    'DMA_PeripheralInc_Enable', 'DMA_PeripheralInc_Disable', 'DMA_MemoryInc_Enable',
+    'DMA_MemoryInc_Disable', 'DMA_PeripheralDataSize_Byte',
+    'DMA_PeripheralDataSize_HalfWord', 'DMA_PeripheralDataSize_Word',
+    'DMA_MemoryDataSize_Byte', 'DMA_MemoryDataSize_HalfWord', 'DMA_MemoryDataSize_Word',
+    'DMA_Mode_Circular', 'DMA_Mode_Normal', 'DMA_Priority_VeryHigh',
+    'DMA_Priority_High', 'DMA_Priority_Medium', 'DMA_Priority_Low', 'DMA_M2M_Enable',
+    'DMA_M2M_Disable', 'DMA_IT_TC', 'DMA_IT_HT', 'DMA_IT_TE', 'DMA1_IT_GL1',
+    'DMA1_IT_TC1', 'DMA1_IT_HT1', 'DMA1_IT_TE1', 'DMA1_IT_GL2', 'DMA1_IT_TC2',
+    'DMA1_IT_HT2', 'DMA1_IT_TE2', 'DMA1_IT_GL3', 'DMA1_IT_TC3', 'DMA1_IT_HT3',
+    'DMA1_IT_TE3', 'DMA1_IT_GL4', 'DMA1_IT_TC4', 'DMA1_IT_HT4', 'DMA1_IT_TE4',
+    'DMA1_IT_GL5', 'DMA1_IT_TC5', 'DMA1_IT_HT5', 'DMA1_IT_TE5', 'DMA1_IT_GL6',
+    'DMA1_IT_TC6', 'DMA1_IT_HT6', 'DMA1_IT_TE6', 'DMA1_IT_GL7', 'DMA1_IT_TC7',
+    'DMA1_IT_HT7', 'DMA1_IT_TE7', 'DMA2_IT_GL1', 'DMA2_IT_TC1', 'DMA2_IT_HT1',
+    'DMA2_IT_TE1', 'DMA2_IT_GL2', 'DMA2_IT_TC2', 'DMA2_IT_HT2', 'DMA2_IT_TE2',
+    'DMA2_IT_GL3', 'DMA2_IT_TC3', 'DMA2_IT_HT3', 'DMA2_IT_TE3', 'DMA2_IT_GL4',
+    'DMA2_IT_TC4', 'DMA2_IT_HT4', 'DMA2_IT_TE4', 'DMA2_IT_GL5', 'DMA2_IT_TC5',
+    'DMA2_IT_HT5', 'DMA2_IT_TE5', 'DMA1_FLAG_GL1', 'DMA1_FLAG_TC1', 'DMA1_FLAG_HT1',
+    'DMA1_FLAG_TE1', 'DMA1_FLAG_GL2', 'DMA1_FLAG_TC2', 'DMA1_FLAG_HT2', 'DMA1_FLAG_TE2',
+    'DMA1_FLAG_GL3', 'DMA1_FLAG_TC3', 'DMA1_FLAG_HT3', 'DMA1_FLAG_TE3', 'DMA1_FLAG_GL4',
+    'DMA1_FLAG_TC4', 'DMA1_FLAG_HT4', 'DMA1_FLAG_TE4', 'DMA1_FLAG_GL5', 'DMA1_FLAG_TC5',
+    'DMA1_FLAG_HT5', 'DMA1_FLAG_TE5', 'DMA1_FLAG_GL6', 'DMA1_FLAG_TC6', 'DMA1_FLAG_HT6',
+    'DMA1_FLAG_TE6', 'DMA1_FLAG_GL7', 'DMA1_FLAG_TC7', 'DMA1_FLAG_HT7', 'DMA1_FLAG_TE7',
+    'DMA2_FLAG_GL1', 'DMA2_FLAG_TC1', 'DMA2_FLAG_HT1', 'DMA2_FLAG_TE1', 'DMA2_FLAG_GL2',
+    'DMA2_FLAG_TC2', 'DMA2_FLAG_HT2', 'DMA2_FLAG_TE2', 'DMA2_FLAG_GL3', 'DMA2_FLAG_TC3',
+    'DMA2_FLAG_HT3', 'DMA2_FLAG_TE3', 'DMA2_FLAG_GL4', 'DMA2_FLAG_TC4', 'DMA2_FLAG_HT4',
+    'DMA2_FLAG_TE4', 'DMA2_FLAG_GL5', 'DMA2_FLAG_TC5', 'DMA2_FLAG_HT5', 'DMA2_FLAG_TE5',
+    'DMA_InitTypeDef', 'I2C_Mode_I2C', 'I2C_Mode_SMBusDevice', 'I2C_Mode_SMBusHost',
+    'I2C_DutyCycle_16_9', 'I2C_DutyCycle_2', 'I2C_Ack_Enable', 'I2C_Ack_Disable',
+    'I2C_Direction_Transmitter', 'I2C_Direction_Receiver',
+    'I2C_AcknowledgedAddress_7bit', 'I2C_AcknowledgedAddress_10bit', 'I2C_Register_CR1',
+    'I2C_Register_CR2', 'I2C_Register_OAR1', 'I2C_Register_OAR2', 'I2C_Register_DR',
+    'I2C_Register_SR1', 'I2C_Register_SR2', 'I2C_Register_CCR', 'I2C_Register_TRISE',
+    'I2C_SMBusAlert_Low', 'I2C_SMBusAlert_High', 'I2C_PECPosition_Next',
+    'I2C_PECPosition_Current', 'I2C_NACKPosition_Next', 'I2C_NACKPosition_Current',
+    'I2C_IT_BUF', 'I2C_IT_EVT', 'I2C_IT_ERR', 'I2C_IT_SMBALERT', 'I2C_IT_TIMEOUT',
+    'I2C_IT_PECERR', 'I2C_IT_OVR', 'I2C_IT_AF', 'I2C_IT_ARLO', 'I2C_IT_BERR',
+    'I2C_IT_TXE', 'I2C_IT_RXNE', 'I2C_IT_STOPF', 'I2C_IT_ADD10', 'I2C_IT_BTF',
+    'I2C_IT_ADDR', 'I2C_IT_SB', 'I2C_FLAG_DUALF', 'I2C_FLAG_SMBHOST',
+    'I2C_FLAG_SMBDEFAULT', 'I2C_FLAG_GENCALL', 'I2C_FLAG_TRA', 'I2C_FLAG_BUSY',
+    'I2C_FLAG_MSL', 'I2C_FLAG_SMBALERT', 'I2C_FLAG_TIMEOUT', 'I2C_FLAG_PECERR',
+    'I2C_FLAG_OVR', 'I2C_FLAG_AF', 'I2C_FLAG_ARLO', 'I2C_FLAG_BERR', 'I2C_FLAG_TXE',
+    'I2C_FLAG_RXNE', 'I2C_FLAG_STOPF', 'I2C_FLAG_ADD10', 'I2C_FLAG_BTF',
+    'I2C_FLAG_ADDR', 'I2C_FLAG_SB', 'I2C_EVENT_MASTER_MODE_SELECT',
+    'I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED',
+    'I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED', 'I2C_EVENT_MASTER_MODE_ADDRESS10',
+    'I2C_EVENT_MASTER_BYTE_RECEIVED', 'I2C_EVENT_MASTER_BYTE_TRANSMITTING',
+    'I2C_EVENT_MASTER_BYTE_TRANSMITTED', 'I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED',
+    'I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED',
+    'I2C_EVENT_SLAVE_RECEIVER_SECONDADDRESS_MATCHED',
+    'I2C_EVENT_SLAVE_TRANSMITTER_SECONDADDRESS_MATCHED',
+    'I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED', 'I2C_EVENT_SLAVE_BYTE_RECEIVED',
+    'I2C_EVENT_SLAVE_STOP_DETECTED', 'I2C_EVENT_SLAVE_BYTE_TRANSMITTED',
+    'I2C_EVENT_SLAVE_BYTE_TRANSMITTING', 'I2C_EVENT_SLAVE_ACK_FAILURE',
+    'I2C_InitTypeDef', 'FLASH_BUSY', 'FLASH_ERROR_PG', 'FLASH_ERROR_WRP',
+    'FLASH_COMPLETE', 'FLASH_TIMEOUT', 'FLASH_Latency_0', 'FLASH_Latency_1',
+    'FLASH_Latency_2', 'FLASH_HalfCycleAccess_Enable', 'FLASH_HalfCycleAccess_Disable',
+    'FLASH_PrefetchBuffer_Enable', 'FLASH_PrefetchBuffer_Disable',
+    'FLASH_WRProt_Pages0to3', 'FLASH_WRProt_Pages4to7', 'FLASH_WRProt_Pages8to11',
+    'FLASH_WRProt_Pages12to15', 'FLASH_WRProt_Pages16to19', 'FLASH_WRProt_Pages20to23',
+    'FLASH_WRProt_Pages24to27', 'FLASH_WRProt_Pages28to31', 'FLASH_WRProt_Pages32to35',
+    'FLASH_WRProt_Pages36to39', 'FLASH_WRProt_Pages40to43', 'FLASH_WRProt_Pages44to47',
+    'FLASH_WRProt_Pages48to51', 'FLASH_WRProt_Pages52to55', 'FLASH_WRProt_Pages56to59',
+    'FLASH_WRProt_Pages60to63', 'FLASH_WRProt_Pages64to67', 'FLASH_WRProt_Pages68to71',
+    'FLASH_WRProt_Pages72to75', 'FLASH_WRProt_Pages76to79', 'FLASH_WRProt_Pages80to83',
+    'FLASH_WRProt_Pages84to87', 'FLASH_WRProt_Pages88to91', 'FLASH_WRProt_Pages92to95',
+    'FLASH_WRProt_Pages96to99', 'FLASH_WRProt_Pages100to103',
+    'FLASH_WRProt_Pages104to107', 'FLASH_WRProt_Pages108to111',
+    'FLASH_WRProt_Pages112to115', 'FLASH_WRProt_Pages116to119',
+    'FLASH_WRProt_Pages120to123', 'FLASH_WRProt_Pages124to127',
+    'FLASH_WRProt_Pages0to1', 'FLASH_WRProt_Pages2to3', 'FLASH_WRProt_Pages4to5',
+    'FLASH_WRProt_Pages6to7', 'FLASH_WRProt_Pages8to9', 'FLASH_WRProt_Pages10to11',
+    'FLASH_WRProt_Pages12to13', 'FLASH_WRProt_Pages14to15', 'FLASH_WRProt_Pages16to17',
+    'FLASH_WRProt_Pages18to19', 'FLASH_WRProt_Pages20to21', 'FLASH_WRProt_Pages22to23',
+    'FLASH_WRProt_Pages24to25', 'FLASH_WRProt_Pages26to27', 'FLASH_WRProt_Pages28to29',
+    'FLASH_WRProt_Pages30to31', 'FLASH_WRProt_Pages32to33', 'FLASH_WRProt_Pages34to35',
+    'FLASH_WRProt_Pages36to37', 'FLASH_WRProt_Pages38to39', 'FLASH_WRProt_Pages40to41',
+    'FLASH_WRProt_Pages42to43', 'FLASH_WRProt_Pages44to45', 'FLASH_WRProt_Pages46to47',
+    'FLASH_WRProt_Pages48to49', 'FLASH_WRProt_Pages50to51', 'FLASH_WRProt_Pages52to53',
+    'FLASH_WRProt_Pages54to55', 'FLASH_WRProt_Pages56to57', 'FLASH_WRProt_Pages58to59',
+    'FLASH_WRProt_Pages60to61', 'FLASH_WRProt_Pages62to127',
+    'FLASH_WRProt_Pages62to255', 'FLASH_WRProt_Pages62to511', 'FLASH_WRProt_AllPages',
+    'OB_IWDG_SW', 'OB_IWDG_HW', 'OB_STOP_NoRST', 'OB_STOP_RST', 'OB_STDBY_NoRST',
+    'OB_STDBY_RST', 'FLASH_IT_BANK1_ERROR', 'FLASH_IT_BANK1_EOP', 'FLASH_IT_ERROR',
+    'FLASH_IT_EOP', 'FLASH_IT_ERROR', 'FLASH_IT_EOP', 'FLASH_IT_BANK1_ERROR',
+    'FLASH_IT_BANK1_EOP', 'FLASH_FLAG_BANK1_BSY', 'FLASH_FLAG_BANK1_EOP',
+    'FLASH_FLAG_BANK1_PGERR', 'FLASH_FLAG_BANK1_WRPRTERR', 'FLASH_FLAG_BSY',
+    'FLASH_FLAG_EOP', 'FLASH_FLAG_PGERR', 'FLASH_FLAG_WRPRTERR', 'FLASH_FLAG_OPTERR',
+    'FLASH_FLAG_BSY', 'FLASH_FLAG_EOP', 'FLASH_FLAG_PGERR', 'FLASH_FLAG_WRPRTERR',
+    'FLASH_FLAG_OPTERR', 'FLASH_FLAG_BANK1_BSY', 'FLASH_FLAG_BANK1_EOP',
+    'FLASH_FLAG_BANK1_PGERR', 'FLASH_FLAG_BANK1_WRPRTERR', 'DAC_Trigger_None',
+    'DAC_Trigger_T6_TRGO', 'DAC_Trigger_T8_TRGO', 'DAC_Trigger_T3_TRGO',
+    'DAC_Trigger_T7_TRGO', 'DAC_Trigger_T5_TRGO', 'DAC_Trigger_T15_TRGO',
+    'DAC_Trigger_T2_TRGO', 'DAC_Trigger_T4_TRGO', 'DAC_Trigger_Ext_IT9',
+    'DAC_Trigger_Software', 'DAC_WaveGeneration_None', 'DAC_WaveGeneration_Noise',
+    'DAC_WaveGeneration_Triangle', 'DAC_LFSRUnmask_Bit0', 'DAC_LFSRUnmask_Bits1_0',
+    'DAC_LFSRUnmask_Bits2_0', 'DAC_LFSRUnmask_Bits3_0', 'DAC_LFSRUnmask_Bits4_0',
+    'DAC_LFSRUnmask_Bits5_0', 'DAC_LFSRUnmask_Bits6_0', 'DAC_LFSRUnmask_Bits7_0',
+    'DAC_LFSRUnmask_Bits8_0', 'DAC_LFSRUnmask_Bits9_0', 'DAC_LFSRUnmask_Bits10_0',
+    'DAC_LFSRUnmask_Bits11_0', 'DAC_TriangleAmplitude_1', 'DAC_TriangleAmplitude_3',
+    'DAC_TriangleAmplitude_7', 'DAC_TriangleAmplitude_15', 'DAC_TriangleAmplitude_31',
+    'DAC_TriangleAmplitude_63', 'DAC_TriangleAmplitude_127',
+    'DAC_TriangleAmplitude_255', 'DAC_TriangleAmplitude_511',
+    'DAC_TriangleAmplitude_1023', 'DAC_TriangleAmplitude_2047',
+    'DAC_TriangleAmplitude_4095', 'DAC_OutputBuffer_Enable', 'DAC_OutputBuffer_Disable',
+    'DAC_Channel_1', 'DAC_Channel_2', 'DAC_Align_12b_R', 'DAC_Align_12b_L',
+    'DAC_Align_8b_R', 'DAC_Wave_Noise', 'DAC_Wave_Triangle', 'DAC_InitTypeDef',
+    'CEC_BitTimingStdMode', 'CEC_BitTimingErrFreeMode', 'CEC_BitPeriodStdMode',
+    'CEC_BitPeriodFlexibleMode', 'CEC_IT_TERR', 'CEC_IT_TBTRF', 'CEC_IT_RERR',
+    'CEC_IT_RBTF', 'CEC_FLAG_BTE', 'CEC_FLAG_BPE', 'CEC_FLAG_RBTFE', 'CEC_FLAG_SBE',
+    'CEC_FLAG_ACKE', 'CEC_FLAG_LINE', 'CEC_FLAG_TBTFE', 'CEC_FLAG_TEOM',
+    'CEC_FLAG_TERR', 'CEC_FLAG_TBTRF', 'CEC_FLAG_RSOM', 'CEC_FLAG_REOM',
+    'CEC_FLAG_RERR', 'CEC_FLAG_RBTF', 'CEC_InitTypeDef', 'WWDG_Prescaler_1',
+    'WWDG_Prescaler_2', 'WWDG_Prescaler_4', 'WWDG_Prescaler_8', 'TIM_OCMode_Timing',
+    'TIM_OCMode_Active', 'TIM_OCMode_Inactive', 'TIM_OCMode_Toggle', 'TIM_OCMode_PWM1',
+    'TIM_OCMode_PWM2', 'TIM_OPMode_Single', 'TIM_OPMode_Repetitive', 'TIM_Channel_1',
+    'TIM_Channel_2', 'TIM_Channel_3', 'TIM_Channel_4', 'TIM_CKD_DIV1', 'TIM_CKD_DIV2',
+    'TIM_CKD_DIV4', 'TIM_CounterMode_Up', 'TIM_CounterMode_Down',
+    'TIM_CounterMode_CenterAligned1', 'TIM_CounterMode_CenterAligned2',
+    'TIM_CounterMode_CenterAligned3', 'TIM_OCPolarity_High', 'TIM_OCPolarity_Low',
+    'TIM_OCNPolarity_High', 'TIM_OCNPolarity_Low', 'TIM_OutputState_Disable',
+    'TIM_OutputState_Enable', 'TIM_OutputNState_Disable', 'TIM_OutputNState_Enable',
+    'TIM_CCx_Enable', 'TIM_CCx_Disable', 'TIM_CCxN_Enable', 'TIM_CCxN_Disable',
+    'TIM_Break_Enable', 'TIM_Break_Disable', 'TIM_BreakPolarity_Low',
+    'TIM_BreakPolarity_High', 'TIM_AutomaticOutput_Enable',
+    'TIM_AutomaticOutput_Disable', 'TIM_LOCKLevel_OFF', 'TIM_LOCKLevel_1',
+    'TIM_LOCKLevel_2', 'TIM_LOCKLevel_3', 'TIM_OSSIState_Enable',
+    'TIM_OSSIState_Disable', 'TIM_OSSRState_Enable', 'TIM_OSSRState_Disable',
+    'TIM_OCIdleState_Set', 'TIM_OCIdleState_Reset', 'TIM_OCNIdleState_Set',
+    'TIM_OCNIdleState_Reset', 'TIM_ICPolarity_Rising', 'TIM_ICPolarity_Falling',
+    'TIM_ICPolarity_BothEdge', 'TIM_ICSelection_DirectTI', 'TIM_ICSelection_IndirectTI',
+    'TIM_ICSelection_TRC', 'TIM_ICPSC_DIV1', 'TIM_ICPSC_DIV2', 'TIM_ICPSC_DIV4',
+    'TIM_ICPSC_DIV8', 'TIM_IT_Update', 'TIM_IT_CC1', 'TIM_IT_CC2', 'TIM_IT_CC3',
+    'TIM_IT_CC4', 'TIM_IT_COM', 'TIM_IT_Trigger', 'TIM_IT_Break', 'TIM_DMABase_CR1',
+    'TIM_DMABase_CR2', 'TIM_DMABase_SMCR', 'TIM_DMABase_DIER', 'TIM_DMABase_SR',
+    'TIM_DMABase_EGR', 'TIM_DMABase_CCMR1', 'TIM_DMABase_CCMR2', 'TIM_DMABase_CCER',
+    'TIM_DMABase_CNT', 'TIM_DMABase_PSC', 'TIM_DMABase_ARR', 'TIM_DMABase_RCR',
+    'TIM_DMABase_CCR1', 'TIM_DMABase_CCR2', 'TIM_DMABase_CCR3', 'TIM_DMABase_CCR4',
+    'TIM_DMABase_BDTR', 'TIM_DMABase_DCR', 'TIM_DMABurstLength_1Transfer',
+    'TIM_DMABurstLength_2Transfers', 'TIM_DMABurstLength_3Transfers',
+    'TIM_DMABurstLength_4Transfers', 'TIM_DMABurstLength_5Transfers',
+    'TIM_DMABurstLength_6Transfers', 'TIM_DMABurstLength_7Transfers',
+    'TIM_DMABurstLength_8Transfers', 'TIM_DMABurstLength_9Transfers',
+    'TIM_DMABurstLength_10Transfers', 'TIM_DMABurstLength_11Transfers',
+    'TIM_DMABurstLength_12Transfers', 'TIM_DMABurstLength_13Transfers',
+    'TIM_DMABurstLength_14Transfers', 'TIM_DMABurstLength_15Transfers',
+    'TIM_DMABurstLength_16Transfers', 'TIM_DMABurstLength_17Transfers',
+    'TIM_DMABurstLength_18Transfers', 'TIM_DMA_Update', 'TIM_DMA_CC1', 'TIM_DMA_CC2',
+    'TIM_DMA_CC3', 'TIM_DMA_CC4', 'TIM_DMA_COM', 'TIM_DMA_Trigger', 'TIM_ExtTRGPSC_OFF',
+    'TIM_ExtTRGPSC_DIV2', 'TIM_ExtTRGPSC_DIV4', 'TIM_ExtTRGPSC_DIV8', 'TIM_TS_ITR0',
+    'TIM_TS_ITR1', 'TIM_TS_ITR2', 'TIM_TS_ITR3', 'TIM_TS_TI1F_ED', 'TIM_TS_TI1FP1',
+    'TIM_TS_TI2FP2', 'TIM_TS_ETRF', 'TIM_TIxExternalCLK1Source_TI1',
+    'TIM_TIxExternalCLK1Source_TI2', 'TIM_TIxExternalCLK1Source_TI1ED',
+    'TIM_ExtTRGPolarity_Inverted', 'TIM_ExtTRGPolarity_NonInverted',
+    'TIM_PSCReloadMode_Update', 'TIM_PSCReloadMode_Immediate',
+    'TIM_ForcedAction_Active', 'TIM_ForcedAction_InActive', 'TIM_EncoderMode_TI1',
+    'TIM_EncoderMode_TI2', 'TIM_EncoderMode_TI12', 'TIM_EventSource_Update',
+    'TIM_EventSource_CC1', 'TIM_EventSource_CC2', 'TIM_EventSource_CC3',
+    'TIM_EventSource_CC4', 'TIM_EventSource_COM', 'TIM_EventSource_Trigger',
+    'TIM_EventSource_Break', 'TIM_UpdateSource_Global', 'TIM_UpdateSource_Regular',
+    'TIM_OCPreload_Enable', 'TIM_OCPreload_Disable', 'TIM_OCFast_Enable',
+    'TIM_OCFast_Disable', 'TIM_OCClear_Enable', 'TIM_OCClear_Disable',
+    'TIM_TRGOSource_Reset', 'TIM_TRGOSource_Enable', 'TIM_TRGOSource_Update',
+    'TIM_TRGOSource_OC1', 'TIM_TRGOSource_OC1Ref', 'TIM_TRGOSource_OC2Ref',
+    'TIM_TRGOSource_OC3Ref', 'TIM_TRGOSource_OC4Ref', 'TIM_SlaveMode_Reset',
+    'TIM_SlaveMode_Gated', 'TIM_SlaveMode_Trigger', 'TIM_SlaveMode_External1',
+    'TIM_MasterSlaveMode_Enable', 'TIM_MasterSlaveMode_Disable', 'TIM_FLAG_Update',
+    'TIM_FLAG_CC1', 'TIM_FLAG_CC2', 'TIM_FLAG_CC3', 'TIM_FLAG_CC4', 'TIM_FLAG_COM',
+    'TIM_FLAG_Trigger', 'TIM_FLAG_Break', 'TIM_FLAG_CC1OF', 'TIM_FLAG_CC2OF',
+    'TIM_FLAG_CC3OF', 'TIM_FLAG_CC4OF', 'TIM_DMABurstLength_1Byte',
+    'TIM_DMABurstLength_2Bytes', 'TIM_DMABurstLength_3Bytes',
+    'TIM_DMABurstLength_4Bytes', 'TIM_DMABurstLength_5Bytes',
+    'TIM_DMABurstLength_6Bytes', 'TIM_DMABurstLength_7Bytes',
+    'TIM_DMABurstLength_8Bytes', 'TIM_DMABurstLength_9Bytes',
+    'TIM_DMABurstLength_10Bytes', 'TIM_DMABurstLength_11Bytes',
+    'TIM_DMABurstLength_12Bytes', 'TIM_DMABurstLength_13Bytes',
+    'TIM_DMABurstLength_14Bytes', 'TIM_DMABurstLength_15Bytes',
+    'TIM_DMABurstLength_16Bytes', 'TIM_DMABurstLength_17Bytes',
+    'TIM_DMABurstLength_18Bytes', 'TIM_TimeBaseInitTypeDef', 'TIM_OCInitTypeDef',
+    'TIM_ICInitTypeDef', 'TIM_BDTRInitTypeDef', 'RCC_HSE_OFF', 'RCC_HSE_ON',
+    'RCC_HSE_Bypass', 'RCC_PLLSource_HSI_Div2', 'RCC_PLLSource_HSE_Div1',
+    'RCC_PLLSource_HSE_Div2', 'RCC_PLLMul_2', 'RCC_PLLMul_3', 'RCC_PLLMul_4',
+    'RCC_PLLMul_5', 'RCC_PLLMul_6', 'RCC_PLLMul_7', 'RCC_PLLMul_8', 'RCC_PLLMul_9',
+    'RCC_PLLMul_10', 'RCC_PLLMul_11', 'RCC_PLLMul_12', 'RCC_PLLMul_13', 'RCC_PLLMul_14',
+    'RCC_PLLMul_15', 'RCC_PLLMul_16', 'RCC_PLLMul_4', 'RCC_PLLMul_5', 'RCC_PLLMul_6',
+    'RCC_PLLMul_7', 'RCC_PLLMul_8', 'RCC_PLLMul_9', 'RCC_SYSCLKSource_HSI',
+    'RCC_SYSCLKSource_HSE', 'RCC_SYSCLKSource_PLLCLK', 'RCC_SYSCLK_Div1',
+    'RCC_SYSCLK_Div2', 'RCC_SYSCLK_Div4', 'RCC_SYSCLK_Div8', 'RCC_SYSCLK_Div16',
+    'RCC_SYSCLK_Div64', 'RCC_SYSCLK_Div128', 'RCC_SYSCLK_Div256', 'RCC_SYSCLK_Div512',
+    'RCC_HCLK_Div1', 'RCC_HCLK_Div2', 'RCC_HCLK_Div4', 'RCC_HCLK_Div8',
+    'RCC_HCLK_Div16', 'RCC_IT_LSIRDY', 'RCC_IT_LSERDY', 'RCC_IT_HSIRDY',
+    'RCC_IT_HSERDY', 'RCC_IT_PLLRDY', 'RCC_IT_CSS', 'RCC_USBCLKSource_PLLCLK_1Div5',
+    'RCC_USBCLKSource_PLLCLK_Div1', 'RCC_PCLK2_Div2', 'RCC_PCLK2_Div4',
+    'RCC_PCLK2_Div6', 'RCC_PCLK2_Div8', 'RCC_LSE_OFF', 'RCC_LSE_ON', 'RCC_LSE_Bypass',
+    'RCC_RTCCLKSource_LSE', 'RCC_RTCCLKSource_LSI', 'RCC_RTCCLKSource_HSE_Div128',
+    'RCC_AHBPeriph_DMA1', 'RCC_AHBPeriph_DMA2', 'RCC_AHBPeriph_SRAM',
+    'RCC_AHBPeriph_FLITF', 'RCC_AHBPeriph_CRC', 'RCC_AHBPeriph_FSMC',
+    'RCC_AHBPeriph_SDIO', 'RCC_APB2Periph_AFIO', 'RCC_APB2Periph_GPIOA',
+    'RCC_APB2Periph_GPIOB', 'RCC_APB2Periph_GPIOC', 'RCC_APB2Periph_GPIOD',
+    'RCC_APB2Periph_GPIOE', 'RCC_APB2Periph_GPIOF', 'RCC_APB2Periph_GPIOG',
+    'RCC_APB2Periph_ADC1', 'RCC_APB2Periph_ADC2', 'RCC_APB2Periph_TIM1',
+    'RCC_APB2Periph_SPI1', 'RCC_APB2Periph_TIM8', 'RCC_APB2Periph_USART1',
+    'RCC_APB2Periph_ADC3', 'RCC_APB2Periph_TIM15', 'RCC_APB2Periph_TIM16',
+    'RCC_APB2Periph_TIM17', 'RCC_APB2Periph_TIM9', 'RCC_APB2Periph_TIM10',
+    'RCC_APB2Periph_TIM11', 'RCC_APB1Periph_TIM2', 'RCC_APB1Periph_TIM3',
+    'RCC_APB1Periph_TIM4', 'RCC_APB1Periph_TIM5', 'RCC_APB1Periph_TIM6',
+    'RCC_APB1Periph_TIM7', 'RCC_APB1Periph_TIM12', 'RCC_APB1Periph_TIM13',
+    'RCC_APB1Periph_TIM14', 'RCC_APB1Periph_WWDG', 'RCC_APB1Periph_SPI2',
+    'RCC_APB1Periph_SPI3', 'RCC_APB1Periph_USART2', 'RCC_APB1Periph_USART3',
+    'RCC_APB1Periph_UART4', 'RCC_APB1Periph_UART5', 'RCC_APB1Periph_I2C1',
+    'RCC_APB1Periph_I2C2', 'RCC_APB1Periph_USB', 'RCC_APB1Periph_CAN1',
+    'RCC_APB1Periph_CAN2', 'RCC_APB1Periph_BKP', 'RCC_APB1Periph_PWR',
+    'RCC_APB1Periph_DAC', 'RCC_APB1Periph_CEC', 'RCC_MCO_NoClock', 'RCC_MCO_SYSCLK',
+    'RCC_MCO_HSI', 'RCC_MCO_HSE', 'RCC_MCO_PLLCLK_Div2', 'RCC_FLAG_HSIRDY',
+    'RCC_FLAG_HSERDY', 'RCC_FLAG_PLLRDY', 'RCC_FLAG_LSERDY', 'RCC_FLAG_LSIRDY',
+    'RCC_FLAG_PINRST', 'RCC_FLAG_PORRST', 'RCC_FLAG_SFTRST', 'RCC_FLAG_IWDGRST',
+    'RCC_FLAG_WWDGRST', 'RCC_FLAG_LPWRRST', 'RCC_ClocksTypeDef',
+    'SDIO_ClockEdge_Rising', 'SDIO_ClockEdge_Falling', 'SDIO_ClockBypass_Disable',
+    'SDIO_ClockBypass_Enable', 'SDIO_ClockPowerSave_Disable',
+    'SDIO_ClockPowerSave_Enable', 'SDIO_BusWide_1b', 'SDIO_BusWide_4b',
+    'SDIO_BusWide_8b', 'SDIO_HardwareFlowControl_Disable',
+    'SDIO_HardwareFlowControl_Enable', 'SDIO_PowerState_OFF', 'SDIO_PowerState_ON',
+    'SDIO_IT_CCRCFAIL', 'SDIO_IT_DCRCFAIL', 'SDIO_IT_CTIMEOUT', 'SDIO_IT_DTIMEOUT',
+    'SDIO_IT_TXUNDERR', 'SDIO_IT_RXOVERR', 'SDIO_IT_CMDREND', 'SDIO_IT_CMDSENT',
+    'SDIO_IT_DATAEND', 'SDIO_IT_STBITERR', 'SDIO_IT_DBCKEND', 'SDIO_IT_CMDACT',
+    'SDIO_IT_TXACT', 'SDIO_IT_RXACT', 'SDIO_IT_TXFIFOHE', 'SDIO_IT_RXFIFOHF',
+    'SDIO_IT_TXFIFOF', 'SDIO_IT_RXFIFOF', 'SDIO_IT_TXFIFOE', 'SDIO_IT_RXFIFOE',
+    'SDIO_IT_TXDAVL', 'SDIO_IT_RXDAVL', 'SDIO_IT_SDIOIT', 'SDIO_IT_CEATAEND',
+    'SDIO_Response_No', 'SDIO_Response_Short', 'SDIO_Response_Long', 'SDIO_Wait_No',
+    'SDIO_Wait_IT', 'SDIO_Wait_Pend', 'SDIO_CPSM_Disable', 'SDIO_CPSM_Enable',
+    'SDIO_RESP1', 'SDIO_RESP2', 'SDIO_RESP3', 'SDIO_RESP4', 'SDIO_DataBlockSize_1b',
+    'SDIO_DataBlockSize_2b', 'SDIO_DataBlockSize_4b', 'SDIO_DataBlockSize_8b',
+    'SDIO_DataBlockSize_16b', 'SDIO_DataBlockSize_32b', 'SDIO_DataBlockSize_64b',
+    'SDIO_DataBlockSize_128b', 'SDIO_DataBlockSize_256b', 'SDIO_DataBlockSize_512b',
+    'SDIO_DataBlockSize_1024b', 'SDIO_DataBlockSize_2048b', 'SDIO_DataBlockSize_4096b',
+    'SDIO_DataBlockSize_8192b', 'SDIO_DataBlockSize_16384b', 'SDIO_TransferDir_ToCard',
+    'SDIO_TransferDir_ToSDIO', 'SDIO_TransferMode_Block', 'SDIO_TransferMode_Stream',
+    'SDIO_DPSM_Disable', 'SDIO_DPSM_Enable', 'SDIO_FLAG_CCRCFAIL', 'SDIO_FLAG_DCRCFAIL',
+    'SDIO_FLAG_CTIMEOUT', 'SDIO_FLAG_DTIMEOUT', 'SDIO_FLAG_TXUNDERR',
+    'SDIO_FLAG_RXOVERR', 'SDIO_FLAG_CMDREND', 'SDIO_FLAG_CMDSENT', 'SDIO_FLAG_DATAEND',
+    'SDIO_FLAG_STBITERR', 'SDIO_FLAG_DBCKEND', 'SDIO_FLAG_CMDACT', 'SDIO_FLAG_TXACT',
+    'SDIO_FLAG_RXACT', 'SDIO_FLAG_TXFIFOHE', 'SDIO_FLAG_RXFIFOHF', 'SDIO_FLAG_TXFIFOF',
+    'SDIO_FLAG_RXFIFOF', 'SDIO_FLAG_TXFIFOE', 'SDIO_FLAG_RXFIFOE', 'SDIO_FLAG_TXDAVL',
+    'SDIO_FLAG_RXDAVL', 'SDIO_FLAG_SDIOIT', 'SDIO_FLAG_CEATAEND',
+    'SDIO_ReadWaitMode_CLK', 'SDIO_ReadWaitMode_DATA2', 'SDIO_InitTypeDef',
+    'SDIO_CmdInitTypeDef', 'SDIO_DataInitTypeDef', 'RESET', 'SET', 'DISABLE', 'ENABLE',
+    'ERROR', 'SUCCESS', 'HSE_VALUE', 'HSE_VALUE', 'HSE_STARTUP_TIMEOUT', 'HSI_VALUE',
+    '__STM32F10X_STDPERIPH_VERSION_MAIN', '__STM32F10X_STDPERIPH_VERSION_SUB1',
+    '__STM32F10X_STDPERIPH_VERSION_SUB2', '__STM32F10X_STDPERIPH_VERSION_RC',
+    '__STM32F10X_STDPERIPH_VERSION', '__MPU_PRESENT', '__MPU_PRESENT',
+    '__NVIC_PRIO_BITS', '__Vendor_SysTickConfig', 'HSEStartUp_TimeOut', 'HSE_Value',
+    'HSI_Value', 'FLASH_BASE', 'SRAM_BASE', 'PERIPH_BASE', 'SRAM_BB_BASE',
+    'PERIPH_BB_BASE', 'FSMC_R_BASE', 'APB1PERIPH_BASE', 'APB2PERIPH_BASE',
+    'AHBPERIPH_BASE', 'TIM2_BASE', 'TIM3_BASE', 'TIM4_BASE', 'TIM5_BASE', 'TIM6_BASE',
+    'TIM7_BASE', 'TIM12_BASE', 'TIM13_BASE', 'TIM14_BASE', 'RTC_BASE', 'WWDG_BASE',
+    'IWDG_BASE', 'SPI2_BASE', 'SPI3_BASE', 'USART2_BASE', 'USART3_BASE', 'UART4_BASE',
+    'UART5_BASE', 'I2C1_BASE', 'I2C2_BASE', 'CAN1_BASE', 'CAN2_BASE', 'BKP_BASE',
+    'PWR_BASE', 'DAC_BASE', 'CEC_BASE', 'AFIO_BASE', 'EXTI_BASE', 'GPIOA_BASE',
+    'GPIOB_BASE', 'GPIOC_BASE', 'GPIOD_BASE', 'GPIOE_BASE', 'GPIOF_BASE', 'GPIOG_BASE',
+    'ADC1_BASE', 'ADC2_BASE', 'TIM1_BASE', 'SPI1_BASE', 'TIM8_BASE', 'USART1_BASE',
+    'ADC3_BASE', 'TIM15_BASE', 'TIM16_BASE', 'TIM17_BASE', 'TIM9_BASE', 'TIM10_BASE',
+    'TIM11_BASE', 'SDIO_BASE', 'DMA1_BASE', 'DMA1_Channel1_BASE', 'DMA1_Channel2_BASE',
+    'DMA1_Channel3_BASE', 'DMA1_Channel4_BASE', 'DMA1_Channel5_BASE',
+    'DMA1_Channel6_BASE', 'DMA1_Channel7_BASE', 'DMA2_BASE', 'DMA2_Channel1_BASE',
+    'DMA2_Channel2_BASE', 'DMA2_Channel3_BASE', 'DMA2_Channel4_BASE',
+    'DMA2_Channel5_BASE', 'RCC_BASE', 'CRC_BASE', 'FLASH_R_BASE', 'OB_BASE', 'ETH_BASE',
+    'ETH_MAC_BASE', 'ETH_MMC_BASE', 'ETH_PTP_BASE', 'ETH_DMA_BASE', 'FSMC_Bank1_R_BASE',
+    'FSMC_Bank1E_R_BASE', 'FSMC_Bank2_R_BASE', 'FSMC_Bank3_R_BASE', 'FSMC_Bank4_R_BASE',
+    'DBGMCU_BASE', 'TIM2', 'TIM3', 'TIM4', 'TIM5', 'TIM6', 'TIM7', 'TIM12', 'TIM13',
+    'TIM14', 'RTC', 'WWDG', 'IWDG', 'SPI2', 'SPI3', 'USART2', 'USART3', 'UART4',
+    'UART5', 'I2C1', 'I2C2', 'CAN1', 'CAN2', 'BKP', 'PWR', 'DAC', 'CEC', 'AFIO', 'EXTI',
+    'GPIOA', 'GPIOB', 'GPIOC', 'GPIOD', 'GPIOE', 'GPIOF', 'GPIOG', 'ADC1', 'ADC2',
+    'TIM1', 'SPI1', 'TIM8', 'USART1', 'ADC3', 'TIM15', 'TIM16', 'TIM17', 'TIM9',
+    'TIM10', 'TIM11', 'SDIO', 'DMA1', 'DMA2', 'DMA1_Channel1', 'DMA1_Channel2',
+    'DMA1_Channel3', 'DMA1_Channel4', 'DMA1_Channel5', 'DMA1_Channel6', 'DMA1_Channel7',
+    'DMA2_Channel1', 'DMA2_Channel2', 'DMA2_Channel3', 'DMA2_Channel4', 'DMA2_Channel5',
+    'RCC', 'CRC', 'FLASH', 'OB', 'ETH', 'FSMC_Bank1', 'FSMC_Bank1E', 'FSMC_Bank2',
+    'FSMC_Bank3', 'FSMC_Bank4', 'DBGMCU', 'CRC_DR_DR', 'CRC_IDR_IDR', 'CRC_CR_RESET',
+    'PWR_CR_LPDS', 'PWR_CR_PDDS', 'PWR_CR_CWUF', 'PWR_CR_CSBF', 'PWR_CR_PVDE',
+    'PWR_CR_PLS', 'PWR_CR_PLS_0', 'PWR_CR_PLS_1', 'PWR_CR_PLS_2', 'PWR_CR_PLS_2V2',
+    'PWR_CR_PLS_2V3', 'PWR_CR_PLS_2V4', 'PWR_CR_PLS_2V5', 'PWR_CR_PLS_2V6',
+    'PWR_CR_PLS_2V7', 'PWR_CR_PLS_2V8', 'PWR_CR_PLS_2V9', 'PWR_CR_DBP', 'PWR_CSR_WUF',
+    'PWR_CSR_SBF', 'PWR_CSR_PVDO', 'PWR_CSR_EWUP', 'BKP_DR1_D', 'BKP_DR2_D',
+    'BKP_DR3_D', 'BKP_DR4_D', 'BKP_DR5_D', 'BKP_DR6_D', 'BKP_DR7_D', 'BKP_DR8_D',
+    'BKP_DR9_D', 'BKP_DR10_D', 'BKP_DR11_D', 'BKP_DR12_D', 'BKP_DR13_D', 'BKP_DR14_D',
+    'BKP_DR15_D', 'BKP_DR16_D', 'BKP_DR17_D', 'BKP_DR18_D', 'BKP_DR19_D', 'BKP_DR20_D',
+    'BKP_DR21_D', 'BKP_DR22_D', 'BKP_DR23_D', 'BKP_DR24_D', 'BKP_DR25_D', 'BKP_DR26_D',
+    'BKP_DR27_D', 'BKP_DR28_D', 'BKP_DR29_D', 'BKP_DR30_D', 'BKP_DR31_D', 'BKP_DR32_D',
+    'BKP_DR33_D', 'BKP_DR34_D', 'BKP_DR35_D', 'BKP_DR36_D', 'BKP_DR37_D', 'BKP_DR38_D',
+    'BKP_DR39_D', 'BKP_DR40_D', 'BKP_DR41_D', 'BKP_DR42_D', 'BKP_RTCCR_CAL',
+    'BKP_RTCCR_CCO', 'BKP_RTCCR_ASOE', 'BKP_RTCCR_ASOS', 'BKP_CR_TPE', 'BKP_CR_TPAL',
+    'BKP_CSR_CTE', 'BKP_CSR_CTI', 'BKP_CSR_TPIE', 'BKP_CSR_TEF', 'BKP_CSR_TIF',
+    'RCC_CR_HSION', 'RCC_CR_HSIRDY', 'RCC_CR_HSITRIM', 'RCC_CR_HSICAL', 'RCC_CR_HSEON',
+    'RCC_CR_HSERDY', 'RCC_CR_HSEBYP', 'RCC_CR_CSSON', 'RCC_CR_PLLON', 'RCC_CR_PLLRDY',
+    'RCC_CFGR_SW', 'RCC_CFGR_SW_0', 'RCC_CFGR_SW_1', 'RCC_CFGR_SW_HSI',
+    'RCC_CFGR_SW_HSE', 'RCC_CFGR_SW_PLL', 'RCC_CFGR_SWS', 'RCC_CFGR_SWS_0',
+    'RCC_CFGR_SWS_1', 'RCC_CFGR_SWS_HSI', 'RCC_CFGR_SWS_HSE', 'RCC_CFGR_SWS_PLL',
+    'RCC_CFGR_HPRE', 'RCC_CFGR_HPRE_0', 'RCC_CFGR_HPRE_1', 'RCC_CFGR_HPRE_2',
+    'RCC_CFGR_HPRE_3', 'RCC_CFGR_HPRE_DIV1', 'RCC_CFGR_HPRE_DIV2', 'RCC_CFGR_HPRE_DIV4',
+    'RCC_CFGR_HPRE_DIV8', 'RCC_CFGR_HPRE_DIV16', 'RCC_CFGR_HPRE_DIV64',
+    'RCC_CFGR_HPRE_DIV128', 'RCC_CFGR_HPRE_DIV256', 'RCC_CFGR_HPRE_DIV512',
+    'RCC_CFGR_PPRE1', 'RCC_CFGR_PPRE1_0', 'RCC_CFGR_PPRE1_1', 'RCC_CFGR_PPRE1_2',
+    'RCC_CFGR_PPRE1_DIV1', 'RCC_CFGR_PPRE1_DIV2', 'RCC_CFGR_PPRE1_DIV4',
+    'RCC_CFGR_PPRE1_DIV8', 'RCC_CFGR_PPRE1_DIV16', 'RCC_CFGR_PPRE2', 'RCC_CFGR_PPRE2_0',
+    'RCC_CFGR_PPRE2_1', 'RCC_CFGR_PPRE2_2', 'RCC_CFGR_PPRE2_DIV1',
+    'RCC_CFGR_PPRE2_DIV2', 'RCC_CFGR_PPRE2_DIV4', 'RCC_CFGR_PPRE2_DIV8',
+    'RCC_CFGR_PPRE2_DIV16', 'RCC_CFGR_ADCPRE', 'RCC_CFGR_ADCPRE_0', 'RCC_CFGR_ADCPRE_1',
+    'RCC_CFGR_ADCPRE_DIV2', 'RCC_CFGR_ADCPRE_DIV4', 'RCC_CFGR_ADCPRE_DIV6',
+    'RCC_CFGR_ADCPRE_DIV8', 'RCC_CFGR_PLLSRC', 'RCC_CFGR_PLLXTPRE', 'RCC_CFGR_PLLMULL',
+    'RCC_CFGR_PLLMULL_0', 'RCC_CFGR_PLLMULL_1', 'RCC_CFGR_PLLMULL_2',
+    'RCC_CFGR_PLLMULL_3', 'RCC_CFGR_PLLSRC_HSI_Div2', 'RCC_CFGR_PLLMULL4',
+    'RCC_CFGR_PLLMULL5', 'RCC_CFGR_PLLMULL6', 'RCC_CFGR_PLLMULL7', 'RCC_CFGR_PLLMULL8',
+    'RCC_CFGR_PLLMULL9', 'RCC_CFGR_MCO', 'RCC_CFGR_MCO_0', 'RCC_CFGR_MCO_1',
+    'RCC_CFGR_MCO_2', 'RCC_CFGR_MCO_NOCLOCK', 'RCC_CFGR_MCO_SYSCLK', 'RCC_CFGR_MCO_HSI',
     'RCC_CFGR_MCO_HSE', 'RCC_CFGR_PLLSRC_HSI_Div2', 'RCC_CFGR_PLLMULL2',
     'RCC_CFGR_PLLMULL3', 'RCC_CFGR_PLLMULL4', 'RCC_CFGR_PLLMULL5', 'RCC_CFGR_PLLMULL6',
     'RCC_CFGR_PLLMULL7', 'RCC_CFGR_PLLMULL8', 'RCC_CFGR_PLLMULL9', 'RCC_CFGR_PLLMULL10',
