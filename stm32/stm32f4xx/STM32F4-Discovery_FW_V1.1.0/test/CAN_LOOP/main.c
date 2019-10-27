@@ -96,7 +96,7 @@ int main(int argc, char** argv)
   //remcu_resetRemoteUnit(__HALT);
   remcu_resetRemoteUnit(__RUN);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
   SystemInit();
   /*!< At this stage the microcontroller clock setting is already configured, 

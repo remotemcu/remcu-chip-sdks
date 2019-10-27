@@ -77,7 +77,7 @@ int main(int argc, char** argv)
     //remcu_resetRemoteUnit(__RUN);
   //remcu_setVerboseLevel(__ALL_LOG);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
   SystemInit();
 
