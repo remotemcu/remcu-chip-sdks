@@ -29,6 +29,7 @@ add_custom_target( MCU_LIB
                    DEVICE=${MCU_TYPE}
                    MCU_UTIL_PATH=${MCU_UTIL_PATH}
                    TARGET_MK=${MCU_INCLUDE_MK_FILE}
+                   CROSS_MK_FILE=${CROSS_MK_FILE}
                    OUTPUT=${MCU_OBJECT_FILE}
                    MCU_SDK_PATH=${MCU_SDK_PATH}
                    CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
