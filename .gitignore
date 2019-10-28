@@ -14,3 +14,6 @@
 build*
 *.build
 *.lib/
+*.pyc
+*.so
+*.out
