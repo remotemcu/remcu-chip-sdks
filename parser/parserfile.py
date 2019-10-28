@@ -11,7 +11,7 @@ class PyText(object):
 
 	def addValue(self, var, value):
 		#chec value on int
-		self.text += var + " = "+  value + "\n"
+		self.text += var + " = "+  str(value) + "\n"
 		self.all.append(var)
 
 	def addComment(self, comment):

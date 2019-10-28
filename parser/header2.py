@@ -93,16 +93,18 @@ pytext.text = """# -*- coding: utf-8 -*-
 
 import ctypes
 
-__RUN = 0
-__HALT = 1
-__ERROR = 0
-__WARNING = 1
-__INFO = 2
-__DEBUG = 3
-__ALL_LOG = 4
-DEFAULT_OPENOCD_PORT = 6666
-DEFAULT_GDB_PORT = 3333
 \n\n"""
+
+pytext.addValue('__RUN' , 0)
+pytext.addValue('__HALT'  , 1)
+pytext.addValue('__ERROR' , 0)
+pytext.addValue('__WARNING' , 1)
+pytext.addValue('__INFO' , 2)
+pytext.addValue('__DEBUG' , 3)
+pytext.addValue('__ALL_LOG' , 4)
+pytext.addValue('DEFAULT_OPENOCD_PORT' , 6666)
+pytext.addValue('DEFAULT_GDB_PORT' , 3333)
+
 
 
 for f in files:
