@@ -23,6 +23,8 @@
 
 import ctypes
 
+
+
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -32,8 +34,6 @@ __DEBUG = 3
 __ALL_LOG = 4
 DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
-
-
 # file stm32f10x_rtc.h : 
 
 # empty define __STM32F10x_RTC_H
@@ -7679,25 +7679,27 @@ class WWDG_TypeDef(ctypes.Structure):
 # ----------------------------------------
 
 
-__all__ =  ['RTC_IT_OW', 'RTC_IT_ALR', 'RTC_IT_SEC', 'RTC_FLAG_RTOFF', 'RTC_FLAG_RSF',
-    'RTC_FLAG_OW', 'RTC_FLAG_ALR', 'RTC_FLAG_SEC', 'PWR_PVDLevel_2V2',
-    'PWR_PVDLevel_2V3', 'PWR_PVDLevel_2V4', 'PWR_PVDLevel_2V5', 'PWR_PVDLevel_2V6',
-    'PWR_PVDLevel_2V7', 'PWR_PVDLevel_2V8', 'PWR_PVDLevel_2V9', 'PWR_Regulator_ON',
-    'PWR_Regulator_LowPower', 'PWR_STOPEntry_WFI', 'PWR_STOPEntry_WFE', 'PWR_FLAG_WU',
-    'PWR_FLAG_SB', 'PWR_FLAG_PVDO', 'IWDG_WriteAccess_Enable',
-    'IWDG_WriteAccess_Disable', 'IWDG_Prescaler_4', 'IWDG_Prescaler_8',
-    'IWDG_Prescaler_16', 'IWDG_Prescaler_32', 'IWDG_Prescaler_64', 'IWDG_Prescaler_128',
-    'IWDG_Prescaler_256', 'IWDG_FLAG_PVU', 'IWDG_FLAG_RVU', 'USART_WordLength_8b',
-    'USART_WordLength_9b', 'USART_StopBits_1', 'USART_StopBits_0_5', 'USART_StopBits_2',
-    'USART_StopBits_1_5', 'USART_Parity_No', 'USART_Parity_Even', 'USART_Parity_Odd',
-    'USART_Mode_Rx', 'USART_Mode_Tx', 'USART_HardwareFlowControl_None',
-    'USART_HardwareFlowControl_RTS', 'USART_HardwareFlowControl_CTS',
-    'USART_HardwareFlowControl_RTS_CTS', 'USART_Clock_Disable', 'USART_Clock_Enable',
-    'USART_CPOL_Low', 'USART_CPOL_High', 'USART_CPHA_1Edge', 'USART_CPHA_2Edge',
-    'USART_LastBit_Disable', 'USART_LastBit_Enable', 'USART_IT_PE', 'USART_IT_TXE',
-    'USART_IT_TC', 'USART_IT_RXNE', 'USART_IT_IDLE', 'USART_IT_LBD', 'USART_IT_CTS',
-    'USART_IT_ERR', 'USART_IT_ORE', 'USART_IT_NE', 'USART_IT_FE', 'USART_DMAReq_Tx',
-    'USART_DMAReq_Rx', 'USART_WakeUp_IdleLine', 'USART_WakeUp_AddressMark',
+__all__ =  ['__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG', '__ALL_LOG',
+    'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'RTC_IT_OW', 'RTC_IT_ALR', 'RTC_IT_SEC',
+    'RTC_FLAG_RTOFF', 'RTC_FLAG_RSF', 'RTC_FLAG_OW', 'RTC_FLAG_ALR', 'RTC_FLAG_SEC',
+    'PWR_PVDLevel_2V2', 'PWR_PVDLevel_2V3', 'PWR_PVDLevel_2V4', 'PWR_PVDLevel_2V5',
+    'PWR_PVDLevel_2V6', 'PWR_PVDLevel_2V7', 'PWR_PVDLevel_2V8', 'PWR_PVDLevel_2V9',
+    'PWR_Regulator_ON', 'PWR_Regulator_LowPower', 'PWR_STOPEntry_WFI',
+    'PWR_STOPEntry_WFE', 'PWR_FLAG_WU', 'PWR_FLAG_SB', 'PWR_FLAG_PVDO',
+    'IWDG_WriteAccess_Enable', 'IWDG_WriteAccess_Disable', 'IWDG_Prescaler_4',
+    'IWDG_Prescaler_8', 'IWDG_Prescaler_16', 'IWDG_Prescaler_32', 'IWDG_Prescaler_64',
+    'IWDG_Prescaler_128', 'IWDG_Prescaler_256', 'IWDG_FLAG_PVU', 'IWDG_FLAG_RVU',
+    'USART_WordLength_8b', 'USART_WordLength_9b', 'USART_StopBits_1',
+    'USART_StopBits_0_5', 'USART_StopBits_2', 'USART_StopBits_1_5', 'USART_Parity_No',
+    'USART_Parity_Even', 'USART_Parity_Odd', 'USART_Mode_Rx', 'USART_Mode_Tx',
+    'USART_HardwareFlowControl_None', 'USART_HardwareFlowControl_RTS',
+    'USART_HardwareFlowControl_CTS', 'USART_HardwareFlowControl_RTS_CTS',
+    'USART_Clock_Disable', 'USART_Clock_Enable', 'USART_CPOL_Low', 'USART_CPOL_High',
+    'USART_CPHA_1Edge', 'USART_CPHA_2Edge', 'USART_LastBit_Disable',
+    'USART_LastBit_Enable', 'USART_IT_PE', 'USART_IT_TXE', 'USART_IT_TC',
+    'USART_IT_RXNE', 'USART_IT_IDLE', 'USART_IT_LBD', 'USART_IT_CTS', 'USART_IT_ERR',
+    'USART_IT_ORE', 'USART_IT_NE', 'USART_IT_FE', 'USART_DMAReq_Tx', 'USART_DMAReq_Rx',
+    'USART_WakeUp_IdleLine', 'USART_WakeUp_AddressMark',
     'USART_LINBreakDetectLength_10b', 'USART_LINBreakDetectLength_11b',
     'USART_IrDAMode_LowPower', 'USART_IrDAMode_Normal', 'USART_FLAG_CTS',
     'USART_FLAG_LBD', 'USART_FLAG_TXE', 'USART_FLAG_TC', 'USART_FLAG_RXNE',

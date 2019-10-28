@@ -23,6 +23,8 @@
 
 import ctypes
 
+
+
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -32,8 +34,6 @@ __DEBUG = 3
 __ALL_LOG = 4
 DEFAULT_OPENOCD_PORT = 6666
 DEFAULT_GDB_PORT = 3333
-
-
 # file stm8l15x_wwdg.h : 
 
 # empty define __STM8L15x_WWDG_H
@@ -3623,22 +3623,24 @@ TIM1_DMABurstLength_32Byte = 0x1F
 # ----------------------------------------
 
 
-__all__ =  ['WFE_Source_TIM2_EV0', 'WFE_Source_TIM2_EV1', 'WFE_Source_TIM1_EV0',
-    'WFE_Source_TIM1_EV1', 'WFE_Source_EXTI_EV0', 'WFE_Source_EXTI_EV1',
-    'WFE_Source_EXTI_EV2', 'WFE_Source_EXTI_EV3', 'WFE_Source_EXTI_EV4',
-    'WFE_Source_EXTI_EV5', 'WFE_Source_EXTI_EV6', 'WFE_Source_EXTI_EV7',
-    'WFE_Source_EXTI_EVB_G', 'WFE_Source_EXTI_EVD_H', 'WFE_Source_EXTI_EVE_F',
-    'WFE_Source_ADC1_COMP_EV', 'WFE_Source_TIM3_EV0', 'WFE_Source_TIM3_EV1',
-    'WFE_Source_TIM4_EV', 'WFE_Source_SPI1_EV', 'WFE_Source_I2C1_EV',
-    'WFE_Source_USART1_EV', 'WFE_Source_DMA1CH01_EV', 'WFE_Source_DMA1CH23_EV',
-    'WFE_Source_RTC_CSS_EV', 'WFE_Source_SPI2_EV', 'WFE_Source_USART2_EV',
-    'WFE_Source_USART3_EV', 'WFE_Source_TIM5_EV0', 'WFE_Source_TIM5_EV1',
-    'WFE_Source_AES_EV', 'TIM4_Prescaler_1', 'TIM4_Prescaler_2', 'TIM4_Prescaler_4',
-    'TIM4_Prescaler_8', 'TIM4_Prescaler_16', 'TIM4_Prescaler_32', 'TIM4_Prescaler_64',
-    'TIM4_Prescaler_128', 'TIM4_Prescaler_256', 'TIM4_Prescaler_512',
-    'TIM4_Prescaler_1024', 'TIM4_Prescaler_2048', 'TIM4_Prescaler_4096',
-    'TIM4_Prescaler_8192', 'TIM4_Prescaler_16384', 'TIM4_Prescaler_32768',
-    'TIM4_OPMode_Single', 'TIM4_OPMode_Repetitive', 'TIM4_PSCReloadMode_Update',
+__all__ =  ['__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG', '__ALL_LOG',
+    'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'WFE_Source_TIM2_EV0',
+    'WFE_Source_TIM2_EV1', 'WFE_Source_TIM1_EV0', 'WFE_Source_TIM1_EV1',
+    'WFE_Source_EXTI_EV0', 'WFE_Source_EXTI_EV1', 'WFE_Source_EXTI_EV2',
+    'WFE_Source_EXTI_EV3', 'WFE_Source_EXTI_EV4', 'WFE_Source_EXTI_EV5',
+    'WFE_Source_EXTI_EV6', 'WFE_Source_EXTI_EV7', 'WFE_Source_EXTI_EVB_G',
+    'WFE_Source_EXTI_EVD_H', 'WFE_Source_EXTI_EVE_F', 'WFE_Source_ADC1_COMP_EV',
+    'WFE_Source_TIM3_EV0', 'WFE_Source_TIM3_EV1', 'WFE_Source_TIM4_EV',
+    'WFE_Source_SPI1_EV', 'WFE_Source_I2C1_EV', 'WFE_Source_USART1_EV',
+    'WFE_Source_DMA1CH01_EV', 'WFE_Source_DMA1CH23_EV', 'WFE_Source_RTC_CSS_EV',
+    'WFE_Source_SPI2_EV', 'WFE_Source_USART2_EV', 'WFE_Source_USART3_EV',
+    'WFE_Source_TIM5_EV0', 'WFE_Source_TIM5_EV1', 'WFE_Source_AES_EV',
+    'TIM4_Prescaler_1', 'TIM4_Prescaler_2', 'TIM4_Prescaler_4', 'TIM4_Prescaler_8',
+    'TIM4_Prescaler_16', 'TIM4_Prescaler_32', 'TIM4_Prescaler_64', 'TIM4_Prescaler_128',
+    'TIM4_Prescaler_256', 'TIM4_Prescaler_512', 'TIM4_Prescaler_1024',
+    'TIM4_Prescaler_2048', 'TIM4_Prescaler_4096', 'TIM4_Prescaler_8192',
+    'TIM4_Prescaler_16384', 'TIM4_Prescaler_32768', 'TIM4_OPMode_Single',
+    'TIM4_OPMode_Repetitive', 'TIM4_PSCReloadMode_Update',
     'TIM4_PSCReloadMode_Immediate', 'TIM4_UpdateSource_Global',
     'TIM4_UpdateSource_Regular', 'TIM4_EventSource_Update', 'TIM4_EventSource_Trigger',
     'TIM4_TRGOSource_Reset', 'TIM4_TRGOSource_Enable', 'TIM4_TRGOSource_Update',
