@@ -43,6 +43,11 @@ parser.add_argument("-o", "--output-file",
 parser.add_argument("-d", "--debug-level",
                         dest="debug_level",
                         default=0)
+
+parser.add_argument("--version",
+                        dest="version",
+                        default="undef_version")
+
 files = []
 
 options = parser.parse_args()
@@ -66,6 +71,8 @@ compile_options = compile_options.split(" ")
 
 debug = int(options.debug_level) > 0
 
+version = '"%s"' % options.version
+
 print(files)
 
 pytext.text = """# -*- coding: utf-8 -*-
@@ -83,10 +90,8 @@ pytext.text = """# -*- coding: utf-8 -*-
 #
 # It is python header file for using REMCU library
 #
-# version: 1.0r
 #
 # word size : 32 bit
-# pointer size : 64 bit
 #
 #
 
@@ -95,6 +100,7 @@ import ctypes
 
 \n\n"""
 
+pytext.addValue('__version__' , version)
 pytext.addValue('__RUN' , 0)
 pytext.addValue('__HALT'  , 1)
 pytext.addValue('__ERROR' , 0)
