@@ -13,10 +13,8 @@
 #
 # It is python header file for using REMCU library
 #
-# version: 1.0r
 #
 # word size : 32 bit
-# pointer size : 64 bit
 #
 #
 
@@ -25,6 +23,7 @@ import ctypes
 
 
 
+__version__ = "v1.1.0-b8d7cd98"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -7769,8 +7768,8 @@ class RNG_TypeDef(ctypes.Structure):
 # ----------------------------------------
 
 
-__all__ =  ['__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG', '__ALL_LOG',
-    'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'TIM_OCMode_Timing',
+__all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG',
+    '__ALL_LOG', 'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'TIM_OCMode_Timing',
     'TIM_OCMode_Active', 'TIM_OCMode_Inactive', 'TIM_OCMode_Toggle', 'TIM_OCMode_PWM1',
     'TIM_OCMode_PWM2', 'TIM_OPMode_Single', 'TIM_OPMode_Repetitive', 'TIM_Channel_1',
     'TIM_Channel_2', 'TIM_Channel_3', 'TIM_Channel_4', 'TIM_CKD_DIV1', 'TIM_CKD_DIV2',

@@ -13,10 +13,8 @@
 #
 # It is python header file for using REMCU library
 #
-# version: 1.0r
 #
 # word size : 32 bit
-# pointer size : 64 bit
 #
 #
 
@@ -25,6 +23,7 @@ import ctypes
 
 
 
+__version__ = "v3.5.0-fcb9c0a4"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -7679,17 +7678,17 @@ class WWDG_TypeDef(ctypes.Structure):
 # ----------------------------------------
 
 
-__all__ =  ['__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG', '__ALL_LOG',
-    'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'RTC_IT_OW', 'RTC_IT_ALR', 'RTC_IT_SEC',
-    'RTC_FLAG_RTOFF', 'RTC_FLAG_RSF', 'RTC_FLAG_OW', 'RTC_FLAG_ALR', 'RTC_FLAG_SEC',
-    'PWR_PVDLevel_2V2', 'PWR_PVDLevel_2V3', 'PWR_PVDLevel_2V4', 'PWR_PVDLevel_2V5',
-    'PWR_PVDLevel_2V6', 'PWR_PVDLevel_2V7', 'PWR_PVDLevel_2V8', 'PWR_PVDLevel_2V9',
-    'PWR_Regulator_ON', 'PWR_Regulator_LowPower', 'PWR_STOPEntry_WFI',
-    'PWR_STOPEntry_WFE', 'PWR_FLAG_WU', 'PWR_FLAG_SB', 'PWR_FLAG_PVDO',
-    'IWDG_WriteAccess_Enable', 'IWDG_WriteAccess_Disable', 'IWDG_Prescaler_4',
-    'IWDG_Prescaler_8', 'IWDG_Prescaler_16', 'IWDG_Prescaler_32', 'IWDG_Prescaler_64',
-    'IWDG_Prescaler_128', 'IWDG_Prescaler_256', 'IWDG_FLAG_PVU', 'IWDG_FLAG_RVU',
-    'USART_WordLength_8b', 'USART_WordLength_9b', 'USART_StopBits_1',
+__all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG',
+    '__ALL_LOG', 'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'RTC_IT_OW', 'RTC_IT_ALR',
+    'RTC_IT_SEC', 'RTC_FLAG_RTOFF', 'RTC_FLAG_RSF', 'RTC_FLAG_OW', 'RTC_FLAG_ALR',
+    'RTC_FLAG_SEC', 'PWR_PVDLevel_2V2', 'PWR_PVDLevel_2V3', 'PWR_PVDLevel_2V4',
+    'PWR_PVDLevel_2V5', 'PWR_PVDLevel_2V6', 'PWR_PVDLevel_2V7', 'PWR_PVDLevel_2V8',
+    'PWR_PVDLevel_2V9', 'PWR_Regulator_ON', 'PWR_Regulator_LowPower',
+    'PWR_STOPEntry_WFI', 'PWR_STOPEntry_WFE', 'PWR_FLAG_WU', 'PWR_FLAG_SB',
+    'PWR_FLAG_PVDO', 'IWDG_WriteAccess_Enable', 'IWDG_WriteAccess_Disable',
+    'IWDG_Prescaler_4', 'IWDG_Prescaler_8', 'IWDG_Prescaler_16', 'IWDG_Prescaler_32',
+    'IWDG_Prescaler_64', 'IWDG_Prescaler_128', 'IWDG_Prescaler_256', 'IWDG_FLAG_PVU',
+    'IWDG_FLAG_RVU', 'USART_WordLength_8b', 'USART_WordLength_9b', 'USART_StopBits_1',
     'USART_StopBits_0_5', 'USART_StopBits_2', 'USART_StopBits_1_5', 'USART_Parity_No',
     'USART_Parity_Even', 'USART_Parity_Odd', 'USART_Mode_Rx', 'USART_Mode_Tx',
     'USART_HardwareFlowControl_None', 'USART_HardwareFlowControl_RTS',

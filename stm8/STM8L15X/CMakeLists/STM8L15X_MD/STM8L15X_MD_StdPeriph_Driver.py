@@ -13,10 +13,8 @@
 #
 # It is python header file for using REMCU library
 #
-# version: 1.0r
 #
 # word size : 32 bit
-# pointer size : 64 bit
 #
 #
 
@@ -25,6 +23,7 @@ import ctypes
 
 
 
+__version__ = "v1.4.0-fcb9c0a4"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -3623,8 +3622,8 @@ TIM1_DMABurstLength_32Byte = 0x1F
 # ----------------------------------------
 
 
-__all__ =  ['__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG', '__ALL_LOG',
-    'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'WFE_Source_TIM2_EV0',
+__all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', '__DEBUG',
+    '__ALL_LOG', 'DEFAULT_OPENOCD_PORT', 'DEFAULT_GDB_PORT', 'WFE_Source_TIM2_EV0',
     'WFE_Source_TIM2_EV1', 'WFE_Source_TIM1_EV0', 'WFE_Source_TIM1_EV1',
     'WFE_Source_EXTI_EV0', 'WFE_Source_EXTI_EV1', 'WFE_Source_EXTI_EV2',
     'WFE_Source_EXTI_EV3', 'WFE_Source_EXTI_EV4', 'WFE_Source_EXTI_EV5',
