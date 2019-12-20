@@ -1,6 +1,7 @@
 import CppHeaderParser
 import sys
 from pycompiler import runtimeOutput
+from parse_type import parse_type_of_field
 
 _offset = "	"
 
@@ -131,20 +132,22 @@ class ParseHeader(object):
 		if len(public_fields) == 0:
 			return "no public"
 		for field in public_fields:
-			if field['array'] != 0:
-				return "field is array"
-			if field['class'] != 0:
-				return "field is class"
-			if field['pointer'] != 0:
-				return "field is pointer"
 			name_field = field['name']
+
+			if field['class'] != 0:
+				return "field is class : " + name_field
+			#if field['array'] != 0:
+				#return "field is array"
+			#if field['pointer'] != 0:
+				#return "field is pointer"
+			
 			result, error = self.sizeOfField(name_class, name_field)
 			if error != "":
 				if self.debug:
-					print("error time size field " + name_field)
+					print("runtime time error: " + error + " , name: " + name_field)
 				continue
 			size = int(result)
-			if size > 4 or size == 0 or size == 3:
+			if size == 0:
 				return "error size of %s is %s " %(name_field, result)
 		return ""
 
@@ -166,11 +169,20 @@ class ParseHeader(object):
 				result, error = self.sizeOfField(name_class, name_field)
 				if error != "":
 					continue
-				size = int(result)
-				ctypes = {1 : "ctypes.c_uint8",
-					2: "ctypes.c_uint16",
-					4: "ctypes.c_uint32",}
-				ctype = ctypes[size]
+
+				try:
+					ctype = parse_type_of_field(self, name_class, name_field)
+				except Exception as e:
+					if self.debug:
+						print(e)
+					size = int(result)
+					ctypes = {1 : "ctypes.c_uint8",
+						2: "ctypes.c_uint16",
+						4: "ctypes.c_uint32",
+						8: "ctypes.c_uint64",}
+					universal_size = "ctypes.c_uint8 * " + result
+					ctype = ctypes.get(size, universal_size)					
+		
 				self.pytext.addFieldStruct(name_field, ctype)
 			self.pytext.releaseStruct()
 
