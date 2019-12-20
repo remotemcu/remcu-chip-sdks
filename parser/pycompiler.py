@@ -6,12 +6,14 @@ _file = "/dev/shm/temp.c"
 _out = "/dev/shm/temp.out"
 
 _CC = "gcc"
+CPP_GPP = "g++"
 
-def runtimeOutput(source, compilerOpt=[], debug=False):
+def runtimeOutput(source, compilerOpt=[], debug=False, compiler = _CC):
 	with open(_file, 'w') as f:
 		f.write(source)
 		f.flush()
-	command  = [_CC, _file, "-o", _out, '-Wfatal-errors']
+
+	command  = [compiler, _file, "-o", _out, '-Wfatal-errors']
 	command.extend(compilerOpt)
 	str_command = " ".join(command)
 	if debug:
