@@ -71,7 +71,7 @@ class ParseHeader(object):
 				continue
 			name = d[:first_space]
 			if name.find("(") >= 0:
-				self.pytext.addComment("fun define %s" (d))
+				#self.pytext.addComment("fun define %s" % d)
 				continue
 			self.pushValue(name)
 
