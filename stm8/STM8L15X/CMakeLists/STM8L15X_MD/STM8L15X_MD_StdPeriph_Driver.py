@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "v1.4.0-fcb9c0a4"
+__version__ = "v1.4.0-589de953"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -594,7 +594,7 @@ class RTC_DateTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct RTC_AlarmTypeDef
-# struct RTC_AlarmTypeDef : field is class
+# struct RTC_AlarmTypeDef : field is class : RTC_AlarmTime
 # ----------------------------------------
 
 # file stm8l15x_rst.h : 
@@ -1899,7 +1899,55 @@ class GPIO_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct RTC_TypeDef
-# struct RTC_TypeDef : field is array
+
+class RTC_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('TR1',	ctypes.c_uint8),
+		('TR2',	ctypes.c_uint8),
+		('TR3',	ctypes.c_uint8),
+		('RESERVED0',	ctypes.c_uint8),
+		('DR1',	ctypes.c_uint8),
+		('DR2',	ctypes.c_uint8),
+		('DR3',	ctypes.c_uint8),
+		('RESERVED1',	ctypes.c_uint8),
+		('CR1',	ctypes.c_uint8),
+		('CR2',	ctypes.c_uint8),
+		('CR3',	ctypes.c_uint8),
+		('RESERVED2',	ctypes.c_uint8),
+		('ISR1',	ctypes.c_uint8),
+		('ISR2',	ctypes.c_uint8),
+		('RESERVED3',	ctypes.c_uint8),
+		('RESERVED4',	ctypes.c_uint8),
+		('SPRERH',	ctypes.c_uint8),
+		('SPRERL',	ctypes.c_uint8),
+		('APRER',	ctypes.c_uint8),
+		('RESERVED5',	ctypes.c_uint8),
+		('WUTRH',	ctypes.c_uint8),
+		('WUTRL',	ctypes.c_uint8),
+		('RESERVED6',	ctypes.c_uint8),
+		('SSRH',	ctypes.c_uint8),
+		('SSRL',	ctypes.c_uint8),
+		('WPR',	ctypes.c_uint8),
+		('SHIFTRH',	ctypes.c_uint8),
+		('SHIFTRL',	ctypes.c_uint8),
+		('ALRMAR1',	ctypes.c_uint8),
+		('ALRMAR2',	ctypes.c_uint8),
+		('ALRMAR3',	ctypes.c_uint8),
+		('ALRMAR4',	ctypes.c_uint8),
+		('RESERVED7',	ctypes.c_uint8 * 4),
+		('ALRMASSRH',	ctypes.c_uint8),
+		('ALRMASSRL',	ctypes.c_uint8),
+		('ALRMASSMSKR',	ctypes.c_uint8),
+		('RESERVED8',	ctypes.c_uint8 * 3),
+		('CALRH',	ctypes.c_uint8),
+		('CALRL',	ctypes.c_uint8),
+		('TCR1',	ctypes.c_uint8),
+		('TCR2',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct CSSLSE_TypeDef
 
 class CSSLSE_TypeDef(ctypes.Structure):
@@ -1986,7 +2034,23 @@ class COMP_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct EXTI_TypeDef
-# struct EXTI_TypeDef : field is array
+
+class EXTI_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CR1',	ctypes.c_uint8),
+		('CR2',	ctypes.c_uint8),
+		('CR3',	ctypes.c_uint8),
+		('SR1',	ctypes.c_uint8),
+		('SR2',	ctypes.c_uint8),
+		('CONF1',	ctypes.c_uint8),
+		('RESERVED',	ctypes.c_uint8 * 4),
+		('CR4',	ctypes.c_uint8),
+		('CONF2',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct FLASH_TypeDef
 
 class FLASH_TypeDef(ctypes.Structure):
@@ -2278,9 +2342,74 @@ class USART_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct ADC_TypeDef
-# struct ADC_TypeDef : field is array
+
+class ADC_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CR1',	ctypes.c_uint8),
+		('CR2',	ctypes.c_uint8),
+		('CR3',	ctypes.c_uint8),
+		('SR',	ctypes.c_uint8),
+		('DRH',	ctypes.c_uint8),
+		('DRL',	ctypes.c_uint8),
+		('HTRH',	ctypes.c_uint8),
+		('HTRL',	ctypes.c_uint8),
+		('LTRH',	ctypes.c_uint8),
+		('LTRL',	ctypes.c_uint8),
+		('SQR',	ctypes.c_uint8 * 4),
+		('TRIGR',	ctypes.c_uint8 * 4),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct DAC_TypeDef
-# struct DAC_TypeDef : field is array
+
+class DAC_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CH1CR1',	ctypes.c_uint8),
+		('CH1CR2',	ctypes.c_uint8),
+		('CH2CR1',	ctypes.c_uint8),
+		('CH2CR2',	ctypes.c_uint8),
+		('SWTRIGR',	ctypes.c_uint8),
+		('SR',	ctypes.c_uint8),
+		('RESERVED0',	ctypes.c_uint8 * 2),
+		('CH1RDHRH',	ctypes.c_uint8),
+		('CH1RDHRL',	ctypes.c_uint8),
+		('RESERVED1',	ctypes.c_uint8 * 2),
+		('CH1LDHRH',	ctypes.c_uint8),
+		('CH1LDHRL',	ctypes.c_uint8),
+		('RESERVED2',	ctypes.c_uint8 * 2),
+		('CH1DHR8',	ctypes.c_uint8),
+		('RESERVED3',	ctypes.c_uint8 * 3),
+		('CH2RDHRH',	ctypes.c_uint8),
+		('CH2RDHRL',	ctypes.c_uint8),
+		('RESERVED4',	ctypes.c_uint8 * 2),
+		('CH2LDHRH',	ctypes.c_uint8),
+		('CH2LDHRL',	ctypes.c_uint8),
+		('RESERVED5',	ctypes.c_uint8 * 2),
+		('CH2DHR8',	ctypes.c_uint8),
+		('RESERVED6',	ctypes.c_uint8 * 3),
+		('DCH1RDHRH',	ctypes.c_uint8),
+		('DCH1RDHRL',	ctypes.c_uint8),
+		('DCH2RDHRH',	ctypes.c_uint8),
+		('DCH2RDHRL',	ctypes.c_uint8),
+		('DCH1LDHRH',	ctypes.c_uint8),
+		('DCH1LDHRL',	ctypes.c_uint8),
+		('DCH2LDHRH',	ctypes.c_uint8),
+		('DCH2LDHRL',	ctypes.c_uint8),
+		('DCH1DHR8',	ctypes.c_uint8),
+		('DCH2DHR8',	ctypes.c_uint8),
+		('RESERVED7',	ctypes.c_uint8 * 2),
+		('CH1DORH',	ctypes.c_uint8),
+		('CH1DORL',	ctypes.c_uint8),
+		('RESERVED8',	ctypes.c_uint8 * 2),
+		('CH2DORH',	ctypes.c_uint8),
+		('CH2DORL',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct DMA_TypeDef
 
 class DMA_TypeDef(ctypes.Structure):
@@ -2321,7 +2450,23 @@ class WWDG_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct LCD_TypeDef
-# struct LCD_TypeDef : field is array
+
+class LCD_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CR1',	ctypes.c_uint8),
+		('CR2',	ctypes.c_uint8),
+		('CR3',	ctypes.c_uint8),
+		('FRQ',	ctypes.c_uint8),
+		('PM',	ctypes.c_uint8 * 6),
+		('RESERVED1',	ctypes.c_uint8 * 2),
+		('RAM',	ctypes.c_uint8 * 22),
+		('RESERVED2',	ctypes.c_uint8 * 13),
+		('CR4',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct AES_TypeDef
 
 class AES_TypeDef(ctypes.Structure):
@@ -4073,12 +4218,13 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'WFE', 'BEEP', 'SPI1', 'SPI2', 'I2C1', 'USART1', 'USART2', 'USART3', 'LCD', 'TIM1',
     'TIM2', 'TIM3', 'TIM4', 'TIM5', 'IRTIM', 'ITC', 'DAC', 'DMA1', 'DMA1_Channel0',
     'DMA1_Channel1', 'DMA1_Channel2', 'DMA1_Channel3', 'RI', 'COMP', 'AES', 'ADC1',
-    'CFG', 'OPT', 'AREA', 'GPIO_TypeDef', 'CSSLSE_TypeDef', 'BEEP_TypeDef',
-    'CFG_TypeDef', 'SYSCFG_TypeDef', 'CLK_TypeDef', 'COMP_TypeDef', 'FLASH_TypeDef',
-    'I2C_TypeDef', 'IRTIM_TypeDef', 'ITC_TypeDef', 'IWDG_TypeDef', 'WFE_TypeDef',
-    'OPT_TypeDef', 'RST_TypeDef', 'PWR_TypeDef', 'RI_TypeDef', 'SPI_TypeDef',
-    'TIM1_TypeDef', 'TIM_TypeDef', 'TIM4_TypeDef', 'USART_TypeDef', 'DMA_TypeDef',
-    'DMA_Channel_TypeDef', 'WWDG_TypeDef', 'AES_TypeDef', 'DMA_DIR_PeripheralToMemory',
+    'CFG', 'OPT', 'AREA', 'GPIO_TypeDef', 'RTC_TypeDef', 'CSSLSE_TypeDef',
+    'BEEP_TypeDef', 'CFG_TypeDef', 'SYSCFG_TypeDef', 'CLK_TypeDef', 'COMP_TypeDef',
+    'EXTI_TypeDef', 'FLASH_TypeDef', 'I2C_TypeDef', 'IRTIM_TypeDef', 'ITC_TypeDef',
+    'IWDG_TypeDef', 'WFE_TypeDef', 'OPT_TypeDef', 'RST_TypeDef', 'PWR_TypeDef',
+    'RI_TypeDef', 'SPI_TypeDef', 'TIM1_TypeDef', 'TIM_TypeDef', 'TIM4_TypeDef',
+    'USART_TypeDef', 'ADC_TypeDef', 'DAC_TypeDef', 'DMA_TypeDef', 'DMA_Channel_TypeDef',
+    'WWDG_TypeDef', 'LCD_TypeDef', 'AES_TypeDef', 'DMA_DIR_PeripheralToMemory',
     'DMA_DIR_MemoryToPeripheral', 'DMA_DIR_Memory0ToMemory1', 'DMA_Mode_Normal',
     'DMA_Mode_Circular', 'DMA_MemoryIncMode_Dec', 'DMA_MemoryIncMode_Inc',
     'DMA_Priority_Low', 'DMA_Priority_Medium', 'DMA_Priority_High',

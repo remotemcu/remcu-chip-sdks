@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "v1.1.0-b8d7cd98"
+__version__ = "v1.1.0-9b0bcf95"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -1330,9 +1330,28 @@ class HASH_InitTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct HASH_MsgDigest
-# struct HASH_MsgDigest : field is array
+
+class HASH_MsgDigest(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('Data',	ctypes.c_uint32 * 5),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct HASH_Context
-# struct HASH_Context : field is array
+
+class HASH_Context(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('HASH_IMR',	ctypes.c_uint32),
+		('HASH_STR',	ctypes.c_uint32),
+		('HASH_CR',	ctypes.c_uint32),
+		('HASH_CSR',	ctypes.c_uint32 * 51),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # ----------------------------------------
 
 # file stm32f4xx_fsmc.h : 
@@ -1408,7 +1427,7 @@ class FSMC_NORSRAMTimingInitTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct FSMC_NORSRAMInitTypeDef
-# struct FSMC_NORSRAMInitTypeDef : field is class
+# struct FSMC_NORSRAMInitTypeDef : field is class : FSMC_ReadWriteTimingStruct
 # struct FSMC_NAND_PCCARDTimingInitTypeDef
 
 class FSMC_NAND_PCCARDTimingInitTypeDef(ctypes.Structure):
@@ -1423,9 +1442,9 @@ class FSMC_NAND_PCCARDTimingInitTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct FSMC_NANDInitTypeDef
-# struct FSMC_NANDInitTypeDef : field is class
+# struct FSMC_NANDInitTypeDef : field is class : FSMC_CommonSpaceTimingStruct
 # struct FSMC_PCCARDInitTypeDef
-# struct FSMC_PCCARDInitTypeDef : field is class
+# struct FSMC_PCCARDInitTypeDef : field is class : FSMC_CommonSpaceTimingStruct
 # ----------------------------------------
 
 # file stm32f4xx_spi.h : 
@@ -2114,7 +2133,7 @@ class RTC_DateTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct RTC_AlarmTypeDef
-# struct RTC_AlarmTypeDef : field is class
+# struct RTC_AlarmTypeDef : field is class : RTC_AlarmTime
 # ----------------------------------------
 
 # file stm32f4xx_sdio.h : 
@@ -2429,9 +2448,36 @@ class CAN_FilterInitTypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct CanTxMsg
-# struct CanTxMsg : field is array
+
+class CanTxMsg(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('StdId',	ctypes.c_uint32),
+		('ExtId',	ctypes.c_uint32),
+		('IDE',	ctypes.c_uint8),
+		('RTR',	ctypes.c_uint8),
+		('DLC',	ctypes.c_uint8),
+		('Data',	ctypes.c_uint8 * 8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct CanRxMsg
-# struct CanRxMsg : field is array
+
+class CanRxMsg(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('StdId',	ctypes.c_uint32),
+		('ExtId',	ctypes.c_uint32),
+		('IDE',	ctypes.c_uint8),
+		('RTR',	ctypes.c_uint8),
+		('DLC',	ctypes.c_uint8),
+		('Data',	ctypes.c_uint8 * 8),
+		('FMI',	ctypes.c_uint8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # ----------------------------------------
 
 # file stm32f4xx.h : 
@@ -7322,7 +7368,7 @@ class CAN_FilterRegister_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct CAN_TypeDef
-# struct CAN_TypeDef : field is array
+# struct CAN_TypeDef : field is class : sTxMailBox
 # struct CRC_TypeDef
 
 class CRC_TypeDef(ctypes.Structure):
@@ -7422,7 +7468,80 @@ class DMA_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct ETH_TypeDef
-# struct ETH_TypeDef : field is array
+
+class ETH_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('MACCR',	ctypes.c_uint32),
+		('MACFFR',	ctypes.c_uint32),
+		('MACHTHR',	ctypes.c_uint32),
+		('MACHTLR',	ctypes.c_uint32),
+		('MACMIIAR',	ctypes.c_uint32),
+		('MACMIIDR',	ctypes.c_uint32),
+		('MACFCR',	ctypes.c_uint32),
+		('MACVLANTR',	ctypes.c_uint32),
+		('RESERVED0',	ctypes.c_uint32 * 2),
+		('MACRWUFFR',	ctypes.c_uint32),
+		('MACPMTCSR',	ctypes.c_uint32),
+		('RESERVED1',	ctypes.c_uint32 * 2),
+		('MACSR',	ctypes.c_uint32),
+		('MACIMR',	ctypes.c_uint32),
+		('MACA0HR',	ctypes.c_uint32),
+		('MACA0LR',	ctypes.c_uint32),
+		('MACA1HR',	ctypes.c_uint32),
+		('MACA1LR',	ctypes.c_uint32),
+		('MACA2HR',	ctypes.c_uint32),
+		('MACA2LR',	ctypes.c_uint32),
+		('MACA3HR',	ctypes.c_uint32),
+		('MACA3LR',	ctypes.c_uint32),
+		('RESERVED2',	ctypes.c_uint32 * 40),
+		('MMCCR',	ctypes.c_uint32),
+		('MMCRIR',	ctypes.c_uint32),
+		('MMCTIR',	ctypes.c_uint32),
+		('MMCRIMR',	ctypes.c_uint32),
+		('MMCTIMR',	ctypes.c_uint32),
+		('RESERVED3',	ctypes.c_uint32 * 14),
+		('MMCTGFSCCR',	ctypes.c_uint32),
+		('MMCTGFMSCCR',	ctypes.c_uint32),
+		('RESERVED4',	ctypes.c_uint32 * 5),
+		('MMCTGFCR',	ctypes.c_uint32),
+		('RESERVED5',	ctypes.c_uint32 * 10),
+		('MMCRFCECR',	ctypes.c_uint32),
+		('MMCRFAECR',	ctypes.c_uint32),
+		('RESERVED6',	ctypes.c_uint32 * 10),
+		('MMCRGUFCR',	ctypes.c_uint32),
+		('RESERVED7',	ctypes.c_uint32 * 334),
+		('PTPTSCR',	ctypes.c_uint32),
+		('PTPSSIR',	ctypes.c_uint32),
+		('PTPTSHR',	ctypes.c_uint32),
+		('PTPTSLR',	ctypes.c_uint32),
+		('PTPTSHUR',	ctypes.c_uint32),
+		('PTPTSLUR',	ctypes.c_uint32),
+		('PTPTSAR',	ctypes.c_uint32),
+		('PTPTTHR',	ctypes.c_uint32),
+		('PTPTTLR',	ctypes.c_uint32),
+		('RESERVED8',	ctypes.c_uint32),
+		('PTPTSSR',	ctypes.c_uint32),
+		('RESERVED9',	ctypes.c_uint32 * 565),
+		('DMABMR',	ctypes.c_uint32),
+		('DMATPDR',	ctypes.c_uint32),
+		('DMARPDR',	ctypes.c_uint32),
+		('DMARDLAR',	ctypes.c_uint32),
+		('DMATDLAR',	ctypes.c_uint32),
+		('DMASR',	ctypes.c_uint32),
+		('DMAOMR',	ctypes.c_uint32),
+		('DMAIER',	ctypes.c_uint32),
+		('DMAMFBOCR',	ctypes.c_uint32),
+		('DMARSWTR',	ctypes.c_uint32),
+		('RESERVED10',	ctypes.c_uint32 * 8),
+		('DMACHTDR',	ctypes.c_uint32),
+		('DMACHRDR',	ctypes.c_uint32),
+		('DMACHTBAR',	ctypes.c_uint32),
+		('DMACHRBAR',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct EXTI_TypeDef
 
 class EXTI_TypeDef(ctypes.Structure):
@@ -7454,9 +7573,25 @@ class FLASH_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct FSMC_Bank1_TypeDef
-# struct FSMC_Bank1_TypeDef : field is array
+
+class FSMC_Bank1_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('BTCR',	ctypes.c_uint32 * 8),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct FSMC_Bank1E_TypeDef
-# struct FSMC_Bank1E_TypeDef : field is array
+
+class FSMC_Bank1E_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('BWTR',	ctypes.c_uint32 * 7),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct FSMC_Bank2_TypeDef
 
 class FSMC_Bank2_TypeDef(ctypes.Structure):
@@ -7502,9 +7637,38 @@ class FSMC_Bank4_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct GPIO_TypeDef
-# struct GPIO_TypeDef : field is array
+
+class GPIO_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('MODER',	ctypes.c_uint32),
+		('OTYPER',	ctypes.c_uint32),
+		('OSPEEDR',	ctypes.c_uint32),
+		('PUPDR',	ctypes.c_uint32),
+		('IDR',	ctypes.c_uint32),
+		('ODR',	ctypes.c_uint32),
+		('BSRRL',	ctypes.c_uint16),
+		('BSRRH',	ctypes.c_uint16),
+		('LCKR',	ctypes.c_uint32),
+		('AFR',	ctypes.c_uint32 * 2),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct SYSCFG_TypeDef
-# struct SYSCFG_TypeDef : field is array
+
+class SYSCFG_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('MEMRMP',	ctypes.c_uint32),
+		('PMC',	ctypes.c_uint32),
+		('EXTICR',	ctypes.c_uint32 * 4),
+		('RESERVED',	ctypes.c_uint32 * 2),
+		('CMPCR',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct I2C_TypeDef
 
 class I2C_TypeDef(ctypes.Structure):
@@ -7557,7 +7721,44 @@ class PWR_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct RCC_TypeDef
-# struct RCC_TypeDef : field is array
+
+class RCC_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CR',	ctypes.c_uint32),
+		('PLLCFGR',	ctypes.c_uint32),
+		('CFGR',	ctypes.c_uint32),
+		('CIR',	ctypes.c_uint32),
+		('AHB1RSTR',	ctypes.c_uint32),
+		('AHB2RSTR',	ctypes.c_uint32),
+		('AHB3RSTR',	ctypes.c_uint32),
+		('RESERVED0',	ctypes.c_uint32),
+		('APB1RSTR',	ctypes.c_uint32),
+		('APB2RSTR',	ctypes.c_uint32),
+		('RESERVED1',	ctypes.c_uint32 * 2),
+		('AHB1ENR',	ctypes.c_uint32),
+		('AHB2ENR',	ctypes.c_uint32),
+		('AHB3ENR',	ctypes.c_uint32),
+		('RESERVED2',	ctypes.c_uint32),
+		('APB1ENR',	ctypes.c_uint32),
+		('APB2ENR',	ctypes.c_uint32),
+		('RESERVED3',	ctypes.c_uint32 * 2),
+		('AHB1LPENR',	ctypes.c_uint32),
+		('AHB2LPENR',	ctypes.c_uint32),
+		('AHB3LPENR',	ctypes.c_uint32),
+		('RESERVED4',	ctypes.c_uint32),
+		('APB1LPENR',	ctypes.c_uint32),
+		('APB2LPENR',	ctypes.c_uint32),
+		('RESERVED5',	ctypes.c_uint32 * 2),
+		('BDCR',	ctypes.c_uint32),
+		('CSR',	ctypes.c_uint32),
+		('RESERVED6',	ctypes.c_uint32 * 2),
+		('SSCGR',	ctypes.c_uint32),
+		('PLLI2SCFGR',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct RTC_TypeDef
 
 class RTC_TypeDef(ctypes.Structure):
@@ -7608,7 +7809,34 @@ class RTC_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct SDIO_TypeDef
-# struct SDIO_TypeDef : field is array
+
+class SDIO_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('POWER',	ctypes.c_uint32),
+		('CLKCR',	ctypes.c_uint32),
+		('ARG',	ctypes.c_uint32),
+		('CMD',	ctypes.c_uint32),
+		('RESPCMD',	ctypes.c_uint32),
+		('RESP1',	ctypes.c_uint32),
+		('RESP2',	ctypes.c_uint32),
+		('RESP3',	ctypes.c_uint32),
+		('RESP4',	ctypes.c_uint32),
+		('DTIMER',	ctypes.c_uint32),
+		('DLEN',	ctypes.c_uint32),
+		('DCTRL',	ctypes.c_uint32),
+		('DCOUNT',	ctypes.c_uint32),
+		('STA',	ctypes.c_uint32),
+		('ICR',	ctypes.c_uint32),
+		('MASK',	ctypes.c_uint32),
+		('RESERVED0',	ctypes.c_uint32 * 2),
+		('FIFOCNT',	ctypes.c_uint32),
+		('RESERVED1',	ctypes.c_uint32 * 13),
+		('FIFO',	ctypes.c_uint32),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct SPI_TypeDef
 
 class SPI_TypeDef(ctypes.Structure):
@@ -7746,7 +7974,22 @@ class CRYP_TypeDef(ctypes.Structure):
 		return ctypes.byref(self)
 
 # struct HASH_TypeDef
-# struct HASH_TypeDef : field is array
+
+class HASH_TypeDef(ctypes.Structure):
+	_pack_ = False
+	_fields_ = [
+		('CR',	ctypes.c_uint32),
+		('DIN',	ctypes.c_uint32),
+		('STR',	ctypes.c_uint32),
+		('HR',	ctypes.c_uint32 * 5),
+		('IMR',	ctypes.c_uint32),
+		('SR',	ctypes.c_uint32),
+		('RESERVED',	ctypes.c_uint32 * 52),
+		('CSR',	ctypes.c_uint32 * 51),
+	]
+	def ref(self):
+		return ctypes.byref(self)
+
 # struct RNG_TypeDef
 
 class RNG_TypeDef(ctypes.Structure):
@@ -8071,14 +8314,15 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'HASH_DataType_1b', 'HASH_HMACKeyType_ShortKey', 'HASH_HMACKeyType_LongKey',
     'HASH_IT_DINI', 'HASH_IT_DCI', 'HASH_FLAG_DINIS', 'HASH_FLAG_DCIS',
     'HASH_FLAG_DMAS', 'HASH_FLAG_BUSY', 'HASH_FLAG_DINNE', 'HASH_InitTypeDef',
-    'FSMC_Bank1_NORSRAM1', 'FSMC_Bank1_NORSRAM2', 'FSMC_Bank1_NORSRAM3',
-    'FSMC_Bank1_NORSRAM4', 'FSMC_Bank2_NAND', 'FSMC_Bank3_NAND', 'FSMC_Bank4_PCCARD',
-    'FSMC_DataAddressMux_Disable', 'FSMC_DataAddressMux_Enable', 'FSMC_MemoryType_SRAM',
-    'FSMC_MemoryType_PSRAM', 'FSMC_MemoryType_NOR', 'FSMC_MemoryDataWidth_8b',
-    'FSMC_MemoryDataWidth_16b', 'FSMC_BurstAccessMode_Disable',
-    'FSMC_BurstAccessMode_Enable', 'FSMC_AsynchronousWait_Disable',
-    'FSMC_AsynchronousWait_Enable', 'FSMC_WaitSignalPolarity_Low',
-    'FSMC_WaitSignalPolarity_High', 'FSMC_WrapMode_Disable', 'FSMC_WrapMode_Enable',
+    'HASH_MsgDigest', 'HASH_Context', 'FSMC_Bank1_NORSRAM1', 'FSMC_Bank1_NORSRAM2',
+    'FSMC_Bank1_NORSRAM3', 'FSMC_Bank1_NORSRAM4', 'FSMC_Bank2_NAND', 'FSMC_Bank3_NAND',
+    'FSMC_Bank4_PCCARD', 'FSMC_DataAddressMux_Disable', 'FSMC_DataAddressMux_Enable',
+    'FSMC_MemoryType_SRAM', 'FSMC_MemoryType_PSRAM', 'FSMC_MemoryType_NOR',
+    'FSMC_MemoryDataWidth_8b', 'FSMC_MemoryDataWidth_16b',
+    'FSMC_BurstAccessMode_Disable', 'FSMC_BurstAccessMode_Enable',
+    'FSMC_AsynchronousWait_Disable', 'FSMC_AsynchronousWait_Enable',
+    'FSMC_WaitSignalPolarity_Low', 'FSMC_WaitSignalPolarity_High',
+    'FSMC_WrapMode_Disable', 'FSMC_WrapMode_Enable',
     'FSMC_WaitSignalActive_BeforeWaitState', 'FSMC_WaitSignalActive_DuringWaitState',
     'FSMC_WriteOperation_Disable', 'FSMC_WriteOperation_Enable',
     'FSMC_WaitSignal_Disable', 'FSMC_WaitSignal_Enable', 'FSMC_ExtendedMode_Disable',
@@ -8297,18 +8541,19 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'CAN_IT_FF0', 'CAN_IT_FOV0', 'CAN_IT_FMP1', 'CAN_IT_FF1', 'CAN_IT_FOV1',
     'CAN_IT_WKU', 'CAN_IT_SLK', 'CAN_IT_EWG', 'CAN_IT_EPV', 'CAN_IT_BOF', 'CAN_IT_LEC',
     'CAN_IT_ERR', 'CAN_IT_RQCP0', 'CAN_IT_RQCP1', 'CAN_IT_RQCP2', 'CAN_InitTypeDef',
-    'CAN_FilterInitTypeDef', 'NonMaskableInt_IRQn', 'MemoryManagement_IRQn',
-    'BusFault_IRQn', 'UsageFault_IRQn', 'SVCall_IRQn', 'DebugMonitor_IRQn',
-    'PendSV_IRQn', 'SysTick_IRQn', 'WWDG_IRQn', 'PVD_IRQn', 'TAMP_STAMP_IRQn',
-    'RTC_WKUP_IRQn', 'FLASH_IRQn', 'RCC_IRQn', 'EXTI0_IRQn', 'EXTI1_IRQn', 'EXTI2_IRQn',
-    'EXTI3_IRQn', 'EXTI4_IRQn', 'DMA1_Stream0_IRQn', 'DMA1_Stream1_IRQn',
-    'DMA1_Stream2_IRQn', 'DMA1_Stream3_IRQn', 'DMA1_Stream4_IRQn', 'DMA1_Stream5_IRQn',
-    'DMA1_Stream6_IRQn', 'ADC_IRQn', 'CAN1_TX_IRQn', 'CAN1_RX0_IRQn', 'CAN1_RX1_IRQn',
-    'CAN1_SCE_IRQn', 'EXTI9_5_IRQn', 'TIM1_BRK_TIM9_IRQn', 'TIM1_UP_TIM10_IRQn',
-    'TIM1_TRG_COM_TIM11_IRQn', 'TIM1_CC_IRQn', 'TIM2_IRQn', 'TIM3_IRQn', 'TIM4_IRQn',
-    'I2C1_EV_IRQn', 'I2C1_ER_IRQn', 'I2C2_EV_IRQn', 'I2C2_ER_IRQn', 'SPI1_IRQn',
-    'SPI2_IRQn', 'USART1_IRQn', 'USART2_IRQn', 'USART3_IRQn', 'EXTI15_10_IRQn',
-    'RTC_Alarm_IRQn', 'OTG_FS_WKUP_IRQn', 'TIM8_BRK_TIM12_IRQn', 'TIM8_UP_TIM13_IRQn',
+    'CAN_FilterInitTypeDef', 'CanTxMsg', 'CanRxMsg', 'NonMaskableInt_IRQn',
+    'MemoryManagement_IRQn', 'BusFault_IRQn', 'UsageFault_IRQn', 'SVCall_IRQn',
+    'DebugMonitor_IRQn', 'PendSV_IRQn', 'SysTick_IRQn', 'WWDG_IRQn', 'PVD_IRQn',
+    'TAMP_STAMP_IRQn', 'RTC_WKUP_IRQn', 'FLASH_IRQn', 'RCC_IRQn', 'EXTI0_IRQn',
+    'EXTI1_IRQn', 'EXTI2_IRQn', 'EXTI3_IRQn', 'EXTI4_IRQn', 'DMA1_Stream0_IRQn',
+    'DMA1_Stream1_IRQn', 'DMA1_Stream2_IRQn', 'DMA1_Stream3_IRQn', 'DMA1_Stream4_IRQn',
+    'DMA1_Stream5_IRQn', 'DMA1_Stream6_IRQn', 'ADC_IRQn', 'CAN1_TX_IRQn',
+    'CAN1_RX0_IRQn', 'CAN1_RX1_IRQn', 'CAN1_SCE_IRQn', 'EXTI9_5_IRQn',
+    'TIM1_BRK_TIM9_IRQn', 'TIM1_UP_TIM10_IRQn', 'TIM1_TRG_COM_TIM11_IRQn',
+    'TIM1_CC_IRQn', 'TIM2_IRQn', 'TIM3_IRQn', 'TIM4_IRQn', 'I2C1_EV_IRQn',
+    'I2C1_ER_IRQn', 'I2C2_EV_IRQn', 'I2C2_ER_IRQn', 'SPI1_IRQn', 'SPI2_IRQn',
+    'USART1_IRQn', 'USART2_IRQn', 'USART3_IRQn', 'EXTI15_10_IRQn', 'RTC_Alarm_IRQn',
+    'OTG_FS_WKUP_IRQn', 'TIM8_BRK_TIM12_IRQn', 'TIM8_UP_TIM13_IRQn',
     'TIM8_TRG_COM_TIM14_IRQn', 'TIM8_CC_IRQn', 'DMA1_Stream7_IRQn', 'FSMC_IRQn',
     'SDIO_IRQn', 'TIM5_IRQn', 'SPI3_IRQn', 'UART4_IRQn', 'UART5_IRQn', 'TIM6_DAC_IRQn',
     'TIM7_IRQn', 'DMA2_Stream0_IRQn', 'DMA2_Stream1_IRQn', 'DMA2_Stream2_IRQn',
@@ -9533,7 +9778,9 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'ETH_DMACHTBAR_HTBAP', 'ETH_DMACHRBAR_HRBAP', 'ADC_TypeDef', 'ADC_Common_TypeDef',
     'CAN_TxMailBox_TypeDef', 'CAN_FIFOMailBox_TypeDef', 'CAN_FilterRegister_TypeDef',
     'CRC_TypeDef', 'DAC_TypeDef', 'DBGMCU_TypeDef', 'DCMI_TypeDef',
-    'DMA_Stream_TypeDef', 'DMA_TypeDef', 'EXTI_TypeDef', 'FLASH_TypeDef',
-    'FSMC_Bank2_TypeDef', 'FSMC_Bank3_TypeDef', 'FSMC_Bank4_TypeDef', 'I2C_TypeDef',
-    'IWDG_TypeDef', 'PWR_TypeDef', 'RTC_TypeDef', 'SPI_TypeDef', 'TIM_TypeDef',
-    'USART_TypeDef', 'WWDG_TypeDef', 'CRYP_TypeDef', 'RNG_TypeDef']
+    'DMA_Stream_TypeDef', 'DMA_TypeDef', 'ETH_TypeDef', 'EXTI_TypeDef', 'FLASH_TypeDef',
+    'FSMC_Bank1_TypeDef', 'FSMC_Bank1E_TypeDef', 'FSMC_Bank2_TypeDef',
+    'FSMC_Bank3_TypeDef', 'FSMC_Bank4_TypeDef', 'GPIO_TypeDef', 'SYSCFG_TypeDef',
+    'I2C_TypeDef', 'IWDG_TypeDef', 'PWR_TypeDef', 'RCC_TypeDef', 'RTC_TypeDef',
+    'SDIO_TypeDef', 'SPI_TypeDef', 'TIM_TypeDef', 'USART_TypeDef', 'WWDG_TypeDef',
+    'CRYP_TypeDef', 'HASH_TypeDef', 'RNG_TypeDef']
