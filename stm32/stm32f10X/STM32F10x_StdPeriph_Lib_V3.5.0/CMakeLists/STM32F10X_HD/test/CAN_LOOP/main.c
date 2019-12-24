@@ -20,7 +20,7 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
-#include "device_defines.h"
+#include "remcu.h"
 #include "stm32f10x.h"
 //#include "stm32_eval.h"
 
@@ -30,7 +30,6 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#include "remcu.h"
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
@@ -38,7 +37,9 @@
 /** @addtogroup CAN_LoopBack
   * @{
   */ 
-
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 
 
 /* Private define ------------------------------------------------------------*/

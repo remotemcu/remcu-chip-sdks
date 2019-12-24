@@ -23,10 +23,14 @@
 #include "remcu.h"
 #include "stm32f10x.h"
 
+#include <stdio.h>
+
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
-
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 /** @addtogroup DAC_OneChannel_NoiseWave
   * @{
   */ 
