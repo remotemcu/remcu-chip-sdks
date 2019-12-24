@@ -39,6 +39,9 @@
 /** @addtogroup STM32F2xx_StdPeriph_Examples
   * @{
   */
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 
 /** @addtogroup DAC_SignalsGeneration
   * @{
@@ -78,7 +81,7 @@ int main(int argc, char** argv)
   //remcu_setVerboseLevel(__INFO);
   remcu_setVerboseLevel(__ALL_LOG);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
   SystemInit();
 
