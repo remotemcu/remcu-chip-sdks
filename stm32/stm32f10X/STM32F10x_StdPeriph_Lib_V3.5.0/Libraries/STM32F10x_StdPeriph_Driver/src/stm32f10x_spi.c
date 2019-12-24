@@ -281,10 +281,7 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)
 
     /* Check the I2S clock source configuration depending on the Device:
        Only Connectivity line devices have the PLL3 VCO clock */
-#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
-#include "remcu_exports_symbol_exit.h"
-
     if((RCC->CFGR2 & tmp) != 0)
     {
       /* Get the configuration bits of RCC PLL3 multiplier */

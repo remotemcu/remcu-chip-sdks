@@ -248,10 +248,7 @@ void PWR_EnterSTANDBYMode(void)
   /* Set SLEEPDEEP bit of Cortex System Control Register */
   SCB->SCR |= SCB_SCR_SLEEPDEEP;
 /* This option is used to ensure that store operations are completed */
-#include "remcu_exports_symbol_enter.h"
 #if defined ( __CC_ARM   )
-#include "remcu_exports_symbol_exit.h"
-
   __force_stores();
 #endif
   /* Request Wait For Interrupt */

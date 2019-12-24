@@ -61,9 +61,9 @@
 /** @addtogroup STM32F10x_System_Private_Includes
   * @{
   */
-
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x.h"
-
+#include "remcu_exports_symbol_exit.h"
 /**
   * @}
   */
