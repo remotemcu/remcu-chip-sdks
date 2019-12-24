@@ -20,8 +20,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_tim.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -2878,7 +2884,10 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 /**
   * @}
   */
+#include "remcu_exports_symbol_enter.h"
 #ifdef REMCU_LIB
+#include "remcu_exports_symbol_exit.h"
+
 uint16_t get_TIM_CR1(TIM_TypeDef* TIMx){
   return TIMx->CR1;
 }

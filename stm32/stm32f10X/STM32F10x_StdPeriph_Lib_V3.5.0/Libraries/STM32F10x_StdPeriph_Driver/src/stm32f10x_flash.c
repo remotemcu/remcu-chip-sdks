@@ -20,7 +20,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_flash.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -322,7 +325,10 @@ void FLASH_Unlock(void)
   FLASH->KEYR = FLASH_KEY1;
   FLASH->KEYR = FLASH_KEY2;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Authorize the FPEC of Bank2 Access */
   FLASH->KEYR2 = FLASH_KEY1;
   FLASH->KEYR2 = FLASH_KEY2;
@@ -344,7 +350,10 @@ void FLASH_UnlockBank1(void)
   FLASH->KEYR = FLASH_KEY2;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Unlocks the FLASH Bank2 Program Erase Controller.
   * @note   This function can be used only for STM32F10X_XL density devices.
@@ -374,7 +383,10 @@ void FLASH_Lock(void)
   /* Set the Lock Bit to lock the FPEC and the CR of  Bank1 */
   FLASH->CR |= CR_LOCK_Set;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Set the Lock Bit to lock the FPEC and the CR of  Bank2 */
   FLASH->CR2 |= CR_LOCK_Set;
 #endif /* STM32F10X_XL */
@@ -395,7 +407,10 @@ void FLASH_LockBank1(void)
   FLASH->CR |= CR_LOCK_Set;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Locks the FLASH Bank2 Program Erase Controller.
   * @note   This function can be used only for STM32F10X_XL density devices.
@@ -422,7 +437,10 @@ FLASH_Status FLASH_ErasePage(uint32_t Page_Address)
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Page_Address));
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   if(Page_Address < FLASH_BANK1_END_ADDRESS)  
   {
     /* Wait for last operation to be completed */
@@ -493,7 +511,10 @@ FLASH_Status FLASH_EraseAllPages(void)
 {
   FLASH_Status status = FLASH_COMPLETE;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastBank1Operation(EraseTimeout);
   
@@ -574,7 +595,10 @@ FLASH_Status FLASH_EraseAllBank1Pages(void)
   return status;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Erases all Bank2 FLASH pages.
   * @note   This function can be used only for STM32F10x_XL density devices.
@@ -686,7 +710,10 @@ FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data)
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Address));
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   if(Address < FLASH_BANK1_END_ADDRESS - 2)
   { 
     /* Wait for last operation to be completed */
@@ -861,7 +888,10 @@ FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data)
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Address));
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastOperation(ProgramTimeout);
   
@@ -1150,7 +1180,10 @@ FLASH_Status FLASH_UserOptionByteConfig(uint16_t OB_IWDG, uint16_t OB_STOP, uint
   return status;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Configures to boot from Bank1 or Bank2.  
   * @note   This function can be used only for STM32F10x_XL density devices.
@@ -1289,7 +1322,10 @@ FlagStatus FLASH_GetPrefetchBufferStatus(void)
   */
 void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState)
 {
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Check the parameters */
   assert_param(IS_FLASH_IT(FLASH_IT)); 
   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -1358,7 +1394,10 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG)
 {
   FlagStatus bitstatus = RESET;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Check the parameters */
   assert_param(IS_FLASH_GET_FLAG(FLASH_FLAG)) ;
   if(FLASH_FLAG == FLASH_FLAG_OPTERR) 
@@ -1442,7 +1481,10 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG)
   */
 void FLASH_ClearFlag(uint32_t FLASH_FLAG)
 {
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
   /* Check the parameters */
   assert_param(IS_FLASH_CLEAR_FLAG(FLASH_FLAG)) ;
 
@@ -1542,7 +1584,10 @@ FLASH_Status FLASH_GetBank1Status(void)
   return flashstatus;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Returns the FLASH Bank2 Status.
   * @note   This function can be used for STM32F10x_XL density devices.
@@ -1640,7 +1685,10 @@ FLASH_Status FLASH_WaitForLastBank1Operation(uint32_t Timeout)
   return status;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_XL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Waits for a Flash operation on Bank2 to complete or a TIMEOUT to occur.
   * @note   This function can be used only for STM32F10x_XL density devices.

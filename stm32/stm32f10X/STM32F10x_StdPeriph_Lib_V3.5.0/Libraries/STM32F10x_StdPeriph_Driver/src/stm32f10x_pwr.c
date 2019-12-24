@@ -20,8 +20,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_pwr.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -242,7 +248,10 @@ void PWR_EnterSTANDBYMode(void)
   /* Set SLEEPDEEP bit of Cortex System Control Register */
   SCB->SCR |= SCB_SCR_SLEEPDEEP;
 /* This option is used to ensure that store operations are completed */
+#include "remcu_exports_symbol_enter.h"
 #if defined ( __CC_ARM   )
+#include "remcu_exports_symbol_exit.h"
+
   __force_stores();
 #endif
   /* Request Wait For Interrupt */

@@ -20,7 +20,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -57,7 +60,10 @@
 #define PLLON_BitNumber           0x18
 #define CR_PLLON_BB               (PERIPH_BB_BASE + (CR_OFFSET * 32) + (PLLON_BitNumber * 4))
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
  /* Alias word address of PLL2ON bit */
  #define PLL2ON_BitNumber          0x1A
  #define CR_PLL2ON_BB              (PERIPH_BB_BASE + (CR_OFFSET * 32) + (PLL2ON_BitNumber * 4))
@@ -76,7 +82,10 @@
 /* Alias word address of USBPRE bit */
 #define CFGR_OFFSET               (RCC_OFFSET + 0x04)
 
+#include "remcu_exports_symbol_enter.h"
 #ifndef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
  #define USBPRE_BitNumber          0x16
  #define CFGR_USBPRE_BB            (PERIPH_BB_BASE + (CFGR_OFFSET * 32) + (USBPRE_BitNumber * 4))
 #else
@@ -102,7 +111,10 @@
 #define LSION_BitNumber           0x00
 #define CSR_LSION_BB              (PERIPH_BB_BASE + (CSR_OFFSET * 32) + (LSION_BitNumber * 4))
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
 /* --- CFGR2 Register ---*/
 
  /* Alias word address of I2S2SRC bit */
@@ -125,7 +137,10 @@
 #define CR_HSITRIM_Mask           ((uint32_t)0xFFFFFF07)
 
 /* CFGR register bit mask */
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL) || defined (STM32F10X_CL) 
+#include "remcu_exports_symbol_exit.h"
+
  #define CFGR_PLL_Mask            ((uint32_t)0xFFC2FFFF)
 #else
  #define CFGR_PLL_Mask            ((uint32_t)0xFFC0FFFF)
@@ -148,12 +163,18 @@
 /* CSR register bit mask */
 #define CSR_RMVF_Set              ((uint32_t)0x01000000)
 
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL) || defined (STM32F10X_CL) 
+#include "remcu_exports_symbol_exit.h"
+
 /* CFGR2 register bit mask */
  #define CFGR2_PREDIV1SRC         ((uint32_t)0x00010000)
  #define CFGR2_PREDIV1            ((uint32_t)0x0000000F)
 #endif
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
  #define CFGR2_PREDIV2            ((uint32_t)0x000000F0)
  #define CFGR2_PLL2MUL            ((uint32_t)0x00000F00)
  #define CFGR2_PLL3MUL            ((uint32_t)0x0000F000)
@@ -220,7 +241,10 @@ void RCC_DeInit(void)
   RCC->CR |= (uint32_t)0x00000001;
 
   /* Reset SW, HPRE, PPRE1, PPRE2, ADCPRE and MCO bits */
+#include "remcu_exports_symbol_enter.h"
 #ifndef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
   RCC->CFGR &= (uint32_t)0xF8FF0000;
 #else
   RCC->CFGR &= (uint32_t)0xF0FF0000;
@@ -235,7 +259,10 @@ void RCC_DeInit(void)
   /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits */
   RCC->CFGR &= (uint32_t)0xFF80FFFF;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
   /* Reset PLL2ON and PLL3ON bits */
   RCC->CR &= (uint32_t)0xEBFFFFFF;
 
@@ -406,7 +433,10 @@ void RCC_PLLCmd(FunctionalState NewState)
   *(__IO uint32_t *) CR_PLLON_BB = (uint32_t)NewState;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL) || defined (STM32F10X_CL)
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Configures the PREDIV1 division factor.
   * @note 
@@ -441,7 +471,10 @@ void RCC_PREDIV1Config(uint32_t RCC_PREDIV1_Source, uint32_t RCC_PREDIV1_Div)
 }
 #endif
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Configures the PREDIV2 division factor.
   * @note 
@@ -714,7 +747,10 @@ void RCC_ITConfig(uint8_t RCC_IT, FunctionalState NewState)
   }
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifndef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Configures the USB clock (USBCLK).
   * @param  RCC_USBCLKSource: specifies the USB clock source. This clock is 
@@ -777,7 +813,10 @@ void RCC_ADCCLKConfig(uint32_t RCC_PCLK2)
   RCC->CFGR = tmpreg;
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Configures the I2S2 clock source(I2S2CLK).
   * @note
@@ -909,11 +948,17 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
 {
   uint32_t tmp = 0, pllmull = 0, pllsource = 0, presc = 0;
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef  STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
   uint32_t prediv1source = 0, prediv1factor = 0, prediv2factor = 0, pll2mull = 0;
 #endif /* STM32F10X_CL */
 
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL)
+#include "remcu_exports_symbol_exit.h"
+
   uint32_t prediv1factor = 0;
 #endif
     
@@ -934,7 +979,10 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
       pllmull = RCC->CFGR & CFGR_PLLMull_Mask;
       pllsource = RCC->CFGR & CFGR_PLLSRC_Mask;
       
+#include "remcu_exports_symbol_enter.h"
 #ifndef STM32F10X_CL      
+#include "remcu_exports_symbol_exit.h"
+
       pllmull = ( pllmull >> 18) + 2;
       
       if (pllsource == 0x00)
@@ -1138,7 +1186,10 @@ void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)
   }
 }
 
+#include "remcu_exports_symbol_enter.h"
 #ifdef STM32F10X_CL
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Forces or releases AHB peripheral reset.
   * @note   This function applies only to STM32 Connectivity line devices.

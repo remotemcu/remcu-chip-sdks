@@ -20,7 +20,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_crc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{

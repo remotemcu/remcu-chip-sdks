@@ -20,8 +20,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_dac.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f10x_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -186,7 +192,10 @@ void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState)
     DAC->CR &= ~(DAC_CR_EN1 << DAC_Channel);
   }
 }
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL)
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Enables or disables the specified DAC interrupts.
   * @param  DAC_Channel: the selected DAC channel. 
@@ -441,7 +450,10 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel)
   return (uint16_t) (*(__IO uint32_t*) tmp);
 }
 
+#include "remcu_exports_symbol_enter.h"
 #if defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || defined (STM32F10X_HD_VL)
+#include "remcu_exports_symbol_exit.h"
+
 /**
   * @brief  Checks whether the specified DAC flag is set or not.
   * @param  DAC_Channel: thee selected DAC channel. 
