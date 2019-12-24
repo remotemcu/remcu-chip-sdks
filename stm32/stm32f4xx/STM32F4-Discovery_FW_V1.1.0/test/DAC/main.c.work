@@ -1,0 +1,249 @@
+/**
+  ******************************************************************************
+  * @file    DAC/DAC_SignalsGeneration/main.c 
+  * @author  MCD Application Team
+  * @version V1.1.0
+  * @date    13-April-2012
+  * @brief   Main program body.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; COPYRIGHT 2012 STMicroelectronics</center></h2>
+  *
+  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  * You may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at:
+  *
+  *        http://www.st.com/software_license_agreement_liberty_v2
+  *
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  *
+  ******************************************************************************
+  */ 
+
+/* Includes ------------------------------------------------------------------*/
+#include "remcu.h"
+
+#include "stm32f4xx.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
+
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+
+/**
+  * @brief   Main program
+  * @param  None
+  * @retval None
+  */
+int main(int argc, char** argv)
+{
+  printf("argc : %d\n", argc);
+
+  if(argc < 4){
+        printf("test requare 2 arguments: host, port and verbose level\n");
+        printf("optional 3-d arg: testOpenocd(bool)\n");
+        return -1;
+    }
+    const char * host = argv[1];
+    printf("argv[1] : %s\n", argv[1]);
+    printf("argv[2] : %s\n", argv[2]);
+    const uint16_t port = (atoi(argv[2]) & 0xFFFF);
+    printf("port : %d\n", port);
+    const uint8_t debug = (atoi(argv[3]) & 0xF);
+    printf("debug : %d\n", debug);
+
+    remcu_setVerboseLevel(debug);
+
+
+  if (port == 6666){
+    remcu_connect2OpenOCD(host, 6666, 3);
+  } else {
+    remcu_connect2GDB(host, port, 3);
+  }
+
+  remcu_resetRemoteUnit(__HALT);
+
+  SystemInit();
+
+//----------------------Memory Operation-------------------//
+const uint32_t ptr_remote_RAM = 0x20000000;
+/*
+uint8_t buffer[111];
+
+printf("remcu_loadFrMem\n");
+remcu_loadFrMem(ptr_remote_RAM, 1, buffer);
+printf("remcu_targetRAMtest\n");
+remcu_targetRAMtest(ptr_remote_RAM);
+*/
+uint16_t ADC3ConvertedValue = 0;
+
+uint8_t Escalator8bit[6] = {0x0, 0x33, 0x66, 0x99, 0xCC, 0xFF};
+uint16_t Sine12bit[32] = {
+                      2047, 2447, 2831, 3185, 3498, 3750, 3939, 4056, 4095, 4056,
+                      3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909, 
+                      599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647};
+
+const uint32_t ptr_remote_RAM_SinWave = ptr_remote_RAM + sizeof(Escalator8bit);
+
+if(remcu_store2mem(ptr_remote_RAM, Escalator8bit, sizeof(Escalator8bit)) == false){
+  printf("!1\n");
+}
+
+if(remcu_store2mem(ptr_remote_RAM_SinWave, (uint8_t*)Sine12bit, 32) == false){
+  printf("!1\n");
+}
+
+if(remcu_store2mem(ptr_remote_RAM_SinWave + 32, (uint8_t*)Sine12bit + 32, 32) == false){
+  printf("!1\n");
+}
+
+
+DAC_InitTypeDef  DAC_InitStructure;
+GPIO_InitTypeDef  GPIO_InitStructure;
+DMA_InitTypeDef       DMA_InitStructure;
+TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+
+
+/* DMA1 clock and GPIOA clock enable (to be used with DAC) */
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1 | RCC_AHB1Periph_GPIOA, ENABLE);
+
+  /* DAC Periph clock enable */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
+
+  /* DAC channel 1 & 2 (DAC_OUT1 = PA.4)(DAC_OUT2 = PA.5) configuration */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  /* TIM6 Periph clock enable */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
+
+  /* Time base configuration */
+  TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+  TIM_TimeBaseStructure.TIM_Period = 0xFF;
+  TIM_TimeBaseStructure.TIM_Prescaler = 0;
+  TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; 
+  TIM_TimeBaseInit(TIM6, &TIM_TimeBaseStructure);
+
+  /* TIM6 TRGO selection */
+  TIM_SelectOutputTrigger(TIM6, TIM_TRGOSource_Update);
+  
+  /* TIM6 enable counter */
+  TIM_Cmd(TIM6, ENABLE);
+
+  #define DAC_DHR12R2_ADDRESS    0x40007414
+  #define DAC_DHR8R1_ADDRESS     0x40007410
+
+  DAC_DeInit();
+
+  /* DAC channel1 Configuration */
+  DAC_InitStructure.DAC_Trigger = DAC_Trigger_T6_TRGO;
+  DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
+  DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
+  DAC_Init(DAC_Channel_1, &DAC_InitStructure);
+
+  /* DMA1_Stream6 channel7 configuration **************************************/  
+  DMA_DeInit(DMA1_Stream6);
+  DMA_InitStructure.DMA_Channel = DMA_Channel_7;  
+  DMA_InitStructure.DMA_PeripheralBaseAddr = DAC_DHR8R1_ADDRESS;
+  DMA_InitStructure.DMA_Memory0BaseAddr = ptr_remote_RAM;
+  DMA_InitStructure.DMA_BufferSize = 6;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;         
+  DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_HalfFull;
+  DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
+  DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
+  DMA_Init(DMA1_Stream6, &DMA_InitStructure);    
+
+  /* Enable DMA1_Stream6 */
+  DMA_Cmd(DMA1_Stream6, ENABLE);
+  
+  /* Enable DAC Channel1 */
+  DAC_Cmd(DAC_Channel_1, ENABLE);
+
+  /* Enable DMA for DAC Channel1 */
+  DAC_DMACmd(DAC_Channel_1, ENABLE);
+
+//-------------------- Channel 2 --------------------------------//
+  /* DAC channel2 Configuration */
+  DAC_InitStructure.DAC_Trigger = DAC_Trigger_T6_TRGO;
+  DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
+  DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
+  DAC_Init(DAC_Channel_2, &DAC_InitStructure);
+
+  /* DMA1_Stream5 channel7 configuration **************************************/
+  DMA_DeInit(DMA1_Stream5);
+  DMA_InitStructure.DMA_Channel = DMA_Channel_7;  
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)DAC_DHR12R2_ADDRESS;
+  DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)ptr_remote_RAM_SinWave;
+  DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;
+  DMA_InitStructure.DMA_BufferSize = 32;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
+  DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_HalfFull;
+  DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
+  DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
+  DMA_Init(DMA1_Stream5, &DMA_InitStructure);
+
+  /* Enable DMA1_Stream5 */
+  DMA_Cmd(DMA1_Stream5, ENABLE);
+
+  /* Enable DAC Channel2 */
+  DAC_Cmd(DAC_Channel_2, ENABLE);
+
+  /* Enable DMA for DAC Channel2 */
+  DAC_DMACmd(DAC_Channel_2, ENABLE);
+
+for(int i = 0 ; i < 5; i++){
+  printf("get_TIM_CR1 : %x\n", get_TIM_CR1(TIM6));
+  printf("DMA_GetCurrDataCounter DMA1_Stream5 : %x\n", DMA_GetCurrDataCounter(DMA1_Stream5));
+  printf("DMA_GetCurrDataCounter DMA1_Stream6 : %x\n", DMA_GetCurrDataCounter(DMA1_Stream6));
+  printf("TIM_GetCounter 6: %d\n", TIM_GetCounter(TIM6));
+  printf("DAC_GetDataOutputValue ch1: %x\n", DAC_GetDataOutputValue(DAC_Channel_1));
+  printf("DAC_GetDataOutputValue ch2: %x\n", DAC_GetDataOutputValue(DAC_Channel_2));
+}
+
+  getchar();
+
+
+  Sine12bit[9] = 0;
+remcu_store2mem(ptr_remote_RAM_SinWave, (uint8_t*)Sine12bit, 32);
+
+remcu_disconnect();
+
+}
+
+/**
+  * @}
+  */ 
+
+/**
+  * @}
+  */ 
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

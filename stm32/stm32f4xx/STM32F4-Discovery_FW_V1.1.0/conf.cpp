@@ -1,5 +1,5 @@
 
-#include "TargetFun.h"
+#include "target.h"
 #include "AddressInterval.h"
 
 namespace remcu {
@@ -12,6 +12,10 @@ void setConfig(){
     add_to_adin_interval(0x40020000,  0x40080000); //AHB1
     add_to_adin_interval(0x50000000,  0x50060C00); //AHB2
     add_to_adin_interval(0xA0000000,  0xA0001000); //AHB3
+}
+
+uint32_t get_RAM_addr_for_test(){
+    return 0x20000000;
 }
 
 } //namespace
