@@ -1,6 +1,4 @@
 
-set(LICENSE_TYPE EDU)
-
 set(MCU_TYPE MK64FN1M0VMD12)
 
 set(MCU_LIB_NAME KSDK)
@@ -15,14 +13,11 @@ set(KSDK_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
 set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
 
-set(LICENSE_TYPE EDU)
-
 set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 
 include(McuCommon)
 
 add_custom_target( MCU_LIB
-	#OUTPUT ${MCU_OBJECT_FILE}
                    COMMAND make all
 	                   MCU_UTIL_PATH=${MCU_UTIL_PATH}
 	                   TARGET_MK=${MCU_INCLUDE_MK_FILE}

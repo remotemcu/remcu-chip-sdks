@@ -1,7 +1,5 @@
 cmake_minimum_required (VERSION 3.5)
 
-set(LICENSE_TYPE EDU)
-
 set(MCU_TYPE STM32F10X_HD)
 
 set(MCU_LIB_NAME StdPeriph_Lib)
@@ -13,10 +11,6 @@ set(MCU_MINOR_VERSION_LIB 01)
 set(FULL_NAME_MCU_LIB ${MCU_TYPE}-${MCU_LIB_NAME}-${MCU_MAJOR_VERSION_LIB}-${MCU_MINOR_VERSION_LIB} )
 
 set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
-
-#set(MCU_OBJECT_FILE ${BUILD_DIRECTORY}/${MCU_TYPE}.adin.o)
-
-set(LICENSE_TYPE EDU)
 
 set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 
@@ -37,8 +31,6 @@ add_custom_target( MCU_LIB
                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                    COMMENT "---------------- Generating ADIN IR ----------------"
 )
-
-#set(ARCHIVE_FILES ${CMAKE_CURRENT_BINARY_DIR}/${MCU_TYPE}.py)
 
 include(shared)
 

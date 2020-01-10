@@ -1,6 +1,4 @@
 
-set(LICENSE_TYPE EDU)
-
 set(MCU_TYPE LPC175X_6X)
 
 set(MCU_LIB_NAME lpc_open)
