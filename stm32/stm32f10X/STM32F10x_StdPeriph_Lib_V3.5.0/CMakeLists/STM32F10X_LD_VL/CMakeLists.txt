@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.5)
 
-set(MCU_TYPE STM32F10X_MD)
+set(MCU_TYPE STM32F10X_LD_VL)
 
 set(MCU_LIB_NAME StdPeriph_Lib)
 
@@ -23,6 +23,7 @@ add_custom_target( MCU_LIB
                    DEVICE=${MCU_TYPE}
                    MCU_UTIL_PATH=${MCU_UTIL_PATH}
                    TARGET_MK=${MCU_INCLUDE_MK_FILE}
+                   CROSS_MK_FILE=${CROSS_MK_FILE}
                    OUTPUT=${MCU_OBJECT_FILE}
                    MCU_SDK_PATH=${MCU_SDK_PATH}
                    CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
@@ -60,4 +61,4 @@ file(INSTALL ${COPY_HEADER_FROM_LIB}
             DESTINATION  ${ALL_INCLUDE_DIR}
             )
 
-add_subdirectory(test)
+#add_subdirectory(test)
