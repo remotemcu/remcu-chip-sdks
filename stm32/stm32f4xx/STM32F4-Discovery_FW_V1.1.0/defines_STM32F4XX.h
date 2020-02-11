@@ -1,3 +1,7 @@
 #define REMCU_LIB
 
 #define USE_STDPERIPH_DRIVER
+
+//Memory region:
+#define START_MEMORY_REGION 0x20000000
+#define EMD_MEMORY_REGION (START_MEMORY_REGION + 112*1024) //first RAM bank of 112 KBytes

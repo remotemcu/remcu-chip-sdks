@@ -15,20 +15,21 @@ C_SRC = \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c \
-./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.c \
-./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.c \
-./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c \
-./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c
+
+#./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c \
+#./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c \
+#./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c \
+#./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c \
 
 SRC_EXTRA = \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c \

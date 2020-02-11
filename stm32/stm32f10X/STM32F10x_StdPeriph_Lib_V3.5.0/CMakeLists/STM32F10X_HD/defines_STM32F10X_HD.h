@@ -3,3 +3,7 @@
 #define USE_STDPERIPH_DRIVER
 
 #define STM32F10X_HD
+
+//Memory region:
+#define START_MEMORY_REGION 0x20000000
+#define EMD_MEMORY_REGION (START_MEMORY_REGION + 44*1024) //first 44 Kbytes
