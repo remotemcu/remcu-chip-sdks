@@ -33,13 +33,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
-#include <unistd.h>
 
 /** @addtogroup STM32F2xx_StdPeriph_Examples
   * @{
   */
 #if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
   #define sleep _sleep
+#else
+  #include <unistd.h>
 #endif
 /** @addtogroup DAC_SignalsGeneration
   * @{
