@@ -2,14 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 
-include(parse_args.cmake)
-
-set(CMAKE_C_COMPILER_FORCED TRUE)
-    set(CMAKE_CXX_COMPILER_FORCED TRUE)
-
-message("CMAKE_C_PLATFORM_ID :  ${CMAKE_C_PLATFORM_ID}")
-message("CMAKE_COMPILER_IS_CYGWIN :  ${CMAKE_COMPILER_IS_CYGWIN}")
-message("CMAKE_COMPILER_IS_CYGWIN :  ${CMAKE_C_COMPILER_ID}")
+set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
+include(MultiBuild)
 
 ExternalProject_Add(STM32F10X_HD 
       COMMENT           "Building STM32F10X_HD"
