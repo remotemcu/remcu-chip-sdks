@@ -6,7 +6,7 @@ namespace remcu {
 
 void setConfig(){
     clearConfig();
-    add_to_mem_interval(0x20000000, 0x20000000 + 44*1024); 	//SRAM max 48- 64к
+    add_to_mem_interval(0x20000000, 0x20000000 + 8*1024); 	//SRAM max 48- 64к
 	add_to_adin_interval(0x40000000,  0x40000000 + 0x233FF); //Peripheral  0x4002 33FF CRC
 	//add_to_adin_interval(0xE0042000,  0xE0042000 + 0xB); //DBGMCU_BASE RM0008 26.17 - 672 page
 }
