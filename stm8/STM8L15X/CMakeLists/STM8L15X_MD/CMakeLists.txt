@@ -1,9 +1,5 @@
 cmake_minimum_required (VERSION 3.5)
 
-if(DEFINED REMCU_PREBUILD_CONFIG_FILE)
-      include(REMCU_PREBUILD_CONFIG_FILE)
-endif()
-
 set(MCU_TYPE STM8L15X_MD)
 
 set(MCU_LIB_NAME StdPeriph_Driver)
@@ -20,20 +16,11 @@ set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 
 set(MCU_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
-
 include(McuCommon)
 
 add_custom_target( MCU_LIB
                    COMMAND make all
                    ${MCU_MAKE_ARGUMENTS}
-                   #LLVM_ADIN_PATH=${LLVM_ADIN_PATH}
-                   #MCU_UTIL_PATH=${MCU_UTIL_PATH}
-                   #TARGET_MK=${MCU_INCLUDE_MK_FILE}
-                   #OUTPUT=${MCU_OBJECT_FILE}
-                   #CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-                   #BUILD_DIRECTORY=${BUILD_DIRECTORY}
-                   #DEVICE=${MCU_TYPE}
-                   #MCU_SDK_PATH=${MCU_SDK_PATH}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                    COMMENT "---------------- Generating ADIN IR ----------------"
 )
