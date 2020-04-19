@@ -56,8 +56,9 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
+#ifndef REMCU_LIB
 #include "stm32f7xx_hal.h"
-
+#endif
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
   */

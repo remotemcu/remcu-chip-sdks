@@ -70,6 +70,17 @@
 
 #define __CORTEX_M                (7U)                                       /*!< Cortex-M Core */
 
+#ifdef REMCU_LIB
+
+#ifndef   __INLINE
+    #define __INLINE                               inline
+  #endif
+  #ifndef   __STATIC_INLINE
+    #define __STATIC_INLINE                        static inline
+#endif
+
+#else //REMCU_LIB
+
 /** __FPU_USED indicates whether an FPU is used or not.
     For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and functions.
 */
@@ -161,6 +172,7 @@
 
 #include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
 
+#endif //REMCU_LIB
 
 #ifdef __cplusplus
 }
@@ -176,6 +188,8 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
+
+#ifndef REMCU_LIB
 
 /* check device defines and use defaults */
 #if defined __CHECK_DEVICE_DEFINES
@@ -219,6 +233,8 @@
     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
   #endif
 #endif
+
+#endif //REMCU_LIB
 
 /* IO definitions (access restrictions to peripheral registers) */
 /**
@@ -1801,7 +1817,7 @@ typedef struct
   \defgroup CMSIS_Core_FunctionInterface Functions and Instructions Reference
 */
 
-
+#ifndef REMCU_LIB
 
 /* ##########################   NVIC functions  #################################### */
 /**
@@ -2659,7 +2675,7 @@ __STATIC_INLINE int32_t ITM_CheckChar (void)
 
 /*@} end of CMSIS_core_DebugFunctions */
 
-
+#endif ///REMCU_LIB
 
 
 #ifdef __cplusplus

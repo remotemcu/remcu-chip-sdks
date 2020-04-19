@@ -28,8 +28,9 @@
 #if defined(SDMMC1)
 
 /* Includes ------------------------------------------------------------------*/
+#ifndef REMCU_LIB
 #include "stm32f7xx_hal_def.h"
-
+#endif
 /** @addtogroup STM32F7xx_Driver
   * @{
   */
