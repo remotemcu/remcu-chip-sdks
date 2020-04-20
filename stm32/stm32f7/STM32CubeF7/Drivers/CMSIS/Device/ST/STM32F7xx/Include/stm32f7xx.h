@@ -193,8 +193,11 @@ typedef enum
 
 #define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
 
+#ifdef REMCU_LIB
+  #define POSITION_VAL(VAL) (__builtin_ctz(VAL))
+#else
 #define POSITION_VAL(VAL)     (__CLZ(__RBIT(VAL)))
-
+#endif
 /**
   * @}
   */

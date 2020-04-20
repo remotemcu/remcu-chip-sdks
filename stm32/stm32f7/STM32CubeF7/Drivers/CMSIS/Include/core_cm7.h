@@ -78,6 +78,14 @@
   #ifndef   __STATIC_INLINE
     #define __STATIC_INLINE                        static inline
 #endif
+#ifndef   __WEAK
+  #define __WEAK                                 __attribute__((weak))
+#endif
+
+//#define POSITION_VAL(VAL) (__builtin_ctz(VAL))
+#define  __DSB()
+#define  __disable_irq()
+#define  __enable_irq()
 
 #else //REMCU_LIB
 
