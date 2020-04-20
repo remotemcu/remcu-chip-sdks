@@ -135,6 +135,7 @@ $(OUTPUT): $(IR_FILES)
 
 REMCU_C: $(IR_FILES)
 	@echo done
+	#gcc -o app $(BUILD_DIR)/*
 
 # compile
 #------------------------------------------------------------------------------- 
