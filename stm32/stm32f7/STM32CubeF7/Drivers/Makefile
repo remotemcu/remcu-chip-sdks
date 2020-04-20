@@ -10,19 +10,16 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_dac.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_dma2d.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_dma.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_exti.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_gpio.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_i2c.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_lptim.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rng.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rtc.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_spi.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_tim.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.c \
 
-C_SRC += STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c \
+C_SRC1 += STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c \
@@ -40,8 +37,6 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c \
@@ -81,7 +76,7 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c \
-STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c
+STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c \
 
 
 IGNORE = STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_pwr.c \
@@ -97,6 +92,11 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_timebase_tim_template.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_timebase_rtc_alarm_template.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_timebase_rtc_wakeup_template.c \
+STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c \
+STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c \
+STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c \
+STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rtc.c \
+STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c \
 
 
 C_SRC += STM32F7xx_HAL_Driver/stm32f67x/system_stm32f7xx.c
