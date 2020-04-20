@@ -615,9 +615,9 @@ HAL_StatusTypeDef HAL_SD_WriteBlocks_IT(SD_HandleTypeDef *hsd, uint8_t *pData, u
 /* Non-Blocking mode: DMA */
 HAL_StatusTypeDef HAL_SD_ReadBlocks_DMA(SD_HandleTypeDef *hsd, uint8_t *pData, uint32_t BlockAdd, uint32_t NumberOfBlocks);
 HAL_StatusTypeDef HAL_SD_WriteBlocks_DMA(SD_HandleTypeDef *hsd, uint8_t *pData, uint32_t BlockAdd, uint32_t NumberOfBlocks);
-
+#ifndef REMCU_LIB
 void HAL_SD_IRQHandler(SD_HandleTypeDef *hsd);
-
+#endif
 /* Callback in non blocking modes (DMA) */
 void HAL_SD_TxCpltCallback(SD_HandleTypeDef *hsd);
 void HAL_SD_RxCpltCallback(SD_HandleTypeDef *hsd);

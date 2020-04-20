@@ -234,7 +234,9 @@ HAL_StatusTypeDef HAL_HCD_HC_SubmitRequest(HCD_HandleTypeDef *hhcd, uint8_t ch_n
                                            uint16_t length, uint8_t do_ping);
 
 /* Non-Blocking mode: Interrupt */
+#ifndef REMCU_LIB
 void HAL_HCD_IRQHandler(HCD_HandleTypeDef *hhcd);
+#endif
 void HAL_HCD_SOF_Callback(HCD_HandleTypeDef *hhcd);
 void HAL_HCD_Connect_Callback(HCD_HandleTypeDef *hhcd);
 void HAL_HCD_Disconnect_Callback(HCD_HandleTypeDef *hhcd);

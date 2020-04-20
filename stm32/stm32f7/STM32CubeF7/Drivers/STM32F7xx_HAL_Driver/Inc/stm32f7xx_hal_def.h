@@ -147,6 +147,8 @@ typedef enum
   #define ALIGN_32BYTES(buf) __align(32) buf
 #endif
 
+#ifndef REMCU_LIB
+
 /**
   * @brief  __RAM_FUNC definition
   */ 
@@ -195,6 +197,8 @@ typedef enum
 #define __NOINLINE _Pragma("optimize = no_inline")
 
 #endif
+
+#endif //REMCU_LIB
 
 #ifdef __cplusplus
 }

@@ -1469,6 +1469,7 @@ uint32_t HAL_CAN_IsTxMessagePending(CAN_HandleTypeDef *hcan, uint32_t TxMailboxe
   return status;
 }
 
+#ifndef REMCU_LIB
 /**
   * @brief  Return timestamp of Tx message sent, if time triggered communication
             mode is enabled.
@@ -1501,6 +1502,7 @@ uint32_t HAL_CAN_GetTxTimestamp(CAN_HandleTypeDef *hcan, uint32_t TxMailbox)
   /* Return the timestamp */
   return timestamp;
 }
+#endif //REMCU_LIB
 
 /**
   * @brief  Get an CAN frame from the Rx FIFO zone into the message RAM.

@@ -665,8 +665,9 @@ uint32_t HAL_LPTIM_ReadCompare(LPTIM_HandleTypeDef *hlptim);
  * @{
  */
 /* LPTIM IRQ functions  *******************************************************/
+#ifndef REMCU_LIB
 void HAL_LPTIM_IRQHandler(LPTIM_HandleTypeDef *hlptim);
-
+#endif
 /* CallBack functions  ********************************************************/
 void HAL_LPTIM_CompareMatchCallback(LPTIM_HandleTypeDef *hlptim);
 void HAL_LPTIM_AutoReloadMatchCallback(LPTIM_HandleTypeDef *hlptim);

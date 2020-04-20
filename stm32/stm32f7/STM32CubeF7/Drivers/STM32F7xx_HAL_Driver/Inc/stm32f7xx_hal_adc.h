@@ -626,9 +626,9 @@ HAL_StatusTypeDef HAL_ADC_PollForEvent(ADC_HandleTypeDef* hadc, uint32_t EventTy
 
 HAL_StatusTypeDef HAL_ADC_Start_IT(ADC_HandleTypeDef* hadc);
 HAL_StatusTypeDef HAL_ADC_Stop_IT(ADC_HandleTypeDef* hadc);
-
+#ifndef REMCU_LIB
 void              HAL_ADC_IRQHandler(ADC_HandleTypeDef* hadc);
-
+#endif
 HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
 HAL_StatusTypeDef HAL_ADC_Stop_DMA(ADC_HandleTypeDef* hadc);
 

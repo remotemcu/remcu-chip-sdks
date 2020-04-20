@@ -536,8 +536,9 @@ void HAL_JPEG_DataReadyCallback(JPEG_HandleTypeDef *hjpeg, uint8_t *pDataOut, ui
   * @{
   */
 /* JPEG IRQ handler management  ******************************************************/
+#ifndef REMCU_LIB
 void HAL_JPEG_IRQHandler(JPEG_HandleTypeDef *hjpeg);
-
+#endif
 /**
   * @}
   */

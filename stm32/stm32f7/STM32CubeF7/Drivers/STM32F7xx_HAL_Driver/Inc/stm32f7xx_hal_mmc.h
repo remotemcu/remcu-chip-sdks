@@ -603,9 +603,9 @@ HAL_StatusTypeDef HAL_MMC_WriteBlocks_IT(MMC_HandleTypeDef *hmmc, uint8_t *pData
 /* Non-Blocking mode: DMA */
 HAL_StatusTypeDef HAL_MMC_ReadBlocks_DMA(MMC_HandleTypeDef *hmmc, uint8_t *pData, uint32_t BlockAdd, uint32_t NumberOfBlocks);
 HAL_StatusTypeDef HAL_MMC_WriteBlocks_DMA(MMC_HandleTypeDef *hmmc, uint8_t *pData, uint32_t BlockAdd, uint32_t NumberOfBlocks);
-
+#ifndef REMCU_LIB
 void HAL_MMC_IRQHandler(MMC_HandleTypeDef *hmmc);
-
+#endif
 /* Callback in non blocking modes (DMA) */
 void HAL_MMC_TxCpltCallback(MMC_HandleTypeDef *hmmc);
 void HAL_MMC_RxCpltCallback(MMC_HandleTypeDef *hmmc);

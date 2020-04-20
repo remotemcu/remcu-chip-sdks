@@ -558,7 +558,9 @@ HAL_StatusTypeDef HAL_LTDC_UnRegisterCallback(LTDC_HandleTypeDef *hltdc, HAL_LTD
   * @{
   */
 /* IO operation functions *****************************************************/
+#ifndef REMCU_LIB
 void  HAL_LTDC_IRQHandler(LTDC_HandleTypeDef *hltdc);
+#endif
 /**
   * @}
   */

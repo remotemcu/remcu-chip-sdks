@@ -1192,7 +1192,7 @@ void HAL_RCC_GetClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, uint32_t *pF
   /* Get the Flash Wait State (Latency) configuration ------------------------*/
   *pFLatency = (uint32_t)(FLASH->ACR & FLASH_ACR_LATENCY);
 }
-
+#ifndef REMCU_LIB
 /**
   * @brief This function handles the RCC CSS interrupt request.
   * @note This API should be called under the NMI_Handler().
@@ -1221,7 +1221,7 @@ __weak void HAL_RCC_CSSCallback(void)
             the HAL_RCC_CSSCallback could be implemented in the user file
    */
 }
-
+#endif //REMCU_LIB
 /**
   * @}
   */

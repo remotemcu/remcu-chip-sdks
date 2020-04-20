@@ -1109,8 +1109,9 @@ HAL_StatusTypeDef HAL_DSI_Init(DSI_HandleTypeDef *hdsi, DSI_PLLInitTypeDef *PLLI
 HAL_StatusTypeDef HAL_DSI_DeInit(DSI_HandleTypeDef *hdsi);
 void HAL_DSI_MspInit(DSI_HandleTypeDef *hdsi);
 void HAL_DSI_MspDeInit(DSI_HandleTypeDef *hdsi);
-
+#ifndef REMCU_LIB
 void HAL_DSI_IRQHandler(DSI_HandleTypeDef *hdsi);
+#endif
 void HAL_DSI_TearingEffectCallback(DSI_HandleTypeDef *hdsi);
 void HAL_DSI_EndOfRefreshCallback(DSI_HandleTypeDef *hdsi);
 void HAL_DSI_ErrorCallback(DSI_HandleTypeDef *hdsi);

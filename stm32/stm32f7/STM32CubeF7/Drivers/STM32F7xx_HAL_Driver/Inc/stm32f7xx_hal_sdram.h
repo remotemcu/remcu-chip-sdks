@@ -146,8 +146,9 @@ HAL_StatusTypeDef HAL_SDRAM_Init(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_TimingTy
 HAL_StatusTypeDef HAL_SDRAM_DeInit(SDRAM_HandleTypeDef *hsdram);
 void HAL_SDRAM_MspInit(SDRAM_HandleTypeDef *hsdram);
 void HAL_SDRAM_MspDeInit(SDRAM_HandleTypeDef *hsdram);
-
+#ifndef REMCU_LIB
 void HAL_SDRAM_IRQHandler(SDRAM_HandleTypeDef *hsdram);
+#endif
 void HAL_SDRAM_RefreshErrorCallback(SDRAM_HandleTypeDef *hsdram);
 void HAL_SDRAM_DMA_XferCpltCallback(DMA_HandleTypeDef *hdma);
 void HAL_SDRAM_DMA_XferErrorCallback(DMA_HandleTypeDef *hdma);

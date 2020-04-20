@@ -676,6 +676,7 @@ uint32_t HAL_RNG_GetRandomNumber_IT(RNG_HandleTypeDef *hrng)
   return random32bit;
 }
 
+#ifndef REMCU_LIB
 /**
   * @brief  Handles RNG interrupt request.
   * @note   In the case of a clock error, the RNG is no more able to generate
@@ -762,6 +763,7 @@ void HAL_RNG_IRQHandler(RNG_HandleTypeDef *hrng)
     }
   }
 }
+#endif //REMCU_LIB
 
 /**
   * @brief  Read latest generated random number.

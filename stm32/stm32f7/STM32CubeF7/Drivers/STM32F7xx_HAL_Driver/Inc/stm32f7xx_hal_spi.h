@@ -801,8 +801,9 @@ HAL_StatusTypeDef HAL_SPI_DMAStop(SPI_HandleTypeDef *hspi);
 /* Transfer Abort functions */
 HAL_StatusTypeDef HAL_SPI_Abort(SPI_HandleTypeDef *hspi);
 HAL_StatusTypeDef HAL_SPI_Abort_IT(SPI_HandleTypeDef *hspi);
-
+#ifndef REMCU_LIB
 void HAL_SPI_IRQHandler(SPI_HandleTypeDef *hspi);
+#endif
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi);
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi);
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi);

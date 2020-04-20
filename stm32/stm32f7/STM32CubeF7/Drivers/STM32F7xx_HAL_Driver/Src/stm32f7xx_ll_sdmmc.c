@@ -156,9 +156,8 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
-#ifndef REMCU_LIB
+
 #include "stm32f7xx_hal.h"
-#endif
 
 #if defined(SDMMC1)
 

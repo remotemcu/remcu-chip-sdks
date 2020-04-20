@@ -718,7 +718,9 @@ HAL_StatusTypeDef HAL_SAI_EnableRxMuteMode(SAI_HandleTypeDef *hsai, SAIcallback 
 HAL_StatusTypeDef HAL_SAI_DisableRxMuteMode(SAI_HandleTypeDef *hsai);
 
 /* SAI IRQHandler and Callbacks used in non blocking modes (Interrupt and DMA) */
+#ifndef REMCU_LIB
 void HAL_SAI_IRQHandler(SAI_HandleTypeDef *hsai);
+#endif
 void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai);
 void HAL_SAI_TxCpltCallback(SAI_HandleTypeDef *hsai);
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef *hsai);

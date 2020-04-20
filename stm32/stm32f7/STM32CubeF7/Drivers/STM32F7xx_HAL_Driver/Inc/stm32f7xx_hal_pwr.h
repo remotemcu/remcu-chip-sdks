@@ -320,9 +320,10 @@ void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry);
 void HAL_PWR_EnterSTANDBYMode(void);
 
 /* Power PVD IRQ Handler */
+#ifndef REMCU_LIB
 void HAL_PWR_PVD_IRQHandler(void);
 void HAL_PWR_PVDCallback(void);
-
+#endif
 /* Cortex System Control functions  *******************************************/
 void HAL_PWR_EnableSleepOnExit(void);
 void HAL_PWR_DisableSleepOnExit(void);

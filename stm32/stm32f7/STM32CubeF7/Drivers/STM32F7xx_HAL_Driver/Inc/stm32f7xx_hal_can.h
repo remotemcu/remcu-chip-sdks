@@ -695,8 +695,9 @@ uint32_t HAL_CAN_GetRxFifoFillLevel(CAN_HandleTypeDef *hcan, uint32_t RxFifo);
 /* Interrupts management ******************************************************/
 HAL_StatusTypeDef HAL_CAN_ActivateNotification(CAN_HandleTypeDef *hcan, uint32_t ActiveITs);
 HAL_StatusTypeDef HAL_CAN_DeactivateNotification(CAN_HandleTypeDef *hcan, uint32_t InactiveITs);
+#ifndef REMCU_LIB
 void HAL_CAN_IRQHandler(CAN_HandleTypeDef *hcan);
-
+#endif
 /**
  * @}
  */

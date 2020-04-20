@@ -475,7 +475,9 @@ HAL_StatusTypeDef HAL_MDIOS_ClearWriteRegAddress(MDIOS_HandleTypeDef *hmdios, ui
 HAL_StatusTypeDef HAL_MDIOS_ClearReadRegAddress(MDIOS_HandleTypeDef *hmdios, uint32_t RegNum);
 
 HAL_StatusTypeDef HAL_MDIOS_EnableEvents(MDIOS_HandleTypeDef *hmdios);
+#ifndef REMCU_LIB
 void HAL_MDIOS_IRQHandler(MDIOS_HandleTypeDef *hmdios);
+#endif
 void HAL_MDIOS_WriteCpltCallback(MDIOS_HandleTypeDef *hmdios);
 void HAL_MDIOS_ReadCpltCallback(MDIOS_HandleTypeDef *hmdios);
 void HAL_MDIOS_ErrorCallback(MDIOS_HandleTypeDef *hmdios);

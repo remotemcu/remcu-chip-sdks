@@ -273,7 +273,9 @@ HAL_StatusTypeDef     HAL_WWDG_UnRegisterCallback(WWDG_HandleTypeDef *hwwdg, HAL
   */
 /* I/O operation functions ******************************************************/
 HAL_StatusTypeDef     HAL_WWDG_Refresh(WWDG_HandleTypeDef *hwwdg);
+#ifndef REMCU_LIB
 void                  HAL_WWDG_IRQHandler(WWDG_HandleTypeDef *hwwdg);
+#endif
 void                  HAL_WWDG_EarlyWakeupCallback(WWDG_HandleTypeDef *hwwdg);
 /**
   * @}

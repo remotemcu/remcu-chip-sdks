@@ -791,8 +791,9 @@ HAL_StatusTypeDef HAL_IRDA_AbortReceive(IRDA_HandleTypeDef *hirda);
 HAL_StatusTypeDef HAL_IRDA_Abort_IT(IRDA_HandleTypeDef *hirda);
 HAL_StatusTypeDef HAL_IRDA_AbortTransmit_IT(IRDA_HandleTypeDef *hirda);
 HAL_StatusTypeDef HAL_IRDA_AbortReceive_IT(IRDA_HandleTypeDef *hirda);
-
+#ifndef REMCU_LIB
 void HAL_IRDA_IRQHandler(IRDA_HandleTypeDef *hirda);
+#endif
 void HAL_IRDA_TxCpltCallback(IRDA_HandleTypeDef *hirda);
 void HAL_IRDA_RxCpltCallback(IRDA_HandleTypeDef *hirda);
 void HAL_IRDA_TxHalfCpltCallback(IRDA_HandleTypeDef *hirda);

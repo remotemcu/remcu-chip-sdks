@@ -663,7 +663,9 @@ HAL_StatusTypeDef HAL_CAN_Receive(CAN_HandleTypeDef *hcan, uint8_t FIFONumber, u
 HAL_StatusTypeDef HAL_CAN_Receive_IT(CAN_HandleTypeDef *hcan, uint8_t FIFONumber);
 HAL_StatusTypeDef HAL_CAN_Sleep(CAN_HandleTypeDef *hcan);
 HAL_StatusTypeDef HAL_CAN_WakeUp(CAN_HandleTypeDef *hcan);
+#ifndef REMCU_LIB
 void HAL_CAN_IRQHandler(CAN_HandleTypeDef* hcan);
+#endif
 void HAL_CAN_TxCpltCallback(CAN_HandleTypeDef* hcan);
 void HAL_CAN_RxCpltCallback(CAN_HandleTypeDef* hcan);
 void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan);

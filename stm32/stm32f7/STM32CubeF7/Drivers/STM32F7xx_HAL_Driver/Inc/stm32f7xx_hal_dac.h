@@ -348,7 +348,9 @@ HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef* hdac, uint32_t Channel, ui
   */
 /* Peripheral State functions *************************************************/
 HAL_DAC_StateTypeDef HAL_DAC_GetState(DAC_HandleTypeDef* hdac);
+#ifndef REMCU_LIB
 void HAL_DAC_IRQHandler(DAC_HandleTypeDef* hdac);
+#endif
 uint32_t HAL_DAC_GetError(DAC_HandleTypeDef *hdac);
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac);

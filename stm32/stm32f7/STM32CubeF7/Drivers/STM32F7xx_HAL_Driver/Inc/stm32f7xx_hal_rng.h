@@ -303,8 +303,9 @@ uint32_t HAL_RNG_GetRandomNumber_IT(RNG_HandleTypeDef *hrng); /* Obsolete, use H
 HAL_StatusTypeDef HAL_RNG_GenerateRandomNumber(RNG_HandleTypeDef *hrng, uint32_t *random32bit);
 HAL_StatusTypeDef HAL_RNG_GenerateRandomNumber_IT(RNG_HandleTypeDef *hrng);
 uint32_t HAL_RNG_ReadLastRandomNumber(RNG_HandleTypeDef *hrng);
-
+#ifndef REMCU_LIB
 void HAL_RNG_IRQHandler(RNG_HandleTypeDef *hrng);
+#endif
 void HAL_RNG_ErrorCallback(RNG_HandleTypeDef *hrng);
 void HAL_RNG_ReadyDataCallback(RNG_HandleTypeDef *hrng, uint32_t random32bit);
 

@@ -1154,12 +1154,13 @@ uint32_t HAL_RCC_GetPCLK1Freq(void);
 uint32_t HAL_RCC_GetPCLK2Freq(void);
 void     HAL_RCC_GetOscConfig(RCC_OscInitTypeDef *RCC_OscInitStruct);
 void     HAL_RCC_GetClockConfig(RCC_ClkInitTypeDef *RCC_ClkInitStruct, uint32_t *pFLatency);
-
+#ifndef REMCU_LIB
 /* CSS NMI IRQ handler */
 void HAL_RCC_NMI_IRQHandler(void);
 
 /* User Callbacks in non blocking mode (IT mode) */ 
 void HAL_RCC_CSSCallback(void);
+#endif
 /**
   * @}
   */

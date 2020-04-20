@@ -682,8 +682,10 @@ HAL_StatusTypeDef HAL_SMBUS_DisableListen_IT(SMBUS_HandleTypeDef *hsmbus);
  * @{
  */
 /******* SMBUS IRQHandler and Callbacks used in non blocking modes (Interrupt) */
+#ifndef REMCU_LIB
 void HAL_SMBUS_EV_IRQHandler(SMBUS_HandleTypeDef *hsmbus);
 void HAL_SMBUS_ER_IRQHandler(SMBUS_HandleTypeDef *hsmbus);
+#endif
 void HAL_SMBUS_MasterTxCpltCallback(SMBUS_HandleTypeDef *hsmbus);
 void HAL_SMBUS_MasterRxCpltCallback(SMBUS_HandleTypeDef *hsmbus);
 void HAL_SMBUS_SlaveTxCpltCallback(SMBUS_HandleTypeDef *hsmbus);

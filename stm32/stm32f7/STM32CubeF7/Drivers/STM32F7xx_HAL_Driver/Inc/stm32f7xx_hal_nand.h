@@ -199,9 +199,10 @@ HAL_StatusTypeDef  HAL_NAND_Read_ID(NAND_HandleTypeDef *hnand, NAND_IDTypeDef *p
 
 void               HAL_NAND_MspInit(NAND_HandleTypeDef *hnand);
 void               HAL_NAND_MspDeInit(NAND_HandleTypeDef *hnand);
+#ifndef REMCU_LIB
 void               HAL_NAND_IRQHandler(NAND_HandleTypeDef *hnand);
 void               HAL_NAND_ITCallback(NAND_HandleTypeDef *hnand);
-
+#endif
 /**
   * @}
   */

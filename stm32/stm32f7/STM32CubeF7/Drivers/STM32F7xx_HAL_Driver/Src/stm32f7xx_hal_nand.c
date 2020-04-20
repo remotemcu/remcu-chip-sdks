@@ -266,7 +266,7 @@ __weak void HAL_NAND_MspDeInit(NAND_HandleTypeDef *hnand)
    */ 
 }
 
-
+#ifndef REMCU_LIB
 /**
   * @brief  This function handles NAND device interrupt request.
   * @param  hnand pointer to a NAND_HandleTypeDef structure that contains
@@ -332,13 +332,14 @@ void HAL_NAND_IRQHandler(NAND_HandleTypeDef *hnand)
   }  
 
 }
-
+#endif //REMCU_LIB
 /**
   * @brief  NAND interrupt feature callback
   * @param  hnand pointer to a NAND_HandleTypeDef structure that contains
   *                the configuration information for NAND module.
   * @retval None
   */
+#ifndef REMCU_LIB
 __weak void HAL_NAND_ITCallback(NAND_HandleTypeDef *hnand)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -348,7 +349,7 @@ __weak void HAL_NAND_ITCallback(NAND_HandleTypeDef *hnand)
             the HAL_NAND_ITCallback could be implemented in the user file
    */
 }
- 
+#endif
 /**
   * @}
   */

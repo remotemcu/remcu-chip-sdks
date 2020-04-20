@@ -3170,6 +3170,8 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Cha
 @endverbatim
   * @{
   */
+
+#ifndef REMCU_LIB
 /**
   * @brief  This function handles TIM interrupts requests.
   * @param  htim TIM  handle
@@ -3366,6 +3368,7 @@ void HAL_TIM_IRQHandler(TIM_HandleTypeDef *htim)
     }
   }
 }
+#endif //REMCU_LIB
 
 /**
   * @}

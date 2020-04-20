@@ -341,6 +341,7 @@ HAL_StatusTypeDef HAL_WWDG_Refresh(WWDG_HandleTypeDef *hwwdg)
   return HAL_OK;
 }
 
+#ifndef REMCU_LIB
 /**
   * @brief  Handle WWDG interrupt request.
   * @note   The Early Wakeup Interrupt (EWI) can be used if specific safety operations
@@ -376,7 +377,7 @@ void HAL_WWDG_IRQHandler(WWDG_HandleTypeDef *hwwdg)
     }
   }
 }
-
+#endif //REMCU_LIB
 
 /**
   * @brief  WWDG Early Wakeup callback.

@@ -1447,8 +1447,9 @@ HAL_StatusTypeDef HAL_UART_AbortReceive(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_Abort_IT(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_AbortTransmit_IT(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_AbortReceive_IT(UART_HandleTypeDef *huart);
-
+#ifndef REMCU_LIB
 void HAL_UART_IRQHandler(UART_HandleTypeDef *huart);
+#endif
 void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart);

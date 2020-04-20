@@ -20,7 +20,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_ll_rtc.h"
+#ifndef REMCU_LIB
 #include "stm32f7xx_ll_cortex.h"
+#endif
 #ifdef  USE_FULL_ASSERT
 #include "stm32_assert.h"
 #else
@@ -737,6 +739,7 @@ void LL_RTC_ALMB_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
   *          - SUCCESS: RTC is in Init mode
   *          - ERROR: RTC is not in Init mode
   */
+#ifndef REMCU_LIB
 ErrorStatus LL_RTC_EnterInitMode(RTC_TypeDef *RTCx)
 {
   __IO uint32_t timeout = RTC_INITMODE_TIMEOUT;
@@ -769,7 +772,7 @@ ErrorStatus LL_RTC_EnterInitMode(RTC_TypeDef *RTCx)
   }
   return status;
 }
-
+#endif //REMCU_LIB
 /**
   * @brief  Exit the RTC Initialization mode.
   * @note   When the initialization sequence is complete, the calendar restarts
@@ -808,6 +811,7 @@ ErrorStatus LL_RTC_ExitInitMode(RTC_TypeDef *RTCx)
   *          - SUCCESS: RTC registers are synchronised
   *          - ERROR: RTC registers are not synchronised
   */
+#ifndef REMCU_LIB
 ErrorStatus LL_RTC_WaitForSynchro(RTC_TypeDef *RTCx)
 {
   __IO uint32_t timeout = RTC_SYNCHRO_TIMEOUT;
@@ -855,7 +859,7 @@ ErrorStatus LL_RTC_WaitForSynchro(RTC_TypeDef *RTCx)
 
   return (status);
 }
-
+#endif //REMCU_LIB
 /**
   * @}
   */

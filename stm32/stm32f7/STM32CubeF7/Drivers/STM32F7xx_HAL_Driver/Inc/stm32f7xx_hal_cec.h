@@ -664,7 +664,9 @@ HAL_StatusTypeDef HAL_CEC_Transmit_IT(CEC_HandleTypeDef *hcec, uint8_t Initiator
                                       uint8_t *pData, uint32_t Size);
 uint32_t HAL_CEC_GetLastReceivedFrameSize(CEC_HandleTypeDef *hcec);
 void HAL_CEC_ChangeRxBuffer(CEC_HandleTypeDef *hcec, uint8_t *Rxbuffer);
+#ifndef REMCU_LIB
 void HAL_CEC_IRQHandler(CEC_HandleTypeDef *hcec);
+#endif
 void HAL_CEC_TxCpltCallback(CEC_HandleTypeDef *hcec);
 void HAL_CEC_RxCpltCallback(CEC_HandleTypeDef *hcec, uint32_t RxFrameSize);
 void HAL_CEC_ErrorCallback(CEC_HandleTypeDef *hcec);

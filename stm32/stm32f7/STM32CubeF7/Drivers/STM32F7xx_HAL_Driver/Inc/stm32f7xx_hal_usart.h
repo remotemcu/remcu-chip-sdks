@@ -830,8 +830,9 @@ HAL_StatusTypeDef HAL_USART_DMAStop(USART_HandleTypeDef *husart);
 /* Transfer Abort functions */
 HAL_StatusTypeDef HAL_USART_Abort(USART_HandleTypeDef *husart);
 HAL_StatusTypeDef HAL_USART_Abort_IT(USART_HandleTypeDef *husart);
-
+#ifndef REMCU_LIB
 void HAL_USART_IRQHandler(USART_HandleTypeDef *husart);
+#endif
 void HAL_USART_TxHalfCpltCallback(USART_HandleTypeDef *husart);
 void HAL_USART_TxCpltCallback(USART_HandleTypeDef *husart);
 void HAL_USART_RxCpltCallback(USART_HandleTypeDef *husart);

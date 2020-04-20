@@ -574,8 +574,9 @@ void                  HAL_QSPI_MspDeInit(QSPI_HandleTypeDef *hqspi);
   */
 /* IO operation functions *****************************************************/
 /* QSPI IRQ handler method */
+#ifndef REMCU_LIB
 void                  HAL_QSPI_IRQHandler(QSPI_HandleTypeDef *hqspi);
-
+#endif
 /* QSPI indirect mode */
 HAL_StatusTypeDef     HAL_QSPI_Command      (QSPI_HandleTypeDef *hqspi, QSPI_CommandTypeDef *cmd, uint32_t Timeout);
 HAL_StatusTypeDef     HAL_QSPI_Transmit     (QSPI_HandleTypeDef *hqspi, uint8_t *pData, uint32_t Timeout);
