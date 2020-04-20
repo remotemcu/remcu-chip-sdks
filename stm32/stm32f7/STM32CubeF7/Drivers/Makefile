@@ -99,6 +99,7 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_timebase_rtc_alarm_template.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_timebase_rtc_wakeup_template.c \
 
 
+C_SRC += STM32F7xx_HAL_Driver/stm32f67x/system_stm32f7xx.c
 
 C_SRC += $(wildcard STM32F7xx_HAL_Driver/fun_implementation/*.c)
 
@@ -107,6 +108,7 @@ INC_PATH = \
        STM32F7xx_HAL_Driver/transformed_Inc/ \
        CMSIS/Device/ST/STM32F7xx/Include \
        CMSIS/Include \
+       STM32F7xx_HAL_Driver/stm32f67x
 
        #STM32F7xx_HAL_Driver
 
