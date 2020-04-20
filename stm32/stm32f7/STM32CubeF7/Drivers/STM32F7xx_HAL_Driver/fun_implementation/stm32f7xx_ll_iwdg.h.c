@@ -1,4 +1,6 @@
-/**
+#include "stm32f7xx_hal.h"
+
+ /**
   ******************************************************************************
   * @file    stm32f7xx_ll_iwdg.h
   * @author  MCD Application Team

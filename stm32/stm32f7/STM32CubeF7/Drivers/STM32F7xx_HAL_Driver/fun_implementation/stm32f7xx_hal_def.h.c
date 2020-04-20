@@ -1,4 +1,6 @@
-/**
+#include "stm32f7xx_hal.h"
+
+ /**
   ******************************************************************************
   * @file    stm32f7xx_hal_def.h
   * @author  MCD Application Team
@@ -28,11 +30,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx.h"
-
-#ifndef REMCU_LIB
 #include "Legacy/stm32_hal_legacy.h"
-#endif //REMCU_LIB
-  
 #include <stddef.h>
 
 /* Exported types ------------------------------------------------------------*/
@@ -88,8 +86,6 @@ typedef enum
   * @retval None
   */
 #define __HAL_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = 0U)
-
-#ifndef REMCU_LIB
 
 #if (USE_RTOS == 1U)
   /* Reserved for future use */
@@ -152,6 +148,8 @@ typedef enum
 #elif defined (__CC_ARM)      /* ARM Compiler */
   #define ALIGN_32BYTES(buf) __align(32) buf
 #endif
+
+#ifndef REMCU_LIB
 
 /**
   * @brief  __RAM_FUNC definition
