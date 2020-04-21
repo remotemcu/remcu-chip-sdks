@@ -1,7 +1,7 @@
 CLANG			= clang-6.0
 CLANGPP 		= gcc++
 AR 				= llvm-ar
-COMPILE_FLAGS 	= -fPIC
+#COMPILE_FLAGS 	= -fPIC
 
 
 IR_FLAGS 			+= -g

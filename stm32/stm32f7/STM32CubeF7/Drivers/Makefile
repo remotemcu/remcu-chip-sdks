@@ -119,7 +119,8 @@ INC_EXTRA = \
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-DEFS = -DUSE_FULL_LL_DRIVER -DSTM32F767xx -DREMCU_LIB -DUSE_HAL_DRIVER
+DEFS = -DUSE_FULL_LL_DRIVER -DSTM32F767xx -DREMCU_LIB
+# -DUSE_HAL_DRIVER
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 
@@ -132,10 +133,11 @@ $(OUTPUT): $(IR_FILES)
 	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
 	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
 	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
+	#gcc $(LOCAL_CFLAGS) -o app $(BUILD_DIR)/* test.c
 
 REMCU_C: $(IR_FILES)
 	@echo done
-	#gcc -o app $(BUILD_DIR)/*
+
 
 # compile
 #------------------------------------------------------------------------------- 
