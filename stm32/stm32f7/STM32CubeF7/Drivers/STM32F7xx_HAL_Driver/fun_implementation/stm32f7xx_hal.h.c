@@ -198,6 +198,7 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority);
 /** @addtogroup HAL_Exported_Variables
   * @{
   */
+#ifndef REMCU_LIB
 extern __IO uint32_t uwTick;
 extern uint32_t uwTickPrio;
 extern HAL_TickFreqTypeDef uwTickFreq;
@@ -240,7 +241,7 @@ void HAL_DisableMemorySwappingBank(void);
 /**
   * @}
   */
-
+#endif
 /**
   * @}
   */  
