@@ -1,0 +1,60 @@
+cmake_minimum_required (VERSION 3.5)
+
+set(MCU_TYPE STM32F767xx)
+
+set(MCU_LIB_NAME LowLayer_HAL_drivers)
+
+set(MCU_MAJOR_VERSION_LIB V1.16.0)
+
+set(MCU_MINOR_VERSION_LIB 01)
+
+set(FULL_NAME_MCU_LIB ${MCU_TYPE}-${MCU_LIB_NAME}-${MCU_MAJOR_VERSION_LIB}-${MCU_MINOR_VERSION_LIB} )
+
+set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
+
+set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
+
+include(McuCommon)
+
+add_custom_target( MCU_LIB
+                   COMMAND make all
+                   ${MCU_MAKE_ARGUMENTS}
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                   COMMENT "---------------- Generating ADIN IR ----------------"
+)
+
+include(shared)
+
+
+file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
+      DESTINATION ${ALL_INCLUDE_DIR}
+      )
+#[[
+file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
+      DESTINATION ${ALL_INCLUDE_DIR}
+      )
+]]
+file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
+            ${ALL_INCLUDE_DIR}/device_defines.h
+      )
+
+FILE(GLOB COPY_HEADER_FROM_LIB 
+      CMSIS/Device/ST/STM32F7xx/Include/*stm32f7xx.h        #system_stm32f7xx.h
+      CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
+      STM32F7xx_HAL_Driver/transformed_Inc/*.h
+      STM32F7xx_HAL_Driver/${MCU_TYPE}/*
+      CMSIS/Include/*.h
+      )
+
+file(INSTALL ${CMAKE_CURRENT_SOURCE_DIR}/STM32F7xx_HAL_Driver/transformed_Inc/Legacy/
+      DESTINATION ${ALL_INCLUDE_DIR}/Legacy/
+      FILES_MATCHING PATTERN "*.h"
+      )
+
+#message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")
+
+file(INSTALL ${COPY_HEADER_FROM_LIB}
+            DESTINATION  ${ALL_INCLUDE_DIR}
+            )
+
+add_subdirectory(test)

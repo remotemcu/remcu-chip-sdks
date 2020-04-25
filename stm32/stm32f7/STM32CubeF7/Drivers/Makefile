@@ -99,7 +99,7 @@ STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rtc.c \
 STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c \
 
 
-C_SRC += STM32F7xx_HAL_Driver/STM32F767X/system_stm32f7xx.c
+C_SRC += STM32F7xx_HAL_Driver/STM32F767xx/system_stm32f7xx.c
 
 C_SRC += $(wildcard STM32F7xx_HAL_Driver/fun_implementation/*.c)
 
@@ -108,7 +108,7 @@ INC_PATH = \
        STM32F7xx_HAL_Driver/transformed_Inc/ \
        CMSIS/Device/ST/STM32F7xx/Include \
        CMSIS/Include \
-       STM32F7xx_HAL_Driver/STM32F767X
+       STM32F7xx_HAL_Driver/STM32F767xx
 
        #STM32F7xx_HAL_Driver
 
@@ -118,8 +118,8 @@ INC_EXTRA = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
-
-DEFS = -DUSE_FULL_LL_DRIVER -DSTM32F767xx -DREMCU_LIB
+#-DSTM32F767xx
+DEFS = -DUSE_FULL_LL_DRIVER -DREMCU_LIB -D$(DEVICE)
 # -DUSE_HAL_DRIVER
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
