@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -751,3 +746,5 @@ uint32_t HAL_SMBUS_GetError(SMBUS_HandleTypeDef *hsmbus);
 #endif /* STM32F7xx_HAL_SMBUS_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

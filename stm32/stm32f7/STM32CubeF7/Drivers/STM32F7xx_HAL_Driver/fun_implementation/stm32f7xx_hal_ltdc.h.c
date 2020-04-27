@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -33,10 +31,7 @@ extern "C" {
 #if defined (LTDC)
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 
 /** @addtogroup STM32F7xx_HAL_Driver
@@ -534,10 +529,7 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
   */
 
 /* Include LTDC HAL Extension module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_ltdc_ex.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup LTDC_Exported_Functions
@@ -700,3 +692,5 @@ uint32_t              HAL_LTDC_GetError(LTDC_HandleTypeDef *hltdc);
 #endif /* STM32F7xx_HAL_LTDC_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

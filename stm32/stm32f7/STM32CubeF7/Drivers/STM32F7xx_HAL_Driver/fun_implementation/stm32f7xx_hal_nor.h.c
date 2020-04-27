@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_ll_fmc.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 
 /** @addtogroup STM32F7xx_HAL_Driver
@@ -326,3 +321,5 @@ HAL_NOR_StatusTypeDef HAL_NOR_GetStatus(NOR_HandleTypeDef *hnor, uint32_t Addres
 #endif /* __STM32F7xx_HAL_NOR_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

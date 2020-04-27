@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -309,10 +304,7 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
   */
 
 /* Include DAC HAL Extension module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_dac_ex.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup DAC_Exported_Functions
@@ -459,3 +451,5 @@ HAL_StatusTypeDef     HAL_DAC_UnRegisterCallback (DAC_HandleTypeDef *hdac, HAL_D
 #endif /*__STM32F7xx_HAL_DAC_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

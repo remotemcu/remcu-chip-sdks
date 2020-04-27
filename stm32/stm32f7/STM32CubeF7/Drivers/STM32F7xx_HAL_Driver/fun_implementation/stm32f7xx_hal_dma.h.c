@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -619,10 +614,7 @@ typedef struct __DMA_HandleTypeDef
 
 
 /* Include DMA HAL Extension module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_dma_ex.h"   
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported functions --------------------------------------------------------*/
 
@@ -760,3 +752,5 @@ uint32_t             HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #endif /* __STM32F7xx_HAL_DMA_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

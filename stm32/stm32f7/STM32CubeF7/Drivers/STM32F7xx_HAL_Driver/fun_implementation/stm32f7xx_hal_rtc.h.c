@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -668,10 +663,7 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef * hrtc); /*!< pointer to
   */
 
 /* Include RTC HAL Extension module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_rtc_ex.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup RTC_Exported_Functions
@@ -868,3 +860,5 @@ uint8_t            RTC_Bcd2ToByte(uint8_t Value);
 #endif /* __STM32F7xx_HAL_RTC_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

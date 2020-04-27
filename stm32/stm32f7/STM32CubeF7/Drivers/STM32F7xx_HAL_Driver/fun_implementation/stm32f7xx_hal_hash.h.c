@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -454,10 +449,7 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef * hhash); /*!< pointer
   */
 
 /* Include HASH HAL Extended module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_hash_ex.h"
-#include "remcu_exports_symbol_exit.h"
-
 /* Exported functions --------------------------------------------------------*/
 
 /** @addtogroup HASH_Exported_Functions HASH Exported Functions
@@ -632,3 +624,5 @@ HAL_StatusTypeDef HMAC_Start_DMA(HASH_HandleTypeDef *hhash, uint8_t *pInBuffer, 
 #endif /* STM32F7xx_HAL_HASH_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

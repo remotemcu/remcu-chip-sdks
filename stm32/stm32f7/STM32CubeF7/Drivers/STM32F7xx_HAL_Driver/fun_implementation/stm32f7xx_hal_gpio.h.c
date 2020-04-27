@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -31,10 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -219,10 +214,7 @@ typedef enum
   */
 
 /* Include GPIO HAL Extension module */
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_gpio_ex.h"
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup GPIO_Exported_Functions
@@ -320,3 +312,5 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 #endif /* __STM32F7xx_HAL_GPIO_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

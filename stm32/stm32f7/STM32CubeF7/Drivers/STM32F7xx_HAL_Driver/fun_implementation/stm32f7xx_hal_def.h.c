@@ -1,7 +1,5 @@
 #include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
-#include "remcu_exports_symbol_exit.h"
-
 
  /**
   ******************************************************************************
@@ -32,18 +30,9 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx.h"
-#include "remcu_exports_symbol_exit.h"
-
-#include "remcu_exports_symbol_enter.h"
 #include "Legacy/stm32_hal_legacy.h"
-#include "remcu_exports_symbol_exit.h"
-
-#include "remcu_exports_symbol_enter.h"
 #include <stddef.h>
-#include "remcu_exports_symbol_exit.h"
-
 
 /* Exported types ------------------------------------------------------------*/
 
@@ -221,3 +210,5 @@ typedef enum
 #endif /* ___STM32F7xx_HAL_DEF */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"
