@@ -4776,10 +4776,13 @@ ErrorStatus LL_RTC_ALMA_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_Alar
 ErrorStatus LL_RTC_ALMB_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_AlarmTypeDef *RTC_AlarmStruct);
 void        LL_RTC_ALMA_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct);
 void        LL_RTC_ALMB_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct);
+#ifndef REMCU_LIB
 ErrorStatus LL_RTC_EnterInitMode(RTC_TypeDef *RTCx);
+#endif //REMCU_LIB
 ErrorStatus LL_RTC_ExitInitMode(RTC_TypeDef *RTCx);
+#ifndef REMCU_LIB
 ErrorStatus LL_RTC_WaitForSynchro(RTC_TypeDef *RTCx);
-
+#endif //REMCU_LIB
 /**
   * @}
   */

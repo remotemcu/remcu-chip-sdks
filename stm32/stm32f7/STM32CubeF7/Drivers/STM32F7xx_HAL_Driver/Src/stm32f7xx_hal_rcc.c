@@ -316,6 +316,9 @@ HAL_StatusTypeDef HAL_RCC_DeInit(void)
   /* Update the SystemCoreClock global variable */
   SystemCoreClock = HSI_VALUE;
 
+#ifdef REMCU_LIB
+  return HAL_OK;
+#else
   /* Adapt Systick interrupt period */
   if (HAL_InitTick(uwTickPrio) != HAL_OK)
   {
@@ -325,6 +328,7 @@ HAL_StatusTypeDef HAL_RCC_DeInit(void)
   {
     return HAL_OK;
   }
+#endif
 }
 
 /**
@@ -850,10 +854,10 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
 
   /* Update the SystemCoreClock global variable */
   SystemCoreClock = HAL_RCC_GetSysClockFreq() >> AHBPrescTable[(RCC->CFGR & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos];
-
+#ifndef REMCU_LIB
   /* Configure the source of time base considering new system clocks settings*/
   HAL_InitTick(uwTickPrio);
-
+#endif
   return HAL_OK;
 }
 
