@@ -19,4 +19,8 @@ rm -v transformed_Inc/*pwr* fun_implementation/*pwr*
 rm -v transformed_Inc/*eth.h* fun_implementation/*eth.h*
 
 #wrapping include string for export symbols in Win
-sed -i -E "s/(^#include.*)/#include \"remcu_exports_symbol_enter.h\"\n\1\n#include \"remcu_exports_symbol_exit.h\"\n/" fun_implementation/*.c
+#sed -i -E "s/(^#include.*)/#include \"remcu_exports_symbol_enter.h\"\n\1\n#include \"remcu_exports_symbol_exit.h\"\n/" fun_implementation/*.c
+sed -i '1s/^/#include "remcu_exports_symbol_enter.h"\n/' fun_implementation/*.c
+for f in fun_implementation/*.c; do
+	printf '\n#include "remcu_exports_symbol_exit.h"' >> $f;
+done
