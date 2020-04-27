@@ -174,7 +174,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef HAL_I2S_MODULE_ENABLED
 

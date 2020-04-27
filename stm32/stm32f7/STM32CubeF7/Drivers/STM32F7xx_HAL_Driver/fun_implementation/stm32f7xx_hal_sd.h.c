@@ -1,4 +1,7 @@
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
  /**
   ******************************************************************************
@@ -30,7 +33,10 @@
 #if defined(SDMMC1)
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_ll_sdmmc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{

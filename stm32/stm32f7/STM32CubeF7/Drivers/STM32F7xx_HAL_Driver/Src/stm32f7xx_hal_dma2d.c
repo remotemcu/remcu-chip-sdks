@@ -161,7 +161,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef HAL_DMA2D_MODULE_ENABLED
 #if defined (DMA2D)

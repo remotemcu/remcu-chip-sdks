@@ -1,4 +1,7 @@
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
  /**
   ******************************************************************************
@@ -28,7 +31,10 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -744,7 +750,10 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
   */
 
 /* Include IRDA HAL Extended module */
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_irda_ex.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup IRDA_Exported_Functions IRDA Exported Functions

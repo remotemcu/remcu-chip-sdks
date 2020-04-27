@@ -1,4 +1,7 @@
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
  /**
   ******************************************************************************
@@ -28,7 +31,10 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -2009,7 +2015,10 @@ mode.
 /* End of private macros -----------------------------------------------------*/
 
 /* Include TIM HAL Extended module */
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_tim_ex.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup TIM_Exported_Functions TIM Exported Functions

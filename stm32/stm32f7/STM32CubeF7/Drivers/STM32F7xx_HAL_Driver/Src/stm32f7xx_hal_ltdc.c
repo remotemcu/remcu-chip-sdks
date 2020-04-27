@@ -141,7 +141,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef HAL_LTDC_MODULE_ENABLED
 #if defined (LTDC)

@@ -1,4 +1,7 @@
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
  /**
   ******************************************************************************
@@ -29,7 +32,10 @@ extern "C" {
 
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{
@@ -485,7 +491,10 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
   * @}
   */
 /* Include CRYP HAL Extended module */
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_cryp_ex.h"
+#include "remcu_exports_symbol_exit.h"
+
 /* Exported functions --------------------------------------------------------*/
 /** @defgroup CRYP_Exported_Functions CRYP Exported Functions
   * @{

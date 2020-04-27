@@ -1,4 +1,7 @@
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
  /**
   ******************************************************************************
@@ -29,7 +32,10 @@ extern "C" {
 
 #if defined(DSI)
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_hal_def.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Driver
   * @{

@@ -19,7 +19,10 @@
 #if defined(USE_FULL_LL_DRIVER)
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f7xx_ll_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 #ifdef  USE_FULL_ASSERT
   #include "stm32_assert.h"
 #else
