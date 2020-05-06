@@ -120,7 +120,7 @@ int main(int argc, char** argv)
 
   remcu_resetRemoteUnit(__HALT);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
   printf("! %x\n\n", DAC_DHR12R1_ADDRESS);
 

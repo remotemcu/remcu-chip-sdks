@@ -6,7 +6,6 @@ include $(TARGET_MK)
 C_SRC = \
        Libraries/CMSIS/Device/ST/STM32F2xx/Source/Templates/system_stm32f2xx.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_gpio.c \
-Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_dcmi.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_rcc.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_dbgmcu.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_exti.c \
@@ -23,11 +22,8 @@ Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_iwdg.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_usart.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_hash.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_wwdg.c \
-Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_rng.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_syscfg.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_cryp.c \
-Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_flash.c \
-Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_fsmc.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_i2c.c
 
 SRC_EXTRA = \
@@ -38,6 +34,10 @@ Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_hash_md5.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_cryp_tdes.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_cryp_des.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_cryp_aes.c \
+Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_fsmc.c \
+Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_flash.c \
+Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_dcmi.c \
+Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_rng.c \
 
 # List of include paths.
 INC_PATH = \
