@@ -15,7 +15,7 @@ void setConfig(){
 }
 
 uint32_t get_RAM_addr_for_test(){
-    return 0x20000000;
+    return 0x20020000;
 }
 
 } //namespace
