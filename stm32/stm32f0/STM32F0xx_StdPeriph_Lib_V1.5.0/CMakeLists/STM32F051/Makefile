@@ -24,12 +24,12 @@ $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_i2c.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_spi.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_gpio.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_can.c \
-$(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_flash.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_tim.c
 
 SRC_EXTRA = \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_pwr.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_misc.c \
+$(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_flash.c \
 
 
 # List of include paths.
