@@ -14,12 +14,10 @@ $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_sdio.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.c \
-$(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_fsmc.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_comp.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_crc.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_tim.c \
-$(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_flash.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_aes.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_opamp.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.c \
@@ -34,6 +32,8 @@ $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_flash_ramfunc.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.c \
 $(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_aes_util.c \
+$(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_fsmc.c \
+$(MCU_SDK_PATH)/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_flash.c \
 
 
 # List of include paths.
