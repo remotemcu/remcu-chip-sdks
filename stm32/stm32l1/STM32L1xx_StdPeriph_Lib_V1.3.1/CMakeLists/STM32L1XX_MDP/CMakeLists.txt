@@ -32,9 +32,11 @@ file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
       DESTINATION ${ALL_INCLUDE_DIR}
       )
 
-file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
-      DESTINATION ${ALL_INCLUDE_DIR}
-      )
+add_custom_command(     
+      TARGET remcu 
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
+      ${ALL_INCLUDE_DIR})
 
 file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
             ${ALL_INCLUDE_DIR}/device_defines.h

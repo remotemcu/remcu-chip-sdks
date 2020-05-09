@@ -33,6 +33,12 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
             ${ALL_INCLUDE_DIR}/device_defines.h
       )
 
+add_custom_command(     
+      TARGET remcu 
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
+      ${ALL_INCLUDE_DIR})
+
 FILE(GLOB COPY_HEADER_FROM_LIB 
       Libraries/CMSIS/Include/core_cm3.h
       Libraries/CMSIS/Device/ST/STM32F2xx/Include/*.h

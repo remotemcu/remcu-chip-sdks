@@ -1,6 +1,7 @@
 
 include $(TARGET_MK)
 
+include $(MCU_UTIL_PATH)/python.mk
 
 # List of C source files.
 C_SRC = \
@@ -54,7 +55,7 @@ LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)
 IR_FILES += $(C_SRC:.c=.ll)
 
 
-$(OUTPUT): $(IR_FILES)
+$(OUTPUT): $(IR_FILES) python
 	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
 	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
 	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
