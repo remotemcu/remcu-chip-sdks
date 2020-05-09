@@ -14,6 +14,8 @@ set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
 
 set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 
+set(MCU_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../Drivers)
+
 include(McuCommon)
 
 add_custom_target( MCU_LIB
@@ -29,24 +31,27 @@ include(shared)
 file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
       DESTINATION ${ALL_INCLUDE_DIR}
       )
-#[[
-file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
-      DESTINATION ${ALL_INCLUDE_DIR}
-      )
-]]
+
+add_custom_command(     
+      TARGET remcu 
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
+      ${ALL_INCLUDE_DIR})
+
+
 file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
             ${ALL_INCLUDE_DIR}/device_defines.h
       )
 
 FILE(GLOB COPY_HEADER_FROM_LIB 
-      CMSIS/Device/ST/STM32F7xx/Include/*stm32f7xx.h        #system_stm32f7xx.h
-      CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
-      STM32F7xx_HAL_Driver/transformed_Inc/*.h
-      STM32F7xx_HAL_Driver/${MCU_TYPE}/*
-      CMSIS/Include/*.h
+      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32F7xx/Include/*stm32f7xx.h        #system_stm32f7xx.h
+      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
+      ${MCU_SDK_PATH}/STM32F7xx_HAL_Driver/transformed_Inc/*.h
+      ${MCU_SDK_PATH}/STM32F7xx_HAL_Driver/${MCU_TYPE}/*
+      ${MCU_SDK_PATH}/CMSIS/Include/*.h
       )
 
-file(INSTALL ${CMAKE_CURRENT_SOURCE_DIR}/STM32F7xx_HAL_Driver/transformed_Inc/Legacy/
+file(INSTALL ${MCU_SDK_PATH}/STM32F7xx_HAL_Driver/transformed_Inc/Legacy/
       DESTINATION ${ALL_INCLUDE_DIR}/Legacy/
       FILES_MATCHING PATTERN "*.h"
       )
