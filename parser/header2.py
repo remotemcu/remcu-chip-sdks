@@ -61,6 +61,7 @@ compile_options = options.compile_options
 
 for d in options.dirs:
 	f_list = glob.glob(d + "/*.h")
+	f_list = map(lambda x: os.path.abspath(x), f_list)
 	files.extend(f_list)
 	compile_options += " -I" + d
 
