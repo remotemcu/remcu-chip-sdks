@@ -38,7 +38,6 @@ INC_PATH = \
        $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/inc/ \
        $(MCU_SDK_PATH)/Libraries/CMSIS/Include/ \
        $(MCU_SDK_PATH)/Libraries/CMSIS/Device/ST/STM32F0xx/Include/ \
-       $(MCU_SDK_PATH)/Projects/STM32F0xx_StdPeriph_Templates/ \
        $(MCU_SDK_PATH)/Libraries/
 
 
