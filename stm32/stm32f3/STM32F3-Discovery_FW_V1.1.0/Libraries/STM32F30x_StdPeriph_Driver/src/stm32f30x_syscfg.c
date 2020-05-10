@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f30x_syscfg.c
@@ -470,3 +471,5 @@ void SYSCFG_ClearFlag(uint32_t SYSCFG_Flag)
   */ 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
+
+#include "remcu_exports_symbol_exit.h"

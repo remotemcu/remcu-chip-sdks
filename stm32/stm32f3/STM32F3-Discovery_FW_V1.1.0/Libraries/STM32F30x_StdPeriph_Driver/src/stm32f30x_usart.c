@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f30x_usart.c
@@ -2082,3 +2083,5 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint32_t USART_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

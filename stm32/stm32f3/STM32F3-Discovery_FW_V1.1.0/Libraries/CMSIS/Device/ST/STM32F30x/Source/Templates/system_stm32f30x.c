@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    system_stm32f30x.c
@@ -381,3 +382,5 @@ static void SetSysClock(void)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
+
+#include "remcu_exports_symbol_exit.h"
