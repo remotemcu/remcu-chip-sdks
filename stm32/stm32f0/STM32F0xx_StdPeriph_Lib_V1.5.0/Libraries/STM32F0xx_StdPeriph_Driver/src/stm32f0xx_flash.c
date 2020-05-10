@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f0xx_flash.c
@@ -1254,3 +1255,5 @@ FLASH_Status FLASH_WaitForLastOperation(uint32_t Timeout)
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

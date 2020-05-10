@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f0xx_iwdg.c
@@ -291,3 +292,5 @@ FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

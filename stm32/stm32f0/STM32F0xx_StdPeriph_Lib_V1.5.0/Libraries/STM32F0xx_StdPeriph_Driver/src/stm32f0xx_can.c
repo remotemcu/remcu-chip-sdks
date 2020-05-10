@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f0xx_can.c
@@ -1629,3 +1630,5 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"
