@@ -31,7 +31,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f30x_dbgmcu.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F30x_StdPeriph_Driver
   * @{
   */
@@ -212,5 +212,3 @@ void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
   */ 
   
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

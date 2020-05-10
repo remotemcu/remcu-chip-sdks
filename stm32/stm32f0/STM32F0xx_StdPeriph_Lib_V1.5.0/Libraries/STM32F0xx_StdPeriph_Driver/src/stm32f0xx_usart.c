@@ -81,7 +81,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_usart.h"
 #include "stm32f0xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -2167,5 +2167,3 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint32_t USART_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

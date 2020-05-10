@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    system_stm32l1xx.c
@@ -171,7 +171,7 @@ static void SetSysClock(void);
 /** @addtogroup STM32L1xx_System_Private_Functions
   * @{
   */
-
+#include "remcu_exports_symbol_enter.h"
 /**
   * @brief  Setup the microcontroller system.
   *         Initialize the Embedded Flash Interface, the PLL and update the 
@@ -216,7 +216,7 @@ void SystemInit (void)
 
 #endif //REMCU_LIB
 }
-
+#include "remcu_exports_symbol_exit.h"
 /**
   * @brief  Update SystemCoreClock according to Clock Register Values
   *         The SystemCoreClock variable contains the core clock (HCLK), it can
@@ -537,4 +537,3 @@ void SystemInit_ExtMemCtl(void)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

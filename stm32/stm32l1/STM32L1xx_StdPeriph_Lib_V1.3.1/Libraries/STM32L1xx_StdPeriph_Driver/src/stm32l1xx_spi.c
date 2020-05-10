@@ -96,7 +96,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_spi.h"
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -1075,5 +1075,3 @@ void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

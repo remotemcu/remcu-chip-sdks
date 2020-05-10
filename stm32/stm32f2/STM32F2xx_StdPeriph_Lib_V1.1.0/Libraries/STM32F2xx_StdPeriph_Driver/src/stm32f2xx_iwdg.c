@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_iwdg.c
@@ -86,7 +86,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_iwdg.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -269,4 +272,3 @@ FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

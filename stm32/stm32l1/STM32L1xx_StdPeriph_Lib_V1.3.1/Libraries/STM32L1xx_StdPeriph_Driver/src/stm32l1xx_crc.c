@@ -28,7 +28,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_crc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -133,4 +133,3 @@ uint8_t CRC_GetIDRegister(void)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

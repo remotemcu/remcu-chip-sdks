@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_i2c.c
@@ -91,8 +91,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_i2c.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -1401,4 +1407,3 @@ void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

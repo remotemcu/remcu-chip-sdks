@@ -72,7 +72,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_can.h"
 #include "stm32f0xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -1630,5 +1630,3 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

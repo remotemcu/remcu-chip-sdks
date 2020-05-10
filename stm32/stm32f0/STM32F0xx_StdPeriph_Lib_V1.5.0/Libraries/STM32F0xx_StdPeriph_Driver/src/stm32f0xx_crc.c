@@ -54,7 +54,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_crc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -360,5 +360,3 @@ uint8_t CRC_GetIDRegister(void)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

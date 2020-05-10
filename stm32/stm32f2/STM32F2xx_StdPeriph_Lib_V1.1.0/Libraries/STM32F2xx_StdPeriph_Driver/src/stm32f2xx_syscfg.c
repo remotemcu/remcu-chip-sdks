@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_syscfg.c
@@ -47,8 +47,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_syscfg.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -210,4 +216,3 @@ FlagStatus SYSCFG_GetCompensationCellStatus(void)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/   
 
-#include "remcu_exports_symbol_exit.h"

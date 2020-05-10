@@ -368,6 +368,11 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 
 #endif
 
+#ifdef REMCU_LIB
+
+  #define __RAM_FUNC  FLASH_Status
+
+#endif //REMCU_LIB
 /**
   * @}
   */

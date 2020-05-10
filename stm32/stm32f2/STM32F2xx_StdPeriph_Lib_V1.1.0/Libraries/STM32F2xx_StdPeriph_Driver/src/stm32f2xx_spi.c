@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_spi.c
@@ -114,8 +114,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_spi.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -1183,4 +1189,3 @@ void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

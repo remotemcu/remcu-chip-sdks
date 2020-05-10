@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_cryp_tdes.c
@@ -47,7 +47,10 @@
   */ 
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_cryp.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
@@ -314,4 +317,3 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

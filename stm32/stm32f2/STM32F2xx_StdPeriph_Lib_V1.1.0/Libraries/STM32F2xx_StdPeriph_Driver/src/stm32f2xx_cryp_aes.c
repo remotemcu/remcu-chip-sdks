@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_cryp_aes.c
@@ -50,7 +50,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_cryp.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -644,4 +647,3 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 
-#include "remcu_exports_symbol_exit.h"

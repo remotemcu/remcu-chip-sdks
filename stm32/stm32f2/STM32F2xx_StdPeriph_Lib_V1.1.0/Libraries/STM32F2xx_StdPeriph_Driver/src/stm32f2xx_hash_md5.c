@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_hash_md5.c
@@ -45,7 +45,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_hash.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -320,4 +323,3 @@ ErrorStatus HMAC_MD5(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 
-#include "remcu_exports_symbol_exit.h"

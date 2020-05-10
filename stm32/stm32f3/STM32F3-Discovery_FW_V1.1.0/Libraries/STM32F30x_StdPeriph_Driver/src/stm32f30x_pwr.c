@@ -36,7 +36,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f30x_pwr.h"
 #include "stm32f30x_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F30x_StdPeriph_Driver
   * @{
   */
@@ -537,5 +537,3 @@ void PWR_ClearFlag(uint32_t PWR_FLAG)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

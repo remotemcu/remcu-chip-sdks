@@ -69,7 +69,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_exti.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -313,5 +313,3 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

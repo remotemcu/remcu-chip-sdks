@@ -98,7 +98,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_comp.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -407,5 +407,3 @@ void COMP_LockConfig(uint32_t COMP_Selection)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

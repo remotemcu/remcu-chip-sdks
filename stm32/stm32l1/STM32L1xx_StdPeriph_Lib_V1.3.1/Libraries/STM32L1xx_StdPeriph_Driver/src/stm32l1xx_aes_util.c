@@ -50,7 +50,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_aes.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -677,6 +677,3 @@ ErrorStatus AES_CTR_Decrypt(uint8_t* Key, uint8_t InitVectors[16], uint8_t* Inpu
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-
-#include "remcu_exports_symbol_exit.h"

@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    system_stm32f0xx.c
@@ -92,11 +92,13 @@
 /** @addtogroup stm32f0xx_system
   * @{
   */  
-  
+#include "remcu_exports_symbol_enter.h"
+  extern void SystemInit(void);
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_System_Private_Includes
   * @{
   */
-
+  
 #include "stm32f0xx.h"
 
 /**
@@ -358,4 +360,3 @@ static void SetSysClock(void)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

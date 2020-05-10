@@ -47,7 +47,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_syscfg.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -419,5 +419,3 @@ void SYSCFG_ClearFlag(uint32_t SYSCFG_Flag)
   * @}
   */ 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

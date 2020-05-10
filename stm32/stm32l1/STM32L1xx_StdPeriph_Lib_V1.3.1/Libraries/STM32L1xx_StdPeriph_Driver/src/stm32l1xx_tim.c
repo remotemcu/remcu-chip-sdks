@@ -110,7 +110,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_tim.h"
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -2844,5 +2844,3 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

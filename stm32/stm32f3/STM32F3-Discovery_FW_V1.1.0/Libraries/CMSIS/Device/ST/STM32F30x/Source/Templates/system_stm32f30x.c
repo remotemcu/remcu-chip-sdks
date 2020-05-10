@@ -1,4 +1,3 @@
-#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    system_stm32f30x.c
@@ -158,6 +157,7 @@ static void SetSysClock(void);
 /** @addtogroup STM32F30x_System_Private_Functions
   * @{
   */
+#include "remcu_exports_symbol_enter.h"
 
 /**
   * @brief  Setup the microcontroller system
@@ -210,7 +210,7 @@ void SystemInit(void)
 #endif  
 #endif //REMCU_LIB
 }
-
+#include "remcu_exports_symbol_exit.h"
 /**
    * @brief  Update SystemCoreClock variable according to Clock Register Values.
   *         The SystemCoreClock variable contains the core clock (HCLK), it can
@@ -381,6 +381,3 @@ static void SetSysClock(void)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-
-#include "remcu_exports_symbol_exit.h"

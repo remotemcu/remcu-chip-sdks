@@ -76,7 +76,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_adc.h"
 #include "stm32f0xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -1240,4 +1240,3 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint32_t ADC_IT)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

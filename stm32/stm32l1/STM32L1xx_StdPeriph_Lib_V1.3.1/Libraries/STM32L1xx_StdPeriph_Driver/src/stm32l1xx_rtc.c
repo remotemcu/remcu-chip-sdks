@@ -225,7 +225,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_rtc.h"
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -2672,5 +2672,3 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value)
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

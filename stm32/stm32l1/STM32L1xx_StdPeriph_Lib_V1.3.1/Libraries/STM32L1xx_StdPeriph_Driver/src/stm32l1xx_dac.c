@@ -104,7 +104,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_dac.h"
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -687,4 +687,3 @@ void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

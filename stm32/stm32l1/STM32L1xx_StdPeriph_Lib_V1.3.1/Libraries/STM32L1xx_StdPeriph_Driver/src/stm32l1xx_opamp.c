@@ -64,7 +64,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_opamp.h"
-
+#include "remcu_exports_symbol_exit.h"
 
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
@@ -556,5 +556,3 @@ FlagStatus OPAMP_GetFlagStatus(uint32_t OPAMP_Selection)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

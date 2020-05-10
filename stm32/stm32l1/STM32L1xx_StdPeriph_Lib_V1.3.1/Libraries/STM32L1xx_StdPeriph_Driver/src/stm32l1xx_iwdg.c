@@ -84,7 +84,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_iwdg.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -265,5 +265,3 @@ FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

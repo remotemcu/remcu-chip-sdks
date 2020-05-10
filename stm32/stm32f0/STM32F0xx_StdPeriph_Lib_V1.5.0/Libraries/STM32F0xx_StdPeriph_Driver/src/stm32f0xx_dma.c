@@ -70,7 +70,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_dma.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F0xx_StdPeriph_Driver
   * @{
   */
@@ -890,5 +890,3 @@ void DMA_ClearITPendingBit(uint32_t DMAy_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

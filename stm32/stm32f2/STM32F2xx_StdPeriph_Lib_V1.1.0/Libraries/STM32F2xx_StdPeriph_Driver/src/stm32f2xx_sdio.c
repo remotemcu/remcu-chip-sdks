@@ -1,4 +1,4 @@
-#include "remcu_exports_symbol_enter.h"
+
 /**
   ******************************************************************************
   * @file    stm32f2xx_sdio.c
@@ -153,8 +153,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_sdio.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32f2xx_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32F2xx_StdPeriph_Driver
   * @{
@@ -1010,4 +1016,3 @@ void SDIO_ClearITPendingBit(uint32_t SDIO_IT)
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
-#include "remcu_exports_symbol_exit.h"

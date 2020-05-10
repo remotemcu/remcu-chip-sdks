@@ -75,7 +75,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f30x_flash.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F30x_StdPeriph_Driver
   * @{
   */
@@ -1171,5 +1171,3 @@ FLASH_Status FLASH_WaitForLastOperation(uint32_t Timeout)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

@@ -58,7 +58,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -1643,5 +1643,3 @@ void RCC_ClearITPendingBit(uint8_t RCC_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

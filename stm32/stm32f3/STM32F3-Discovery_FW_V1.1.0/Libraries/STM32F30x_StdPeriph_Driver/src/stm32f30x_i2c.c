@@ -79,7 +79,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f30x_i2c.h"
 #include "stm32f30x_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32F30x_StdPeriph_Driver
   * @{
   */
@@ -1584,5 +1584,3 @@ void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

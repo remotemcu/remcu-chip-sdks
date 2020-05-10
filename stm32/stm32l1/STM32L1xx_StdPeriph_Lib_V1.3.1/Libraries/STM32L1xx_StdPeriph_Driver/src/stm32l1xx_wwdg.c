@@ -86,7 +86,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_wwdg.h"
 #include "stm32l1xx_rcc.h"
-
+#include "remcu_exports_symbol_exit.h"
 /** @addtogroup STM32L1xx_StdPeriph_Driver
   * @{
   */
@@ -312,5 +312,3 @@ void WWDG_ClearFlag(void)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-#include "remcu_exports_symbol_exit.h"

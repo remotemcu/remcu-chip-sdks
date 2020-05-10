@@ -37,7 +37,9 @@
 /** @addtogroup CAN_LoopBack
   * @{
   */ 
-
+#if (defined(_WIN32) || defined(WIN32) || defined(WIN64) || defined(_WIN64))
+  #define sleep _sleep
+#endif
 
 
 /* Private define ------------------------------------------------------------*/
