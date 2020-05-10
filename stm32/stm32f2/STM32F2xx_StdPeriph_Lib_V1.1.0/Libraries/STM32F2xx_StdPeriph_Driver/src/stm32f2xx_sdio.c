@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_sdio.c
@@ -1008,3 +1009,5 @@ void SDIO_ClearITPendingBit(uint32_t SDIO_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

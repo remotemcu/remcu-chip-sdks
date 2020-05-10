@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_rng.c
@@ -403,3 +404,5 @@ void RNG_ClearITPendingBit(uint8_t RNG_IT)
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

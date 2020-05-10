@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_cryp.c
@@ -854,3 +855,5 @@ FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG)
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_cryp_des.c
@@ -295,3 +296,5 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

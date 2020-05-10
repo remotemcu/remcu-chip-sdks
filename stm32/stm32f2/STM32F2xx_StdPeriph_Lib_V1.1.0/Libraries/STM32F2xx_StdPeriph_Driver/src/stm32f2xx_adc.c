@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_adc.c
@@ -1746,3 +1747,5 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT)
   */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

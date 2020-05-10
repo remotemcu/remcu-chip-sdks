@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_syscfg.c
@@ -208,3 +209,5 @@ FlagStatus SYSCFG_GetCompensationCellStatus(void)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/   
+
+#include "remcu_exports_symbol_exit.h"

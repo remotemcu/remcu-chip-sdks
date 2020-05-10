@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_cryp_aes.c
@@ -642,3 +643,5 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
+
+#include "remcu_exports_symbol_exit.h"

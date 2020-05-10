@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    system_stm32f2xx.c
@@ -545,3 +546,5 @@ void SystemInit_ExtMemCtl(void)
   * @}
   */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"

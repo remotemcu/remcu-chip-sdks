@@ -1,3 +1,4 @@
+#include "remcu_exports_symbol_enter.h"
 /**
   ******************************************************************************
   * @file    stm32f2xx_fsmc.c
@@ -985,3 +986,5 @@ void FSMC_ClearITPendingBit(uint32_t FSMC_Bank, uint32_t FSMC_IT)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+#include "remcu_exports_symbol_exit.h"
