@@ -27,10 +27,7 @@ add_custom_target( MCU_LIB
 
 include(shared)
 
-
-file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
-      DESTINATION ${ALL_INCLUDE_DIR}
-      )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/defines.h.in ${ALL_INCLUDE_DIR}/device_defines.h)
 
 add_custom_command(     
       TARGET MCU_LIB 
@@ -39,13 +36,8 @@ add_custom_command(
       ${ALL_INCLUDE_DIR})
 
 
-file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
-            ${ALL_INCLUDE_DIR}/device_defines.h
-      )
-
 FILE(GLOB COPY_HEADER_FROM_LIB 
-      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32F7xx/Include/*stm32f7xx.h        #system_stm32f7xx.h
-      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
+      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32F7xx/Include/*.h        #system_stm32f7xx.h
       ${MCU_SDK_PATH}/STM32F7xx_HAL_Driver/transformed_Inc/*.h
       ${MCU_SDK_PATH}/STM32F7xx_HAL_Driver/${MCU_TYPE}/*
       ${MCU_SDK_PATH}/CMSIS/Include/*.h

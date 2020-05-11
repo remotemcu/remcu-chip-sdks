@@ -100,7 +100,7 @@ $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rtc.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c \
 
 
-C_SRC += $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/STM32F767xx/system_stm32f7xx.c
+C_SRC += $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/$(DEVICE)/system_stm32f7xx.c
 
 C_SRC += $(wildcard $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/fun_implementation/*.c)
 
@@ -109,7 +109,7 @@ INC_PATH = \
        $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/transformed_Inc/ \
        $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32F7xx/Include \
        $(MCU_SDK_PATH)/CMSIS/Include \
-       $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/STM32F767xx
+       $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/$(DEVICE)
 
 
 
