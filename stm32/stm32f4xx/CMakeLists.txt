@@ -13,3 +13,5 @@ ExternalProject_Add(STM32F4-Discovery_FW_V1.1.0
       INSTALL_COMMAND ""
       )
 
+
+add_subdirectory(STM32F4xx_DSP_StdPeriph_Lib_V1.8.0)
