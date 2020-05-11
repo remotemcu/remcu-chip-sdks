@@ -5,8 +5,11 @@ _file = "/dev/shm/temp.c"
 #_file = "temp.c"
 _out = "/dev/shm/temp.out"
 
-_CC = "gcc"
-CPP_GPP = "g++"
+#_CC = "gcc"
+_CC = "clang"
+
+#CPP_GPP = "g++"
+CPP_GPP = "clang++"
 
 def runtimeOutput(source, compilerOpt=[], debug=False, compiler = _CC):
 	with open(_file, 'w') as f:
