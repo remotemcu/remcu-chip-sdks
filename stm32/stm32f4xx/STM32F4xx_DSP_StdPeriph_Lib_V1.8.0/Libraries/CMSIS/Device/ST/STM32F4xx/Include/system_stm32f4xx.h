@@ -82,9 +82,10 @@ extern uint32_t SystemCoreClock;          /*!< System Clock Frequency (Core Cloc
 /** @addtogroup STM32F4xx_System_Exported_Functions
   * @{
   */
-  
+#include "remcu_exports_symbol_enter.h"
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
+#include "remcu_exports_symbol_exit.h"
 /**
   * @}
   */
