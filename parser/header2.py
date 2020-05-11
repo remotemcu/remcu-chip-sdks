@@ -51,7 +51,8 @@ parser.add_argument("--version",
 files = []
 
 options = parser.parse_args()
-files.extend(options.files)
+#files.extend(options.files)
+files.extend(map(lambda x: os.path.abspath(x), options.files))
 
 for set_of_files in options.sets_of_files:
 	set_of_files = set_of_files.split(" ")
