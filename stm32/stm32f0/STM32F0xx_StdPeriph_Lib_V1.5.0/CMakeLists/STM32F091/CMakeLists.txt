@@ -38,7 +38,7 @@ file(RENAME "${ALL_INCLUDE_DIR}/defines_${MCU_TYPE}.h"
       )
 
 add_custom_command(     
-      TARGET remcu 
+      TARGET MCU_LIB 
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/${MCU_TYPE}_${MCU_LIB_NAME}.py"
       ${ALL_INCLUDE_DIR})
