@@ -319,7 +319,11 @@
 /**
   * @}
   */
-
+#include "remcu_exports_symbol_enter.h"
+extern void SystemInit(void);
+extern void SystemCoreClockUpdate(void);
+#include "remcu_exports_symbol_exit.h"
+/**
 /** @addtogroup STM32F4xx_System_Private_TypesDefinitions
   * @{
   */

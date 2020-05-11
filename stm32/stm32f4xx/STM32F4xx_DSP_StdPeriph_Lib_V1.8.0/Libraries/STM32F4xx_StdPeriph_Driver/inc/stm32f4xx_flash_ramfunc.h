@@ -78,6 +78,13 @@
 #define __RAM_FUNC void  __attribute__((section(".RamFunc")))
 
 #endif
+
+#ifdef REMCU_LIB
+
+  #define __RAM_FUNC  FLASH_Status
+
+#endif //REMCU_LIB
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
