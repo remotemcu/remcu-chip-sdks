@@ -5,10 +5,74 @@ include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 include(MultiBuild)
 
-ExternalProject_Add(STM32F767xx
-      COMMENT           "Building STM32F767xx"
+ExternalProject_Add(LL_STM32F767xx
+      COMMENT           "Building LL_STM32F767xx"
       DOWNLOAD_COMMAND ""
-      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/STM32F767xx/"
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F767xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F722xx
+      COMMENT           "Building LL_STM32F722xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F722xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F723xx
+      COMMENT           "Building LL_STM32F723xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F723xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F730xx
+      COMMENT           "Building LL_STM32F730xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F730xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F746xx
+      COMMENT           "Building LL_STM32F746xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F746xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F750xx
+      COMMENT           "Building LL_STM32F750xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F750xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F756xx
+      COMMENT           "Building LL_STM32F756xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F756xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F769xx
+      COMMENT           "Building LL_STM32F769xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F769xx/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      INSTALL_COMMAND ""
+      )
+
+ExternalProject_Add(LL_STM32F779xx
+      COMMENT           "Building LL_STM32F779xx"
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/STM32CubeF7/LL_STM32F779xx/"
       CMAKE_ARGS ${CMAKE_ARGS}
       INSTALL_COMMAND ""
       )
