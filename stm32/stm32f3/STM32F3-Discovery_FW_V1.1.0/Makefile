@@ -36,7 +36,7 @@ Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_pwr.c \
 INC_PATH = \
        Libraries/STM32F30x_StdPeriph_Driver/inc/ \
        Libraries/CMSIS/Include/ \
-       Libraries/CMSIS/Device/ST/STM32F30x/Include/\
+       Libraries/CMSIS/Device/ST/STM32F30x/Include/ \
        Libraries/
 
 
