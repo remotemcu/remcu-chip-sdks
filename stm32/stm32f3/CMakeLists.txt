@@ -13,3 +13,4 @@ ExternalProject_Add(STM32F3-Discovery_FW_V1.1.0
       INSTALL_COMMAND ""
       )
 
+add_subdirectory(STM32F30x_DSP_StdPeriph_Lib_V1.2.3)
