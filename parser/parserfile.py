@@ -66,6 +66,7 @@ class ParseHeader(object):
 		if len(defines) == 0:
 			return
 		for d in defines:
+			d = d.strip() #trim define/ del tabs and whsp
 			first_space = d.find(" ")
 			if first_space < 0:
 				self.pytext.addComment("empty define %s" % d)
