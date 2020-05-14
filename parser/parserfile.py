@@ -73,7 +73,8 @@ class ParseHeader(object):
 				continue
 			name = d[:first_space]
 			if name.find("(") >= 0:
-				#self.pytext.addComment("fun define %s" % d)
+				first_row = d.split('\n')[0]
+				self.pytext.addComment("fun define %s" % first_row)
 				continue
 			self.pushValue(name)
 
