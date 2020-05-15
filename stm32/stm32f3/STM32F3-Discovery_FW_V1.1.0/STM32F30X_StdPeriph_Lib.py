@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "V1.1.0-58f3f787"
+__version__ = "V1.1.0-51f60446"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -43,6 +43,7 @@ COMP_Selection_COMP4 = 0xC
 COMP_Selection_COMP5 = 0x10
 COMP_Selection_COMP6 = 0x14
 COMP_Selection_COMP7 = 0x18
+# fun define IS_COMP_ALL_PERIPH(PERIPH) (((PERIPH) == COMP_Selection_COMP1) || \
 COMP_InvertingInput_1_4VREFINT = 0x0
 COMP_InvertingInput_1_2VREFINT = 0x10
 COMP_InvertingInput_3_4VREFINT = 0x20
@@ -51,8 +52,10 @@ COMP_InvertingInput_DAC1 = 0x40
 COMP_InvertingInput_DAC2 = 0x50
 COMP_InvertingInput_IO1 = 0x60
 COMP_InvertingInput_IO2 = 0x70
+# fun define IS_COMP_INVERTING_INPUT(INPUT) (((INPUT) == COMP_InvertingInput_1_4VREFINT) || \
 COMP_NonInvertingInput_IO1 = 0x0
 COMP_NonInvertingInput_IO2 = 0x80
+# fun define IS_COMP_NONINVERTING_INPUT(INPUT) (((INPUT) == COMP_NonInvertingInput_IO1) || \
 COMP_Output_None = 0x0
 COMP_Output_TIM1BKIN = 0x400
 COMP_Output_TIM1BKIN2 = 0x800
@@ -87,6 +90,7 @@ COMP_Output_TIM2IC3 = 0x2000
 COMP_Output_TIM1IC2 = 0x2400
 COMP_Output_TIM17OCREFCLR = 0x2800
 COMP_Output_TIM17BKIN = 0x2C00
+# fun define IS_COMP_OUTPUT(OUTPUT) (((OUTPUT) == COMP_Output_None)                || \
 COMP_BlankingSrce_None = 0x0
 COMP_BlankingSrce_TIM1OC5 = 0x40000
 COMP_BlankingSrce_TIM2OC3 = 0x80000
@@ -96,18 +100,23 @@ COMP_BlankingSrce_TIM8OC5 = 0x80000
 COMP_BlankingSrce_TIM3OC4 = 0x40000
 COMP_BlankingSrce_TIM15OC1 = 0xC0000
 COMP_BlankingSrce_TIM15OC2 = 0x100000
+# fun define IS_COMP_BLANKING_SOURCE(SOURCE) (((SOURCE) == COMP_BlankingSrce_None)     || \
 COMP_OutputPol_NonInverted = 0x0
 COMP_OutputPol_Inverted = 0x8000
+# fun define IS_COMP_OUTPUT_POL(POL) (((POL) == COMP_OutputPol_NonInverted)  || \
 COMP_Hysteresis_No = 0x0
 COMP_Hysteresis_Low = 0x10000
 COMP_Hysteresis_Medium = 0x20000
 COMP_Hysteresis_High = 0x30000
+# fun define IS_COMP_HYSTERESIS(HYSTERESIS)    (((HYSTERESIS) == COMP_Hysteresis_No)     || \
 COMP_Mode_HighSpeed = 0x0
 COMP_Mode_MediumSpeed = 0x4
 COMP_Mode_LowPower = 0x8
 COMP_Mode_UltraLowPower = 0xC
+# fun define IS_COMP_MODE(MODE)    (((MODE) == COMP_Mode_UltraLowPower) || \
 COMP_OutputLevel_High = 0x40000000
 COMP_OutputLevel_Low = 0x0
+# fun define IS_COMP_WINDOW(WINDOW)  (((WINDOW) == COMP_Selection_COMP2) || \
 # struct COMP_InitTypeDef
 
 class COMP_InitTypeDef(ctypes.Structure):
@@ -133,67 +142,93 @@ CRC_ReverseInputData_No = 0x0
 CRC_ReverseInputData_8bits = 0x20
 CRC_ReverseInputData_16bits = 0x40
 CRC_ReverseInputData_32bits = 0x60
+# fun define IS_CRC_REVERSE_INPUT_DATA(DATA) (((DATA) == CRC_ReverseInputData_No)     || \
 CRC_PolSize_7 = 0x18
 CRC_PolSize_8 = 0x10
 CRC_PolSize_16 = 0x8
 CRC_PolSize_32 = 0x0
+# fun define IS_CRC_POL_SIZE(SIZE) (((SIZE) == CRC_PolSize_7)  || \
 # ----------------------------------------
 
 # file stm32f30x_usart.h : 
 
 # empty define __STM32F30x_USART_H
+# fun define IS_USART_ALL_PERIPH(PERIPH) (((PERIPH) == USART1) || \
+# fun define IS_USART_123_PERIPH(PERIPH) (((PERIPH) == USART1) || \
+# fun define IS_USART_1234_PERIPH(PERIPH) (((PERIPH) == USART1) || \
 USART_WordLength_8b = 0x0
 USART_WordLength_9b = 0x1000
+# fun define IS_USART_WORD_LENGTH(LENGTH) (((LENGTH) == USART_WordLength_8b) || \
 USART_StopBits_1 = 0x0
 USART_StopBits_2 = 0x2000
 USART_StopBits_1_5 = 0x3000
+# fun define IS_USART_STOPBITS(STOPBITS) (((STOPBITS) == USART_StopBits_1) || \
 USART_Parity_No = 0x0
 USART_Parity_Even = 0x400
 USART_Parity_Odd = 0x600
+# fun define IS_USART_PARITY(PARITY) (((PARITY) == USART_Parity_No) || \
 USART_Mode_Rx = 0x4
 USART_Mode_Tx = 0x8
+# fun define IS_USART_MODE(MODE) ((((MODE) & (uint32_t)0xFFFFFFF3) == 0x00) && \
 USART_HardwareFlowControl_None = 0x0
 USART_HardwareFlowControl_RTS = 0x100
 USART_HardwareFlowControl_CTS = 0x200
 USART_HardwareFlowControl_RTS_CTS = 0x300
+# fun define IS_USART_HARDWARE_FLOW_CONTROL(CONTROL)\
 USART_Clock_Disable = 0x0
 USART_Clock_Enable = 0x800
+# fun define IS_USART_CLOCK(CLOCK) (((CLOCK) == USART_Clock_Disable) || \
 USART_CPOL_Low = 0x0
 USART_CPOL_High = 0x400
+# fun define IS_USART_CPOL(CPOL) (((CPOL) == USART_CPOL_Low) || ((CPOL) == USART_CPOL_High))
 USART_CPHA_1Edge = 0x0
 USART_CPHA_2Edge = 0x200
+# fun define IS_USART_CPHA(CPHA) (((CPHA) == USART_CPHA_1Edge) || ((CPHA) == USART_CPHA_2Edge))
 USART_LastBit_Disable = 0x0
 USART_LastBit_Enable = 0x100
+# fun define IS_USART_LASTBIT(LASTBIT) (((LASTBIT) == USART_LastBit_Disable) || \
 USART_DMAReq_Tx = 0x80
 USART_DMAReq_Rx = 0x40
+# fun define IS_USART_DMAREQ(DMAREQ) ((((DMAREQ) & (uint32_t)0xFFFFFF3F) == 0x00) && \
 USART_DMAOnError_Enable = 0x0
 USART_DMAOnError_Disable = 0x2000
+# fun define IS_USART_DMAONERROR(DMAERROR) (((DMAERROR) == USART_DMAOnError_Disable)|| \
 USART_WakeUp_IdleLine = 0x0
 USART_WakeUp_AddressMark = 0x800
+# fun define IS_USART_MUTEMODE_WAKEUP(WAKEUP) (((WAKEUP) == USART_WakeUp_IdleLine) || \
 USART_AddressLength_4b = 0x0
 USART_AddressLength_7b = 0x10
+# fun define IS_USART_ADDRESS_DETECTION(ADDRESS) (((ADDRESS) == USART_AddressLength_4b) || \
 USART_WakeUpSource_AddressMatch = 0x0
 USART_WakeUpSource_StartBit = 0x200000
 USART_WakeUpSource_RXNE = 0x300000
+# fun define IS_USART_STOPMODE_WAKEUPSOURCE(SOURCE) (((SOURCE) == USART_WakeUpSource_AddressMatch) || \
 USART_LINBreakDetectLength_10b = 0x0
 USART_LINBreakDetectLength_11b = 0x20
+# fun define IS_USART_LIN_BREAK_DETECT_LENGTH(LENGTH) \
 USART_IrDAMode_LowPower = 0x4
 USART_IrDAMode_Normal = 0x0
+# fun define IS_USART_IRDA_MODE(MODE) (((MODE) == USART_IrDAMode_LowPower) || \
 USART_DEPolarity_High = 0x0
 USART_DEPolarity_Low = 0x8000
+# fun define IS_USART_DE_POLARITY(POLARITY) (((POLARITY) == USART_DEPolarity_Low) || \
 USART_InvPin_Tx = 0x20000
 USART_InvPin_Rx = 0x10000
+# fun define IS_USART_INVERSTION_PIN(PIN) ((((PIN) & (uint32_t)0xFFFCFFFF) == 0x00) && \
 USART_AutoBaudRate_StartBit = 0x0
 USART_AutoBaudRate_FallingEdge = 0x200000
 USART_AutoBaudRate_0x7FFrame = 0x400000
 USART_AutoBaudRate_0x55Frame = 0x600000
+# fun define IS_USART_AUTOBAUDRATE_MODE(MODE) (((MODE) == USART_AutoBaudRate_StartBit) || \
 USART_OVRDetection_Enable = 0x0
 USART_OVRDetection_Disable = 0x1000
+# fun define IS_USART_OVRDETECTION(OVR) (((OVR) == USART_OVRDetection_Enable)|| \
 USART_Request_ABRRQ = 0x1
 USART_Request_SBKRQ = 0x2
 USART_Request_MMRQ = 0x4
 USART_Request_RXFRQ = 0x8
 USART_Request_TXFRQ = 0x10
+# fun define IS_USART_REQUEST(REQUEST) (((REQUEST) == USART_Request_TXFRQ) || \
 USART_FLAG_REACK = 0x400000
 USART_FLAG_TEACK = 0x200000
 USART_FLAG_WU = 0x100000
@@ -216,6 +251,8 @@ USART_FLAG_ORE = 0x8
 USART_FLAG_NE = 0x4
 USART_FLAG_FE = 0x2
 USART_FLAG_PE = 0x1
+# fun define IS_USART_FLAG(FLAG) (((FLAG) == USART_FLAG_PE) || ((FLAG) == USART_FLAG_TXE) || \
+# fun define IS_USART_CLEAR_FLAG(FLAG) (((FLAG) == USART_FLAG_WU) || ((FLAG) == USART_FLAG_TC) || \
 USART_IT_WU = 0x140316
 USART_IT_CM = 0x11010E
 USART_IT_EOB = 0xC011B
@@ -231,6 +268,14 @@ USART_IT_ERR = 0x300
 USART_IT_ORE = 0x30300
 USART_IT_NE = 0x20300
 USART_IT_FE = 0x10300
+# fun define IS_USART_CONFIG_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
+# fun define IS_USART_GET_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
+# fun define IS_USART_CLEAR_IT(IT) (((IT) == USART_IT_TC) || ((IT) == USART_IT_PE) || \
+# fun define IS_USART_BAUDRATE(BAUDRATE) (((BAUDRATE) > 0) && ((BAUDRATE) < 0x005B8D81))
+# fun define IS_USART_DE_ASSERTION_DEASSERTION_TIME(TIME) ((TIME) <= 0x1F)
+# fun define IS_USART_AUTO_RETRY_COUNTER(COUNTER) ((COUNTER) <= 0x7)
+# fun define IS_USART_TIMEOUT(TIMEOUT) ((TIMEOUT) <= 0x00FFFFFF)
+# fun define IS_USART_DATA(DATA) ((DATA) <= 0x1FF)
 # struct USART_InitTypeDef
 
 class USART_InitTypeDef(ctypes.Structure):
@@ -266,8 +311,17 @@ class USART_ClockInitTypeDef(ctypes.Structure):
 # empty define __STM32F30x_RTC_H
 RTC_HourFormat_24 = 0x0
 RTC_HourFormat_12 = 0x40
+# fun define IS_RTC_HOUR_FORMAT(FORMAT)     (((FORMAT) == RTC_HourFormat_12) || \
+# fun define IS_RTC_ASYNCH_PREDIV(PREDIV)   ((PREDIV) <= 0x7F)
+# fun define IS_RTC_SYNCH_PREDIV(PREDIV)    ((PREDIV) <= 0x7FFF)
+# fun define IS_RTC_HOUR12(HOUR)            (((HOUR) > 0) && ((HOUR) <= 12))
+# fun define IS_RTC_HOUR24(HOUR)            ((HOUR) <= 23)
+# fun define IS_RTC_MINUTES(MINUTES)        ((MINUTES) <= 59)
+# fun define IS_RTC_SECONDS(SECONDS)        ((SECONDS) <= 59)
 RTC_H12_AM = 0x0
 RTC_H12_PM = 0x40
+# fun define IS_RTC_H12(PM) (((PM) == RTC_H12_AM) || ((PM) == RTC_H12_PM))
+# fun define IS_RTC_YEAR(YEAR)              ((YEAR) <= 99)
 RTC_Month_January = 0x1
 RTC_Month_February = 0x2
 RTC_Month_March = 0x3
@@ -280,6 +334,8 @@ RTC_Month_September = 0x9
 RTC_Month_October = 0x10
 RTC_Month_November = 0x11
 RTC_Month_December = 0x12
+# fun define IS_RTC_MONTH(MONTH)            (((MONTH) >= 1) && ((MONTH) <= 12))
+# fun define IS_RTC_DATE(DATE)              (((DATE) >= 1) && ((DATE) <= 31))
 RTC_Weekday_Monday = 0x1
 RTC_Weekday_Tuesday = 0x2
 RTC_Weekday_Wednesday = 0x3
@@ -287,16 +343,23 @@ RTC_Weekday_Thursday = 0x4
 RTC_Weekday_Friday = 0x5
 RTC_Weekday_Saturday = 0x6
 RTC_Weekday_Sunday = 0x7
+# fun define IS_RTC_WEEKDAY(WEEKDAY) (((WEEKDAY) == RTC_Weekday_Monday) || \
+# fun define IS_RTC_ALARM_DATE_WEEKDAY_DATE(DATE) (((DATE) > 0) && ((DATE) <= 31))
+# fun define IS_RTC_ALARM_DATE_WEEKDAY_WEEKDAY(WEEKDAY) (((WEEKDAY) == RTC_Weekday_Monday) || \
 RTC_AlarmDateWeekDaySel_Date = 0x0
 RTC_AlarmDateWeekDaySel_WeekDay = 0x40000000
+# fun define IS_RTC_ALARM_DATE_WEEKDAY_SEL(SEL) (((SEL) == RTC_AlarmDateWeekDaySel_Date) || \
 RTC_AlarmMask_None = 0x0
 RTC_AlarmMask_DateWeekDay = 0x80000000
 RTC_AlarmMask_Hours = 0x800000
 RTC_AlarmMask_Minutes = 0x8000
 RTC_AlarmMask_Seconds = 0x80
 RTC_AlarmMask_All = 0x80808080
+# fun define IS_ALARM_MASK(MASK)  (((MASK) & 0x7F7F7F7F) == (uint32_t)RESET)
 RTC_Alarm_A = 0x100
 RTC_Alarm_B = 0x200
+# fun define IS_RTC_ALARM(ALARM)     (((ALARM) == RTC_Alarm_A) || ((ALARM) == RTC_Alarm_B))
+# fun define IS_RTC_CMD_ALARM(ALARM) (((ALARM) & (RTC_Alarm_A | RTC_Alarm_B)) != (uint32_t)RESET)
 RTC_AlarmSubSecondMask_All = 0x0
 RTC_AlarmSubSecondMask_SS14_1 = 0x1000000
 RTC_AlarmSubSecondMask_SS14_2 = 0x2000000
@@ -313,41 +376,58 @@ RTC_AlarmSubSecondMask_SS14_12 = 0xC000000
 RTC_AlarmSubSecondMask_SS14_13 = 0xD000000
 RTC_AlarmSubSecondMask_SS14 = 0xE000000
 RTC_AlarmSubSecondMask_None = 0xF000000
+# fun define IS_RTC_ALARM_SUB_SECOND_MASK(MASK)   (((MASK) == RTC_AlarmSubSecondMask_All) || \
+# fun define IS_RTC_ALARM_SUB_SECOND_VALUE(VALUE) ((VALUE) <= 0x00007FFF)
 RTC_WakeUpClock_RTCCLK_Div16 = 0x0
 RTC_WakeUpClock_RTCCLK_Div8 = 0x1
 RTC_WakeUpClock_RTCCLK_Div4 = 0x2
 RTC_WakeUpClock_RTCCLK_Div2 = 0x3
 RTC_WakeUpClock_CK_SPRE_16bits = 0x4
 RTC_WakeUpClock_CK_SPRE_17bits = 0x6
+# fun define IS_RTC_WAKEUP_CLOCK(CLOCK) (((CLOCK) == RTC_WakeUpClock_RTCCLK_Div16) || \
+# fun define IS_RTC_WAKEUP_COUNTER(COUNTER)  ((COUNTER) <= 0xFFFF)
 RTC_TimeStampEdge_Rising = 0x0
 RTC_TimeStampEdge_Falling = 0x8
+# fun define IS_RTC_TIMESTAMP_EDGE(EDGE) (((EDGE) == RTC_TimeStampEdge_Rising) || \
 RTC_Output_Disable = 0x0
 RTC_Output_AlarmA = 0x200000
 RTC_Output_AlarmB = 0x400000
 RTC_Output_WakeUp = 0x600000
+# fun define IS_RTC_OUTPUT(OUTPUT) (((OUTPUT) == RTC_Output_Disable) || \
 RTC_OutputPolarity_High = 0x0
 RTC_OutputPolarity_Low = 0x100000
+# fun define IS_RTC_OUTPUT_POL(POL) (((POL) == RTC_OutputPolarity_High) || \
 RTC_CalibSign_Positive = 0x0
 RTC_CalibSign_Negative = 0x80
+# fun define IS_RTC_CALIB_SIGN(SIGN) (((SIGN) == RTC_CalibSign_Positive) || \
+# fun define IS_RTC_CALIB_VALUE(VALUE) ((VALUE) < 0x20)
 RTC_CalibOutput_512Hz = 0x0
 RTC_CalibOutput_1Hz = 0x80000
+# fun define IS_RTC_CALIB_OUTPUT(OUTPUT)  (((OUTPUT) == RTC_CalibOutput_512Hz) || \
 RTC_SmoothCalibPeriod_32sec = 0x0
 RTC_SmoothCalibPeriod_16sec = 0x2000
 RTC_SmoothCalibPeriod_8sec = 0x4000
+# fun define IS_RTC_SMOOTH_CALIB_PERIOD(PERIOD) (((PERIOD) == RTC_SmoothCalibPeriod_32sec) || \
 RTC_SmoothCalibPlusPulses_Set = 0x8000
 RTC_SmoothCalibPlusPulses_Reset = 0x0
+# fun define IS_RTC_SMOOTH_CALIB_PLUS(PLUS) (((PLUS) == RTC_SmoothCalibPlusPulses_Set) || \
+# fun define IS_RTC_SMOOTH_CALIB_MINUS(VALUE) ((VALUE) <= 0x000001FF)
 RTC_DayLightSaving_SUB1H = 0x20000
 RTC_DayLightSaving_ADD1H = 0x10000
+# fun define IS_RTC_DAYLIGHT_SAVING(SAVE) (((SAVE) == RTC_DayLightSaving_SUB1H) || \
 RTC_StoreOperation_Reset = 0x0
 RTC_StoreOperation_Set = 0x40000
+# fun define IS_RTC_STORE_OPERATION(OPERATION) (((OPERATION) == RTC_StoreOperation_Reset) || \
 RTC_TamperTrigger_RisingEdge = 0x0
 RTC_TamperTrigger_FallingEdge = 0x1
 RTC_TamperTrigger_LowLevel = 0x0
 RTC_TamperTrigger_HighLevel = 0x1
+# fun define IS_RTC_TAMPER_TRIGGER(TRIGGER) (((TRIGGER) == RTC_TamperTrigger_RisingEdge) || \
 RTC_TamperFilter_Disable = 0x0
 RTC_TamperFilter_2Sample = 0x800
 RTC_TamperFilter_4Sample = 0x1000
 RTC_TamperFilter_8Sample = 0x1800
+# fun define IS_RTC_TAMPER_FILTER(FILTER) (((FILTER) == RTC_TamperFilter_Disable) || \
 RTC_TamperSamplingFreq_RTCCLK_Div32768 = 0x0
 RTC_TamperSamplingFreq_RTCCLK_Div16384 = 0x100
 RTC_TamperSamplingFreq_RTCCLK_Div8192 = 0x200
@@ -356,17 +436,23 @@ RTC_TamperSamplingFreq_RTCCLK_Div2048 = 0x400
 RTC_TamperSamplingFreq_RTCCLK_Div1024 = 0x500
 RTC_TamperSamplingFreq_RTCCLK_Div512 = 0x600
 RTC_TamperSamplingFreq_RTCCLK_Div256 = 0x700
+# fun define IS_RTC_TAMPER_SAMPLING_FREQ(FREQ) (((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div32768) || \
 RTC_TamperPrechargeDuration_1RTCCLK = 0x0
 RTC_TamperPrechargeDuration_2RTCCLK = 0x2000
 RTC_TamperPrechargeDuration_4RTCCLK = 0x4000
 RTC_TamperPrechargeDuration_8RTCCLK = 0x6000
+# fun define IS_RTC_TAMPER_PRECHARGE_DURATION(DURATION) (((DURATION) == RTC_TamperPrechargeDuration_1RTCCLK) || \
 RTC_Tamper_1 = 0x1
 RTC_Tamper_2 = 0x8
 RTC_Tamper_3 = 0x20
+# fun define IS_RTC_TAMPER(TAMPER) ((((TAMPER) & (uint32_t)0xFFFFFFD6) == 0x00) && ((TAMPER) != (uint32_t)RESET))
 RTC_OutputType_OpenDrain = 0x0
 RTC_OutputType_PushPull = 0x40000
+# fun define IS_RTC_OUTPUT_TYPE(TYPE) (((TYPE) == RTC_OutputType_OpenDrain) || \
 RTC_ShiftAdd1S_Reset = 0x0
 RTC_ShiftAdd1S_Set = 0x80000000
+# fun define IS_RTC_SHIFT_ADD1S(SEL) (((SEL) == RTC_ShiftAdd1S_Reset) || \
+# fun define IS_RTC_SHIFT_SUBFS(FS) ((FS) <= 0x00007FFF)
 RTC_BKP_DR0 = 0x0
 RTC_BKP_DR1 = 0x1
 RTC_BKP_DR2 = 0x2
@@ -383,8 +469,10 @@ RTC_BKP_DR12 = 0xC
 RTC_BKP_DR13 = 0xD
 RTC_BKP_DR14 = 0xE
 RTC_BKP_DR15 = 0xF
+# fun define IS_RTC_BKP(BKP)                   (((BKP) == RTC_BKP_DR0) || \
 RTC_Format_BIN = 0x0
 RTC_Format_BCD = 0x1
+# fun define IS_RTC_FORMAT(FORMAT) (((FORMAT) == RTC_Format_BIN) || ((FORMAT) == RTC_Format_BCD))
 RTC_FLAG_RECALPF = 0x10000
 RTC_FLAG_TAMP3F = 0x8000
 RTC_FLAG_TAMP2F = 0x4000
@@ -401,6 +489,8 @@ RTC_FLAG_SHPF = 0x8
 RTC_FLAG_WUTWF = 0x4
 RTC_FLAG_ALRBWF = 0x2
 RTC_FLAG_ALRAWF = 0x1
+# fun define IS_RTC_GET_FLAG(FLAG) (((FLAG) == RTC_FLAG_TSOVF) || ((FLAG) == RTC_FLAG_TSF) || \
+# fun define IS_RTC_CLEAR_FLAG(FLAG) (((FLAG) != (uint32_t)RESET) && (((FLAG) & 0xFFFF00DF) == (uint32_t)RESET))
 RTC_IT_TS = 0x8000
 RTC_IT_WUT = 0x4000
 RTC_IT_ALRB = 0x2000
@@ -409,6 +499,9 @@ RTC_IT_TAMP = 0x4
 RTC_IT_TAMP1 = 0x20000
 RTC_IT_TAMP2 = 0x40000
 RTC_IT_TAMP3 = 0x80000
+# fun define IS_RTC_CONFIG_IT(IT) (((IT) != (uint32_t)RESET) && (((IT) & 0xFFFF0FFB) == (uint32_t)RESET))
+# fun define IS_RTC_GET_IT(IT) (((IT) == RTC_IT_TS)    || ((IT) == RTC_IT_WUT) || \
+# fun define IS_RTC_CLEAR_IT(IT) (((IT) != (uint32_t)RESET) && (((IT) & 0xFFF10FFF) == (uint32_t)RESET))
 # struct RTC_InitTypeDef
 
 class RTC_InitTypeDef(ctypes.Structure):
@@ -460,6 +553,7 @@ EXTI_PortSourceGPIOC = 0x2
 EXTI_PortSourceGPIOD = 0x3
 EXTI_PortSourceGPIOE = 0x4
 EXTI_PortSourceGPIOF = 0x5
+# fun define IS_EXTI_PORT_SOURCE(PORTSOURCE) (((PORTSOURCE) == EXTI_PortSourceGPIOA) || \
 EXTI_PinSource0 = 0x0
 EXTI_PinSource1 = 0x1
 EXTI_PinSource2 = 0x2
@@ -476,35 +570,43 @@ EXTI_PinSource12 = 0xC
 EXTI_PinSource13 = 0xD
 EXTI_PinSource14 = 0xE
 EXTI_PinSource15 = 0xF
+# fun define IS_EXTI_PIN_SOURCE(PINSOURCE) (((PINSOURCE) == EXTI_PinSource0) || \
 SYSCFG_MemoryRemap_Flash = 0x0
 SYSCFG_MemoryRemap_SystemMemory = 0x1
 SYSCFG_MemoryRemap_SRAM = 0x3
+# fun define IS_SYSCFG_MEMORY_REMAP(REMAP) (((REMAP) == SYSCFG_MemoryRemap_Flash)        || \
 SYSCFG_DMARemap_TIM17 = 0x1000
 SYSCFG_DMARemap_TIM16 = 0x800
 SYSCFG_DMARemap_TIM6DAC1 = 0x2000
 SYSCFG_DMARemap_TIM7DAC2 = 0x4000
 SYSCFG_DMARemap_ADC2ADC4 = 0x100
+# fun define IS_SYSCFG_DMA_REMAP(REMAP) (((REMAP) == SYSCFG_DMARemap_TIM17)    || \
 SYSCFG_TriggerRemap_DACTIM3 = 0x80
 SYSCFG_TriggerRemap_TIM1TIM17 = 0x40
+# fun define IS_SYSCFG_TRIGGER_REMAP(REMAP) (((REMAP) == SYSCFG_TriggerRemap_DACTIM3)  || \
 SYSCFG_EncoderRemap_No = 0x0
 SYSCFG_EncoderRemap_TIM2 = 0x400000
 SYSCFG_EncoderRemap_TIM3 = 0x800000
 SYSCFG_EncoderRemap_TIM4 = 0xC00000
+# fun define IS_SYSCFG_ENCODER_REMAP(REMAP) (((REMAP) == SYSCFG_EncoderRemap_No)    || \
 SYSCFG_I2CFastModePlus_PB6 = 0x10000
 SYSCFG_I2CFastModePlus_PB7 = 0x20000
 SYSCFG_I2CFastModePlus_PB8 = 0x40000
 SYSCFG_I2CFastModePlus_PB9 = 0x80000
 SYSCFG_I2CFastModePlus_I2C1 = 0x100000
 SYSCFG_I2CFastModePlus_I2C2 = 0x200000
+# fun define IS_SYSCFG_I2C_FMP(PIN) (((PIN) == SYSCFG_I2CFastModePlus_PB6)  || \
 SYSCFG_IT_IXC = 0x80000000
 SYSCFG_IT_IDC = 0x40000000
 SYSCFG_IT_OFC = 0x20000000
 SYSCFG_IT_UFC = 0x10000000
 SYSCFG_IT_DZC = 0x8000000
 SYSCFG_IT_IOC = 0x4000000
+# fun define IS_SYSCFG_IT(IT) ((((IT) & (uint32_t)0x03FFFFFF) == 0) && ((IT) != 0))
 SYSCFG_Break_PVD = 0x4
 SYSCFG_Break_SRAMParity = 0x2
 SYSCFG_Break_Lockup = 0x1
+# fun define IS_SYSCFG_LOCK_CONFIG(CONFIG) (((CONFIG) == SYSCFG_Break_PVD)        || \
 SYSCFG_SRAMWRP_Page0 = 0x1
 SYSCFG_SRAMWRP_Page1 = 0x2
 SYSCFG_SRAMWRP_Page2 = 0x4
@@ -513,7 +615,9 @@ SYSCFG_SRAMWRP_Page4 = 0x10
 SYSCFG_SRAMWRP_Page5 = 0x20
 SYSCFG_SRAMWRP_Page6 = 0x40
 SYSCFG_SRAMWRP_Page7 = 0x80
+# fun define IS_SYSCFG_PAGE(PAGE)((((PAGE) & (uint32_t)0xFFFFFF00) == 0x00000000) && ((PAGE) != 0x00000000))
 SYSCFG_FLAG_PE = 0x100
+# fun define IS_SYSCFG_FLAG(FLAG) (((FLAG) == SYSCFG_FLAG_PE))
 # ----------------------------------------
 
 # file stm32f30x_pwr.h : 
@@ -527,30 +631,44 @@ PWR_PVDLevel_4 = 0x80
 PWR_PVDLevel_5 = 0xA0
 PWR_PVDLevel_6 = 0xC0
 PWR_PVDLevel_7 = 0xE0
+# fun define IS_PWR_PVD_LEVEL(LEVEL) (((LEVEL) == PWR_PVDLevel_0) || ((LEVEL) == PWR_PVDLevel_1)|| \
 PWR_WakeUpPin_1 = 0x100
 PWR_WakeUpPin_2 = 0x200
 PWR_WakeUpPin_3 = 0x400
+# fun define IS_PWR_WAKEUP_PIN(PIN) (((PIN) == PWR_WakeUpPin_1) || \
 PWR_Regulator_ON = 0x0
 PWR_Regulator_LowPower = 0x1
+# fun define IS_PWR_REGULATOR(REGULATOR) (((REGULATOR) == PWR_Regulator_ON) || \
 PWR_SLEEPEntry_WFI = 0x1
 PWR_SLEEPEntry_WFE = 0x2
+# fun define IS_PWR_SLEEP_ENTRY(ENTRY) (((ENTRY) == PWR_SLEEPEntry_WFI) || ((ENTRY) == PWR_SLEEPEntry_WFE))
 PWR_STOPEntry_WFI = 0x1
 PWR_STOPEntry_WFE = 0x2
+# fun define IS_PWR_STOP_ENTRY(ENTRY) (((ENTRY) == PWR_STOPEntry_WFI) || ((ENTRY) == PWR_STOPEntry_WFE))
 PWR_FLAG_WU = 0x1
 PWR_FLAG_SB = 0x2
 PWR_FLAG_PVDO = 0x4
 PWR_FLAG_VREFINTRDY = 0x8
+# fun define IS_PWR_GET_FLAG(FLAG) (((FLAG) == PWR_FLAG_WU) || ((FLAG) == PWR_FLAG_SB) || \
+# fun define IS_PWR_CLEAR_FLAG(FLAG) (((FLAG) == PWR_FLAG_WU) || ((FLAG) == PWR_FLAG_SB))
 # ----------------------------------------
 
 # file stm32f30x_spi.h : 
 
 # empty define __STM32F30x_SPI_H
+# fun define IS_SPI_ALL_PERIPH(PERIPH) (((PERIPH) == SPI1) || \
+# fun define IS_SPI_ALL_PERIPH_EXT(PERIPH) (((PERIPH) == SPI1) || \
+# fun define IS_SPI_23_PERIPH(PERIPH)  (((PERIPH) == SPI2) || \
+# fun define IS_SPI_23_PERIPH_EXT(PERIPH)  (((PERIPH) == SPI2) || \
+# fun define IS_I2S_EXT_PERIPH(PERIPH)  (((PERIPH) == I2S2ext) || \
 SPI_Direction_2Lines_FullDuplex = 0x0
 SPI_Direction_2Lines_RxOnly = 0x400
 SPI_Direction_1Line_Rx = 0x8000
 SPI_Direction_1Line_Tx = 0xC000
+# fun define IS_SPI_DIRECTION_MODE(MODE) (((MODE) == SPI_Direction_2Lines_FullDuplex) || \
 SPI_Mode_Master = 0x104
 SPI_Mode_Slave = 0x0
+# fun define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
 SPI_DataSize_4b = 0x300
 SPI_DataSize_5b = 0x400
 SPI_DataSize_6b = 0x500
@@ -564,14 +682,19 @@ SPI_DataSize_13b = 0xC00
 SPI_DataSize_14b = 0xD00
 SPI_DataSize_15b = 0xE00
 SPI_DataSize_16b = 0xF00
+# fun define IS_SPI_DATA_SIZE(SIZE) (((SIZE) == SPI_DataSize_4b) || \
 SPI_CRCLength_8b = 0x0
 SPI_CRCLength_16b = 0x800
+# fun define IS_SPI_CRC_LENGTH(LENGTH) (((LENGTH) == SPI_CRCLength_8b) || \
 SPI_CPOL_Low = 0x0
 SPI_CPOL_High = 0x2
+# fun define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
 SPI_CPHA_1Edge = 0x0
 SPI_CPHA_2Edge = 0x1
+# fun define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
 SPI_NSS_Soft = 0x200
 SPI_NSS_Hard = 0x0
+# fun define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
 SPI_BaudRatePrescaler_2 = 0x0
 SPI_BaudRatePrescaler_4 = 0x8
 SPI_BaudRatePrescaler_8 = 0x10
@@ -580,23 +703,29 @@ SPI_BaudRatePrescaler_32 = 0x20
 SPI_BaudRatePrescaler_64 = 0x28
 SPI_BaudRatePrescaler_128 = 0x30
 SPI_BaudRatePrescaler_256 = 0x38
+# fun define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) || \
 SPI_FirstBit_MSB = 0x0
 SPI_FirstBit_LSB = 0x80
+# fun define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
 I2S_Mode_SlaveTx = 0x0
 I2S_Mode_SlaveRx = 0x100
 I2S_Mode_MasterTx = 0x200
 I2S_Mode_MasterRx = 0x300
+# fun define IS_I2S_MODE(MODE) (((MODE) == I2S_Mode_SlaveTx) || \
 I2S_Standard_Phillips = 0x0
 I2S_Standard_MSB = 0x10
 I2S_Standard_LSB = 0x20
 I2S_Standard_PCMShort = 0x30
 I2S_Standard_PCMLong = 0xB0
+# fun define IS_I2S_STANDARD(STANDARD) (((STANDARD) == I2S_Standard_Phillips) || \
 I2S_DataFormat_16b = 0x0
 I2S_DataFormat_16bextended = 0x1
 I2S_DataFormat_24b = 0x3
 I2S_DataFormat_32b = 0x5
+# fun define IS_I2S_DATA_FORMAT(FORMAT) (((FORMAT) == I2S_DataFormat_16b) || \
 I2S_MCLKOutput_Enable = 0x200
 I2S_MCLKOutput_Disable = 0x0
+# fun define IS_I2S_MCLK_OUTPUT(OUTPUT) (((OUTPUT) == I2S_MCLKOutput_Enable) || \
 I2S_AudioFreq_192k = 0x2EE00
 I2S_AudioFreq_96k = 0x17700
 I2S_AudioFreq_48k = 0xBB80
@@ -607,29 +736,39 @@ I2S_AudioFreq_16k = 0x3E80
 I2S_AudioFreq_11k = 0x2B11
 I2S_AudioFreq_8k = 0x1F40
 I2S_AudioFreq_Default = 0x2
+# fun define IS_I2S_AUDIO_FREQ(FREQ) ((((FREQ) >= I2S_AudioFreq_8k) && \
 I2S_CPOL_Low = 0x0
 I2S_CPOL_High = 0x8
+# fun define IS_I2S_CPOL(CPOL) (((CPOL) == I2S_CPOL_Low) || \
 SPI_RxFIFOThreshold_HF = 0x0
 SPI_RxFIFOThreshold_QF = 0x1000
+# fun define IS_SPI_RX_FIFO_THRESHOLD(THRESHOLD) (((THRESHOLD) == SPI_RxFIFOThreshold_HF) || \
 SPI_I2S_DMAReq_Tx = 0x2
 SPI_I2S_DMAReq_Rx = 0x1
+# fun define IS_SPI_I2S_DMA_REQ(REQ) ((((REQ) & (uint16_t)0xFFFC) == 0x00) && ((REQ) != 0x00))
 SPI_LastDMATransfer_TxEvenRxEven = 0x0
 SPI_LastDMATransfer_TxOddRxEven = 0x4000
 SPI_LastDMATransfer_TxEvenRxOdd = 0x2000
 SPI_LastDMATransfer_TxOddRxOdd = 0x6000
+# fun define IS_SPI_LAST_DMA_TRANSFER(TRANSFER) (((TRANSFER) == SPI_LastDMATransfer_TxEvenRxEven) || \
 SPI_NSSInternalSoft_Set = 0x100
 SPI_NSSInternalSoft_Reset = 0xFEFF
+# fun define IS_SPI_NSS_INTERNAL(INTERNAL) (((INTERNAL) == SPI_NSSInternalSoft_Set) || \
 SPI_CRC_Tx = 0x0
 SPI_CRC_Rx = 0x1
+# fun define IS_SPI_CRC(CRC) (((CRC) == SPI_CRC_Tx) || ((CRC) == SPI_CRC_Rx))
 SPI_Direction_Rx = 0xBFFF
 SPI_Direction_Tx = 0x4000
+# fun define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
 SPI_I2S_IT_TXE = 0x71
 SPI_I2S_IT_RXNE = 0x60
 SPI_I2S_IT_ERR = 0x50
+# fun define IS_SPI_I2S_CONFIG_IT(IT) (((IT) == SPI_I2S_IT_TXE) || \
 I2S_IT_UDR = 0x53
 SPI_IT_MODF = 0x55
 SPI_I2S_IT_OVR = 0x56
 SPI_I2S_IT_FRE = 0x58
+# fun define IS_SPI_I2S_GET_IT(IT) (((IT) == SPI_I2S_IT_RXNE) || ((IT) == SPI_I2S_IT_TXE) || \
 SPI_TransmissionFIFOStatus_Empty = 0x0
 SPI_TransmissionFIFOStatus_1QuarterFull = 0x800
 SPI_TransmissionFIFOStatus_HalfFull = 0x1000
@@ -647,6 +786,9 @@ SPI_FLAG_MODF = 0x20
 SPI_I2S_FLAG_OVR = 0x40
 SPI_I2S_FLAG_BSY = 0x80
 SPI_I2S_FLAG_FRE = 0x100
+# fun define IS_SPI_CLEAR_FLAG(FLAG) (((FLAG) == SPI_FLAG_CRCERR))
+# fun define IS_SPI_I2S_GET_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_BSY) || ((FLAG) == SPI_I2S_FLAG_OVR) || \
+# fun define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
 # struct SPI_InitTypeDef
 
 class SPI_InitTypeDef(ctypes.Structure):
@@ -694,8 +836,12 @@ FLASH_TIMEOUT = 0x5
 FLASH_Latency_0 = 0x0
 FLASH_Latency_1 = 0x1
 FLASH_Latency_2 = 0x2
+# fun define IS_FLASH_LATENCY(LATENCY) (((LATENCY) == FLASH_Latency_0) || \
 FLASH_IT_EOP = 0x1000
 FLASH_IT_ERR = 0x400
+# fun define IS_FLASH_IT(IT) ((((IT) & (uint32_t)0xFFFFEBFF) == 0x00000000) && (((IT) != 0x00000000)))
+# fun define IS_FLASH_PROGRAM_ADDRESS(ADDRESS) (((ADDRESS) >= 0x08000000) && ((ADDRESS) <= 0x0803FFFF))
+# fun define IS_OB_DATA_ADDRESS(ADDRESS) (((ADDRESS) == 0x1FFFF804) || ((ADDRESS) == 0x1FFFF806))
 OB_WRP_Pages0to1 = 0x1
 OB_WRP_Pages2to3 = 0x2
 OB_WRP_Pages4to5 = 0x4
@@ -729,24 +875,34 @@ OB_WRP_Pages58to59 = 0x20000000
 OB_WRP_Pages60to61 = 0x40000000
 OB_WRP_Pages62to127 = 0x80000000
 OB_WRP_AllPages = 0xFFFFFFFF
+# fun define IS_OB_WRP(PAGE) (((PAGE) != 0x0000000))
 OB_RDP_Level_0 = 0xAA
 OB_RDP_Level_1 = 0xBB
+# fun define IS_OB_RDP(LEVEL) (((LEVEL) == OB_RDP_Level_0)||\
 OB_IWDG_SW = 0x1
 OB_IWDG_HW = 0x0
+# fun define IS_OB_IWDG_SOURCE(SOURCE) (((SOURCE) == OB_IWDG_SW) || ((SOURCE) == OB_IWDG_HW))
 OB_STOP_NoRST = 0x2
 OB_STOP_RST = 0x0
+# fun define IS_OB_STOP_SOURCE(SOURCE) (((SOURCE) == OB_STOP_NoRST) || ((SOURCE) == OB_STOP_RST))
 OB_STDBY_NoRST = 0x4
 OB_STDBY_RST = 0x0
+# fun define IS_OB_STDBY_SOURCE(SOURCE) (((SOURCE) == OB_STDBY_NoRST) || ((SOURCE) == OB_STDBY_RST))
 OB_BOOT1_RESET = 0x0
 OB_BOOT1_SET = 0x10
+# fun define IS_OB_BOOT1(BOOT1) (((BOOT1) == OB_BOOT1_RESET) || ((BOOT1) == OB_BOOT1_SET))
 OB_VDDA_ANALOG_ON = 0x20
 OB_VDDA_ANALOG_OFF = 0x0
+# fun define IS_OB_VDDA_ANALOG(ANALOG) (((ANALOG) == OB_VDDA_ANALOG_ON) || ((ANALOG) == OB_VDDA_ANALOG_OFF))
 OB_SRAM_PARITY_SET = 0x0
 OB_SRAM_PARITY_RESET = 0x40
+# fun define IS_OB_SRAM_PARITY(PARITY) (((PARITY) == OB_SRAM_PARITY_SET) || ((PARITY) == OB_SRAM_PARITY_RESET))
 FLASH_FLAG_BSY = 0x1
 FLASH_FLAG_PGERR = 0x4
 FLASH_FLAG_WRPERR = 0x10
 FLASH_FLAG_EOP = 0x20
+# fun define IS_FLASH_CLEAR_FLAG(FLAG) ((((FLAG) & (uint32_t)0xFFFFFFC3) == 0x00000000) && ((FLAG) != 0x00000000))
+# fun define IS_FLASH_GET_FLAG(FLAG)  (((FLAG) == FLASH_FLAG_BSY) || ((FLAG) == FLASH_FLAG_PGERR) || \
 FLASH_ER_PRG_TIMEOUT = 0xB0000
 # ----------------------------------------
 
@@ -756,8 +912,10 @@ FLASH_ER_PRG_TIMEOUT = 0xB0000
 RCC_HSE_OFF = 0x0
 RCC_HSE_ON = 0x1
 RCC_HSE_Bypass = 0x5
+# fun define IS_RCC_HSE(HSE) (((HSE) == RCC_HSE_OFF) || ((HSE) == RCC_HSE_ON) || \
 RCC_PLLSource_HSI_Div2 = 0x0
 RCC_PLLSource_PREDIV1 = 0x10000
+# fun define IS_RCC_PLL_SOURCE(SOURCE) (((SOURCE) == RCC_PLLSource_HSI_Div2) || \
 RCC_PLLMul_2 = 0x0
 RCC_PLLMul_3 = 0x40000
 RCC_PLLMul_4 = 0x80000
@@ -773,6 +931,7 @@ RCC_PLLMul_13 = 0x2C0000
 RCC_PLLMul_14 = 0x300000
 RCC_PLLMul_15 = 0x340000
 RCC_PLLMul_16 = 0x380000
+# fun define IS_RCC_PLL_MUL(MUL) (((MUL) == RCC_PLLMul_2) || ((MUL) == RCC_PLLMul_3)   || \
 RCC_PREDIV1_Div1 = 0x0
 RCC_PREDIV1_Div2 = 0x1
 RCC_PREDIV1_Div3 = 0x2
@@ -789,9 +948,11 @@ RCC_PREDIV1_Div13 = 0xC
 RCC_PREDIV1_Div14 = 0xD
 RCC_PREDIV1_Div15 = 0xE
 RCC_PREDIV1_Div16 = 0xF
+# fun define IS_RCC_PREDIV1(PREDIV1) (((PREDIV1) == RCC_PREDIV1_Div1) || ((PREDIV1) == RCC_PREDIV1_Div2) || \
 RCC_SYSCLKSource_HSI = 0x0
 RCC_SYSCLKSource_HSE = 0x1
 RCC_SYSCLKSource_PLLCLK = 0x2
+# fun define IS_RCC_SYSCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SYSCLKSource_HSI) || \
 RCC_SYSCLK_Div1 = 0x0
 RCC_SYSCLK_Div2 = 0x80
 RCC_SYSCLK_Div4 = 0x90
@@ -801,11 +962,13 @@ RCC_SYSCLK_Div64 = 0xC0
 RCC_SYSCLK_Div128 = 0xD0
 RCC_SYSCLK_Div256 = 0xE0
 RCC_SYSCLK_Div512 = 0xF0
+# fun define IS_RCC_HCLK(HCLK) (((HCLK) == RCC_SYSCLK_Div1) || ((HCLK) == RCC_SYSCLK_Div2) || \
 RCC_HCLK_Div1 = 0x0
 RCC_HCLK_Div2 = 0x400
 RCC_HCLK_Div4 = 0x500
 RCC_HCLK_Div8 = 0x600
 RCC_HCLK_Div16 = 0x700
+# fun define IS_RCC_PCLK(PCLK) (((PCLK) == RCC_HCLK_Div1) || ((PCLK) == RCC_HCLK_Div2) || \
 RCC_ADC12PLLCLK_OFF = 0x0
 RCC_ADC12PLLCLK_Div1 = 0x100
 RCC_ADC12PLLCLK_Div2 = 0x110
@@ -832,14 +995,17 @@ RCC_ADC34PLLCLK_Div32 = 0x10003000
 RCC_ADC34PLLCLK_Div64 = 0x10003200
 RCC_ADC34PLLCLK_Div128 = 0x10003400
 RCC_ADC34PLLCLK_Div256 = 0x10003600
+# fun define IS_RCC_ADCCLK(ADCCLK) (((ADCCLK) == RCC_ADC12PLLCLK_OFF) || ((ADCCLK) == RCC_ADC12PLLCLK_Div1) || \
 RCC_TIM1CLK_HCLK = 0x0
 RCC_TIM1CLK_PLLCLK = 0x100
 RCC_TIM8CLK_HCLK = 0x10000000
 RCC_TIM8CLK_PLLCLK = 0x10000200
+# fun define IS_RCC_TIMCLK(TIMCLK) (((TIMCLK) == RCC_TIM1CLK_HCLK) || ((TIMCLK) == RCC_TIM1CLK_PLLCLK) || \
 RCC_I2C1CLK_HSI = 0x0
 RCC_I2C1CLK_SYSCLK = 0x10
 RCC_I2C2CLK_HSI = 0x10000000
 RCC_I2C2CLK_SYSCLK = 0x10000020
+# fun define IS_RCC_I2CCLK(I2CCLK) (((I2CCLK) == RCC_I2C1CLK_HSI) || ((I2CCLK) == RCC_I2C1CLK_SYSCLK) || \
 RCC_USART1CLK_PCLK = 0x10000000
 RCC_USART1CLK_SYSCLK = 0x10000001
 RCC_USART1CLK_LSE = 0x10000002
@@ -860,24 +1026,32 @@ RCC_UART5CLK_PCLK = 0x50000000
 RCC_UART5CLK_SYSCLK = 0x50400000
 RCC_UART5CLK_LSE = 0x50800000
 RCC_UART5CLK_HSI = 0x50C00000
+# fun define IS_RCC_USARTCLK(USARTCLK) (((USARTCLK) == RCC_USART1CLK_PCLK) || ((USARTCLK) == RCC_USART1CLK_SYSCLK) || \
 RCC_IT_LSIRDY = 0x1
 RCC_IT_LSERDY = 0x2
 RCC_IT_HSIRDY = 0x4
 RCC_IT_HSERDY = 0x8
 RCC_IT_PLLRDY = 0x10
 RCC_IT_CSS = 0x80
+# fun define IS_RCC_IT(IT) ((((IT) & (uint8_t)0xC0) == 0x00) && ((IT) != 0x00))
+# fun define IS_RCC_GET_IT(IT) (((IT) == RCC_IT_LSIRDY) || ((IT) == RCC_IT_LSERDY) || \
+# fun define IS_RCC_CLEAR_IT(IT) ((((IT) & (uint8_t)0x40) == 0x00) && ((IT) != 0x00))
 RCC_LSE_OFF = 0x0
 RCC_LSE_ON = 0x1
 RCC_LSE_Bypass = 0x5
+# fun define IS_RCC_LSE(LSE) (((LSE) == RCC_LSE_OFF) || ((LSE) == RCC_LSE_ON) || \
 RCC_RTCCLKSource_LSE = 0x100
 RCC_RTCCLKSource_LSI = 0x200
 RCC_RTCCLKSource_HSE_Div32 = 0x300
+# fun define IS_RCC_RTCCLK_SOURCE(SOURCE) (((SOURCE) == RCC_RTCCLKSource_LSE) || \
 RCC_I2S2CLKSource_SYSCLK = 0x0
 RCC_I2S2CLKSource_Ext = 0x1
+# fun define IS_RCC_I2SCLK_SOURCE(SOURCE) (((SOURCE) == RCC_I2S2CLKSource_SYSCLK) || ((SOURCE) == RCC_I2S2CLKSource_Ext))
 RCC_LSEDrive_Low = 0x0
 RCC_LSEDrive_MediumLow = 0x8
 RCC_LSEDrive_MediumHigh = 0x10
 RCC_LSEDrive_High = 0x18
+# fun define IS_RCC_LSE_DRIVE(DRIVE) (((DRIVE) == RCC_LSEDrive_Low) || ((DRIVE) == RCC_LSEDrive_MediumLow) || \
 RCC_AHBPeriph_ADC34 = 0x20000000
 RCC_AHBPeriph_ADC12 = 0x10000000
 RCC_AHBPeriph_GPIOA = 0x20000
@@ -892,6 +1066,8 @@ RCC_AHBPeriph_FLITF = 0x10
 RCC_AHBPeriph_SRAM = 0x4
 RCC_AHBPeriph_DMA2 = 0x2
 RCC_AHBPeriph_DMA1 = 0x1
+# fun define IS_RCC_AHB_PERIPH(PERIPH) ((((PERIPH) & 0xCE81FFA8) == 0x00) && ((PERIPH) != 0x00))
+# fun define IS_RCC_AHB_RST_PERIPH(PERIPH) ((((PERIPH) & 0xCE81FFFF) == 0x00) && ((PERIPH) != 0x00))
 RCC_APB2Periph_SYSCFG = 0x1
 RCC_APB2Periph_TIM1 = 0x800
 RCC_APB2Periph_SPI1 = 0x1000
@@ -900,6 +1076,7 @@ RCC_APB2Periph_USART1 = 0x4000
 RCC_APB2Periph_TIM15 = 0x10000
 RCC_APB2Periph_TIM16 = 0x20000
 RCC_APB2Periph_TIM17 = 0x40000
+# fun define IS_RCC_APB2_PERIPH(PERIPH) ((((PERIPH) & 0xFFF887FE) == 0x00) && ((PERIPH) != 0x00))
 RCC_APB1Periph_TIM2 = 0x1
 RCC_APB1Periph_TIM3 = 0x2
 RCC_APB1Periph_TIM4 = 0x4
@@ -918,6 +1095,7 @@ RCC_APB1Periph_USB = 0x800000
 RCC_APB1Periph_CAN1 = 0x2000000
 RCC_APB1Periph_PWR = 0x10000000
 RCC_APB1Periph_DAC = 0x20000000
+# fun define IS_RCC_APB1_PERIPH(PERIPH) ((((PERIPH) & 0xCD0137C8) == 0x00) && ((PERIPH) != 0x00))
 RCC_MCOSource_NoClock = 0x0
 RCC_MCOSource_LSI = 0x2
 RCC_MCOSource_LSE = 0x3
@@ -925,8 +1103,10 @@ RCC_MCOSource_SYSCLK = 0x4
 RCC_MCOSource_HSI = 0x5
 RCC_MCOSource_HSE = 0x6
 RCC_MCOSource_PLLCLK_Div2 = 0x7
+# fun define IS_RCC_MCO_SOURCE(SOURCE) (((SOURCE) == RCC_MCOSource_NoClock) ||((SOURCE) == RCC_MCOSource_SYSCLK) ||\
 RCC_USBCLKSource_PLLCLK_1Div5 = 0x0
 RCC_USBCLKSource_PLLCLK_Div1 = 0x1
+# fun define IS_RCC_USBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_USBCLKSource_PLLCLK_1Div5) || \
 RCC_FLAG_HSIRDY = 0x1
 RCC_FLAG_HSERDY = 0x11
 RCC_FLAG_PLLRDY = 0x19
@@ -940,6 +1120,8 @@ RCC_FLAG_SFTRST = 0x5C
 RCC_FLAG_IWDGRST = 0x5D
 RCC_FLAG_WWDGRST = 0x5E
 RCC_FLAG_LPWRRST = 0x5F
+# fun define IS_RCC_FLAG(FLAG) (((FLAG) == RCC_FLAG_HSIRDY) || ((FLAG) == RCC_FLAG_HSERDY) || \
+# fun define IS_RCC_HSI_CALIBRATION_VALUE(VALUE) ((VALUE) <= 0x1F)
 # struct RCC_ClocksTypeDef
 
 class RCC_ClocksTypeDef(ctypes.Structure):
@@ -971,6 +1153,7 @@ class RCC_ClocksTypeDef(ctypes.Structure):
 # empty define __STM32F30X_IWDG_H
 IWDG_WriteAccess_Enable = 0x5555
 IWDG_WriteAccess_Disable = 0x0
+# fun define IS_IWDG_WRITE_ACCESS(ACCESS) (((ACCESS) == IWDG_WriteAccess_Enable) || \
 IWDG_Prescaler_4 = 0x0
 IWDG_Prescaler_8 = 0x1
 IWDG_Prescaler_16 = 0x2
@@ -978,9 +1161,13 @@ IWDG_Prescaler_32 = 0x3
 IWDG_Prescaler_64 = 0x4
 IWDG_Prescaler_128 = 0x5
 IWDG_Prescaler_256 = 0x6
+# fun define IS_IWDG_PRESCALER(PRESCALER) (((PRESCALER) == IWDG_Prescaler_4)  || \
 IWDG_FLAG_PVU = 0x1
 IWDG_FLAG_RVU = 0x2
 IWDG_FLAG_WVU = 0x2
+# fun define IS_IWDG_FLAG(FLAG) (((FLAG) == IWDG_FLAG_PVU) || ((FLAG) == IWDG_FLAG_RVU)  || \
+# fun define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
+# fun define IS_IWDG_WINDOW_VALUE(VALUE) ((VALUE) <= 0xFFF)
 # ----------------------------------------
 
 # file stm32f30x_exti.h : 
@@ -993,6 +1180,8 @@ EXTI_Trigger_Rising = 0x8
 EXTI_Trigger_Falling = 0xC
 EXTI_Trigger_Rising_Falling = 0x10
 # empty define __STM32F30x_EXTI_H
+# fun define IS_EXTI_MODE(MODE) (((MODE) == EXTI_Mode_Interrupt) || ((MODE) == EXTI_Mode_Event))
+# fun define IS_EXTI_TRIGGER(TRIGGER) (((TRIGGER) == EXTI_Trigger_Rising) || \
 EXTI_Line0 = 0x0
 EXTI_Line1 = 0x1
 EXTI_Line2 = 0x2
@@ -1029,6 +1218,9 @@ EXTI_Line32 = 0x20
 EXTI_Line33 = 0x21
 EXTI_Line34 = 0x22
 EXTI_Line35 = 0x23
+# fun define IS_EXTI_LINE_ALL(LINE) ((LINE) <= 0x23)
+# fun define IS_EXTI_LINE_EXT(LINE) (((LINE) <= 0x16) || (((LINE) == EXTI_Line29) || ((LINE) == EXTI_Line30) || \
+# fun define IS_GET_EXTI_LINE(LINE) (((LINE) == EXTI_Line0) || ((LINE) == EXTI_Line1) || \
 # struct EXTI_InitTypeDef
 
 class EXTI_InitTypeDef(ctypes.Structure):
@@ -1058,9 +1250,11 @@ DAC_Trigger_T8_TRGO = 0xC
 DAC_Trigger_T15_TRGO = 0x1C
 DAC_Trigger_Ext_IT9 = 0x34
 DAC_Trigger_Software = 0x3C
+# fun define IS_DAC_TRIGGER(TRIGGER) (((TRIGGER) == DAC_Trigger_None)     || \
 DAC_WaveGeneration_None = 0x0
 DAC_WaveGeneration_Noise = 0x40
 DAC_WaveGeneration_Triangle = 0x80
+# fun define IS_DAC_GENERATE_WAVE(WAVE) (((WAVE) == DAC_WaveGeneration_None)  || \
 DAC_LFSRUnmask_Bit0 = 0x0
 DAC_LFSRUnmask_Bits1_0 = 0x100
 DAC_LFSRUnmask_Bits2_0 = 0x200
@@ -1085,17 +1279,25 @@ DAC_TriangleAmplitude_511 = 0x800
 DAC_TriangleAmplitude_1023 = 0x900
 DAC_TriangleAmplitude_2047 = 0xA00
 DAC_TriangleAmplitude_4095 = 0xB00
+# fun define IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(VALUE) (((VALUE) == DAC_LFSRUnmask_Bit0) || \
 DAC_OutputBuffer_Enable = 0x0
 DAC_OutputBuffer_Disable = 0x2
+# fun define IS_DAC_OUTPUT_BUFFER_STATE(STATE) (((STATE) == DAC_OutputBuffer_Enable) || \
 DAC_Channel_1 = 0x0
 DAC_Channel_2 = 0x10
+# fun define IS_DAC_CHANNEL(CHANNEL) (((CHANNEL) == DAC_Channel_1) || \
 DAC_Align_12b_R = 0x0
 DAC_Align_12b_L = 0x4
 DAC_Align_8b_R = 0x8
+# fun define IS_DAC_ALIGN(ALIGN) (((ALIGN) == DAC_Align_12b_R) || \
 DAC_Wave_Noise = 0x40
 DAC_Wave_Triangle = 0x80
+# fun define IS_DAC_WAVE(WAVE) (((WAVE) == DAC_Wave_Noise) || \
+# fun define IS_DAC_DATA(DATA) ((DATA) <= 0xFFF0)
 DAC_IT_DMAUDR = 0x2000
+# fun define IS_DAC_IT(IT) (((IT) == DAC_IT_DMAUDR))
 DAC_FLAG_DMAUDR = 0x2000
+# fun define IS_DAC_FLAG(FLAG) (((FLAG) == DAC_FLAG_DMAUDR))
 # struct DAC_InitTypeDef
 
 class DAC_InitTypeDef(ctypes.Structure):
@@ -1133,6 +1335,13 @@ GPIO_PuPd_DOWN = 0x2
 Bit_RESET = 0x0
 Bit_SET = 0x1
 # empty define __STM32F30x_GPIO_H
+# fun define IS_GPIO_ALL_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \
+# fun define IS_GPIO_LIST_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \
+# fun define IS_GPIO_MODE(MODE) (((MODE) == GPIO_Mode_IN)|| ((MODE) == GPIO_Mode_OUT) || \
+# fun define IS_GPIO_OTYPE(OTYPE) (((OTYPE) == GPIO_OType_PP) || ((OTYPE) == GPIO_OType_OD))
+# fun define IS_GPIO_SPEED(SPEED) (((SPEED) == GPIO_Speed_2MHz) || \
+# fun define IS_GPIO_PUPD(PUPD) (((PUPD) == GPIO_PuPd_NOPULL) || ((PUPD) == GPIO_PuPd_UP) || \
+# fun define IS_GPIO_BIT_ACTION(ACTION) (((ACTION) == Bit_RESET) || ((ACTION) == Bit_SET))
 GPIO_Pin_0 = 0x1
 GPIO_Pin_1 = 0x2
 GPIO_Pin_2 = 0x4
@@ -1150,6 +1359,8 @@ GPIO_Pin_13 = 0x2000
 GPIO_Pin_14 = 0x4000
 GPIO_Pin_15 = 0x8000
 GPIO_Pin_All = 0xFFFF
+# fun define IS_GPIO_PIN(PIN) ((PIN) != (uint16_t)0x00)
+# fun define IS_GET_GPIO_PIN(PIN) (((PIN) == GPIO_Pin_0) || \
 GPIO_PinSource0 = 0x0
 GPIO_PinSource1 = 0x1
 GPIO_PinSource2 = 0x2
@@ -1166,6 +1377,7 @@ GPIO_PinSource12 = 0xC
 GPIO_PinSource13 = 0xD
 GPIO_PinSource14 = 0xE
 GPIO_PinSource15 = 0xF
+# fun define IS_GPIO_PIN_SOURCE(PINSOURCE) (((PINSOURCE) == GPIO_PinSource0) || \
 GPIO_AF_0 = 0x0
 GPIO_AF_1 = 0x1
 GPIO_AF_2 = 0x2
@@ -1181,6 +1393,7 @@ GPIO_AF_11 = 0xB
 GPIO_AF_12 = 0xE
 GPIO_AF_14 = 0xE
 GPIO_AF_15 = 0xF
+# fun define IS_GPIO_AF(AF)   (((AF) == GPIO_AF_0)||((AF) == GPIO_AF_1)||\
 # struct GPIO_InitTypeDef
 
 class GPIO_InitTypeDef(ctypes.Structure):
@@ -1200,6 +1413,15 @@ class GPIO_InitTypeDef(ctypes.Structure):
 # file stm32f30x_tim.h : 
 
 # empty define __stm32f30x_TIM_H
+# fun define IS_TIM_ALL_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST1_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST2_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST3_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST4_PERIPH(PERIPH) (((PERIPH) == TIM1) ||\
+# fun define IS_TIM_LIST5_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST6_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST7_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+# fun define IS_TIM_LIST8_PERIPH(PERIPH) (((PERIPH) == TIM16)||  \
 TIM_OCMode_Timing = 0x0
 TIM_OCMode_Active = 0x10
 TIM_OCMode_Inactive = 0x20
@@ -1212,70 +1434,101 @@ TIM_OCMode_Combined_PWM1 = 0x10040
 TIM_OCMode_Combined_PWM2 = 0x10050
 TIM_OCMode_Asymmetric_PWM1 = 0x10060
 TIM_OCMode_Asymmetric_PWM2 = 0x10070
+# fun define IS_TIM_OC_MODE(MODE) (((MODE) == TIM_OCMode_Timing) || \
+# fun define IS_TIM_OCM(MODE) (((MODE) == TIM_OCMode_Timing) || \
 TIM_OPMode_Single = 0x8
 TIM_OPMode_Repetitive = 0x0
+# fun define IS_TIM_OPM_MODE(MODE) (((MODE) == TIM_OPMode_Single) || \
 TIM_Channel_1 = 0x0
 TIM_Channel_2 = 0x4
 TIM_Channel_3 = 0x8
 TIM_Channel_4 = 0xC
 TIM_Channel_5 = 0x10
 TIM_Channel_6 = 0x14
+# fun define IS_TIM_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
+# fun define IS_TIM_PWMI_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
+# fun define IS_TIM_COMPLEMENTARY_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
 TIM_CKD_DIV1 = 0x0
 TIM_CKD_DIV2 = 0x100
 TIM_CKD_DIV4 = 0x200
+# fun define IS_TIM_CKD_DIV(DIV) (((DIV) == TIM_CKD_DIV1) || \
 TIM_CounterMode_Up = 0x0
 TIM_CounterMode_Down = 0x10
 TIM_CounterMode_CenterAligned1 = 0x20
 TIM_CounterMode_CenterAligned2 = 0x40
 TIM_CounterMode_CenterAligned3 = 0x60
+# fun define IS_TIM_COUNTER_MODE(MODE) (((MODE) == TIM_CounterMode_Up) ||  \
 TIM_OCPolarity_High = 0x0
 TIM_OCPolarity_Low = 0x2
+# fun define IS_TIM_OC_POLARITY(POLARITY) (((POLARITY) == TIM_OCPolarity_High) || \
 TIM_OCNPolarity_High = 0x0
 TIM_OCNPolarity_Low = 0x8
+# fun define IS_TIM_OCN_POLARITY(POLARITY) (((POLARITY) == TIM_OCNPolarity_High) || \
 TIM_OutputState_Disable = 0x0
 TIM_OutputState_Enable = 0x1
+# fun define IS_TIM_OUTPUT_STATE(STATE) (((STATE) == TIM_OutputState_Disable) || \
 TIM_OutputNState_Disable = 0x0
 TIM_OutputNState_Enable = 0x4
+# fun define IS_TIM_OUTPUTN_STATE(STATE) (((STATE) == TIM_OutputNState_Disable) || \
 TIM_CCx_Enable = 0x1
 TIM_CCx_Disable = 0x0
+# fun define IS_TIM_CCX(CCX) (((CCX) == TIM_CCx_Enable) || \
 TIM_CCxN_Enable = 0x4
 TIM_CCxN_Disable = 0x0
+# fun define IS_TIM_CCXN(CCXN) (((CCXN) == TIM_CCxN_Enable) || \
 TIM_Break_Enable = 0x1000
 TIM_Break_Disable = 0x0
+# fun define IS_TIM_BREAK_STATE(STATE) (((STATE) == TIM_Break_Enable) || \
 TIM_Break1_Enable = 0x1000
 TIM_Break1_Disable = 0x0
+# fun define IS_TIM_BREAK1_STATE(STATE) (((STATE) == TIM_Break1_Enable) || \
 TIM_Break2_Enable = 0x1000000
 TIM_Break2_Disable = 0x0
+# fun define IS_TIM_BREAK2_STATE(STATE) (((STATE) == TIM_Break2_Enable) || \
 TIM_BreakPolarity_Low = 0x0
 TIM_BreakPolarity_High = 0x2000
+# fun define IS_TIM_BREAK_POLARITY(POLARITY) (((POLARITY) == TIM_BreakPolarity_Low) || \
 TIM_Break1Polarity_Low = 0x0
 TIM_Break1Polarity_High = 0x2000
+# fun define IS_TIM_BREAK1_POLARITY(POLARITY) (((POLARITY) == TIM_Break1Polarity_Low) || \
 TIM_Break2Polarity_Low = 0x0
 TIM_Break2Polarity_High = 0x2000000
+# fun define IS_TIM_BREAK2_POLARITY(POLARITY) (((POLARITY) == TIM_Break2Polarity_Low) || \
+# fun define IS_TIM_BREAK1_FILTER(FILTER) ((FILTER) <= 0xF)
+# fun define IS_TIM_BREAK2_FILTER(FILTER) ((FILTER) <= 0xF)
 TIM_AutomaticOutput_Enable = 0x4000
 TIM_AutomaticOutput_Disable = 0x0
+# fun define IS_TIM_AUTOMATIC_OUTPUT_STATE(STATE) (((STATE) == TIM_AutomaticOutput_Enable) || \
 TIM_LOCKLevel_OFF = 0x0
 TIM_LOCKLevel_1 = 0x100
 TIM_LOCKLevel_2 = 0x200
 TIM_LOCKLevel_3 = 0x300
+# fun define IS_TIM_LOCK_LEVEL(LEVEL) (((LEVEL) == TIM_LOCKLevel_OFF) || \
 TIM_OSSIState_Enable = 0x400
 TIM_OSSIState_Disable = 0x0
+# fun define IS_TIM_OSSI_STATE(STATE) (((STATE) == TIM_OSSIState_Enable) || \
 TIM_OSSRState_Enable = 0x800
 TIM_OSSRState_Disable = 0x0
+# fun define IS_TIM_OSSR_STATE(STATE) (((STATE) == TIM_OSSRState_Enable) || \
 TIM_OCIdleState_Set = 0x100
 TIM_OCIdleState_Reset = 0x0
+# fun define IS_TIM_OCIDLE_STATE(STATE) (((STATE) == TIM_OCIdleState_Set) || \
 TIM_OCNIdleState_Set = 0x200
 TIM_OCNIdleState_Reset = 0x0
+# fun define IS_TIM_OCNIDLE_STATE(STATE) (((STATE) == TIM_OCNIdleState_Set) || \
 TIM_ICPolarity_Rising = 0x0
 TIM_ICPolarity_Falling = 0x2
 TIM_ICPolarity_BothEdge = 0xA
+# fun define IS_TIM_IC_POLARITY(POLARITY) (((POLARITY) == TIM_ICPolarity_Rising) || \
 TIM_ICSelection_DirectTI = 0x1
 TIM_ICSelection_IndirectTI = 0x2
 TIM_ICSelection_TRC = 0x3
+# fun define IS_TIM_IC_SELECTION(SELECTION) (((SELECTION) == TIM_ICSelection_DirectTI) || \
 TIM_ICPSC_DIV1 = 0x0
 TIM_ICPSC_DIV2 = 0x4
 TIM_ICPSC_DIV4 = 0x8
 TIM_ICPSC_DIV8 = 0xC
+# fun define IS_TIM_IC_PRESCALER(PRESCALER) (((PRESCALER) == TIM_ICPSC_DIV1) || \
 TIM_IT_Update = 0x1
 TIM_IT_CC1 = 0x2
 TIM_IT_CC2 = 0x4
@@ -1284,6 +1537,8 @@ TIM_IT_CC4 = 0x10
 TIM_IT_COM = 0x20
 TIM_IT_Trigger = 0x40
 TIM_IT_Break = 0x80
+# fun define IS_TIM_IT(IT) ((((IT) & (uint16_t)0xFF00) == 0x0000) && ((IT) != 0x0000))
+# fun define IS_TIM_GET_IT(IT) (((IT) == TIM_IT_Update) || \
 TIM_DMABase_CR1 = 0x0
 TIM_DMABase_CR2 = 0x1
 TIM_DMABase_SMCR = 0x2
@@ -1307,6 +1562,7 @@ TIM_DMABase_OR = 0x13
 TIM_DMABase_CCMR3 = 0x14
 TIM_DMABase_CCR5 = 0x15
 TIM_DMABase_CCR6 = 0x16
+# fun define IS_TIM_DMA_BASE(BASE) (((BASE) == TIM_DMABase_CR1) || \
 TIM_DMABurstLength_1Transfer = 0x0
 TIM_DMABurstLength_2Transfers = 0x100
 TIM_DMABurstLength_3Transfers = 0x200
@@ -1325,6 +1581,7 @@ TIM_DMABurstLength_15Transfers = 0xE00
 TIM_DMABurstLength_16Transfers = 0xF00
 TIM_DMABurstLength_17Transfers = 0x1000
 TIM_DMABurstLength_18Transfers = 0x1100
+# fun define IS_TIM_DMA_LENGTH(LENGTH) (((LENGTH) == TIM_DMABurstLength_1Transfer) || \
 TIM_DMA_Update = 0x100
 TIM_DMA_CC1 = 0x200
 TIM_DMA_CC2 = 0x400
@@ -1332,10 +1589,12 @@ TIM_DMA_CC3 = 0x800
 TIM_DMA_CC4 = 0x1000
 TIM_DMA_COM = 0x2000
 TIM_DMA_Trigger = 0x4000
+# fun define IS_TIM_DMA_SOURCE(SOURCE) ((((SOURCE) & (uint16_t)0x80FF) == 0x0000) && ((SOURCE) != 0x0000))
 TIM_ExtTRGPSC_OFF = 0x0
 TIM_ExtTRGPSC_DIV2 = 0x1000
 TIM_ExtTRGPSC_DIV4 = 0x2000
 TIM_ExtTRGPSC_DIV8 = 0x3000
+# fun define IS_TIM_EXT_PRESCALER(PRESCALER) (((PRESCALER) == TIM_ExtTRGPSC_OFF) || \
 TIM_TS_ITR0 = 0x0
 TIM_TS_ITR1 = 0x10
 TIM_TS_ITR2 = 0x20
@@ -1344,18 +1603,24 @@ TIM_TS_TI1F_ED = 0x40
 TIM_TS_TI1FP1 = 0x50
 TIM_TS_TI2FP2 = 0x60
 TIM_TS_ETRF = 0x70
+# fun define IS_TIM_TRIGGER_SELECTION(SELECTION) (((SELECTION) == TIM_TS_ITR0) || \
+# fun define IS_TIM_INTERNAL_TRIGGER_SELECTION(SELECTION) (((SELECTION) == TIM_TS_ITR0) || \
 TIM_TIxExternalCLK1Source_TI1 = 0x50
 TIM_TIxExternalCLK1Source_TI2 = 0x60
 TIM_TIxExternalCLK1Source_TI1ED = 0x40
 TIM_ExtTRGPolarity_Inverted = 0x8000
 TIM_ExtTRGPolarity_NonInverted = 0x0
+# fun define IS_TIM_EXT_POLARITY(POLARITY) (((POLARITY) == TIM_ExtTRGPolarity_Inverted) || \
 TIM_PSCReloadMode_Update = 0x0
 TIM_PSCReloadMode_Immediate = 0x1
+# fun define IS_TIM_PRESCALER_RELOAD(RELOAD) (((RELOAD) == TIM_PSCReloadMode_Update) || \
 TIM_ForcedAction_Active = 0x50
 TIM_ForcedAction_InActive = 0x40
+# fun define IS_TIM_FORCED_ACTION(ACTION) (((ACTION) == TIM_ForcedAction_Active) || \
 TIM_EncoderMode_TI1 = 0x1
 TIM_EncoderMode_TI2 = 0x2
 TIM_EncoderMode_TI12 = 0x3
+# fun define IS_TIM_ENCODER_MODE(MODE) (((MODE) == TIM_EncoderMode_TI1) || \
 TIM_EventSource_Update = 0x1
 TIM_EventSource_CC1 = 0x2
 TIM_EventSource_CC2 = 0x4
@@ -1365,14 +1630,19 @@ TIM_EventSource_COM = 0x20
 TIM_EventSource_Trigger = 0x40
 TIM_EventSource_Break = 0x80
 TIM_EventSource_Break2 = 0x100
+# fun define IS_TIM_EVENT_SOURCE(SOURCE) ((((SOURCE) & (uint16_t)0xFE00) == 0x0000) && ((SOURCE) != 0x0000))
 TIM_UpdateSource_Global = 0x0
 TIM_UpdateSource_Regular = 0x1
+# fun define IS_TIM_UPDATE_SOURCE(SOURCE) (((SOURCE) == TIM_UpdateSource_Global) || \
 TIM_OCPreload_Enable = 0x8
 TIM_OCPreload_Disable = 0x0
+# fun define IS_TIM_OCPRELOAD_STATE(STATE) (((STATE) == TIM_OCPreload_Enable) || \
 TIM_OCFast_Enable = 0x4
 TIM_OCFast_Disable = 0x0
+# fun define IS_TIM_OCFAST_STATE(STATE) (((STATE) == TIM_OCFast_Enable) || \
 TIM_OCClear_Enable = 0x80
 TIM_OCClear_Disable = 0x0
+# fun define IS_TIM_OCCLEAR_STATE(STATE) (((STATE) == TIM_OCClear_Enable) || \
 TIM_TRGOSource_Reset = 0x0
 TIM_TRGOSource_Enable = 0x10
 TIM_TRGOSource_Update = 0x20
@@ -1381,6 +1651,7 @@ TIM_TRGOSource_OC1Ref = 0x40
 TIM_TRGOSource_OC2Ref = 0x50
 TIM_TRGOSource_OC3Ref = 0x60
 TIM_TRGOSource_OC4Ref = 0x70
+# fun define IS_TIM_TRGO_SOURCE(SOURCE) (((SOURCE) == TIM_TRGOSource_Reset) || \
 TIM_TRGO2Source_Reset = 0x0
 TIM_TRGO2Source_Enable = 0x100000
 TIM_TRGO2Source_Update = 0x200000
@@ -1397,13 +1668,16 @@ TIM_TRGO2Source_OC4RefRising_OC6RefRising = 0xC00000
 TIM_TRGO2Source_OC4RefRising_OC6RefFalling = 0xD00000
 TIM_TRGO2Source_OC5RefRising_OC6RefRising = 0xE00000
 TIM_TRGO2Source_OC5RefRising_OC6RefFalling = 0xF00000
+# fun define IS_TIM_TRGO2_SOURCE(SOURCE) (((SOURCE) == TIM_TRGO2Source_Reset) || \
 TIM_SlaveMode_Reset = 0x4
 TIM_SlaveMode_Gated = 0x5
 TIM_SlaveMode_Trigger = 0x6
 TIM_SlaveMode_External1 = 0x7
 TIM_SlaveMode_Combined_ResetTrigger = 0x10000
+# fun define IS_TIM_SLAVE_MODE(MODE) (((MODE) == TIM_SlaveMode_Reset) || \
 TIM_MasterSlaveMode_Enable = 0x80
 TIM_MasterSlaveMode_Disable = 0x0
+# fun define IS_TIM_MSM_STATE(STATE) (((STATE) == TIM_MasterSlaveMode_Enable) || \
 TIM16_GPIO = 0x0
 TIM16_RTC_CLK = 0x1
 TIM16_HSEDiv32 = 0x2
@@ -1420,6 +1694,7 @@ TIM8_ADC2_AWDG3 = 0x3
 TIM8_ADC3_AWDG1 = 0x4
 TIM8_ADC3_AWDG2 = 0x8
 TIM8_ADC3_AWDG3 = 0xC
+# fun define IS_TIM_REMAP(TIM_REMAP)  (((TIM_REMAP) == TIM16_GPIO)|| \
 TIM_FLAG_Update = 0x1
 TIM_FLAG_CC1 = 0x2
 TIM_FLAG_CC2 = 0x4
@@ -1435,8 +1710,13 @@ TIM_FLAG_CC3OF = 0x800
 TIM_FLAG_CC4OF = 0x1000
 TIM_FLAG_CC5 = 0x10000
 TIM_FLAG_CC6 = 0x20000
+# fun define IS_TIM_GET_FLAG(FLAG) (((FLAG) == TIM_FLAG_Update) || \
+# fun define IS_TIM_CLEAR_FLAG(TIM_FLAG) ((((TIM_FLAG) & (uint32_t)0xE000) == 0x0000) && ((TIM_FLAG) != 0x0000))
 TIM_OCReferenceClear_ETRF = 0x8
 TIM_OCReferenceClear_OCREFCLR = 0x0
+# fun define TIM_OCREFERENCECECLEAR_SOURCE(SOURCE) (((SOURCE) == TIM_OCReferenceClear_ETRF) || \
+# fun define IS_TIM_IC_FILTER(ICFILTER) ((ICFILTER) <= 0xF)
+# fun define IS_TIM_EXT_FILTER(EXTFILTER) ((EXTFILTER) <= 0xF)
 TIM_DMABurstLength_1Byte = 0x0
 TIM_DMABurstLength_2Bytes = 0x100
 TIM_DMABurstLength_3Bytes = 0x200
@@ -1523,16 +1803,23 @@ class TIM_BDTRInitTypeDef(ctypes.Structure):
 # empty define __STM32F30x_MISC_H
 NVIC_VectTab_RAM = 0x20000000
 NVIC_VectTab_FLASH = 0x8000000
+# fun define IS_NVIC_VECTTAB(VECTTAB) (((VECTTAB) == NVIC_VectTab_RAM) || \
 NVIC_LP_SEVONPEND = 0x10
 NVIC_LP_SLEEPDEEP = 0x4
 NVIC_LP_SLEEPONEXIT = 0x2
+# fun define IS_NVIC_LP(LP) (((LP) == NVIC_LP_SEVONPEND) || \
 NVIC_PriorityGroup_0 = 0x700
 NVIC_PriorityGroup_1 = 0x600
 NVIC_PriorityGroup_2 = 0x500
 NVIC_PriorityGroup_3 = 0x400
 NVIC_PriorityGroup_4 = 0x300
+# fun define IS_NVIC_PRIORITY_GROUP(GROUP) (((GROUP) == NVIC_PriorityGroup_0) || \
+# fun define IS_NVIC_PREEMPTION_PRIORITY(PRIORITY)  ((PRIORITY) < 0x10)
+# fun define IS_NVIC_SUB_PRIORITY(PRIORITY)  ((PRIORITY) < 0x10)
+# fun define IS_NVIC_OFFSET(OFFSET)  ((OFFSET) < 0x000FFFFF)
 SysTick_CLKSource_HCLK_Div8 = 0xFFFFFFFB
 SysTick_CLKSource_HCLK = 0x4
+# fun define IS_SYSTICK_CLK_SOURCE(SOURCE) (((SOURCE) == SysTick_CLKSource_HCLK) || \
 # struct NVIC_InitTypeDef
 
 class NVIC_InitTypeDef(ctypes.Structure):
@@ -1554,6 +1841,7 @@ class NVIC_InitTypeDef(ctypes.Structure):
 DBGMCU_SLEEP = 0x1
 DBGMCU_STOP = 0x2
 DBGMCU_STANDBY = 0x4
+# fun define IS_DBGMCU_PERIPH(PERIPH) ((((PERIPH) & 0xFFFFFFF8) == 0x00) && ((PERIPH) != 0x00))
 DBGMCU_TIM2_STOP = 0x1
 DBGMCU_TIM3_STOP = 0x2
 DBGMCU_TIM4_STOP = 0x4
@@ -1565,29 +1853,42 @@ DBGMCU_IWDG_STOP = 0x1000
 DBGMCU_I2C1_SMBUS_TIMEOUT = 0x200000
 DBGMCU_I2C2_SMBUS_TIMEOUT = 0x400000
 DBGMCU_CAN1_STOP = 0x2000000
+# fun define IS_DBGMCU_APB1PERIPH(PERIPH) ((((PERIPH) & 0xFD9FE3C8) == 0x00) && ((PERIPH) != 0x00))
 DBGMCU_TIM1_STOP = 0x1
 DBGMCU_TIM8_STOP = 0x2
 DBGMCU_TIM15_STOP = 0x4
 DBGMCU_TIM16_STOP = 0x8
 DBGMCU_TIM17_STOP = 0x10
+# fun define IS_DBGMCU_APB2PERIPH(PERIPH) ((((PERIPH) & 0xFFFFFFE0) == 0x00) && ((PERIPH) != 0x00))
 # ----------------------------------------
 
 # file stm32f30x_i2c.h : 
 
 # empty define __STM32F30x_I2C_H
+# fun define IS_I2C_ALL_PERIPH(PERIPH)       (((PERIPH) == I2C1) || \
 I2C_AnalogFilter_Enable = 0x0
 I2C_AnalogFilter_Disable = 0x1000
+# fun define IS_I2C_ANALOG_FILTER(FILTER)    (((FILTER) == I2C_AnalogFilter_Enable) || \
+# fun define IS_I2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000F)
 I2C_Mode_I2C = 0x0
 I2C_Mode_SMBusDevice = 0x200000
 I2C_Mode_SMBusHost = 0x100000
+# fun define IS_I2C_MODE(MODE)               (((MODE) == I2C_Mode_I2C) || \
 I2C_Ack_Enable = 0x0
 I2C_Ack_Disable = 0x8000
+# fun define IS_I2C_ACK(ACK)                 (((ACK) == I2C_Ack_Enable) || \
 I2C_AcknowledgedAddress_7bit = 0x0
 I2C_AcknowledgedAddress_10bit = 0x400
+# fun define IS_I2C_ACKNOWLEDGE_ADDRESS(ADDRESS) (((ADDRESS) == I2C_AcknowledgedAddress_7bit) || \
+# fun define IS_I2C_OWN_ADDRESS1(ADDRESS1)   ((ADDRESS1) <= (uint32_t)0x000003FF)
 I2C_Direction_Transmitter = 0x0
 I2C_Direction_Receiver = 0x400
+# fun define IS_I2C_DIRECTION(DIRECTION)     (((DIRECTION) == I2C_Direction_Transmitter) || \
 I2C_DMAReq_Tx = 0x4000
 I2C_DMAReq_Rx = 0x8000
+# fun define IS_I2C_DMA_REQ(REQ)             ((((REQ) & (uint32_t)0xFFFF3FFF) == 0x00) && ((REQ) != 0x00))
+# fun define IS_I2C_SLAVE_ADDRESS(ADDRESS)   ((ADDRESS) <= (uint16_t)0x03FF)
+# fun define IS_I2C_OWN_ADDRESS2(ADDRESS2)   ((ADDRESS2) <= (uint16_t)0x00FF)
 I2C_OA2_NoMask = 0x0
 I2C_OA2_Mask01 = 0x1
 I2C_OA2_Mask02 = 0x2
@@ -1596,6 +1897,8 @@ I2C_OA2_Mask04 = 0x4
 I2C_OA2_Mask05 = 0x5
 I2C_OA2_Mask06 = 0x6
 I2C_OA2_Mask07 = 0x7
+# fun define IS_I2C_OWN_ADDRESS2_MASK(MASK)  (((MASK) == I2C_OA2_NoMask) || \
+# fun define IS_I2C_TIMEOUT(TIMEOUT)   ((TIMEOUT) <= (uint16_t)0x0FFF)
 I2C_Register_CR1 = 0x0
 I2C_Register_CR2 = 0x4
 I2C_Register_OAR1 = 0x8
@@ -1607,6 +1910,7 @@ I2C_Register_ICR = 0x1C
 I2C_Register_PECR = 0x20
 I2C_Register_RXDR = 0x24
 I2C_Register_TXDR = 0x28
+# fun define IS_I2C_REGISTER(REGISTER)       (((REGISTER) == I2C_Register_CR1) || \
 I2C_IT_ERRI = 0x80
 I2C_IT_TCI = 0x40
 I2C_IT_STOPI = 0x20
@@ -1614,6 +1918,7 @@ I2C_IT_NACKI = 0x10
 I2C_IT_ADDRI = 0x8
 I2C_IT_RXI = 0x4
 I2C_IT_TXI = 0x2
+# fun define IS_I2C_CONFIG_IT(IT)            ((((IT) & (uint32_t)0xFFFFFF01) == 0x00) && ((IT) != 0x00))
 I2C_FLAG_TXE = 0x1
 I2C_FLAG_TXIS = 0x2
 I2C_FLAG_RXNE = 0x4
@@ -1629,6 +1934,8 @@ I2C_FLAG_PECERR = 0x800
 I2C_FLAG_TIMEOUT = 0x1000
 I2C_FLAG_ALERT = 0x2000
 I2C_FLAG_BUSY = 0x8000
+# fun define IS_I2C_CLEAR_FLAG(FLAG)         ((((FLAG) & (uint32_t)0xFFFF4000) == 0x00) && ((FLAG) != 0x00))
+# fun define IS_I2C_GET_FLAG(FLAG)           (((FLAG) == I2C_FLAG_TXE) || ((FLAG) == I2C_FLAG_TXIS) || \
 I2C_IT_TXIS = 0x2
 I2C_IT_RXNE = 0x4
 I2C_IT_ADDR = 0x8
@@ -1642,13 +1949,17 @@ I2C_IT_OVR = 0x400
 I2C_IT_PECERR = 0x800
 I2C_IT_TIMEOUT = 0x1000
 I2C_IT_ALERT = 0x2000
+# fun define IS_I2C_CLEAR_IT(IT)             ((((IT) & (uint32_t)0xFFFFC001) == 0x00) && ((IT) != 0x00))
+# fun define IS_I2C_GET_IT(IT)               (((IT) == I2C_IT_TXIS) || ((IT) == I2C_IT_RXNE) || \
 I2C_Reload_Mode = 0x1000000
 I2C_AutoEnd_Mode = 0x2000000
 I2C_SoftEnd_Mode = 0x0
+# fun define IS_RELOAD_END_MODE(MODE)        (((MODE) == I2C_Reload_Mode) || \
 I2C_No_StartStop = 0x0
 I2C_Generate_Stop = 0x4000
 I2C_Generate_Start_Read = 0x2400
 I2C_Generate_Start_Write = 0x2000
+# fun define IS_START_STOP_MODE(MODE)        (((MODE) == I2C_Generate_Stop) || \
 # struct I2C_InitTypeDef
 
 class I2C_InitTypeDef(ctypes.Structure):
@@ -1670,29 +1981,39 @@ class I2C_InitTypeDef(ctypes.Structure):
 # file stm32f30x_dma.h : 
 
 # empty define __STM32F30X_DMA_H
+# fun define IS_DMA_ALL_PERIPH(PERIPH) (((PERIPH) == DMA1_Channel1) || \
 DMA_DIR_PeripheralSRC = 0x0
 DMA_DIR_PeripheralDST = 0x10
+# fun define IS_DMA_DIR(DIR) (((DIR) == DMA_DIR_PeripheralSRC) || \
 DMA_PeripheralInc_Disable = 0x0
 DMA_PeripheralInc_Enable = 0x40
+# fun define IS_DMA_PERIPHERAL_INC_STATE(STATE) (((STATE) == DMA_PeripheralInc_Disable) || \
 DMA_MemoryInc_Disable = 0x0
 DMA_MemoryInc_Enable = 0x80
+# fun define IS_DMA_MEMORY_INC_STATE(STATE) (((STATE) == DMA_MemoryInc_Disable) || \
 DMA_PeripheralDataSize_Byte = 0x0
 DMA_PeripheralDataSize_HalfWord = 0x100
 DMA_PeripheralDataSize_Word = 0x200
+# fun define IS_DMA_PERIPHERAL_DATA_SIZE(SIZE) (((SIZE) == DMA_PeripheralDataSize_Byte) || \
 DMA_MemoryDataSize_Byte = 0x0
 DMA_MemoryDataSize_HalfWord = 0x400
 DMA_MemoryDataSize_Word = 0x800
+# fun define IS_DMA_MEMORY_DATA_SIZE(SIZE) (((SIZE) == DMA_MemoryDataSize_Byte) || \
 DMA_Mode_Normal = 0x0
 DMA_Mode_Circular = 0x20
+# fun define IS_DMA_MODE(MODE) (((MODE) == DMA_Mode_Normal) || ((MODE) == DMA_Mode_Circular))
 DMA_Priority_VeryHigh = 0x3000
 DMA_Priority_High = 0x2000
 DMA_Priority_Medium = 0x1000
 DMA_Priority_Low = 0x0
+# fun define IS_DMA_PRIORITY(PRIORITY) (((PRIORITY) == DMA_Priority_VeryHigh) || \
 DMA_M2M_Disable = 0x0
 DMA_M2M_Enable = 0x4000
+# fun define IS_DMA_M2M_STATE(STATE) (((STATE) == DMA_M2M_Disable) || ((STATE) == DMA_M2M_Enable))
 DMA_IT_TC = 0x2
 DMA_IT_HT = 0x4
 DMA_IT_TE = 0x8
+# fun define IS_DMA_CONFIG_IT(IT) ((((IT) & 0xFFFFFFF1) == 0x00) && ((IT) != 0x00))
 DMA1_IT_GL1 = 0x1
 DMA1_IT_TC1 = 0x2
 DMA1_IT_HT1 = 0x4
@@ -1741,6 +2062,8 @@ DMA2_IT_GL5 = 0x10010000
 DMA2_IT_TC5 = 0x10020000
 DMA2_IT_HT5 = 0x10040000
 DMA2_IT_TE5 = 0x10080000
+# fun define IS_DMA_CLEAR_IT(IT) (((((IT) & 0xF0000000) == 0x00) || (((IT) & 0xEFF00000) == 0x00)) && ((IT) != 0x00))
+# fun define IS_DMA_GET_IT(IT) (((IT) == DMA1_IT_GL1) || ((IT) == DMA1_IT_TC1) || \
 DMA1_FLAG_GL1 = 0x1
 DMA1_FLAG_TC1 = 0x2
 DMA1_FLAG_HT1 = 0x4
@@ -1789,6 +2112,8 @@ DMA2_FLAG_GL5 = 0x10010000
 DMA2_FLAG_TC5 = 0x10020000
 DMA2_FLAG_HT5 = 0x10040000
 DMA2_FLAG_TE5 = 0x10080000
+# fun define IS_DMA_CLEAR_FLAG(FLAG) (((((FLAG) & 0xF0000000) == 0x00) || (((FLAG) & 0xEFF00000) == 0x00)) && ((FLAG) != 0x00))
+# fun define IS_DMA_GET_FLAG(FLAG) (((FLAG) == DMA1_FLAG_GL1) || ((FLAG) == DMA1_FLAG_TC1) || \
 # struct DMA_InitTypeDef
 
 class DMA_InitTypeDef(ctypes.Structure):
@@ -1814,24 +2139,32 @@ class DMA_InitTypeDef(ctypes.Structure):
 # file stm32f30x_adc.h : 
 
 # empty define __STM32F30x_ADC_H
+# fun define IS_ADC_ALL_PERIPH(PERIPH) (((PERIPH) == ADC1) || \
+# fun define IS_ADC_DMA_PERIPH(PERIPH) (((PERIPH) == ADC1) || \
 ADC_ContinuousConvMode_Enable	 = 0x2000
 ADC_ContinuousConvMode_Disable	 = 0x0
+# fun define IS_ADC_CONVMODE(MODE) (((MODE) == ADC_ContinuousConvMode_Enable) || \
 ADC_OverrunMode_Enable	 = 0x1000
 ADC_OverrunMode_Disable	 = 0x0
+# fun define IS_ADC_OVRUNMODE(MODE) (((MODE) == ADC_OverrunMode_Enable) || \
 ADC_AutoInjec_Enable	 = 0x2000000
 ADC_AutoInjec_Disable	 = 0x0
+# fun define IS_ADC_AUTOINJECMODE(MODE) (((MODE) == ADC_AutoInjec_Enable) || \
 ADC_Resolution_12b = 0x0
 ADC_Resolution_10b = 0x8
 ADC_Resolution_8b = 0x10
 ADC_Resolution_6b = 0x18
+# fun define IS_ADC_RESOLUTION(RESOLUTION) (((RESOLUTION) == ADC_Resolution_12b) || \
 ADC_ExternalTrigEventEdge_None = 0x0
 ADC_ExternalTrigEventEdge_RisingEdge = 0x400
 ADC_ExternalTrigEventEdge_FallingEdge = 0x800
 ADC_ExternalTrigEventEdge_BothEdge = 0xC00
+# fun define IS_EXTERNALTRIG_EDGE(EDGE) (((EDGE) == ADC_ExternalTrigEventEdge_None) || \
 ADC_ExternalTrigInjecEventEdge_None		 = 0x0
 ADC_ExternalTrigInjecEventEdge_RisingEdge	 = 0x40
 ADC_ExternalTrigInjecEventEdge_FallingEdge	 = 0x80
 ADC_ExternalTrigInjecEventEdge_BothEdge	 = 0xC0
+# fun define IS_EXTERNALTRIGINJ_EDGE(EDGE) (((EDGE) == ADC_ExternalTrigInjecEventEdge_None) || \
 ADC_ExternalTrigConvEvent_0 = 0x0
 ADC_ExternalTrigConvEvent_1 = 0x40
 ADC_ExternalTrigConvEvent_2 = 0x80
@@ -1848,6 +2181,7 @@ ADC_ExternalTrigConvEvent_12 = 0x300
 ADC_ExternalTrigConvEvent_13 = 0x340
 ADC_ExternalTrigConvEvent_14 = 0x380
 ADC_ExternalTrigConvEvent_15 = 0x3C0
+# fun define IS_ADC_EXT_TRIG(REGTRIG) (((REGTRIG) == ADC_ExternalTrigConvEvent_0) || \
 ADC_ExternalTrigInjecConvEvent_0 = 0x0
 ADC_ExternalTrigInjecConvEvent_1 = 0x4
 ADC_ExternalTrigInjecConvEvent_2 = 0x8
@@ -1864,8 +2198,10 @@ ADC_ExternalTrigInjecConvEvent_12 = 0x30
 ADC_ExternalTrigInjecConvEvent_13 = 0x34
 ADC_ExternalTrigInjecConvEvent_14 = 0x38
 ADC_ExternalTrigInjecConvEvent_15 = 0x3C
+# fun define IS_ADC_EXT_INJEC_TRIG(INJTRIG) (((INJTRIG) == ADC_ExternalTrigInjecConvEvent_0) || \
 ADC_DataAlign_Right = 0x0
 ADC_DataAlign_Left = 0x20
+# fun define IS_ADC_DATA_ALIGN(ALIGN) (((ALIGN) == ADC_DataAlign_Right) || \
 ADC_Channel_1 = 0x1
 ADC_Channel_2 = 0x2
 ADC_Channel_3 = 0x3
@@ -1887,6 +2223,8 @@ ADC_Channel_18 = 0x12
 ADC_Channel_TempSensor = 0x10
 ADC_Channel_Vrefint = 0x12
 ADC_Channel_Vbat = 0x11
+# fun define IS_ADC_CHANNEL(CHANNEL) (((CHANNEL) == ADC_Channel_1)  || \
+# fun define IS_ADC_DIFFCHANNEL(CHANNEL) (((CHANNEL) == ADC_Channel_1)  || \
 ADC_Mode_Independent = 0x0
 ADC_Mode_CombRegSimulInjSimul = 0x1
 ADC_Mode_CombRegSimulAltTrig = 0x2
@@ -1894,13 +2232,16 @@ ADC_Mode_InjSimul = 0x5
 ADC_Mode_RegSimul = 0x6
 ADC_Mode_Interleave = 0x7
 ADC_Mode_AltTrig = 0x9
+# fun define IS_ADC_MODE(MODE) (((MODE) == ADC_Mode_Independent) || \
 ADC_Clock_AsynClkMode = 0x0
 ADC_Clock_SynClkModeDiv1 = 0x10000
 ADC_Clock_SynClkModeDiv2 = 0x20000
 ADC_Clock_SynClkModeDiv4 = 0x30000
+# fun define IS_ADC_CLOCKMODE(CLOCK) (((CLOCK) == ADC_Clock_AsynClkMode) ||\
 ADC_DMAAccessMode_Disabled = 0x0
 ADC_DMAAccessMode_1 = 0x8000
 ADC_DMAAccessMode_2 = 0xC000
+# fun define IS_ADC_DMA_ACCESS_MODE(MODE) (((MODE) == ADC_DMAAccessMode_Disabled) || \
 ADC_SampleTime_1Cycles5 = 0x0
 ADC_SampleTime_2Cycles5 = 0x1
 ADC_SampleTime_4Cycles5 = 0x2
@@ -1909,10 +2250,12 @@ ADC_SampleTime_19Cycles5 = 0x4
 ADC_SampleTime_61Cycles5 = 0x5
 ADC_SampleTime_181Cycles5 = 0x6
 ADC_SampleTime_601Cycles5 = 0x7
+# fun define IS_ADC_SAMPLE_TIME(TIME) (((TIME) == ADC_SampleTime_1Cycles5) || \
 ADC_InjectedChannel_1 = 0x1
 ADC_InjectedChannel_2 = 0x2
 ADC_InjectedChannel_3 = 0x3
 ADC_InjectedChannel_4 = 0x4
+# fun define IS_ADC_INJECTED_CHANNEL(CHANNEL) (((CHANNEL) == ADC_InjectedChannel_1) || \
 ADC_AnalogWatchdog_SingleRegEnable = 0xC00000
 ADC_AnalogWatchdog_SingleInjecEnable = 0x1400000
 ADC_AnalogWatchdog_SingleRegOrInjecEnable = 0x1C00000
@@ -1920,10 +2263,13 @@ ADC_AnalogWatchdog_AllRegEnable = 0x800000
 ADC_AnalogWatchdog_AllInjecEnable = 0x1000000
 ADC_AnalogWatchdog_AllRegAllInjecEnable = 0x1800000
 ADC_AnalogWatchdog_None = 0x0
+# fun define IS_ADC_ANALOG_WATCHDOG(WATCHDOG) (((WATCHDOG) == ADC_AnalogWatchdog_SingleRegEnable) || \
 ADC_CalibrationMode_Single = 0x0
 ADC_CalibrationMode_Differential = 0x40000000
+# fun define IS_ADC_CALIBRATION_MODE(MODE) (((MODE) == ADC_CalibrationMode_Single) ||((MODE) == ADC_CalibrationMode_Differential))
 ADC_DMAMode_OneShot	 = 0x0
 ADC_DMAMode_Circular = 0x2
+# fun define IS_ADC_DMA_MODE(MODE) (((MODE) == ADC_DMAMode_OneShot) || ((MODE) == ADC_DMAMode_Circular))
 ADC_IT_RDY = 0x1
 ADC_IT_EOSMP = 0x2
 ADC_IT_EOC = 0x4
@@ -1935,6 +2281,8 @@ ADC_IT_AWD1 = 0x80
 ADC_IT_AWD2 = 0x100
 ADC_IT_AWD3 = 0x200
 ADC_IT_JQOVF = 0x400
+# fun define IS_ADC_IT(IT) ((((IT) & (uint16_t)0xF800) == 0x0000) && ((IT) != 0x0000))
+# fun define IS_ADC_GET_IT(IT) (((IT) == ADC_IT_RDY) || ((IT) == ADC_IT_EOSMP) || \
 ADC_FLAG_RDY = 0x1
 ADC_FLAG_EOSMP = 0x2
 ADC_FLAG_EOC = 0x4
@@ -1946,6 +2294,8 @@ ADC_FLAG_AWD1 = 0x80
 ADC_FLAG_AWD2 = 0x100
 ADC_FLAG_AWD3 = 0x200
 ADC_FLAG_JQOVF = 0x400
+# fun define IS_ADC_CLEAR_FLAG(FLAG) ((((FLAG) & (uint16_t)0xF800) == 0x0000) && ((FLAG) != 0x0000))
+# fun define IS_ADC_GET_FLAG(FLAG) (((FLAG) == ADC_FLAG_RDY) || ((FLAG) == ADC_FLAG_EOSMP) || \
 ADC_FLAG_MSTRDY = 0x1
 ADC_FLAG_MSTEOSMP = 0x2
 ADC_FLAG_MSTEOC = 0x4
@@ -1968,6 +2318,14 @@ ADC_FLAG_SLVAWD1 = 0x800000
 ADC_FLAG_SLVAWD2 = 0x1000000
 ADC_FLAG_SLVAWD3 = 0x2000000
 ADC_FLAG_SLVJQOVF = 0x4000000
+# fun define IS_ADC_CLEAR_COMMONFLAG(FLAG) ((((FLAG) & (uint32_t)0xF800F800) == 0x0000) && ((FLAG) != 0x00000000))
+# fun define IS_ADC_GET_COMMONFLAG(FLAG) (((FLAG) == ADC_FLAG_MSTRDY) || ((FLAG) == ADC_FLAG_MSTEOSMP) || \
+# fun define IS_ADC_THRESHOLD(THRESHOLD) ((THRESHOLD) <= 0xFFF)
+# fun define IS_ADC_OFFSET(OFFSET) ((OFFSET) <= 0xFFF)
+# fun define IS_ADC_INJECTED_LENGTH(LENGTH) (((LENGTH) >= 0x1) && ((LENGTH) <= 0x4))
+# fun define IS_ADC_REGULAR_LENGTH(LENGTH) (((LENGTH) >= 0x1) && ((LENGTH) <= 0x10))
+# fun define IS_ADC_REGULAR_DISC_NUMBER(NUMBER) (((NUMBER) >= 0x1) && ((NUMBER) <= 0x8))
+# fun define IS_ADC_TWOSAMPLING_DELAY(DELAY)	(((DELAY) <= 0xF))
 # struct ADC_InitTypeDef
 
 class ADC_InitTypeDef(ctypes.Structure):
@@ -2024,6 +2382,9 @@ WWDG_Prescaler_1 = 0x0
 WWDG_Prescaler_2 = 0x80
 WWDG_Prescaler_4 = 0x100
 WWDG_Prescaler_8 = 0x180
+# fun define IS_WWDG_PRESCALER(PRESCALER) (((PRESCALER) == WWDG_Prescaler_1) || \
+# fun define IS_WWDG_WINDOW_VALUE(VALUE) ((VALUE) <= 0x7F)
+# fun define IS_WWDG_COUNTER(COUNTER) (((COUNTER) >= 0x40) && ((COUNTER) <= 0x7F))
 # ----------------------------------------
 
 # file stm32f30x_opamp.h : 
@@ -2033,29 +2394,39 @@ OPAMP_Selection_OPAMP1 = 0x0
 OPAMP_Selection_OPAMP2 = 0x4
 OPAMP_Selection_OPAMP3 = 0x8
 OPAMP_Selection_OPAMP4 = 0xC
+# fun define IS_OPAMP_ALL_PERIPH(PERIPH) (((PERIPH) == OPAMP_Selection_OPAMP1) || \
 OPAMP_InvertingInput_IO1 = 0x0
 OPAMP_InvertingInput_IO2 = 0x20
 OPAMP_InvertingInput_PGA = 0x40
 OPAMP_InvertingInput_Vout = 0x60
+# fun define IS_OPAMP_INVERTING_INPUT(INPUT) (((INPUT) == OPAMP_InvertingInput_IO1) || \
 OPAMP_NonInvertingInput_IO1 = 0x0
 OPAMP_NonInvertingInput_IO2 = 0x4
 OPAMP_NonInvertingInput_IO3 = 0x8
 OPAMP_NonInvertingInput_IO4 = 0xC
+# fun define IS_OPAMP_NONINVERTING_INPUT(INPUT) (((INPUT) == OPAMP_NonInvertingInput_IO1) || \
 OPAMP_OPAMP_PGAGain_2 = 0x0
 OPAMP_OPAMP_PGAGain_4 = 0x4000
 OPAMP_OPAMP_PGAGain_8 = 0x8000
 OPAMP_OPAMP_PGAGain_16 = 0xC000
+# fun define IS_OPAMP_PGAGAIN(GAIN) (((GAIN) == OPAMP_OPAMP_PGAGain_2) || \
 OPAMP_PGAConnect_No = 0x0
 OPAMP_PGAConnect_IO1 = 0x20000
 OPAMP_PGAConnect_IO2 = 0x30000
+# fun define IS_OPAMP_PGACONNECT(CONNECT) (((CONNECT) == OPAMP_PGAConnect_No)  || \
+# fun define IS_OPAMP_SECONDARY_INVINPUT(INVINPUT) (((INVINPUT) == OPAMP_InvertingInput_IO1) || \
 OPAMP_Input_Inverting = 0x18
 OPAMP_Input_NonInverting = 0x13
+# fun define IS_OPAMP_INPUT(INPUT) (((INPUT) == OPAMP_Input_Inverting) || \
 OPAMP_Vref_3VDDA = 0x0
 OPAMP_Vref_10VDDA = 0x1000
 OPAMP_Vref_50VDDA = 0x2000
 OPAMP_Vref_90VDDA = 0x3000
+# fun define IS_OPAMP_VREF(VREF) (((VREF) == OPAMP_Vref_3VDDA)  || \
 OPAMP_Trimming_Factory = 0x0
 OPAMP_Trimming_User = 0x40000
+# fun define IS_OPAMP_TRIMMING(TRIMMING) (((TRIMMING) == OPAMP_Trimming_Factory) || \
+# fun define IS_OPAMP_TRIMMINGVALUE(VALUE) ((VALUE) <= 0x0000001F) /*!< Trimming value */
 OPAMP_OutputLevel_High = 0x40000000
 OPAMP_OutputLevel_Low = 0x0
 # struct OPAMP_InitTypeDef
@@ -2074,6 +2445,7 @@ class OPAMP_InitTypeDef(ctypes.Structure):
 # file stm32f30x_can.h : 
 
 # empty define __STM32F30x_CAN_H
+# fun define IS_CAN_ALL_PERIPH(PERIPH) (((PERIPH) == CAN1))
 CAN_InitStatus_Failed = 0x0
 CAN_InitStatus_Success = 0x1
 CANINITFAILED = 0x0
@@ -2082,15 +2454,18 @@ CAN_Mode_Normal = 0x0
 CAN_Mode_LoopBack = 0x1
 CAN_Mode_Silent = 0x2
 CAN_Mode_Silent_LoopBack = 0x3
+# fun define IS_CAN_MODE(MODE) (((MODE) == CAN_Mode_Normal) || \
 CAN_OperatingMode_Initialization = 0x0
 CAN_OperatingMode_Normal = 0x1
 CAN_OperatingMode_Sleep = 0x2
+# fun define IS_CAN_OPERATING_MODE(MODE) (((MODE) == CAN_OperatingMode_Initialization) ||\
 CAN_ModeStatus_Failed = 0x0
 CAN_ModeStatus_Success = 0x1
 CAN_SJW_1tq = 0x0
 CAN_SJW_2tq = 0x1
 CAN_SJW_3tq = 0x2
 CAN_SJW_4tq = 0x3
+# fun define IS_CAN_SJW(SJW) (((SJW) == CAN_SJW_1tq) || ((SJW) == CAN_SJW_2tq)|| \
 CAN_BS1_1tq = 0x0
 CAN_BS1_2tq = 0x1
 CAN_BS1_3tq = 0x2
@@ -2107,6 +2482,7 @@ CAN_BS1_13tq = 0xC
 CAN_BS1_14tq = 0xD
 CAN_BS1_15tq = 0xE
 CAN_BS1_16tq = 0xF
+# fun define IS_CAN_BS1(BS1) ((BS1) <= CAN_BS1_16tq)
 CAN_BS2_1tq = 0x0
 CAN_BS2_2tq = 0x1
 CAN_BS2_3tq = 0x2
@@ -2115,20 +2491,33 @@ CAN_BS2_5tq = 0x4
 CAN_BS2_6tq = 0x5
 CAN_BS2_7tq = 0x6
 CAN_BS2_8tq = 0x7
+# fun define IS_CAN_BS2(BS2) ((BS2) <= CAN_BS2_8tq)
+# fun define IS_CAN_PRESCALER(PRESCALER) (((PRESCALER) >= 1) && ((PRESCALER) <= 1024))
+# fun define IS_CAN_FILTER_NUMBER(NUMBER) ((NUMBER) <= 27)
 CAN_FilterMode_IdMask = 0x0
 CAN_FilterMode_IdList = 0x1
+# fun define IS_CAN_FILTER_MODE(MODE) (((MODE) == CAN_FilterMode_IdMask) || \
 CAN_FilterScale_16bit = 0x0
 CAN_FilterScale_32bit = 0x1
+# fun define IS_CAN_FILTER_SCALE(SCALE) (((SCALE) == CAN_FilterScale_16bit) || \
 CAN_Filter_FIFO0 = 0x0
 CAN_Filter_FIFO1 = 0x1
+# fun define IS_CAN_FILTER_FIFO(FIFO) (((FIFO) == CAN_FilterFIFO0) || \
 CAN_FilterFIFO0 = 0x0
 CAN_FilterFIFO1 = 0x1
+# fun define IS_CAN_BANKNUMBER(BANKNUMBER) (((BANKNUMBER) >= 1) && ((BANKNUMBER) <= 27))
+# fun define IS_CAN_TRANSMITMAILBOX(TRANSMITMAILBOX) ((TRANSMITMAILBOX) <= ((uint8_t)0x02))
+# fun define IS_CAN_STDID(STDID)   ((STDID) <= ((uint32_t)0x7FF))
+# fun define IS_CAN_EXTID(EXTID)   ((EXTID) <= ((uint32_t)0x1FFFFFFF))
+# fun define IS_CAN_DLC(DLC)       ((DLC) <= ((uint8_t)0x08))
 CAN_Id_Standard = 0x0
 CAN_Id_Extended = 0x4
+# fun define IS_CAN_IDTYPE(IDTYPE) (((IDTYPE) == CAN_Id_Standard) || \
 CAN_ID_STD = 0x0
 CAN_ID_EXT = 0x4
 CAN_RTR_Data = 0x0
 CAN_RTR_Remote = 0x2
+# fun define IS_CAN_RTR(RTR) (((RTR) == CAN_RTR_Data) || ((RTR) == CAN_RTR_Remote))
 CAN_RTR_DATA = 0x0
 CAN_RTR_REMOTE = 0x2
 CAN_TxStatus_Failed = 0x0
@@ -2141,6 +2530,7 @@ CANTXPENDING = 0x2
 CAN_NO_MB = 0x4
 CAN_FIFO0 = 0x0
 CAN_FIFO1 = 0x1
+# fun define IS_CAN_FIFO(FIFO) (((FIFO) == CAN_FIFO0) || ((FIFO) == CAN_FIFO1))
 CAN_Sleep_Failed = 0x0
 CAN_Sleep_Ok = 0x1
 CANSLEEPFAILED = 0x0
@@ -2172,6 +2562,8 @@ CAN_FLAG_EWG = 0x10F00001
 CAN_FLAG_EPV = 0x10F00002
 CAN_FLAG_BOF = 0x10F00004
 CAN_FLAG_LEC = 0x30F00070
+# fun define IS_CAN_GET_FLAG(FLAG) (((FLAG) == CAN_FLAG_LEC)  || ((FLAG) == CAN_FLAG_BOF)   || \
+# fun define IS_CAN_CLEAR_FLAG(FLAG)(((FLAG) == CAN_FLAG_LEC) || ((FLAG) == CAN_FLAG_RQCP2) || \
 CAN_IT_TME = 0x1
 CAN_IT_FMP0 = 0x2
 CAN_IT_FF0 = 0x4
@@ -2189,6 +2581,8 @@ CAN_IT_ERR = 0x8000
 CAN_IT_RQCP0 = 0x1
 CAN_IT_RQCP1 = 0x1
 CAN_IT_RQCP2 = 0x1
+# fun define IS_CAN_IT(IT)        (((IT) == CAN_IT_TME) || ((IT) == CAN_IT_FMP0)  ||\
+# fun define IS_CAN_CLEAR_IT(IT) (((IT) == CAN_IT_TME) || ((IT) == CAN_IT_FF0)    ||\
 # struct CAN_InitTypeDef
 
 class CAN_InitTypeDef(ctypes.Structure):
@@ -2974,6 +3368,7 @@ __MPU_PRESENT = 0x1
 __NVIC_PRIO_BITS = 0x4
 __Vendor_SysTickConfig = 0x0
 __FPU_PRESENT = 0x1
+# fun define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
 FLASH_BASE = 0x8000000
 SRAM_BASE = 0x20000000
 PERIPH_BASE = 0x40000000
@@ -7310,6 +7705,13 @@ WWDG_CFR_WDGTB0 = 0x80
 WWDG_CFR_WDGTB1 = 0x100
 WWDG_CFR_EWI = 0x200
 WWDG_SR_EWIF = 0x1
+# fun define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+# fun define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+# fun define READ_BIT(REG, BIT)    ((REG) & (BIT))
+# fun define CLEAR_REG(REG)        ((REG) = (0x0))
+# fun define WRITE_REG(REG, VAL)   ((REG) = (VAL))
+# fun define READ_REG(REG)         ((REG))
+# fun define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
 # struct ADC_TypeDef
 
 class ADC_TypeDef(ctypes.Structure):
@@ -7847,6 +8249,8 @@ class WWDG_TypeDef(ctypes.Structure):
 # file stm32f30x_conf.h : 
 
 # empty define __STM32F30X_CONF_H
+# fun define assert_param(expr) ((expr) ? (void)0 : assert_failed((uint8_t *)__FILE__, __LINE__))
+# fun define assert_param(expr) ((void)0)
 # ----------------------------------------
 
 
