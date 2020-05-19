@@ -72,9 +72,11 @@ class ParseHeader(object):
 				self.pytext.addComment("empty define %s" % d)
 				continue
 			name = d[:first_space]
+			name = name.strip() #trim define/ del tabs and whsp
 			if name.find("(") >= 0:
-				first_row = d.split('\n')[0]
-				self.pytext.addComment("fun define %s" % first_row)
+				#first_row = d.split('\n')[0]
+				d = d.replace('\n', '\n#')
+				self.pytext.addComment("fun define %s" % d)
 				continue
 			self.pushValue(name)
 
