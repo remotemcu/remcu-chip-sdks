@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "V1.2.3-51f60446"
+__version__ = "V1.2.3-458e5695"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -44,6 +44,12 @@ COMP_Selection_COMP5 = 0x10
 COMP_Selection_COMP6 = 0x14
 COMP_Selection_COMP7 = 0x18
 # fun define IS_COMP_ALL_PERIPH(PERIPH) (((PERIPH) == COMP_Selection_COMP1) || \
+#                                    ((PERIPH) == COMP_Selection_COMP2) || \
+#                                    ((PERIPH) == COMP_Selection_COMP3) || \
+#                                    ((PERIPH) == COMP_Selection_COMP4) || \
+#                                    ((PERIPH) == COMP_Selection_COMP5) || \
+#                                    ((PERIPH) == COMP_Selection_COMP6) || \
+#                                    ((PERIPH) == COMP_Selection_COMP7))
 COMP_InvertingInput_1_4VREFINT = 0x0
 COMP_InvertingInput_1_2VREFINT = 0x10
 COMP_InvertingInput_3_4VREFINT = 0x20
@@ -54,9 +60,18 @@ COMP_InvertingInput_IO1 = 0x60
 COMP_InvertingInput_IO2 = 0x70
 COMP_InvertingInput_DAC2OUT1 = 0x400000
 # fun define IS_COMP_INVERTING_INPUT(INPUT) (((INPUT) == COMP_InvertingInput_1_4VREFINT) || \
+#                                        ((INPUT) == COMP_InvertingInput_1_2VREFINT) || \
+#                                        ((INPUT) == COMP_InvertingInput_3_4VREFINT) || \
+#                                        ((INPUT) == COMP_InvertingInput_VREFINT)    || \
+#                                        ((INPUT) == COMP_InvertingInput_DAC1OUT1)   || \
+#                                        ((INPUT) == COMP_InvertingInput_DAC1OUT2)   || \
+#                                        ((INPUT) == COMP_InvertingInput_IO1)        || \
+#                                        ((INPUT) == COMP_InvertingInput_IO2)        || \
+#                                        ((INPUT) == COMP_InvertingInput_DAC2OUT1))
 COMP_NonInvertingInput_IO1 = 0x0
 COMP_NonInvertingInput_IO2 = 0x80
 # fun define IS_COMP_NONINVERTING_INPUT(INPUT) (((INPUT) == COMP_NonInvertingInput_IO1) || \
+#                                           ((INPUT) == COMP_NonInvertingInput_IO2))
 COMP_Output_None = 0x0
 COMP_Output_TIM1BKIN = 0x400
 COMP_Output_TIM1BKIN2 = 0x800
@@ -105,6 +120,52 @@ COMP_Output_TIM1IC2 = 0x2400
 COMP_Output_TIM17OCREFCLR = 0x2800
 COMP_Output_TIM17BKIN = 0x2C00
 # fun define IS_COMP_OUTPUT(OUTPUT) (((OUTPUT) == COMP_Output_None)                || \
+#                                ((OUTPUT) == COMP_Output_TIM1BKIN)            || \
+#                                ((OUTPUT) == COMP_Output_TIM1IC1)             || \
+#                                ((OUTPUT) == COMP_Output_TIM1OCREFCLR)        || \
+#                                ((OUTPUT) == COMP_Output_TIM2IC4)             || \
+#                                ((OUTPUT) == COMP_Output_TIM2OCREFCLR)        || \
+#                                ((OUTPUT) == COMP_Output_COMP6TIM2OCREFCLR)   || \
+#                                ((OUTPUT) == COMP_Output_TIM3IC1)             || \
+#                                ((OUTPUT) == COMP_Output_TIM3OCREFCLR)        || \
+#                                ((OUTPUT) == COMP_Output_TIM8BKIN)            || \
+#                                ((OUTPUT) == COMP_Output_TIM1BKIN2)           || \
+#                                ((OUTPUT) == COMP_Output_TIM8BKIN2)           || \
+#                                ((OUTPUT) == COMP_Output_TIM2OCREFCLR)        || \
+#                                ((OUTPUT) == COMP_Output_TIM1BKIN2_TIM8BKIN2) || \
+#                                ((OUTPUT) == COMP_Output_TIM3IC2)             || \
+#                                ((OUTPUT) == COMP_Output_TIM4IC1)             || \
+#                                ((OUTPUT) == COMP_Output_TIM15IC1)            || \
+#                                ((OUTPUT) == COMP_Output_TIM15BKIN)           || \
+#                                ((OUTPUT) == COMP_Output_TIM8OCREFCLR)        || \
+#                                ((OUTPUT) == COMP_Output_TIM3IC3)             || \
+#                                ((OUTPUT) == COMP_Output_TIM4IC1)             || \
+#                                ((OUTPUT) == COMP_Output_TIM15IC1)            || \
+#                                ((OUTPUT) == COMP_Output_TIM2IC1)             || \
+#                                ((OUTPUT) == COMP_Output_TIM4IC3)             || \
+#                                ((OUTPUT) == COMP_Output_TIM16BKIN)           || \
+#                                ((OUTPUT) == COMP_Output_TIM17IC1)            || \
+#                                ((OUTPUT) == COMP_Output_TIM2IC2)             || \
+#                                ((OUTPUT) == COMP_Output_TIM16IC1)            || \
+#                                ((OUTPUT) == COMP_Output_TIM4IC4)             || \
+#                                ((OUTPUT) == COMP_Output_TIM16OCREFCLR)       || \
+#                                ((OUTPUT) == COMP_Output_TIM2IC3)             || \
+#                                ((OUTPUT) == COMP_Output_TIM1IC2)             || \
+#                                ((OUTPUT) == COMP_Output_TIM17BKIN)           || \
+#                                ((OUTPUT) == COMP_Output_TIM17OCREFCLR)       || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_FLT6)         || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE1_2)        || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE6_2)        || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_FLT7)         || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE2_2)        || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE7_2)        || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_FLT8)         || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE3_2)        || \
+#                                ((OUTPUT) == COMP_Output_HRTIM1_EE8_2)        || \
+#                                ((OUTPUT) == COMP_Output_TIM20BKIN)           || \
+#                                ((OUTPUT) == COMP_Output_TIM20BKIN2)         || \
+#                                ((OUTPUT) == COMP_Output_TIM1BKIN2_TIM8BKIN2_TIM20BKIN2)|| \
+#                                ((OUTPUT) == COMP_Output_TIM20OCREFCLR))
 COMP_BlankingSrce_None = 0x0
 COMP_BlankingSrce_TIM1OC5 = 0x40000
 COMP_BlankingSrce_TIM2OC3 = 0x80000
@@ -115,22 +176,39 @@ COMP_BlankingSrce_TIM3OC4 = 0x40000
 COMP_BlankingSrce_TIM15OC1 = 0xC0000
 COMP_BlankingSrce_TIM15OC2 = 0x100000
 # fun define IS_COMP_BLANKING_SOURCE(SOURCE) (((SOURCE) == COMP_BlankingSrce_None)     || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM1OC5)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM2OC3)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM3OC3)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM2OC4)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM8OC5)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM3OC4)  || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM15OC1) || \
+#                                         ((SOURCE) == COMP_BlankingSrce_TIM15OC2))
 COMP_OutputPol_NonInverted = 0x0
 COMP_OutputPol_Inverted = 0x8000
 # fun define IS_COMP_OUTPUT_POL(POL) (((POL) == COMP_OutputPol_NonInverted)  || \
+#                                 ((POL) == COMP_OutputPol_Inverted))
 COMP_Hysteresis_No = 0x0
 COMP_Hysteresis_Low = 0x10000
 COMP_Hysteresis_Medium = 0x20000
 COMP_Hysteresis_High = 0x30000
 # fun define IS_COMP_HYSTERESIS(HYSTERESIS)    (((HYSTERESIS) == COMP_Hysteresis_No)     || \
+#                                           ((HYSTERESIS) == COMP_Hysteresis_Low)    || \
+#                                           ((HYSTERESIS) == COMP_Hysteresis_Medium) || \
+#                                           ((HYSTERESIS) == COMP_Hysteresis_High))
 COMP_Mode_HighSpeed = 0x0
 COMP_Mode_MediumSpeed = 0x4
 COMP_Mode_LowPower = 0x8
 COMP_Mode_UltraLowPower = 0xC
 # fun define IS_COMP_MODE(MODE)    (((MODE) == COMP_Mode_UltraLowPower) || \
+#                               ((MODE) == COMP_Mode_LowPower)      || \
+#                               ((MODE) == COMP_Mode_MediumSpeed)   || \
+#                               ((MODE) == COMP_Mode_HighSpeed))
 COMP_OutputLevel_High = 0x40000000
 COMP_OutputLevel_Low = 0x0
 # fun define IS_COMP_WINDOW(WINDOW)  (((WINDOW) == COMP_Selection_COMP2) || \
+#                                 ((WINDOW) == COMP_Selection_COMP4) || \
+#                                 ((WINDOW) == COMP_Selection_COMP6))
 # struct COMP_InitTypeDef
 
 class COMP_InitTypeDef(ctypes.Structure):
@@ -157,11 +235,17 @@ CRC_ReverseInputData_8bits = 0x20
 CRC_ReverseInputData_16bits = 0x40
 CRC_ReverseInputData_32bits = 0x60
 # fun define IS_CRC_REVERSE_INPUT_DATA(DATA) (((DATA) == CRC_ReverseInputData_No)     || \
+#                                         ((DATA) == CRC_ReverseInputData_8bits)  || \
+#                                         ((DATA) == CRC_ReverseInputData_16bits) || \
+#                                         ((DATA) == CRC_ReverseInputData_32bits))
 CRC_PolSize_7 = 0x18
 CRC_PolSize_8 = 0x10
 CRC_PolSize_16 = 0x8
 CRC_PolSize_32 = 0x0
 # fun define IS_CRC_POL_SIZE(SIZE) (((SIZE) == CRC_PolSize_7)  || \
+#                               ((SIZE) == CRC_PolSize_8)  || \
+#                               ((SIZE) == CRC_PolSize_16) || \
+#                               ((SIZE) == CRC_PolSize_32))
 # ----------------------------------------
 
 # file stm32f30x_hrtim.h : 
@@ -175,7 +259,18 @@ HRTIM_TIMERINDEX_TIMER_E = 0x4
 HRTIM_TIMERINDEX_MASTER = 0x5
 HRTIM_COMMONINDEX = 0x6
 # fun define IS_HRTIM_TIMERINDEX(TIMERINDEX)\
+#    (((TIMERINDEX) == HRTIM_TIMERINDEX_MASTER)   || \
+#     ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_A)  || \
+#     ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_B)  || \
+#     ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_C)  || \
+#     ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_D)  || \
+#     ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_E))
 # fun define IS_HRTIM_TIMING_UNIT(TIMERINDEX)\
+#     (((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_A)  || \
+#      ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_B)  || \
+#      ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_C)  || \
+#      ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_D)  || \
+#      ((TIMERINDEX) == HRTIM_TIMERINDEX_TIMER_E))
 HRTIM_TIMERID_MASTER = 0x10000
 HRTIM_TIMERID_TIMER_A = 0x20000
 HRTIM_TIMERID_TIMER_B = 0x40000
@@ -183,14 +278,26 @@ HRTIM_TIMERID_TIMER_C = 0x80000
 HRTIM_TIMERID_TIMER_D = 0x100000
 HRTIM_TIMERID_TIMER_E = 0x200000
 # fun define IS_HRTIM_TIMERID(TIMERID)\
+#    (((TIMERID) == HRTIM_TIMERID_MASTER)   || \
+#     ((TIMERID) == HRTIM_TIMERID_TIMER_A)  || \
+#     ((TIMERID) == HRTIM_TIMERID_TIMER_B)  || \
+#     ((TIMERID) == HRTIM_TIMERID_TIMER_C)  || \
+#     ((TIMERID) == HRTIM_TIMERID_TIMER_D)  || \
+#     ((TIMERID) == HRTIM_TIMERID_TIMER_E))
 HRTIM_COMPAREUNIT_1 = 0x1
 HRTIM_COMPAREUNIT_2 = 0x2
 HRTIM_COMPAREUNIT_3 = 0x4
 HRTIM_COMPAREUNIT_4 = 0x8
 # fun define IS_HRTIM_COMPAREUNIT(COMPAREUNIT)\
+#    (((COMPAREUNIT) == HRTIM_COMPAREUNIT_1)  || \
+#     ((COMPAREUNIT) == HRTIM_COMPAREUNIT_2)  || \
+#     ((COMPAREUNIT) == HRTIM_COMPAREUNIT_3)  || \
+#     ((COMPAREUNIT) == HRTIM_COMPAREUNIT_4))
 HRTIM_CAPTUREUNIT_1 = 0x1
 HRTIM_CAPTUREUNIT_2 = 0x2
 # fun define IS_HRTIM_CAPTUREUNIT(CAPTUREUNIT)\
+#    (((CAPTUREUNIT) == HRTIM_CAPTUREUNIT_1)   || \
+#     ((CAPTUREUNIT) == HRTIM_CAPTUREUNIT_2))
 HRTIM_OUTPUT_TA1 = 0x1
 HRTIM_OUTPUT_TA2 = 0x2
 HRTIM_OUTPUT_TB1 = 0x4
@@ -202,12 +309,45 @@ HRTIM_OUTPUT_TD2 = 0x80
 HRTIM_OUTPUT_TE1 = 0x100
 HRTIM_OUTPUT_TE2 = 0x200
 # fun define IS_HRTIM_OUTPUT(OUTPUT)\
+#    (((OUTPUT) == HRTIM_OUTPUT_TA1)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TA2)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TB1)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TB2)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TC1)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TC2)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TD1)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TD2)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TE1)   || \
+#     ((OUTPUT) == HRTIM_OUTPUT_TE2))
 # fun define IS_HRTIM_TIMER_OUTPUT(TIMER, OUTPUT)\
+#    ((((TIMER) == HRTIM_TIMERINDEX_TIMER_A) &&   \
+#     (((OUTPUT) == HRTIM_OUTPUT_TA1) ||          \
+#      ((OUTPUT) == HRTIM_OUTPUT_TA2)))           \
+#    ||                                           \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_B) &&    \
+#     (((OUTPUT) == HRTIM_OUTPUT_TB1) ||          \
+#      ((OUTPUT) == HRTIM_OUTPUT_TB2)))           \
+#    ||                                           \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_C) &&    \
+#     (((OUTPUT) == HRTIM_OUTPUT_TC1) ||          \
+#      ((OUTPUT) == HRTIM_OUTPUT_TC2)))           \
+#    ||                                           \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_D) &&    \
+#     (((OUTPUT) == HRTIM_OUTPUT_TD1) ||          \
+#      ((OUTPUT) == HRTIM_OUTPUT_TD2)))           \
+#    ||                                           \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_E) &&    \
+#     (((OUTPUT) == HRTIM_OUTPUT_TE1) ||          \
+#      ((OUTPUT) == HRTIM_OUTPUT_TE2))))
 HRTIM_ADCTRIGGER_1 = 0x1
 HRTIM_ADCTRIGGER_2 = 0x2
 HRTIM_ADCTRIGGER_3 = 0x4
 HRTIM_ADCTRIGGER_4 = 0x8
 # fun define IS_HRTIM_ADCTRIGGER(ADCTRIGGER)\
+#    (((ADCTRIGGER) == HRTIM_ADCTRIGGER_1)   || \
+#     ((ADCTRIGGER) == HRTIM_ADCTRIGGER_2)   || \
+#     ((ADCTRIGGER) == HRTIM_ADCTRIGGER_3)   || \
+#     ((ADCTRIGGER) == HRTIM_ADCTRIGGER_4))
 HRTIM_EVENT_NONE = 0x0
 HRTIM_EVENT_1 = 0x1
 HRTIM_EVENT_2 = 0x2
@@ -220,12 +360,27 @@ HRTIM_EVENT_8 = 0x80
 HRTIM_EVENT_9 = 0x100
 HRTIM_EVENT_10 = 0x200
 # fun define IS_HRTIM_EVENT(EVENT)\
+#      (((EVENT) == HRTIM_EVENT_1)   || \
+#       ((EVENT) == HRTIM_EVENT_2)   || \
+#       ((EVENT) == HRTIM_EVENT_3)   || \
+#       ((EVENT) == HRTIM_EVENT_4)   || \
+#       ((EVENT) == HRTIM_EVENT_5)   || \
+#       ((EVENT) == HRTIM_EVENT_6)   || \
+#       ((EVENT) == HRTIM_EVENT_7)   || \
+#       ((EVENT) == HRTIM_EVENT_8)   || \
+#       ((EVENT) == HRTIM_EVENT_9)   || \
+#       ((EVENT) == HRTIM_EVENT_10))
 HRTIM_FAULT_1 = 0x1
 HRTIM_FAULT_2 = 0x2
 HRTIM_FAULT_3 = 0x4
 HRTIM_FAULT_4 = 0x8
 HRTIM_FAULT_5 = 0x10
 # fun define IS_HRTIM_FAULT(FAULT)\
+#      (((FAULT) == HRTIM_FAULT_1)   || \
+#       ((FAULT) == HRTIM_FAULT_2)   || \
+#       ((FAULT) == HRTIM_FAULT_3)   || \
+#       ((FAULT) == HRTIM_FAULT_4)   || \
+#       ((FAULT) == HRTIM_FAULT_5))
 HRTIM_PRESCALERRATIO_MUL32 = 0x0
 HRTIM_PRESCALERRATIO_MUL16 = 0x1
 HRTIM_PRESCALERRATIO_MUL8 = 0x2
@@ -235,28 +390,53 @@ HRTIM_PRESCALERRATIO_DIV1 = 0x5
 HRTIM_PRESCALERRATIO_DIV2 = 0x6
 HRTIM_PRESCALERRATIO_DIV4 = 0x7
 # fun define IS_HRTIM_PRESCALERRATIO(PRESCALERRATIO)\
+#        (((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_MUL32) || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_MUL16) || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_MUL8)  || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_MUL4)  || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_MUL2)  || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_DIV1)  || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_DIV2)  || \
+#         ((PRESCALERRATIO) == HRTIM_PRESCALERRATIO_DIV4))
 HRTIM_MODE_CONTINOUS = 0x8
 HRTIM_MODE_SINGLESHOT = 0x0
 HRTIM_MODE_SINGLESHOT_RETRIGGERABLE = 0x10
 # fun define IS_HRTIM_MODE(MODE)\
+#          (((MODE) == HRTIM_MODE_CONTINOUS)  ||  \
+#           ((MODE) == HRTIM_MODE_SINGLESHOT) || \
+#           ((MODE) == HRTIM_MODE_SINGLESHOT_RETRIGGERABLE))
 # fun define IS_HRTIM_MODE_ONEPULSE(MODE)\
+#          (((MODE) == HRTIM_MODE_SINGLESHOT) || \
+#           ((MODE) == HRTIM_MODE_SINGLESHOT_RETRIGGERABLE))
 HRTIM_HALFMODE_DISABLED = 0x0
 HRTIM_HALFMODE_ENABLED = 0x20
 # fun define IS_HRTIM_HALFMODE(HALFMODE)\
+#            (((HALFMODE) == HRTIM_HALFMODE_DISABLED)  ||  \
+#             ((HALFMODE) == HRTIM_HALFMODE_ENABLED))
 HRTIM_SYNCSTART_DISABLED = 0x0
 HRTIM_SYNCSTART_ENABLED = 0x800
 # fun define IS_HRTIM_SYNCSTART(SYNCSTART)\
+#              (((SYNCSTART) == HRTIM_SYNCSTART_DISABLED)  ||  \
+#               ((SYNCSTART) == HRTIM_SYNCSTART_ENABLED))
 HRTIM_SYNCRESET_DISABLED = 0x0
 HRTIM_SYNCRESET_ENABLED = 0x400
 # fun define IS_HRTIM_SYNCRESET(SYNCRESET)\
+#                (((SYNCRESET) == HRTIM_SYNCRESET_DISABLED)  ||  \
+#                 ((SYNCRESET) == HRTIM_SYNCRESET_ENABLED))
 HRTIM_DACSYNC_NONE = 0x0
 HRTIM_DACSYNC_DACTRIGOUT_1 = 0x2000000
 HRTIM_DACSYNC_DACTRIGOUT_2 = 0x4000000
 HRTIM_DACSYNC_DACTRIGOUT_3 = 0x6000000
 # fun define IS_HRTIM_DACSYNC(DACSYNC)\
+#                (((DACSYNC) == HRTIM_DACSYNC_NONE)          ||  \
+#                 ((DACSYNC) == HRTIM_DACSYNC_DACTRIGOUT_1)  ||  \
+#                 ((DACSYNC) == HRTIM_DACSYNC_DACTRIGOUT_2)  ||  \
+#                 ((DACSYNC) == HRTIM_DACSYNC_DACTRIGOUT_3))
 HRTIM_PRELOAD_DISABLED = 0x0
 HRTIM_PRELOAD_ENABLED = 0x8000000
 # fun define IS_HRTIM_PRELOAD(PRELOAD)\
+#                (((PRELOAD) == HRTIM_PRELOAD_DISABLED)  ||  \
+#                 ((PRELOAD) == HRTIM_PRELOAD_ENABLED))
 HRTIM_UPDATEGATING_INDEPENDENT = 0x0
 HRTIM_UPDATEGATING_DMABURST = 0x10000000
 HRTIM_UPDATEGATING_DMABURST_UPDATE = 0x20000000
@@ -267,16 +447,34 @@ HRTIM_UPDATEGATING_UPDEN1_UPDATE = 0x60000000
 HRTIM_UPDATEGATING_UPDEN2_UPDATE = 0x70000000
 HRTIM_UPDATEGATING_UPDEN3_UPDATE = 0x80000000
 # fun define IS_HRTIM_UPDATEGATING_MASTER(UPDATEGATING)\
+#                (((UPDATEGATING) == HRTIM_UPDATEGATING_INDEPENDENT)      ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_DMABURST)         ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_DMABURST_UPDATE))
 # fun define IS_HRTIM_UPDATEGATING_TIM(UPDATEGATING)\
+#                (((UPDATEGATING) == HRTIM_UPDATEGATING_INDEPENDENT)      ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_DMABURST)         ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_DMABURST_UPDATE)  ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN1)           ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN2)           ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN3)           ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN1_UPDATE)    ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN2_UPDATE)    ||  \
+#                 ((UPDATEGATING) == HRTIM_UPDATEGATING_UPDEN3_UPDATE))
 HRTIM_TIMERBURSTMODE_MAINTAINCLOCK = 0x0
 HRTIM_TIMERBURSTMODE_RESETCOUNTER = 0x10000
 # fun define IS_HRTIM_TIMERBURSTMODE(TIMERBURSTMODE)                               \
+#                (((TIMERBURSTMODE) == HRTIM_TIMERBURSTMODE_MAINTAINCLOCK)  || \
+#                 ((TIMERBURSTMODE) == HRTIM_TIMERBURSTMODE_RESETCOUNTER))
 HRTIM_UPDATEONREPETITION_DISABLED = 0x0
 HRTIM_UPDATEONREPETITION_ENABLED = 0x20000000
 # fun define IS_HRTIM_UPDATEONREPETITION(UPDATEONREPETITION)                               \
+#                (((UPDATEONREPETITION) == HRTIM_UPDATEONREPETITION_DISABLED)  || \
+#                 ((UPDATEONREPETITION) == HRTIM_UPDATEONREPETITION_ENABLED))
 HRTIM_TIMPUSHPULLMODE_DISABLED = 0x0
 HRTIM_TIMPUSHPULLMODE_ENABLED = 0x40
 # fun define IS_HRTIM_TIMPUSHPULLMODE(TIMPUSHPULLMODE)\
+#                  (((TIMPUSHPULLMODE) == HRTIM_TIMPUSHPULLMODE_DISABLED) || \
+#                   ((TIMPUSHPULLMODE) == HRTIM_TIMPUSHPULLMODE_ENABLED))
 HRTIM_TIMFAULTENABLE_NONE = 0x0
 HRTIM_TIMFAULTENABLE_FAULT1 = 0x1
 HRTIM_TIMFAULTENABLE_FAULT2 = 0x2
@@ -287,9 +485,13 @@ HRTIM_TIMFAULTENABLE_FAULT5 = 0x10
 HRTIM_TIMFAULTLOCK_READWRITE = 0x0
 HRTIM_TIMFAULTLOCK_READONLY = 0x80000000
 # fun define IS_HRTIM_TIMFAULTLOCK(TIMFAULTLOCK)\
+#      (((TIMFAULTLOCK) == HRTIM_TIMFAULTLOCK_READWRITE) || \
+#       ((TIMFAULTLOCK) == HRTIM_TIMFAULTLOCK_READONLY))
 HRTIM_TIMDEADTIMEINSERTION_DISABLED = 0x0
 HRTIM_TIMDEADTIMEINSERTION_ENABLED = 0x100
 # fun define IS_HRTIM_TIMDEADTIMEINSERTION(TIMDEADTIMEINSERTION)\
+#        (((TIMDEADTIMEINSERTION) == HRTIM_TIMDEADTIMEINSERTION_DISABLED) || \
+#         ((TIMDEADTIMEINSERTION) == HRTIM_TIMDEADTIMEINSERTION_ENABLED))
 HRTIM_TIMDELAYEDPROTECTION_DISABLED = 0x0
 HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT1_EEV68 = 0x200
 HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT2_EEV68 = 0x600
@@ -300,6 +502,15 @@ HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT2_DEEV79 = 0x1600
 HRTIM_TIMDELAYEDPROTECTION_DELAYEDBOTH_EEV79 = 0x1A00
 HRTIM_TIMDELAYEDPROTECTION_BALANCED_EEV79 = 0x1E00
 # fun define IS_HRTIM_TIMDELAYEDPROTECTION(TIMDELAYEDPROTECTION)\
+#          (((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DISABLED)           || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT1_EEV68)  || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT2_EEV68)  || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDBOTH_EEV68)  || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_BALANCED_EEV68)     || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT1_DEEV79) || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDOUT2_DEEV79) || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_DELAYEDBOTH_EEV79)  || \
+#           ((TIMDELAYEDPROTECTION) == HRTIM_TIMDELAYEDPROTECTION_BALANCED_EEV79))
 HRTIM_TIMUPDATETRIGGER_NONE = 0x0
 HRTIM_TIMUPDATETRIGGER_MASTER = 0x1000000
 HRTIM_TIMUPDATETRIGGER_TIMER_A = 0x80000
@@ -343,19 +554,47 @@ HRTIM_TIMRESETTRIGGER_OTHER4_CMP4 = 0x40000000
 HRTIM_TIMUPDATEONRESET_DISABLED = 0x0
 HRTIM_TIMUPDATEONRESET_ENABLED = 0x40000
 # fun define IS_HRTIM_TIMUPDATEONRESET(TIMUPDATEONRESET)                       \
+#              (((TIMUPDATEONRESET) == HRTIM_TIMUPDATEONRESET_DISABLED) || \
+#               ((TIMUPDATEONRESET) == HRTIM_TIMUPDATEONRESET_ENABLED))
 HRTIM_AUTODELAYEDMODE_REGULAR = 0x0
 HRTIM_AUTODELAYEDMODE_AUTODELAYED_NOTIMEOUT = 0x1000
 HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP1 = 0x2000
 HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP3 = 0x3000
 # fun define IS_HRTIM_AUTODELAYEDMODE(AUTODELAYEDMODE)\
+#              (((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_REGULAR)                  || \
+#               ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_NOTIMEOUT)    || \
+#               ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP1)  || \
+#               ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP3))
 # fun define IS_HRTIM_COMPAREUNIT_AUTODELAYEDMODE(COMPAREUNIT, AUTODELAYEDMODE)     \
+#    ((((COMPAREUNIT) == HRTIM_COMPAREUNIT_1) &&                                \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_REGULAR))                    \
+#    ||                                                                         \
+#    (((COMPAREUNIT) == HRTIM_COMPAREUNIT_2) &&                                 \
+#     (((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_REGULAR)                 ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_NOTIMEOUT)   ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP1) ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP3)))   \
+#    ||                                                                         \
+#    (((COMPAREUNIT) == HRTIM_COMPAREUNIT_3) &&                                 \
+#     ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_REGULAR))                     \
+#    ||                                                                         \
+#    (((COMPAREUNIT) == HRTIM_COMPAREUNIT_4) &&                                 \
+#     (((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_REGULAR)                 ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_NOTIMEOUT)   ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP1) ||  \
+#      ((AUTODELAYEDMODE) == HRTIM_AUTODELAYEDMODE_AUTODELAYED_TIMEOUTCMP3))))
 HRTIM_BASICOCMODE_TOGGLE = 0x1
 HRTIM_BASICOCMODE_INACTIVE = 0x2
 HRTIM_BASICOCMODE_ACTIVE = 0x3
 # fun define IS_HRTIM_BASICOCMODE(BASICOCMODE)\
+#              (((BASICOCMODE) == HRTIM_BASICOCMODE_TOGGLE)   || \
+#               ((BASICOCMODE) == HRTIM_BASICOCMODE_INACTIVE) || \
+#               ((BASICOCMODE) == HRTIM_BASICOCMODE_ACTIVE))
 HRTIM_OUTPUTPOLARITY_HIGH = 0x0
 HRTIM_OUTPUTPOLARITY_LOW = 0x2
 # fun define IS_HRTIM_OUTPUTPOLARITY(OUTPUTPOLARITY)\
+#              (((OUTPUTPOLARITY) == HRTIM_OUTPUTPOLARITY_HIGH) || \
+#               ((OUTPUTPOLARITY) == HRTIM_OUTPUTPOLARITY_LOW))
 HRTIM_OUTPUTSET_NONE = 0x0
 HRTIM_OUTPUTSET_RESYNC = 0x2
 HRTIM_OUTPUTSET_TIMPER = 0x4
@@ -389,6 +628,38 @@ HRTIM_OUTPUTSET_EEV_9 = 0x20000000
 HRTIM_OUTPUTSET_EEV_10 = 0x40000000
 HRTIM_OUTPUTSET_UPDATE = 0x80000000
 # fun define IS_HRTIM_OUTPUTSET(OUTPUTSET)\
+#              (((OUTPUTSET) == HRTIM_OUTPUTSET_NONE)       || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_RESYNC)     || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMPER)     || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMCMP1)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMCMP2)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMCMP3)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMCMP4)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_MASTERPER)  || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_MASTERCMP1) || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_MASTERCMP2) || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_MASTERCMP3) || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_MASTERCMP4) || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_1)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_2)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_3)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_4)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_5)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_6)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_7)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_8)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_TIMEV_9)    || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_1)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_2)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_3)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_4)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_5)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_6)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_7)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_8)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_9)      || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_EEV_10)     || \
+#               ((OUTPUTSET) == HRTIM_OUTPUTSET_UPDATE))
 HRTIM_OUTPUTRESET_NONE = 0x0
 HRTIM_OUTPUTRESET_RESYNC = 0x2
 HRTIM_OUTPUTRESET_TIMPER = 0x4
@@ -422,23 +693,67 @@ HRTIM_OUTPUTRESET_EEV_9 = 0x20000000
 HRTIM_OUTPUTRESET_EEV_10 = 0x40000000
 HRTIM_OUTPUTRESET_UPDATE = 0x80000000
 # fun define IS_HRTIM_OUTPUTRESET(OUTPUTRESET)\
+#              (((OUTPUTRESET) == HRTIM_OUTPUTRESET_NONE)       || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_RESYNC)     || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMPER)     || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMCMP1)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMCMP2)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMCMP3)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMCMP4)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_MASTERPER)  || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_MASTERCMP1) || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_MASTERCMP2) || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_MASTERCMP3) || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_MASTERCMP4) || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_1)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_2)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_3)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_4)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_5)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_6)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_7)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_8)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_TIMEV_9)    || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_1)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_2)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_3)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_4)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_5)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_6)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_7)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_8)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_9)      || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_EEV_10)     || \
+#               ((OUTPUTRESET) == HRTIM_OUTPUTRESET_UPDATE))
 HRTIM_OUTPUTIDLEMODE_NONE = 0x0
 HRTIM_OUTPUTIDLEMODE_IDLE = 0x4
 # fun define IS_HRTIM_OUTPUTIDLEMODE(OUTPUTIDLEMODE)\
+#              (((OUTPUTIDLEMODE) == HRTIM_OUTPUTIDLEMODE_NONE) || \
+#               ((OUTPUTIDLEMODE) == HRTIM_OUTPUTIDLEMODE_IDLE))
 HRTIM_OUTPUTIDLESTATE_INACTIVE = 0x0
 HRTIM_OUTPUTIDLESTATE_ACTIVE = 0x8
 # fun define IS_HRTIM_OUTPUTIDLESTATE(OUTPUTIDLESTATE)\
+#              (((OUTPUTIDLESTATE) == HRTIM_OUTPUTIDLESTATE_INACTIVE) || \
+#               ((OUTPUTIDLESTATE) == HRTIM_OUTPUTIDLESTATE_ACTIVE))
 HRTIM_OUTPUTFAULTSTATE_NONE = 0x0
 HRTIM_OUTPUTFAULTSTATE_ACTIVE = 0x10
 HRTIM_OUTPUTFAULTSTATE_INACTIVE = 0x20
 HRTIM_OUTPUTFAULTSTATE_HIGHZ = 0x30
 # fun define IS_HRTIM_OUTPUTFAULTSTATE(OUTPUTFAULTSTATE)\
+#              (((OUTPUTFAULTSTATE) == HRTIM_OUTPUTFAULTSTATE_NONE)     || \
+#               ((OUTPUTFAULTSTATE) == HRTIM_OUTPUTFAULTSTATE_ACTIVE)   || \
+#               ((OUTPUTFAULTSTATE) == HRTIM_OUTPUTFAULTSTATE_INACTIVE) || \
+#               ((OUTPUTFAULTSTATE) == HRTIM_OUTPUTFAULTSTATE_HIGHZ))
 HRTIM_OUTPUTCHOPPERMODE_DISABLED = 0x0
 HRTIM_OUTPUTCHOPPERMODE_ENABLED = 0x40
 # fun define IS_HRTIM_OUTPUTCHOPPERMODE(OUTPUTCHOPPERMODE)\
+#              (((OUTPUTCHOPPERMODE) == HRTIM_OUTPUTCHOPPERMODE_DISABLED)  || \
+#               ((OUTPUTCHOPPERMODE) == HRTIM_OUTPUTCHOPPERMODE_ENABLED))
 HRTIM_OUTPUTBURSTMODEENTRY_REGULAR = 0x0
 HRTIM_OUTPUTBURSTMODEENTRY_DELAYED = 0x80
 # fun define IS_HRTIM_OUTPUTBURSTMODEENTRY(OUTPUTBURSTMODEENTRY)\
+#              (((OUTPUTBURSTMODEENTRY) == HRTIM_OUTPUTBURSTMODEENTRY_REGULAR)  || \
+#               ((OUTPUTBURSTMODEENTRY) == HRTIM_OUTPUTBURSTMODEENTRY_DELAYED))
 HRTIM_CAPTURETRIGGER_NONE = 0x0
 HRTIM_CAPTURETRIGGER_UPDATE = 0x2
 HRTIM_CAPTURETRIGGER_EEV_1 = 0x4
@@ -472,6 +787,48 @@ HRTIM_CAPTURETRIGGER_TE1_RESET = 0x20000000
 HRTIM_CAPTURETRIGGER_TIMERE_CMP1 = 0x40000000
 HRTIM_CAPTURETRIGGER_TIMERE_CMP2 = 0x80000000
 # fun define IS_HRTIM_TIMER_CAPTURETRIGGER(TIMER, CAPTURETRIGGER)    \
+#   (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_NONE)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_UPDATE)         || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_1)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_2)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_3)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_4)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_5)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_6)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_7)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_8)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_9)          || \
+#   ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_EEV_10)            \
+#   ||                                                           \
+#   (((TIMER) == HRTIM_TIMERINDEX_TIMER_A) &&                    \
+#     (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TA1_SET)     || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TA1_RESET)   || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERA_CMP1) || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERA_CMP2)))  \
+#    ||                                                          \
+#   (((TIMER) == HRTIM_TIMERINDEX_TIMER_B) &&                    \
+#     (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TB1_SET)     || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TB1_RESET)   || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERB_CMP1) || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERB_CMP2)))  \
+#    ||                                                          \
+#   (((TIMER) == HRTIM_TIMERINDEX_TIMER_C) &&                    \
+#     (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TC1_SET)     || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TC1_RESET)   || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERC_CMP1) || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERC_CMP2)))  \
+#    ||                                                          \
+#   (((TIMER) == HRTIM_TIMERINDEX_TIMER_D) &&                    \
+#     (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TD1_SET)     || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TD1_RESET)   || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERD_CMP1) || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERD_CMP2)))  \
+#    ||                                                          \
+#   (((TIMER) == HRTIM_TIMERINDEX_TIMER_E) &&                    \
+#     (((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TE1_SET)     || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TE1_RESET)   || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERE_CMP1) || \
+#      ((CAPTURETRIGGER) == HRTIM_CAPTURETRIGGER_TIMERE_CMP2))))
 HRTIM_TIMEVENTFILTER_NONE = 0x0
 HRTIM_TIMEVENTFILTER_BLANKINGCMP1 = 0x2
 HRTIM_TIMEVENTFILTER_BLANKINGCMP2 = 0x4
@@ -489,57 +846,114 @@ HRTIM_TIMEVENTFILTER_WINDOWINGCMP2 = 0x1A
 HRTIM_TIMEVENTFILTER_WINDOWINGCMP3 = 0x1C
 HRTIM_TIMEVENTFILTER_WINDOWINGTIM = 0x1E
 # fun define IS_HRTIM_TIMEVENTFILTER(TIMEVENTFILTER)\
+#                (((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_NONE)           || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGCMP1)   || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGCMP2)   || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGCMP3)   || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGCMP4)   || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR1)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR2)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR3)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR4)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR5)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR6)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR7)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_BLANKINGFLTR8)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_WINDOWINGCMP2)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_WINDOWINGCMP3)  || \
+#                 ((TIMEVENTFILTER) == HRTIM_TIMEVENTFILTER_WINDOWINGTIM))
 HRTIM_TIMEVENTLATCH_DISABLED = 0x0
 HRTIM_TIMEVENTLATCH_ENABLED = 0x1
 # fun define IS_HRTIM_TIMEVENTLATCH(TIMEVENTLATCH)\
+#              (((TIMEVENTLATCH) == HRTIM_TIMEVENTLATCH_DISABLED) || \
+#               ((TIMEVENTLATCH) == HRTIM_TIMEVENTLATCH_ENABLED))
 HRTIM_TIMDEADTIME_RISINGSIGN_POSITIVE = 0x0
 HRTIM_TIMDEADTIME_RISINGSIGN_NEGATIVE = 0x200
 # fun define IS_HRTIM_TIMDEADTIME_RISINGSIGN(RISINGSIGN)\
+#                (((RISINGSIGN) == HRTIM_TIMDEADTIME_RISINGSIGN_POSITIVE)    || \
+#                 ((RISINGSIGN) == HRTIM_TIMDEADTIME_RISINGSIGN_NEGATIVE))
 HRTIM_TIMDEADTIME_RISINGLOCK_WRITE = 0x0
 HRTIM_TIMDEADTIME_RISINGLOCK_READONLY = 0x8000
 # fun define IS_HRTIM_TIMDEADTIME_RISINGLOCK(RISINGLOCK)\
+#                    (((RISINGLOCK) == HRTIM_TIMDEADTIME_RISINGLOCK_WRITE)    || \
+#                     ((RISINGLOCK) == HRTIM_TIMDEADTIME_RISINGLOCK_READONLY))
 HRTIM_TIMDEADTIME_RISINGSIGNLOCK_WRITE = 0x0
 HRTIM_TIMDEADTIME_RISINGSIGNLOCK_READONLY = 0x4000
 # fun define IS_HRTIM_TIMDEADTIME_RISINGSIGNLOCK(RISINGSIGNLOCK)\
+#                  (((RISINGSIGNLOCK) == HRTIM_TIMDEADTIME_RISINGSIGNLOCK_WRITE)    || \
+#                   ((RISINGSIGNLOCK) == HRTIM_TIMDEADTIME_RISINGSIGNLOCK_READONLY))
 HRTIM_TIMDEADTIME_FALLINGSIGN_POSITIVE = 0x0
 HRTIM_TIMDEADTIME_FALLINGSIGN_NEGATIVE = 0x2000000
 # fun define IS_HRTIM_TIMDEADTIME_FALLINGSIGN(FALLINGSIGN)\
+#                      (((FALLINGSIGN) == HRTIM_TIMDEADTIME_FALLINGSIGN_POSITIVE)    || \
+#                       ((FALLINGSIGN) == HRTIM_TIMDEADTIME_FALLINGSIGN_NEGATIVE))
 HRTIM_TIMDEADTIME_FALLINGLOCK_WRITE = 0x0
 HRTIM_TIMDEADTIME_FALLINGLOCK_READONLY = 0x80000000
 # fun define IS_HRTIM_TIMDEADTIME_FALLINGLOCK(FALLINGLOCK)\
+#                          (((FALLINGLOCK) == HRTIM_TIMDEADTIME_FALLINGLOCK_WRITE)    || \
+#                           ((FALLINGLOCK) == HRTIM_TIMDEADTIME_FALLINGLOCK_READONLY))
 HRTIM_TIMDEADTIME_FALLINGSIGNLOCK_WRITE = 0x0
 HRTIM_TIMDEADTIME_FALLINGSIGNLOCK_READONLY = 0x40000000
 # fun define IS_HRTIM_TIMDEADTIME_FALLINGSIGNLOCK(FALLINGSIGNLOCK)\
+#                        (((FALLINGSIGNLOCK) == HRTIM_TIMDEADTIME_FALLINGSIGNLOCK_WRITE)    || \
+#                         ((FALLINGSIGNLOCK) == HRTIM_TIMDEADTIME_FALLINGSIGNLOCK_READONLY))
 HRTIM_SYNCINPUTSOURCE_NONE = 0x0
 HRTIM_SYNCINPUTSOURCE_INTERNALEVENT = 0x200
 HRTIM_SYNCINPUTSOURCE_EXTERNALEVENT = 0x300
 # fun define IS_HRTIM_SYNCINPUTSOURCE(SYNCINPUTSOURCE)\
+#              (((SYNCINPUTSOURCE) == HRTIM_SYNCINPUTSOURCE_NONE)             || \
+#               ((SYNCINPUTSOURCE) == HRTIM_SYNCINPUTSOURCE_INTERNALEVENT)    || \
+#               ((SYNCINPUTSOURCE) == HRTIM_SYNCINPUTSOURCE_EXTERNALEVENT))
 HRTIM_SYNCOUTPUTSOURCE_MASTER_START = 0x0
 HRTIM_SYNCOUTPUTSOURCE_MASTER_CMP1 = 0x4000
 HRTIM_SYNCOUTPUTSOURCE_TIMA_START = 0x8000
 HRTIM_SYNCOUTPUTSOURCE_TIMA_CMP1 = 0xC000
 # fun define IS_HRTIM_SYNCOUTPUTSOURCE(SYNCOUTPUTSOURCE)\
+#              (((SYNCOUTPUTSOURCE) == HRTIM_SYNCOUTPUTSOURCE_MASTER_START)  || \
+#               ((SYNCOUTPUTSOURCE) == HRTIM_SYNCOUTPUTSOURCE_MASTER_CMP1)   || \
+#               ((SYNCOUTPUTSOURCE) == HRTIM_SYNCOUTPUTSOURCE_TIMA_START)    || \
+#               ((SYNCOUTPUTSOURCE) == HRTIM_SYNCOUTPUTSOURCE_TIMA_CMP1))
 HRTIM_SYNCOUTPUTPOLARITY_NONE = 0x0
 HRTIM_SYNCOUTPUTPOLARITY_POSITIVE = 0x1000
 HRTIM_SYNCOUTPUTPOLARITY_NEGATIVE = 0x3000
 # fun define IS_HRTIM_SYNCOUTPUTPOLARITY(SYNCOUTPUTPOLARITY)\
+#              (((SYNCOUTPUTPOLARITY) == HRTIM_SYNCOUTPUTPOLARITY_NONE)  || \
+#               ((SYNCOUTPUTPOLARITY) == HRTIM_SYNCOUTPUTPOLARITY_POSITIVE)  || \
+#               ((SYNCOUTPUTPOLARITY) == HRTIM_SYNCOUTPUTPOLARITY_NEGATIVE))
 HRTIM_EVENTSRC_1 = 0x0
 HRTIM_EVENTSRC_2 = 0x1
 HRTIM_EVENTSRC_3 = 0x2
 HRTIM_EVENTSRC_4 = 0x3
 # fun define IS_HRTIM_EVENTSRC(EVENTSRC)\
+#                (((EVENTSRC) == HRTIM_EVENTSRC_1)   || \
+#                 ((EVENTSRC) == HRTIM_EVENTSRC_2)   || \
+#                 ((EVENTSRC) == HRTIM_EVENTSRC_3)   || \
+#                 ((EVENTSRC) == HRTIM_EVENTSRC_4))
 HRTIM_EVENTPOLARITY_HIGH = 0x0
 HRTIM_EVENTPOLARITY_LOW = 0x4
 # fun define IS_HRTIM_EVENTPOLARITY(EVENTPOLARITY)\
+#                  (((EVENTPOLARITY) == HRTIM_EVENTPOLARITY_HIGH)  || \
+#                   ((EVENTPOLARITY) == HRTIM_EVENTPOLARITY_LOW))
 HRTIM_EVENTSENSITIVITY_LEVEL = 0x0
 HRTIM_EVENTSENSITIVITY_RISINGEDGE = 0x8
 HRTIM_EVENTSENSITIVITY_FALLINGEDGE = 0x10
 HRTIM_EVENTSENSITIVITY_BOTHEDGES = 0x18
 # fun define IS_HRTIM_EVENTSENSITIVITY(EVENTSENSITIVITY)\
+#                    (((EVENTSENSITIVITY) == HRTIM_EVENTSENSITIVITY_LEVEL)       || \
+#                     ((EVENTSENSITIVITY) == HRTIM_EVENTSENSITIVITY_RISINGEDGE)  || \
+#                     ((EVENTSENSITIVITY) == HRTIM_EVENTSENSITIVITY_FALLINGEDGE) || \
+#                     ((EVENTSENSITIVITY) == HRTIM_EVENTSENSITIVITY_BOTHEDGES))
 HRTIM_EVENTFASTMODE_DISABLE = 0x0
 HRTIM_EVENTFASTMODE_ENABLE = 0x20
 # fun define IS_HRTIM_EVENTFASTMODE(EVENTFASTMODE)\
+#                      (((EVENTFASTMODE) == HRTIM_EVENTFASTMODE_ENABLE)    || \
+#                       ((EVENTFASTMODE) == HRTIM_EVENTFASTMODE_DISABLE))
 # fun define IS_HRTIM_FASTMODE_AVAILABLE(EVENT)\
+#              (((EVENT) == HRTIM_EVENT_1)    || \
+#               ((EVENT) == HRTIM_EVENT_2)    || \
+#               ((EVENT) == HRTIM_EVENT_3)    || \
+#               ((EVENT) == HRTIM_EVENT_4)    || \
+#               ((EVENT) == HRTIM_EVENT_5))
 HRTIM_EVENTFILTER_NONE = 0x0
 HRTIM_EVENTFILTER_1 = 0x1
 HRTIM_EVENTFILTER_2 = 0x2
@@ -557,17 +971,41 @@ HRTIM_EVENTFILTER_13 = 0xD
 HRTIM_EVENTFILTER_14 = 0xE
 HRTIM_EVENTFILTER_15 = 0xF
 # fun define IS_HRTIM_EVENTFILTER(EVENTFILTER)\
+#                (((EVENTFILTER) == HRTIM_EVENTFILTER_NONE) || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_1)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_2)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_3)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_4)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_5)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_6)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_7)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_8)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_9)    || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_10)   || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_11)   || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_12)   || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_13)   || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_14)   || \
+#                 ((EVENTFILTER) == HRTIM_EVENTFILTER_15))
 HRTIM_EVENTPRESCALER_DIV1 = 0x0
 HRTIM_EVENTPRESCALER_DIV2 = 0x40000000
 HRTIM_EVENTPRESCALER_DIV4 = 0x80000000
 HRTIM_EVENTPRESCALER_DIV8 = 0xC0000000
 # fun define IS_HRTIM_EVENTPRESCALER(EVENTPRESCALER)\
+#             (((EVENTPRESCALER) == HRTIM_EVENTPRESCALER_DIV1)  || \
+#              ((EVENTPRESCALER) == HRTIM_EVENTPRESCALER_DIV2)   || \
+#              ((EVENTPRESCALER) == HRTIM_EVENTPRESCALER_DIV4)   || \
+#              ((EVENTPRESCALER) == HRTIM_EVENTPRESCALER_DIV8))
 HRTIM_FAULTSOURCE_DIGITALINPUT = 0x0
 HRTIM_FAULTSOURCE_INTERNAL = 0x4
 # fun define IS_HRTIM_FAULTSOURCE(FAULTSOURCE)\
+#              (((FAULTSOURCE) == HRTIM_FAULTSOURCE_DIGITALINPUT) || \
+#               ((FAULTSOURCE) == HRTIM_FAULTSOURCE_INTERNAL))
 HRTIM_FAULTPOLARITY_LOW = 0x0
 HRTIM_FAULTPOLARITY_HIGH = 0x2
 # fun define IS_HRTIM_FAULTPOLARITY(HRTIM_FAULTPOLARITY)\
+#              (((HRTIM_FAULTPOLARITY) == HRTIM_FAULTPOLARITY_LOW) || \
+#               ((HRTIM_FAULTPOLARITY) == HRTIM_FAULTPOLARITY_HIGH))
 HRTIM_FAULTFILTER_NONE = 0x0
 HRTIM_FAULTFILTER_1 = 0x8
 HRTIM_FAULTFILTER_2 = 0x10
@@ -585,17 +1023,41 @@ HRTIM_FAULTFILTER_13 = 0x68
 HRTIM_FAULTFILTER_14 = 0x70
 HRTIM_FAULTFILTER_15 = 0x78
 # fun define IS_HRTIM_FAULTFILTER(FAULTFILTER)\
+#                (((FAULTFILTER) == HRTIM_FAULTFILTER_NONE) || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_1)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_2)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_3)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_4)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_5)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_6)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_7)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_8)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_9)    || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_10)   || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_11)   || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_12)   || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_13)   || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_14)   || \
+#                 ((FAULTFILTER) == HRTIM_FAULTFILTER_15))
 HRTIM_FAULTLOCK_READWRITE = 0x0
 HRTIM_FAULTLOCK_READONLY = 0x80
 # fun define IS_HRTIM_FAULTLOCK(FAULTLOCK)\
+#              (((FAULTLOCK) == HRTIM_FAULTLOCK_READWRITE) || \
+#               ((FAULTLOCK) == HRTIM_FAULTLOCK_READONLY))
 HRTIM_FAULTPRESCALER_DIV1 = 0x0
 HRTIM_FAULTPRESCALER_DIV2 = 0x1000000
 HRTIM_FAULTPRESCALER_DIV4 = 0x2000000
 HRTIM_FAULTPRESCALER_DIV8 = 0x3000000
 # fun define IS_HRTIM_FAULTPRESCALER(FAULTPRESCALER)\
+#             (((FAULTPRESCALER) == HRTIM_FAULTPRESCALER_DIV1)  || \
+#              ((FAULTPRESCALER) == HRTIM_FAULTPRESCALER_DIV2)   || \
+#              ((FAULTPRESCALER) == HRTIM_FAULTPRESCALER_DIV4)   || \
+#              ((FAULTPRESCALER) == HRTIM_FAULTPRESCALER_DIV8))
 HRTIM_BURSTMODE_SINGLESHOT = 0x0
 HRTIM_BURSTMODE_CONTINOUS = 0x2
 # fun define IS_HRTIM_BURSTMODE(BURSTMODE)\
+#              (((BURSTMODE) == HRTIM_BURSTMODE_SINGLESHOT)  || \
+#               ((BURSTMODE) == HRTIM_BURSTMODE_CONTINOUS))
 HRTIM_BURSTMODECLOCKSOURCE_MASTER = 0x0
 HRTIM_BURSTMODECLOCKSOURCE_TIMER_A = 0x4
 HRTIM_BURSTMODECLOCKSOURCE_TIMER_B = 0x8
@@ -608,6 +1070,17 @@ HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_3 = 0x20
 HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_4 = 0x24
 HRTIM_BURSTMODECLOCKSOURCE_FHRTIM = 0x28
 # fun define IS_HRTIM_BURSTMODECLOCKSOURCE(BURSTMODECLOCKSOURCE)\
+#              (((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_MASTER)      || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_TIMER_A)     || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_TIMER_B)     || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_TIMER_C)     || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_TIMER_D)     || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_TIMER_E)     || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_1)  || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_2)  || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_3)  || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_ONCHIPEV_4)  || \
+#               ((BURSTMODECLOCKSOURCE) == HRTIM_BURSTMODECLOCKSOURCE_FHRTIM))
 HRTIM_BURSTMODEPRESCALER_DIV1 = 0x0
 HRTIM_BURSTMODEPRESCALER_DIV2 = 0x40
 HRTIM_BURSTMODEPRESCALER_DIV4 = 0x80
@@ -625,9 +1098,27 @@ HRTIM_BURSTMODEPRESCALER_DIV8192 = 0x340
 HRTIM_BURSTMODEPRESCALER_DIV16384 = 0x380
 HRTIM_BURSTMODEPRESCALER_DIV32768 = 0x3C0
 # fun define IS_HRTIM_HRTIM_BURSTMODEPRESCALER(BURSTMODEPRESCALER)\
+#              (((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV1)     || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV2)     || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV4)     || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV8)     || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV16)    || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV32)    || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV64)    || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV128)   || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV256)   || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV512)   || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV1024)  || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV2048)  || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV4096)  || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV8192)  || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV16384) || \
+#               ((BURSTMODEPRESCALER) == HRTIM_BURSTMODEPRESCALER_DIV32768))
 HRIM_BURSTMODEPRELOAD_DISABLED = 0x0
 HRIM_BURSTMODEPRELOAD_ENABLED = 0x400
 # fun define IS_HRTIM_BURSTMODEPRELOAD(BURSTMODEPRELOAD)\
+#              (((BURSTMODEPRELOAD) == HRIM_BURSTMODEPRELOAD_DISABLED)  || \
+#               ((BURSTMODEPRELOAD) == HRIM_BURSTMODEPRELOAD_ENABLED))
 HRTIM_BURSTMODETRIGGER_NONE = 0x0
 HRTIM_BURSTMODETRIGGER_SOFTWARE = 0x1
 HRTIM_BURSTMODETRIGGER_MASTER_RESET = 0x2
@@ -662,6 +1153,38 @@ HRTIM_BURSTMODETRIGGER_EVENT_7 = 0x20000000
 HRTIM_BURSTMODETRIGGER_EVENT_8 = 0x40000000
 HRTIM_BURSTMODETRIGGER_EVENT_ONCHIP = 0x80000000
 # fun define IS_HRTIM_BURSTMODETRIGGER(BURSTMODETRIGGER)\
+#              (((BURSTMODETRIGGER) == HRTIM_BURSTMODETRIGGER_NONE)               || \
+#               ((BURSTMODETRIGGER) == HRTIM_BURSTMODETRIGGER_MASTER_RESET)       || \
+#               ((BURSTMODETRIGGER) == HRTIM_BURSTMODETRIGGER_MASTER_REPETITION)  || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_MASTER_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_MASTER_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_MASTER_CMP3)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_MASTER_CMP4)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERA_RESET)      || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERA_REPETITION) || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERA_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERA_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERB_RESET)      || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERB_REPETITION) || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERB_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERB_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERC_RESET)      || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERC_REPETITION) || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERC_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERC_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERD_RESET)      || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERD_REPETITION) || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERD_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERD_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERE_RESET)      || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERE_REPETITION) || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERE_CMP1)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERE_CMP2)       || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERA_EVENT7)     || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_TIMERD_EVENT8)     || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_EVENT_7)           || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_EVENT_8)           || \
+#               ((BURSTMODETRIGGER) ==  HRTIM_BURSTMODETRIGGER_EVENT_ONCHIP))
 HRTIM_ADCTRIGGERUPDATE_MASTER = 0x0
 HRTIM_ADCTRIGGERUPDATE_TIMER_A = 0x10000
 HRTIM_ADCTRIGGERUPDATE_TIMER_B = 0x20000
@@ -669,6 +1192,12 @@ HRTIM_ADCTRIGGERUPDATE_TIMER_C = 0x30000
 HRTIM_ADCTRIGGERUPDATE_TIMER_D = 0x40000
 HRTIM_ADCTRIGGERUPDATE_TIMER_E = 0x50000
 # fun define IS_HRTIM_ADCTRIGGERUPDATE(ADCTRIGGERUPDATE)\
+#             (((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_MASTER)   || \
+#              ((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_TIMER_A)  || \
+#              ((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_TIMER_B)  || \
+#              ((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_TIMER_C)  || \
+#              ((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_TIMER_D)  || \
+#              ((ADCTRIGGERUPDATE) == HRTIM_ADCTRIGGERUPDATE_TIMER_E))
 HRTIM_ADCTRIGGEREVENT13_NONE = 0x0
 HRTIM_ADCTRIGGEREVENT13_MASTER_CMP1 = 0x1
 HRTIM_ADCTRIGGEREVENT13_MASTER_CMP2 = 0x2
@@ -741,6 +1270,10 @@ HRTIM_CALIBRATIONRATE_910 = 0x4
 HRTIM_CALIBRATIONRATE_114 = 0x8
 HRTIM_CALIBRATIONRATE_14 = 0xC
 # fun define IS_HRTIM_CALIBRATIONRATE(CALIBRATIONRATE)\
+#    (((CALIBRATIONRATE) == HRTIM_CALIBRATIONRATE_7300)   || \
+#     ((CALIBRATIONRATE) == HRTIM_CALIBRATIONRATE_910)  || \
+#     ((CALIBRATIONRATE) == HRTIM_CALIBRATIONRATE_114)  || \
+#     ((CALIBRATIONRATE) == HRTIM_CALIBRATIONRATE_14))
 HRTIM_BURSTDMA_NONE = 0x0
 HRTIM_BURSTDMA_CR = 0x1
 HRTIM_BURSTDMA_ICR = 0x2
@@ -764,12 +1297,27 @@ HRTIM_BURSTDMA_CHPR = 0x40000
 HRTIM_BURSTDMA_OUTR = 0x80000
 HRTIM_BURSTDMA_FLTR = 0x100000
 # fun define IS_HRTIM_TIMER_BURSTDMA(TIMER, BURSTDMA)                                       \
+#   ((((TIMER) == HRTIM_TIMERINDEX_MASTER) && (((BURSTDMA) & 0xFFFFFC000) == 0x00000000)) \
+#    ||                                                                                 \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_A) && (((BURSTDMA) & 0xFFE00000) == 0x00000000)) \
+#    ||                                                                                 \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_B) && (((BURSTDMA) & 0xFFE00000) == 0x00000000)) \
+#    ||                                                                                 \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_C) && (((BURSTDMA) & 0xFFE00000) == 0x00000000)) \
+#    ||                                                                                 \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_D) && (((BURSTDMA) & 0xFFE00000) == 0x00000000)) \
+#    ||                                                                                 \
+#    (((TIMER) == HRTIM_TIMERINDEX_TIMER_E) && (((BURSTDMA) & 0xFFE00000) == 0x00000000)))
 HRTIM_BURSTMODECTL_DISABLED = 0x0
 HRTIM_BURSTMODECTL_ENABLED = 0x1
 # fun define IS_HRTIM_BURSTMODECTL(BURSTMODECTL)\
+#    (((BURSTMODECTL) == HRTIM_BURSTMODECTL_DISABLED)  || \
+#     ((BURSTMODECTL) == HRTIM_BURSTMODECTL_ENABLED))
 HRTIM_FAULT_DISABLED = 0x0
 HRTIM_FAULT_ENABLED = 0x1
 # fun define IS_HRTIM_FAULTCTL(FAULTCTL)\
+#    (((FAULTCTL) == HRTIM_FAULT_DISABLED)  || \
+#     ((FAULTCTL) == HRTIM_FAULT_ENABLED))
 HRTIM_TIMERUPDATE_MASTER = 0x1
 HRTIM_TIMERUPDATE_A = 0x2
 HRTIM_TIMERUPDATE_B = 0x4
@@ -787,6 +1335,8 @@ HRTIM_TIMERRESET_E = 0x2000
 HRTIM_OUTPUTLEVEL_ACTIVE = 0x1
 HRTIM_OUTPUTLEVEL_INACTIVE = 0x2
 # fun define IS_HRTIM_OUTPUTLEVEL(OUTPUTLEVEL)\
+#    (((OUTPUTLEVEL) == HRTIM_OUTPUTLEVEL_ACTIVE)  || \
+#     ((OUTPUTLEVEL) == HRTIM_OUTPUTLEVEL_INACTIVE))
 HRTIM_OUTPUTSTATE_IDLE = 0x1
 HRTIM_OUTPUTSTATE_RUN = 0x2
 HRTIM_OUTPUTSTATE_FAULT = 0x3
@@ -805,6 +1355,14 @@ HRTIM_IT_SYSFLT = 0x20
 HRTIM_IT_DLLRDY = 0x10000
 HRTIM_IT_BMPER = 0x20000
 # fun define IS_HRTIM_IT(IT)\
+#               (((IT) == HRTIM_ISR_FLT1)   || \
+#                ((IT) == HRTIM_ISR_FLT2)   || \
+#                ((IT) == HRTIM_ISR_FLT3)   || \
+#                ((IT) == HRTIM_ISR_FLT4)   || \
+#                ((IT) == HRTIM_ISR_FLT5)   || \
+#                ((IT) == HRTIM_ISR_SYSFLT) || \
+#                ((IT) == HRTIM_ISR_DLLRDY) || \
+#                ((IT) == HRTIM_ISR_BMPER))
 HRTIM_FLAG_FLT1 = 0x1
 HRTIM_FLAG_FLT2 = 0x2
 HRTIM_FLAG_FLT3 = 0x4
@@ -814,6 +1372,14 @@ HRTIM_FLAG_SYSFLT = 0x20
 HRTIM_FLAG_DLLRDY = 0x10000
 HRTIM_FLAG_BMPER = 0x20000
 # fun define IS_HRTIM_FLAG(FLAG)\
+#               (((FLAG) == HRTIM_ISR_FLT1)   || \
+#                ((FLAG) == HRTIM_ISR_FLT2)   || \
+#                ((FLAG) == HRTIM_ISR_FLT3)   || \
+#                ((FLAG) == HRTIM_ISR_FLT4)   || \
+#                ((FLAG) == HRTIM_ISR_FLT5)   || \
+#                ((FLAG) == HRTIM_ISR_SYSFLT) || \
+#                ((FLAG) == HRTIM_ISR_DLLRDY) || \
+#                ((FLAG) == HRTIM_ISR_BMPER))
 HRTIM_MASTER_IT_MCMP1 = 0x1
 HRTIM_MASTER_IT_MCMP2 = 0x2
 HRTIM_MASTER_IT_MCMP3 = 0x4
@@ -822,6 +1388,13 @@ HRTIM_MASTER_IT_MREP = 0x10
 HRTIM_MASTER_IT_SYNC = 0x20
 HRTIM_MASTER_IT_MUPD = 0x40
 # fun define IS_HRTIM_MASTER_IT(IT)\
+#                 (((IT) == HRTIM_MDIER_MCMP1IE)  || \
+#                  ((IT) == HRTIM_MDIER_MCMP2IE)  || \
+#                  ((IT) == HRTIM_MDIER_MCMP3IE)  || \
+#                  ((IT) == HRTIM_MDIER_MCMP4IE)  || \
+#                  ((IT) == HRTIM_MDIER_MREPIE)   || \
+#                  ((IT) == HRTIM_MDIER_SYNCIE)   || \
+#                  ((IT) == HRTIM_MDIER_MUPDIE))
 HRTIM_MASTER_FLAG_MCMP1 = 0x1
 HRTIM_MASTER_FLAG_MCMP2 = 0x2
 HRTIM_MASTER_FLAG_MCMP3 = 0x4
@@ -830,6 +1403,13 @@ HRTIM_MASTER_FLAG_MREP = 0x10
 HRTIM_MASTER_FLAG_SYNC = 0x20
 HRTIM_MASTER_FLAG_MUPD = 0x40
 # fun define IS_HRTIM_MASTER_FLAG(FLAG)\
+#                 (((FLAG) == HRTIM_MISR_MCMP1)  || \
+#                  ((FLAG) == HRTIM_MISR_MCMP2)  || \
+#                  ((FLAG) == HRTIM_MISR_MCMP3)  || \
+#                  ((FLAG) == HRTIM_MISR_MCMP4)  || \
+#                  ((FLAG) == HRTIM_MISR_MREP)   || \
+#                  ((FLAG) == HRTIM_MISR_SYNC)   || \
+#                  ((FLAG) == HRTIM_MISR_MUPD))
 HRTIM_TIM_IT_CMP1 = 0x1
 HRTIM_TIM_IT_CMP2 = 0x2
 HRTIM_TIM_IT_CMP3 = 0x4
@@ -845,6 +1425,20 @@ HRTIM_TIM_IT_RST2 = 0x1000
 HRTIM_TIM_IT_RST = 0x2000
 HRTIM_TIM_IT_DLYPRT = 0x4000
 # fun define IS_HRTIM_TIM_IT(IT)\
+#                   (((IT) == HRTIM_TIMDIER_CMP1IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_CMP2IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_CMP3IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_CMP4IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_REPIE)     || \
+#                    ((IT) == HRTIM_TIMDIER_UPDIE)     || \
+#                    ((IT) == HRTIM_TIMDIER_CPT1IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_CPT2IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_SET1IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_RST1IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_SET2IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_RST2IE)    || \
+#                    ((IT) == HRTIM_TIMDIER_RSTIE)     || \
+#                    ((IT) == HRTIM_TIMDIER_DLYPRTIE))
 HRTIM_TIM_FLAG_CMP1 = 0x1
 HRTIM_TIM_FLAG_CMP2 = 0x2
 HRTIM_TIM_FLAG_CMP3 = 0x4
@@ -860,6 +1454,20 @@ HRTIM_TIM_FLAG_RST2 = 0x1000
 HRTIM_TIM_FLAG_RST = 0x2000
 HRTIM_TIM_FLAG_DLYPRT1 = 0x4000
 # fun define IS_HRTIM_TIM_FLAG(FLAG)\
+#                   (((FLAG) == HRTIM_TIM_FLAG_CMP1)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_CMP2)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_CMP3)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_CMP4)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_REP)     || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_UPD)     || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_CPT1)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_CPT2)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_SET1)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_RST1)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_SET2)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_RST2)    || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_RST)     || \
+#                    ((FLAG) == HRTIM_TIM_FLAG_DLYPRT1))
 HRTIM_MASTER_DMA_MCMP1 = 0x10000
 HRTIM_MASTER_DMA_MCMP2 = 0x20000
 HRTIM_MASTER_DMA_MCMP3 = 0x40000
@@ -868,6 +1476,13 @@ HRTIM_MASTER_DMA_MREP = 0x100000
 HRTIM_MASTER_DMA_SYNC = 0x200000
 HRTIM_MASTER_DMA_MUPD = 0x400000
 # fun define IS_HRTIM_MASTER_DMA(DMA)\
+#                 (((DMA) == HRTIM_MDIER_MCMP1DE)  || \
+#                  ((DMA) == HRTIM_MDIER_MCMP2DE)  || \
+#                  ((DMA) == HRTIM_MDIER_MCMP3DE)  || \
+#                  ((DMA) == HRTIM_MDIER_MCMP4DE)  || \
+#                  ((DMA) == HRTIM_MDIER_MREPDE)   || \
+#                  ((DMA) == HRTIM_MDIER_SYNCDE)   || \
+#                  ((DMA) == HRTIM_MDIER_MUPDDE))
 HRTIM_TIM_DMA_CMP1 = 0x10000
 HRTIM_TIM_DMA_CMP2 = 0x20000
 HRTIM_TIM_DMA_CMP3 = 0x40000
@@ -883,6 +1498,20 @@ HRTIM_TIM_DMA_RST2 = 0x10000000
 HRTIM_TIM_DMA_RST = 0x20000000
 HRTIM_TIM_DMA_DLYPRT = 0x40000000
 # fun define IS_HRTIM_TIM_DMA(DMA)\
+#                   (((DMA) == HRTIM_TIMDIER_CMP1DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_CMP2DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_CMP3DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_CMP4DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_REPDE)     || \
+#                    ((DMA) == HRTIM_TIMDIER_UPDDE)     || \
+#                    ((DMA) == HRTIM_TIMDIER_CPT1DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_CPT2DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_SET1DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_RST1DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_SET2DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_RST2DE)    || \
+#                    ((DMA) == HRTIM_TIMDIER_RSTDE)     || \
+#                    ((DMA) == HRTIM_TIMDIER_DLYPRTDE))
 # fun define IS_HRTIM_INSTANCE(INSTANCE) (INSTANCE) == HRTIM1)
 # fun define __HRTIM_ENABLE(__HANDLE__, __TIMERS__)   ((__HANDLE__)->HRTIM_MASTER.MCR |= (__TIMERS__))
 HRTIM_TAOEN_MASK = 0x3
@@ -891,6 +1520,47 @@ HRTIM_TCOEN_MASK = 0x30
 HRTIM_TDOEN_MASK = 0xC0
 HRTIM_TEOEN_MASK = 0x300
 # fun define __HRTIM_DISABLE(__HANDLE__, __TIMERS__)\
+#  do {\
+#    if (((__TIMERS__) & HRTIM_TIMERID_MASTER) == HRTIM_TIMERID_MASTER)\
+#      {\
+#        ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_MASTER);\
+#      }\
+#    if (((__TIMERS__) & HRTIM_TIMERID_TIMER_A) == HRTIM_TIMERID_TIMER_A)\
+#      {\
+#        if (((__HANDLE__)->HRTIM_COMMON.OENR & HRTIM_TAOEN_MASK) == RESET)\
+#          {\
+#            ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_TIMER_A);\
+#          }\
+#      }\
+#    if (((__TIMERS__) & HRTIM_TIMERID_TIMER_B) == HRTIM_TIMERID_TIMER_B)\
+#      {\
+#        if (((__HANDLE__)->HRTIM_COMMON.OENR & HRTIM_TBOEN_MASK) == RESET)\
+#          {\
+#            ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_TIMER_B);\
+#          }\
+#      }\
+#    if (((__TIMERS__) & HRTIM_TIMERID_TIMER_C) == HRTIM_TIMERID_TIMER_C)\
+#      {\
+#        if (((__HANDLE__)->HRTIM_COMMON.OENR & HRTIM_TCOEN_MASK) == RESET)\
+#          {\
+#            ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_TIMER_C);\
+#          }\
+#      }\
+#    if (((__TIMERS__) & HRTIM_TIMERID_TIMER_D) == HRTIM_TIMERID_TIMER_D)\
+#      {\
+#        if (((__HANDLE__)->HRTIM_COMMON.OENR & HRTIM_TDOEN_MASK) == RESET)\
+#          {\
+#            ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_TIMER_D);\
+#          }\
+#      }\
+#    if (((__TIMERS__) & HRTIM_TIMERID_TIMER_E) == HRTIM_TIMERID_TIMER_E)\
+#      {\
+#        if (((__HANDLE__)->HRTIM_COMMON.OENR & HRTIM_TEOEN_MASK) == RESET)\
+#          {\
+#            ((__HANDLE__)->HRTIM_MASTER.MCR &= ~HRTIM_TIMERID_TIMER_E);\
+#          }\
+#      }\
+#  } while(0)
 # struct HRTIM_BaseInitTypeDef
 
 class HRTIM_BaseInitTypeDef(ctypes.Structure):
@@ -1145,30 +1815,50 @@ class HRTIM_ADCTriggerCfgTypeDef(ctypes.Structure):
 
 # empty define __STM32F30x_USART_H
 # fun define IS_USART_ALL_PERIPH(PERIPH) (((PERIPH) == USART1) || \
+#                                     ((PERIPH) == USART2) || \
+#                                     ((PERIPH) == USART3) || \
+#                                     ((PERIPH) == UART4) || \
+#                                     ((PERIPH) == UART5))
 # fun define IS_USART_123_PERIPH(PERIPH) (((PERIPH) == USART1) || \
+#                                     ((PERIPH) == USART2) || \
+#                                     ((PERIPH) == USART3))
 # fun define IS_USART_1234_PERIPH(PERIPH) (((PERIPH) == USART1) || \
+#                                      ((PERIPH) == USART2) || \
+#                                      ((PERIPH) == USART3) || \
+#                                      ((PERIPH) == UART4))
 USART_WordLength_8b = 0x0
 USART_WordLength_9b = 0x1000
 # fun define IS_USART_WORD_LENGTH(LENGTH) (((LENGTH) == USART_WordLength_8b) || \
+#                                      ((LENGTH) == USART_WordLength_9b))
 USART_StopBits_1 = 0x0
 USART_StopBits_2 = 0x2000
 USART_StopBits_1_5 = 0x3000
 # fun define IS_USART_STOPBITS(STOPBITS) (((STOPBITS) == USART_StopBits_1) || \
+#                                     ((STOPBITS) == USART_StopBits_2) || \
+#                                     ((STOPBITS) == USART_StopBits_1_5))
 USART_Parity_No = 0x0
 USART_Parity_Even = 0x400
 USART_Parity_Odd = 0x600
 # fun define IS_USART_PARITY(PARITY) (((PARITY) == USART_Parity_No) || \
+#                                 ((PARITY) == USART_Parity_Even) || \
+#                                 ((PARITY) == USART_Parity_Odd))
 USART_Mode_Rx = 0x4
 USART_Mode_Tx = 0x8
 # fun define IS_USART_MODE(MODE) ((((MODE) & (uint32_t)0xFFFFFFF3) == 0x00) && \
+#                              ((MODE) != (uint32_t)0x00))
 USART_HardwareFlowControl_None = 0x0
 USART_HardwareFlowControl_RTS = 0x100
 USART_HardwareFlowControl_CTS = 0x200
 USART_HardwareFlowControl_RTS_CTS = 0x300
 # fun define IS_USART_HARDWARE_FLOW_CONTROL(CONTROL)\
+#                              (((CONTROL) == USART_HardwareFlowControl_None) || \
+#                               ((CONTROL) == USART_HardwareFlowControl_RTS) || \
+#                               ((CONTROL) == USART_HardwareFlowControl_CTS) || \
+#                               ((CONTROL) == USART_HardwareFlowControl_RTS_CTS))
 USART_Clock_Disable = 0x0
 USART_Clock_Enable = 0x800
 # fun define IS_USART_CLOCK(CLOCK) (((CLOCK) == USART_Clock_Disable) || \
+#                               ((CLOCK) == USART_Clock_Enable))
 USART_CPOL_Low = 0x0
 USART_CPOL_High = 0x400
 # fun define IS_USART_CPOL(CPOL) (((CPOL) == USART_CPOL_Low) || ((CPOL) == USART_CPOL_High))
@@ -1178,48 +1868,68 @@ USART_CPHA_2Edge = 0x200
 USART_LastBit_Disable = 0x0
 USART_LastBit_Enable = 0x100
 # fun define IS_USART_LASTBIT(LASTBIT) (((LASTBIT) == USART_LastBit_Disable) || \
+#                                   ((LASTBIT) == USART_LastBit_Enable))
 USART_DMAReq_Tx = 0x80
 USART_DMAReq_Rx = 0x40
 # fun define IS_USART_DMAREQ(DMAREQ) ((((DMAREQ) & (uint32_t)0xFFFFFF3F) == 0x00) && \
+#                                  ((DMAREQ) != (uint32_t)0x00))
 USART_DMAOnError_Enable = 0x0
 USART_DMAOnError_Disable = 0x2000
 # fun define IS_USART_DMAONERROR(DMAERROR) (((DMAERROR) == USART_DMAOnError_Disable)|| \
+#                                       ((DMAERROR) == USART_DMAOnError_Enable))
 USART_WakeUp_IdleLine = 0x0
 USART_WakeUp_AddressMark = 0x800
 # fun define IS_USART_MUTEMODE_WAKEUP(WAKEUP) (((WAKEUP) == USART_WakeUp_IdleLine) || \
+#                                          ((WAKEUP) == USART_WakeUp_AddressMark))
 USART_AddressLength_4b = 0x0
 USART_AddressLength_7b = 0x10
 # fun define IS_USART_ADDRESS_DETECTION(ADDRESS) (((ADDRESS) == USART_AddressLength_4b) || \
+#                                             ((ADDRESS) == USART_AddressLength_7b))
 USART_WakeUpSource_AddressMatch = 0x0
 USART_WakeUpSource_StartBit = 0x200000
 USART_WakeUpSource_RXNE = 0x300000
 # fun define IS_USART_STOPMODE_WAKEUPSOURCE(SOURCE) (((SOURCE) == USART_WakeUpSource_AddressMatch) || \
+#                                                ((SOURCE) == USART_WakeUpSource_StartBit) || \
+#                                                ((SOURCE) == USART_WakeUpSource_RXNE))
 USART_LINBreakDetectLength_10b = 0x0
 USART_LINBreakDetectLength_11b = 0x20
 # fun define IS_USART_LIN_BREAK_DETECT_LENGTH(LENGTH) \
+#                               (((LENGTH) == USART_LINBreakDetectLength_10b) || \
+#                                ((LENGTH) == USART_LINBreakDetectLength_11b))
 USART_IrDAMode_LowPower = 0x4
 USART_IrDAMode_Normal = 0x0
 # fun define IS_USART_IRDA_MODE(MODE) (((MODE) == USART_IrDAMode_LowPower) || \
+#                                  ((MODE) == USART_IrDAMode_Normal))
 USART_DEPolarity_High = 0x0
 USART_DEPolarity_Low = 0x8000
 # fun define IS_USART_DE_POLARITY(POLARITY) (((POLARITY) == USART_DEPolarity_Low) || \
+#                                        ((POLARITY) == USART_DEPolarity_High))
 USART_InvPin_Tx = 0x20000
 USART_InvPin_Rx = 0x10000
 # fun define IS_USART_INVERSTION_PIN(PIN) ((((PIN) & (uint32_t)0xFFFCFFFF) == 0x00) && \
+#                                       ((PIN) != (uint32_t)0x00))
 USART_AutoBaudRate_StartBit = 0x0
 USART_AutoBaudRate_FallingEdge = 0x200000
 USART_AutoBaudRate_0x7FFrame = 0x400000
 USART_AutoBaudRate_0x55Frame = 0x600000
 # fun define IS_USART_AUTOBAUDRATE_MODE(MODE) (((MODE) == USART_AutoBaudRate_StartBit) || \
+#                                          ((MODE) == USART_AutoBaudRate_FallingEdge) || \
+#                                          ((MODE) == USART_AutoBaudRate_0x7FFrame) || \
+#                                          ((MODE) == USART_AutoBaudRate_0x55Frame))
 USART_OVRDetection_Enable = 0x0
 USART_OVRDetection_Disable = 0x1000
 # fun define IS_USART_OVRDETECTION(OVR) (((OVR) == USART_OVRDetection_Enable)|| \
+#                                    ((OVR) == USART_OVRDetection_Disable))
 USART_Request_ABRRQ = 0x1
 USART_Request_SBKRQ = 0x2
 USART_Request_MMRQ = 0x4
 USART_Request_RXFRQ = 0x8
 USART_Request_TXFRQ = 0x10
 # fun define IS_USART_REQUEST(REQUEST) (((REQUEST) == USART_Request_TXFRQ) || \
+#                                   ((REQUEST) == USART_Request_RXFRQ) || \
+#                                   ((REQUEST) == USART_Request_MMRQ) || \
+#                                   ((REQUEST) == USART_Request_SBKRQ) || \
+#                                   ((REQUEST) == USART_Request_ABRRQ))
 USART_FLAG_REACK = 0x400000
 USART_FLAG_TEACK = 0x200000
 USART_FLAG_WU = 0x100000
@@ -1243,7 +1953,22 @@ USART_FLAG_NE = 0x4
 USART_FLAG_FE = 0x2
 USART_FLAG_PE = 0x1
 # fun define IS_USART_FLAG(FLAG) (((FLAG) == USART_FLAG_PE) || ((FLAG) == USART_FLAG_TXE) || \
+#                             ((FLAG) == USART_FLAG_TC) || ((FLAG) == USART_FLAG_RXNE) || \
+#                             ((FLAG) == USART_FLAG_IDLE) || ((FLAG) == USART_FLAG_LBD) || \
+#                             ((FLAG) == USART_FLAG_CTS) || ((FLAG) == USART_FLAG_ORE) || \
+#                             ((FLAG) == USART_FLAG_NE) || ((FLAG) == USART_FLAG_FE) || \
+#                             ((FLAG) == USART_FLAG_nCTSS) || ((FLAG) == USART_FLAG_RTO) || \
+#                             ((FLAG) == USART_FLAG_EOB) || ((FLAG) == USART_FLAG_ABRE) || \
+#                             ((FLAG) == USART_FLAG_ABRF) || ((FLAG) == USART_FLAG_BUSY) || \
+#                             ((FLAG) == USART_FLAG_CM) || ((FLAG) == USART_FLAG_SBK) || \
+#                             ((FLAG) == USART_FLAG_RWU) || ((FLAG) == USART_FLAG_WU) || \
+#                             ((FLAG) == USART_FLAG_TEACK)|| ((FLAG) == USART_FLAG_REACK))
 # fun define IS_USART_CLEAR_FLAG(FLAG) (((FLAG) == USART_FLAG_WU) || ((FLAG) == USART_FLAG_TC) || \
+#                                   ((FLAG) == USART_FLAG_IDLE) || ((FLAG) == USART_FLAG_ORE) || \
+#                                   ((FLAG) == USART_FLAG_NE) || ((FLAG) == USART_FLAG_FE) || \
+#                                   ((FLAG) == USART_FLAG_LBD) || ((FLAG) == USART_FLAG_CTS) || \
+#                                   ((FLAG) == USART_FLAG_RTO) || ((FLAG) == USART_FLAG_EOB) || \
+#                                   ((FLAG) == USART_FLAG_CM) || ((FLAG) == USART_FLAG_PE))
 USART_IT_WU = 0x140316
 USART_IT_CM = 0x11010E
 USART_IT_EOB = 0xC011B
@@ -1260,8 +1985,24 @@ USART_IT_ORE = 0x30300
 USART_IT_NE = 0x20300
 USART_IT_FE = 0x10300
 # fun define IS_USART_CONFIG_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
+#                                ((IT) == USART_IT_TC) || ((IT) == USART_IT_RXNE) || \
+#                                ((IT) == USART_IT_IDLE) || ((IT) == USART_IT_LBD) || \
+#                                ((IT) == USART_IT_CTS) || ((IT) == USART_IT_ERR) || \
+#                                ((IT) == USART_IT_RTO) || ((IT) == USART_IT_EOB) || \
+#                                ((IT) == USART_IT_CM) || ((IT) == USART_IT_WU))
 # fun define IS_USART_GET_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
+#                             ((IT) == USART_IT_TC) || ((IT) == USART_IT_RXNE) || \
+#                             ((IT) == USART_IT_IDLE) || ((IT) == USART_IT_LBD) || \
+#                             ((IT) == USART_IT_CTS) || ((IT) == USART_IT_ORE) || \
+#                             ((IT) == USART_IT_NE) || ((IT) == USART_IT_FE) || \
+#                             ((IT) == USART_IT_RTO) || ((IT) == USART_IT_EOB) || \
+#                             ((IT) == USART_IT_CM) || ((IT) == USART_IT_WU))
 # fun define IS_USART_CLEAR_IT(IT) (((IT) == USART_IT_TC) || ((IT) == USART_IT_PE) || \
+#                               ((IT) == USART_IT_FE) || ((IT) == USART_IT_NE) || \
+#                               ((IT) == USART_IT_ORE) || ((IT) == USART_IT_IDLE) || \
+#                               ((IT) == USART_IT_LBD) || ((IT) == USART_IT_CTS) || \
+#                               ((IT) == USART_IT_RTO) || ((IT) == USART_IT_EOB) || \
+#                               ((IT) == USART_IT_CM) || ((IT) == USART_IT_WU))
 # fun define IS_USART_BAUDRATE(BAUDRATE) (((BAUDRATE) > 0) && ((BAUDRATE) < 0x005B8D81))
 # fun define IS_USART_DE_ASSERTION_DEASSERTION_TIME(TIME) ((TIME) <= 0x1F)
 # fun define IS_USART_AUTO_RETRY_COUNTER(COUNTER) ((COUNTER) <= 0x7)
@@ -1303,6 +2044,7 @@ class USART_ClockInitTypeDef(ctypes.Structure):
 RTC_HourFormat_24 = 0x0
 RTC_HourFormat_12 = 0x40
 # fun define IS_RTC_HOUR_FORMAT(FORMAT)     (((FORMAT) == RTC_HourFormat_12) || \
+#                                        ((FORMAT) == RTC_HourFormat_24))
 # fun define IS_RTC_ASYNCH_PREDIV(PREDIV)   ((PREDIV) <= 0x7F)
 # fun define IS_RTC_SYNCH_PREDIV(PREDIV)    ((PREDIV) <= 0x7FFF)
 # fun define IS_RTC_HOUR12(HOUR)            (((HOUR) > 0) && ((HOUR) <= 12))
@@ -1335,11 +2077,24 @@ RTC_Weekday_Friday = 0x5
 RTC_Weekday_Saturday = 0x6
 RTC_Weekday_Sunday = 0x7
 # fun define IS_RTC_WEEKDAY(WEEKDAY) (((WEEKDAY) == RTC_Weekday_Monday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Tuesday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Wednesday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Thursday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Friday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Saturday) || \
+#                                 ((WEEKDAY) == RTC_Weekday_Sunday))
 # fun define IS_RTC_ALARM_DATE_WEEKDAY_DATE(DATE) (((DATE) > 0) && ((DATE) <= 31))
 # fun define IS_RTC_ALARM_DATE_WEEKDAY_WEEKDAY(WEEKDAY) (((WEEKDAY) == RTC_Weekday_Monday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Tuesday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Wednesday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Thursday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Friday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Saturday) || \
+#                                                    ((WEEKDAY) == RTC_Weekday_Sunday))
 RTC_AlarmDateWeekDaySel_Date = 0x0
 RTC_AlarmDateWeekDaySel_WeekDay = 0x40000000
 # fun define IS_RTC_ALARM_DATE_WEEKDAY_SEL(SEL) (((SEL) == RTC_AlarmDateWeekDaySel_Date) || \
+#                                            ((SEL) == RTC_AlarmDateWeekDaySel_WeekDay))
 RTC_AlarmMask_None = 0x0
 RTC_AlarmMask_DateWeekDay = 0x80000000
 RTC_AlarmMask_Hours = 0x800000
@@ -1368,6 +2123,21 @@ RTC_AlarmSubSecondMask_SS14_13 = 0xD000000
 RTC_AlarmSubSecondMask_SS14 = 0xE000000
 RTC_AlarmSubSecondMask_None = 0xF000000
 # fun define IS_RTC_ALARM_SUB_SECOND_MASK(MASK)   (((MASK) == RTC_AlarmSubSecondMask_All) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_1) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_2) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_3) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_4) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_5) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_6) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_7) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_8) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_9) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_10) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_11) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_12) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14_13) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_SS14) || \
+#                                              ((MASK) == RTC_AlarmSubSecondMask_None))
 # fun define IS_RTC_ALARM_SUB_SECOND_VALUE(VALUE) ((VALUE) <= 0x00007FFF)
 RTC_WakeUpClock_RTCCLK_Div16 = 0x0
 RTC_WakeUpClock_RTCCLK_Div8 = 0x1
@@ -1376,49 +2146,72 @@ RTC_WakeUpClock_RTCCLK_Div2 = 0x3
 RTC_WakeUpClock_CK_SPRE_16bits = 0x4
 RTC_WakeUpClock_CK_SPRE_17bits = 0x6
 # fun define IS_RTC_WAKEUP_CLOCK(CLOCK) (((CLOCK) == RTC_WakeUpClock_RTCCLK_Div16) || \
+#                                    ((CLOCK) == RTC_WakeUpClock_RTCCLK_Div8) || \
+#                                    ((CLOCK) == RTC_WakeUpClock_RTCCLK_Div4) || \
+#                                    ((CLOCK) == RTC_WakeUpClock_RTCCLK_Div2) || \
+#                                    ((CLOCK) == RTC_WakeUpClock_CK_SPRE_16bits) || \
+#                                    ((CLOCK) == RTC_WakeUpClock_CK_SPRE_17bits))
 # fun define IS_RTC_WAKEUP_COUNTER(COUNTER)  ((COUNTER) <= 0xFFFF)
 RTC_TimeStampEdge_Rising = 0x0
 RTC_TimeStampEdge_Falling = 0x8
 # fun define IS_RTC_TIMESTAMP_EDGE(EDGE) (((EDGE) == RTC_TimeStampEdge_Rising) || \
+#                                     ((EDGE) == RTC_TimeStampEdge_Falling))
 RTC_Output_Disable = 0x0
 RTC_Output_AlarmA = 0x200000
 RTC_Output_AlarmB = 0x400000
 RTC_Output_WakeUp = 0x600000
 # fun define IS_RTC_OUTPUT(OUTPUT) (((OUTPUT) == RTC_Output_Disable) || \
+#                               ((OUTPUT) == RTC_Output_AlarmA) || \
+#                               ((OUTPUT) == RTC_Output_AlarmB) || \
+#                               ((OUTPUT) == RTC_Output_WakeUp))
 RTC_OutputPolarity_High = 0x0
 RTC_OutputPolarity_Low = 0x100000
 # fun define IS_RTC_OUTPUT_POL(POL) (((POL) == RTC_OutputPolarity_High) || \
+#                                ((POL) == RTC_OutputPolarity_Low))
 RTC_CalibSign_Positive = 0x0
 RTC_CalibSign_Negative = 0x80
 # fun define IS_RTC_CALIB_SIGN(SIGN) (((SIGN) == RTC_CalibSign_Positive) || \
+#                                 ((SIGN) == RTC_CalibSign_Negative))
 # fun define IS_RTC_CALIB_VALUE(VALUE) ((VALUE) < 0x20)
 RTC_CalibOutput_512Hz = 0x0
 RTC_CalibOutput_1Hz = 0x80000
 # fun define IS_RTC_CALIB_OUTPUT(OUTPUT)  (((OUTPUT) == RTC_CalibOutput_512Hz) || \
+#                                      ((OUTPUT) == RTC_CalibOutput_1Hz))
 RTC_SmoothCalibPeriod_32sec = 0x0
 RTC_SmoothCalibPeriod_16sec = 0x2000
 RTC_SmoothCalibPeriod_8sec = 0x4000
 # fun define IS_RTC_SMOOTH_CALIB_PERIOD(PERIOD) (((PERIOD) == RTC_SmoothCalibPeriod_32sec) || \
+#                                             ((PERIOD) == RTC_SmoothCalibPeriod_16sec) || \
+#                                             ((PERIOD) == RTC_SmoothCalibPeriod_8sec))
 RTC_SmoothCalibPlusPulses_Set = 0x8000
 RTC_SmoothCalibPlusPulses_Reset = 0x0
 # fun define IS_RTC_SMOOTH_CALIB_PLUS(PLUS) (((PLUS) == RTC_SmoothCalibPlusPulses_Set) || \
+#                                         ((PLUS) == RTC_SmoothCalibPlusPulses_Reset))
 # fun define IS_RTC_SMOOTH_CALIB_MINUS(VALUE) ((VALUE) <= 0x000001FF)
 RTC_DayLightSaving_SUB1H = 0x20000
 RTC_DayLightSaving_ADD1H = 0x10000
 # fun define IS_RTC_DAYLIGHT_SAVING(SAVE) (((SAVE) == RTC_DayLightSaving_SUB1H) || \
+#                                      ((SAVE) == RTC_DayLightSaving_ADD1H))
 RTC_StoreOperation_Reset = 0x0
 RTC_StoreOperation_Set = 0x40000
 # fun define IS_RTC_STORE_OPERATION(OPERATION) (((OPERATION) == RTC_StoreOperation_Reset) || \
+#                                           ((OPERATION) == RTC_StoreOperation_Set))
 RTC_TamperTrigger_RisingEdge = 0x0
 RTC_TamperTrigger_FallingEdge = 0x1
 RTC_TamperTrigger_LowLevel = 0x0
 RTC_TamperTrigger_HighLevel = 0x1
 # fun define IS_RTC_TAMPER_TRIGGER(TRIGGER) (((TRIGGER) == RTC_TamperTrigger_RisingEdge) || \
+#                                        ((TRIGGER) == RTC_TamperTrigger_FallingEdge) || \
+#                                        ((TRIGGER) == RTC_TamperTrigger_LowLevel) || \
+#                                        ((TRIGGER) == RTC_TamperTrigger_HighLevel))
 RTC_TamperFilter_Disable = 0x0
 RTC_TamperFilter_2Sample = 0x800
 RTC_TamperFilter_4Sample = 0x1000
 RTC_TamperFilter_8Sample = 0x1800
 # fun define IS_RTC_TAMPER_FILTER(FILTER) (((FILTER) == RTC_TamperFilter_Disable) || \
+#                                      ((FILTER) == RTC_TamperFilter_2Sample) || \
+#                                      ((FILTER) == RTC_TamperFilter_4Sample) || \
+#                                      ((FILTER) == RTC_TamperFilter_8Sample))
 RTC_TamperSamplingFreq_RTCCLK_Div32768 = 0x0
 RTC_TamperSamplingFreq_RTCCLK_Div16384 = 0x100
 RTC_TamperSamplingFreq_RTCCLK_Div8192 = 0x200
@@ -1428,11 +2221,21 @@ RTC_TamperSamplingFreq_RTCCLK_Div1024 = 0x500
 RTC_TamperSamplingFreq_RTCCLK_Div512 = 0x600
 RTC_TamperSamplingFreq_RTCCLK_Div256 = 0x700
 # fun define IS_RTC_TAMPER_SAMPLING_FREQ(FREQ) (((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div32768) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div16384) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div8192) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div4096) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div2048) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div1024) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div512) || \
+#                                           ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div256))
 RTC_TamperPrechargeDuration_1RTCCLK = 0x0
 RTC_TamperPrechargeDuration_2RTCCLK = 0x2000
 RTC_TamperPrechargeDuration_4RTCCLK = 0x4000
 RTC_TamperPrechargeDuration_8RTCCLK = 0x6000
 # fun define IS_RTC_TAMPER_PRECHARGE_DURATION(DURATION) (((DURATION) == RTC_TamperPrechargeDuration_1RTCCLK) || \
+#                                                    ((DURATION) == RTC_TamperPrechargeDuration_2RTCCLK) || \
+#                                                    ((DURATION) == RTC_TamperPrechargeDuration_4RTCCLK) || \
+#                                                    ((DURATION) == RTC_TamperPrechargeDuration_8RTCCLK))
 RTC_Tamper_1 = 0x1
 RTC_Tamper_2 = 0x8
 RTC_Tamper_3 = 0x20
@@ -1440,9 +2243,11 @@ RTC_Tamper_3 = 0x20
 RTC_OutputType_OpenDrain = 0x0
 RTC_OutputType_PushPull = 0x40000
 # fun define IS_RTC_OUTPUT_TYPE(TYPE) (((TYPE) == RTC_OutputType_OpenDrain) || \
+#                                  ((TYPE) == RTC_OutputType_PushPull))
 RTC_ShiftAdd1S_Reset = 0x0
 RTC_ShiftAdd1S_Set = 0x80000000
 # fun define IS_RTC_SHIFT_ADD1S(SEL) (((SEL) == RTC_ShiftAdd1S_Reset) || \
+#                                 ((SEL) == RTC_ShiftAdd1S_Set))
 # fun define IS_RTC_SHIFT_SUBFS(FS) ((FS) <= 0x00007FFF)
 RTC_BKP_DR0 = 0x0
 RTC_BKP_DR1 = 0x1
@@ -1461,6 +2266,21 @@ RTC_BKP_DR13 = 0xD
 RTC_BKP_DR14 = 0xE
 RTC_BKP_DR15 = 0xF
 # fun define IS_RTC_BKP(BKP)                   (((BKP) == RTC_BKP_DR0) || \
+#                                           ((BKP) == RTC_BKP_DR1) || \
+#                                           ((BKP) == RTC_BKP_DR2) || \
+#                                           ((BKP) == RTC_BKP_DR3) || \
+#                                           ((BKP) == RTC_BKP_DR4) || \
+#                                           ((BKP) == RTC_BKP_DR5) || \
+#                                           ((BKP) == RTC_BKP_DR6) || \
+#                                           ((BKP) == RTC_BKP_DR7) || \
+#                                           ((BKP) == RTC_BKP_DR8) || \
+#                                           ((BKP) == RTC_BKP_DR9) || \
+#                                           ((BKP) == RTC_BKP_DR10) || \
+#                                           ((BKP) == RTC_BKP_DR11) || \
+#                                           ((BKP) == RTC_BKP_DR12) || \
+#                                           ((BKP) == RTC_BKP_DR13) || \
+#                                           ((BKP) == RTC_BKP_DR14) || \
+#                                           ((BKP) == RTC_BKP_DR15))
 RTC_Format_BIN = 0x0
 RTC_Format_BCD = 0x1
 # fun define IS_RTC_FORMAT(FORMAT) (((FORMAT) == RTC_Format_BIN) || ((FORMAT) == RTC_Format_BCD))
@@ -1481,6 +2301,13 @@ RTC_FLAG_WUTWF = 0x4
 RTC_FLAG_ALRBWF = 0x2
 RTC_FLAG_ALRAWF = 0x1
 # fun define IS_RTC_GET_FLAG(FLAG) (((FLAG) == RTC_FLAG_TSOVF) || ((FLAG) == RTC_FLAG_TSF) || \
+#                               ((FLAG) == RTC_FLAG_WUTF) || ((FLAG) == RTC_FLAG_ALRBF) || \
+#                               ((FLAG) == RTC_FLAG_ALRAF) || ((FLAG) == RTC_FLAG_INITF) || \
+#                               ((FLAG) == RTC_FLAG_RSF) || ((FLAG) == RTC_FLAG_WUTWF) || \
+#                               ((FLAG) == RTC_FLAG_ALRBWF) || ((FLAG) == RTC_FLAG_ALRAWF) || \
+#                               ((FLAG) == RTC_FLAG_TAMP1F) || ((FLAG) == RTC_FLAG_TAMP2F) || \
+#                                ((FLAG) == RTC_FLAG_TAMP3F) || ((FLAG) == RTC_FLAG_RECALPF) || \
+#                                ((FLAG) == RTC_FLAG_SHPF))
 # fun define IS_RTC_CLEAR_FLAG(FLAG) (((FLAG) != (uint32_t)RESET) && (((FLAG) & 0xFFFF00DF) == (uint32_t)RESET))
 RTC_IT_TS = 0x8000
 RTC_IT_WUT = 0x4000
@@ -1492,6 +2319,9 @@ RTC_IT_TAMP2 = 0x40000
 RTC_IT_TAMP3 = 0x80000
 # fun define IS_RTC_CONFIG_IT(IT) (((IT) != (uint32_t)RESET) && (((IT) & 0xFFFF0FFB) == (uint32_t)RESET))
 # fun define IS_RTC_GET_IT(IT) (((IT) == RTC_IT_TS)    || ((IT) == RTC_IT_WUT) || \
+#                           ((IT) == RTC_IT_ALRB)  || ((IT) == RTC_IT_ALRA) || \
+#                           ((IT) == RTC_IT_TAMP1) || ((IT) == RTC_IT_TAMP2) || \
+#                           ((IT) == RTC_IT_TAMP3))
 # fun define IS_RTC_CLEAR_IT(IT) (((IT) != (uint32_t)RESET) && (((IT) & 0xFFF10FFF) == (uint32_t)RESET))
 # struct RTC_InitTypeDef
 
@@ -1547,6 +2377,13 @@ EXTI_PortSourceGPIOF = 0x5
 EXTI_PortSourceGPIOG = 0x6
 EXTI_PortSourceGPIOH = 0x7
 # fun define IS_EXTI_PORT_SOURCE(PORTSOURCE) (((PORTSOURCE) == EXTI_PortSourceGPIOA) || \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOB) || \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOC) || \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOD) || \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOE) || \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOF)|| \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOG)|| \
+#                                         ((PORTSOURCE) == EXTI_PortSourceGPIOH))
 EXTI_PinSource0 = 0x0
 EXTI_PinSource1 = 0x1
 EXTI_PinSource2 = 0x2
@@ -1564,11 +2401,29 @@ EXTI_PinSource13 = 0xD
 EXTI_PinSource14 = 0xE
 EXTI_PinSource15 = 0xF
 # fun define IS_EXTI_PIN_SOURCE(PINSOURCE) (((PINSOURCE) == EXTI_PinSource0) || \
+#                                       ((PINSOURCE) == EXTI_PinSource1) || \
+#                                       ((PINSOURCE) == EXTI_PinSource2) || \
+#                                       ((PINSOURCE) == EXTI_PinSource3) || \
+#                                       ((PINSOURCE) == EXTI_PinSource4) || \
+#                                       ((PINSOURCE) == EXTI_PinSource5) || \
+#                                       ((PINSOURCE) == EXTI_PinSource6) || \
+#                                       ((PINSOURCE) == EXTI_PinSource7) || \
+#                                       ((PINSOURCE) == EXTI_PinSource8) || \
+#                                       ((PINSOURCE) == EXTI_PinSource9) || \
+#                                       ((PINSOURCE) == EXTI_PinSource10) || \
+#                                       ((PINSOURCE) == EXTI_PinSource11) || \
+#                                       ((PINSOURCE) == EXTI_PinSource12) || \
+#                                       ((PINSOURCE) == EXTI_PinSource13) || \
+#                                       ((PINSOURCE) == EXTI_PinSource14) || \
+#                                       ((PINSOURCE) == EXTI_PinSource15))
 SYSCFG_MemoryRemap_Flash = 0x0
 SYSCFG_MemoryRemap_SystemMemory = 0x1
 SYSCFG_MemoryRemap_SRAM = 0x3
 SYSCFG_MemoryRemap_FMC = 0x4
 # fun define IS_SYSCFG_MEMORY_REMAP(REMAP) (((REMAP) == SYSCFG_MemoryRemap_Flash)        || \
+#                                       ((REMAP) == SYSCFG_MemoryRemap_SystemMemory) || \
+#                                       ((REMAP) == SYSCFG_MemoryRemap_SRAM) || \
+#                                       ((REMAP) == SYSCFG_MemoryRemap_FMC))
 SYSCFG_DMARemap_TIM17 = 0x1000
 SYSCFG_DMARemap_TIM16 = 0x800
 SYSCFG_DMARemap_ADC2ADC4 = 0x100
@@ -1592,16 +2447,41 @@ SYSCFG_DMARemapCh2_ADC2 = 0x80000200
 SYSCFG_DMARemap_TIM6DAC1 = 0x2000
 SYSCFG_DMARemap_TIM7DAC2 = 0x4000
 # fun define IS_SYSCFG_DMA_REMAP(REMAP) (((REMAP) == SYSCFG_DMARemap_TIM17)    || \
+#                                    ((REMAP) == SYSCFG_DMARemap_TIM16)    || \
+#                                    ((REMAP) == SYSCFG_DMARemap_ADC2ADC4) || \
+#                                    ((REMAP) == SYSCFG_DMARemap_TIM6DAC1Ch1) || \
+#                                    ((REMAP) == SYSCFG_DMARemap_TIM7DAC1Ch2) || \
+#                                    ((REMAP) == SYSCFG_DMARemap_DAC2Ch1)    || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh2_SPI1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh4_SPI1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh6_SPI1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh5_SPI1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh5_SPI1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh7_SPI1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh7_I2C1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh3_I2C1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh5_I2C1_RX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh6_I2C1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh2_I2C1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh4_I2C1_TX) || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh4_ADC2)    || \
+#                                    ((REMAP) == SYSCFG_DMARemapCh2_ADC2))
 SYSCFG_TriggerRemap_DACTIM3 = 0x80
 SYSCFG_TriggerRemap_TIM1TIM17 = 0x40
 SYSCFG_TriggerRemap_DACHRTIM1_TRIG1 = 0x80010000
 SYSCFG_TriggerRemap_DACHRTIM1_TRIG2 = 0x80020000
 # fun define IS_SYSCFG_TRIGGER_REMAP(REMAP) (((REMAP) == SYSCFG_TriggerRemap_DACTIM3)         || \
+#                                        ((REMAP) == SYSCFG_TriggerRemap_DACHRTIM1_TRIG1) || \
+#                                        ((REMAP) == SYSCFG_TriggerRemap_DACHRTIM1_TRIG2) || \
+#                                        ((REMAP) == SYSCFG_TriggerRemap_TIM1TIM17))
 SYSCFG_EncoderRemap_No = 0x0
 SYSCFG_EncoderRemap_TIM2 = 0x400000
 SYSCFG_EncoderRemap_TIM3 = 0x800000
 SYSCFG_EncoderRemap_TIM4 = 0xC00000
 # fun define IS_SYSCFG_ENCODER_REMAP(REMAP) (((REMAP) == SYSCFG_EncoderRemap_No)    || \
+#                                        ((REMAP) == SYSCFG_EncoderRemap_TIM2)  || \
+#                                        ((REMAP) == SYSCFG_EncoderRemap_TIM3)  || \
+#                                        ((REMAP) == SYSCFG_EncoderRemap_TIM4))
 SYSCFG_I2CFastModePlus_PB6 = 0x10000
 SYSCFG_I2CFastModePlus_PB7 = 0x20000
 SYSCFG_I2CFastModePlus_PB8 = 0x40000
@@ -1610,6 +2490,12 @@ SYSCFG_I2CFastModePlus_I2C1 = 0x100000
 SYSCFG_I2CFastModePlus_I2C2 = 0x200000
 SYSCFG_I2CFastModePlus_I2C3 = 0x1000000
 # fun define IS_SYSCFG_I2C_FMP(PIN) (((PIN) == SYSCFG_I2CFastModePlus_PB6)  || \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_PB7)  || \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_PB8)  || \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_PB9)  || \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_I2C1) || \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_I2C2)|| \
+#                                ((PIN) == SYSCFG_I2CFastModePlus_I2C3))
 SYSCFG_IT_IXC = 0x80000000
 SYSCFG_IT_IDC = 0x40000000
 SYSCFG_IT_OFC = 0x20000000
@@ -1621,6 +2507,8 @@ SYSCFG_Break_PVD = 0x4
 SYSCFG_Break_SRAMParity = 0x2
 SYSCFG_Break_Lockup = 0x1
 # fun define IS_SYSCFG_LOCK_CONFIG(CONFIG) (((CONFIG) == SYSCFG_Break_PVD)        || \
+#                                       ((CONFIG) == SYSCFG_Break_SRAMParity) || \
+#                                       ((CONFIG) == SYSCFG_Break_Lockup))
 REMAPADCTRIGGER_ADC12_EXT2 = 0x1
 REMAPADCTRIGGER_ADC12_EXT3 = 0x2
 REMAPADCTRIGGER_ADC12_EXT5 = 0x4
@@ -1636,6 +2524,19 @@ REMAPADCTRIGGER_ADC34_JEXT5 = 0x800
 REMAPADCTRIGGER_ADC34_JEXT11 = 0x1000
 REMAPADCTRIGGER_ADC34_JEXT14 = 0x2000
 # fun define IS_SYSCFG_ADC_TRIGGER_REMAP(RMP) (((RMP) == REMAPADCTRIGGER_ADC12_EXT2)   || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_EXT3)   || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_EXT5)   || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_EXT13)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_EXT15)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_JEXT3)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_JEXT6)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC12_JEXT13) || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_EXT5)   || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_EXT6)   || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_EXT15)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_JEXT5)  || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_JEXT11) || \
+#                                          ((RMP) == REMAPADCTRIGGER_ADC34_JEXT14))
 SYSCFG_SRAMWRP_Page0 = 0x1
 SYSCFG_SRAMWRP_Page1 = 0x2
 SYSCFG_SRAMWRP_Page2 = 0x4
@@ -1669,13 +2570,19 @@ PWR_PVDLevel_5 = 0xA0
 PWR_PVDLevel_6 = 0xC0
 PWR_PVDLevel_7 = 0xE0
 # fun define IS_PWR_PVD_LEVEL(LEVEL) (((LEVEL) == PWR_PVDLevel_0) || ((LEVEL) == PWR_PVDLevel_1)|| \
+#                                 ((LEVEL) == PWR_PVDLevel_2) || ((LEVEL) == PWR_PVDLevel_3)|| \
+#                                 ((LEVEL) == PWR_PVDLevel_4) || ((LEVEL) == PWR_PVDLevel_5)|| \
+#                                 ((LEVEL) == PWR_PVDLevel_6) || ((LEVEL) == PWR_PVDLevel_7))
 PWR_WakeUpPin_1 = 0x100
 PWR_WakeUpPin_2 = 0x200
 PWR_WakeUpPin_3 = 0x400
 # fun define IS_PWR_WAKEUP_PIN(PIN) (((PIN) == PWR_WakeUpPin_1) || \
+#                                ((PIN) == PWR_WakeUpPin_2) || \
+#                                ((PIN) == PWR_WakeUpPin_3))
 PWR_Regulator_ON = 0x0
 PWR_Regulator_LowPower = 0x1
 # fun define IS_PWR_REGULATOR(REGULATOR) (((REGULATOR) == PWR_Regulator_ON) || \
+#                                     ((REGULATOR) == PWR_Regulator_LowPower))
 PWR_SLEEPEntry_WFI = 0x1
 PWR_SLEEPEntry_WFE = 0x2
 # fun define IS_PWR_SLEEP_ENTRY(ENTRY) (((ENTRY) == PWR_SLEEPEntry_WFI) || ((ENTRY) == PWR_SLEEPEntry_WFE))
@@ -1687,6 +2594,7 @@ PWR_FLAG_SB = 0x2
 PWR_FLAG_PVDO = 0x4
 PWR_FLAG_VREFINTRDY = 0x8
 # fun define IS_PWR_GET_FLAG(FLAG) (((FLAG) == PWR_FLAG_WU) || ((FLAG) == PWR_FLAG_SB) || \
+#                               ((FLAG) == PWR_FLAG_PVDO) || ((FLAG) == PWR_FLAG_VREFINTRDY))
 # fun define IS_PWR_CLEAR_FLAG(FLAG) (((FLAG) == PWR_FLAG_WU) || ((FLAG) == PWR_FLAG_SB))
 # ----------------------------------------
 
@@ -1694,18 +2602,35 @@ PWR_FLAG_VREFINTRDY = 0x8
 
 # empty define __STM32F30x_SPI_H
 # fun define IS_SPI_ALL_PERIPH(PERIPH) (((PERIPH) == SPI1) || \
+#                                   ((PERIPH) == SPI2) || \
+#                                   ((PERIPH) == SPI3) || \
+#                                   ((PERIPH) == SPI4))
 # fun define IS_SPI_ALL_PERIPH_EXT(PERIPH) (((PERIPH) == SPI1) || \
+#                                       ((PERIPH) == SPI2) || \
+#                                       ((PERIPH) == SPI3) || \
+#                                       ((PERIPH) == SPI4) || \
+#                                       ((PERIPH) == I2S2ext) || \
+#                                       ((PERIPH) == I2S3ext))
 # fun define IS_SPI_23_PERIPH(PERIPH)  (((PERIPH) == SPI2) || \
+#                                   ((PERIPH) == SPI3))
 # fun define IS_SPI_23_PERIPH_EXT(PERIPH)  (((PERIPH) == SPI2) || \
+#                                       ((PERIPH) == SPI3) || \
+#                                       ((PERIPH) == I2S2ext) || \
+#                                       ((PERIPH) == I2S3ext))
 # fun define IS_I2S_EXT_PERIPH(PERIPH)  (((PERIPH) == I2S2ext) || \
+#                                    ((PERIPH) == I2S3ext))
 SPI_Direction_2Lines_FullDuplex = 0x0
 SPI_Direction_2Lines_RxOnly = 0x400
 SPI_Direction_1Line_Rx = 0x8000
 SPI_Direction_1Line_Tx = 0xC000
 # fun define IS_SPI_DIRECTION_MODE(MODE) (((MODE) == SPI_Direction_2Lines_FullDuplex) || \
+#                                     ((MODE) == SPI_Direction_2Lines_RxOnly) || \
+#                                     ((MODE) == SPI_Direction_1Line_Rx) || \
+#                                     ((MODE) == SPI_Direction_1Line_Tx))
 SPI_Mode_Master = 0x104
 SPI_Mode_Slave = 0x0
 # fun define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
+#                           ((MODE) == SPI_Mode_Slave))
 SPI_DataSize_4b = 0x300
 SPI_DataSize_5b = 0x400
 SPI_DataSize_6b = 0x500
@@ -1720,18 +2645,34 @@ SPI_DataSize_14b = 0xD00
 SPI_DataSize_15b = 0xE00
 SPI_DataSize_16b = 0xF00
 # fun define IS_SPI_DATA_SIZE(SIZE) (((SIZE) == SPI_DataSize_4b) || \
+#                                ((SIZE) == SPI_DataSize_5b) || \
+#                                ((SIZE) == SPI_DataSize_6b) || \
+#                                ((SIZE) == SPI_DataSize_7b) || \
+#                                ((SIZE) == SPI_DataSize_8b) || \
+#                                ((SIZE) == SPI_DataSize_9b) || \
+#                                ((SIZE) == SPI_DataSize_10b) || \
+#                                ((SIZE) == SPI_DataSize_11b) || \
+#                                ((SIZE) == SPI_DataSize_12b) || \
+#                                ((SIZE) == SPI_DataSize_13b) || \
+#                                ((SIZE) == SPI_DataSize_14b) || \
+#                                ((SIZE) == SPI_DataSize_15b) || \
+#                                ((SIZE) == SPI_DataSize_16b))
 SPI_CRCLength_8b = 0x0
 SPI_CRCLength_16b = 0x800
 # fun define IS_SPI_CRC_LENGTH(LENGTH) (((LENGTH) == SPI_CRCLength_8b) || \
+#                                   ((LENGTH) == SPI_CRCLength_16b))
 SPI_CPOL_Low = 0x0
 SPI_CPOL_High = 0x2
 # fun define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
+#                           ((CPOL) == SPI_CPOL_High))
 SPI_CPHA_1Edge = 0x0
 SPI_CPHA_2Edge = 0x1
 # fun define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
+#                           ((CPHA) == SPI_CPHA_2Edge))
 SPI_NSS_Soft = 0x200
 SPI_NSS_Hard = 0x0
 # fun define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
+#                         ((NSS) == SPI_NSS_Hard))
 SPI_BaudRatePrescaler_2 = 0x0
 SPI_BaudRatePrescaler_4 = 0x8
 SPI_BaudRatePrescaler_8 = 0x10
@@ -1741,28 +2682,47 @@ SPI_BaudRatePrescaler_64 = 0x28
 SPI_BaudRatePrescaler_128 = 0x30
 SPI_BaudRatePrescaler_256 = 0x38
 # fun define IS_SPI_BAUDRATE_PRESCALER(PRESCALER) (((PRESCALER) == SPI_BaudRatePrescaler_2) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_4) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_8) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_16) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_32) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_64) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_128) || \
+#                                              ((PRESCALER) == SPI_BaudRatePrescaler_256))
 SPI_FirstBit_MSB = 0x0
 SPI_FirstBit_LSB = 0x80
 # fun define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
+#                               ((BIT) == SPI_FirstBit_LSB))
 I2S_Mode_SlaveTx = 0x0
 I2S_Mode_SlaveRx = 0x100
 I2S_Mode_MasterTx = 0x200
 I2S_Mode_MasterRx = 0x300
 # fun define IS_I2S_MODE(MODE) (((MODE) == I2S_Mode_SlaveTx) || \
+#                           ((MODE) == I2S_Mode_SlaveRx) || \
+#                           ((MODE) == I2S_Mode_MasterTx)|| \
+#                           ((MODE) == I2S_Mode_MasterRx))
 I2S_Standard_Phillips = 0x0
 I2S_Standard_MSB = 0x10
 I2S_Standard_LSB = 0x20
 I2S_Standard_PCMShort = 0x30
 I2S_Standard_PCMLong = 0xB0
 # fun define IS_I2S_STANDARD(STANDARD) (((STANDARD) == I2S_Standard_Phillips) || \
+#                                   ((STANDARD) == I2S_Standard_MSB) || \
+#                                   ((STANDARD) == I2S_Standard_LSB) || \
+#                                   ((STANDARD) == I2S_Standard_PCMShort) || \
+#                                   ((STANDARD) == I2S_Standard_PCMLong))
 I2S_DataFormat_16b = 0x0
 I2S_DataFormat_16bextended = 0x1
 I2S_DataFormat_24b = 0x3
 I2S_DataFormat_32b = 0x5
 # fun define IS_I2S_DATA_FORMAT(FORMAT) (((FORMAT) == I2S_DataFormat_16b) || \
+#                                    ((FORMAT) == I2S_DataFormat_16bextended) || \
+#                                    ((FORMAT) == I2S_DataFormat_24b) || \
+#                                    ((FORMAT) == I2S_DataFormat_32b))
 I2S_MCLKOutput_Enable = 0x200
 I2S_MCLKOutput_Disable = 0x0
 # fun define IS_I2S_MCLK_OUTPUT(OUTPUT) (((OUTPUT) == I2S_MCLKOutput_Enable) || \
+#                                    ((OUTPUT) == I2S_MCLKOutput_Disable))
 I2S_AudioFreq_192k = 0x2EE00
 I2S_AudioFreq_96k = 0x17700
 I2S_AudioFreq_48k = 0xBB80
@@ -1774,12 +2734,16 @@ I2S_AudioFreq_11k = 0x2B11
 I2S_AudioFreq_8k = 0x1F40
 I2S_AudioFreq_Default = 0x2
 # fun define IS_I2S_AUDIO_FREQ(FREQ) ((((FREQ) >= I2S_AudioFreq_8k) && \
+#                                 ((FREQ) <= I2S_AudioFreq_192k)) || \
+#                                 ((FREQ) == I2S_AudioFreq_Default))
 I2S_CPOL_Low = 0x0
 I2S_CPOL_High = 0x8
 # fun define IS_I2S_CPOL(CPOL) (((CPOL) == I2S_CPOL_Low) || \
+#                           ((CPOL) == I2S_CPOL_High))
 SPI_RxFIFOThreshold_HF = 0x0
 SPI_RxFIFOThreshold_QF = 0x1000
 # fun define IS_SPI_RX_FIFO_THRESHOLD(THRESHOLD) (((THRESHOLD) == SPI_RxFIFOThreshold_HF) || \
+#                                             ((THRESHOLD) == SPI_RxFIFOThreshold_QF))
 SPI_I2S_DMAReq_Tx = 0x2
 SPI_I2S_DMAReq_Rx = 0x1
 # fun define IS_SPI_I2S_DMA_REQ(REQ) ((((REQ) & (uint16_t)0xFFFC) == 0x00) && ((REQ) != 0x00))
@@ -1788,24 +2752,33 @@ SPI_LastDMATransfer_TxOddRxEven = 0x4000
 SPI_LastDMATransfer_TxEvenRxOdd = 0x2000
 SPI_LastDMATransfer_TxOddRxOdd = 0x6000
 # fun define IS_SPI_LAST_DMA_TRANSFER(TRANSFER) (((TRANSFER) == SPI_LastDMATransfer_TxEvenRxEven) || \
+#                                            ((TRANSFER) == SPI_LastDMATransfer_TxOddRxEven) || \
+#                                            ((TRANSFER) == SPI_LastDMATransfer_TxEvenRxOdd) || \
+#                                            ((TRANSFER) == SPI_LastDMATransfer_TxOddRxOdd))
 SPI_NSSInternalSoft_Set = 0x100
 SPI_NSSInternalSoft_Reset = 0xFEFF
 # fun define IS_SPI_NSS_INTERNAL(INTERNAL) (((INTERNAL) == SPI_NSSInternalSoft_Set) || \
+#                                       ((INTERNAL) == SPI_NSSInternalSoft_Reset))
 SPI_CRC_Tx = 0x0
 SPI_CRC_Rx = 0x1
 # fun define IS_SPI_CRC(CRC) (((CRC) == SPI_CRC_Tx) || ((CRC) == SPI_CRC_Rx))
 SPI_Direction_Rx = 0xBFFF
 SPI_Direction_Tx = 0x4000
 # fun define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
+#                                     ((DIRECTION) == SPI_Direction_Tx))
 SPI_I2S_IT_TXE = 0x71
 SPI_I2S_IT_RXNE = 0x60
 SPI_I2S_IT_ERR = 0x50
 # fun define IS_SPI_I2S_CONFIG_IT(IT) (((IT) == SPI_I2S_IT_TXE) || \
+#                                  ((IT) == SPI_I2S_IT_RXNE) || \
+#                                  ((IT) == SPI_I2S_IT_ERR))
 I2S_IT_UDR = 0x53
 SPI_IT_MODF = 0x55
 SPI_I2S_IT_OVR = 0x56
 SPI_I2S_IT_FRE = 0x58
 # fun define IS_SPI_I2S_GET_IT(IT) (((IT) == SPI_I2S_IT_RXNE) || ((IT) == SPI_I2S_IT_TXE) || \
+#                               ((IT) == SPI_I2S_IT_OVR) || ((IT) == SPI_IT_MODF) || \
+#                               ((IT) == SPI_I2S_IT_FRE)|| ((IT) == I2S_IT_UDR))
 SPI_TransmissionFIFOStatus_Empty = 0x0
 SPI_TransmissionFIFOStatus_1QuarterFull = 0x800
 SPI_TransmissionFIFOStatus_HalfFull = 0x1000
@@ -1825,6 +2798,10 @@ SPI_I2S_FLAG_BSY = 0x80
 SPI_I2S_FLAG_FRE = 0x100
 # fun define IS_SPI_CLEAR_FLAG(FLAG) (((FLAG) == SPI_FLAG_CRCERR))
 # fun define IS_SPI_I2S_GET_FLAG(FLAG) (((FLAG) == SPI_I2S_FLAG_BSY) || ((FLAG) == SPI_I2S_FLAG_OVR) || \
+#                                   ((FLAG) == SPI_FLAG_MODF) || ((FLAG) == SPI_FLAG_CRCERR) || \
+#                                   ((FLAG) == SPI_I2S_FLAG_TXE) || ((FLAG) == SPI_I2S_FLAG_RXNE)|| \
+#                                   ((FLAG) == SPI_I2S_FLAG_FRE)|| ((FLAG) == I2S_FLAG_CHSIDE)|| \
+#                                   ((FLAG) == I2S_FLAG_UDR))
 # fun define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
 # struct SPI_InitTypeDef
 
@@ -1874,6 +2851,8 @@ FLASH_Latency_0 = 0x0
 FLASH_Latency_1 = 0x1
 FLASH_Latency_2 = 0x2
 # fun define IS_FLASH_LATENCY(LATENCY) (((LATENCY) == FLASH_Latency_0) || \
+#                                   ((LATENCY) == FLASH_Latency_1) || \
+#                                   ((LATENCY) == FLASH_Latency_2))
 FLASH_IT_EOP = 0x1000
 FLASH_IT_ERR = 0x400
 # fun define IS_FLASH_IT(IT) ((((IT) & (uint32_t)0xFFFFEBFF) == 0x00000000) && (((IT) != 0x00000000)))
@@ -1917,6 +2896,8 @@ OB_WRP_AllPages = 0xFFFFFFFF
 OB_RDP_Level_0 = 0xAA
 OB_RDP_Level_1 = 0xBB
 # fun define IS_OB_RDP(LEVEL) (((LEVEL) == OB_RDP_Level_0)||\
+#                          ((LEVEL) == OB_RDP_Level_1))/*||\
+#                          ((LEVEL) == OB_RDP_Level_2))*/
 OB_IWDG_SW = 0x1
 OB_IWDG_HW = 0x0
 # fun define IS_OB_IWDG_SOURCE(SOURCE) (((SOURCE) == OB_IWDG_SW) || ((SOURCE) == OB_IWDG_HW))
@@ -1941,6 +2922,7 @@ FLASH_FLAG_WRPERR = 0x10
 FLASH_FLAG_EOP = 0x20
 # fun define IS_FLASH_CLEAR_FLAG(FLAG) ((((FLAG) & (uint32_t)0xFFFFFFCB) == 0x00000000) && ((FLAG) != 0x00000000))
 # fun define IS_FLASH_GET_FLAG(FLAG)  (((FLAG) == FLASH_FLAG_BSY) || ((FLAG) == FLASH_FLAG_PGERR) || \
+#                                  ((FLAG) == FLASH_FLAG_WRPERR) || ((FLAG) == FLASH_FLAG_EOP))
 FLASH_ER_PRG_TIMEOUT = 0xB0000
 # ----------------------------------------
 
@@ -1951,10 +2933,13 @@ RCC_HSE_OFF = 0x0
 RCC_HSE_ON = 0x1
 RCC_HSE_Bypass = 0x5
 # fun define IS_RCC_HSE(HSE) (((HSE) == RCC_HSE_OFF) || ((HSE) == RCC_HSE_ON) || \
+#                         ((HSE) == RCC_HSE_Bypass))
 RCC_PLLSource_HSI = 0x8000
 RCC_PLLSource_HSI_Div2 = 0x0
 RCC_PLLSource_PREDIV1 = 0x10000
 # fun define IS_RCC_PLL_SOURCE(SOURCE) (((SOURCE) == RCC_PLLSource_HSI_Div2) || \
+#                                   ((SOURCE) == RCC_PLLSource_PREDIV1)|| \
+#								   ((SOURCE) == RCC_PLLSource_HSI))
 RCC_PLLMul_2 = 0x0
 RCC_PLLMul_3 = 0x40000
 RCC_PLLMul_4 = 0x80000
@@ -1971,6 +2956,13 @@ RCC_PLLMul_14 = 0x300000
 RCC_PLLMul_15 = 0x340000
 RCC_PLLMul_16 = 0x380000
 # fun define IS_RCC_PLL_MUL(MUL) (((MUL) == RCC_PLLMul_2) || ((MUL) == RCC_PLLMul_3)   || \
+#                             ((MUL) == RCC_PLLMul_4) || ((MUL) == RCC_PLLMul_5)   || \
+#                             ((MUL) == RCC_PLLMul_6) || ((MUL) == RCC_PLLMul_7)   || \
+#                             ((MUL) == RCC_PLLMul_8) || ((MUL) == RCC_PLLMul_9)   || \
+#                             ((MUL) == RCC_PLLMul_10) || ((MUL) == RCC_PLLMul_11) || \
+#                             ((MUL) == RCC_PLLMul_12) || ((MUL) == RCC_PLLMul_13) || \
+#                             ((MUL) == RCC_PLLMul_14) || ((MUL) == RCC_PLLMul_15) || \
+#                             ((MUL) == RCC_PLLMul_16))
 RCC_PREDIV1_Div1 = 0x0
 RCC_PREDIV1_Div2 = 0x1
 RCC_PREDIV1_Div3 = 0x2
@@ -1988,10 +2980,19 @@ RCC_PREDIV1_Div14 = 0xD
 RCC_PREDIV1_Div15 = 0xE
 RCC_PREDIV1_Div16 = 0xF
 # fun define IS_RCC_PREDIV1(PREDIV1) (((PREDIV1) == RCC_PREDIV1_Div1) || ((PREDIV1) == RCC_PREDIV1_Div2) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div3) || ((PREDIV1) == RCC_PREDIV1_Div4) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div5) || ((PREDIV1) == RCC_PREDIV1_Div6) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div7) || ((PREDIV1) == RCC_PREDIV1_Div8) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div9) || ((PREDIV1) == RCC_PREDIV1_Div10) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div11) || ((PREDIV1) == RCC_PREDIV1_Div12) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div13) || ((PREDIV1) == RCC_PREDIV1_Div14) || \
+#                                 ((PREDIV1) == RCC_PREDIV1_Div15) || ((PREDIV1) == RCC_PREDIV1_Div16))
 RCC_SYSCLKSource_HSI = 0x0
 RCC_SYSCLKSource_HSE = 0x1
 RCC_SYSCLKSource_PLLCLK = 0x2
 # fun define IS_RCC_SYSCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SYSCLKSource_HSI) || \
+#                                      ((SOURCE) == RCC_SYSCLKSource_HSE) || \
+#                                      ((SOURCE) == RCC_SYSCLKSource_PLLCLK))
 RCC_SYSCLK_Div1 = 0x0
 RCC_SYSCLK_Div2 = 0x80
 RCC_SYSCLK_Div4 = 0x90
@@ -2002,12 +3003,18 @@ RCC_SYSCLK_Div128 = 0xD0
 RCC_SYSCLK_Div256 = 0xE0
 RCC_SYSCLK_Div512 = 0xF0
 # fun define IS_RCC_HCLK(HCLK) (((HCLK) == RCC_SYSCLK_Div1) || ((HCLK) == RCC_SYSCLK_Div2) || \
+#                           ((HCLK) == RCC_SYSCLK_Div4) || ((HCLK) == RCC_SYSCLK_Div8) || \
+#                           ((HCLK) == RCC_SYSCLK_Div16) || ((HCLK) == RCC_SYSCLK_Div64) || \
+#                           ((HCLK) == RCC_SYSCLK_Div128) || ((HCLK) == RCC_SYSCLK_Div256) || \
+#                           ((HCLK) == RCC_SYSCLK_Div512))
 RCC_HCLK_Div1 = 0x0
 RCC_HCLK_Div2 = 0x400
 RCC_HCLK_Div4 = 0x500
 RCC_HCLK_Div8 = 0x600
 RCC_HCLK_Div16 = 0x700
 # fun define IS_RCC_PCLK(PCLK) (((PCLK) == RCC_HCLK_Div1) || ((PCLK) == RCC_HCLK_Div2) || \
+#                           ((PCLK) == RCC_HCLK_Div4) || ((PCLK) == RCC_HCLK_Div8) || \
+#                           ((PCLK) == RCC_HCLK_Div16))
 RCC_ADC12PLLCLK_OFF = 0x0
 RCC_ADC12PLLCLK_Div1 = 0x100
 RCC_ADC12PLLCLK_Div2 = 0x110
@@ -2035,6 +3042,18 @@ RCC_ADC34PLLCLK_Div64 = 0x10003200
 RCC_ADC34PLLCLK_Div128 = 0x10003400
 RCC_ADC34PLLCLK_Div256 = 0x10003600
 # fun define IS_RCC_ADCCLK(ADCCLK) (((ADCCLK) == RCC_ADC12PLLCLK_OFF) || ((ADCCLK) == RCC_ADC12PLLCLK_Div1) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div2) || ((ADCCLK) == RCC_ADC12PLLCLK_Div4) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div6) || ((ADCCLK) == RCC_ADC12PLLCLK_Div8) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div10) || ((ADCCLK) == RCC_ADC12PLLCLK_Div12) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div16) || ((ADCCLK) == RCC_ADC12PLLCLK_Div32) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div64) || ((ADCCLK) == RCC_ADC12PLLCLK_Div128) || \
+#                               ((ADCCLK) == RCC_ADC12PLLCLK_Div256) || ((ADCCLK) == RCC_ADC34PLLCLK_OFF) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div1) || ((ADCCLK) == RCC_ADC34PLLCLK_Div2) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div4) || ((ADCCLK) == RCC_ADC34PLLCLK_Div6) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div8) || ((ADCCLK) == RCC_ADC34PLLCLK_Div10) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div12) || ((ADCCLK) == RCC_ADC34PLLCLK_Div16) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div32) || ((ADCCLK) == RCC_ADC34PLLCLK_Div64) || \
+#                               ((ADCCLK) == RCC_ADC34PLLCLK_Div128) || ((ADCCLK) == RCC_ADC34PLLCLK_Div256))
 RCC_TIM1CLK_PCLK = 0x0
 RCC_TIM1CLK_PLLCLK = 0x100
 RCC_TIM8CLK_PCLK = 0x10000000
@@ -2052,6 +3071,13 @@ RCC_TIM2CLK_PLLCLK = 0x61000000
 RCC_TIM3TIM4CLK_PCLK = 0x70000000
 RCC_TIM3TIM4CLK_PLLCLK = 0x72000000
 # fun define IS_RCC_TIMCLK(TIMCLK) (((TIMCLK) == RCC_TIM1CLK_PCLK) || ((TIMCLK) == RCC_TIM1CLK_PLLCLK) || \
+#                               ((TIMCLK) == RCC_TIM8CLK_PCLK) || ((TIMCLK) == RCC_TIM8CLK_PLLCLK) || \
+#                               ((TIMCLK) == RCC_TIM15CLK_PCLK) || ((TIMCLK) == RCC_TIM15CLK_PLLCLK) || \
+#                               ((TIMCLK) == RCC_TIM16CLK_PCLK) || ((TIMCLK) == RCC_TIM16CLK_PLLCLK) || \
+#                               ((TIMCLK) == RCC_TIM17CLK_PCLK) || ((TIMCLK) == RCC_TIM17CLK_PLLCLK)|| \
+#                               ((TIMCLK) == RCC_TIM20CLK_PCLK) || ((TIMCLK) == RCC_TIM20CLK_PLLCLK)|| \
+#                               ((TIMCLK) == RCC_TIM2CLK_PCLK) || ((TIMCLK) == RCC_TIM2CLK_PLLCLK)|| \
+#                               ((TIMCLK) == RCC_TIM3TIM4CLK_PCLK) || ((TIMCLK) == RCC_TIM3TIM4CLK_PLLCLK))
 RCC_TIM1CLK_HCLK = 0x0
 RCC_TIM8CLK_HCLK = 0x10000000
 RCC_TIM15CLK_HCLK = 0x20000000
@@ -2071,6 +3097,8 @@ RCC_I2C2CLK_SYSCLK = 0x10000020
 RCC_I2C3CLK_HSI = 0x20000000
 RCC_I2C3CLK_SYSCLK = 0x20000040
 # fun define IS_RCC_I2CCLK(I2CCLK) (((I2CCLK) == RCC_I2C1CLK_HSI) || ((I2CCLK) == RCC_I2C1CLK_SYSCLK) || \
+#                               ((I2CCLK) == RCC_I2C2CLK_HSI) || ((I2CCLK) == RCC_I2C2CLK_SYSCLK) || \
+#                               ((I2CCLK) == RCC_I2C3CLK_HSI) || ((I2CCLK) == RCC_I2C3CLK_SYSCLK))
 RCC_USART1CLK_PCLK = 0x10000000
 RCC_USART1CLK_SYSCLK = 0x10000001
 RCC_USART1CLK_LSE = 0x10000002
@@ -2092,6 +3120,15 @@ RCC_UART5CLK_SYSCLK = 0x50400000
 RCC_UART5CLK_LSE = 0x50800000
 RCC_UART5CLK_HSI = 0x50C00000
 # fun define IS_RCC_USARTCLK(USARTCLK) (((USARTCLK) == RCC_USART1CLK_PCLK) || ((USARTCLK) == RCC_USART1CLK_SYSCLK) || \
+#                                   ((USARTCLK) == RCC_USART1CLK_LSE) || ((USARTCLK) == RCC_USART1CLK_HSI) ||\
+#                                   ((USARTCLK) == RCC_USART2CLK_PCLK) || ((USARTCLK) == RCC_USART2CLK_SYSCLK) || \
+#                                   ((USARTCLK) == RCC_USART2CLK_LSE) || ((USARTCLK) == RCC_USART2CLK_HSI) || \
+#                                   ((USARTCLK) == RCC_USART3CLK_PCLK) || ((USARTCLK) == RCC_USART3CLK_SYSCLK) || \
+#                                   ((USARTCLK) == RCC_USART3CLK_LSE) || ((USARTCLK) == RCC_USART3CLK_HSI) || \
+#                                   ((USARTCLK) == RCC_UART4CLK_PCLK) || ((USARTCLK) == RCC_UART4CLK_SYSCLK) || \
+#                                   ((USARTCLK) == RCC_UART4CLK_LSE) || ((USARTCLK) == RCC_UART4CLK_HSI) || \
+#                                   ((USARTCLK) == RCC_UART5CLK_PCLK) || ((USARTCLK) == RCC_UART5CLK_SYSCLK) || \
+#                                   ((USARTCLK) == RCC_UART5CLK_LSE) || ((USARTCLK) == RCC_UART5CLK_HSI))
 RCC_IT_LSIRDY = 0x1
 RCC_IT_LSERDY = 0x2
 RCC_IT_HSIRDY = 0x4
@@ -2100,15 +3137,20 @@ RCC_IT_PLLRDY = 0x10
 RCC_IT_CSS = 0x80
 # fun define IS_RCC_IT(IT) ((((IT) & (uint8_t)0xC0) == 0x00) && ((IT) != 0x00))
 # fun define IS_RCC_GET_IT(IT) (((IT) == RCC_IT_LSIRDY) || ((IT) == RCC_IT_LSERDY) || \
+#                           ((IT) == RCC_IT_HSIRDY) || ((IT) == RCC_IT_HSERDY) || \
+#                           ((IT) == RCC_IT_PLLRDY) || ((IT) == RCC_IT_CSS))
 # fun define IS_RCC_CLEAR_IT(IT) ((((IT) & (uint8_t)0x40) == 0x00) && ((IT) != 0x00))
 RCC_LSE_OFF = 0x0
 RCC_LSE_ON = 0x1
 RCC_LSE_Bypass = 0x5
 # fun define IS_RCC_LSE(LSE) (((LSE) == RCC_LSE_OFF) || ((LSE) == RCC_LSE_ON) || \
+#                         ((LSE) == RCC_LSE_Bypass))
 RCC_RTCCLKSource_LSE = 0x100
 RCC_RTCCLKSource_LSI = 0x200
 RCC_RTCCLKSource_HSE_Div32 = 0x300
 # fun define IS_RCC_RTCCLK_SOURCE(SOURCE) (((SOURCE) == RCC_RTCCLKSource_LSE) || \
+#                                      ((SOURCE) == RCC_RTCCLKSource_LSI) || \
+#                                      ((SOURCE) == RCC_RTCCLKSource_HSE_Div32))
 RCC_I2S2CLKSource_SYSCLK = 0x0
 RCC_I2S2CLKSource_Ext = 0x1
 # fun define IS_RCC_I2SCLK_SOURCE(SOURCE) (((SOURCE) == RCC_I2S2CLKSource_SYSCLK) || ((SOURCE) == RCC_I2S2CLKSource_Ext))
@@ -2117,6 +3159,7 @@ RCC_LSEDrive_MediumLow = 0x8
 RCC_LSEDrive_MediumHigh = 0x10
 RCC_LSEDrive_High = 0x18
 # fun define IS_RCC_LSE_DRIVE(DRIVE) (((DRIVE) == RCC_LSEDrive_Low) || ((DRIVE) == RCC_LSEDrive_MediumLow) || \
+#                                 ((DRIVE) == RCC_LSEDrive_MediumHigh) || ((DRIVE) == RCC_LSEDrive_High))
 RCC_AHBPeriph_ADC34 = 0x20000000
 RCC_AHBPeriph_ADC12 = 0x10000000
 RCC_AHBPeriph_GPIOA = 0x20000
@@ -2179,6 +3222,9 @@ RCC_MCOSource_HSE = 0x6
 RCC_MCOSource_PLLCLK_Div2 = 0x7
 RCC_MCOSource_PLLCLK = 0x87
 # fun define IS_RCC_MCO_SOURCE(SOURCE) (((SOURCE) == RCC_MCOSource_NoClock) ||((SOURCE) == RCC_MCOSource_SYSCLK) ||\
+#                                   ((SOURCE) == RCC_MCOSource_HSI)  || ((SOURCE) == RCC_MCOSource_HSE) || \
+#                                   ((SOURCE) == RCC_MCOSource_LSI)  || ((SOURCE) == RCC_MCOSource_LSE) || \
+#                                   ((SOURCE) == RCC_MCOSource_PLLCLK_Div2)|| ((SOURCE) == RCC_MCOSource_PLLCLK))
 RCC_MCOPrescaler_1 = 0x0
 RCC_MCOPrescaler_2 = 0x10000000
 RCC_MCOPrescaler_4 = 0x20000000
@@ -2188,9 +3234,17 @@ RCC_MCOPrescaler_32 = 0x50000000
 RCC_MCOPrescaler_64 = 0x60000000
 RCC_MCOPrescaler_128 = 0x70000000
 # fun define IS_RCC_MCO_PRESCALER(PRESCALER) (((PRESCALER) == RCC_MCOPrescaler_1)  || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_2)  || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_4)  || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_8)  || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_16) || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_32) || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_64) || \
+#                                         ((PRESCALER) == RCC_MCOPrescaler_128))
 RCC_USBCLKSource_PLLCLK_1Div5 = 0x0
 RCC_USBCLKSource_PLLCLK_Div1 = 0x1
 # fun define IS_RCC_USBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_USBCLKSource_PLLCLK_1Div5) || \
+#                                      ((SOURCE) == RCC_USBCLKSource_PLLCLK_Div1))
 RCC_FLAG_HSIRDY = 0x1
 RCC_FLAG_HSERDY = 0x11
 RCC_FLAG_PLLRDY = 0x19
@@ -2205,6 +3259,12 @@ RCC_FLAG_IWDGRST = 0x5D
 RCC_FLAG_WWDGRST = 0x5E
 RCC_FLAG_LPWRRST = 0x5F
 # fun define IS_RCC_FLAG(FLAG) (((FLAG) == RCC_FLAG_HSIRDY) || ((FLAG) == RCC_FLAG_HSERDY) || \
+#                           ((FLAG) == RCC_FLAG_PLLRDY) || ((FLAG) == RCC_FLAG_LSERDY) || \
+#                           ((FLAG) == RCC_FLAG_LSIRDY) || ((FLAG) == RCC_FLAG_OBLRST) || \
+#                           ((FLAG) == RCC_FLAG_PINRST) || ((FLAG) == RCC_FLAG_PORRST) || \
+#                           ((FLAG) == RCC_FLAG_SFTRST) || ((FLAG) == RCC_FLAG_IWDGRST)|| \
+#                           ((FLAG) == RCC_FLAG_WWDGRST)|| ((FLAG) == RCC_FLAG_LPWRRST)|| \
+#                           ((FLAG) == RCC_FLAG_MCOF))
 # fun define IS_RCC_HSI_CALIBRATION_VALUE(VALUE) ((VALUE) <= 0x1F)
 # struct RCC_ClocksTypeDef
 
@@ -2246,6 +3306,7 @@ class RCC_ClocksTypeDef(ctypes.Structure):
 IWDG_WriteAccess_Enable = 0x5555
 IWDG_WriteAccess_Disable = 0x0
 # fun define IS_IWDG_WRITE_ACCESS(ACCESS) (((ACCESS) == IWDG_WriteAccess_Enable) || \
+#                                      ((ACCESS) == IWDG_WriteAccess_Disable))
 IWDG_Prescaler_4 = 0x0
 IWDG_Prescaler_8 = 0x1
 IWDG_Prescaler_16 = 0x2
@@ -2254,10 +3315,17 @@ IWDG_Prescaler_64 = 0x4
 IWDG_Prescaler_128 = 0x5
 IWDG_Prescaler_256 = 0x6
 # fun define IS_IWDG_PRESCALER(PRESCALER) (((PRESCALER) == IWDG_Prescaler_4)  || \
+#                                      ((PRESCALER) == IWDG_Prescaler_8)  || \
+#                                      ((PRESCALER) == IWDG_Prescaler_16) || \
+#                                      ((PRESCALER) == IWDG_Prescaler_32) || \
+#                                      ((PRESCALER) == IWDG_Prescaler_64) || \
+#                                      ((PRESCALER) == IWDG_Prescaler_128)|| \
+#                                      ((PRESCALER) == IWDG_Prescaler_256))
 IWDG_FLAG_PVU = 0x1
 IWDG_FLAG_RVU = 0x2
 IWDG_FLAG_WVU = 0x2
 # fun define IS_IWDG_FLAG(FLAG) (((FLAG) == IWDG_FLAG_PVU) || ((FLAG) == IWDG_FLAG_RVU)  || \
+#                            ((FLAG) == IWDG_FLAG_WVU))
 # fun define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
 # fun define IS_IWDG_WINDOW_VALUE(VALUE) ((VALUE) <= 0xFFF)
 # ----------------------------------------
@@ -2274,6 +3342,8 @@ EXTI_Trigger_Rising_Falling = 0x10
 # empty define __STM32F30x_EXTI_H
 # fun define IS_EXTI_MODE(MODE) (((MODE) == EXTI_Mode_Interrupt) || ((MODE) == EXTI_Mode_Event))
 # fun define IS_EXTI_TRIGGER(TRIGGER) (((TRIGGER) == EXTI_Trigger_Rising) || \
+#                                  ((TRIGGER) == EXTI_Trigger_Falling) || \
+#                                  ((TRIGGER) == EXTI_Trigger_Rising_Falling))
 EXTI_Line0 = 0x0
 EXTI_Line1 = 0x1
 EXTI_Line2 = 0x2
@@ -2312,7 +3382,21 @@ EXTI_Line34 = 0x22
 EXTI_Line35 = 0x23
 # fun define IS_EXTI_LINE_ALL(LINE) ((LINE) <= 0x23)
 # fun define IS_EXTI_LINE_EXT(LINE) (((LINE) <= 0x16) || (((LINE) == EXTI_Line29) || ((LINE) == EXTI_Line30) || \
+#                               ((LINE) == EXTI_Line31) || ((LINE) == EXTI_Line32) || ((LINE) == EXTI_Line33)))
 # fun define IS_GET_EXTI_LINE(LINE) (((LINE) == EXTI_Line0) || ((LINE) == EXTI_Line1) || \
+#                                ((LINE) == EXTI_Line2) || ((LINE) == EXTI_Line3) || \
+#                                ((LINE) == EXTI_Line4) || ((LINE) == EXTI_Line5) || \
+#                                ((LINE) == EXTI_Line6) || ((LINE) == EXTI_Line7) || \
+#                                ((LINE) == EXTI_Line8) || ((LINE) == EXTI_Line9) || \
+#                                ((LINE) == EXTI_Line10) || ((LINE) == EXTI_Line11) || \
+#                                ((LINE) == EXTI_Line12) || ((LINE) == EXTI_Line13) || \
+#                                ((LINE) == EXTI_Line14) || ((LINE) == EXTI_Line15) || \
+#                                ((LINE) == EXTI_Line16) || ((LINE) == EXTI_Line17) || \
+#                                ((LINE) == EXTI_Line18) || ((LINE) == EXTI_Line19) || \
+#                                ((LINE) == EXTI_Line20) || ((LINE) == EXTI_Line21) || \
+#                                ((LINE) == EXTI_Line22) || ((LINE) == EXTI_Line29) || \
+#                                ((LINE) == EXTI_Line30) || ((LINE) == EXTI_Line31) || \
+#                                ((LINE) == EXTI_Line32) || ((LINE) == EXTI_Line33))
 # struct EXTI_InitTypeDef
 
 class EXTI_InitTypeDef(ctypes.Structure):
@@ -2336,50 +3420,68 @@ FMC_Bank1_NORSRAM2 = 0x2
 FMC_Bank1_NORSRAM3 = 0x4
 FMC_Bank1_NORSRAM4 = 0x6
 # fun define IS_FMC_NORSRAM_BANK(BANK) (((BANK) == FMC_Bank1_NORSRAM1) || \
+#                                   ((BANK) == FMC_Bank1_NORSRAM2) || \
+#                                   ((BANK) == FMC_Bank1_NORSRAM3) || \
+#                                   ((BANK) == FMC_Bank1_NORSRAM4))
 FMC_Bank2_NAND = 0x10
 FMC_Bank3_NAND = 0x100
 # fun define IS_FMC_NAND_BANK(BANK) (((BANK) == FMC_Bank2_NAND) || \
+#                                ((BANK) == FMC_Bank3_NAND))
 FMC_Bank4_PCCARD = 0x1000
 FMC_DataAddressMux_Disable = 0x0
 FMC_DataAddressMux_Enable = 0x2
 # fun define IS_FMC_MUX(MUX) (((MUX) == FMC_DataAddressMux_Disable) || \
+#                         ((MUX) == FMC_DataAddressMux_Enable))
 FMC_MemoryType_SRAM = 0x0
 FMC_MemoryType_PSRAM = 0x4
 FMC_MemoryType_NOR = 0x8
 # fun define IS_FMC_MEMORY(MEMORY) (((MEMORY) == FMC_MemoryType_SRAM) || \
+#                               ((MEMORY) == FMC_MemoryType_PSRAM)|| \
+#                               ((MEMORY) == FMC_MemoryType_NOR))
 FMC_NORSRAM_MemoryDataWidth_8b = 0x0
 FMC_NORSRAM_MemoryDataWidth_16b = 0x10
 # fun define IS_FMC_NORSRAM_MEMORY_WIDTH(WIDTH) (((WIDTH) == FMC_NORSRAM_MemoryDataWidth_8b)  || \
+#                                            ((WIDTH) == FMC_NORSRAM_MemoryDataWidth_16b))
 FMC_BurstAccessMode_Disable = 0x0
 FMC_BurstAccessMode_Enable = 0x100
 # fun define IS_FMC_BURSTMODE(STATE) (((STATE) == FMC_BurstAccessMode_Disable) || \
+#                                  ((STATE) == FMC_BurstAccessMode_Enable))
 FMC_AsynchronousWait_Disable = 0x0
 FMC_AsynchronousWait_Enable = 0x8000
 # fun define IS_FMC_ASYNWAIT(STATE) (((STATE) == FMC_AsynchronousWait_Disable) || \
+#                                 ((STATE) == FMC_AsynchronousWait_Enable))
 FMC_WaitSignalPolarity_Low = 0x0
 FMC_WaitSignalPolarity_High = 0x200
 # fun define IS_FMC_WAIT_POLARITY(POLARITY) (((POLARITY) == FMC_WaitSignalPolarity_Low) || \
+#                                         ((POLARITY) == FMC_WaitSignalPolarity_High))
 FMC_WrapMode_Disable = 0x0
 FMC_WrapMode_Enable = 0x400
 # fun define IS_FMC_WRAP_MODE(MODE) (((MODE) == FMC_WrapMode_Disable) || \
+#                                 ((MODE) == FMC_WrapMode_Enable))
 FMC_WaitSignalActive_BeforeWaitState = 0x0
 FMC_WaitSignalActive_DuringWaitState = 0x800
 # fun define IS_FMC_WAIT_SIGNAL_ACTIVE(ACTIVE) (((ACTIVE) == FMC_WaitSignalActive_BeforeWaitState) || \
+#                                            ((ACTIVE) == FMC_WaitSignalActive_DuringWaitState))
 FMC_WriteOperation_Disable = 0x0
 FMC_WriteOperation_Enable = 0x1000
 # fun define IS_FMC_WRITE_OPERATION(OPERATION) (((OPERATION) == FMC_WriteOperation_Disable) || \
+#                                            ((OPERATION) == FMC_WriteOperation_Enable))
 FMC_WaitSignal_Disable = 0x0
 FMC_WaitSignal_Enable = 0x2000
 # fun define IS_FMC_WAITE_SIGNAL(SIGNAL) (((SIGNAL) == FMC_WaitSignal_Disable) || \
+#                                      ((SIGNAL) == FMC_WaitSignal_Enable))
 FMC_ExtendedMode_Disable = 0x0
 FMC_ExtendedMode_Enable = 0x4000
 # fun define IS_FMC_EXTENDED_MODE(MODE) (((MODE) == FMC_ExtendedMode_Disable) || \
+#                                     ((MODE) == FMC_ExtendedMode_Enable))
 FMC_WriteBurst_Disable = 0x0
 FMC_WriteBurst_Enable = 0x80000
 # fun define IS_FMC_WRITE_BURST(BURST) (((BURST) == FMC_WriteBurst_Disable) || \
+#                                    ((BURST) == FMC_WriteBurst_Enable))
 FMC_CClock_SyncOnly = 0x0
 FMC_CClock_SyncAsync = 0x100000
 # fun define IS_FMC_CONTINOUS_CLOCK(CCLOCK) (((CCLOCK) == FMC_CClock_SyncOnly) || \
+#                                        ((CCLOCK) == FMC_CClock_SyncAsync))
 # fun define IS_FMC_ADDRESS_SETUP_TIME(TIME) ((TIME) <= 15)
 # fun define IS_FMC_ADDRESS_HOLD_TIME(TIME) (((TIME) > 0) && ((TIME) <= 15))
 # fun define IS_FMC_DATASETUP_TIME(TIME) (((TIME) > 0) && ((TIME) <= 255))
@@ -2391,15 +3493,21 @@ FMC_AccessMode_B = 0x10000000
 FMC_AccessMode_C = 0x20000000
 FMC_AccessMode_D = 0x30000000
 # fun define IS_FMC_ACCESS_MODE(MODE) (((MODE) == FMC_AccessMode_A)  || \
+#                                   ((MODE) == FMC_AccessMode_B) || \
+#                                   ((MODE) == FMC_AccessMode_C) || \
+#                                   ((MODE) == FMC_AccessMode_D))
 FMC_Waitfeature_Disable = 0x0
 FMC_Waitfeature_Enable = 0x2
 # fun define IS_FMC_WAIT_FEATURE(FEATURE) (((FEATURE) == FMC_Waitfeature_Disable) || \
+#                                       ((FEATURE) == FMC_Waitfeature_Enable))
 FMC_NAND_MemoryDataWidth_8b = 0x0
 FMC_NAND_MemoryDataWidth_16b = 0x10
 # fun define IS_FMC_NAND_MEMORY_WIDTH(WIDTH) (((WIDTH) == FMC_NAND_MemoryDataWidth_8b) || \
+#                                         ((WIDTH) == FMC_NAND_MemoryDataWidth_16b))
 FMC_ECC_Disable = 0x0
 FMC_ECC_Enable = 0x40
 # fun define IS_FMC_ECC_STATE(STATE) (((STATE) == FMC_ECC_Disable) || \
+#                                  ((STATE) == FMC_ECC_Enable))
 FMC_ECCPageSize_256Bytes = 0x0
 FMC_ECCPageSize_512Bytes = 0x20000
 FMC_ECCPageSize_1024Bytes = 0x40000
@@ -2407,6 +3515,11 @@ FMC_ECCPageSize_2048Bytes = 0x60000
 FMC_ECCPageSize_4096Bytes = 0x80000
 FMC_ECCPageSize_8192Bytes = 0xA0000
 # fun define IS_FMC_ECCPAGE_SIZE(SIZE) (((SIZE) == FMC_ECCPageSize_256Bytes)   || \
+#                                    ((SIZE) == FMC_ECCPageSize_512Bytes)  || \
+#                                    ((SIZE) == FMC_ECCPageSize_1024Bytes) || \
+#                                    ((SIZE) == FMC_ECCPageSize_2048Bytes) || \
+#                                    ((SIZE) == FMC_ECCPageSize_4096Bytes) || \
+#                                    ((SIZE) == FMC_ECCPageSize_8192Bytes))
 # fun define IS_FMC_TCLR_TIME(TIME) ((TIME) <= 255)
 # fun define IS_FMC_TAR_TIME(TIME) ((TIME) <= 255)
 # fun define IS_FMC_SETUP_TIME(TIME) ((TIME) <= 255)
@@ -2418,13 +3531,22 @@ FMC_IT_Level = 0x10
 FMC_IT_FallingEdge = 0x20
 # fun define IS_FMC_IT(IT) ((((IT) & (uint32_t)0xFFFFBFC7) == 0x00000000) && ((IT) != 0x00000000))
 # fun define IS_FMC_GET_IT(IT) (((IT) == FMC_IT_RisingEdge)  || \
+#                           ((IT) == FMC_IT_Level)       || \
+#                           ((IT) == FMC_IT_FallingEdge))
 # fun define IS_FMC_IT_BANK(BANK) (((BANK) == FMC_Bank2_NAND)   || \
+#                              ((BANK) == FMC_Bank3_NAND)   || \
+#                              ((BANK) == FMC_Bank4_PCCARD))
 FMC_FLAG_RisingEdge = 0x1
 FMC_FLAG_Level = 0x2
 FMC_FLAG_FallingEdge = 0x4
 FMC_FLAG_FEMPT = 0x40
 # fun define IS_FMC_GET_FLAG(FLAG) (((FLAG) == FMC_FLAG_RisingEdge)       || \
+#                               ((FLAG) == FMC_FLAG_Level)            || \
+#                               ((FLAG) == FMC_FLAG_FallingEdge)      || \
+#                               ((FLAG) == FMC_FLAG_FEMPT))
 # fun define IS_FMC_GETFLAG_BANK(BANK) (((BANK) == FMC_Bank2_NAND)    || \
+#                                   ((BANK) == FMC_Bank3_NAND)    || \
+#                                   ((BANK) == FMC_Bank4_PCCARD))
 # fun define IS_FMC_CLEAR_FLAG(FLAG) ((((FLAG) & (uint32_t)0xFFFFFFF8) == 0x00000000) && ((FLAG) != 0x00000000))
 # struct FMC_NORSRAMTimingInitTypeDef
 
@@ -2468,6 +3590,7 @@ class FMC_NAND_PCCARDTimingInitTypeDef(ctypes.Structure):
 # empty define __STM32F30x_DAC_H
 DAC_CR_DMAUDRIE = 0x2000
 # fun define IS_DAC_ALL_PERIPH(PERIPH) (((PERIPH) == DAC1) || \
+#                                   ((PERIPH) == DAC2))
 # fun define IS_DAC_LIST1_PERIPH(PERIPH) (((PERIPH) == DAC1))
 DAC_Trigger_None = 0x0
 DAC_Trigger_T6_TRGO = 0x4
@@ -2483,10 +3606,24 @@ DAC_Trigger_HRTIM1_DACTRG3 = 0x2C
 DAC_Trigger_Ext_IT9 = 0x34
 DAC_Trigger_Software = 0x3C
 # fun define IS_DAC_TRIGGER(TRIGGER) (((TRIGGER) == DAC_Trigger_None)          || \
+#                                 ((TRIGGER) == DAC_Trigger_T6_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_T3_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_T8_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_T7_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_T15_TRGO)      || \
+#                                 ((TRIGGER) == DAC_Trigger_HRTIM1_DACTRG1)|| \
+#                                 ((TRIGGER) == DAC_Trigger_T2_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_T4_TRGO)       || \
+#                                 ((TRIGGER) == DAC_Trigger_HRTIM1_DACTRG2)|| \
+#                                 ((TRIGGER) == DAC_Trigger_HRTIM1_DACTRG3)|| \
+#                                 ((TRIGGER) == DAC_Trigger_Ext_IT9)       || \
+#                                 ((TRIGGER) == DAC_Trigger_Software))
 DAC_WaveGeneration_None = 0x0
 DAC_WaveGeneration_Noise = 0x40
 DAC_WaveGeneration_Triangle = 0x80
 # fun define IS_DAC_GENERATE_WAVE(WAVE) (((WAVE) == DAC_WaveGeneration_None)  || \
+#                                    ((WAVE) == DAC_WaveGeneration_Noise) || \
+#                                    ((WAVE) == DAC_WaveGeneration_Triangle))
 DAC_LFSRUnmask_Bit0 = 0x0
 DAC_LFSRUnmask_Bits1_0 = 0x100
 DAC_LFSRUnmask_Bits2_0 = 0x200
@@ -2512,19 +3649,47 @@ DAC_TriangleAmplitude_1023 = 0x900
 DAC_TriangleAmplitude_2047 = 0xA00
 DAC_TriangleAmplitude_4095 = 0xB00
 # fun define IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(VALUE) (((VALUE) == DAC_LFSRUnmask_Bit0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits1_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits2_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits3_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits4_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits5_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits6_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits7_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits8_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits9_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits10_0) || \
+#                                                      ((VALUE) == DAC_LFSRUnmask_Bits11_0) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_1) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_3) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_7) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_15) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_31) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_63) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_127) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_255) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_511) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_1023) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_2047) || \
+#                                                      ((VALUE) == DAC_TriangleAmplitude_4095))
 DAC_BufferSwitch_Disable = 0x0
 DAC_BufferSwitch_Enable = 0x2
 # fun define IS_DAC_BUFFER_SWITCH_STATE(STATE) (((STATE) == DAC_BufferSwitch_Enable) || \
+#                                           ((STATE) == DAC_BufferSwitch_Disable))
 DAC_Channel_1 = 0x0
 DAC_Channel_2 = 0x10
 # fun define IS_DAC_CHANNEL(CHANNEL) (((CHANNEL) == DAC_Channel_1) || \
+#                                 ((CHANNEL) == DAC_Channel_2))
 DAC_Align_12b_R = 0x0
 DAC_Align_12b_L = 0x4
 DAC_Align_8b_R = 0x8
 # fun define IS_DAC_ALIGN(ALIGN) (((ALIGN) == DAC_Align_12b_R) || \
+#                             ((ALIGN) == DAC_Align_12b_L) || \
+#                             ((ALIGN) == DAC_Align_8b_R))
 DAC_Wave_Noise = 0x40
 DAC_Wave_Triangle = 0x80
 # fun define IS_DAC_WAVE(WAVE) (((WAVE) == DAC_Wave_Noise) || \
+#                           ((WAVE) == DAC_Wave_Triangle))
 # fun define IS_DAC_DATA(DATA) ((DATA) <= 0xFFF0)
 DAC_IT_DMAUDR = 0x2000
 # fun define IS_DAC_IT(IT) (((IT) == DAC_IT_DMAUDR))
@@ -2568,11 +3733,25 @@ Bit_RESET = 0x0
 Bit_SET = 0x1
 # empty define __STM32F30x_GPIO_H
 # fun define IS_GPIO_ALL_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \
+#                                    ((PERIPH) == GPIOB) || \
+#                                    ((PERIPH) == GPIOC) || \
+#                                    ((PERIPH) == GPIOD) || \
+#                                    ((PERIPH) == GPIOE) || \
+#                                    ((PERIPH) == GPIOF) || \
+#                                    ((PERIPH) == GPIOG) || \
+#                                    ((PERIPH) == GPIOH))
 # fun define IS_GPIO_LIST_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \
+#                                     ((PERIPH) == GPIOB) || \
+#                                     ((PERIPH) == GPIOC)|| \
+#                                     ((PERIPH) == GPIOD) || \
+#                                     ((PERIPH) == GPIOF))
 # fun define IS_GPIO_MODE(MODE) (((MODE) == GPIO_Mode_IN)|| ((MODE) == GPIO_Mode_OUT) || \
+#                            ((MODE) == GPIO_Mode_AF)|| ((MODE) == GPIO_Mode_AN))
 # fun define IS_GPIO_OTYPE(OTYPE) (((OTYPE) == GPIO_OType_PP) || ((OTYPE) == GPIO_OType_OD))
 # fun define IS_GPIO_SPEED(SPEED) (((SPEED) == GPIO_Speed_Level_1) || ((SPEED) == GPIO_Speed_Level_2) || \
+#                              ((SPEED) == GPIO_Speed_Level_3))
 # fun define IS_GPIO_PUPD(PUPD) (((PUPD) == GPIO_PuPd_NOPULL) || ((PUPD) == GPIO_PuPd_UP) || \
+#                            ((PUPD) == GPIO_PuPd_DOWN))
 # fun define IS_GPIO_BIT_ACTION(ACTION) (((ACTION) == Bit_RESET) || ((ACTION) == Bit_SET))
 GPIO_Pin_0 = 0x1
 GPIO_Pin_1 = 0x2
@@ -2593,6 +3772,21 @@ GPIO_Pin_15 = 0x8000
 GPIO_Pin_All = 0xFFFF
 # fun define IS_GPIO_PIN(PIN) ((PIN) != (uint16_t)0x00)
 # fun define IS_GET_GPIO_PIN(PIN) (((PIN) == GPIO_Pin_0) || \
+#                              ((PIN) == GPIO_Pin_1) || \
+#                              ((PIN) == GPIO_Pin_2) || \
+#                              ((PIN) == GPIO_Pin_3) || \
+#                              ((PIN) == GPIO_Pin_4) || \
+#                              ((PIN) == GPIO_Pin_5) || \
+#                              ((PIN) == GPIO_Pin_6) || \
+#                              ((PIN) == GPIO_Pin_7) || \
+#                              ((PIN) == GPIO_Pin_8) || \
+#                              ((PIN) == GPIO_Pin_9) || \
+#                              ((PIN) == GPIO_Pin_10) || \
+#                              ((PIN) == GPIO_Pin_11) || \
+#                              ((PIN) == GPIO_Pin_12) || \
+#                              ((PIN) == GPIO_Pin_13) || \
+#                              ((PIN) == GPIO_Pin_14) || \
+#                              ((PIN) == GPIO_Pin_15))
 GPIO_PinSource0 = 0x0
 GPIO_PinSource1 = 0x1
 GPIO_PinSource2 = 0x2
@@ -2610,6 +3804,21 @@ GPIO_PinSource13 = 0xD
 GPIO_PinSource14 = 0xE
 GPIO_PinSource15 = 0xF
 # fun define IS_GPIO_PIN_SOURCE(PINSOURCE) (((PINSOURCE) == GPIO_PinSource0) || \
+#                                       ((PINSOURCE) == GPIO_PinSource1) || \
+#                                       ((PINSOURCE) == GPIO_PinSource2) || \
+#                                       ((PINSOURCE) == GPIO_PinSource3) || \
+#                                       ((PINSOURCE) == GPIO_PinSource4) || \
+#                                       ((PINSOURCE) == GPIO_PinSource5) || \
+#                                       ((PINSOURCE) == GPIO_PinSource6) || \
+#                                       ((PINSOURCE) == GPIO_PinSource7) || \
+#                                       ((PINSOURCE) == GPIO_PinSource8) || \
+#                                       ((PINSOURCE) == GPIO_PinSource9) || \
+#                                       ((PINSOURCE) == GPIO_PinSource10) || \
+#                                       ((PINSOURCE) == GPIO_PinSource11) || \
+#                                       ((PINSOURCE) == GPIO_PinSource12) || \
+#                                       ((PINSOURCE) == GPIO_PinSource13) || \
+#                                       ((PINSOURCE) == GPIO_PinSource14) || \
+#                                       ((PINSOURCE) == GPIO_PinSource15))
 GPIO_AF_0 = 0x0
 GPIO_AF_1 = 0x1
 GPIO_AF_2 = 0x2
@@ -2627,6 +3836,13 @@ GPIO_AF_13 = 0xD
 GPIO_AF_14 = 0xE
 GPIO_AF_15 = 0xF
 # fun define IS_GPIO_AF(AF)   (((AF) == GPIO_AF_0)||((AF) == GPIO_AF_1)||\
+#                          ((AF) == GPIO_AF_2)||((AF) == GPIO_AF_3)||\
+#                          ((AF) == GPIO_AF_4)||((AF) == GPIO_AF_5)||\
+#                          ((AF) == GPIO_AF_6)||((AF) == GPIO_AF_7)||\
+#                          ((AF) == GPIO_AF_8)||((AF) == GPIO_AF_9)||\
+#                          ((AF) == GPIO_AF_10)||((AF) == GPIO_AF_11)||\
+#                          ((AF) == GPIO_AF_12)||((AF) == GPIO_AF_13)||\
+#                          ((AF) == GPIO_AF_14)||((AF) == GPIO_AF_15))
 GPIO_Speed_10MHz = 0x1
 GPIO_Speed_2MHz = 0x2
 GPIO_Speed_50MHz = 0x3
@@ -2650,14 +3866,67 @@ class GPIO_InitTypeDef(ctypes.Structure):
 
 # empty define __STM32F30x_TIM_H
 # fun define IS_TIM_ALL_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                   ((PERIPH) == TIM2) || \
+#                                   ((PERIPH) == TIM3) || \
+#                                   ((PERIPH) == TIM4) || \
+#                                   ((PERIPH) == TIM6) || \
+#                                   ((PERIPH) == TIM7) || \
+#                                   ((PERIPH) == TIM8) || \
+#                                   ((PERIPH) == TIM15) || \
+#                                   ((PERIPH) == TIM16) || \
+#                                   ((PERIPH) == TIM17) || \
+#                                   ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST1_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM2) || \
+#                                     ((PERIPH) == TIM3) || \
+#                                     ((PERIPH) == TIM4) || \
+#                                     ((PERIPH) == TIM8) || \
+#                                     ((PERIPH) == TIM15) || \
+#                                     ((PERIPH) == TIM16) || \
+#                                     ((PERIPH) == TIM17) || \
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST2_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM2) || \
+#                                     ((PERIPH) == TIM3) || \
+#                                     ((PERIPH) == TIM4) || \
+#                                     ((PERIPH) == TIM8) || \
+#                                     ((PERIPH) == TIM15)|| \
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST3_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM2) || \
+#                                     ((PERIPH) == TIM3) || \
+#                                     ((PERIPH) == TIM4) || \
+#                                     ((PERIPH) == TIM8) || \
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST4_PERIPH(PERIPH) (((PERIPH) == TIM1) ||\
+#                                     ((PERIPH) == TIM8) ||\
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST5_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM2) || \
+#                                     ((PERIPH) == TIM3) || \
+#                                     ((PERIPH) == TIM4) || \
+#                                     ((PERIPH) == TIM6) || \
+#                                     ((PERIPH) == TIM7) || \
+#                                     ((PERIPH) == TIM8))
 # fun define IS_TIM_LIST6_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM8) || \
+#                                     ((PERIPH) == TIM15) || \
+#                                     ((PERIPH) == TIM16) || \
+#                                     ((PERIPH) == TIM17) || \
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST7_PERIPH(PERIPH) (((PERIPH) == TIM1) || \
+#                                     ((PERIPH) == TIM2) || \
+#                                     ((PERIPH) == TIM3) || \
+#                                     ((PERIPH) == TIM4) || \
+#                                     ((PERIPH) == TIM6) || \
+#                                     ((PERIPH) == TIM7) || \
+#                                     ((PERIPH) == TIM8) || \
+#                                     ((PERIPH) == TIM15)|| \
+#                                     ((PERIPH) == TIM20))
 # fun define IS_TIM_LIST8_PERIPH(PERIPH) (((PERIPH) == TIM16)||  \
+#                                     ((PERIPH) == TIM1) ||\
+#                                     ((PERIPH) == TIM8) ||\
+#                                     ((PERIPH) == TIM20))
 TIM_OCMode_Timing = 0x0
 TIM_OCMode_Active = 0x10
 TIM_OCMode_Inactive = 0x20
@@ -2671,10 +3940,35 @@ TIM_OCMode_Combined_PWM2 = 0x10050
 TIM_OCMode_Asymmetric_PWM1 = 0x10060
 TIM_OCMode_Asymmetric_PWM2 = 0x10070
 # fun define IS_TIM_OC_MODE(MODE) (((MODE) == TIM_OCMode_Timing) || \
+#                              ((MODE) == TIM_OCMode_Active) || \
+#                              ((MODE) == TIM_OCMode_Inactive) || \
+#                              ((MODE) == TIM_OCMode_Toggle)|| \
+#                              ((MODE) == TIM_OCMode_PWM1) || \
+#                              ((MODE) == TIM_OCMode_PWM2) || \
+#                              ((MODE) == TIM_OCMode_Retrigerrable_OPM1) || \
+#                              ((MODE) == TIM_OCMode_Retrigerrable_OPM2) || \
+#                              ((MODE) == TIM_OCMode_Combined_PWM1) || \
+#                              ((MODE) == TIM_OCMode_Combined_PWM2) || \
+#                              ((MODE) == TIM_OCMode_Asymmetric_PWM1) || \
+#                              ((MODE) == TIM_OCMode_Asymmetric_PWM2))
 # fun define IS_TIM_OCM(MODE) (((MODE) == TIM_OCMode_Timing) || \
+#                          ((MODE) == TIM_OCMode_Active) || \
+#                          ((MODE) == TIM_OCMode_Inactive) || \
+#                          ((MODE) == TIM_OCMode_Toggle)|| \
+#                          ((MODE) == TIM_OCMode_PWM1) || \
+#                          ((MODE) == TIM_OCMode_PWM2) ||	\
+#                          ((MODE) == TIM_ForcedAction_Active) || \
+#                          ((MODE) == TIM_ForcedAction_InActive) || \
+#                          ((MODE) == TIM_OCMode_Retrigerrable_OPM1) || \
+#                          ((MODE) == TIM_OCMode_Retrigerrable_OPM2) || \
+#                          ((MODE) == TIM_OCMode_Combined_PWM1) || \
+#                          ((MODE) == TIM_OCMode_Combined_PWM2) || \
+#                          ((MODE) == TIM_OCMode_Asymmetric_PWM1) || \
+#                          ((MODE) == TIM_OCMode_Asymmetric_PWM2))
 TIM_OPMode_Single = 0x8
 TIM_OPMode_Repetitive = 0x0
 # fun define IS_TIM_OPM_MODE(MODE) (((MODE) == TIM_OPMode_Single) || \
+#                               ((MODE) == TIM_OPMode_Repetitive))
 TIM_Channel_1 = 0x0
 TIM_Channel_2 = 0x4
 TIM_Channel_3 = 0x8
@@ -2682,89 +3976,128 @@ TIM_Channel_4 = 0xC
 TIM_Channel_5 = 0x10
 TIM_Channel_6 = 0x14
 # fun define IS_TIM_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
+#                                 ((CHANNEL) == TIM_Channel_2) || \
+#                                 ((CHANNEL) == TIM_Channel_3) || \
+#                                 ((CHANNEL) == TIM_Channel_4))
 # fun define IS_TIM_PWMI_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
+#                                      ((CHANNEL) == TIM_Channel_2))
 # fun define IS_TIM_COMPLEMENTARY_CHANNEL(CHANNEL) (((CHANNEL) == TIM_Channel_1) || \
+#                                               ((CHANNEL) == TIM_Channel_2) || \
+#                                               ((CHANNEL) == TIM_Channel_3))
 TIM_CKD_DIV1 = 0x0
 TIM_CKD_DIV2 = 0x100
 TIM_CKD_DIV4 = 0x200
 # fun define IS_TIM_CKD_DIV(DIV) (((DIV) == TIM_CKD_DIV1) || \
+#                             ((DIV) == TIM_CKD_DIV2) || \
+#                             ((DIV) == TIM_CKD_DIV4))
 TIM_CounterMode_Up = 0x0
 TIM_CounterMode_Down = 0x10
 TIM_CounterMode_CenterAligned1 = 0x20
 TIM_CounterMode_CenterAligned2 = 0x40
 TIM_CounterMode_CenterAligned3 = 0x60
 # fun define IS_TIM_COUNTER_MODE(MODE) (((MODE) == TIM_CounterMode_Up) ||  \
+#                                   ((MODE) == TIM_CounterMode_Down) || \
+#                                   ((MODE) == TIM_CounterMode_CenterAligned1) || \
+#                                   ((MODE) == TIM_CounterMode_CenterAligned2) || \
+#                                   ((MODE) == TIM_CounterMode_CenterAligned3))
 TIM_OCPolarity_High = 0x0
 TIM_OCPolarity_Low = 0x2
 # fun define IS_TIM_OC_POLARITY(POLARITY) (((POLARITY) == TIM_OCPolarity_High) || \
+#                                      ((POLARITY) == TIM_OCPolarity_Low))
 TIM_OCNPolarity_High = 0x0
 TIM_OCNPolarity_Low = 0x8
 # fun define IS_TIM_OCN_POLARITY(POLARITY) (((POLARITY) == TIM_OCNPolarity_High) || \
+#                                       ((POLARITY) == TIM_OCNPolarity_Low))
 TIM_OutputState_Disable = 0x0
 TIM_OutputState_Enable = 0x1
 # fun define IS_TIM_OUTPUT_STATE(STATE) (((STATE) == TIM_OutputState_Disable) || \
+#                                    ((STATE) == TIM_OutputState_Enable))
 TIM_OutputNState_Disable = 0x0
 TIM_OutputNState_Enable = 0x4
 # fun define IS_TIM_OUTPUTN_STATE(STATE) (((STATE) == TIM_OutputNState_Disable) || \
+#                                     ((STATE) == TIM_OutputNState_Enable))
 TIM_CCx_Enable = 0x1
 TIM_CCx_Disable = 0x0
 # fun define IS_TIM_CCX(CCX) (((CCX) == TIM_CCx_Enable) || \
+#                         ((CCX) == TIM_CCx_Disable))
 TIM_CCxN_Enable = 0x4
 TIM_CCxN_Disable = 0x0
 # fun define IS_TIM_CCXN(CCXN) (((CCXN) == TIM_CCxN_Enable) || \
+#                           ((CCXN) == TIM_CCxN_Disable))
 TIM_Break_Enable = 0x1000
 TIM_Break_Disable = 0x0
 # fun define IS_TIM_BREAK_STATE(STATE) (((STATE) == TIM_Break_Enable) || \
+#                                   ((STATE) == TIM_Break_Disable))
 TIM_Break1_Enable = 0x1000
 TIM_Break1_Disable = 0x0
 # fun define IS_TIM_BREAK1_STATE(STATE) (((STATE) == TIM_Break1_Enable) || \
+#                                   ((STATE) == TIM_Break1_Disable))
 TIM_Break2_Enable = 0x1000000
 TIM_Break2_Disable = 0x0
 # fun define IS_TIM_BREAK2_STATE(STATE) (((STATE) == TIM_Break2_Enable) || \
+#                                   ((STATE) == TIM_Break2_Disable))
 TIM_BreakPolarity_Low = 0x0
 TIM_BreakPolarity_High = 0x2000
 # fun define IS_TIM_BREAK_POLARITY(POLARITY) (((POLARITY) == TIM_BreakPolarity_Low) || \
+#                                         ((POLARITY) == TIM_BreakPolarity_High))
 TIM_Break1Polarity_Low = 0x0
 TIM_Break1Polarity_High = 0x2000
 # fun define IS_TIM_BREAK1_POLARITY(POLARITY) (((POLARITY) == TIM_Break1Polarity_Low) || \
+#                                         ((POLARITY) == TIM_Break1Polarity_High))
 TIM_Break2Polarity_Low = 0x0
 TIM_Break2Polarity_High = 0x2000000
 # fun define IS_TIM_BREAK2_POLARITY(POLARITY) (((POLARITY) == TIM_Break2Polarity_Low) || \
+#                                         ((POLARITY) == TIM_Break2Polarity_High))
 # fun define IS_TIM_BREAK1_FILTER(FILTER) ((FILTER) <= 0xF)
 # fun define IS_TIM_BREAK2_FILTER(FILTER) ((FILTER) <= 0xF)
 TIM_AutomaticOutput_Enable = 0x4000
 TIM_AutomaticOutput_Disable = 0x0
 # fun define IS_TIM_AUTOMATIC_OUTPUT_STATE(STATE) (((STATE) == TIM_AutomaticOutput_Enable) || \
+#                                              ((STATE) == TIM_AutomaticOutput_Disable))
 TIM_LOCKLevel_OFF = 0x0
 TIM_LOCKLevel_1 = 0x100
 TIM_LOCKLevel_2 = 0x200
 TIM_LOCKLevel_3 = 0x300
 # fun define IS_TIM_LOCK_LEVEL(LEVEL) (((LEVEL) == TIM_LOCKLevel_OFF) || \
+#                                  ((LEVEL) == TIM_LOCKLevel_1) || \
+#                                  ((LEVEL) == TIM_LOCKLevel_2) || \
+#                                  ((LEVEL) == TIM_LOCKLevel_3))
 TIM_OSSIState_Enable = 0x400
 TIM_OSSIState_Disable = 0x0
 # fun define IS_TIM_OSSI_STATE(STATE) (((STATE) == TIM_OSSIState_Enable) || \
+#                                  ((STATE) == TIM_OSSIState_Disable))
 TIM_OSSRState_Enable = 0x800
 TIM_OSSRState_Disable = 0x0
 # fun define IS_TIM_OSSR_STATE(STATE) (((STATE) == TIM_OSSRState_Enable) || \
+#                                  ((STATE) == TIM_OSSRState_Disable))
 TIM_OCIdleState_Set = 0x100
 TIM_OCIdleState_Reset = 0x0
 # fun define IS_TIM_OCIDLE_STATE(STATE) (((STATE) == TIM_OCIdleState_Set) || \
+#                                    ((STATE) == TIM_OCIdleState_Reset))
 TIM_OCNIdleState_Set = 0x200
 TIM_OCNIdleState_Reset = 0x0
 # fun define IS_TIM_OCNIDLE_STATE(STATE) (((STATE) == TIM_OCNIdleState_Set) || \
+#                                     ((STATE) == TIM_OCNIdleState_Reset))
 TIM_ICPolarity_Rising = 0x0
 TIM_ICPolarity_Falling = 0x2
 TIM_ICPolarity_BothEdge = 0xA
 # fun define IS_TIM_IC_POLARITY(POLARITY) (((POLARITY) == TIM_ICPolarity_Rising) || \
+#                                      ((POLARITY) == TIM_ICPolarity_Falling)|| \
+#                                      ((POLARITY) == TIM_ICPolarity_BothEdge))
 TIM_ICSelection_DirectTI = 0x1
 TIM_ICSelection_IndirectTI = 0x2
 TIM_ICSelection_TRC = 0x3
 # fun define IS_TIM_IC_SELECTION(SELECTION) (((SELECTION) == TIM_ICSelection_DirectTI) || \
+#                                        ((SELECTION) == TIM_ICSelection_IndirectTI) || \
+#                                        ((SELECTION) == TIM_ICSelection_TRC))
 TIM_ICPSC_DIV1 = 0x0
 TIM_ICPSC_DIV2 = 0x4
 TIM_ICPSC_DIV4 = 0x8
 TIM_ICPSC_DIV8 = 0xC
 # fun define IS_TIM_IC_PRESCALER(PRESCALER) (((PRESCALER) == TIM_ICPSC_DIV1) || \
+#                                        ((PRESCALER) == TIM_ICPSC_DIV2) || \
+#                                        ((PRESCALER) == TIM_ICPSC_DIV4) || \
+#                                        ((PRESCALER) == TIM_ICPSC_DIV8))
 TIM_IT_Update = 0x1
 TIM_IT_CC1 = 0x2
 TIM_IT_CC2 = 0x4
@@ -2775,6 +4108,13 @@ TIM_IT_Trigger = 0x40
 TIM_IT_Break = 0x80
 # fun define IS_TIM_IT(IT) ((((IT) & (uint16_t)0xFF00) == 0x0000) && ((IT) != 0x0000))
 # fun define IS_TIM_GET_IT(IT) (((IT) == TIM_IT_Update) || \
+#                           ((IT) == TIM_IT_CC1) || \
+#                           ((IT) == TIM_IT_CC2) || \
+#                           ((IT) == TIM_IT_CC3) || \
+#                           ((IT) == TIM_IT_CC4) || \
+#                           ((IT) == TIM_IT_COM) || \
+#                           ((IT) == TIM_IT_Trigger) || \
+#                           ((IT) == TIM_IT_Break))
 TIM_DMABase_CR1 = 0x0
 TIM_DMABase_CR2 = 0x1
 TIM_DMABase_SMCR = 0x2
@@ -2799,6 +4139,28 @@ TIM_DMABase_CCMR3 = 0x14
 TIM_DMABase_CCR5 = 0x15
 TIM_DMABase_CCR6 = 0x16
 # fun define IS_TIM_DMA_BASE(BASE) (((BASE) == TIM_DMABase_CR1) || \
+#                               ((BASE) == TIM_DMABase_CR2) || \
+#                               ((BASE) == TIM_DMABase_SMCR) || \
+#                               ((BASE) == TIM_DMABase_DIER) || \
+#                               ((BASE) == TIM_DMABase_SR) || \
+#                               ((BASE) == TIM_DMABase_EGR) || \
+#                               ((BASE) == TIM_DMABase_CCMR1) || \
+#                               ((BASE) == TIM_DMABase_CCMR2) || \
+#                               ((BASE) == TIM_DMABase_CCER) || \
+#                               ((BASE) == TIM_DMABase_CNT) || \
+#                               ((BASE) == TIM_DMABase_PSC) || \
+#                               ((BASE) == TIM_DMABase_ARR) || \
+#                               ((BASE) == TIM_DMABase_RCR) || \
+#                               ((BASE) == TIM_DMABase_CCR1) || \
+#                               ((BASE) == TIM_DMABase_CCR2) || \
+#                               ((BASE) == TIM_DMABase_CCR3) || \
+#                               ((BASE) == TIM_DMABase_CCR4) || \
+#                               ((BASE) == TIM_DMABase_BDTR) || \
+#                               ((BASE) == TIM_DMABase_DCR) || \
+#                               ((BASE) == TIM_DMABase_OR) || \
+#                               ((BASE) == TIM_DMABase_CCMR3) || \
+#                               ((BASE) == TIM_DMABase_CCR5) || \
+#                               ((BASE) == TIM_DMABase_CCR6))
 TIM_DMABurstLength_1Transfer = 0x0
 TIM_DMABurstLength_2Transfers = 0x100
 TIM_DMABurstLength_3Transfers = 0x200
@@ -2818,6 +4180,23 @@ TIM_DMABurstLength_16Transfers = 0xF00
 TIM_DMABurstLength_17Transfers = 0x1000
 TIM_DMABurstLength_18Transfers = 0x1100
 # fun define IS_TIM_DMA_LENGTH(LENGTH) (((LENGTH) == TIM_DMABurstLength_1Transfer) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_2Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_3Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_4Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_5Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_6Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_7Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_8Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_9Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_10Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_11Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_12Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_13Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_14Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_15Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_16Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_17Transfers) || \
+#                                   ((LENGTH) == TIM_DMABurstLength_18Transfers))
 TIM_DMA_Update = 0x100
 TIM_DMA_CC1 = 0x200
 TIM_DMA_CC2 = 0x400
@@ -2831,6 +4210,9 @@ TIM_ExtTRGPSC_DIV2 = 0x1000
 TIM_ExtTRGPSC_DIV4 = 0x2000
 TIM_ExtTRGPSC_DIV8 = 0x3000
 # fun define IS_TIM_EXT_PRESCALER(PRESCALER) (((PRESCALER) == TIM_ExtTRGPSC_OFF) || \
+#                                         ((PRESCALER) == TIM_ExtTRGPSC_DIV2) || \
+#                                         ((PRESCALER) == TIM_ExtTRGPSC_DIV4) || \
+#                                         ((PRESCALER) == TIM_ExtTRGPSC_DIV8))
 TIM_TS_ITR0 = 0x0
 TIM_TS_ITR1 = 0x10
 TIM_TS_ITR2 = 0x20
@@ -2840,23 +4222,38 @@ TIM_TS_TI1FP1 = 0x50
 TIM_TS_TI2FP2 = 0x60
 TIM_TS_ETRF = 0x70
 # fun define IS_TIM_TRIGGER_SELECTION(SELECTION) (((SELECTION) == TIM_TS_ITR0) || \
+#                                             ((SELECTION) == TIM_TS_ITR1) || \
+#                                             ((SELECTION) == TIM_TS_ITR2) || \
+#                                             ((SELECTION) == TIM_TS_ITR3) || \
+#                                             ((SELECTION) == TIM_TS_TI1F_ED) || \
+#                                             ((SELECTION) == TIM_TS_TI1FP1) || \
+#                                             ((SELECTION) == TIM_TS_TI2FP2) || \
+#                                             ((SELECTION) == TIM_TS_ETRF))
 # fun define IS_TIM_INTERNAL_TRIGGER_SELECTION(SELECTION) (((SELECTION) == TIM_TS_ITR0) || \
+#                                                      ((SELECTION) == TIM_TS_ITR1) || \
+#                                                      ((SELECTION) == TIM_TS_ITR2) || \
+#                                                      ((SELECTION) == TIM_TS_ITR3))
 TIM_TIxExternalCLK1Source_TI1 = 0x50
 TIM_TIxExternalCLK1Source_TI2 = 0x60
 TIM_TIxExternalCLK1Source_TI1ED = 0x40
 TIM_ExtTRGPolarity_Inverted = 0x8000
 TIM_ExtTRGPolarity_NonInverted = 0x0
 # fun define IS_TIM_EXT_POLARITY(POLARITY) (((POLARITY) == TIM_ExtTRGPolarity_Inverted) || \
+#                                       ((POLARITY) == TIM_ExtTRGPolarity_NonInverted))
 TIM_PSCReloadMode_Update = 0x0
 TIM_PSCReloadMode_Immediate = 0x1
 # fun define IS_TIM_PRESCALER_RELOAD(RELOAD) (((RELOAD) == TIM_PSCReloadMode_Update) || \
+#                                         ((RELOAD) == TIM_PSCReloadMode_Immediate))
 TIM_ForcedAction_Active = 0x50
 TIM_ForcedAction_InActive = 0x40
 # fun define IS_TIM_FORCED_ACTION(ACTION) (((ACTION) == TIM_ForcedAction_Active) || \
+#                                      ((ACTION) == TIM_ForcedAction_InActive))
 TIM_EncoderMode_TI1 = 0x1
 TIM_EncoderMode_TI2 = 0x2
 TIM_EncoderMode_TI12 = 0x3
 # fun define IS_TIM_ENCODER_MODE(MODE) (((MODE) == TIM_EncoderMode_TI1) || \
+#                                   ((MODE) == TIM_EncoderMode_TI2) || \
+#                                   ((MODE) == TIM_EncoderMode_TI12))
 TIM_EventSource_Update = 0x1
 TIM_EventSource_CC1 = 0x2
 TIM_EventSource_CC2 = 0x4
@@ -2870,15 +4267,19 @@ TIM_EventSource_Break2 = 0x100
 TIM_UpdateSource_Global = 0x0
 TIM_UpdateSource_Regular = 0x1
 # fun define IS_TIM_UPDATE_SOURCE(SOURCE) (((SOURCE) == TIM_UpdateSource_Global) || \
+#                                      ((SOURCE) == TIM_UpdateSource_Regular))
 TIM_OCPreload_Enable = 0x8
 TIM_OCPreload_Disable = 0x0
 # fun define IS_TIM_OCPRELOAD_STATE(STATE) (((STATE) == TIM_OCPreload_Enable) || \
+#                                       ((STATE) == TIM_OCPreload_Disable))
 TIM_OCFast_Enable = 0x4
 TIM_OCFast_Disable = 0x0
 # fun define IS_TIM_OCFAST_STATE(STATE) (((STATE) == TIM_OCFast_Enable) || \
+#                                    ((STATE) == TIM_OCFast_Disable))
 TIM_OCClear_Enable = 0x80
 TIM_OCClear_Disable = 0x0
 # fun define IS_TIM_OCCLEAR_STATE(STATE) (((STATE) == TIM_OCClear_Enable) || \
+#                                     ((STATE) == TIM_OCClear_Disable))
 TIM_TRGOSource_Reset = 0x0
 TIM_TRGOSource_Enable = 0x10
 TIM_TRGOSource_Update = 0x20
@@ -2888,6 +4289,13 @@ TIM_TRGOSource_OC2Ref = 0x50
 TIM_TRGOSource_OC3Ref = 0x60
 TIM_TRGOSource_OC4Ref = 0x70
 # fun define IS_TIM_TRGO_SOURCE(SOURCE) (((SOURCE) == TIM_TRGOSource_Reset) || \
+#                                    ((SOURCE) == TIM_TRGOSource_Enable) || \
+#                                    ((SOURCE) == TIM_TRGOSource_Update) || \
+#                                    ((SOURCE) == TIM_TRGOSource_OC1) || \
+#                                    ((SOURCE) == TIM_TRGOSource_OC1Ref) || \
+#                                    ((SOURCE) == TIM_TRGOSource_OC2Ref) || \
+#                                    ((SOURCE) == TIM_TRGOSource_OC3Ref) || \
+#                                    ((SOURCE) == TIM_TRGOSource_OC4Ref))
 TIM_TRGO2Source_Reset = 0x0
 TIM_TRGO2Source_Enable = 0x100000
 TIM_TRGO2Source_Update = 0x200000
@@ -2905,15 +4313,35 @@ TIM_TRGO2Source_OC4RefRising_OC6RefFalling = 0xD00000
 TIM_TRGO2Source_OC5RefRising_OC6RefRising = 0xE00000
 TIM_TRGO2Source_OC5RefRising_OC6RefFalling = 0xF00000
 # fun define IS_TIM_TRGO2_SOURCE(SOURCE) (((SOURCE) == TIM_TRGO2Source_Reset) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_Enable) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_Update) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC1) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC1Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC2Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC3Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC4Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC5Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC6Ref) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC4Ref_RisingFalling) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC6Ref_RisingFalling) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC4RefRising_OC6RefRising) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC4RefRising_OC6RefFalling) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC5RefRising_OC6RefRising) || \
+#                                     ((SOURCE) == TIM_TRGO2Source_OC5RefRising_OC6RefFalling))
 TIM_SlaveMode_Reset = 0x4
 TIM_SlaveMode_Gated = 0x5
 TIM_SlaveMode_Trigger = 0x6
 TIM_SlaveMode_External1 = 0x7
 TIM_SlaveMode_Combined_ResetTrigger = 0x10000
 # fun define IS_TIM_SLAVE_MODE(MODE) (((MODE) == TIM_SlaveMode_Reset) || \
+#                                 ((MODE) == TIM_SlaveMode_Gated) || \
+#                                 ((MODE) == TIM_SlaveMode_Trigger) || \
+#                                 ((MODE) == TIM_SlaveMode_External1) || \
+#                                 ((MODE) == TIM_SlaveMode_Combined_ResetTrigger))
 TIM_MasterSlaveMode_Enable = 0x80
 TIM_MasterSlaveMode_Disable = 0x0
 # fun define IS_TIM_MSM_STATE(STATE) (((STATE) == TIM_MasterSlaveMode_Enable) || \
+#                                 ((STATE) == TIM_MasterSlaveMode_Disable))
 TIM16_GPIO = 0x0
 TIM16_RTC_CLK = 0x1
 TIM16_HSEDiv32 = 0x2
@@ -2937,6 +4365,27 @@ TIM20_ADC4_AWDG1 = 0x4
 TIM20_ADC4_AWDG2 = 0x8
 TIM20_ADC4_AWDG3 = 0xC
 # fun define IS_TIM_REMAP(TIM_REMAP)  (((TIM_REMAP) == TIM16_GPIO)|| \
+#                                  ((TIM_REMAP) == TIM16_RTC_CLK) || \
+#                                  ((TIM_REMAP) == TIM16_HSEDiv32) || \
+#                                  ((TIM_REMAP) == TIM16_MCO) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC1_AWDG1) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC1_AWDG2) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC1_AWDG3) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC4_AWDG1) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC4_AWDG2) ||\
+#                                  ((TIM_REMAP) == TIM1_ADC4_AWDG3) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC2_AWDG1) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC2_AWDG2) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC2_AWDG3) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC3_AWDG1) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC3_AWDG2) ||\
+#                                  ((TIM_REMAP) == TIM8_ADC3_AWDG3) ||\
+#                                  ((TIM_REMAP) == TIM20_ADC3_AWDG1)||\
+#                                  ((TIM_REMAP) == TIM20_ADC3_AWDG2)||\
+#                                  ((TIM_REMAP) == TIM20_ADC3_AWDG3)||\
+#                                  ((TIM_REMAP) == TIM20_ADC4_AWDG1)||\
+#                                  ((TIM_REMAP) == TIM20_ADC4_AWDG2)||\
+#                                  ((TIM_REMAP) == TIM20_ADC4_AWDG3))
 TIM_FLAG_Update = 0x1
 TIM_FLAG_CC1 = 0x2
 TIM_FLAG_CC2 = 0x4
@@ -2953,10 +4402,25 @@ TIM_FLAG_CC4OF = 0x1000
 TIM_FLAG_CC5 = 0x10000
 TIM_FLAG_CC6 = 0x20000
 # fun define IS_TIM_GET_FLAG(FLAG) (((FLAG) == TIM_FLAG_Update) || \
+#                               ((FLAG) == TIM_FLAG_CC1) || \
+#                               ((FLAG) == TIM_FLAG_CC2) || \
+#                               ((FLAG) == TIM_FLAG_CC3) || \
+#                               ((FLAG) == TIM_FLAG_CC4) || \
+#                               ((FLAG) == TIM_FLAG_COM) || \
+#                               ((FLAG) == TIM_FLAG_Trigger) || \
+#                               ((FLAG) == TIM_FLAG_Break) || \
+#                               ((FLAG) == TIM_FLAG_Break2) || \
+#                               ((FLAG) == TIM_FLAG_CC1OF) || \
+#                               ((FLAG) == TIM_FLAG_CC2OF) || \
+#                               ((FLAG) == TIM_FLAG_CC3OF) || \
+#                               ((FLAG) == TIM_FLAG_CC4OF) ||\
+#                               ((FLAG) == TIM_FLAG_CC5) ||\
+#                               ((FLAG) == TIM_FLAG_CC6))
 # fun define IS_TIM_CLEAR_FLAG(TIM_FLAG) ((((TIM_FLAG) & (uint32_t)0xE000) == 0x0000) && ((TIM_FLAG) != 0x0000))
 TIM_OCReferenceClear_ETRF = 0x8
 TIM_OCReferenceClear_OCREFCLR = 0x0
 # fun define TIM_OCREFERENCECECLEAR_SOURCE(SOURCE) (((SOURCE) == TIM_OCReferenceClear_ETRF) || \
+#                                              ((SOURCE) == TIM_OCReferenceClear_OCREFCLR))
 # fun define IS_TIM_IC_FILTER(ICFILTER) ((ICFILTER) <= 0xF)
 # fun define IS_TIM_EXT_FILTER(EXTFILTER) ((EXTFILTER) <= 0xF)
 TIM_DMABurstLength_1Byte = 0x0
@@ -3046,22 +4510,30 @@ class TIM_BDTRInitTypeDef(ctypes.Structure):
 NVIC_VectTab_RAM = 0x20000000
 NVIC_VectTab_FLASH = 0x8000000
 # fun define IS_NVIC_VECTTAB(VECTTAB) (((VECTTAB) == NVIC_VectTab_RAM) || \
+#                                  ((VECTTAB) == NVIC_VectTab_FLASH))
 NVIC_LP_SEVONPEND = 0x10
 NVIC_LP_SLEEPDEEP = 0x4
 NVIC_LP_SLEEPONEXIT = 0x2
 # fun define IS_NVIC_LP(LP) (((LP) == NVIC_LP_SEVONPEND) || \
+#                        ((LP) == NVIC_LP_SLEEPDEEP) || \
+#                        ((LP) == NVIC_LP_SLEEPONEXIT))
 NVIC_PriorityGroup_0 = 0x700
 NVIC_PriorityGroup_1 = 0x600
 NVIC_PriorityGroup_2 = 0x500
 NVIC_PriorityGroup_3 = 0x400
 NVIC_PriorityGroup_4 = 0x300
 # fun define IS_NVIC_PRIORITY_GROUP(GROUP) (((GROUP) == NVIC_PriorityGroup_0) || \
+#                                       ((GROUP) == NVIC_PriorityGroup_1) || \
+#                                       ((GROUP) == NVIC_PriorityGroup_2) || \
+#                                       ((GROUP) == NVIC_PriorityGroup_3) || \
+#                                       ((GROUP) == NVIC_PriorityGroup_4))
 # fun define IS_NVIC_PREEMPTION_PRIORITY(PRIORITY)  ((PRIORITY) < 0x10)
 # fun define IS_NVIC_SUB_PRIORITY(PRIORITY)  ((PRIORITY) < 0x10)
 # fun define IS_NVIC_OFFSET(OFFSET)  ((OFFSET) < 0x000FFFFF)
 SysTick_CLKSource_HCLK_Div8 = 0xFFFFFFFB
 SysTick_CLKSource_HCLK = 0x4
 # fun define IS_SYSTICK_CLK_SOURCE(SOURCE) (((SOURCE) == SysTick_CLKSource_HCLK) || \
+#                                       ((SOURCE) == SysTick_CLKSource_HCLK_Div8))
 # struct NVIC_InitTypeDef
 
 class NVIC_InitTypeDef(ctypes.Structure):
@@ -3110,24 +4582,31 @@ DBGMCU_TIM20_STOP = 0x20
 
 # empty define __STM32F30x_I2C_H
 # fun define IS_I2C_ALL_PERIPH(PERIPH)       (((PERIPH) == I2C1) || \
+#                                         ((PERIPH) == I2C2))
 I2C_AnalogFilter_Enable = 0x0
 I2C_AnalogFilter_Disable = 0x1000
 # fun define IS_I2C_ANALOG_FILTER(FILTER)    (((FILTER) == I2C_AnalogFilter_Enable) || \
+#                                         ((FILTER) == I2C_AnalogFilter_Disable))
 # fun define IS_I2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000F)
 I2C_Mode_I2C = 0x0
 I2C_Mode_SMBusDevice = 0x200000
 I2C_Mode_SMBusHost = 0x100000
 # fun define IS_I2C_MODE(MODE)               (((MODE) == I2C_Mode_I2C) || \
+#                                         ((MODE) == I2C_Mode_SMBusDevice) || \
+#                                         ((MODE) == I2C_Mode_SMBusHost))
 I2C_Ack_Enable = 0x0
 I2C_Ack_Disable = 0x8000
 # fun define IS_I2C_ACK(ACK)                 (((ACK) == I2C_Ack_Enable) || \
+#                                         ((ACK) == I2C_Ack_Disable))
 I2C_AcknowledgedAddress_7bit = 0x0
 I2C_AcknowledgedAddress_10bit = 0x400
 # fun define IS_I2C_ACKNOWLEDGE_ADDRESS(ADDRESS) (((ADDRESS) == I2C_AcknowledgedAddress_7bit) || \
+#                                             ((ADDRESS) == I2C_AcknowledgedAddress_10bit))
 # fun define IS_I2C_OWN_ADDRESS1(ADDRESS1)   ((ADDRESS1) <= (uint32_t)0x000003FF)
 I2C_Direction_Transmitter = 0x0
 I2C_Direction_Receiver = 0x400
 # fun define IS_I2C_DIRECTION(DIRECTION)     (((DIRECTION) == I2C_Direction_Transmitter) || \
+#                                         ((DIRECTION) == I2C_Direction_Receiver))
 I2C_DMAReq_Tx = 0x4000
 I2C_DMAReq_Rx = 0x8000
 # fun define IS_I2C_DMA_REQ(REQ)             ((((REQ) & (uint32_t)0xFFFF3FFF) == 0x00) && ((REQ) != 0x00))
@@ -3142,6 +4621,13 @@ I2C_OA2_Mask05 = 0x5
 I2C_OA2_Mask06 = 0x6
 I2C_OA2_Mask07 = 0x7
 # fun define IS_I2C_OWN_ADDRESS2_MASK(MASK)  (((MASK) == I2C_OA2_NoMask) || \
+#                                         ((MASK) == I2C_OA2_Mask01) || \
+#                                         ((MASK) == I2C_OA2_Mask02) || \
+#                                         ((MASK) == I2C_OA2_Mask03) || \
+#                                         ((MASK) == I2C_OA2_Mask04) || \
+#                                         ((MASK) == I2C_OA2_Mask05) || \
+#                                         ((MASK) == I2C_OA2_Mask06) || \
+#                                         ((MASK) == I2C_OA2_Mask07))
 # fun define IS_I2C_TIMEOUT(TIMEOUT)   ((TIMEOUT) <= (uint16_t)0x0FFF)
 I2C_Register_CR1 = 0x0
 I2C_Register_CR2 = 0x4
@@ -3155,6 +4641,16 @@ I2C_Register_PECR = 0x20
 I2C_Register_RXDR = 0x24
 I2C_Register_TXDR = 0x28
 # fun define IS_I2C_REGISTER(REGISTER)       (((REGISTER) == I2C_Register_CR1) || \
+#                                         ((REGISTER) == I2C_Register_CR2) || \
+#                                         ((REGISTER) == I2C_Register_OAR1) || \
+#                                         ((REGISTER) == I2C_Register_OAR2) || \
+#                                         ((REGISTER) == I2C_Register_TIMINGR) || \
+#                                         ((REGISTER) == I2C_Register_TIMEOUTR) || \
+#                                         ((REGISTER) == I2C_Register_ISR) || \
+#                                         ((REGISTER) == I2C_Register_ICR) || \
+#                                         ((REGISTER) == I2C_Register_PECR) || \
+#                                         ((REGISTER) == I2C_Register_RXDR) || \
+#                                         ((REGISTER) == I2C_Register_TXDR))
 I2C_IT_ERRI = 0x80
 I2C_IT_TCI = 0x40
 I2C_IT_STOPI = 0x20
@@ -3180,6 +4676,13 @@ I2C_FLAG_ALERT = 0x2000
 I2C_FLAG_BUSY = 0x8000
 # fun define IS_I2C_CLEAR_FLAG(FLAG)         ((((FLAG) & (uint32_t)0xFFFF4000) == 0x00) && ((FLAG) != 0x00))
 # fun define IS_I2C_GET_FLAG(FLAG)           (((FLAG) == I2C_FLAG_TXE) || ((FLAG) == I2C_FLAG_TXIS) || \
+#                                         ((FLAG) == I2C_FLAG_RXNE) || ((FLAG) == I2C_FLAG_ADDR) || \
+#                                         ((FLAG) == I2C_FLAG_NACKF) || ((FLAG) == I2C_FLAG_STOPF) || \
+#                                         ((FLAG) == I2C_FLAG_TC) || ((FLAG) == I2C_FLAG_TCR) || \
+#                                         ((FLAG) == I2C_FLAG_BERR) || ((FLAG) == I2C_FLAG_ARLO) || \
+#                                         ((FLAG) == I2C_FLAG_OVR) || ((FLAG) == I2C_FLAG_PECERR) || \
+#                                         ((FLAG) == I2C_FLAG_TIMEOUT) || ((FLAG) == I2C_FLAG_ALERT) || \
+#                                         ((FLAG) == I2C_FLAG_BUSY))
 I2C_IT_TXIS = 0x2
 I2C_IT_RXNE = 0x4
 I2C_IT_ADDR = 0x8
@@ -3195,15 +4698,26 @@ I2C_IT_TIMEOUT = 0x1000
 I2C_IT_ALERT = 0x2000
 # fun define IS_I2C_CLEAR_IT(IT)             ((((IT) & (uint32_t)0xFFFFC001) == 0x00) && ((IT) != 0x00))
 # fun define IS_I2C_GET_IT(IT)               (((IT) == I2C_IT_TXIS) || ((IT) == I2C_IT_RXNE) || \
+#                                         ((IT) == I2C_IT_ADDR) || ((IT) == I2C_IT_NACKF) || \
+#                                         ((IT) == I2C_IT_STOPF) || ((IT) == I2C_IT_TC) || \
+#                                         ((IT) == I2C_IT_TCR) || ((IT) == I2C_IT_BERR) || \
+#                                         ((IT) == I2C_IT_ARLO) || ((IT) == I2C_IT_OVR) || \
+#                                         ((IT) == I2C_IT_PECERR) || ((IT) == I2C_IT_TIMEOUT) || \
+#                                         ((IT) == I2C_IT_ALERT))
 I2C_Reload_Mode = 0x1000000
 I2C_AutoEnd_Mode = 0x2000000
 I2C_SoftEnd_Mode = 0x0
 # fun define IS_RELOAD_END_MODE(MODE)        (((MODE) == I2C_Reload_Mode) || \
+#                                         ((MODE) == I2C_AutoEnd_Mode) || \
+#                                         ((MODE) == I2C_SoftEnd_Mode))
 I2C_No_StartStop = 0x0
 I2C_Generate_Stop = 0x4000
 I2C_Generate_Start_Read = 0x2400
 I2C_Generate_Start_Write = 0x2000
 # fun define IS_START_STOP_MODE(MODE)        (((MODE) == I2C_Generate_Stop) || \
+#                                         ((MODE) == I2C_Generate_Start_Read) || \
+#                                         ((MODE) == I2C_Generate_Start_Write) || \
+#                                         ((MODE) == I2C_No_StartStop))
 # struct I2C_InitTypeDef
 
 class I2C_InitTypeDef(ctypes.Structure):
@@ -3226,23 +4740,41 @@ class I2C_InitTypeDef(ctypes.Structure):
 
 # empty define __STM32F30x_DMA_H
 # fun define IS_DMA_ALL_PERIPH(PERIPH) (((PERIPH) == DMA1_Channel1) || \
+#                                   ((PERIPH) == DMA1_Channel2) || \
+#                                   ((PERIPH) == DMA1_Channel3) || \
+#                                   ((PERIPH) == DMA1_Channel4) || \
+#                                   ((PERIPH) == DMA1_Channel5) || \
+#                                   ((PERIPH) == DMA1_Channel6) || \
+#                                   ((PERIPH) == DMA1_Channel7) || \
+#                                   ((PERIPH) == DMA2_Channel1) || \
+#                                   ((PERIPH) == DMA2_Channel2) || \
+#                                   ((PERIPH) == DMA2_Channel3) || \
+#                                   ((PERIPH) == DMA2_Channel4) || \
+#                                   ((PERIPH) == DMA2_Channel5))
 DMA_DIR_PeripheralSRC = 0x0
 DMA_DIR_PeripheralDST = 0x10
 # fun define IS_DMA_DIR(DIR) (((DIR) == DMA_DIR_PeripheralSRC) || \
+#                         ((DIR) == DMA_DIR_PeripheralDST))
 DMA_PeripheralInc_Disable = 0x0
 DMA_PeripheralInc_Enable = 0x40
 # fun define IS_DMA_PERIPHERAL_INC_STATE(STATE) (((STATE) == DMA_PeripheralInc_Disable) || \
+#                                            ((STATE) == DMA_PeripheralInc_Enable))
 DMA_MemoryInc_Disable = 0x0
 DMA_MemoryInc_Enable = 0x80
 # fun define IS_DMA_MEMORY_INC_STATE(STATE) (((STATE) == DMA_MemoryInc_Disable) || \
+#                                        ((STATE) == DMA_MemoryInc_Enable))
 DMA_PeripheralDataSize_Byte = 0x0
 DMA_PeripheralDataSize_HalfWord = 0x100
 DMA_PeripheralDataSize_Word = 0x200
 # fun define IS_DMA_PERIPHERAL_DATA_SIZE(SIZE) (((SIZE) == DMA_PeripheralDataSize_Byte) || \
+#                                           ((SIZE) == DMA_PeripheralDataSize_HalfWord) || \
+#                                           ((SIZE) == DMA_PeripheralDataSize_Word))
 DMA_MemoryDataSize_Byte = 0x0
 DMA_MemoryDataSize_HalfWord = 0x400
 DMA_MemoryDataSize_Word = 0x800
 # fun define IS_DMA_MEMORY_DATA_SIZE(SIZE) (((SIZE) == DMA_MemoryDataSize_Byte) || \
+#                                       ((SIZE) == DMA_MemoryDataSize_HalfWord) || \
+#                                       ((SIZE) == DMA_MemoryDataSize_Word))
 DMA_Mode_Normal = 0x0
 DMA_Mode_Circular = 0x20
 # fun define IS_DMA_MODE(MODE) (((MODE) == DMA_Mode_Normal) || ((MODE) == DMA_Mode_Circular))
@@ -3251,6 +4783,9 @@ DMA_Priority_High = 0x2000
 DMA_Priority_Medium = 0x1000
 DMA_Priority_Low = 0x0
 # fun define IS_DMA_PRIORITY(PRIORITY) (((PRIORITY) == DMA_Priority_VeryHigh) || \
+#                                   ((PRIORITY) == DMA_Priority_High) || \
+#                                   ((PRIORITY) == DMA_Priority_Medium) || \
+#                                   ((PRIORITY) == DMA_Priority_Low))
 DMA_M2M_Disable = 0x0
 DMA_M2M_Enable = 0x4000
 # fun define IS_DMA_M2M_STATE(STATE) (((STATE) == DMA_M2M_Disable) || ((STATE) == DMA_M2M_Enable))
@@ -3308,6 +4843,29 @@ DMA2_IT_HT5 = 0x10040000
 DMA2_IT_TE5 = 0x10080000
 # fun define IS_DMA_CLEAR_IT(IT) (((((IT) & 0xF0000000) == 0x00) || (((IT) & 0xEFF00000) == 0x00)) && ((IT) != 0x00))
 # fun define IS_DMA_GET_IT(IT) (((IT) == DMA1_IT_GL1) || ((IT) == DMA1_IT_TC1) || \
+#                           ((IT) == DMA1_IT_HT1) || ((IT) == DMA1_IT_TE1) || \
+#                           ((IT) == DMA1_IT_GL2) || ((IT) == DMA1_IT_TC2) || \
+#                           ((IT) == DMA1_IT_HT2) || ((IT) == DMA1_IT_TE2) || \
+#                           ((IT) == DMA1_IT_GL3) || ((IT) == DMA1_IT_TC3) || \
+#                           ((IT) == DMA1_IT_HT3) || ((IT) == DMA1_IT_TE3) || \
+#                           ((IT) == DMA1_IT_GL4) || ((IT) == DMA1_IT_TC4) || \
+#                           ((IT) == DMA1_IT_HT4) || ((IT) == DMA1_IT_TE4) || \
+#                           ((IT) == DMA1_IT_GL5) || ((IT) == DMA1_IT_TC5) || \
+#                           ((IT) == DMA1_IT_HT5) || ((IT) == DMA1_IT_TE5) || \
+#                           ((IT) == DMA1_IT_GL6) || ((IT) == DMA1_IT_TC6) || \
+#                           ((IT) == DMA1_IT_HT6) || ((IT) == DMA1_IT_TE6) || \
+#                           ((IT) == DMA1_IT_GL7) || ((IT) == DMA1_IT_TC7) || \
+#                           ((IT) == DMA1_IT_HT7) || ((IT) == DMA1_IT_TE7) || \
+#                           ((IT) == DMA2_IT_GL1) || ((IT) == DMA2_IT_TC1) || \
+#                           ((IT) == DMA2_IT_HT1) || ((IT) == DMA2_IT_TE1) || \
+#                           ((IT) == DMA2_IT_GL2) || ((IT) == DMA2_IT_TC2) || \
+#                           ((IT) == DMA2_IT_HT2) || ((IT) == DMA2_IT_TE2) || \
+#                           ((IT) == DMA2_IT_GL3) || ((IT) == DMA2_IT_TC3) || \
+#                           ((IT) == DMA2_IT_HT3) || ((IT) == DMA2_IT_TE3) || \
+#                           ((IT) == DMA2_IT_GL4) || ((IT) == DMA2_IT_TC4) || \
+#                           ((IT) == DMA2_IT_HT4) || ((IT) == DMA2_IT_TE4) || \
+#                           ((IT) == DMA2_IT_GL5) || ((IT) == DMA2_IT_TC5) || \
+#                           ((IT) == DMA2_IT_HT5) || ((IT) == DMA2_IT_TE5))
 DMA1_FLAG_GL1 = 0x1
 DMA1_FLAG_TC1 = 0x2
 DMA1_FLAG_HT1 = 0x4
@@ -3358,6 +4916,29 @@ DMA2_FLAG_HT5 = 0x10040000
 DMA2_FLAG_TE5 = 0x10080000
 # fun define IS_DMA_CLEAR_FLAG(FLAG) (((((FLAG) & 0xF0000000) == 0x00) || (((FLAG) & 0xEFF00000) == 0x00)) && ((FLAG) != 0x00))
 # fun define IS_DMA_GET_FLAG(FLAG) (((FLAG) == DMA1_FLAG_GL1) || ((FLAG) == DMA1_FLAG_TC1) || \
+#                               ((FLAG) == DMA1_FLAG_HT1) || ((FLAG) == DMA1_FLAG_TE1) || \
+#                               ((FLAG) == DMA1_FLAG_GL2) || ((FLAG) == DMA1_FLAG_TC2) || \
+#                               ((FLAG) == DMA1_FLAG_HT2) || ((FLAG) == DMA1_FLAG_TE2) || \
+#                               ((FLAG) == DMA1_FLAG_GL3) || ((FLAG) == DMA1_FLAG_TC3) || \
+#                               ((FLAG) == DMA1_FLAG_HT3) || ((FLAG) == DMA1_FLAG_TE3) || \
+#                               ((FLAG) == DMA1_FLAG_GL4) || ((FLAG) == DMA1_FLAG_TC4) || \
+#                               ((FLAG) == DMA1_FLAG_HT4) || ((FLAG) == DMA1_FLAG_TE4) || \
+#                               ((FLAG) == DMA1_FLAG_GL5) || ((FLAG) == DMA1_FLAG_TC5) || \
+#                               ((FLAG) == DMA1_FLAG_HT5) || ((FLAG) == DMA1_FLAG_TE5) || \
+#                               ((FLAG) == DMA1_FLAG_GL6) || ((FLAG) == DMA1_FLAG_TC6) || \
+#                               ((FLAG) == DMA1_FLAG_HT6) || ((FLAG) == DMA1_FLAG_TE6) || \
+#                               ((FLAG) == DMA1_FLAG_GL7) || ((FLAG) == DMA1_FLAG_TC7) || \
+#                               ((FLAG) == DMA1_FLAG_HT7) || ((FLAG) == DMA1_FLAG_TE7) || \
+#                               ((FLAG) == DMA2_FLAG_GL1) || ((FLAG) == DMA2_FLAG_TC1) || \
+#                               ((FLAG) == DMA2_FLAG_HT1) || ((FLAG) == DMA2_FLAG_TE1) || \
+#                               ((FLAG) == DMA2_FLAG_GL2) || ((FLAG) == DMA2_FLAG_TC2) || \
+#                               ((FLAG) == DMA2_FLAG_HT2) || ((FLAG) == DMA2_FLAG_TE2) || \
+#                               ((FLAG) == DMA2_FLAG_GL3) || ((FLAG) == DMA2_FLAG_TC3) || \
+#                               ((FLAG) == DMA2_FLAG_HT3) || ((FLAG) == DMA2_FLAG_TE3) || \
+#                               ((FLAG) == DMA2_FLAG_GL4) || ((FLAG) == DMA2_FLAG_TC4) || \
+#                               ((FLAG) == DMA2_FLAG_HT4) || ((FLAG) == DMA2_FLAG_TE4) || \
+#                               ((FLAG) == DMA2_FLAG_GL5) || ((FLAG) == DMA2_FLAG_TC5) || \
+#                               ((FLAG) == DMA2_FLAG_HT5) || ((FLAG) == DMA2_FLAG_TE5))
 # struct DMA_InitTypeDef
 
 class DMA_InitTypeDef(ctypes.Structure):
@@ -3384,31 +4965,49 @@ class DMA_InitTypeDef(ctypes.Structure):
 
 # empty define __STM32F30x_ADC_H
 # fun define IS_ADC_ALL_PERIPH(PERIPH) (((PERIPH) == ADC1) || \
+#                                   ((PERIPH) == ADC2) || \
+#                                   ((PERIPH) == ADC3) || \
+#                                   ((PERIPH) == ADC4))
 # fun define IS_ADC_DMA_PERIPH(PERIPH) (((PERIPH) == ADC1) || \
-ADC_ContinuousConvMode_Enable	 = 0x2000
-ADC_ContinuousConvMode_Disable	 = 0x0
+#                                   ((PERIPH) == ADC2) || \
+#                                   ((PERIPH) == ADC3) || \
+#                                   ((PERIPH) == ADC4))
+ADC_ContinuousConvMode_Enable = 0x2000
+ADC_ContinuousConvMode_Disable = 0x0
 # fun define IS_ADC_CONVMODE(MODE) (((MODE) == ADC_ContinuousConvMode_Enable) || \
-ADC_OverrunMode_Enable	 = 0x1000
-ADC_OverrunMode_Disable	 = 0x0
+#                               ((MODE) == ADC_ContinuousConvMode_Disable))
+ADC_OverrunMode_Enable = 0x1000
+ADC_OverrunMode_Disable = 0x0
 # fun define IS_ADC_OVRUNMODE(MODE) (((MODE) == ADC_OverrunMode_Enable) || \
-ADC_AutoInjec_Enable	 = 0x2000000
-ADC_AutoInjec_Disable	 = 0x0
+#                                ((MODE) == ADC_OverrunMode_Disable))
+ADC_AutoInjec_Enable = 0x2000000
+ADC_AutoInjec_Disable = 0x0
 # fun define IS_ADC_AUTOINJECMODE(MODE) (((MODE) == ADC_AutoInjec_Enable) || \
+#                                    ((MODE) == ADC_AutoInjec_Disable))
 ADC_Resolution_12b = 0x0
 ADC_Resolution_10b = 0x8
 ADC_Resolution_8b = 0x10
 ADC_Resolution_6b = 0x18
 # fun define IS_ADC_RESOLUTION(RESOLUTION) (((RESOLUTION) == ADC_Resolution_12b) || \
+#                                       ((RESOLUTION) == ADC_Resolution_10b) || \
+#                                       ((RESOLUTION) == ADC_Resolution_8b) || \
+#                                       ((RESOLUTION) == ADC_Resolution_6b))
 ADC_ExternalTrigEventEdge_None = 0x0
 ADC_ExternalTrigEventEdge_RisingEdge = 0x400
 ADC_ExternalTrigEventEdge_FallingEdge = 0x800
 ADC_ExternalTrigEventEdge_BothEdge = 0xC00
 # fun define IS_EXTERNALTRIG_EDGE(EDGE) (((EDGE) == ADC_ExternalTrigEventEdge_None) || \
-ADC_ExternalTrigInjecEventEdge_None		 = 0x0
-ADC_ExternalTrigInjecEventEdge_RisingEdge	 = 0x40
-ADC_ExternalTrigInjecEventEdge_FallingEdge	 = 0x80
-ADC_ExternalTrigInjecEventEdge_BothEdge	 = 0xC0
+#                                    ((EDGE) == ADC_ExternalTrigEventEdge_RisingEdge) || \
+#                                    ((EDGE) == ADC_ExternalTrigEventEdge_FallingEdge) || \
+#                                    ((EDGE) == ADC_ExternalTrigEventEdge_BothEdge))
+ADC_ExternalTrigInjecEventEdge_None = 0x0
+ADC_ExternalTrigInjecEventEdge_RisingEdge = 0x40
+ADC_ExternalTrigInjecEventEdge_FallingEdge = 0x80
+ADC_ExternalTrigInjecEventEdge_BothEdge = 0xC0
 # fun define IS_EXTERNALTRIGINJ_EDGE(EDGE) (((EDGE) == ADC_ExternalTrigInjecEventEdge_None) || \
+#                                       ((EDGE) == ADC_ExternalTrigInjecEventEdge_RisingEdge) || \
+#                                       ((EDGE) == ADC_ExternalTrigInjecEventEdge_FallingEdge) || \
+#                                       ((EDGE) == ADC_ExternalTrigInjecEventEdge_BothEdge))
 ADC_ExternalTrigConvEvent_0 = 0x0
 ADC_ExternalTrigConvEvent_1 = 0x40
 ADC_ExternalTrigConvEvent_2 = 0x80
@@ -3426,6 +5025,21 @@ ADC_ExternalTrigConvEvent_13 = 0x340
 ADC_ExternalTrigConvEvent_14 = 0x380
 ADC_ExternalTrigConvEvent_15 = 0x3C0
 # fun define IS_ADC_EXT_TRIG(REGTRIG) (((REGTRIG) == ADC_ExternalTrigConvEvent_0) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_1) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_2) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_3) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_4) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_5) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_6) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_7) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_8) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_9) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_10) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_11) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_12) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_13) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_14) || \
+#                                  ((REGTRIG) == ADC_ExternalTrigConvEvent_15))
 ADC_ExternalTrigInjecConvEvent_0 = 0x0
 ADC_ExternalTrigInjecConvEvent_1 = 0x4
 ADC_ExternalTrigInjecConvEvent_2 = 0x8
@@ -3443,9 +5057,25 @@ ADC_ExternalTrigInjecConvEvent_13 = 0x34
 ADC_ExternalTrigInjecConvEvent_14 = 0x38
 ADC_ExternalTrigInjecConvEvent_15 = 0x3C
 # fun define IS_ADC_EXT_INJEC_TRIG(INJTRIG) (((INJTRIG) == ADC_ExternalTrigInjecConvEvent_0) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_1) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_2) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_3) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_4) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_5) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_6) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_7) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_8) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_9) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_10) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_11) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_12) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_13) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_14) || \
+#                                        ((INJTRIG) == ADC_ExternalTrigInjecConvEvent_15))
 ADC_DataAlign_Right = 0x0
 ADC_DataAlign_Left = 0x20
 # fun define IS_ADC_DATA_ALIGN(ALIGN) (((ALIGN) == ADC_DataAlign_Right) || \
+#                                  ((ALIGN) == ADC_DataAlign_Left))
 ADC_Channel_1 = 0x1
 ADC_Channel_2 = 0x2
 ADC_Channel_3 = 0x3
@@ -3468,7 +5098,37 @@ ADC_Channel_TempSensor = 0x10
 ADC_Channel_Vrefint = 0x12
 ADC_Channel_Vbat = 0x11
 # fun define IS_ADC_CHANNEL(CHANNEL) (((CHANNEL) == ADC_Channel_1)  || \
+#                                 ((CHANNEL) == ADC_Channel_2)  || \
+#                                 ((CHANNEL) == ADC_Channel_3)  || \
+#                                 ((CHANNEL) == ADC_Channel_4)  || \
+#                                 ((CHANNEL) == ADC_Channel_5)  || \
+#                                 ((CHANNEL) == ADC_Channel_6)  || \
+#                                 ((CHANNEL) == ADC_Channel_7)  || \
+#                                 ((CHANNEL) == ADC_Channel_8)  || \
+#                                 ((CHANNEL) == ADC_Channel_9)  || \
+#                                 ((CHANNEL) == ADC_Channel_10) || \
+#                                 ((CHANNEL) == ADC_Channel_11) || \
+#                                 ((CHANNEL) == ADC_Channel_12) || \
+#                                 ((CHANNEL) == ADC_Channel_13) || \
+#                                 ((CHANNEL) == ADC_Channel_14) || \
+#                                 ((CHANNEL) == ADC_Channel_15) || \
+#                                 ((CHANNEL) == ADC_Channel_16) || \
+#                                 ((CHANNEL) == ADC_Channel_17) || \
+#                                 ((CHANNEL) == ADC_Channel_18))
 # fun define IS_ADC_DIFFCHANNEL(CHANNEL) (((CHANNEL) == ADC_Channel_1)  || \
+#                                     ((CHANNEL) == ADC_Channel_2)  || \
+#                                     ((CHANNEL) == ADC_Channel_3)  || \
+#                                     ((CHANNEL) == ADC_Channel_4)  || \
+#                                     ((CHANNEL) == ADC_Channel_5)  || \
+#                                     ((CHANNEL) == ADC_Channel_6)  || \
+#                                     ((CHANNEL) == ADC_Channel_7)  || \
+#                                     ((CHANNEL) == ADC_Channel_8)  || \
+#                                     ((CHANNEL) == ADC_Channel_9)  || \
+#                                     ((CHANNEL) == ADC_Channel_10) || \
+#                                     ((CHANNEL) == ADC_Channel_11) || \
+#                                     ((CHANNEL) == ADC_Channel_12) || \
+#                                     ((CHANNEL) == ADC_Channel_13) || \
+#                                     ((CHANNEL) == ADC_Channel_14))
 ADC_Mode_Independent = 0x0
 ADC_Mode_CombRegSimulInjSimul = 0x1
 ADC_Mode_CombRegSimulAltTrig = 0x2
@@ -3477,15 +5137,26 @@ ADC_Mode_RegSimul = 0x6
 ADC_Mode_Interleave = 0x7
 ADC_Mode_AltTrig = 0x9
 # fun define IS_ADC_MODE(MODE) (((MODE) == ADC_Mode_Independent) || \
+#                           ((MODE) == ADC_Mode_CombRegSimulInjSimul) || \
+#                           ((MODE) == ADC_Mode_CombRegSimulAltTrig) || \
+#                           ((MODE) == ADC_Mode_InjSimul) || \
+#                           ((MODE) == ADC_Mode_RegSimul) || \
+#                           ((MODE) == ADC_Mode_Interleave) || \
+#                           ((MODE) == ADC_Mode_AltTrig))
 ADC_Clock_AsynClkMode = 0x0
 ADC_Clock_SynClkModeDiv1 = 0x10000
 ADC_Clock_SynClkModeDiv2 = 0x20000
 ADC_Clock_SynClkModeDiv4 = 0x30000
 # fun define IS_ADC_CLOCKMODE(CLOCK) (((CLOCK) == ADC_Clock_AsynClkMode) ||\
+#				((CLOCK) == ADC_Clock_SynClkModeDiv1) ||\
+#				((CLOCK) == ADC_Clock_SynClkModeDiv2)||\
+#				((CLOCK) == ADC_Clock_SynClkModeDiv4))
 ADC_DMAAccessMode_Disabled = 0x0
 ADC_DMAAccessMode_1 = 0x8000
 ADC_DMAAccessMode_2 = 0xC000
 # fun define IS_ADC_DMA_ACCESS_MODE(MODE) (((MODE) == ADC_DMAAccessMode_Disabled) || \
+#                                      ((MODE) == ADC_DMAAccessMode_1) || \
+#                                      ((MODE) == ADC_DMAAccessMode_2))
 ADC_SampleTime_1Cycles5 = 0x0
 ADC_SampleTime_2Cycles5 = 0x1
 ADC_SampleTime_4Cycles5 = 0x2
@@ -3495,6 +5166,13 @@ ADC_SampleTime_61Cycles5 = 0x5
 ADC_SampleTime_181Cycles5 = 0x6
 ADC_SampleTime_601Cycles5 = 0x7
 # fun define IS_ADC_SAMPLE_TIME(TIME) (((TIME) == ADC_SampleTime_1Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_2Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_4Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_7Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_19Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_61Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_181Cycles5) || \
+#                                  ((TIME) == ADC_SampleTime_601Cycles5))
 ADC_InjectedChannel_1 = 0x1
 ADC_InjectedChannel_2 = 0x2
 ADC_InjectedChannel_3 = 0x3
@@ -3514,11 +5192,31 @@ ADC_InjectedChannel_16 = 0x10
 ADC_InjectedChannel_17 = 0x11
 ADC_InjectedChannel_18 = 0x12
 # fun define IS_ADC_INJECTED_CHANNEL(CHANNEL) (((CHANNEL) == ADC_InjectedChannel_1) || \
+#                                          ((CHANNEL) == ADC_InjectedChannel_2) || \
+#                                          ((CHANNEL) == ADC_InjectedChannel_3) || \
+#                                          ((CHANNEL) == ADC_InjectedChannel_4) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_5) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_6) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_7) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_8) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_9) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_10) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_11) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_12) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_13) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_14) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_15) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_16) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_17) ||\
+#                                          ((CHANNEL) == ADC_InjectedChannel_18))
 ADC_InjectedSequence_1 = 0x1
 ADC_InjectedSequence_2 = 0x2
 ADC_InjectedSequence_3 = 0x3
 ADC_InjectedSequence_4 = 0x4
 # fun define IS_ADC_INJECTED_SEQUENCE(SEQUENCE) (((SEQUENCE) == ADC_InjectedSequence_1) || \
+#                                            ((SEQUENCE) == ADC_InjectedSequence_2) || \
+#                                            ((SEQUENCE) == ADC_InjectedSequence_3) || \
+#                                            ((SEQUENCE) == ADC_InjectedSequence_4))
 ADC_AnalogWatchdog_SingleRegEnable = 0xC00000
 ADC_AnalogWatchdog_SingleInjecEnable = 0x1400000
 ADC_AnalogWatchdog_SingleRegOrInjecEnable = 0x1C00000
@@ -3527,10 +5225,16 @@ ADC_AnalogWatchdog_AllInjecEnable = 0x1000000
 ADC_AnalogWatchdog_AllRegAllInjecEnable = 0x1800000
 ADC_AnalogWatchdog_None = 0x0
 # fun define IS_ADC_ANALOG_WATCHDOG(WATCHDOG) (((WATCHDOG) == ADC_AnalogWatchdog_SingleRegEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_SingleInjecEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_SingleRegOrInjecEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_AllRegEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_AllInjecEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_AllRegAllInjecEnable) || \
+#                                          ((WATCHDOG) == ADC_AnalogWatchdog_None))
 ADC_CalibrationMode_Single = 0x0
 ADC_CalibrationMode_Differential = 0x40000000
 # fun define IS_ADC_CALIBRATION_MODE(MODE) (((MODE) == ADC_CalibrationMode_Single) ||((MODE) == ADC_CalibrationMode_Differential))
-ADC_DMAMode_OneShot	 = 0x0
+ADC_DMAMode_OneShot = 0x0
 ADC_DMAMode_Circular = 0x2
 # fun define IS_ADC_DMA_MODE(MODE) (((MODE) == ADC_DMAMode_OneShot) || ((MODE) == ADC_DMAMode_Circular))
 ADC_IT_RDY = 0x1
@@ -3546,6 +5250,11 @@ ADC_IT_AWD3 = 0x200
 ADC_IT_JQOVF = 0x400
 # fun define IS_ADC_IT(IT) ((((IT) & (uint16_t)0xF800) == 0x0000) && ((IT) != 0x0000))
 # fun define IS_ADC_GET_IT(IT) (((IT) == ADC_IT_RDY) || ((IT) == ADC_IT_EOSMP) || \
+#                           ((IT) == ADC_IT_EOC) || ((IT) == ADC_IT_EOS) || \
+#                           ((IT) == ADC_IT_OVR) || ((IT) == ADC_IT_EOS) || \
+#                           ((IT) == ADC_IT_JEOS) || ((IT) == ADC_IT_AWD1) || \
+#                           ((IT) == ADC_IT_AWD2) || ((IT) == ADC_IT_AWD3) || \
+#                           ((IT) == ADC_IT_JQOVF))
 ADC_FLAG_RDY = 0x1
 ADC_FLAG_EOSMP = 0x2
 ADC_FLAG_EOC = 0x4
@@ -3559,6 +5268,11 @@ ADC_FLAG_AWD3 = 0x200
 ADC_FLAG_JQOVF = 0x400
 # fun define IS_ADC_CLEAR_FLAG(FLAG) ((((FLAG) & (uint16_t)0xF800) == 0x0000) && ((FLAG) != 0x0000))
 # fun define IS_ADC_GET_FLAG(FLAG) (((FLAG) == ADC_FLAG_RDY) || ((FLAG) == ADC_FLAG_EOSMP) || \
+#                               ((FLAG) == ADC_FLAG_EOC) || ((FLAG) == ADC_FLAG_EOS) || \
+#                               ((FLAG) == ADC_FLAG_OVR) || ((FLAG) == ADC_FLAG_JEOC) || \
+#                               ((FLAG) == ADC_FLAG_JEOS) || ((FLAG) == ADC_FLAG_AWD1) || \
+#                               ((FLAG) == ADC_FLAG_AWD2) || ((FLAG) == ADC_FLAG_AWD3) || \
+#                               ((FLAG) == ADC_FLAG_JQOVF))
 ADC_FLAG_MSTRDY = 0x1
 ADC_FLAG_MSTEOSMP = 0x2
 ADC_FLAG_MSTEOC = 0x4
@@ -3583,6 +5297,17 @@ ADC_FLAG_SLVAWD3 = 0x2000000
 ADC_FLAG_SLVJQOVF = 0x4000000
 # fun define IS_ADC_CLEAR_COMMONFLAG(FLAG) ((((FLAG) & (uint32_t)0xF800F800) == 0x0000) && ((FLAG) != 0x00000000))
 # fun define IS_ADC_GET_COMMONFLAG(FLAG) (((FLAG) == ADC_FLAG_MSTRDY) || ((FLAG) == ADC_FLAG_MSTEOSMP) || \
+#                                     ((FLAG) == ADC_FLAG_MSTEOC) || ((FLAG) == ADC_FLAG_MSTEOS) || \
+#                                     ((FLAG) == ADC_FLAG_MSTOVR) || ((FLAG) == ADC_FLAG_MSTEOS) || \
+#                                     ((FLAG) == ADC_FLAG_MSTJEOS) || ((FLAG) == ADC_FLAG_MSTAWD1) || \
+#                                     ((FLAG) == ADC_FLAG_MSTAWD2) || ((FLAG) == ADC_FLAG_MSTAWD3) || \
+#                                     ((FLAG) == ADC_FLAG_MSTJQOVF) || \
+#                                     ((FLAG) == ADC_FLAG_SLVRDY) || ((FLAG) == ADC_FLAG_SLVEOSMP) || \
+#                                     ((FLAG) == ADC_FLAG_SLVEOC) || ((FLAG) == ADC_FLAG_SLVEOS) || \
+#                                     ((FLAG) == ADC_FLAG_SLVOVR) || ((FLAG) == ADC_FLAG_SLVEOS) || \
+#                                     ((FLAG) == ADC_FLAG_SLVJEOS) || ((FLAG) == ADC_FLAG_SLVAWD1) || \
+#                                     ((FLAG) == ADC_FLAG_SLVAWD2) || ((FLAG) == ADC_FLAG_SLVAWD3) || \
+#                                     ((FLAG) == ADC_FLAG_SLVJQOVF))
 # fun define IS_ADC_THRESHOLD(THRESHOLD) ((THRESHOLD) <= 0xFFF)
 # fun define IS_ADC_OFFSET(OFFSET) ((OFFSET) <= 0xFFF)
 # fun define IS_ADC_INJECTED_LENGTH(LENGTH) (((LENGTH) >= 0x1) && ((LENGTH) <= 0x4))
@@ -3646,6 +5371,9 @@ WWDG_Prescaler_2 = 0x80
 WWDG_Prescaler_4 = 0x100
 WWDG_Prescaler_8 = 0x180
 # fun define IS_WWDG_PRESCALER(PRESCALER) (((PRESCALER) == WWDG_Prescaler_1) || \
+#                                      ((PRESCALER) == WWDG_Prescaler_2) || \
+#                                      ((PRESCALER) == WWDG_Prescaler_4) || \
+#                                      ((PRESCALER) == WWDG_Prescaler_8))
 # fun define IS_WWDG_WINDOW_VALUE(VALUE) ((VALUE) <= 0x7F)
 # fun define IS_WWDG_COUNTER(COUNTER) (((COUNTER) >= 0x40) && ((COUNTER) <= 0x7F))
 # ----------------------------------------
@@ -3658,37 +5386,57 @@ OPAMP_Selection_OPAMP2 = 0x4
 OPAMP_Selection_OPAMP3 = 0x8
 OPAMP_Selection_OPAMP4 = 0xC
 # fun define IS_OPAMP_ALL_PERIPH(PERIPH) (((PERIPH) == OPAMP_Selection_OPAMP1) || \
+#                                     ((PERIPH) == OPAMP_Selection_OPAMP2) || \
+#                                     ((PERIPH) == OPAMP_Selection_OPAMP3) || \
+#                                     ((PERIPH) == OPAMP_Selection_OPAMP4))
 OPAMP_InvertingInput_IO1 = 0x0
 OPAMP_InvertingInput_IO2 = 0x20
 OPAMP_InvertingInput_PGA = 0x40
 OPAMP_InvertingInput_Vout = 0x60
 # fun define IS_OPAMP_INVERTING_INPUT(INPUT) (((INPUT) == OPAMP_InvertingInput_IO1) || \
+#                                         ((INPUT) == OPAMP_InvertingInput_IO2) || \
+#                                         ((INPUT) == OPAMP_InvertingInput_PGA) || \
+#                                         ((INPUT) == OPAMP_InvertingInput_Vout))
 OPAMP_NonInvertingInput_IO1 = 0x0
 OPAMP_NonInvertingInput_IO2 = 0x4
 OPAMP_NonInvertingInput_IO3 = 0x8
 OPAMP_NonInvertingInput_IO4 = 0xC
 # fun define IS_OPAMP_NONINVERTING_INPUT(INPUT) (((INPUT) == OPAMP_NonInvertingInput_IO1) || \
+#                                            ((INPUT) == OPAMP_NonInvertingInput_IO2) || \
+#                                            ((INPUT) == OPAMP_NonInvertingInput_IO3) || \
+#                                            ((INPUT) == OPAMP_NonInvertingInput_IO4))
 OPAMP_OPAMP_PGAGain_2 = 0x0
 OPAMP_OPAMP_PGAGain_4 = 0x4000
 OPAMP_OPAMP_PGAGain_8 = 0x8000
 OPAMP_OPAMP_PGAGain_16 = 0xC000
 # fun define IS_OPAMP_PGAGAIN(GAIN) (((GAIN) == OPAMP_OPAMP_PGAGain_2) || \
+#                                ((GAIN) == OPAMP_OPAMP_PGAGain_4) || \
+#                                ((GAIN) == OPAMP_OPAMP_PGAGain_8) || \
+#                                ((GAIN) == OPAMP_OPAMP_PGAGain_16))
 OPAMP_PGAConnect_No = 0x0
 OPAMP_PGAConnect_IO1 = 0x20000
 OPAMP_PGAConnect_IO2 = 0x30000
 # fun define IS_OPAMP_PGACONNECT(CONNECT) (((CONNECT) == OPAMP_PGAConnect_No)  || \
+#                                      ((CONNECT) == OPAMP_PGAConnect_IO1) || \
+#                                      ((CONNECT) == OPAMP_PGAConnect_IO2))
 # fun define IS_OPAMP_SECONDARY_INVINPUT(INVINPUT) (((INVINPUT) == OPAMP_InvertingInput_IO1) || \
+#                                               ((INVINPUT) == OPAMP_InvertingInput_IO2))
 OPAMP_Input_Inverting = 0x18
 OPAMP_Input_NonInverting = 0x13
 # fun define IS_OPAMP_INPUT(INPUT) (((INPUT) == OPAMP_Input_Inverting) || \
+#                               ((INPUT) == OPAMP_Input_NonInverting))
 OPAMP_Vref_3VDDA = 0x0
 OPAMP_Vref_10VDDA = 0x1000
 OPAMP_Vref_50VDDA = 0x2000
 OPAMP_Vref_90VDDA = 0x3000
 # fun define IS_OPAMP_VREF(VREF) (((VREF) == OPAMP_Vref_3VDDA)  || \
+#                             ((VREF) == OPAMP_Vref_10VDDA) || \
+#                             ((VREF) == OPAMP_Vref_50VDDA) || \
+#                             ((VREF) == OPAMP_Vref_90VDDA))
 OPAMP_Trimming_Factory = 0x0
 OPAMP_Trimming_User = 0x40000
 # fun define IS_OPAMP_TRIMMING(TRIMMING) (((TRIMMING) == OPAMP_Trimming_Factory) || \
+#                                     ((TRIMMING) == OPAMP_Trimming_User))
 # fun define IS_OPAMP_TRIMMINGVALUE(VALUE) ((VALUE) <= 0x0000001F) /*!< Trimming value */
 OPAMP_OutputLevel_High = 0x40000000
 OPAMP_OutputLevel_Low = 0x0
@@ -3718,10 +5466,15 @@ CAN_Mode_LoopBack = 0x1
 CAN_Mode_Silent = 0x2
 CAN_Mode_Silent_LoopBack = 0x3
 # fun define IS_CAN_MODE(MODE) (((MODE) == CAN_Mode_Normal) || \
+#                           ((MODE) == CAN_Mode_LoopBack)|| \
+#                           ((MODE) == CAN_Mode_Silent) || \
+#                           ((MODE) == CAN_Mode_Silent_LoopBack))
 CAN_OperatingMode_Initialization = 0x0
 CAN_OperatingMode_Normal = 0x1
 CAN_OperatingMode_Sleep = 0x2
 # fun define IS_CAN_OPERATING_MODE(MODE) (((MODE) == CAN_OperatingMode_Initialization) ||\
+#                                    ((MODE) == CAN_OperatingMode_Normal)|| \
+#																		((MODE) == CAN_OperatingMode_Sleep))
 CAN_ModeStatus_Failed = 0x0
 CAN_ModeStatus_Success = 0x1
 CAN_SJW_1tq = 0x0
@@ -3729,6 +5482,7 @@ CAN_SJW_2tq = 0x1
 CAN_SJW_3tq = 0x2
 CAN_SJW_4tq = 0x3
 # fun define IS_CAN_SJW(SJW) (((SJW) == CAN_SJW_1tq) || ((SJW) == CAN_SJW_2tq)|| \
+#                         ((SJW) == CAN_SJW_3tq) || ((SJW) == CAN_SJW_4tq))
 CAN_BS1_1tq = 0x0
 CAN_BS1_2tq = 0x1
 CAN_BS1_3tq = 0x2
@@ -3760,12 +5514,15 @@ CAN_BS2_8tq = 0x7
 CAN_FilterMode_IdMask = 0x0
 CAN_FilterMode_IdList = 0x1
 # fun define IS_CAN_FILTER_MODE(MODE) (((MODE) == CAN_FilterMode_IdMask) || \
+#                                  ((MODE) == CAN_FilterMode_IdList))
 CAN_FilterScale_16bit = 0x0
 CAN_FilterScale_32bit = 0x1
 # fun define IS_CAN_FILTER_SCALE(SCALE) (((SCALE) == CAN_FilterScale_16bit) || \
+#                                    ((SCALE) == CAN_FilterScale_32bit))
 CAN_Filter_FIFO0 = 0x0
 CAN_Filter_FIFO1 = 0x1
 # fun define IS_CAN_FILTER_FIFO(FIFO) (((FIFO) == CAN_FilterFIFO0) || \
+#                                  ((FIFO) == CAN_FilterFIFO1))
 CAN_FilterFIFO0 = 0x0
 CAN_FilterFIFO1 = 0x1
 # fun define IS_CAN_BANKNUMBER(BANKNUMBER) (((BANKNUMBER) >= 1) && ((BANKNUMBER) <= 27))
@@ -3776,6 +5533,7 @@ CAN_FilterFIFO1 = 0x1
 CAN_Id_Standard = 0x0
 CAN_Id_Extended = 0x4
 # fun define IS_CAN_IDTYPE(IDTYPE) (((IDTYPE) == CAN_Id_Standard) || \
+#                               ((IDTYPE) == CAN_Id_Extended))
 CAN_ID_STD = 0x0
 CAN_ID_EXT = 0x4
 CAN_RTR_Data = 0x0
@@ -3826,7 +5584,18 @@ CAN_FLAG_EPV = 0x10F00002
 CAN_FLAG_BOF = 0x10F00004
 CAN_FLAG_LEC = 0x30F00070
 # fun define IS_CAN_GET_FLAG(FLAG) (((FLAG) == CAN_FLAG_LEC)  || ((FLAG) == CAN_FLAG_BOF)   || \
+#                               ((FLAG) == CAN_FLAG_EPV)  || ((FLAG) == CAN_FLAG_EWG)   || \
+#                               ((FLAG) == CAN_FLAG_WKU)  || ((FLAG) == CAN_FLAG_FOV0)  || \
+#                               ((FLAG) == CAN_FLAG_FF0)  || ((FLAG) == CAN_FLAG_FMP0)  || \
+#                               ((FLAG) == CAN_FLAG_FOV1) || ((FLAG) == CAN_FLAG_FF1)   || \
+#                               ((FLAG) == CAN_FLAG_FMP1) || ((FLAG) == CAN_FLAG_RQCP2) || \
+#                               ((FLAG) == CAN_FLAG_RQCP1)|| ((FLAG) == CAN_FLAG_RQCP0) || \
+#                               ((FLAG) == CAN_FLAG_SLAK ))
 # fun define IS_CAN_CLEAR_FLAG(FLAG)(((FLAG) == CAN_FLAG_LEC) || ((FLAG) == CAN_FLAG_RQCP2) || \
+#                                ((FLAG) == CAN_FLAG_RQCP1)  || ((FLAG) == CAN_FLAG_RQCP0) || \
+#                                ((FLAG) == CAN_FLAG_FF0)  || ((FLAG) == CAN_FLAG_FOV0) ||\
+#                                ((FLAG) == CAN_FLAG_FF1) || ((FLAG) == CAN_FLAG_FOV1) || \
+#                                ((FLAG) == CAN_FLAG_WKU) || ((FLAG) == CAN_FLAG_SLAK))
 CAN_IT_TME = 0x1
 CAN_IT_FMP0 = 0x2
 CAN_IT_FF0 = 0x4
@@ -3845,7 +5614,18 @@ CAN_IT_RQCP0 = 0x1
 CAN_IT_RQCP1 = 0x1
 CAN_IT_RQCP2 = 0x1
 # fun define IS_CAN_IT(IT)        (((IT) == CAN_IT_TME) || ((IT) == CAN_IT_FMP0)  ||\
+#                             ((IT) == CAN_IT_FF0)  || ((IT) == CAN_IT_FOV0)  ||\
+#                             ((IT) == CAN_IT_FMP1) || ((IT) == CAN_IT_FF1)   ||\
+#                             ((IT) == CAN_IT_FOV1) || ((IT) == CAN_IT_EWG)   ||\
+#                             ((IT) == CAN_IT_EPV)  || ((IT) == CAN_IT_BOF)   ||\
+#                             ((IT) == CAN_IT_LEC)  || ((IT) == CAN_IT_ERR)   ||\
+#                             ((IT) == CAN_IT_WKU)  || ((IT) == CAN_IT_SLK))
 # fun define IS_CAN_CLEAR_IT(IT) (((IT) == CAN_IT_TME) || ((IT) == CAN_IT_FF0)    ||\
+#                             ((IT) == CAN_IT_FOV0)|| ((IT) == CAN_IT_FF1)    ||\
+#                             ((IT) == CAN_IT_FOV1)|| ((IT) == CAN_IT_EWG)    ||\
+#                             ((IT) == CAN_IT_EPV) || ((IT) == CAN_IT_BOF)    ||\
+#                             ((IT) == CAN_IT_LEC) || ((IT) == CAN_IT_ERR)    ||\
+#                             ((IT) == CAN_IT_WKU) || ((IT) == CAN_IT_SLK))
 # struct CAN_InitTypeDef
 
 class CAN_InitTypeDef(ctypes.Structure):
@@ -12477,16 +14257,16 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'DMA2_FLAG_TC2', 'DMA2_FLAG_HT2', 'DMA2_FLAG_TE2', 'DMA2_FLAG_GL3', 'DMA2_FLAG_TC3',
     'DMA2_FLAG_HT3', 'DMA2_FLAG_TE3', 'DMA2_FLAG_GL4', 'DMA2_FLAG_TC4', 'DMA2_FLAG_HT4',
     'DMA2_FLAG_TE4', 'DMA2_FLAG_GL5', 'DMA2_FLAG_TC5', 'DMA2_FLAG_HT5', 'DMA2_FLAG_TE5',
-    'DMA_InitTypeDef', 'ADC_ContinuousConvMode_Enable\t',
-    'ADC_ContinuousConvMode_Disable\t', 'ADC_OverrunMode_Enable\t',
-    'ADC_OverrunMode_Disable\t', 'ADC_AutoInjec_Enable\t', 'ADC_AutoInjec_Disable\t',
+    'DMA_InitTypeDef', 'ADC_ContinuousConvMode_Enable',
+    'ADC_ContinuousConvMode_Disable', 'ADC_OverrunMode_Enable',
+    'ADC_OverrunMode_Disable', 'ADC_AutoInjec_Enable', 'ADC_AutoInjec_Disable',
     'ADC_Resolution_12b', 'ADC_Resolution_10b', 'ADC_Resolution_8b',
     'ADC_Resolution_6b', 'ADC_ExternalTrigEventEdge_None',
     'ADC_ExternalTrigEventEdge_RisingEdge', 'ADC_ExternalTrigEventEdge_FallingEdge',
-    'ADC_ExternalTrigEventEdge_BothEdge', 'ADC_ExternalTrigInjecEventEdge_None\t\t',
-    'ADC_ExternalTrigInjecEventEdge_RisingEdge\t',
-    'ADC_ExternalTrigInjecEventEdge_FallingEdge\t',
-    'ADC_ExternalTrigInjecEventEdge_BothEdge\t', 'ADC_ExternalTrigConvEvent_0',
+    'ADC_ExternalTrigEventEdge_BothEdge', 'ADC_ExternalTrigInjecEventEdge_None',
+    'ADC_ExternalTrigInjecEventEdge_RisingEdge',
+    'ADC_ExternalTrigInjecEventEdge_FallingEdge',
+    'ADC_ExternalTrigInjecEventEdge_BothEdge', 'ADC_ExternalTrigConvEvent_0',
     'ADC_ExternalTrigConvEvent_1', 'ADC_ExternalTrigConvEvent_2',
     'ADC_ExternalTrigConvEvent_3', 'ADC_ExternalTrigConvEvent_4',
     'ADC_ExternalTrigConvEvent_5', 'ADC_ExternalTrigConvEvent_6',
@@ -12527,7 +14307,7 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'ADC_AnalogWatchdog_SingleRegOrInjecEnable', 'ADC_AnalogWatchdog_AllRegEnable',
     'ADC_AnalogWatchdog_AllInjecEnable', 'ADC_AnalogWatchdog_AllRegAllInjecEnable',
     'ADC_AnalogWatchdog_None', 'ADC_CalibrationMode_Single',
-    'ADC_CalibrationMode_Differential', 'ADC_DMAMode_OneShot\t', 'ADC_DMAMode_Circular',
+    'ADC_CalibrationMode_Differential', 'ADC_DMAMode_OneShot', 'ADC_DMAMode_Circular',
     'ADC_IT_RDY', 'ADC_IT_EOSMP', 'ADC_IT_EOC', 'ADC_IT_EOS', 'ADC_IT_OVR',
     'ADC_IT_JEOC', 'ADC_IT_JEOS', 'ADC_IT_AWD1', 'ADC_IT_AWD2', 'ADC_IT_AWD3',
     'ADC_IT_JQOVF', 'ADC_FLAG_RDY', 'ADC_FLAG_EOSMP', 'ADC_FLAG_EOC', 'ADC_FLAG_EOS',
