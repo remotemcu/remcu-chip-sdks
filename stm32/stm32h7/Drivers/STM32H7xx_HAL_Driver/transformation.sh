@@ -16,7 +16,8 @@ rm -v transformed_Inc/*pcd* fun_implementation/*pcd*
 rm -v transformed_Inc/*hcd* fun_implementation/*hcd*
 rm -v transformed_Inc/*cortex* fun_implementation/*cortex*
 rm -v transformed_Inc/*pwr* fun_implementation/*pwr*
-rm -v transformed_Inc/*eth.h* fun_implementation/*eth.h*
+rm -v transformed_Inc/*eth*.h* fun_implementation/*eth*.h*
+rm -v transformed_Inc/*hal_conf_template.h fun_implementation/*hal_conf_template.h*
 
 #wrapping include string for export symbols in Win
 #sed -i -E "s/(^#include.*)/#include \"remcu_exports_symbol_enter.h\"\n\1\n#include \"remcu_exports_symbol_exit.h\"\n/" fun_implementation/*.c
@@ -26,3 +27,4 @@ for f in fun_implementation/*.c; do
 done
 
 git apply --verbose stm32h7xx_ll_adc.h.c.patch
+cp -vr Inc/Legacy transformed_Inc/
