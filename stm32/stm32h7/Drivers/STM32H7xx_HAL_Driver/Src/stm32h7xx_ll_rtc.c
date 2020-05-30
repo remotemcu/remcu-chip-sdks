@@ -20,7 +20,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32h7xx_ll_rtc.h"
+
+#ifndef REMCU_LIB
 #include "stm32h7xx_ll_cortex.h"
+#endif
+
 #ifdef  USE_FULL_ASSERT
 #include "stm32_assert.h"
 #else
@@ -742,6 +746,10 @@ void LL_RTC_ALMB_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
   /* Alarm Masks Settings : Mask =  all fields are not masked */
   RTC_AlarmStruct->AlarmMask           = LL_RTC_ALMB_MASK_NONE;
 }
+
+#ifdef REMCU_LIB
+int LL_SYSTICK_IsActiveCounterFlag() {return 0U;}
+#endif
 
 /**
   * @brief  Enters the RTC Initialization mode.

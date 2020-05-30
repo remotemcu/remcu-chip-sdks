@@ -114,7 +114,7 @@ HAL_TickFreqTypeDef uwTickFreq = HAL_TICK_FREQ_DEFAULT;  /* 1KHz */
 @endverbatim
   * @{
   */
-
+#ifndef REMCU_LIB
 /**
   * @brief  This function is used to initialize the HAL Library; it must be the first
   *         instruction to be executed in the main program (before to call any other
@@ -178,7 +178,7 @@ uint32_t common_system_clock;
   /* Return function status */
   return HAL_OK;
 }
-
+#endif //REMCU_LIB
 /**
   * @brief  This function de-Initializes common part of the HAL and stops the systick.
   *         This function is optional.
@@ -242,7 +242,7 @@ __weak void HAL_MspDeInit(void)
             the HAL_MspDeInit could be implemented in the user file
    */
 }
-
+#ifndef REMCU_LIB
 /**
   * @brief This function configures the source of the time base.
   *        The time source is configured  to have 1ms time base with a dedicated
@@ -287,7 +287,7 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
   /* Return function status */
   return HAL_OK;
 }
-
+#endif //REMCU_LIB
 /**
   * @}
   */
@@ -337,7 +337,13 @@ __weak void HAL_IncTick(void)
   */
 __weak uint32_t HAL_GetTick(void)
 {
+  #ifdef REMCU_LIB
+  static size_t remcu_tick = 0;
+  remcu_tick++;
+  return remcu_tick;
+  #else
   return uwTick;
+  #endif
 }
 
 /**
@@ -349,6 +355,7 @@ uint32_t HAL_GetTickPrio(void)
   return uwTickPrio;
 }
 
+#ifndef REMCU_LIB
 /**
   * @brief Set new tick Freq.
   * @retval Status
@@ -380,6 +387,7 @@ HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq)
 
   return status;
 }
+#endif //REMCU_LIB
 
 /**
   * @brief Return tick frequency.
