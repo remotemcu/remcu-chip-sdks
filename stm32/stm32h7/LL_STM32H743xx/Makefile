@@ -1,7 +1,7 @@
 
 include $(TARGET_MK)
 
-#include $(MCU_UTIL_PATH)/python.mk
+include $(MCU_UTIL_PATH)/python2.mk
 
 # List of C source files.
 C_SRC = \
@@ -41,17 +41,58 @@ $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_utils.c \
 
 C_SRC += $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Source/Templates/system_stm32h7xx.c
 
-C_SRC += $(wildcard $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/fun_implementation/*.c)
+C_SRC += $(wildcard $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/fun_implementation/*.c)
 
 # List of include paths.
 INC_PATH = \
-       $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/Inc \
+       $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/ \
        $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Include/ \
        $(MCU_SDK_PATH)/CMSIS/Include \
        ./
-       
-       #$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/
-       #$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/ \
+
+EXPORT_INC_PATH_NOT = \
+	$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/ \
+	$(MCU_SDK_PATH)/CMSIS/Include \
+	./
+
+DEVICE_HEADER = $(shell echo $(DEVICE) | tr '[:upper:]' '[:lower:]')
+
+EXPORT_INC_FILE = \
+$(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
+$(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Include/$(DEVICE_HEADER).h\
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_adc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_bdma.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_bus.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_comp.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_crc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_crs.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_dac.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_delayblock.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_dma2d.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_dma.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_dmamux.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_exti.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_fmc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_gpio.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_hrtim.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_hsem.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_i2c.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_iwdg.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_lptim.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_lpuart.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_mdma.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_opamp.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_rcc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_rng.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_rtc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_sdmmc.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_spi.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_swpmi.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_system.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_tim.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_usart.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_utils.h \
+$(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_wwdg.h \
 
 
 
@@ -69,11 +110,11 @@ LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)  -Werror=implicit-function-declaration -
 IR_FILES += $(C_SRC:.c=.ll)
 
 
-$(OUTPUT): $(IR_FILES) #python
+$(OUTPUT): $(IR_FILES) python
 	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-	#$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
+	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
 	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
-	gcc $(LOCAL_CFLAGS) -o app $(BUILD_DIR)/* test.c
+	#gcc $(LOCAL_CFLAGS) -o app $(BUILD_DIR)/* test.c
 
 REMCU_C: $(IR_FILES)
 	@echo done
