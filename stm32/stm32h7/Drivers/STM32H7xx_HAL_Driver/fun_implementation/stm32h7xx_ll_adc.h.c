@@ -1,6 +1,8 @@
 #include "remcu_exports_symbol_enter.h"
-#include "stm32h7xx_hal.h"
 
+#ifndef REMCU_LIB
+#include "stm32h7xx_hal.h"
+#endif
  /**
   ******************************************************************************
   * @file    stm32h7xx_ll_adc.h

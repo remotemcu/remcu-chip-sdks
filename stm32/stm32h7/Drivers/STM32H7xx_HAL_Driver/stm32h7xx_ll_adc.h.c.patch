@@ -1,0 +1,14 @@
+diff --git a/stm32/stm32h7/Drivers/STM32H7xx_HAL_Driver/fun_implementation/stm32h7xx_ll_adc.h.c b/stm32/stm32h7/Drivers/STM32H7xx_HAL_Driver/fun_implementation/stm32h7xx_ll_adc.h.c
+index 8d230630..da3b60de 100644
+--- a/stm32/stm32h7/Drivers/STM32H7xx_HAL_Driver/fun_implementation/stm32h7xx_ll_adc.h.c
++++ b/stm32/stm32h7/Drivers/STM32H7xx_HAL_Driver/fun_implementation/stm32h7xx_ll_adc.h.c
+@@ -1,6 +1,8 @@
+ #include "remcu_exports_symbol_enter.h"
+-#include "stm32h7xx_hal.h"
+ 
++#ifndef REMCU_LIB
++#include "stm32h7xx_hal.h"
++#endif
+  /**
+   ******************************************************************************
+   * @file    stm32h7xx_ll_adc.h

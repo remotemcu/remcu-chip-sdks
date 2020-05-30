@@ -24,3 +24,5 @@ sed -i '1s/^/#include "remcu_exports_symbol_enter.h"\n/' fun_implementation/*.c
 for f in fun_implementation/*.c; do
 	printf '\n#include "remcu_exports_symbol_exit.h"' >> $f;
 done
+
+git apply --verbose stm32h7xx_ll_adc.h.c.patch
