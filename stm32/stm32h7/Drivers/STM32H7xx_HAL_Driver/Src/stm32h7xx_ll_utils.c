@@ -17,9 +17,18 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_utils.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_rcc.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_pwr.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef  USE_FULL_ASSERT
   #include "stm32_assert.h"

@@ -19,11 +19,20 @@
 #if defined(USE_FULL_LL_DRIVER)
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_dac.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_bus.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef USE_FULL_ASSERT
+#include "remcu_exports_symbol_enter.h"
 #include "stm32_assert.h"
+#include "remcu_exports_symbol_exit.h"
+
 #else
 #define assert_param(expr) ((void)0U)
 #endif

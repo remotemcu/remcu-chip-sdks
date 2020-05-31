@@ -19,8 +19,14 @@
 #if defined(USE_FULL_LL_DRIVER)
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_crs.h"
+#include "remcu_exports_symbol_exit.h"
+
+#include "remcu_exports_symbol_enter.h"
 #include "stm32h7xx_ll_bus.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32H7xx_LL_Driver
   * @{
