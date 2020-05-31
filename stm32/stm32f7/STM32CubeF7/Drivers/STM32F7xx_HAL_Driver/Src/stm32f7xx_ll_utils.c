@@ -220,7 +220,7 @@ static ErrorStatus UTILS_PLL_IsBusy(void);
 /** @addtogroup UTILS_LL_EF_DELAY
   * @{
   */
-
+#ifndef REMCU_LIB
 /**
   * @brief  This function configures the Cortex-M SysTick source to have 1ms time base.
   * @note   When a RTOS is used, it is recommended to avoid changing the Systick
@@ -265,7 +265,7 @@ void LL_mDelay(uint32_t Delay)
     }
   }
 }
-
+#endif //REMCU_LIB
 /**
   * @}
   */

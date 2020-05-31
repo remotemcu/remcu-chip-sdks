@@ -245,7 +245,7 @@ __STATIC_INLINE uint32_t LL_GetPackageType(void)
 /** @defgroup UTILS_LL_EF_DELAY DELAY
   * @{
   */
-
+#ifndef REMCU_LIB
 /**
   * @brief  This function configures the Cortex-M SysTick source of the time base.
   * @param  HCLKFrequency HCLK frequency in Hz (can be calculated thanks to RCC helper macro)
@@ -265,7 +265,7 @@ __STATIC_INLINE void LL_InitTick(uint32_t HCLKFrequency, uint32_t Ticks)
 
 void        LL_Init1msTick(uint32_t HCLKFrequency);
 void        LL_mDelay(uint32_t Delay);
-
+#endif //REMCU_LIB
 /**
   * @}
   */

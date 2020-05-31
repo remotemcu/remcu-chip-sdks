@@ -267,7 +267,7 @@
 
 /*@} end of group Cortex_M7 */
 
-
+#ifndef REMCU_LIB
 
 /*******************************************************************************
  *                 Register Abstraction
@@ -1825,7 +1825,7 @@ typedef struct
   \defgroup CMSIS_Core_FunctionInterface Functions and Instructions Reference
 */
 
-#ifndef REMCU_LIB
+//#ifndef REMCU_LIB
 
 /* ##########################   NVIC functions  #################################### */
 /**
