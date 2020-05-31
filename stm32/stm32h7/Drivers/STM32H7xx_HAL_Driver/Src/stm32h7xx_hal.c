@@ -427,7 +427,7 @@ __weak void HAL_Delay(uint32_t Delay)
   {
   }
 }
-
+#ifndef REMCU_LIB
 /**
   * @brief Suspend Tick increment.
   * @note In the default implementation , SysTick timer is the source of time base. It is
@@ -459,7 +459,7 @@ __weak void HAL_ResumeTick(void)
   /* Enable SysTick Interrupt */
   SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;
 }
-
+#endif //REMCU_LIB
 /**
   * @brief  Returns the HAL revision
   * @retval version : 0xXYZR (8bits for each decimal, R for RC)

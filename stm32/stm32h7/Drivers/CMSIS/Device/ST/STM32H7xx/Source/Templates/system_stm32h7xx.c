@@ -143,10 +143,13 @@ void SystemInit (void)
  __IO uint32_t tmpreg;
 #endif /* DATA_IN_D2_SRAM */
 
+#ifndef REMCU_LIB
   /* FPU settings ------------------------------------------------------------*/
   #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << (10*2))|(3UL << (11*2)));  /* set CP10 and CP11 Full Access */
   #endif
+#endif //REMCU_LIB
+ 
   /* Reset the RCC clock configuration to the default reset state ------------*/
   /* Set HSION bit */
   RCC->CR |= RCC_CR_HSION;
@@ -228,6 +231,7 @@ void SystemInit (void)
   (void) tmpreg;
 #endif /* DATA_IN_D2_SRAM */
 
+#ifndef REMCU_LIB
 #if defined(DUAL_CORE) && defined(CORE_CM4)
   /* Configure the Vector Table location add offset address for cortex-M4 ------------------*/
 #ifdef VECT_TAB_SRAM
@@ -244,6 +248,7 @@ void SystemInit (void)
 #else
   SCB->VTOR = FLASH_BANK1_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 #endif
+#endif //REMCU_LIB
 
 #endif /*DUAL_CORE && CORE_CM4*/
 
