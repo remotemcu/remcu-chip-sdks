@@ -236,7 +236,7 @@ __weak void HAL_MspDeInit(void)
 __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 {
   HAL_StatusTypeDef  status = HAL_OK;
-
+#ifndef REMCU_LIB
   /*Configure the SysTick to have interrupt in 1ms time basis*/
   if (HAL_SYSTICK_Config(SystemCoreClock/1000UL) != 0U)
   {
@@ -247,7 +247,7 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
     /*Configure the SysTick IRQ priority */
     HAL_NVIC_SetPriority(SysTick_IRQn, TickPriority, 0);
   }
-
+#endif //REMCU_LIB
   /* Return function status */
   return status;
 }
@@ -327,7 +327,7 @@ __weak void HAL_Delay(uint32_t Delay)
   {
   }
 }
-
+#ifndef REMCU_LIB
 /**
   * @brief Suspends the Tick increment.
   * @note In the default implementation , SysTick timer is the source of time base. It is
@@ -359,7 +359,7 @@ __weak void HAL_ResumeTick(void)
   /* Enable SysTick Interrupt */
   SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;
 }
-
+#endif //REMCU_LIB
 /**
   * @brief Returns the HAL revision
   * @retval version: 0xXYZR (8bits for each decimal, R for RC)

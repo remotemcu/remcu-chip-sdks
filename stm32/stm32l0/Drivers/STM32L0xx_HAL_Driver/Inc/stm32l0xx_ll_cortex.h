@@ -198,7 +198,14 @@ extern "C" {
 /**
   * @}
   */
+#ifdef REMCU_LIB
 
+__STATIC_INLINE uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
+{
+  return 0U;
+}
+
+#else
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions --------------------------------------------------------*/
@@ -563,6 +570,8 @@ __STATIC_INLINE void LL_MPU_DisableRegion(uint32_t Region)
   /* Disable the MPU region */
   CLEAR_BIT(MPU->RASR, MPU_RASR_ENABLE_Msk);
 }
+
+#endif //REMCU_LIB
 
 /**
   * @}

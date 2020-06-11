@@ -136,7 +136,7 @@ static ErrorStatus UTILS_PLL_IsBusy(void);
 /** @addtogroup UTILS_LL_EF_DELAY
   * @{
   */
-
+#ifndef REMCU_LIB
 /**
   * @brief  This function configures the Cortex-M SysTick source to have 1ms time base.
   * @note   When a RTOS is used, it is recommended to avoid changing the Systick
@@ -161,6 +161,7 @@ void LL_Init1msTick(uint32_t HCLKFrequency)
   * @param  Delay specifies the delay time length, in milliseconds.
   * @retval None
   */
+
 void LL_mDelay(uint32_t Delay)
 {
   __IO uint32_t  tmp = SysTick->CTRL;  /* Clear the COUNTFLAG first */
@@ -181,7 +182,7 @@ void LL_mDelay(uint32_t Delay)
     }
   }
 }
-
+#endif
 /**
   * @}
   */

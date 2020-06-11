@@ -384,8 +384,10 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority);
 void HAL_IncTick(void);
 void HAL_Delay(uint32_t Delay);
 uint32_t HAL_GetTick(void);
+#ifndef REMCU_LIB
 void HAL_SuspendTick(void);
 void HAL_ResumeTick(void);
+#endif //REMCU_LIB
 uint32_t HAL_GetHalVersion(void);
 uint32_t HAL_GetREVID(void);
 uint32_t HAL_GetDEVID(void);

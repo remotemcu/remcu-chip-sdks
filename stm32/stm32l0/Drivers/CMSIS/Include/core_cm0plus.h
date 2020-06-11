@@ -69,6 +69,17 @@
   \ingroup Cortex-M0+
   @{
  */
+#ifdef REMCU_LIB
+
+  #define __INLINE         inline                                    /*!< inline keyword for COSMIC Compiler. Use -pc99 on compile line */
+  #define __STATIC_INLINE  static inline
+
+  #define __enable_irq()
+
+  #define __disable_irq()
+  #define __NOP()
+
+#else
 
 /*  CMSIS CM0+ definitions */
 #define __CM0PLUS_CMSIS_VERSION_MAIN (0x04U)                                   /*!< [31:16] CMSIS HAL main version */
@@ -206,6 +217,8 @@
   #endif
 #endif
 
+#endif //REMCU_LIB
+
 /* IO definitions (access restrictions to peripheral registers) */
 /**
     \defgroup CMSIS_glob_defs CMSIS Global Defines
@@ -251,7 +264,7 @@
   \brief      Core Register type definitions.
   @{
  */
-
+#ifndef REMCU_LIB
 /**
   \brief  Union type to access the Application Program Status Register (APSR).
  */
@@ -902,7 +915,7 @@ __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 
 /*@} end of CMSIS_Core_SysTickFunctions */
 
-
+#endif //REMCU_LIB
 
 
 #ifdef __cplusplus
