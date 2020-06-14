@@ -219,6 +219,12 @@ typedef enum
  #include "stm32l0xx_hal.h"
 #endif /* USE_HAL_DRIVER */
 
+#ifdef REMCU_LIB
+  #ifdef __cplusplus
+    } // extern C nail
+  #endif /* __cplusplus */
+#endif //REMCU_LIB
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
