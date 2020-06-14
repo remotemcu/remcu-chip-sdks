@@ -1,7 +1,7 @@
-project(test C)
+project(test CXX)
 
 add_executable(test_clock
-	clock.c
+	gpio.cpp
 	)
 
 

@@ -37,9 +37,10 @@ add_custom_command(
 
 
 FILE(GLOB COPY_HEADER_FROM_LIB 
-      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32L0xx/Include/*.h        #system_stm32f7xx.h
+      ${MCU_SDK_PATH}/CMSIS/Device/ST/STM32L0xx/Include/*.h        #system_stm32fl0xx.h
       ${MCU_SDK_PATH}/STM32L0xx_HAL_Driver/transformed_Inc/*.h
       ${MCU_SDK_PATH}/CMSIS/Include/*.h
+      ${CMAKE_CURRENT_SOURCE_DIR}/*.h
       )
 
 file(INSTALL ${MCU_SDK_PATH}/STM32L0xx_HAL_Driver/transformed_Inc/Legacy/
