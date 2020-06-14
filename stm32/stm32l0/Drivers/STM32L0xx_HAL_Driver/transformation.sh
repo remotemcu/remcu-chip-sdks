@@ -18,6 +18,7 @@ rm -v transformed_Inc/*cortex* fun_implementation/*cortex*
 rm -v transformed_Inc/*pwr* fun_implementation/*pwr*
 rm -v transformed_Inc/*eth*.h* fun_implementation/*eth*.h*
 rm -v transformed_Inc/*hal_conf_template.h fun_implementation/*hal_conf_template.h*
+rm -v transformed_Inc/*_cryp*.h* fun_implementation/*_cryp*.h*
 
 #wrapping include string for export symbols in Win
 #sed -i -E "s/(^#include.*)/#include \"remcu_exports_symbol_enter.h\"\n\1\n#include \"remcu_exports_symbol_exit.h\"\n/" fun_implementation/*.c
