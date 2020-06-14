@@ -172,6 +172,7 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_ll_wwdg.h \
 INC_EXTRA = \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_rtc.h \
 
+FIRST_RUNTIME_STRING = \#include "stm32l0xx_hal.h"
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

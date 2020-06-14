@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "v1.11.2-9cde02dd"
+__version__ = "v1.11.2-e339fbd6"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -6465,19 +6465,19 @@ class USB_TypeDef(ctypes.Structure):
 # file stm32l0xx_hal_adc_ex.h : 
 
 # empty define __STM32L0xx_HAL_ADC_EX_H
-# Skip ADC_SINGLE_ENDED : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T6_TRGO : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T21_CC2 : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T2_TRGO : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T2_CC4 : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T22_TRGO : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T3_TRGO : no need parse
-# Skip ADC_EXTERNALTRIGCONV_EXT_IT11 : no need parse
-# Skip ADC_SOFTWARE_START : no need parse
-# Skip ADC_EXTERNALTRIGCONV_T21_TRGO : no need parse
+ADC_SINGLE_ENDED = 0x0
+ADC_EXTERNALTRIGCONV_T6_TRGO = 0x0
+ADC_EXTERNALTRIGCONV_T21_CC2 = 0x40
+ADC_EXTERNALTRIGCONV_T2_TRGO = 0x80
+ADC_EXTERNALTRIGCONV_T2_CC4 = 0xC0
+ADC_EXTERNALTRIGCONV_T22_TRGO = 0x100
+ADC_EXTERNALTRIGCONV_T3_TRGO = 0x180
+ADC_EXTERNALTRIGCONV_EXT_IT11 = 0x1C0
+ADC_SOFTWARE_START = 0x1C1
+ADC_EXTERNALTRIGCONV_T21_TRGO = 0x100
 # Skip ADC_EXTERNALTRIGCONV_T2_CC3 : no need parse
-# Skip ADC_FLAG_SENSOR : no need parse
-# Skip ADC_FLAG_VREFINT : no need parse
+ADC_FLAG_SENSOR = 0x40000000
+ADC_FLAG_VREFINT = 0x40000000
 # fun define IS_ADC_SINGLE_DIFFERENTIAL(SING_DIFF)   ((SING_DIFF) == ADC_SINGLE_ENDED)
 # fun define IS_ADC_CALFACT(_Calibration_Factor_) ((_Calibration_Factor_) <= ((uint32_t)0x7FU))
 # fun define IS_ADC_EXTTRIG(CONV) (((CONV) == ADC_EXTERNALTRIGCONV_T6_TRGO  ) || \
@@ -6521,139 +6521,139 @@ class USB_TypeDef(ctypes.Structure):
 # Skip HAL_ADC_MSPINIT_CB_ID : no need parse
 # Skip HAL_ADC_MSPDEINIT_CB_ID : no need parse
 # empty define __STM32L0xx_HAL_ADC_H
-# Skip HAL_ADC_STATE_RESET : no need parse
-# Skip HAL_ADC_STATE_READY : no need parse
-# Skip HAL_ADC_STATE_BUSY_INTERNAL : no need parse
-# Skip HAL_ADC_STATE_TIMEOUT : no need parse
-# Skip HAL_ADC_STATE_ERROR_INTERNAL : no need parse
-# Skip HAL_ADC_STATE_ERROR_CONFIG : no need parse
-# Skip HAL_ADC_STATE_ERROR_DMA : no need parse
-# Skip HAL_ADC_STATE_REG_BUSY : no need parse
-# Skip HAL_ADC_STATE_REG_EOC : no need parse
-# Skip HAL_ADC_STATE_REG_OVR : no need parse
-# Skip HAL_ADC_STATE_REG_EOSMP : no need parse
-# Skip HAL_ADC_STATE_INJ_BUSY : no need parse
-# Skip HAL_ADC_STATE_INJ_EOC : no need parse
-# Skip HAL_ADC_STATE_INJ_JQOVF : no need parse
-# Skip HAL_ADC_STATE_AWD1 : no need parse
-# Skip HAL_ADC_STATE_AWD2 : no need parse
-# Skip HAL_ADC_STATE_AWD3 : no need parse
-# Skip HAL_ADC_STATE_MULTIMODE_SLAVE : no need parse
-# Skip HAL_ADC_ERROR_NONE : no need parse
-# Skip HAL_ADC_ERROR_INTERNAL : no need parse
-# Skip HAL_ADC_ERROR_OVR : no need parse
-# Skip HAL_ADC_ERROR_DMA : no need parse
+HAL_ADC_STATE_RESET = 0x0
+HAL_ADC_STATE_READY = 0x1
+HAL_ADC_STATE_BUSY_INTERNAL = 0x2
+HAL_ADC_STATE_TIMEOUT = 0x4
+HAL_ADC_STATE_ERROR_INTERNAL = 0x10
+HAL_ADC_STATE_ERROR_CONFIG = 0x20
+HAL_ADC_STATE_ERROR_DMA = 0x40
+HAL_ADC_STATE_REG_BUSY = 0x100
+HAL_ADC_STATE_REG_EOC = 0x200
+HAL_ADC_STATE_REG_OVR = 0x400
+HAL_ADC_STATE_REG_EOSMP = 0x800
+HAL_ADC_STATE_INJ_BUSY = 0x1000
+HAL_ADC_STATE_INJ_EOC = 0x2000
+HAL_ADC_STATE_INJ_JQOVF = 0x4000
+HAL_ADC_STATE_AWD1 = 0x10000
+HAL_ADC_STATE_AWD2 = 0x20000
+HAL_ADC_STATE_AWD3 = 0x40000
+HAL_ADC_STATE_MULTIMODE_SLAVE = 0x100000
+HAL_ADC_ERROR_NONE = 0x0
+HAL_ADC_ERROR_INTERNAL = 0x1
+HAL_ADC_ERROR_OVR = 0x2
+HAL_ADC_ERROR_DMA = 0x4
 # Skip HAL_ADC_ERROR_INVALID_CALLBACK : no need parse
-# Skip ADC_ENABLE_TIMEOUT : no need parse
-# Skip ADC_DISABLE_TIMEOUT : no need parse
-# Skip ADC_STOP_CONVERSION_TIMEOUT : no need parse
-# Skip ADC_DELAY_10US_MIN_CPU_CYCLES : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV1 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV2 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV4 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV6 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV8 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV10 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV12 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV16 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV32 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV64 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV128 : no need parse
-# Skip ADC_CLOCK_ASYNC_DIV256 : no need parse
-# Skip ADC_CLOCK_SYNC_PCLK_DIV1 : no need parse
-# Skip ADC_CLOCK_SYNC_PCLK_DIV2 : no need parse
-# Skip ADC_CLOCK_SYNC_PCLK_DIV4 : no need parse
-# Skip ADC_RESOLUTION_12B : no need parse
-# Skip ADC_RESOLUTION_10B : no need parse
-# Skip ADC_RESOLUTION_8B : no need parse
-# Skip ADC_RESOLUTION_6B : no need parse
-# Skip ADC_DATAALIGN_RIGHT : no need parse
-# Skip ADC_DATAALIGN_LEFT : no need parse
-# Skip ADC_EXTERNALTRIGCONVEDGE_NONE : no need parse
-# Skip ADC_EXTERNALTRIGCONVEDGE_RISING : no need parse
-# Skip ADC_EXTERNALTRIGCONVEDGE_FALLING : no need parse
-# Skip ADC_EXTERNALTRIGCONVEDGE_RISINGFALLING : no need parse
-# Skip ADC_EOC_SINGLE_CONV : no need parse
-# Skip ADC_EOC_SEQ_CONV : no need parse
-# Skip ADC_OVR_DATA_PRESERVED : no need parse
-# Skip ADC_OVR_DATA_OVERWRITTEN : no need parse
-# Skip ADC_RANK_CHANNEL_NUMBER : no need parse
-# Skip ADC_RANK_NONE : no need parse
-# Skip ADC_CHANNEL_0 : no need parse
-# Skip ADC_CHANNEL_1 : no need parse
-# Skip ADC_CHANNEL_2 : no need parse
-# Skip ADC_CHANNEL_3 : no need parse
-# Skip ADC_CHANNEL_4 : no need parse
-# Skip ADC_CHANNEL_5 : no need parse
-# Skip ADC_CHANNEL_6 : no need parse
-# Skip ADC_CHANNEL_7 : no need parse
-# Skip ADC_CHANNEL_8 : no need parse
-# Skip ADC_CHANNEL_9 : no need parse
-# Skip ADC_CHANNEL_10 : no need parse
-# Skip ADC_CHANNEL_11 : no need parse
-# Skip ADC_CHANNEL_12 : no need parse
-# Skip ADC_CHANNEL_13 : no need parse
-# Skip ADC_CHANNEL_14 : no need parse
-# Skip ADC_CHANNEL_15 : no need parse
-# Skip ADC_CHANNEL_16 : no need parse
-# Skip ADC_CHANNEL_17 : no need parse
-# Skip ADC_CHANNEL_18 : no need parse
-# Skip ADC_CHANNEL_VLCD : no need parse
-# Skip ADC_CHANNEL_VREFINT : no need parse
-# Skip ADC_CHANNEL_TEMPSENSOR : no need parse
-# Skip ADC_CHANNEL_MASK : no need parse
-# Skip ADC_CHANNEL_AWD_MASK : no need parse
-# Skip ADC_SAMPLETIME_1CYCLE_5 : no need parse
-# Skip ADC_SAMPLETIME_3CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_7CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_12CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_19CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_39CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_79CYCLES_5 : no need parse
-# Skip ADC_SAMPLETIME_160CYCLES_5 : no need parse
-# Skip ADC_SCAN_DIRECTION_FORWARD : no need parse
-# Skip ADC_SCAN_DIRECTION_BACKWARD : no need parse
-# Skip ADC_SCAN_ENABLE : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_2 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_4 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_8 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_16 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_32 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_64 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_128 : no need parse
-# Skip ADC_OVERSAMPLING_RATIO_256 : no need parse
-# Skip ADC_RIGHTBITSHIFT_NONE : no need parse
-# Skip ADC_RIGHTBITSHIFT_1 : no need parse
-# Skip ADC_RIGHTBITSHIFT_2 : no need parse
-# Skip ADC_RIGHTBITSHIFT_3 : no need parse
-# Skip ADC_RIGHTBITSHIFT_4 : no need parse
-# Skip ADC_RIGHTBITSHIFT_5 : no need parse
-# Skip ADC_RIGHTBITSHIFT_6 : no need parse
-# Skip ADC_RIGHTBITSHIFT_7 : no need parse
-# Skip ADC_RIGHTBITSHIFT_8 : no need parse
-# Skip ADC_TRIGGEREDMODE_SINGLE_TRIGGER : no need parse
-# Skip ADC_TRIGGEREDMODE_MULTI_TRIGGER : no need parse
-# Skip ADC_ANALOGWATCHDOG_NONE : no need parse
-# Skip ADC_ANALOGWATCHDOG_SINGLE_REG : no need parse
-# Skip ADC_ANALOGWATCHDOG_ALL_REG : no need parse
-# Skip ADC_REGULAR_GROUP : no need parse
-# Skip ADC_AWD_EVENT : no need parse
-# Skip ADC_OVR_EVENT : no need parse
-# Skip ADC_IT_RDY : no need parse
-# Skip ADC_IT_EOSMP : no need parse
-# Skip ADC_IT_EOC : no need parse
-# Skip ADC_IT_EOS : no need parse
-# Skip ADC_IT_OVR : no need parse
-# Skip ADC_IT_AWD : no need parse
-# Skip ADC_IT_EOCAL : no need parse
-# Skip ADC_FLAG_RDY : no need parse
-# Skip ADC_FLAG_EOSMP : no need parse
-# Skip ADC_FLAG_EOC : no need parse
-# Skip ADC_FLAG_EOS : no need parse
-# Skip ADC_FLAG_OVR : no need parse
-# Skip ADC_FLAG_AWD : no need parse
-# Skip ADC_FLAG_EOCAL : no need parse
-# Skip ADC_FLAG_ALL : no need parse
+ADC_ENABLE_TIMEOUT = 0xA
+ADC_DISABLE_TIMEOUT = 0xA
+ADC_STOP_CONVERSION_TIMEOUT = 0xA
+ADC_DELAY_10US_MIN_CPU_CYCLES = 0x708
+ADC_CLOCK_ASYNC_DIV1 = 0x0
+ADC_CLOCK_ASYNC_DIV2 = 0x40000
+ADC_CLOCK_ASYNC_DIV4 = 0x80000
+ADC_CLOCK_ASYNC_DIV6 = 0xC0000
+ADC_CLOCK_ASYNC_DIV8 = 0x100000
+ADC_CLOCK_ASYNC_DIV10 = 0x140000
+ADC_CLOCK_ASYNC_DIV12 = 0x180000
+ADC_CLOCK_ASYNC_DIV16 = 0x1C0000
+ADC_CLOCK_ASYNC_DIV32 = 0x200000
+ADC_CLOCK_ASYNC_DIV64 = 0x240000
+ADC_CLOCK_ASYNC_DIV128 = 0x280000
+ADC_CLOCK_ASYNC_DIV256 = 0x2C0000
+ADC_CLOCK_SYNC_PCLK_DIV1 = 0xC0000000
+ADC_CLOCK_SYNC_PCLK_DIV2 = 0x40000000
+ADC_CLOCK_SYNC_PCLK_DIV4 = 0x80000000
+ADC_RESOLUTION_12B = 0x0
+ADC_RESOLUTION_10B = 0x8
+ADC_RESOLUTION_8B = 0x10
+ADC_RESOLUTION_6B = 0x18
+ADC_DATAALIGN_RIGHT = 0x0
+ADC_DATAALIGN_LEFT = 0x20
+ADC_EXTERNALTRIGCONVEDGE_NONE = 0x0
+ADC_EXTERNALTRIGCONVEDGE_RISING = 0x400
+ADC_EXTERNALTRIGCONVEDGE_FALLING = 0x800
+ADC_EXTERNALTRIGCONVEDGE_RISINGFALLING = 0xC00
+ADC_EOC_SINGLE_CONV = 0x4
+ADC_EOC_SEQ_CONV = 0x8
+ADC_OVR_DATA_PRESERVED = 0x0
+ADC_OVR_DATA_OVERWRITTEN = 0x1000
+ADC_RANK_CHANNEL_NUMBER = 0x1000
+ADC_RANK_NONE = 0x1001
+ADC_CHANNEL_0 = 0x1
+ADC_CHANNEL_1 = 0x4000002
+ADC_CHANNEL_2 = 0x8000004
+ADC_CHANNEL_3 = 0xC000008
+ADC_CHANNEL_4 = 0x10000010
+ADC_CHANNEL_5 = 0x14000020
+ADC_CHANNEL_6 = 0x18000040
+ADC_CHANNEL_7 = 0x1C000080
+ADC_CHANNEL_8 = 0x20000100
+ADC_CHANNEL_9 = 0x24000200
+ADC_CHANNEL_10 = 0x28000400
+ADC_CHANNEL_11 = 0x2C000800
+ADC_CHANNEL_12 = 0x30001000
+ADC_CHANNEL_13 = 0x34002000
+ADC_CHANNEL_14 = 0x38004000
+ADC_CHANNEL_15 = 0x3C008000
+ADC_CHANNEL_16 = 0x40010000
+ADC_CHANNEL_17 = 0x44020000
+ADC_CHANNEL_18 = 0x48040000
+ADC_CHANNEL_VLCD = 0x40010000
+ADC_CHANNEL_VREFINT = 0x44020000
+ADC_CHANNEL_TEMPSENSOR = 0x48040000
+ADC_CHANNEL_MASK = 0x7FFFF
+ADC_CHANNEL_AWD_MASK = 0x7C000000
+ADC_SAMPLETIME_1CYCLE_5 = 0x0
+ADC_SAMPLETIME_3CYCLES_5 = 0x1
+ADC_SAMPLETIME_7CYCLES_5 = 0x2
+ADC_SAMPLETIME_12CYCLES_5 = 0x3
+ADC_SAMPLETIME_19CYCLES_5 = 0x4
+ADC_SAMPLETIME_39CYCLES_5 = 0x5
+ADC_SAMPLETIME_79CYCLES_5 = 0x6
+ADC_SAMPLETIME_160CYCLES_5 = 0x7
+ADC_SCAN_DIRECTION_FORWARD = 0x1
+ADC_SCAN_DIRECTION_BACKWARD = 0x2
+ADC_SCAN_ENABLE = 0x1
+ADC_OVERSAMPLING_RATIO_2 = 0x0
+ADC_OVERSAMPLING_RATIO_4 = 0x4
+ADC_OVERSAMPLING_RATIO_8 = 0x8
+ADC_OVERSAMPLING_RATIO_16 = 0xC
+ADC_OVERSAMPLING_RATIO_32 = 0x10
+ADC_OVERSAMPLING_RATIO_64 = 0x14
+ADC_OVERSAMPLING_RATIO_128 = 0x18
+ADC_OVERSAMPLING_RATIO_256 = 0x1C
+ADC_RIGHTBITSHIFT_NONE = 0x0
+ADC_RIGHTBITSHIFT_1 = 0x20
+ADC_RIGHTBITSHIFT_2 = 0x40
+ADC_RIGHTBITSHIFT_3 = 0x60
+ADC_RIGHTBITSHIFT_4 = 0x80
+ADC_RIGHTBITSHIFT_5 = 0xA0
+ADC_RIGHTBITSHIFT_6 = 0xC0
+ADC_RIGHTBITSHIFT_7 = 0xE0
+ADC_RIGHTBITSHIFT_8 = 0x100
+ADC_TRIGGEREDMODE_SINGLE_TRIGGER = 0x0
+ADC_TRIGGEREDMODE_MULTI_TRIGGER = 0x200
+ADC_ANALOGWATCHDOG_NONE = 0x0
+ADC_ANALOGWATCHDOG_SINGLE_REG = 0xC00000
+ADC_ANALOGWATCHDOG_ALL_REG = 0x800000
+ADC_REGULAR_GROUP = 0xC
+ADC_AWD_EVENT = 0x80
+ADC_OVR_EVENT = 0x10
+ADC_IT_RDY = 0x1
+ADC_IT_EOSMP = 0x2
+ADC_IT_EOC = 0x4
+ADC_IT_EOS = 0x8
+ADC_IT_OVR = 0x10
+ADC_IT_AWD = 0x80
+ADC_IT_EOCAL = 0x800
+ADC_FLAG_RDY = 0x1
+ADC_FLAG_EOSMP = 0x2
+ADC_FLAG_EOC = 0x4
+ADC_FLAG_EOS = 0x8
+ADC_FLAG_OVR = 0x10
+ADC_FLAG_AWD = 0x80
+ADC_FLAG_EOCAL = 0x800
+ADC_FLAG_ALL = 0x89F
 # fun define __HAL_ADC_RESET_HANDLE_STATE(__HANDLE__)                               \
 #  do{                                                                          \
 #     (__HANDLE__)->State = HAL_ADC_STATE_RESET;                               \
@@ -6867,6 +6867,9 @@ class USB_TypeDef(ctypes.Structure):
 class ADC_OversamplingTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Ratio',	ctypes.c_uint32),
+		('RightBitShift',	ctypes.c_uint32),
+		('TriggeredMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -6878,6 +6881,8 @@ class ADC_OversamplingTypeDef(ctypes.Structure):
 class ADC_ChannelConfTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Channel',	ctypes.c_uint32),
+		('Rank',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -6887,6 +6892,11 @@ class ADC_ChannelConfTypeDef(ctypes.Structure):
 class ADC_AnalogWDGConfTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('WatchdogMode',	ctypes.c_uint32),
+		('Channel',	ctypes.c_uint32),
+		('ITMode',	ctypes.c_uint32),
+		('HighThreshold',	ctypes.c_uint32),
+		('LowThreshold',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -6903,52 +6913,52 @@ class ADC_AnalogWDGConfTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_comp.h : 
 
 # Enum HAL_COMP_StateTypeDef
-# Skip HAL_COMP_STATE_RESET : no need parse
-# Skip HAL_COMP_STATE_RESET_LOCKED : no need parse
-# Skip HAL_COMP_STATE_READY : no need parse
-# Skip HAL_COMP_STATE_READY_LOCKED : no need parse
-# Skip HAL_COMP_STATE_BUSY : no need parse
-# Skip HAL_COMP_STATE_BUSY_LOCKED : no need parse
+HAL_COMP_STATE_RESET = 0x0
+HAL_COMP_STATE_RESET_LOCKED = 0x10
+HAL_COMP_STATE_READY = 0x1
+HAL_COMP_STATE_READY_LOCKED = 0x11
+HAL_COMP_STATE_BUSY = 0x2
+HAL_COMP_STATE_BUSY_LOCKED = 0x12
 # Enum HAL_COMP_CallbackIDTypeDef
 # Skip HAL_COMP_TRIGGER_CB_ID : no need parse
 # Skip HAL_COMP_MSPINIT_CB_ID : no need parse
 # Skip HAL_COMP_MSPDEINIT_CB_ID : no need parse
 # empty define __STM32L0xx_HAL_COMP_H
-# Skip COMP_STATE_BITFIELD_LOCK : no need parse
-# Skip HAL_COMP_ERROR_NONE : no need parse
+COMP_STATE_BITFIELD_LOCK = 0x10
+HAL_COMP_ERROR_NONE = 0x0
 # Skip HAL_COMP_ERROR_INVALID_CALLBACK : no need parse
-# Skip COMP_WINDOWMODE_DISABLE : no need parse
-# Skip COMP_WINDOWMODE_COMP1_INPUT_PLUS_COMMON : no need parse
-# Skip COMP_POWERMODE_MEDIUMSPEED : no need parse
-# Skip COMP_POWERMODE_ULTRALOWPOWER : no need parse
-# Skip COMP_INPUT_PLUS_IO1 : no need parse
-# Skip COMP_INPUT_PLUS_IO2 : no need parse
-# Skip COMP_INPUT_PLUS_IO3 : no need parse
-# Skip COMP_INPUT_PLUS_IO4 : no need parse
-# Skip COMP_INPUT_PLUS_IO5 : no need parse
+COMP_WINDOWMODE_DISABLE = 0x0
+COMP_WINDOWMODE_COMP1_INPUT_PLUS_COMMON = 0x100
+COMP_POWERMODE_MEDIUMSPEED = 0x8
+COMP_POWERMODE_ULTRALOWPOWER = 0x0
+COMP_INPUT_PLUS_IO1 = 0x0
+COMP_INPUT_PLUS_IO2 = 0x100
+COMP_INPUT_PLUS_IO3 = 0x200
+COMP_INPUT_PLUS_IO4 = 0x300
+COMP_INPUT_PLUS_IO5 = 0x400
 # Skip COMP_INPUT_PLUS_IO6 : no need parse
-# Skip COMP_INPUT_MINUS_1_4VREFINT : no need parse
-# Skip COMP_INPUT_MINUS_1_2VREFINT : no need parse
-# Skip COMP_INPUT_MINUS_3_4VREFINT : no need parse
-# Skip COMP_INPUT_MINUS_VREFINT : no need parse
-# Skip COMP_INPUT_MINUS_DAC1_CH1 : no need parse
-# Skip COMP_INPUT_MINUS_DAC1_CH2 : no need parse
-# Skip COMP_INPUT_MINUS_IO1 : no need parse
-# Skip COMP_INPUT_MINUS_IO2 : no need parse
-# Skip COMP_LPTIMCONNECTION_DISABLED : no need parse
-# Skip COMP_LPTIMCONNECTION_IN1_ENABLED : no need parse
-# Skip COMP_LPTIMCONNECTION_IN2_ENABLED : no need parse
-# Skip COMP_OUTPUTPOL_NONINVERTED : no need parse
-# Skip COMP_OUTPUTPOL_INVERTED : no need parse
-# Skip COMP_OUTPUT_LEVEL_LOW : no need parse
-# Skip COMP_OUTPUT_LEVEL_HIGH : no need parse
-# Skip COMP_TRIGGERMODE_NONE : no need parse
-# Skip COMP_TRIGGERMODE_IT_RISING : no need parse
-# Skip COMP_TRIGGERMODE_IT_FALLING : no need parse
-# Skip COMP_TRIGGERMODE_IT_RISING_FALLING : no need parse
-# Skip COMP_TRIGGERMODE_EVENT_RISING : no need parse
-# Skip COMP_TRIGGERMODE_EVENT_FALLING : no need parse
-# Skip COMP_TRIGGERMODE_EVENT_RISING_FALLING : no need parse
+COMP_INPUT_MINUS_1_4VREFINT = 0x40
+COMP_INPUT_MINUS_1_2VREFINT = 0x50
+COMP_INPUT_MINUS_3_4VREFINT = 0x60
+COMP_INPUT_MINUS_VREFINT = 0x0
+COMP_INPUT_MINUS_DAC1_CH1 = 0x20
+COMP_INPUT_MINUS_DAC1_CH2 = 0x30
+COMP_INPUT_MINUS_IO1 = 0x10
+COMP_INPUT_MINUS_IO2 = 0x70
+COMP_LPTIMCONNECTION_DISABLED = 0x0
+COMP_LPTIMCONNECTION_IN1_ENABLED = 0x1
+COMP_LPTIMCONNECTION_IN2_ENABLED = 0x2
+COMP_OUTPUTPOL_NONINVERTED = 0x0
+COMP_OUTPUTPOL_INVERTED = 0x8000
+COMP_OUTPUT_LEVEL_LOW = 0x0
+COMP_OUTPUT_LEVEL_HIGH = 0x1
+COMP_TRIGGERMODE_NONE = 0x0
+COMP_TRIGGERMODE_IT_RISING = 0x11
+COMP_TRIGGERMODE_IT_FALLING = 0x21
+COMP_TRIGGERMODE_IT_RISING_FALLING = 0x31
+COMP_TRIGGERMODE_EVENT_RISING = 0x12
+COMP_TRIGGERMODE_EVENT_FALLING = 0x22
+COMP_TRIGGERMODE_EVENT_RISING_FALLING = 0x32
 # fun define __HAL_COMP_RESET_HANDLE_STATE(__HANDLE__) do{                                                   \
 #                                                     (__HANDLE__)->State = HAL_COMP_STATE_RESET;      \
 #                                                     (__HANDLE__)->MspInitCallback = NULL;            \
@@ -6998,12 +7008,12 @@ class ADC_AnalogWDGConfTypeDef(ctypes.Structure):
 # fun define __HAL_COMP_COMP2_EXTI_DISABLE_EVENT()          CLEAR_BIT(EXTI->EMR, COMP_EXTI_LINE_COMP2)
 # fun define __HAL_COMP_COMP2_EXTI_GET_FLAG()              READ_BIT(EXTI->PR, COMP_EXTI_LINE_COMP2)
 # fun define __HAL_COMP_COMP2_EXTI_CLEAR_FLAG()            WRITE_REG(EXTI->PR, COMP_EXTI_LINE_COMP2)
-# Skip COMP_EXTI_LINE_COMP1 : no need parse
-# Skip COMP_EXTI_LINE_COMP2 : no need parse
-# Skip COMP_EXTI_IT : no need parse
-# Skip COMP_EXTI_EVENT : no need parse
-# Skip COMP_EXTI_RISING : no need parse
-# Skip COMP_EXTI_FALLING : no need parse
+COMP_EXTI_LINE_COMP1 = 0x200000
+COMP_EXTI_LINE_COMP2 = 0x400000
+COMP_EXTI_IT = 0x1
+COMP_EXTI_EVENT = 0x2
+COMP_EXTI_RISING = 0x10
+COMP_EXTI_FALLING = 0x20
 # fun define COMP_GET_EXTI_LINE(__INSTANCE__)    (((__INSTANCE__) == COMP1) ?                 \
 #                                             COMP_EXTI_LINE_COMP1 : COMP_EXTI_LINE_COMP2)
 # fun define IS_COMP_WINDOWMODE(__WINDOWMODE__)  (((__WINDOWMODE__) == COMP_WINDOWMODE_DISABLE)                || \
@@ -7083,6 +7093,13 @@ class ADC_AnalogWDGConfTypeDef(ctypes.Structure):
 class COMP_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('WindowMode',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('NonInvertingInput',	ctypes.c_uint32),
+		('InvertingInput',	ctypes.c_uint32),
+		('OutputPol',	ctypes.c_uint32),
+		('LPTIMConnection',	ctypes.c_uint32),
+		('TriggerMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -7094,12 +7111,12 @@ class COMP_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_crc_ex.h : 
 
 # empty define STM32L0xx_HAL_CRC_EX_H
-# Skip CRC_INPUTDATA_INVERSION_NONE : no need parse
-# Skip CRC_INPUTDATA_INVERSION_BYTE : no need parse
-# Skip CRC_INPUTDATA_INVERSION_HALFWORD : no need parse
-# Skip CRC_INPUTDATA_INVERSION_WORD : no need parse
-# Skip CRC_OUTPUTDATA_INVERSION_DISABLE : no need parse
-# Skip CRC_OUTPUTDATA_INVERSION_ENABLE : no need parse
+CRC_INPUTDATA_INVERSION_NONE = 0x0
+CRC_INPUTDATA_INVERSION_BYTE = 0x20
+CRC_INPUTDATA_INVERSION_HALFWORD = 0x40
+CRC_INPUTDATA_INVERSION_WORD = 0x60
+CRC_OUTPUTDATA_INVERSION_DISABLE = 0x0
+CRC_OUTPUTDATA_INVERSION_ENABLE = 0x80
 # fun define __HAL_CRC_OUTPUTREVERSAL_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR |= CRC_CR_REV_OUT)
 # fun define __HAL_CRC_OUTPUTREVERSAL_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR &= ~(CRC_CR_REV_OUT))
 # fun define __HAL_CRC_POLYNOMIAL_CONFIG(__HANDLE__, __POLYNOMIAL__) ((__HANDLE__)->Instance->POL = (__POLYNOMIAL__))
@@ -7114,30 +7131,30 @@ class COMP_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_crc.h : 
 
 # Enum HAL_CRC_StateTypeDef
-# Skip HAL_CRC_STATE_RESET : no need parse
-# Skip HAL_CRC_STATE_READY : no need parse
-# Skip HAL_CRC_STATE_BUSY : no need parse
-# Skip HAL_CRC_STATE_TIMEOUT : no need parse
-# Skip HAL_CRC_STATE_ERROR : no need parse
+HAL_CRC_STATE_RESET = 0x0
+HAL_CRC_STATE_READY = 0x1
+HAL_CRC_STATE_BUSY = 0x2
+HAL_CRC_STATE_TIMEOUT = 0x3
+HAL_CRC_STATE_ERROR = 0x4
 # empty define STM32L0xx_HAL_CRC_H
-# Skip DEFAULT_CRC32_POLY : no need parse
-# Skip DEFAULT_CRC_INITVALUE : no need parse
-# Skip DEFAULT_POLYNOMIAL_ENABLE : no need parse
-# Skip DEFAULT_POLYNOMIAL_DISABLE : no need parse
-# Skip DEFAULT_INIT_VALUE_ENABLE : no need parse
-# Skip DEFAULT_INIT_VALUE_DISABLE : no need parse
-# Skip CRC_POLYLENGTH_32B : no need parse
-# Skip CRC_POLYLENGTH_16B : no need parse
-# Skip CRC_POLYLENGTH_8B : no need parse
-# Skip CRC_POLYLENGTH_7B : no need parse
-# Skip HAL_CRC_LENGTH_32B : no need parse
-# Skip HAL_CRC_LENGTH_16B : no need parse
-# Skip HAL_CRC_LENGTH_8B : no need parse
-# Skip HAL_CRC_LENGTH_7B : no need parse
-# Skip CRC_INPUTDATA_FORMAT_UNDEFINED : no need parse
-# Skip CRC_INPUTDATA_FORMAT_BYTES : no need parse
-# Skip CRC_INPUTDATA_FORMAT_HALFWORDS : no need parse
-# Skip CRC_INPUTDATA_FORMAT_WORDS : no need parse
+DEFAULT_CRC32_POLY = 0x4C11DB7
+DEFAULT_CRC_INITVALUE = 0xFFFFFFFF
+DEFAULT_POLYNOMIAL_ENABLE = 0x0
+DEFAULT_POLYNOMIAL_DISABLE = 0x1
+DEFAULT_INIT_VALUE_ENABLE = 0x0
+DEFAULT_INIT_VALUE_DISABLE = 0x1
+CRC_POLYLENGTH_32B = 0x0
+CRC_POLYLENGTH_16B = 0x8
+CRC_POLYLENGTH_8B = 0x10
+CRC_POLYLENGTH_7B = 0x18
+HAL_CRC_LENGTH_32B = 0x20
+HAL_CRC_LENGTH_16B = 0x10
+HAL_CRC_LENGTH_8B = 0x8
+HAL_CRC_LENGTH_7B = 0x7
+CRC_INPUTDATA_FORMAT_UNDEFINED = 0x0
+CRC_INPUTDATA_FORMAT_BYTES = 0x1
+CRC_INPUTDATA_FORMAT_HALFWORDS = 0x2
+CRC_INPUTDATA_FORMAT_WORDS = 0x3
 # Skip HAL_CRC_Input_Data_Reverse : no need parse
 # Skip HAL_CRC_Output_Data_Reverse : no need parse
 # fun define __HAL_CRC_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_CRC_STATE_RESET)
@@ -7161,6 +7178,13 @@ class COMP_InitTypeDef(ctypes.Structure):
 class CRC_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('DefaultPolynomialUse',	ctypes.c_uint8),
+		('DefaultInitValueUse',	ctypes.c_uint8),
+		('GeneratingPolynomial',	ctypes.c_uint32),
+		('CRCLength',	ctypes.c_uint32),
+		('InitValue',	ctypes.c_uint32),
+		('InputDataInversionMode',	ctypes.c_uint32),
+		('OutputDataInversionMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -7238,30 +7262,30 @@ class CRYP_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_dac_ex.h : 
 
 # empty define __STM32L0xx_HAL_DAC_EX_H
-# Skip DAC_LFSRUNMASK_BIT0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS1_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS2_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS3_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS4_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS5_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS6_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS7_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS8_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS9_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS10_0 : no need parse
-# Skip DAC_LFSRUNMASK_BITS11_0 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_1 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_3 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_7 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_15 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_31 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_63 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_127 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_255 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_511 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_1023 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_2047 : no need parse
-# Skip DAC_TRIANGLEAMPLITUDE_4095 : no need parse
+DAC_LFSRUNMASK_BIT0 = 0x0
+DAC_LFSRUNMASK_BITS1_0 = 0x100
+DAC_LFSRUNMASK_BITS2_0 = 0x200
+DAC_LFSRUNMASK_BITS3_0 = 0x300
+DAC_LFSRUNMASK_BITS4_0 = 0x400
+DAC_LFSRUNMASK_BITS5_0 = 0x500
+DAC_LFSRUNMASK_BITS6_0 = 0x600
+DAC_LFSRUNMASK_BITS7_0 = 0x700
+DAC_LFSRUNMASK_BITS8_0 = 0x800
+DAC_LFSRUNMASK_BITS9_0 = 0x900
+DAC_LFSRUNMASK_BITS10_0 = 0xA00
+DAC_LFSRUNMASK_BITS11_0 = 0xB00
+DAC_TRIANGLEAMPLITUDE_1 = 0x0
+DAC_TRIANGLEAMPLITUDE_3 = 0x100
+DAC_TRIANGLEAMPLITUDE_7 = 0x200
+DAC_TRIANGLEAMPLITUDE_15 = 0x300
+DAC_TRIANGLEAMPLITUDE_31 = 0x400
+DAC_TRIANGLEAMPLITUDE_63 = 0x500
+DAC_TRIANGLEAMPLITUDE_127 = 0x600
+DAC_TRIANGLEAMPLITUDE_255 = 0x700
+DAC_TRIANGLEAMPLITUDE_511 = 0x800
+DAC_TRIANGLEAMPLITUDE_1023 = 0x900
+DAC_TRIANGLEAMPLITUDE_2047 = 0xA00
+DAC_TRIANGLEAMPLITUDE_4095 = 0xB00
 # fun define IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(VALUE) (((VALUE) == DAC_LFSRUNMASK_BIT0) || \
 #                                                      ((VALUE) == DAC_LFSRUNMASK_BITS1_0) || \
 #                                                      ((VALUE) == DAC_LFSRUNMASK_BITS2_0) || \
@@ -7291,11 +7315,11 @@ class CRYP_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_dac.h : 
 
 # Enum HAL_DAC_StateTypeDef
-# Skip HAL_DAC_STATE_RESET : no need parse
-# Skip HAL_DAC_STATE_READY : no need parse
-# Skip HAL_DAC_STATE_BUSY : no need parse
-# Skip HAL_DAC_STATE_TIMEOUT : no need parse
-# Skip HAL_DAC_STATE_ERROR : no need parse
+HAL_DAC_STATE_RESET = 0x0
+HAL_DAC_STATE_READY = 0x1
+HAL_DAC_STATE_BUSY = 0x2
+HAL_DAC_STATE_TIMEOUT = 0x3
+HAL_DAC_STATE_ERROR = 0x4
 # Enum HAL_DAC_CallbackIDTypeDef
 # Skip HAL_DAC_CH1_COMPLETE_CB_ID : no need parse
 # Skip HAL_DAC_CH1_HALF_COMPLETE_CB_ID : no need parse
@@ -7309,17 +7333,17 @@ class CRYP_InitTypeDef(ctypes.Structure):
 # Skip HAL_DAC_MSP_DEINIT_CB_ID : no need parse
 # Skip HAL_DAC_ALL_CB_ID : no need parse
 # empty define __STM32L0xx_HAL_DAC_H
-# Skip HAL_DAC_ERROR_NONE : no need parse
-# Skip HAL_DAC_ERROR_DMAUNDERRUNCH1 : no need parse
+HAL_DAC_ERROR_NONE = 0x0
+HAL_DAC_ERROR_DMAUNDERRUNCH1 = 0x1
 # Skip HAL_DAC_ERROR_DMAUNDERRUNCH2 : no need parse
-# Skip HAL_DAC_ERROR_DMA : no need parse
+HAL_DAC_ERROR_DMA = 0x4
 # Skip HAL_DAC_ERROR_INVALID_CALLBACK : no need parse
-# Skip DAC_TRIGGER_NONE : no need parse
-# Skip DAC_TRIGGER_T6_TRGO : no need parse
-# Skip DAC_TRIGGER_T21_TRGO : no need parse
-# Skip DAC_TRIGGER_T2_TRGO : no need parse
-# Skip DAC_TRIGGER_EXT_IT9 : no need parse
-# Skip DAC_TRIGGER_SOFTWARE : no need parse
+DAC_TRIGGER_NONE = 0x0
+DAC_TRIGGER_T6_TRGO = 0x4
+DAC_TRIGGER_T21_TRGO = 0x1C
+DAC_TRIGGER_T2_TRGO = 0x24
+DAC_TRIGGER_EXT_IT9 = 0x34
+DAC_TRIGGER_SOFTWARE = 0x3C
 # Skip DAC_TRIGGER_T3_TRGO : no need parse
 # Skip DAC_TRIGGER_T3_CH3 : no need parse
 # Skip DAC_TRIGGER_T7_TRGO : no need parse
@@ -7338,25 +7362,25 @@ class CRYP_InitTypeDef(ctypes.Structure):
 #                                 ((TRIGGER) == DAC_TRIGGER_T2_TRGO)    || \
 #                                 ((TRIGGER) == DAC_TRIGGER_EXT_IT9)    || \
 #                                 ((TRIGGER) == DAC_TRIGGER_SOFTWARE))
-# Skip DAC_OUTPUTBUFFER_ENABLE : no need parse
-# Skip DAC_OUTPUTBUFFER_DISABLE : no need parse
+DAC_OUTPUTBUFFER_ENABLE = 0x0
+DAC_OUTPUTBUFFER_DISABLE = 0x2
 # fun define IS_DAC_OUTPUT_BUFFER_STATE(STATE) (((STATE) == DAC_OUTPUTBUFFER_ENABLE) || \
 #                                           ((STATE) == DAC_OUTPUTBUFFER_DISABLE))
-# Skip DAC_CHANNEL_1 : no need parse
+DAC_CHANNEL_1 = 0x0
 # Skip DAC_CHANNEL_2 : no need parse
 # fun define IS_DAC_CHANNEL(CHANNEL) (((CHANNEL) == DAC_CHANNEL_1) || \
 #                                 ((CHANNEL) == DAC_CHANNEL_2))
 # fun define IS_DAC_CHANNEL(CHANNEL) ((CHANNEL) == DAC_CHANNEL_1)
-# Skip DAC_ALIGN_12B_R : no need parse
-# Skip DAC_ALIGN_12B_L : no need parse
-# Skip DAC_ALIGN_8B_R : no need parse
+DAC_ALIGN_12B_R = 0x0
+DAC_ALIGN_12B_L = 0x4
+DAC_ALIGN_8B_R = 0x8
 # fun define IS_DAC_ALIGN(ALIGN) (((ALIGN) == DAC_ALIGN_12B_R) || \
 #                             ((ALIGN) == DAC_ALIGN_12B_L) || \
 #                             ((ALIGN) == DAC_ALIGN_8B_R))
 # fun define IS_DAC_DATA(DATA) ((DATA) <= 0xFFF0U)
-# Skip DAC_FLAG_DMAUDR1 : no need parse
+DAC_FLAG_DMAUDR1 = 0x2000
 # Skip DAC_FLAG_DMAUDR2 : no need parse
-# Skip DAC_IT_DMAUDR1 : no need parse
+DAC_IT_DMAUDR1 = 0x2000
 # Skip DAC_IT_DMAUDR2 : no need parse
 # fun define __HAL_DAC_RESET_HANDLE_STATE(__HANDLE__)           do {                                              \
 #                                                                 (__HANDLE__)->State = HAL_DAC_STATE_RESET; \
@@ -7402,6 +7426,8 @@ class CRYP_InitTypeDef(ctypes.Structure):
 class DAC_ChannelConfTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('DAC_Trigger',	ctypes.c_uint32),
+		('DAC_OutputBuffer',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -7411,16 +7437,16 @@ class DAC_ChannelConfTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_def.h : 
 
 # Enum HAL_StatusTypeDef
-# Skip HAL_OK : no need parse
-# Skip HAL_ERROR : no need parse
-# Skip HAL_BUSY : no need parse
-# Skip HAL_TIMEOUT : no need parse
+HAL_OK = 0x0
+HAL_ERROR = 0x1
+HAL_BUSY = 0x2
+HAL_TIMEOUT = 0x3
 # Enum HAL_LockTypeDef
-# Skip HAL_UNLOCKED : no need parse
-# Skip HAL_LOCKED : no need parse
+HAL_UNLOCKED = 0x0
+HAL_LOCKED = 0x1
 # empty define __STM32L0xx_HAL_DEF
 # fun define UNUSED(X) (void)X      /* To avoid gcc/g++ warnings */
-# Skip HAL_MAX_DELAY : no need parse
+HAL_MAX_DELAY = 0xFFFFFFFF
 # fun define HAL_IS_BIT_SET(REG, BIT)         (((REG) & (BIT)) == (BIT))
 # fun define HAL_IS_BIT_CLR(REG, BIT)         (((REG) & (BIT)) == 0U)
 # fun define __HAL_LINKDMA(__HANDLE__, __PPP_DMA_FIELD__, __DMA_HANDLE__)             \
@@ -7462,53 +7488,53 @@ class DAC_ChannelConfTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_dma.h : 
 
 # Enum HAL_DMA_StateTypeDef
-# Skip HAL_DMA_STATE_RESET : no need parse
-# Skip HAL_DMA_STATE_READY : no need parse
-# Skip HAL_DMA_STATE_BUSY : no need parse
-# Skip HAL_DMA_STATE_TIMEOUT : no need parse
+HAL_DMA_STATE_RESET = 0x0
+HAL_DMA_STATE_READY = 0x1
+HAL_DMA_STATE_BUSY = 0x2
+HAL_DMA_STATE_TIMEOUT = 0x3
 # Enum HAL_DMA_LevelCompleteTypeDef
-# Skip HAL_DMA_FULL_TRANSFER : no need parse
-# Skip HAL_DMA_HALF_TRANSFER : no need parse
+HAL_DMA_FULL_TRANSFER = 0x0
+HAL_DMA_HALF_TRANSFER = 0x1
 # Enum HAL_DMA_CallbackIDTypeDef
-# Skip HAL_DMA_XFER_CPLT_CB_ID : no need parse
-# Skip HAL_DMA_XFER_HALFCPLT_CB_ID : no need parse
-# Skip HAL_DMA_XFER_ERROR_CB_ID : no need parse
-# Skip HAL_DMA_XFER_ABORT_CB_ID : no need parse
-# Skip HAL_DMA_XFER_ALL_CB_ID : no need parse
+HAL_DMA_XFER_CPLT_CB_ID = 0x0
+HAL_DMA_XFER_HALFCPLT_CB_ID = 0x1
+HAL_DMA_XFER_ERROR_CB_ID = 0x2
+HAL_DMA_XFER_ABORT_CB_ID = 0x3
+HAL_DMA_XFER_ALL_CB_ID = 0x4
 # empty define STM32L0xx_HAL_DMA_H
-# Skip HAL_DMA_ERROR_NONE : no need parse
-# Skip HAL_DMA_ERROR_TE : no need parse
-# Skip HAL_DMA_ERROR_NO_XFER : no need parse
-# Skip HAL_DMA_ERROR_TIMEOUT : no need parse
-# Skip HAL_DMA_ERROR_NOT_SUPPORTED : no need parse
-# Skip DMA_REQUEST_0 : no need parse
-# Skip DMA_REQUEST_1 : no need parse
-# Skip DMA_REQUEST_4 : no need parse
-# Skip DMA_REQUEST_5 : no need parse
-# Skip DMA_REQUEST_6 : no need parse
-# Skip DMA_REQUEST_8 : no need parse
+HAL_DMA_ERROR_NONE = 0x0
+HAL_DMA_ERROR_TE = 0x1
+HAL_DMA_ERROR_NO_XFER = 0x4
+HAL_DMA_ERROR_TIMEOUT = 0x20
+HAL_DMA_ERROR_NOT_SUPPORTED = 0x100
+DMA_REQUEST_0 = 0x0
+DMA_REQUEST_1 = 0x1
+DMA_REQUEST_4 = 0x4
+DMA_REQUEST_5 = 0x5
+DMA_REQUEST_6 = 0x6
+DMA_REQUEST_8 = 0x8
 # fun define IS_DMA_ALL_REQUEST(REQUEST) (((REQUEST) == DMA_REQUEST_0) || \
 #                                     ((REQUEST) == DMA_REQUEST_1) || \
 #                                     ((REQUEST) == DMA_REQUEST_4) || \
 #                                     ((REQUEST) == DMA_REQUEST_5) || \
 #                                     ((REQUEST) == DMA_REQUEST_6) || \
 #                                     ((REQUEST) == DMA_REQUEST_8))
-# Skip DMA_REQUEST_0 : no need parse
-# Skip DMA_REQUEST_1 : no need parse
-# Skip DMA_REQUEST_2 : no need parse
-# Skip DMA_REQUEST_3 : no need parse
-# Skip DMA_REQUEST_4 : no need parse
-# Skip DMA_REQUEST_5 : no need parse
-# Skip DMA_REQUEST_6 : no need parse
-# Skip DMA_REQUEST_7 : no need parse
-# Skip DMA_REQUEST_8 : no need parse
-# Skip DMA_REQUEST_9 : no need parse
-# Skip DMA_REQUEST_10 : no need parse
+DMA_REQUEST_0 = 0x0
+DMA_REQUEST_1 = 0x1
+DMA_REQUEST_2 = 0x2
+DMA_REQUEST_3 = 0x3
+DMA_REQUEST_4 = 0x4
+DMA_REQUEST_5 = 0x5
+DMA_REQUEST_6 = 0x6
+DMA_REQUEST_7 = 0x7
+DMA_REQUEST_8 = 0x8
+DMA_REQUEST_9 = 0x9
+DMA_REQUEST_10 = 0xA
 # Skip DMA_REQUEST_11 : no need parse
-# Skip DMA_REQUEST_12 : no need parse
-# Skip DMA_REQUEST_13 : no need parse
-# Skip DMA_REQUEST_14 : no need parse
-# Skip DMA_REQUEST_15 : no need parse
+DMA_REQUEST_12 = 0xC
+DMA_REQUEST_13 = 0xD
+DMA_REQUEST_14 = 0xE
+DMA_REQUEST_15 = 0xF
 # fun define IS_DMA_ALL_REQUEST(REQUEST) (((REQUEST) == DMA_REQUEST_0) || \
 #                                     ((REQUEST) == DMA_REQUEST_1) || \
 #                                     ((REQUEST) == DMA_REQUEST_2) || \
@@ -7525,21 +7551,21 @@ class DAC_ChannelConfTypeDef(ctypes.Structure):
 #                                     ((REQUEST) == DMA_REQUEST_13) || \
 #                                     ((REQUEST) == DMA_REQUEST_14) || \
 #                                     ((REQUEST) == DMA_REQUEST_15))
-# Skip DMA_REQUEST_0 : no need parse
-# Skip DMA_REQUEST_1 : no need parse
-# Skip DMA_REQUEST_2 : no need parse
-# Skip DMA_REQUEST_3 : no need parse
-# Skip DMA_REQUEST_4 : no need parse
-# Skip DMA_REQUEST_5 : no need parse
-# Skip DMA_REQUEST_6 : no need parse
-# Skip DMA_REQUEST_7 : no need parse
-# Skip DMA_REQUEST_8 : no need parse
-# Skip DMA_REQUEST_9 : no need parse
-# Skip DMA_REQUEST_10 : no need parse
-# Skip DMA_REQUEST_12 : no need parse
-# Skip DMA_REQUEST_13 : no need parse
-# Skip DMA_REQUEST_14 : no need parse
-# Skip DMA_REQUEST_15 : no need parse
+DMA_REQUEST_0 = 0x0
+DMA_REQUEST_1 = 0x1
+DMA_REQUEST_2 = 0x2
+DMA_REQUEST_3 = 0x3
+DMA_REQUEST_4 = 0x4
+DMA_REQUEST_5 = 0x5
+DMA_REQUEST_6 = 0x6
+DMA_REQUEST_7 = 0x7
+DMA_REQUEST_8 = 0x8
+DMA_REQUEST_9 = 0x9
+DMA_REQUEST_10 = 0xA
+DMA_REQUEST_12 = 0xC
+DMA_REQUEST_13 = 0xD
+DMA_REQUEST_14 = 0xE
+DMA_REQUEST_15 = 0xF
 # fun define IS_DMA_ALL_REQUEST(REQUEST) (((REQUEST) == DMA_REQUEST_0) || \
 #                                     ((REQUEST) == DMA_REQUEST_1) || \
 #                                     ((REQUEST) == DMA_REQUEST_2) || \
@@ -7555,56 +7581,56 @@ class DAC_ChannelConfTypeDef(ctypes.Structure):
 #                                     ((REQUEST) == DMA_REQUEST_13) || \
 #                                     ((REQUEST) == DMA_REQUEST_14) || \
 #                                     ((REQUEST) == DMA_REQUEST_15))
-# Skip DMA_PERIPH_TO_MEMORY : no need parse
-# Skip DMA_MEMORY_TO_PERIPH : no need parse
-# Skip DMA_MEMORY_TO_MEMORY : no need parse
-# Skip DMA_PINC_ENABLE : no need parse
-# Skip DMA_PINC_DISABLE : no need parse
-# Skip DMA_MINC_ENABLE : no need parse
-# Skip DMA_MINC_DISABLE : no need parse
-# Skip DMA_PDATAALIGN_BYTE : no need parse
-# Skip DMA_PDATAALIGN_HALFWORD : no need parse
-# Skip DMA_PDATAALIGN_WORD : no need parse
-# Skip DMA_MDATAALIGN_BYTE : no need parse
-# Skip DMA_MDATAALIGN_HALFWORD : no need parse
-# Skip DMA_MDATAALIGN_WORD : no need parse
-# Skip DMA_NORMAL : no need parse
-# Skip DMA_CIRCULAR : no need parse
-# Skip DMA_PRIORITY_LOW : no need parse
-# Skip DMA_PRIORITY_MEDIUM : no need parse
-# Skip DMA_PRIORITY_HIGH : no need parse
-# Skip DMA_PRIORITY_VERY_HIGH : no need parse
-# Skip DMA_IT_TC : no need parse
-# Skip DMA_IT_HT : no need parse
-# Skip DMA_IT_TE : no need parse
-# Skip DMA_FLAG_GL1 : no need parse
-# Skip DMA_FLAG_TC1 : no need parse
-# Skip DMA_FLAG_HT1 : no need parse
-# Skip DMA_FLAG_TE1 : no need parse
-# Skip DMA_FLAG_GL2 : no need parse
-# Skip DMA_FLAG_TC2 : no need parse
-# Skip DMA_FLAG_HT2 : no need parse
-# Skip DMA_FLAG_TE2 : no need parse
-# Skip DMA_FLAG_GL3 : no need parse
-# Skip DMA_FLAG_TC3 : no need parse
-# Skip DMA_FLAG_HT3 : no need parse
-# Skip DMA_FLAG_TE3 : no need parse
-# Skip DMA_FLAG_GL4 : no need parse
-# Skip DMA_FLAG_TC4 : no need parse
-# Skip DMA_FLAG_HT4 : no need parse
-# Skip DMA_FLAG_TE4 : no need parse
-# Skip DMA_FLAG_GL5 : no need parse
-# Skip DMA_FLAG_TC5 : no need parse
-# Skip DMA_FLAG_HT5 : no need parse
-# Skip DMA_FLAG_TE5 : no need parse
-# Skip DMA_FLAG_GL6 : no need parse
-# Skip DMA_FLAG_TC6 : no need parse
-# Skip DMA_FLAG_HT6 : no need parse
-# Skip DMA_FLAG_TE6 : no need parse
-# Skip DMA_FLAG_GL7 : no need parse
-# Skip DMA_FLAG_TC7 : no need parse
-# Skip DMA_FLAG_HT7 : no need parse
-# Skip DMA_FLAG_TE7 : no need parse
+DMA_PERIPH_TO_MEMORY = 0x0
+DMA_MEMORY_TO_PERIPH = 0x10
+DMA_MEMORY_TO_MEMORY = 0x4000
+DMA_PINC_ENABLE = 0x40
+DMA_PINC_DISABLE = 0x0
+DMA_MINC_ENABLE = 0x80
+DMA_MINC_DISABLE = 0x0
+DMA_PDATAALIGN_BYTE = 0x0
+DMA_PDATAALIGN_HALFWORD = 0x100
+DMA_PDATAALIGN_WORD = 0x200
+DMA_MDATAALIGN_BYTE = 0x0
+DMA_MDATAALIGN_HALFWORD = 0x400
+DMA_MDATAALIGN_WORD = 0x800
+DMA_NORMAL = 0x0
+DMA_CIRCULAR = 0x20
+DMA_PRIORITY_LOW = 0x0
+DMA_PRIORITY_MEDIUM = 0x1000
+DMA_PRIORITY_HIGH = 0x2000
+DMA_PRIORITY_VERY_HIGH = 0x3000
+DMA_IT_TC = 0x2
+DMA_IT_HT = 0x4
+DMA_IT_TE = 0x8
+DMA_FLAG_GL1 = 0x1
+DMA_FLAG_TC1 = 0x2
+DMA_FLAG_HT1 = 0x4
+DMA_FLAG_TE1 = 0x8
+DMA_FLAG_GL2 = 0x10
+DMA_FLAG_TC2 = 0x20
+DMA_FLAG_HT2 = 0x40
+DMA_FLAG_TE2 = 0x80
+DMA_FLAG_GL3 = 0x100
+DMA_FLAG_TC3 = 0x200
+DMA_FLAG_HT3 = 0x400
+DMA_FLAG_TE3 = 0x800
+DMA_FLAG_GL4 = 0x1000
+DMA_FLAG_TC4 = 0x2000
+DMA_FLAG_HT4 = 0x4000
+DMA_FLAG_TE4 = 0x8000
+DMA_FLAG_GL5 = 0x10000
+DMA_FLAG_TC5 = 0x20000
+DMA_FLAG_HT5 = 0x40000
+DMA_FLAG_TE5 = 0x80000
+DMA_FLAG_GL6 = 0x100000
+DMA_FLAG_TC6 = 0x200000
+DMA_FLAG_HT6 = 0x400000
+DMA_FLAG_TE6 = 0x800000
+DMA_FLAG_GL7 = 0x1000000
+DMA_FLAG_TC7 = 0x2000000
+DMA_FLAG_HT7 = 0x4000000
+DMA_FLAG_TE7 = 0x8000000
 # fun define __HAL_DMA_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_DMA_STATE_RESET)
 # fun define __HAL_DMA_ENABLE(__HANDLE__)        ((__HANDLE__)->Instance->CCR |=  DMA_CCR_EN)
 # fun define __HAL_DMA_DISABLE(__HANDLE__)       ((__HANDLE__)->Instance->CCR &=  ~DMA_CCR_EN)
@@ -7695,6 +7721,14 @@ class DAC_ChannelConfTypeDef(ctypes.Structure):
 class DMA_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Request',	ctypes.c_uint32),
+		('Direction',	ctypes.c_uint32),
+		('PeriphInc',	ctypes.c_uint32),
+		('MemInc',	ctypes.c_uint32),
+		('PeriphDataAlignment',	ctypes.c_uint32),
+		('MemDataAlignment',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('Priority',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -7706,12 +7740,12 @@ class DMA_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_firewall.h : 
 
 # empty define __STM32L0xx_HAL_FIREWALL_H
-# Skip FIREWALL_VOLATILEDATA_NOT_EXECUTABLE : no need parse
-# Skip FIREWALL_VOLATILEDATA_EXECUTABLE : no need parse
-# Skip FIREWALL_VOLATILEDATA_NOT_SHARED : no need parse
-# Skip FIREWALL_VOLATILEDATA_SHARED : no need parse
-# Skip FIREWALL_PRE_ARM_RESET : no need parse
-# Skip FIREWALL_PRE_ARM_SET : no need parse
+FIREWALL_VOLATILEDATA_NOT_EXECUTABLE = 0x0
+FIREWALL_VOLATILEDATA_EXECUTABLE = 0x4
+FIREWALL_VOLATILEDATA_NOT_SHARED = 0x0
+FIREWALL_VOLATILEDATA_SHARED = 0x2
+FIREWALL_PRE_ARM_RESET = 0x0
+FIREWALL_PRE_ARM_SET = 0x1
 # fun define IS_FIREWALL_CODE_SEGMENT_ADDRESS(ADDRESS)        (((ADDRESS) >= FLASH_BASE) && ((ADDRESS) < (FLASH_BASE + FLASH_SIZE)))
 # fun define IS_FIREWALL_CODE_SEGMENT_LENGTH(ADDRESS, LENGTH) (((ADDRESS) + (LENGTH)) <= (FLASH_BASE + FLASH_SIZE))
 # fun define IS_FIREWALL_NONVOLATILEDATA_SEGMENT_ADDRESS(ADDRESS)        (((ADDRESS) >= FLASH_BASE) && ((ADDRESS) < (FLASH_BASE + FLASH_SIZE)))
@@ -7785,6 +7819,14 @@ class DMA_InitTypeDef(ctypes.Structure):
 class FIREWALL_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('CodeSegmentStartAddress',	ctypes.c_uint32),
+		('CodeSegmentLength',	ctypes.c_uint32),
+		('NonVDataSegmentStartAddress',	ctypes.c_uint32),
+		('NonVDataSegmentLength',	ctypes.c_uint32),
+		('VDataSegmentStartAddress',	ctypes.c_uint32),
+		('VDataSegmentLength',	ctypes.c_uint32),
+		('VolatileDataExecution',	ctypes.c_uint32),
+		('VolatileDataShared',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -7794,10 +7836,10 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_flash_ex.h : 
 
 # empty define __STM32L0xx_HAL_FLASH_EX_H
-# Skip FLASH_SIZE_DATA_REGISTER : no need parse
-# Skip FLASH_NBPAGES_MAX : no need parse
-# Skip WRP_MASK_LOW : no need parse
-# Skip WRP_MASK_HIGH : no need parse
+FLASH_SIZE_DATA_REGISTER = 0x1FF8007C
+# Skip FLASH_NBPAGES_MAX : no time
+WRP_MASK_LOW = 0xFFFF
+WRP_MASK_HIGH = 0xFFFF0000
 # fun define IS_FLASH_TYPEERASE(__VALUE__)   (((__VALUE__) == FLASH_TYPEERASE_PAGES))
 # fun define IS_OPTIONBYTE(__VALUE__) (((__VALUE__) <= (OPTIONBYTE_WRP  | OPTIONBYTE_RDP | \
 #                                                  OPTIONBYTE_USER | OPTIONBYTE_BOR | OPTIONBYTE_BOOT_BIT1)))
@@ -7836,56 +7878,56 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # fun define IS_FLASH_DATA_ADDRESS(__ADDRESS__)          (((__ADDRESS__) >= DATA_EEPROM_BASE) && ((__ADDRESS__) <= DATA_EEPROM_END))
 # fun define IS_FLASH_PROGRAM_ADDRESS(__ADDRESS__)       (((__ADDRESS__) >= FLASH_BASE)       && ((__ADDRESS__) <  (FLASH_BASE + FLASH_SIZE)))
 # fun define IS_NBPAGES(__PAGES__) (((__PAGES__) >= 1) && ((__PAGES__) <= FLASH_NBPAGES_MAX))
-# Skip FLASH_TYPEERASE_PAGES : no need parse
-# Skip OPTIONBYTE_WRP : no need parse
-# Skip OPTIONBYTE_RDP : no need parse
-# Skip OPTIONBYTE_USER : no need parse
-# Skip OPTIONBYTE_BOR : no need parse
-# Skip OPTIONBYTE_BOOT_BIT1 : no need parse
-# Skip OB_WRPSTATE_DISABLE : no need parse
-# Skip OB_WRPSTATE_ENABLE : no need parse
-# Skip OB_WRP_Pages0to31 : no need parse
-# Skip OB_WRP_Pages32to63 : no need parse
-# Skip OB_WRP_Pages64to95 : no need parse
-# Skip OB_WRP_Pages96to127 : no need parse
-# Skip OB_WRP_Pages128to159 : no need parse
-# Skip OB_WRP_Pages160to191 : no need parse
-# Skip OB_WRP_Pages192to223 : no need parse
-# Skip OB_WRP_Pages224to255 : no need parse
-# Skip OB_WRP_AllPages : no need parse
-# Skip OB_WRP_Pages0to31 : no need parse
-# Skip OB_WRP_Pages32to63 : no need parse
-# Skip OB_WRP_Pages64to95 : no need parse
-# Skip OB_WRP_Pages96to127 : no need parse
-# Skip OB_WRP_Pages128to159 : no need parse
-# Skip OB_WRP_Pages160to191 : no need parse
-# Skip OB_WRP_Pages192to223 : no need parse
-# Skip OB_WRP_Pages224to255 : no need parse
-# Skip OB_WRP_Pages256to287 : no need parse
-# Skip OB_WRP_Pages288to319 : no need parse
-# Skip OB_WRP_Pages320to351 : no need parse
-# Skip OB_WRP_Pages352to383 : no need parse
-# Skip OB_WRP_Pages384to415 : no need parse
-# Skip OB_WRP_Pages416to447 : no need parse
-# Skip OB_WRP_Pages448to479 : no need parse
-# Skip OB_WRP_Pages480to511 : no need parse
-# Skip OB_WRP_AllPages : no need parse
-# Skip OB_WRP_Pages0to31 : no need parse
-# Skip OB_WRP_Pages32to63 : no need parse
-# Skip OB_WRP_Pages64to95 : no need parse
-# Skip OB_WRP_Pages96to127 : no need parse
-# Skip OB_WRP_Pages128to159 : no need parse
-# Skip OB_WRP_Pages160to191 : no need parse
-# Skip OB_WRP_Pages192to223 : no need parse
-# Skip OB_WRP_Pages224to255 : no need parse
-# Skip OB_WRP_Pages256to287 : no need parse
-# Skip OB_WRP_Pages288to319 : no need parse
-# Skip OB_WRP_Pages320to351 : no need parse
-# Skip OB_WRP_Pages352to383 : no need parse
-# Skip OB_WRP_Pages384to415 : no need parse
-# Skip OB_WRP_Pages416to447 : no need parse
-# Skip OB_WRP_Pages448to479 : no need parse
-# Skip OB_WRP_Pages480to511 : no need parse
+FLASH_TYPEERASE_PAGES = 0x0
+OPTIONBYTE_WRP = 0x1
+OPTIONBYTE_RDP = 0x2
+OPTIONBYTE_USER = 0x4
+OPTIONBYTE_BOR = 0x8
+OPTIONBYTE_BOOT_BIT1 = 0x10
+OB_WRPSTATE_DISABLE = 0x0
+OB_WRPSTATE_ENABLE = 0x1
+OB_WRP_Pages0to31 = 0x1
+OB_WRP_Pages32to63 = 0x2
+OB_WRP_Pages64to95 = 0x4
+OB_WRP_Pages96to127 = 0x8
+OB_WRP_Pages128to159 = 0x10
+OB_WRP_Pages160to191 = 0x20
+OB_WRP_Pages192to223 = 0x40
+OB_WRP_Pages224to255 = 0x80
+OB_WRP_AllPages = 0xFFFF
+OB_WRP_Pages0to31 = 0x1
+OB_WRP_Pages32to63 = 0x2
+OB_WRP_Pages64to95 = 0x4
+OB_WRP_Pages96to127 = 0x8
+OB_WRP_Pages128to159 = 0x10
+OB_WRP_Pages160to191 = 0x20
+OB_WRP_Pages192to223 = 0x40
+OB_WRP_Pages224to255 = 0x80
+OB_WRP_Pages256to287 = 0x100
+OB_WRP_Pages288to319 = 0x200
+OB_WRP_Pages320to351 = 0x400
+OB_WRP_Pages352to383 = 0x800
+OB_WRP_Pages384to415 = 0x1000
+OB_WRP_Pages416to447 = 0x2000
+OB_WRP_Pages448to479 = 0x4000
+OB_WRP_Pages480to511 = 0x8000
+OB_WRP_AllPages = 0xFFFF
+OB_WRP_Pages0to31 = 0x1
+OB_WRP_Pages32to63 = 0x2
+OB_WRP_Pages64to95 = 0x4
+OB_WRP_Pages96to127 = 0x8
+OB_WRP_Pages128to159 = 0x10
+OB_WRP_Pages160to191 = 0x20
+OB_WRP_Pages192to223 = 0x40
+OB_WRP_Pages224to255 = 0x80
+OB_WRP_Pages256to287 = 0x100
+OB_WRP_Pages288to319 = 0x200
+OB_WRP_Pages320to351 = 0x400
+OB_WRP_Pages352to383 = 0x800
+OB_WRP_Pages384to415 = 0x1000
+OB_WRP_Pages416to447 = 0x2000
+OB_WRP_Pages448to479 = 0x4000
+OB_WRP_Pages480to511 = 0x8000
 # Skip OB_WRP_Pages512to543 : no need parse
 # Skip OB_WRP_Pages544to575 : no need parse
 # Skip OB_WRP_Pages576to607 : no need parse
@@ -7902,7 +7944,7 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # Skip OB_WRP_Pages928to959 : no need parse
 # Skip OB_WRP_Pages960to991 : no need parse
 # Skip OB_WRP_Pages992to1023 : no need parse
-# Skip OB_WRP_AllPages : no need parse
+OB_WRP_AllPages = 0xFFFF
 # Skip OB_WRP2_Pages1024to1055 : no need parse
 # Skip OB_WRP2_Pages1056to1087 : no need parse
 # Skip OB_WRP2_Pages1088to1119 : no need parse
@@ -7920,69 +7962,69 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # Skip OB_WRP2_Pages1472to1503 : no need parse
 # Skip OB_WRP2_Pages1504to1535 : no need parse
 # Skip OB_WRP2_AllPages : no need parse
-# Skip OB_RDP_LEVEL_0 : no need parse
-# Skip OB_RDP_LEVEL_1 : no need parse
-# Skip OB_RDP_LEVEL_2 : no need parse
-# Skip OB_BOR_OFF : no need parse
-# Skip OB_BOR_LEVEL1 : no need parse
-# Skip OB_BOR_LEVEL2 : no need parse
-# Skip OB_BOR_LEVEL3 : no need parse
-# Skip OB_BOR_LEVEL4 : no need parse
-# Skip OB_BOR_LEVEL5 : no need parse
-# Skip OB_IWDG_SW : no need parse
-# Skip OB_IWDG_HW : no need parse
-# Skip OB_STOP_NORST : no need parse
-# Skip OB_STOP_RST : no need parse
-# Skip OB_STDBY_NORST : no need parse
-# Skip OB_STDBY_RST : no need parse
-# Skip OPTIONBYTE_PCROP : no need parse
+OB_RDP_LEVEL_0 = 0xAA
+OB_RDP_LEVEL_1 = 0xBB
+OB_RDP_LEVEL_2 = 0xCC
+OB_BOR_OFF = 0x0
+OB_BOR_LEVEL1 = 0x8
+OB_BOR_LEVEL2 = 0x9
+OB_BOR_LEVEL3 = 0xA
+OB_BOR_LEVEL4 = 0xB
+OB_BOR_LEVEL5 = 0xC
+OB_IWDG_SW = 0x10
+OB_IWDG_HW = 0x0
+OB_STOP_NORST = 0x20
+OB_STOP_RST = 0x0
+OB_STDBY_NORST = 0x40
+OB_STDBY_RST = 0x0
+OPTIONBYTE_PCROP = 0x1
 # Skip OPTIONBYTE_BOOTCONFIG : no need parse
-# Skip OB_PCROP_STATE_DISABLE : no need parse
-# Skip OB_PCROP_STATE_ENABLE : no need parse
-# Skip OB_PCROP_DESELECTED : no need parse
-# Skip OB_PCROP_SELECTED : no need parse
-# Skip OB_PCROP_Pages0to31 : no need parse
-# Skip OB_PCROP_Pages32to63 : no need parse
-# Skip OB_PCROP_Pages64to95 : no need parse
-# Skip OB_PCROP_Pages96to127 : no need parse
-# Skip OB_PCROP_Pages128to159 : no need parse
-# Skip OB_PCROP_Pages160to191 : no need parse
-# Skip OB_PCROP_Pages192to223 : no need parse
-# Skip OB_PCROP_Pages224to255 : no need parse
-# Skip OB_PCROP_AllPages : no need parse
-# Skip OB_PCROP_Pages0to31 : no need parse
-# Skip OB_PCROP_Pages32to63 : no need parse
-# Skip OB_PCROP_Pages64to95 : no need parse
-# Skip OB_PCROP_Pages96to127 : no need parse
-# Skip OB_PCROP_Pages128to159 : no need parse
-# Skip OB_PCROP_Pages160to191 : no need parse
-# Skip OB_PCROP_Pages192to223 : no need parse
-# Skip OB_PCROP_Pages224to255 : no need parse
-# Skip OB_PCROP_Pages256to287 : no need parse
-# Skip OB_PCROP_Pages288to319 : no need parse
-# Skip OB_PCROP_Pages320to351 : no need parse
-# Skip OB_PCROP_Pages352to383 : no need parse
-# Skip OB_PCROP_Pages384to415 : no need parse
-# Skip OB_PCROP_Pages416to447 : no need parse
-# Skip OB_PCROP_Pages448to479 : no need parse
-# Skip OB_PCROP_Pages480to511 : no need parse
-# Skip OB_PCROP_AllPages : no need parse
-# Skip OB_PCROP_Pages0to31 : no need parse
-# Skip OB_PCROP_Pages32to63 : no need parse
-# Skip OB_PCROP_Pages64to95 : no need parse
-# Skip OB_PCROP_Pages96to127 : no need parse
-# Skip OB_PCROP_Pages128to159 : no need parse
-# Skip OB_PCROP_Pages160to191 : no need parse
-# Skip OB_PCROP_Pages192to223 : no need parse
-# Skip OB_PCROP_Pages224to255 : no need parse
-# Skip OB_PCROP_Pages256to287 : no need parse
-# Skip OB_PCROP_Pages288to319 : no need parse
-# Skip OB_PCROP_Pages320to351 : no need parse
-# Skip OB_PCROP_Pages352to383 : no need parse
-# Skip OB_PCROP_Pages384to415 : no need parse
-# Skip OB_PCROP_Pages416to447 : no need parse
-# Skip OB_PCROP_Pages448to479 : no need parse
-# Skip OB_PCROP_Pages480to511 : no need parse
+OB_PCROP_STATE_DISABLE = 0x0
+OB_PCROP_STATE_ENABLE = 0x1
+OB_PCROP_DESELECTED = 0x0
+OB_PCROP_SELECTED = 0x100
+OB_PCROP_Pages0to31 = 0x1
+OB_PCROP_Pages32to63 = 0x2
+OB_PCROP_Pages64to95 = 0x4
+OB_PCROP_Pages96to127 = 0x8
+OB_PCROP_Pages128to159 = 0x10
+OB_PCROP_Pages160to191 = 0x20
+OB_PCROP_Pages192to223 = 0x40
+OB_PCROP_Pages224to255 = 0x80
+OB_PCROP_AllPages = 0xFFFF
+OB_PCROP_Pages0to31 = 0x1
+OB_PCROP_Pages32to63 = 0x2
+OB_PCROP_Pages64to95 = 0x4
+OB_PCROP_Pages96to127 = 0x8
+OB_PCROP_Pages128to159 = 0x10
+OB_PCROP_Pages160to191 = 0x20
+OB_PCROP_Pages192to223 = 0x40
+OB_PCROP_Pages224to255 = 0x80
+OB_PCROP_Pages256to287 = 0x100
+OB_PCROP_Pages288to319 = 0x200
+OB_PCROP_Pages320to351 = 0x400
+OB_PCROP_Pages352to383 = 0x800
+OB_PCROP_Pages384to415 = 0x1000
+OB_PCROP_Pages416to447 = 0x2000
+OB_PCROP_Pages448to479 = 0x4000
+OB_PCROP_Pages480to511 = 0x8000
+OB_PCROP_AllPages = 0xFFFF
+OB_PCROP_Pages0to31 = 0x1
+OB_PCROP_Pages32to63 = 0x2
+OB_PCROP_Pages64to95 = 0x4
+OB_PCROP_Pages96to127 = 0x8
+OB_PCROP_Pages128to159 = 0x10
+OB_PCROP_Pages160to191 = 0x20
+OB_PCROP_Pages192to223 = 0x40
+OB_PCROP_Pages224to255 = 0x80
+OB_PCROP_Pages256to287 = 0x100
+OB_PCROP_Pages288to319 = 0x200
+OB_PCROP_Pages320to351 = 0x400
+OB_PCROP_Pages352to383 = 0x800
+OB_PCROP_Pages384to415 = 0x1000
+OB_PCROP_Pages416to447 = 0x2000
+OB_PCROP_Pages448to479 = 0x4000
+OB_PCROP_Pages480to511 = 0x8000
 # Skip OB_PCROP_Pages512to543 : no need parse
 # Skip OB_PCROP_Pages544to575 : no need parse
 # Skip OB_PCROP_Pages576to607 : no need parse
@@ -7999,7 +8041,7 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # Skip OB_PCROP_Pages928to959 : no need parse
 # Skip OB_PCROP_Pages960to991 : no need parse
 # Skip OB_PCROP_Pages992to1023 : no need parse
-# Skip OB_PCROP_AllPages : no need parse
+OB_PCROP_AllPages = 0xFFFF
 # Skip OB_PCROP2_Pages1024to1055 : no need parse
 # Skip OB_PCROP2_Pages1056to1087 : no need parse
 # Skip OB_PCROP2_Pages1088to1119 : no need parse
@@ -8017,11 +8059,11 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 # Skip OB_PCROP2_Pages1472to1503 : no need parse
 # Skip OB_PCROP2_Pages1504to1535 : no need parse
 # Skip OB_PCROP2_AllPages : no need parse
-# Skip OB_BOOT_BIT1_RESET : no need parse
-# Skip OB_BOOT_BIT1_SET : no need parse
-# Skip FLASH_TYPEPROGRAMDATA_BYTE : no need parse
-# Skip FLASH_TYPEPROGRAMDATA_HALFWORD : no need parse
-# Skip FLASH_TYPEPROGRAMDATA_WORD : no need parse
+OB_BOOT_BIT1_RESET = 0x0
+OB_BOOT_BIT1_SET = 0x1
+FLASH_TYPEPROGRAMDATA_BYTE = 0x0
+FLASH_TYPEPROGRAMDATA_HALFWORD = 0x1
+FLASH_TYPEPROGRAMDATA_WORD = 0x2
 # Skip OB_BOOT_BANK1 : no need parse
 # Skip OB_BOOT_BANK2 : no need parse
 # fun define __HAL_FLASH_SET_LATENCY(__LATENCY__) \
@@ -8048,6 +8090,9 @@ class FIREWALL_InitTypeDef(ctypes.Structure):
 class FLASH_EraseInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('TypeErase',	ctypes.c_uint32),
+		('PageAddress',	ctypes.c_uint32),
+		('NbPages',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -8057,6 +8102,13 @@ class FLASH_EraseInitTypeDef(ctypes.Structure):
 class FLASH_OBProgramInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('OptionType',	ctypes.c_uint32),
+		('WRPState',	ctypes.c_uint32),
+		('WRPSector',	ctypes.c_uint32),
+		('RDPLevel',	ctypes.c_uint8),
+		('BORLevel',	ctypes.c_uint8),
+		('USERConfig',	ctypes.c_uint8),
+		('BOOTBit1Config',	ctypes.c_uint8),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -8066,6 +8118,9 @@ class FLASH_OBProgramInitTypeDef(ctypes.Structure):
 class FLASH_AdvOBProgramInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('OptionType',	ctypes.c_uint32),
+		('PCROPState',	ctypes.c_uint32),
+		('PCROPSector',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -8075,53 +8130,53 @@ class FLASH_AdvOBProgramInitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_flash.h : 
 
 # Enum FLASH_ProcedureTypeDef
-# Skip FLASH_PROC_NONE : no need parse
-# Skip FLASH_PROC_PAGEERASE : no need parse
-# Skip FLASH_PROC_PROGRAM : no need parse
+FLASH_PROC_NONE = 0x0
+FLASH_PROC_PAGEERASE = 0x1
+FLASH_PROC_PROGRAM = 0x2
 # empty define __STM32L0xx_HAL_FLASH_H
-# Skip FLASH_TIMEOUT_VALUE : no need parse
-# Skip FLASH_SIZE_DATA_REGISTER : no need parse
+FLASH_TIMEOUT_VALUE = 0xC350
+FLASH_SIZE_DATA_REGISTER = 0x1FF8007C
 # fun define IS_FLASH_TYPEPROGRAM(_VALUE_)   ((_VALUE_) == FLASH_TYPEPROGRAM_WORD)
 # fun define IS_FLASH_LATENCY(__LATENCY__) (((__LATENCY__) == FLASH_LATENCY_0) || \
 #                                       ((__LATENCY__) == FLASH_LATENCY_1))
-# Skip HAL_FLASH_ERROR_NONE : no need parse
-# Skip HAL_FLASH_ERROR_PGA : no need parse
-# Skip HAL_FLASH_ERROR_WRP : no need parse
-# Skip HAL_FLASH_ERROR_OPTV : no need parse
-# Skip HAL_FLASH_ERROR_SIZE : no need parse
-# Skip HAL_FLASH_ERROR_RD : no need parse
-# Skip HAL_FLASH_ERROR_FWWERR : no need parse
-# Skip HAL_FLASH_ERROR_NOTZERO : no need parse
-# Skip FLASH_SIZE : no need parse
-# Skip FLASH_PAGE_SIZE : no need parse
-# Skip FLASH_END : no need parse
+HAL_FLASH_ERROR_NONE = 0x0
+HAL_FLASH_ERROR_PGA = 0x1
+HAL_FLASH_ERROR_WRP = 0x2
+HAL_FLASH_ERROR_OPTV = 0x4
+HAL_FLASH_ERROR_SIZE = 0x8
+HAL_FLASH_ERROR_RD = 0x10
+HAL_FLASH_ERROR_FWWERR = 0x20
+HAL_FLASH_ERROR_NOTZERO = 0x40
+# Skip FLASH_SIZE : no time
+FLASH_PAGE_SIZE = 0x80
+# Skip FLASH_END : no time
 # Skip FLASH_BANK2_BASE : no need parse
 # Skip FLASH_BANK1_END : no need parse
 # Skip FLASH_BANK2_END : no need parse
-# Skip FLASH_TYPEPROGRAM_WORD : no need parse
-# Skip FLASH_LATENCY_0 : no need parse
-# Skip FLASH_LATENCY_1 : no need parse
-# Skip FLASH_IT_EOP : no need parse
-# Skip FLASH_IT_ERR : no need parse
-# Skip FLASH_FLAG_BSY : no need parse
-# Skip FLASH_FLAG_EOP : no need parse
-# Skip FLASH_FLAG_ENDHV : no need parse
-# Skip FLASH_FLAG_READY : no need parse
-# Skip FLASH_FLAG_WRPERR : no need parse
-# Skip FLASH_FLAG_PGAERR : no need parse
-# Skip FLASH_FLAG_SIZERR : no need parse
-# Skip FLASH_FLAG_OPTVERR : no need parse
-# Skip FLASH_FLAG_RDERR : no need parse
-# Skip FLASH_FLAG_FWWERR : no need parse
-# Skip FLASH_FLAG_NOTZEROERR : no need parse
-# Skip FLASH_PDKEY1 : no need parse
-# Skip FLASH_PDKEY2 : no need parse
-# Skip FLASH_PEKEY1 : no need parse
-# Skip FLASH_PEKEY2 : no need parse
-# Skip FLASH_PRGKEY1 : no need parse
-# Skip FLASH_PRGKEY2 : no need parse
-# Skip FLASH_OPTKEY1 : no need parse
-# Skip FLASH_OPTKEY2 : no need parse
+FLASH_TYPEPROGRAM_WORD = 0x2
+FLASH_LATENCY_0 = 0x0
+FLASH_LATENCY_1 = 0x1
+FLASH_IT_EOP = 0x10000
+FLASH_IT_ERR = 0x20000
+FLASH_FLAG_BSY = 0x1
+FLASH_FLAG_EOP = 0x2
+FLASH_FLAG_ENDHV = 0x4
+FLASH_FLAG_READY = 0x8
+FLASH_FLAG_WRPERR = 0x100
+FLASH_FLAG_PGAERR = 0x200
+FLASH_FLAG_SIZERR = 0x400
+FLASH_FLAG_OPTVERR = 0x800
+FLASH_FLAG_RDERR = 0x2000
+FLASH_FLAG_FWWERR = 0x20000
+FLASH_FLAG_NOTZEROERR = 0x10000
+FLASH_PDKEY1 = 0x4152637
+FLASH_PDKEY2 = 0xFAFBFCFD
+FLASH_PEKEY1 = 0x89ABCDEF
+FLASH_PEKEY2 = 0x2030405
+FLASH_PRGKEY1 = 0x8C9DAEBF
+FLASH_PRGKEY2 = 0x13141516
+FLASH_OPTKEY1 = 0xFBEAD9C8
+FLASH_OPTKEY2 = 0x24252627
 # Skip InterruptType_ACTLR_DISMCYCINT_Msk : no need parse
 # fun define __HAL_FLASH_ENABLE_IT(__INTERRUPT__)  SET_BIT((FLASH->PECR), (__INTERRUPT__))
 # fun define __HAL_FLASH_DISABLE_IT(__INTERRUPT__)  CLEAR_BIT((FLASH->PECR), (uint32_t)(__INTERRUPT__))
@@ -8132,6 +8187,12 @@ class FLASH_AdvOBProgramInitTypeDef(ctypes.Structure):
 class FLASH_ProcessTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ProcedureOnGoing',	ctypes.c_uint32),
+		('NbPagesToErase',	ctypes.c_uint32),
+		('Address',	ctypes.c_uint32),
+		('Page',	ctypes.c_uint32),
+		('Lock',	ctypes.c_uint32),
+		('ErrorCode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -8146,483 +8207,483 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_gpio_ex.h : 
 
 # empty define __STM32L0xx_HAL_GPIO_EX_H
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF0_USB : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF0_USB = 0x0
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF1_SPI2 = 0x1
 # Skip GPIO_AF1_TIM21 : no need parse
-# Skip GPIO_AF1_LCD : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
+GPIO_AF1_LCD = 0x1
+GPIO_AF2_TIM2 = 0x2
 # Skip GPIO_AF2_TIM3 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_LPUART1 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
+GPIO_AF2_RTC = 0x2
+GPIO_AF2_SPI2 = 0x2
 # Skip GPIO_AF2_USART5 : no need parse
 # Skip GPIO_AF2_SPI1 : no need parse
-# Skip GPIO_AF2_USB : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_TSC : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
+GPIO_AF2_USB = 0x2
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_TSC = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF4_TIM22 = 0x4
 # Skip GPIO_AF4_TIM3 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
 # Skip GPIO_AF5_USART1 : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
 # Skip GPIO_AF6_USART4 : no need parse
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
+GPIO_AF6_EVENTOUT = 0x6
 # Skip GPIO_AF6_I2C1 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
+GPIO_AF6_I2C2 = 0x6
 # Skip GPIO_AF6_USART5 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # Skip GPIO_AF7_I2C3 : no need parse
 # Skip GPIO_AF7_LPUART1 : no need parse
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF0_USB : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF0_USB = 0x0
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF1_SPI2 = 0x1
 # Skip GPIO_AF1_TIM21 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
+GPIO_AF2_TIM2 = 0x2
 # Skip GPIO_AF2_TIM3 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_LPUART1 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
+GPIO_AF2_RTC = 0x2
+GPIO_AF2_SPI2 = 0x2
 # Skip GPIO_AF2_USART5 : no need parse
 # Skip GPIO_AF2_SPI1 : no need parse
-# Skip GPIO_AF2_USB : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_TSC : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
+GPIO_AF2_USB = 0x2
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_TSC = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF4_TIM22 = 0x4
 # Skip GPIO_AF4_TIM3 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
 # Skip GPIO_AF5_USART1 : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
 # Skip GPIO_AF6_USART4 : no need parse
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
+GPIO_AF6_EVENTOUT = 0x6
 # Skip GPIO_AF6_I2C1 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
+GPIO_AF6_I2C2 = 0x6
 # Skip GPIO_AF6_USART5 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # Skip GPIO_AF7_I2C3 : no need parse
 # Skip GPIO_AF7_LPUART1 : no need parse
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF1_SPI2 = 0x1
 # Skip GPIO_AF1_TIM21 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
+GPIO_AF2_TIM2 = 0x2
 # Skip GPIO_AF2_TIM3 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_LPUART1 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
+GPIO_AF2_RTC = 0x2
+GPIO_AF2_SPI2 = 0x2
 # Skip GPIO_AF2_USART5 : no need parse
 # Skip GPIO_AF2_SPI1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF4_TIM22 = 0x4
 # Skip GPIO_AF4_TIM3 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
 # Skip GPIO_AF5_USART1 : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
 # Skip GPIO_AF6_USART4 : no need parse
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
+GPIO_AF6_EVENTOUT = 0x6
 # Skip GPIO_AF6_I2C1 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
+GPIO_AF6_I2C2 = 0x6
 # Skip GPIO_AF6_USART5 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # Skip GPIO_AF7_I2C3 : no need parse
 # Skip GPIO_AF7_LPUART1 : no need parse
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_USB : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TSC : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF1_LCD : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
-# Skip GPIO_AF2_USB : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_TSC : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_USB = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TSC = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_SPI2 = 0x1
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF1_LCD = 0x1
+GPIO_AF2_SPI2 = 0x2
+GPIO_AF2_LPUART1 = 0x2
+GPIO_AF2_USB = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_TSC = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_TIM22 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
+GPIO_AF6_I2C2 = 0x6
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_USB : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TSC : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
-# Skip GPIO_AF2_USB : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_TSC : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_USB = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TSC = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_SPI2 = 0x1
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF2_SPI2 = 0x2
+GPIO_AF2_LPUART1 = 0x2
+GPIO_AF2_USB = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_TSC = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_TIM22 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
+GPIO_AF6_I2C2 = 0x6
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_SPI2 : no need parse
-# Skip GPIO_AF0_USART1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TIM2 : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_SPI2 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF2_SPI2 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
-# Skip GPIO_AF2_USB : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_USART1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_SPI2 : no need parse
-# Skip GPIO_AF5_I2C2 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
-# Skip GPIO_AF6_I2C2 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_SPI2 = 0x0
+GPIO_AF0_USART1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TIM2 = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_SPI2 = 0x1
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF2_SPI2 = 0x2
+GPIO_AF2_LPUART1 = 0x2
+GPIO_AF2_USB = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_USART1 = 0x4
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_TIM22 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_SPI2 = 0x5
+GPIO_AF5_I2C2 = 0x5
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
+GPIO_AF6_I2C2 = 0x6
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_I2C1 = 0x1
 # Skip GPIO_AF1_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_TIM22 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_I2C1 = 0x1
 # Skip GPIO_AF1_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
 # Skip GPIO_AF5_SPI1 : no need parse
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_TIM22 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_TIM22 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_LPUART1 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF4_TIM22 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
-# Skip GPIO_AF5_TIM22 : no need parse
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF4_TIM22 = 0x4
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
+GPIO_AF5_TIM22 = 0x5
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
+GPIO_AF6_EVENTOUT = 0x6
 # Skip GPIO_AF6_I2C1 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
+GPIO_AF6_TIM21 = 0x6
 # Skip GPIO_AF7_LPUART1 : no need parse
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x07)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF0_LPUART1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPUART1 : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF6_TIM21 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF0_LPUART1 = 0x0
+GPIO_AF1_I2C1 = 0x1
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_LPUART1 = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF6_TIM21 = 0x6
+GPIO_AF6_EVENTOUT = 0x6
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x06)
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_LPTIM1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_LPTIM1 = 0x0
+GPIO_AF1_I2C1 = 0x1
 # Skip GPIO_AF1_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
 # Skip GPIO_AF2_MCO : no need parse
 # Skip GPIO_AF2_I2C1 : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_I2C1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
+GPIO_AF4_USART2 = 0x4
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_I2C1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
 # Skip GPIO_AF6_LPUART1 : no need parse
-# Skip GPIO_AF6_EVENTOUT : no need parse
-# Skip GPIO_AF7_COMP1 : no need parse
-# Skip GPIO_AF7_COMP2 : no need parse
+GPIO_AF6_EVENTOUT = 0x6
+GPIO_AF7_COMP1 = 0x7
+GPIO_AF7_COMP2 = 0x7
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x06)
-# Skip GPIO_AF0_USART2 : no need parse
-# Skip GPIO_AF0_EVENTOUT : no need parse
-# Skip GPIO_AF0_TIM21 : no need parse
-# Skip GPIO_AF0_SPI1 : no need parse
-# Skip GPIO_AF0_MCO : no need parse
-# Skip GPIO_AF0_SWDIO : no need parse
-# Skip GPIO_AF0_SWCLK : no need parse
-# Skip GPIO_AF1_SPI1 : no need parse
-# Skip GPIO_AF1_I2C1 : no need parse
+GPIO_AF0_USART2 = 0x0
+GPIO_AF0_EVENTOUT = 0x0
+GPIO_AF0_TIM21 = 0x0
+GPIO_AF0_SPI1 = 0x0
+GPIO_AF0_MCO = 0x0
+GPIO_AF0_SWDIO = 0x0
+GPIO_AF0_SWCLK = 0x0
+GPIO_AF1_SPI1 = 0x1
+GPIO_AF1_I2C1 = 0x1
 # Skip GPIO_AF1_LPTIM1 : no need parse
-# Skip GPIO_AF2_LPTIM1 : no need parse
-# Skip GPIO_AF2_TIM2 : no need parse
-# Skip GPIO_AF2_RTC : no need parse
-# Skip GPIO_AF2_EVENTOUT : no need parse
-# Skip GPIO_AF3_I2C1 : no need parse
-# Skip GPIO_AF3_EVENTOUT : no need parse
+GPIO_AF2_LPTIM1 = 0x2
+GPIO_AF2_TIM2 = 0x2
+GPIO_AF2_RTC = 0x2
+GPIO_AF2_EVENTOUT = 0x2
+GPIO_AF3_I2C1 = 0x3
+GPIO_AF3_EVENTOUT = 0x3
 # Skip GPIO_AF3_LPUART1 : no need parse
 # Skip GPIO_AF3_USART2 : no need parse
-# Skip GPIO_AF4_USART2 : no need parse
+GPIO_AF4_USART2 = 0x4
 # Skip GPIO_AF4_TIM21 : no need parse
-# Skip GPIO_AF4_LPUART1 : no need parse
-# Skip GPIO_AF4_EVENTOUT : no need parse
-# Skip GPIO_AF5_TIM2 : no need parse
-# Skip GPIO_AF5_TIM21 : no need parse
+GPIO_AF4_LPUART1 = 0x4
+GPIO_AF4_EVENTOUT = 0x4
+GPIO_AF5_TIM2 = 0x5
+GPIO_AF5_TIM21 = 0x5
 # Skip GPIO_AF5_SPI1 : no need parse
 # Skip GPIO_AF5_EVENTOUT : no need parse
 # Skip GPIO_AF6_LPUART1 : no need parse
 # fun define IS_GPIO_AF(AF)         ((AF) <= (uint8_t)0x06)
-# Skip GPIOA_PIN_AVAILABLE : no need parse
-# Skip GPIOB_PIN_AVAILABLE : no need parse
-# Skip GPIOC_PIN_AVAILABLE : no need parse
-# Skip GPIOD_PIN_AVAILABLE : no need parse
+GPIOA_PIN_AVAILABLE = 0xFFFF
+GPIOB_PIN_AVAILABLE = 0xFFFF
+GPIOC_PIN_AVAILABLE = 0xFFFF
+GPIOD_PIN_AVAILABLE = 0x4
 # Skip GPIOE_PIN_AVAILABLE : no need parse
-# Skip GPIOH_PIN_AVAILABLE : no need parse
+GPIOH_PIN_AVAILABLE = 0x3
 # fun define GPIO_GET_INDEX(__GPIOx__)    (((__GPIOx__) == (GPIOA))? 0U :\
 #                                      ((__GPIOx__) == (GPIOB))? 1U :\
 #                                      ((__GPIOx__) == (GPIOC))? 2U :\
@@ -8636,10 +8697,10 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 #            (((__INSTANCE__) == GPIOD) && (((__PIN__) & (GPIOD_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOD_PIN_AVAILABLE)) == (GPIOD_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOE) && (((__PIN__) & (GPIOE_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOE_PIN_AVAILABLE)) == (GPIOE_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOH) && (((__PIN__) & (GPIOH_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOH_PIN_AVAILABLE)) == (GPIOH_PIN_AVAILABLE))))
-# Skip GPIOA_PIN_AVAILABLE : no need parse
-# Skip GPIOB_PIN_AVAILABLE : no need parse
-# Skip GPIOC_PIN_AVAILABLE : no need parse
-# Skip GPIOH_PIN_AVAILABLE : no need parse
+GPIOA_PIN_AVAILABLE = 0xFFFF
+GPIOB_PIN_AVAILABLE = 0xFFFF
+GPIOC_PIN_AVAILABLE = 0xFFFF
+GPIOH_PIN_AVAILABLE = 0x3
 # fun define GPIO_GET_INDEX(__GPIOx__)    (((__GPIOx__) == (GPIOA))? 0U :\
 #                                      ((__GPIOx__) == (GPIOB))? 1U :\
 #                                      ((__GPIOx__) == (GPIOC))? 2U :\
@@ -8649,9 +8710,9 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 #            (((__INSTANCE__) == GPIOB) && (((__PIN__) & (GPIOB_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOB_PIN_AVAILABLE)) == (GPIOB_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOC) && (((__PIN__) & (GPIOC_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOC_PIN_AVAILABLE)) == (GPIOC_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOH) && (((__PIN__) & (GPIOH_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOH_PIN_AVAILABLE)) == (GPIOH_PIN_AVAILABLE))))
-# Skip GPIOA_PIN_AVAILABLE : no need parse
-# Skip GPIOB_PIN_AVAILABLE : no need parse
-# Skip GPIOC_PIN_AVAILABLE : no need parse
+GPIOA_PIN_AVAILABLE = 0xFFFF
+GPIOB_PIN_AVAILABLE = 0xFFFF
+GPIOC_PIN_AVAILABLE = 0xFFFF
 # fun define GPIO_GET_INDEX(__GPIOx__)    (((__GPIOx__) == (GPIOA))? 0U :\
 #                                      ((__GPIOx__) == (GPIOB))? 1U :\
 #                                      ((__GPIOx__) == (GPIOC))? 2U : 6U)
@@ -8659,11 +8720,11 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 #           ((((__INSTANCE__) == GPIOA) && (((__PIN__) & (GPIOA_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOA_PIN_AVAILABLE)) == (GPIOA_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOB) && (((__PIN__) & (GPIOB_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOB_PIN_AVAILABLE)) == (GPIOB_PIN_AVAILABLE))) || \
 #            (((__INSTANCE__) == GPIOC) && (((__PIN__) & (GPIOC_PIN_AVAILABLE)) != 0U) && (((__PIN__) | (GPIOC_PIN_AVAILABLE)) == (GPIOC_PIN_AVAILABLE))))
-# Skip GPIOA_PIN_AVAILABLE : no need parse
-# Skip GPIOB_PIN_AVAILABLE : no need parse
-# Skip GPIOC_PIN_AVAILABLE : no need parse
-# Skip GPIOD_PIN_AVAILABLE : no need parse
-# Skip GPIOH_PIN_AVAILABLE : no need parse
+GPIOA_PIN_AVAILABLE = 0xFFFF
+GPIOB_PIN_AVAILABLE = 0xFFFF
+GPIOC_PIN_AVAILABLE = 0xFFFF
+GPIOD_PIN_AVAILABLE = 0x4
+GPIOH_PIN_AVAILABLE = 0x3
 # fun define GPIO_GET_INDEX(__GPIOx__)    (((__GPIOx__) == (GPIOA))? 0U :\
 #                                      ((__GPIOx__) == (GPIOB))? 1U :\
 #                                      ((__GPIOx__) == (GPIOC))? 2U :\
@@ -8680,42 +8741,42 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_gpio.h : 
 
 # Enum GPIO_PinState
-# Skip GPIO_PIN_RESET : no need parse
-# Skip GPIO_PIN_SET : no need parse
+GPIO_PIN_RESET = 0x0
+GPIO_PIN_SET = 0x1
 # empty define __STM32L0xx_HAL_GPIO_H
 # fun define IS_GPIO_PIN_ACTION(__ACTION__) (((__ACTION__) == GPIO_PIN_RESET) || ((__ACTION__) == GPIO_PIN_SET))
-# Skip GPIO_PIN_0 : no need parse
-# Skip GPIO_PIN_1 : no need parse
-# Skip GPIO_PIN_2 : no need parse
-# Skip GPIO_PIN_3 : no need parse
-# Skip GPIO_PIN_4 : no need parse
-# Skip GPIO_PIN_5 : no need parse
-# Skip GPIO_PIN_6 : no need parse
-# Skip GPIO_PIN_7 : no need parse
-# Skip GPIO_PIN_8 : no need parse
-# Skip GPIO_PIN_9 : no need parse
-# Skip GPIO_PIN_10 : no need parse
-# Skip GPIO_PIN_11 : no need parse
-# Skip GPIO_PIN_12 : no need parse
-# Skip GPIO_PIN_13 : no need parse
-# Skip GPIO_PIN_14 : no need parse
-# Skip GPIO_PIN_15 : no need parse
-# Skip GPIO_PIN_All : no need parse
-# Skip GPIO_PIN_MASK : no need parse
+GPIO_PIN_0 = 0x1
+GPIO_PIN_1 = 0x2
+GPIO_PIN_2 = 0x4
+GPIO_PIN_3 = 0x8
+GPIO_PIN_4 = 0x10
+GPIO_PIN_5 = 0x20
+GPIO_PIN_6 = 0x40
+GPIO_PIN_7 = 0x80
+GPIO_PIN_8 = 0x100
+GPIO_PIN_9 = 0x200
+GPIO_PIN_10 = 0x400
+GPIO_PIN_11 = 0x800
+GPIO_PIN_12 = 0x1000
+GPIO_PIN_13 = 0x2000
+GPIO_PIN_14 = 0x4000
+GPIO_PIN_15 = 0x8000
+GPIO_PIN_All = 0xFFFF
+GPIO_PIN_MASK = 0xFFFF
 # fun define IS_GPIO_PIN(__PIN__)        ((((__PIN__) & GPIO_PIN_MASK) != (uint32_t)0x00) &&\
 #                                     (((__PIN__) & ~GPIO_PIN_MASK) == (uint32_t)0x00))
-# Skip GPIO_MODE_INPUT : no need parse
-# Skip GPIO_MODE_OUTPUT_PP : no need parse
-# Skip GPIO_MODE_OUTPUT_OD : no need parse
-# Skip GPIO_MODE_AF_PP : no need parse
-# Skip GPIO_MODE_AF_OD : no need parse
-# Skip GPIO_MODE_ANALOG : no need parse
-# Skip GPIO_MODE_IT_RISING : no need parse
-# Skip GPIO_MODE_IT_FALLING : no need parse
-# Skip GPIO_MODE_IT_RISING_FALLING : no need parse
-# Skip GPIO_MODE_EVT_RISING : no need parse
-# Skip GPIO_MODE_EVT_FALLING : no need parse
-# Skip GPIO_MODE_EVT_RISING_FALLING : no need parse
+GPIO_MODE_INPUT = 0x0
+GPIO_MODE_OUTPUT_PP = 0x1
+GPIO_MODE_OUTPUT_OD = 0x11
+GPIO_MODE_AF_PP = 0x2
+GPIO_MODE_AF_OD = 0x12
+GPIO_MODE_ANALOG = 0x3
+GPIO_MODE_IT_RISING = 0x10110000
+GPIO_MODE_IT_FALLING = 0x10210000
+GPIO_MODE_IT_RISING_FALLING = 0x10310000
+GPIO_MODE_EVT_RISING = 0x10120000
+GPIO_MODE_EVT_FALLING = 0x10220000
+GPIO_MODE_EVT_RISING_FALLING = 0x10320000
 # fun define IS_GPIO_MODE(__MODE__) (((__MODE__) == GPIO_MODE_INPUT)              ||\
 #                                ((__MODE__) == GPIO_MODE_OUTPUT_PP)          ||\
 #                                ((__MODE__) == GPIO_MODE_OUTPUT_OD)          ||\
@@ -8728,15 +8789,15 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 #                                ((__MODE__) == GPIO_MODE_EVT_FALLING)        ||\
 #                                ((__MODE__) == GPIO_MODE_EVT_RISING_FALLING) ||\
 #                                ((__MODE__) == GPIO_MODE_ANALOG))
-# Skip GPIO_SPEED_FREQ_LOW : no need parse
-# Skip GPIO_SPEED_FREQ_MEDIUM : no need parse
-# Skip GPIO_SPEED_FREQ_HIGH : no need parse
-# Skip GPIO_SPEED_FREQ_VERY_HIGH : no need parse
+GPIO_SPEED_FREQ_LOW = 0x0
+GPIO_SPEED_FREQ_MEDIUM = 0x1
+GPIO_SPEED_FREQ_HIGH = 0x2
+GPIO_SPEED_FREQ_VERY_HIGH = 0x3
 # fun define IS_GPIO_SPEED(__SPEED__) (((__SPEED__) == GPIO_SPEED_FREQ_LOW     )  || ((__SPEED__) == GPIO_SPEED_FREQ_MEDIUM     ) || \
 #                                  ((__SPEED__) == GPIO_SPEED_FREQ_HIGH  ) || ((__SPEED__) == GPIO_SPEED_FREQ_VERY_HIGH))
-# Skip GPIO_NOPULL : no need parse
-# Skip GPIO_PULLUP : no need parse
-# Skip GPIO_PULLDOWN : no need parse
+GPIO_NOPULL = 0x0
+GPIO_PULLUP = 0x1
+GPIO_PULLDOWN = 0x2
 # fun define IS_GPIO_PULL(__PULL__) (((__PULL__) == GPIO_NOPULL) || ((__PULL__) == GPIO_PULLUP) || \
 #                                ((__PULL__) == GPIO_PULLDOWN))
 # fun define __HAL_GPIO_EXTI_GET_FLAG(__EXTI_LINE__) (EXTI->PR & (__EXTI_LINE__))
@@ -8749,6 +8810,11 @@ class FLASH_ProcessTypeDef(ctypes.Structure):
 class GPIO_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Pin',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('Pull',	ctypes.c_uint32),
+		('Speed',	ctypes.c_uint32),
+		('Alternate',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -8838,23 +8904,23 @@ SYSCFG_FASTMODEPLUS_PB9 = 0x800
 # file stm32l0xx_hal_i2c_ex.h : 
 
 # empty define STM32L0xx_HAL_I2C_EX_H
-# Skip I2C_ANALOGFILTER_ENABLE : no need parse
-# Skip I2C_ANALOGFILTER_DISABLE : no need parse
-# Skip I2C_FMP_NOT_SUPPORTED : no need parse
-# Skip I2C_FASTMODEPLUS_PB6 : no need parse
-# Skip I2C_FASTMODEPLUS_PB7 : no need parse
-# Skip I2C_FASTMODEPLUS_PB6 : no need parse
-# Skip I2C_FASTMODEPLUS_PB7 : no need parse
-# Skip I2C_FASTMODEPLUS_PB8 : no need parse
-# Skip I2C_FASTMODEPLUS_PB9 : no need parse
-# Skip I2C_FASTMODEPLUS_PB8 : no need parse
-# Skip I2C_FASTMODEPLUS_PB9 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C1 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C1 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C2 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C2 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C3 : no need parse
-# Skip I2C_FASTMODEPLUS_I2C3 : no need parse
+I2C_ANALOGFILTER_ENABLE = 0x0
+I2C_ANALOGFILTER_DISABLE = 0x1000
+I2C_FMP_NOT_SUPPORTED = 0xAAAA0000
+I2C_FASTMODEPLUS_PB6 = 0x100
+I2C_FASTMODEPLUS_PB7 = 0x200
+I2C_FASTMODEPLUS_PB6 = 0x100
+I2C_FASTMODEPLUS_PB7 = 0x200
+I2C_FASTMODEPLUS_PB8 = 0x400
+I2C_FASTMODEPLUS_PB9 = 0x800
+I2C_FASTMODEPLUS_PB8 = 0x400
+I2C_FASTMODEPLUS_PB9 = 0x800
+I2C_FASTMODEPLUS_I2C1 = 0x1000
+I2C_FASTMODEPLUS_I2C1 = 0x1000
+I2C_FASTMODEPLUS_I2C2 = 0x2000
+I2C_FASTMODEPLUS_I2C2 = 0x2000
+I2C_FASTMODEPLUS_I2C3 = 0xAAAA0400
+I2C_FASTMODEPLUS_I2C3 = 0xAAAA0400
 # fun define IS_I2C_ANALOG_FILTER(FILTER)    (((FILTER) == I2C_ANALOGFILTER_ENABLE) || \
 #                                          ((FILTER) == I2C_ANALOGFILTER_DISABLE))
 # fun define IS_I2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000FU)
@@ -8871,22 +8937,22 @@ SYSCFG_FASTMODEPLUS_PB9 = 0x800
 # file stm32l0xx_hal_i2c.h : 
 
 # Enum HAL_I2C_StateTypeDef
-# Skip HAL_I2C_STATE_RESET : no need parse
-# Skip HAL_I2C_STATE_READY : no need parse
-# Skip HAL_I2C_STATE_BUSY : no need parse
-# Skip HAL_I2C_STATE_BUSY_TX : no need parse
-# Skip HAL_I2C_STATE_BUSY_RX : no need parse
-# Skip HAL_I2C_STATE_LISTEN : no need parse
-# Skip HAL_I2C_STATE_BUSY_TX_LISTEN : no need parse
-# Skip HAL_I2C_STATE_BUSY_RX_LISTEN : no need parse
-# Skip HAL_I2C_STATE_ABORT : no need parse
-# Skip HAL_I2C_STATE_TIMEOUT : no need parse
-# Skip HAL_I2C_STATE_ERROR : no need parse
+HAL_I2C_STATE_RESET = 0x0
+HAL_I2C_STATE_READY = 0x20
+HAL_I2C_STATE_BUSY = 0x24
+HAL_I2C_STATE_BUSY_TX = 0x21
+HAL_I2C_STATE_BUSY_RX = 0x22
+HAL_I2C_STATE_LISTEN = 0x28
+HAL_I2C_STATE_BUSY_TX_LISTEN = 0x29
+HAL_I2C_STATE_BUSY_RX_LISTEN = 0x2A
+HAL_I2C_STATE_ABORT = 0x60
+HAL_I2C_STATE_TIMEOUT = 0xA0
+HAL_I2C_STATE_ERROR = 0xE0
 # Enum HAL_I2C_ModeTypeDef
-# Skip HAL_I2C_MODE_NONE : no need parse
-# Skip HAL_I2C_MODE_MASTER : no need parse
-# Skip HAL_I2C_MODE_SLAVE : no need parse
-# Skip HAL_I2C_MODE_MEM : no need parse
+HAL_I2C_MODE_NONE = 0x0
+HAL_I2C_MODE_MASTER = 0x10
+HAL_I2C_MODE_SLAVE = 0x20
+HAL_I2C_MODE_MEM = 0x40
 # Enum HAL_I2C_CallbackIDTypeDef
 # Skip HAL_I2C_MASTER_TX_COMPLETE_CB_ID : no need parse
 # Skip HAL_I2C_MASTER_RX_COMPLETE_CB_ID : no need parse
@@ -8900,75 +8966,75 @@ SYSCFG_FASTMODEPLUS_PB9 = 0x800
 # Skip HAL_I2C_MSPINIT_CB_ID : no need parse
 # Skip HAL_I2C_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_I2C_H
-# Skip HAL_I2C_ERROR_NONE : no need parse
-# Skip HAL_I2C_ERROR_BERR : no need parse
-# Skip HAL_I2C_ERROR_ARLO : no need parse
-# Skip HAL_I2C_ERROR_AF : no need parse
-# Skip HAL_I2C_ERROR_OVR : no need parse
-# Skip HAL_I2C_ERROR_DMA : no need parse
-# Skip HAL_I2C_ERROR_TIMEOUT : no need parse
-# Skip HAL_I2C_ERROR_SIZE : no need parse
-# Skip HAL_I2C_ERROR_DMA_PARAM : no need parse
+HAL_I2C_ERROR_NONE = 0x0
+HAL_I2C_ERROR_BERR = 0x1
+HAL_I2C_ERROR_ARLO = 0x2
+HAL_I2C_ERROR_AF = 0x4
+HAL_I2C_ERROR_OVR = 0x8
+HAL_I2C_ERROR_DMA = 0x10
+HAL_I2C_ERROR_TIMEOUT = 0x20
+HAL_I2C_ERROR_SIZE = 0x40
+HAL_I2C_ERROR_DMA_PARAM = 0x80
 # Skip HAL_I2C_ERROR_INVALID_CALLBACK : no need parse
-# Skip HAL_I2C_ERROR_INVALID_PARAM : no need parse
-# Skip I2C_FIRST_FRAME : no need parse
-# Skip I2C_FIRST_AND_NEXT_FRAME : no need parse
-# Skip I2C_NEXT_FRAME : no need parse
-# Skip I2C_FIRST_AND_LAST_FRAME : no need parse
-# Skip I2C_LAST_FRAME : no need parse
-# Skip I2C_LAST_FRAME_NO_STOP : no need parse
-# Skip I2C_OTHER_FRAME : no need parse
-# Skip I2C_OTHER_AND_LAST_FRAME : no need parse
-# Skip I2C_ADDRESSINGMODE_7BIT : no need parse
-# Skip I2C_ADDRESSINGMODE_10BIT : no need parse
-# Skip I2C_DUALADDRESS_DISABLE : no need parse
-# Skip I2C_DUALADDRESS_ENABLE : no need parse
-# Skip I2C_OA2_NOMASK : no need parse
-# Skip I2C_OA2_MASK01 : no need parse
-# Skip I2C_OA2_MASK02 : no need parse
-# Skip I2C_OA2_MASK03 : no need parse
-# Skip I2C_OA2_MASK04 : no need parse
-# Skip I2C_OA2_MASK05 : no need parse
-# Skip I2C_OA2_MASK06 : no need parse
-# Skip I2C_OA2_MASK07 : no need parse
-# Skip I2C_GENERALCALL_DISABLE : no need parse
-# Skip I2C_GENERALCALL_ENABLE : no need parse
-# Skip I2C_NOSTRETCH_DISABLE : no need parse
-# Skip I2C_NOSTRETCH_ENABLE : no need parse
-# Skip I2C_MEMADD_SIZE_8BIT : no need parse
-# Skip I2C_MEMADD_SIZE_16BIT : no need parse
-# Skip I2C_DIRECTION_TRANSMIT : no need parse
-# Skip I2C_DIRECTION_RECEIVE : no need parse
-# Skip I2C_RELOAD_MODE : no need parse
-# Skip I2C_AUTOEND_MODE : no need parse
-# Skip I2C_SOFTEND_MODE : no need parse
-# Skip I2C_NO_STARTSTOP : no need parse
-# Skip I2C_GENERATE_STOP : no need parse
-# Skip I2C_GENERATE_START_READ : no need parse
-# Skip I2C_GENERATE_START_WRITE : no need parse
-# Skip I2C_IT_ERRI : no need parse
-# Skip I2C_IT_TCI : no need parse
-# Skip I2C_IT_STOPI : no need parse
-# Skip I2C_IT_NACKI : no need parse
-# Skip I2C_IT_ADDRI : no need parse
-# Skip I2C_IT_RXI : no need parse
-# Skip I2C_IT_TXI : no need parse
-# Skip I2C_FLAG_TXE : no need parse
-# Skip I2C_FLAG_TXIS : no need parse
-# Skip I2C_FLAG_RXNE : no need parse
-# Skip I2C_FLAG_ADDR : no need parse
-# Skip I2C_FLAG_AF : no need parse
-# Skip I2C_FLAG_STOPF : no need parse
-# Skip I2C_FLAG_TC : no need parse
-# Skip I2C_FLAG_TCR : no need parse
-# Skip I2C_FLAG_BERR : no need parse
-# Skip I2C_FLAG_ARLO : no need parse
-# Skip I2C_FLAG_OVR : no need parse
-# Skip I2C_FLAG_PECERR : no need parse
-# Skip I2C_FLAG_TIMEOUT : no need parse
-# Skip I2C_FLAG_ALERT : no need parse
-# Skip I2C_FLAG_BUSY : no need parse
-# Skip I2C_FLAG_DIR : no need parse
+HAL_I2C_ERROR_INVALID_PARAM = 0x200
+I2C_FIRST_FRAME = 0x0
+I2C_FIRST_AND_NEXT_FRAME = 0x1000000
+I2C_NEXT_FRAME = 0x1000000
+I2C_FIRST_AND_LAST_FRAME = 0x2000000
+I2C_LAST_FRAME = 0x2000000
+I2C_LAST_FRAME_NO_STOP = 0x0
+I2C_OTHER_FRAME = 0xAA
+I2C_OTHER_AND_LAST_FRAME = 0xAA00
+I2C_ADDRESSINGMODE_7BIT = 0x1
+I2C_ADDRESSINGMODE_10BIT = 0x2
+I2C_DUALADDRESS_DISABLE = 0x0
+I2C_DUALADDRESS_ENABLE = 0x8000
+I2C_OA2_NOMASK = 0x0
+I2C_OA2_MASK01 = 0x1
+I2C_OA2_MASK02 = 0x2
+I2C_OA2_MASK03 = 0x3
+I2C_OA2_MASK04 = 0x4
+I2C_OA2_MASK05 = 0x5
+I2C_OA2_MASK06 = 0x6
+I2C_OA2_MASK07 = 0x7
+I2C_GENERALCALL_DISABLE = 0x0
+I2C_GENERALCALL_ENABLE = 0x80000
+I2C_NOSTRETCH_DISABLE = 0x0
+I2C_NOSTRETCH_ENABLE = 0x20000
+I2C_MEMADD_SIZE_8BIT = 0x1
+I2C_MEMADD_SIZE_16BIT = 0x2
+I2C_DIRECTION_TRANSMIT = 0x0
+I2C_DIRECTION_RECEIVE = 0x1
+I2C_RELOAD_MODE = 0x1000000
+I2C_AUTOEND_MODE = 0x2000000
+I2C_SOFTEND_MODE = 0x0
+I2C_NO_STARTSTOP = 0x0
+I2C_GENERATE_STOP = 0x80004000
+I2C_GENERATE_START_READ = 0x80002400
+I2C_GENERATE_START_WRITE = 0x80002000
+I2C_IT_ERRI = 0x80
+I2C_IT_TCI = 0x40
+I2C_IT_STOPI = 0x20
+I2C_IT_NACKI = 0x10
+I2C_IT_ADDRI = 0x8
+I2C_IT_RXI = 0x4
+I2C_IT_TXI = 0x2
+I2C_FLAG_TXE = 0x1
+I2C_FLAG_TXIS = 0x2
+I2C_FLAG_RXNE = 0x4
+I2C_FLAG_ADDR = 0x8
+I2C_FLAG_AF = 0x10
+I2C_FLAG_STOPF = 0x20
+I2C_FLAG_TC = 0x40
+I2C_FLAG_TCR = 0x80
+I2C_FLAG_BERR = 0x100
+I2C_FLAG_ARLO = 0x200
+I2C_FLAG_OVR = 0x400
+I2C_FLAG_PECERR = 0x800
+I2C_FLAG_TIMEOUT = 0x1000
+I2C_FLAG_ALERT = 0x2000
+I2C_FLAG_BUSY = 0x8000
+I2C_FLAG_DIR = 0x10000
 # fun define __HAL_I2C_RESET_HANDLE_STATE(__HANDLE__)                do{                                                   \
 #                                                                    (__HANDLE__)->State = HAL_I2C_STATE_RESET;       \
 #                                                                    (__HANDLE__)->MspInitCallback = NULL;            \
@@ -8978,7 +9044,7 @@ SYSCFG_FASTMODEPLUS_PB9 = 0x800
 # fun define __HAL_I2C_ENABLE_IT(__HANDLE__, __INTERRUPT__)          ((__HANDLE__)->Instance->CR1 |= (__INTERRUPT__))
 # fun define __HAL_I2C_DISABLE_IT(__HANDLE__, __INTERRUPT__)         ((__HANDLE__)->Instance->CR1 &= (~(__INTERRUPT__)))
 # fun define __HAL_I2C_GET_IT_SOURCE(__HANDLE__, __INTERRUPT__)      ((((__HANDLE__)->Instance->CR1 & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
-# Skip I2C_FLAG_MASK : no need parse
+I2C_FLAG_MASK = 0x1FFFF
 # fun define __HAL_I2C_GET_FLAG(__HANDLE__, __FLAG__) (((((__HANDLE__)->Instance->ISR) & (__FLAG__)) == (__FLAG__)) ? SET : RESET)
 # fun define __HAL_I2C_CLEAR_FLAG(__HANDLE__, __FLAG__) (((__FLAG__) == I2C_FLAG_TXE) ? ((__HANDLE__)->Instance->ISR |= (__FLAG__)) \
 #                                                                                 : ((__HANDLE__)->Instance->ICR = (__FLAG__)))
@@ -9038,6 +9104,14 @@ SYSCFG_FASTMODEPLUS_PB9 = 0x800
 class I2C_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Timing',	ctypes.c_uint32),
+		('OwnAddress1',	ctypes.c_uint32),
+		('AddressingMode',	ctypes.c_uint32),
+		('DualAddressMode',	ctypes.c_uint32),
+		('OwnAddress2',	ctypes.c_uint32),
+		('OwnAddress2Masks',	ctypes.c_uint32),
+		('GeneralCallMode',	ctypes.c_uint32),
+		('NoStretchMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -9049,13 +9123,13 @@ class I2C_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_i2s.h : 
 
 # Enum HAL_I2S_StateTypeDef
-# Skip HAL_I2S_STATE_RESET : no need parse
-# Skip HAL_I2S_STATE_READY : no need parse
-# Skip HAL_I2S_STATE_BUSY : no need parse
-# Skip HAL_I2S_STATE_BUSY_TX : no need parse
-# Skip HAL_I2S_STATE_BUSY_RX : no need parse
-# Skip HAL_I2S_STATE_TIMEOUT : no need parse
-# Skip HAL_I2S_STATE_ERROR : no need parse
+HAL_I2S_STATE_RESET = 0x0
+HAL_I2S_STATE_READY = 0x1
+HAL_I2S_STATE_BUSY = 0x2
+HAL_I2S_STATE_BUSY_TX = 0x3
+HAL_I2S_STATE_BUSY_RX = 0x4
+HAL_I2S_STATE_TIMEOUT = 0x6
+HAL_I2S_STATE_ERROR = 0x7
 # Enum HAL_I2S_CallbackIDTypeDef
 # Skip HAL_I2S_TX_COMPLETE_CB_ID : no need parse
 # Skip HAL_I2S_RX_COMPLETE_CB_ID : no need parse
@@ -9065,50 +9139,50 @@ class I2C_InitTypeDef(ctypes.Structure):
 # Skip HAL_I2S_MSPINIT_CB_ID : no need parse
 # Skip HAL_I2S_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_I2S_H
-# Skip HAL_I2S_ERROR_NONE : no need parse
-# Skip HAL_I2S_ERROR_TIMEOUT : no need parse
-# Skip HAL_I2S_ERROR_OVR : no need parse
-# Skip HAL_I2S_ERROR_UDR : no need parse
-# Skip HAL_I2S_ERROR_DMA : no need parse
-# Skip HAL_I2S_ERROR_PRESCALER : no need parse
+HAL_I2S_ERROR_NONE = 0x0
+HAL_I2S_ERROR_TIMEOUT = 0x1
+HAL_I2S_ERROR_OVR = 0x2
+HAL_I2S_ERROR_UDR = 0x4
+HAL_I2S_ERROR_DMA = 0x8
+HAL_I2S_ERROR_PRESCALER = 0x10
 # Skip HAL_I2S_ERROR_INVALID_CALLBACK : no need parse
-# Skip I2S_MODE_SLAVE_TX : no need parse
-# Skip I2S_MODE_SLAVE_RX : no need parse
-# Skip I2S_MODE_MASTER_TX : no need parse
-# Skip I2S_MODE_MASTER_RX : no need parse
-# Skip I2S_STANDARD_PHILIPS : no need parse
-# Skip I2S_STANDARD_MSB : no need parse
-# Skip I2S_STANDARD_LSB : no need parse
-# Skip I2S_STANDARD_PCM_SHORT : no need parse
-# Skip I2S_STANDARD_PCM_LONG : no need parse
-# Skip I2S_DATAFORMAT_16B : no need parse
-# Skip I2S_DATAFORMAT_16B_EXTENDED : no need parse
-# Skip I2S_DATAFORMAT_24B : no need parse
-# Skip I2S_DATAFORMAT_32B : no need parse
-# Skip I2S_MCLKOUTPUT_ENABLE : no need parse
-# Skip I2S_MCLKOUTPUT_DISABLE : no need parse
-# Skip I2S_AUDIOFREQ_192K : no need parse
-# Skip I2S_AUDIOFREQ_96K : no need parse
-# Skip I2S_AUDIOFREQ_48K : no need parse
-# Skip I2S_AUDIOFREQ_44K : no need parse
-# Skip I2S_AUDIOFREQ_32K : no need parse
-# Skip I2S_AUDIOFREQ_22K : no need parse
-# Skip I2S_AUDIOFREQ_16K : no need parse
-# Skip I2S_AUDIOFREQ_11K : no need parse
-# Skip I2S_AUDIOFREQ_8K : no need parse
-# Skip I2S_AUDIOFREQ_DEFAULT : no need parse
-# Skip I2S_CPOL_LOW : no need parse
-# Skip I2S_CPOL_HIGH : no need parse
-# Skip I2S_IT_TXE : no need parse
-# Skip I2S_IT_RXNE : no need parse
-# Skip I2S_IT_ERR : no need parse
-# Skip I2S_FLAG_TXE : no need parse
-# Skip I2S_FLAG_RXNE : no need parse
-# Skip I2S_FLAG_UDR : no need parse
-# Skip I2S_FLAG_OVR : no need parse
-# Skip I2S_FLAG_FRE : no need parse
-# Skip I2S_FLAG_CHSIDE : no need parse
-# Skip I2S_FLAG_BSY : no need parse
+I2S_MODE_SLAVE_TX = 0x0
+I2S_MODE_SLAVE_RX = 0x100
+I2S_MODE_MASTER_TX = 0x200
+I2S_MODE_MASTER_RX = 0x300
+I2S_STANDARD_PHILIPS = 0x0
+I2S_STANDARD_MSB = 0x10
+I2S_STANDARD_LSB = 0x20
+I2S_STANDARD_PCM_SHORT = 0x30
+I2S_STANDARD_PCM_LONG = 0xB0
+I2S_DATAFORMAT_16B = 0x0
+I2S_DATAFORMAT_16B_EXTENDED = 0x1
+I2S_DATAFORMAT_24B = 0x3
+I2S_DATAFORMAT_32B = 0x5
+I2S_MCLKOUTPUT_ENABLE = 0x200
+I2S_MCLKOUTPUT_DISABLE = 0x0
+I2S_AUDIOFREQ_192K = 0x2EE00
+I2S_AUDIOFREQ_96K = 0x17700
+I2S_AUDIOFREQ_48K = 0xBB80
+I2S_AUDIOFREQ_44K = 0xAC44
+I2S_AUDIOFREQ_32K = 0x7D00
+I2S_AUDIOFREQ_22K = 0x5622
+I2S_AUDIOFREQ_16K = 0x3E80
+I2S_AUDIOFREQ_11K = 0x2B11
+I2S_AUDIOFREQ_8K = 0x1F40
+I2S_AUDIOFREQ_DEFAULT = 0x2
+I2S_CPOL_LOW = 0x0
+I2S_CPOL_HIGH = 0x8
+I2S_IT_TXE = 0x80
+I2S_IT_RXNE = 0x40
+I2S_IT_ERR = 0x20
+I2S_FLAG_TXE = 0x2
+I2S_FLAG_RXNE = 0x1
+I2S_FLAG_UDR = 0x8
+I2S_FLAG_OVR = 0x40
+I2S_FLAG_FRE = 0x100
+I2S_FLAG_CHSIDE = 0x4
+I2S_FLAG_BSY = 0x80
 # fun define __HAL_I2S_RESET_HANDLE_STATE(__HANDLE__)                do{                                                  \
 #                                                                    (__HANDLE__)->State = HAL_I2S_STATE_RESET;       \
 #                                                                    (__HANDLE__)->MspInitCallback = NULL;            \
@@ -9157,6 +9231,12 @@ class I2C_InitTypeDef(ctypes.Structure):
 class I2S_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Mode',	ctypes.c_uint32),
+		('Standard',	ctypes.c_uint32),
+		('DataFormat',	ctypes.c_uint32),
+		('MCLKOutput',	ctypes.c_uint32),
+		('AudioFreq',	ctypes.c_uint32),
+		('CPOL',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -9168,9 +9248,9 @@ class I2S_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_irda_ex.h : 
 
 # empty define STM32L0xx_HAL_IRDA_EX_H
-# Skip IRDA_WORDLENGTH_7B : no need parse
-# Skip IRDA_WORDLENGTH_8B : no need parse
-# Skip IRDA_WORDLENGTH_9B : no need parse
+IRDA_WORDLENGTH_7B = 0x10000000
+IRDA_WORDLENGTH_8B = 0x0
+IRDA_WORDLENGTH_9B = 0x1000
 # fun define IRDA_GETCLOCKSOURCE(__HANDLE__,__CLOCKSOURCE__) \
 #  do {                                                        \
 #    if((__HANDLE__)->Instance == USART2)                      \
@@ -9338,12 +9418,12 @@ class I2S_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_irda.h : 
 
 # Enum IRDA_ClockSourceTypeDef
-# Skip IRDA_CLOCKSOURCE_PCLK1 : no need parse
-# Skip IRDA_CLOCKSOURCE_PCLK2 : no need parse
-# Skip IRDA_CLOCKSOURCE_HSI : no need parse
-# Skip IRDA_CLOCKSOURCE_SYSCLK : no need parse
-# Skip IRDA_CLOCKSOURCE_LSE : no need parse
-# Skip IRDA_CLOCKSOURCE_UNDEFINED : no need parse
+IRDA_CLOCKSOURCE_PCLK1 = 0x0
+IRDA_CLOCKSOURCE_PCLK2 = 0x1
+IRDA_CLOCKSOURCE_HSI = 0x2
+IRDA_CLOCKSOURCE_SYSCLK = 0x4
+IRDA_CLOCKSOURCE_LSE = 0x10
+IRDA_CLOCKSOURCE_UNDEFINED = 0x20
 # Enum HAL_IRDA_CallbackIDTypeDef
 # Skip HAL_IRDA_TX_HALFCOMPLETE_CB_ID : no need parse
 # Skip HAL_IRDA_TX_COMPLETE_CB_ID : no need parse
@@ -9356,75 +9436,75 @@ class I2S_InitTypeDef(ctypes.Structure):
 # Skip HAL_IRDA_MSPINIT_CB_ID : no need parse
 # Skip HAL_IRDA_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_IRDA_H
-# Skip HAL_IRDA_STATE_RESET : no need parse
-# Skip HAL_IRDA_STATE_READY : no need parse
-# Skip HAL_IRDA_STATE_BUSY : no need parse
-# Skip HAL_IRDA_STATE_BUSY_TX : no need parse
-# Skip HAL_IRDA_STATE_BUSY_RX : no need parse
-# Skip HAL_IRDA_STATE_BUSY_TX_RX : no need parse
-# Skip HAL_IRDA_STATE_TIMEOUT : no need parse
-# Skip HAL_IRDA_STATE_ERROR : no need parse
-# Skip HAL_IRDA_ERROR_NONE : no need parse
-# Skip HAL_IRDA_ERROR_PE : no need parse
-# Skip HAL_IRDA_ERROR_NE : no need parse
-# Skip HAL_IRDA_ERROR_FE : no need parse
-# Skip HAL_IRDA_ERROR_ORE : no need parse
-# Skip HAL_IRDA_ERROR_DMA : no need parse
-# Skip HAL_IRDA_ERROR_BUSY : no need parse
+HAL_IRDA_STATE_RESET = 0x0
+HAL_IRDA_STATE_READY = 0x20
+HAL_IRDA_STATE_BUSY = 0x24
+HAL_IRDA_STATE_BUSY_TX = 0x21
+HAL_IRDA_STATE_BUSY_RX = 0x22
+HAL_IRDA_STATE_BUSY_TX_RX = 0x23
+HAL_IRDA_STATE_TIMEOUT = 0xA0
+HAL_IRDA_STATE_ERROR = 0xE0
+HAL_IRDA_ERROR_NONE = 0x0
+HAL_IRDA_ERROR_PE = 0x1
+HAL_IRDA_ERROR_NE = 0x2
+HAL_IRDA_ERROR_FE = 0x4
+HAL_IRDA_ERROR_ORE = 0x8
+HAL_IRDA_ERROR_DMA = 0x10
+HAL_IRDA_ERROR_BUSY = 0x20
 # Skip HAL_IRDA_ERROR_INVALID_CALLBACK : no need parse
-# Skip IRDA_PARITY_NONE : no need parse
-# Skip IRDA_PARITY_EVEN : no need parse
-# Skip IRDA_PARITY_ODD : no need parse
-# Skip IRDA_MODE_RX : no need parse
-# Skip IRDA_MODE_TX : no need parse
-# Skip IRDA_MODE_TX_RX : no need parse
-# Skip IRDA_POWERMODE_NORMAL : no need parse
-# Skip IRDA_POWERMODE_LOWPOWER : no need parse
-# Skip IRDA_STATE_DISABLE : no need parse
-# Skip IRDA_STATE_ENABLE : no need parse
-# Skip IRDA_MODE_DISABLE : no need parse
-# Skip IRDA_MODE_ENABLE : no need parse
-# Skip IRDA_ONE_BIT_SAMPLE_DISABLE : no need parse
-# Skip IRDA_ONE_BIT_SAMPLE_ENABLE : no need parse
-# Skip IRDA_DMA_TX_DISABLE : no need parse
-# Skip IRDA_DMA_TX_ENABLE : no need parse
-# Skip IRDA_DMA_RX_DISABLE : no need parse
-# Skip IRDA_DMA_RX_ENABLE : no need parse
-# Skip IRDA_AUTOBAUD_REQUEST : no need parse
-# Skip IRDA_RXDATA_FLUSH_REQUEST : no need parse
-# Skip IRDA_TXDATA_FLUSH_REQUEST : no need parse
-# Skip IRDA_FLAG_REACK : no need parse
-# Skip IRDA_FLAG_TEACK : no need parse
-# Skip IRDA_FLAG_BUSY : no need parse
-# Skip IRDA_FLAG_ABRF : no need parse
-# Skip IRDA_FLAG_ABRE : no need parse
-# Skip IRDA_FLAG_TXE : no need parse
-# Skip IRDA_FLAG_TC : no need parse
-# Skip IRDA_FLAG_RXNE : no need parse
-# Skip IRDA_FLAG_ORE : no need parse
-# Skip IRDA_FLAG_NE : no need parse
-# Skip IRDA_FLAG_FE : no need parse
-# Skip IRDA_FLAG_PE : no need parse
-# Skip IRDA_IT_PE : no need parse
-# Skip IRDA_IT_TXE : no need parse
-# Skip IRDA_IT_TC : no need parse
-# Skip IRDA_IT_RXNE : no need parse
-# Skip IRDA_IT_IDLE : no need parse
-# Skip IRDA_IT_ERR : no need parse
-# Skip IRDA_IT_ORE : no need parse
-# Skip IRDA_IT_NE : no need parse
-# Skip IRDA_IT_FE : no need parse
-# Skip IRDA_CLEAR_PEF : no need parse
-# Skip IRDA_CLEAR_FEF : no need parse
-# Skip IRDA_CLEAR_NEF : no need parse
-# Skip IRDA_CLEAR_OREF : no need parse
-# Skip IRDA_CLEAR_IDLEF : no need parse
-# Skip IRDA_CLEAR_TCF : no need parse
-# Skip IRDA_IT_MASK : no need parse
-# Skip IRDA_CR_MASK : no need parse
-# Skip IRDA_CR_POS : no need parse
-# Skip IRDA_ISR_MASK : no need parse
-# Skip IRDA_ISR_POS : no need parse
+IRDA_PARITY_NONE = 0x0
+IRDA_PARITY_EVEN = 0x400
+IRDA_PARITY_ODD = 0x600
+IRDA_MODE_RX = 0x4
+IRDA_MODE_TX = 0x8
+IRDA_MODE_TX_RX = 0xC
+IRDA_POWERMODE_NORMAL = 0x0
+IRDA_POWERMODE_LOWPOWER = 0x4
+IRDA_STATE_DISABLE = 0x0
+IRDA_STATE_ENABLE = 0x1
+IRDA_MODE_DISABLE = 0x0
+IRDA_MODE_ENABLE = 0x2
+IRDA_ONE_BIT_SAMPLE_DISABLE = 0x0
+IRDA_ONE_BIT_SAMPLE_ENABLE = 0x800
+IRDA_DMA_TX_DISABLE = 0x0
+IRDA_DMA_TX_ENABLE = 0x80
+IRDA_DMA_RX_DISABLE = 0x0
+IRDA_DMA_RX_ENABLE = 0x40
+IRDA_AUTOBAUD_REQUEST = 0x1
+IRDA_RXDATA_FLUSH_REQUEST = 0x8
+IRDA_TXDATA_FLUSH_REQUEST = 0x10
+IRDA_FLAG_REACK = 0x400000
+IRDA_FLAG_TEACK = 0x200000
+IRDA_FLAG_BUSY = 0x10000
+IRDA_FLAG_ABRF = 0x8000
+IRDA_FLAG_ABRE = 0x4000
+IRDA_FLAG_TXE = 0x80
+IRDA_FLAG_TC = 0x40
+IRDA_FLAG_RXNE = 0x20
+IRDA_FLAG_ORE = 0x8
+IRDA_FLAG_NE = 0x4
+IRDA_FLAG_FE = 0x2
+IRDA_FLAG_PE = 0x1
+IRDA_IT_PE = 0x28
+IRDA_IT_TXE = 0x727
+IRDA_IT_TC = 0x626
+IRDA_IT_RXNE = 0x525
+IRDA_IT_IDLE = 0x424
+IRDA_IT_ERR = 0x60
+IRDA_IT_ORE = 0x300
+IRDA_IT_NE = 0x200
+IRDA_IT_FE = 0x100
+IRDA_CLEAR_PEF = 0x1
+IRDA_CLEAR_FEF = 0x2
+IRDA_CLEAR_NEF = 0x4
+IRDA_CLEAR_OREF = 0x8
+IRDA_CLEAR_IDLEF = 0x10
+IRDA_CLEAR_TCF = 0x40
+IRDA_IT_MASK = 0x1F
+IRDA_CR_MASK = 0xE0
+IRDA_CR_POS = 0x5
+IRDA_ISR_MASK = 0x1F00
+IRDA_ISR_POS = 0x8
 # fun define __HAL_IRDA_RESET_HANDLE_STATE(__HANDLE__)  do{                                                   \
 #                                                       (__HANDLE__)->gState = HAL_IRDA_STATE_RESET;      \
 #                                                       (__HANDLE__)->RxState = HAL_IRDA_STATE_RESET;     \
@@ -9514,6 +9594,12 @@ class I2S_InitTypeDef(ctypes.Structure):
 class IRDA_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('BaudRate',	ctypes.c_uint32),
+		('WordLength',	ctypes.c_uint32),
+		('Parity',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('Prescaler',	ctypes.c_uint8),
+		('PowerMode',	ctypes.c_uint16),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -9523,20 +9609,20 @@ class IRDA_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_iwdg.h : 
 
 # empty define __STM32L0xx_HAL_IWDG_H
-# Skip IWDG_PRESCALER_4 : no need parse
-# Skip IWDG_PRESCALER_8 : no need parse
-# Skip IWDG_PRESCALER_16 : no need parse
-# Skip IWDG_PRESCALER_32 : no need parse
-# Skip IWDG_PRESCALER_64 : no need parse
-# Skip IWDG_PRESCALER_128 : no need parse
-# Skip IWDG_PRESCALER_256 : no need parse
-# Skip IWDG_WINDOW_DISABLE : no need parse
+IWDG_PRESCALER_4 = 0x0
+IWDG_PRESCALER_8 = 0x1
+IWDG_PRESCALER_16 = 0x2
+IWDG_PRESCALER_32 = 0x3
+IWDG_PRESCALER_64 = 0x4
+IWDG_PRESCALER_128 = 0x5
+IWDG_PRESCALER_256 = 0x6
+IWDG_WINDOW_DISABLE = 0xFFF
 # fun define __HAL_IWDG_START(__HANDLE__)                WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_ENABLE)
 # fun define __HAL_IWDG_RELOAD_COUNTER(__HANDLE__)       WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_RELOAD)
-# Skip IWDG_KEY_RELOAD : no need parse
-# Skip IWDG_KEY_ENABLE : no need parse
-# Skip IWDG_KEY_WRITE_ACCESS_ENABLE : no need parse
-# Skip IWDG_KEY_WRITE_ACCESS_DISABLE : no need parse
+IWDG_KEY_RELOAD = 0xAAAA
+IWDG_KEY_ENABLE = 0xCCCC
+IWDG_KEY_WRITE_ACCESS_ENABLE = 0x5555
+IWDG_KEY_WRITE_ACCESS_DISABLE = 0x0
 # fun define IWDG_ENABLE_WRITE_ACCESS(__HANDLE__)  WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_WRITE_ACCESS_ENABLE)
 # fun define IWDG_DISABLE_WRITE_ACCESS(__HANDLE__) WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_WRITE_ACCESS_DISABLE)
 # fun define IS_IWDG_PRESCALER(__PRESCALER__)      (((__PRESCALER__) == IWDG_PRESCALER_4)  || \
@@ -9553,6 +9639,9 @@ class IRDA_InitTypeDef(ctypes.Structure):
 class IWDG_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Prescaler',	ctypes.c_uint32),
+		('Reload',	ctypes.c_uint32),
+		('Window',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -9564,34 +9653,34 @@ class IWDG_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_lcd.h : 
 
 # Enum HAL_LCD_StateTypeDef
-# Skip HAL_LCD_STATE_RESET : no need parse
-# Skip HAL_LCD_STATE_READY : no need parse
-# Skip HAL_LCD_STATE_BUSY : no need parse
-# Skip HAL_LCD_STATE_TIMEOUT : no need parse
-# Skip HAL_LCD_STATE_ERROR : no need parse
+HAL_LCD_STATE_RESET = 0x0
+HAL_LCD_STATE_READY = 0x1
+HAL_LCD_STATE_BUSY = 0x2
+HAL_LCD_STATE_TIMEOUT = 0x3
+HAL_LCD_STATE_ERROR = 0x4
 # empty define __STM32L0xx_HAL_LCD_H
-# Skip HAL_LCD_ERROR_NONE : no need parse
-# Skip HAL_LCD_ERROR_FCRSF : no need parse
-# Skip HAL_LCD_ERROR_UDR : no need parse
-# Skip HAL_LCD_ERROR_UDD : no need parse
-# Skip HAL_LCD_ERROR_ENS : no need parse
-# Skip HAL_LCD_ERROR_RDY : no need parse
-# Skip LCD_PRESCALER_1 : no need parse
-# Skip LCD_PRESCALER_2 : no need parse
-# Skip LCD_PRESCALER_4 : no need parse
-# Skip LCD_PRESCALER_8 : no need parse
-# Skip LCD_PRESCALER_16 : no need parse
-# Skip LCD_PRESCALER_32 : no need parse
-# Skip LCD_PRESCALER_64 : no need parse
-# Skip LCD_PRESCALER_128 : no need parse
-# Skip LCD_PRESCALER_256 : no need parse
-# Skip LCD_PRESCALER_512 : no need parse
-# Skip LCD_PRESCALER_1024 : no need parse
-# Skip LCD_PRESCALER_2048 : no need parse
-# Skip LCD_PRESCALER_4096 : no need parse
-# Skip LCD_PRESCALER_8192 : no need parse
-# Skip LCD_PRESCALER_16384 : no need parse
-# Skip LCD_PRESCALER_32768 : no need parse
+HAL_LCD_ERROR_NONE = 0x0
+HAL_LCD_ERROR_FCRSF = 0x1
+HAL_LCD_ERROR_UDR = 0x2
+HAL_LCD_ERROR_UDD = 0x4
+HAL_LCD_ERROR_ENS = 0x8
+HAL_LCD_ERROR_RDY = 0x10
+LCD_PRESCALER_1 = 0x0
+LCD_PRESCALER_2 = 0x400000
+LCD_PRESCALER_4 = 0x800000
+LCD_PRESCALER_8 = 0xC00000
+LCD_PRESCALER_16 = 0x1000000
+LCD_PRESCALER_32 = 0x1400000
+LCD_PRESCALER_64 = 0x1800000
+LCD_PRESCALER_128 = 0x1C00000
+LCD_PRESCALER_256 = 0x2000000
+LCD_PRESCALER_512 = 0x2400000
+LCD_PRESCALER_1024 = 0x2800000
+LCD_PRESCALER_2048 = 0x2C00000
+LCD_PRESCALER_4096 = 0x3000000
+LCD_PRESCALER_8192 = 0x3400000
+LCD_PRESCALER_16384 = 0x3800000
+LCD_PRESCALER_32768 = 0x3C00000
 # fun define IS_LCD_PRESCALER(__PRESCALER__) (((__PRESCALER__) == LCD_PRESCALER_1)     || \
 #                                         ((__PRESCALER__) == LCD_PRESCALER_2)     || \
 #                                         ((__PRESCALER__) == LCD_PRESCALER_4)     || \
@@ -9608,22 +9697,22 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                         ((__PRESCALER__) == LCD_PRESCALER_8192)  || \
 #                                         ((__PRESCALER__) == LCD_PRESCALER_16384) || \
 #                                         ((__PRESCALER__) == LCD_PRESCALER_32768))
-# Skip LCD_DIVIDER_16 : no need parse
-# Skip LCD_DIVIDER_17 : no need parse
-# Skip LCD_DIVIDER_18 : no need parse
-# Skip LCD_DIVIDER_19 : no need parse
-# Skip LCD_DIVIDER_20 : no need parse
-# Skip LCD_DIVIDER_21 : no need parse
-# Skip LCD_DIVIDER_22 : no need parse
-# Skip LCD_DIVIDER_23 : no need parse
-# Skip LCD_DIVIDER_24 : no need parse
-# Skip LCD_DIVIDER_25 : no need parse
-# Skip LCD_DIVIDER_26 : no need parse
-# Skip LCD_DIVIDER_27 : no need parse
-# Skip LCD_DIVIDER_28 : no need parse
-# Skip LCD_DIVIDER_29 : no need parse
-# Skip LCD_DIVIDER_30 : no need parse
-# Skip LCD_DIVIDER_31 : no need parse
+LCD_DIVIDER_16 = 0x0
+LCD_DIVIDER_17 = 0x40000
+LCD_DIVIDER_18 = 0x80000
+LCD_DIVIDER_19 = 0xC0000
+LCD_DIVIDER_20 = 0x100000
+LCD_DIVIDER_21 = 0x140000
+LCD_DIVIDER_22 = 0x180000
+LCD_DIVIDER_23 = 0x1C0000
+LCD_DIVIDER_24 = 0x200000
+LCD_DIVIDER_25 = 0x240000
+LCD_DIVIDER_26 = 0x280000
+LCD_DIVIDER_27 = 0x2C0000
+LCD_DIVIDER_28 = 0x300000
+LCD_DIVIDER_29 = 0x340000
+LCD_DIVIDER_30 = 0x380000
+LCD_DIVIDER_31 = 0x3C0000
 # fun define IS_LCD_DIVIDER(__DIVIDER__) (((__DIVIDER__) == LCD_DIVIDER_16) || \
 #                                     ((__DIVIDER__) == LCD_DIVIDER_17) || \
 #                                     ((__DIVIDER__) == LCD_DIVIDER_18) || \
@@ -9640,36 +9729,36 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                     ((__DIVIDER__) == LCD_DIVIDER_29) || \
 #                                     ((__DIVIDER__) == LCD_DIVIDER_30) || \
 #                                     ((__DIVIDER__) == LCD_DIVIDER_31))
-# Skip LCD_DUTY_STATIC : no need parse
-# Skip LCD_DUTY_1_2 : no need parse
-# Skip LCD_DUTY_1_3 : no need parse
-# Skip LCD_DUTY_1_4 : no need parse
-# Skip LCD_DUTY_1_8 : no need parse
+LCD_DUTY_STATIC = 0x0
+LCD_DUTY_1_2 = 0x4
+LCD_DUTY_1_3 = 0x8
+LCD_DUTY_1_4 = 0xC
+LCD_DUTY_1_8 = 0x10
 # fun define IS_LCD_DUTY(__DUTY__) (((__DUTY__) == LCD_DUTY_STATIC)  || \
 #                               ((__DUTY__) == LCD_DUTY_1_2)     || \
 #                               ((__DUTY__) == LCD_DUTY_1_3)     || \
 #                               ((__DUTY__) == LCD_DUTY_1_4)     || \
 #                               ((__DUTY__) == LCD_DUTY_1_8))
-# Skip LCD_BIAS_1_4 : no need parse
-# Skip LCD_BIAS_1_2 : no need parse
-# Skip LCD_BIAS_1_3 : no need parse
+LCD_BIAS_1_4 = 0x0
+LCD_BIAS_1_2 = 0x20
+LCD_BIAS_1_3 = 0x40
 # fun define IS_LCD_BIAS(__BIAS__) (((__BIAS__) == LCD_BIAS_1_4) || \
 #                               ((__BIAS__) == LCD_BIAS_1_2) || \
 #                               ((__BIAS__) == LCD_BIAS_1_3))
-# Skip LCD_VOLTAGESOURCE_INTERNAL : no need parse
-# Skip LCD_VOLTAGESOURCE_EXTERNAL : no need parse
+LCD_VOLTAGESOURCE_INTERNAL = 0x0
+LCD_VOLTAGESOURCE_EXTERNAL = 0x2
 # fun define IS_LCD_VOLTAGE_SOURCE(SOURCE) (((SOURCE) == LCD_VOLTAGESOURCE_INTERNAL) || \
 #                                       ((SOURCE) == LCD_VOLTAGESOURCE_EXTERNAL))
-# Skip LCD_IT_SOF : no need parse
-# Skip LCD_IT_UDD : no need parse
-# Skip LCD_PULSEONDURATION_0 : no need parse
-# Skip LCD_PULSEONDURATION_1 : no need parse
-# Skip LCD_PULSEONDURATION_2 : no need parse
-# Skip LCD_PULSEONDURATION_3 : no need parse
-# Skip LCD_PULSEONDURATION_4 : no need parse
-# Skip LCD_PULSEONDURATION_5 : no need parse
-# Skip LCD_PULSEONDURATION_6 : no need parse
-# Skip LCD_PULSEONDURATION_7 : no need parse
+LCD_IT_SOF = 0x2
+LCD_IT_UDD = 0x8
+LCD_PULSEONDURATION_0 = 0x0
+LCD_PULSEONDURATION_1 = 0x10
+LCD_PULSEONDURATION_2 = 0x20
+LCD_PULSEONDURATION_3 = 0x30
+LCD_PULSEONDURATION_4 = 0x40
+LCD_PULSEONDURATION_5 = 0x50
+LCD_PULSEONDURATION_6 = 0x60
+LCD_PULSEONDURATION_7 = 0x70
 # fun define IS_LCD_PULSE_ON_DURATION(__DURATION__) (((__DURATION__) == LCD_PULSEONDURATION_0) || \
 #                                                ((__DURATION__) == LCD_PULSEONDURATION_1) || \
 #                                                ((__DURATION__) == LCD_PULSEONDURATION_2) || \
@@ -9678,18 +9767,18 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                                ((__DURATION__) == LCD_PULSEONDURATION_5) || \
 #                                                ((__DURATION__) == LCD_PULSEONDURATION_6) || \
 #                                                ((__DURATION__) == LCD_PULSEONDURATION_7))
-# Skip LCD_HIGHDRIVE_0 : no need parse
-# Skip LCD_HIGHDRIVE_1 : no need parse
+LCD_HIGHDRIVE_0 = 0x0
+LCD_HIGHDRIVE_1 = 0x1
 # fun define IS_LCD_HIGHDRIVE(__HIGHDRIVE__) (((__HIGHDRIVE__) == LCD_HIGHDRIVE_0) || \
 #                                         ((__HIGHDRIVE__) == LCD_HIGHDRIVE_1))
-# Skip LCD_DEADTIME_0 : no need parse
-# Skip LCD_DEADTIME_1 : no need parse
-# Skip LCD_DEADTIME_2 : no need parse
-# Skip LCD_DEADTIME_3 : no need parse
-# Skip LCD_DEADTIME_4 : no need parse
-# Skip LCD_DEADTIME_5 : no need parse
-# Skip LCD_DEADTIME_6 : no need parse
-# Skip LCD_DEADTIME_7 : no need parse
+LCD_DEADTIME_0 = 0x0
+LCD_DEADTIME_1 = 0x80
+LCD_DEADTIME_2 = 0x100
+LCD_DEADTIME_3 = 0x180
+LCD_DEADTIME_4 = 0x200
+LCD_DEADTIME_5 = 0x280
+LCD_DEADTIME_6 = 0x300
+LCD_DEADTIME_7 = 0x380
 # fun define IS_LCD_DEAD_TIME(__TIME__) (((__TIME__) == LCD_DEADTIME_0) || \
 #                                    ((__TIME__) == LCD_DEADTIME_1) || \
 #                                    ((__TIME__) == LCD_DEADTIME_2) || \
@@ -9698,22 +9787,22 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                    ((__TIME__) == LCD_DEADTIME_5) || \
 #                                    ((__TIME__) == LCD_DEADTIME_6) || \
 #                                    ((__TIME__) == LCD_DEADTIME_7))
-# Skip LCD_BLINKMODE_OFF : no need parse
-# Skip LCD_BLINKMODE_SEG0_COM0 : no need parse
-# Skip LCD_BLINKMODE_SEG0_ALLCOM : no need parse
-# Skip LCD_BLINKMODE_ALLSEG_ALLCOM : no need parse
+LCD_BLINKMODE_OFF = 0x0
+LCD_BLINKMODE_SEG0_COM0 = 0x10000
+LCD_BLINKMODE_SEG0_ALLCOM = 0x20000
+LCD_BLINKMODE_ALLSEG_ALLCOM = 0x30000
 # fun define IS_LCD_BLINK_MODE(__MODE__) (((__MODE__) == LCD_BLINKMODE_OFF)            || \
 #                                     ((__MODE__) == LCD_BLINKMODE_SEG0_COM0)      || \
 #                                     ((__MODE__) == LCD_BLINKMODE_SEG0_ALLCOM)    || \
 #                                     ((__MODE__) == LCD_BLINKMODE_ALLSEG_ALLCOM))
-# Skip LCD_BLINKFREQUENCY_DIV8 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV16 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV32 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV64 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV128 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV256 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV512 : no need parse
-# Skip LCD_BLINKFREQUENCY_DIV1024 : no need parse
+LCD_BLINKFREQUENCY_DIV8 = 0x0
+LCD_BLINKFREQUENCY_DIV16 = 0x2000
+LCD_BLINKFREQUENCY_DIV32 = 0x4000
+LCD_BLINKFREQUENCY_DIV64 = 0x6000
+LCD_BLINKFREQUENCY_DIV128 = 0x8000
+LCD_BLINKFREQUENCY_DIV256 = 0xA000
+LCD_BLINKFREQUENCY_DIV512 = 0xC000
+LCD_BLINKFREQUENCY_DIV1024 = 0xE000
 # fun define IS_LCD_BLINK_FREQUENCY(__FREQUENCY__) (((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV8)   || \
 #                                               ((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV16)  || \
 #                                               ((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV32)  || \
@@ -9722,14 +9811,14 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                               ((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV256) || \
 #                                               ((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV512) || \
 #                                               ((__FREQUENCY__) == LCD_BLINKFREQUENCY_DIV1024))
-# Skip LCD_CONTRASTLEVEL_0 : no need parse
-# Skip LCD_CONTRASTLEVEL_1 : no need parse
-# Skip LCD_CONTRASTLEVEL_2 : no need parse
-# Skip LCD_CONTRASTLEVEL_3 : no need parse
-# Skip LCD_CONTRASTLEVEL_4 : no need parse
-# Skip LCD_CONTRASTLEVEL_5 : no need parse
-# Skip LCD_CONTRASTLEVEL_6 : no need parse
-# Skip LCD_CONTRASTLEVEL_7 : no need parse
+LCD_CONTRASTLEVEL_0 = 0x0
+LCD_CONTRASTLEVEL_1 = 0x400
+LCD_CONTRASTLEVEL_2 = 0x800
+LCD_CONTRASTLEVEL_3 = 0xC00
+LCD_CONTRASTLEVEL_4 = 0x1000
+LCD_CONTRASTLEVEL_5 = 0x1400
+LCD_CONTRASTLEVEL_6 = 0x1800
+LCD_CONTRASTLEVEL_7 = 0x1C00
 # fun define IS_LCD_CONTRAST(__CONTRAST__) (((__CONTRAST__) == LCD_CONTRASTLEVEL_0) || \
 #                                       ((__CONTRAST__) == LCD_CONTRASTLEVEL_1) || \
 #                                       ((__CONTRAST__) == LCD_CONTRASTLEVEL_2) || \
@@ -9738,36 +9827,36 @@ class IWDG_InitTypeDef(ctypes.Structure):
 #                                       ((__CONTRAST__) == LCD_CONTRASTLEVEL_5) || \
 #                                       ((__CONTRAST__) == LCD_CONTRASTLEVEL_6) || \
 #                                       ((__CONTRAST__) == LCD_CONTRASTLEVEL_7))
-# Skip LCD_MUXSEGMENT_DISABLE : no need parse
-# Skip LCD_MUXSEGMENT_ENABLE : no need parse
+LCD_MUXSEGMENT_DISABLE = 0x0
+LCD_MUXSEGMENT_ENABLE = 0x80
 # fun define IS_LCD_MUXSEGMENT(__VALUE__) (((__VALUE__) == LCD_MUXSEGMENT_ENABLE) || \
 #                                      ((__VALUE__) == LCD_MUXSEGMENT_DISABLE))
-# Skip LCD_VOLTBUFOUT_DISABLE : no need parse
-# Skip LCD_VOLTBUFOUT_ENABLE : no need parse
+LCD_VOLTBUFOUT_DISABLE = 0x0
+LCD_VOLTBUFOUT_ENABLE = 0x100
 # fun define IS_LCD_VOLTBUFOUT(__VALUE__) (((__VALUE__) == LCD_VOLTBUFOUT_ENABLE) || \
 #                                      ((__VALUE__) == LCD_VOLTBUFOUT_DISABLE))
-# Skip LCD_FLAG_ENS : no need parse
-# Skip LCD_FLAG_SOF : no need parse
-# Skip LCD_FLAG_UDR : no need parse
-# Skip LCD_FLAG_UDD : no need parse
-# Skip LCD_FLAG_RDY : no need parse
-# Skip LCD_FLAG_FCRSF : no need parse
-# Skip LCD_RAM_REGISTER0 : no need parse
-# Skip LCD_RAM_REGISTER1 : no need parse
-# Skip LCD_RAM_REGISTER2 : no need parse
-# Skip LCD_RAM_REGISTER3 : no need parse
-# Skip LCD_RAM_REGISTER4 : no need parse
-# Skip LCD_RAM_REGISTER5 : no need parse
-# Skip LCD_RAM_REGISTER6 : no need parse
-# Skip LCD_RAM_REGISTER7 : no need parse
-# Skip LCD_RAM_REGISTER8 : no need parse
-# Skip LCD_RAM_REGISTER9 : no need parse
-# Skip LCD_RAM_REGISTER10 : no need parse
-# Skip LCD_RAM_REGISTER11 : no need parse
-# Skip LCD_RAM_REGISTER12 : no need parse
-# Skip LCD_RAM_REGISTER13 : no need parse
-# Skip LCD_RAM_REGISTER14 : no need parse
-# Skip LCD_RAM_REGISTER15 : no need parse
+LCD_FLAG_ENS = 0x1
+LCD_FLAG_SOF = 0x2
+LCD_FLAG_UDR = 0x4
+LCD_FLAG_UDD = 0x8
+LCD_FLAG_RDY = 0x10
+LCD_FLAG_FCRSF = 0x20
+LCD_RAM_REGISTER0 = 0x0
+LCD_RAM_REGISTER1 = 0x1
+LCD_RAM_REGISTER2 = 0x2
+LCD_RAM_REGISTER3 = 0x3
+LCD_RAM_REGISTER4 = 0x4
+LCD_RAM_REGISTER5 = 0x5
+LCD_RAM_REGISTER6 = 0x6
+LCD_RAM_REGISTER7 = 0x7
+LCD_RAM_REGISTER8 = 0x8
+LCD_RAM_REGISTER9 = 0x9
+LCD_RAM_REGISTER10 = 0xA
+LCD_RAM_REGISTER11 = 0xB
+LCD_RAM_REGISTER12 = 0xC
+LCD_RAM_REGISTER13 = 0xD
+LCD_RAM_REGISTER14 = 0xE
+LCD_RAM_REGISTER15 = 0xF
 # fun define IS_LCD_RAM_REGISTER(__REGISTER__) (((__REGISTER__) == LCD_RAM_REGISTER0)  || \
 #                                           ((__REGISTER__) == LCD_RAM_REGISTER1)  || \
 #                                           ((__REGISTER__) == LCD_RAM_REGISTER2)  || \
@@ -9837,6 +9926,18 @@ class IWDG_InitTypeDef(ctypes.Structure):
 class LCD_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Prescaler',	ctypes.c_uint32),
+		('Divider',	ctypes.c_uint32),
+		('Duty',	ctypes.c_uint32),
+		('Bias',	ctypes.c_uint32),
+		('VoltageSource',	ctypes.c_uint32),
+		('Contrast',	ctypes.c_uint32),
+		('DeadTime',	ctypes.c_uint32),
+		('PulseOnDuration',	ctypes.c_uint32),
+		('HighDrive',	ctypes.c_uint32),
+		('BlinkMode',	ctypes.c_uint32),
+		('BlinkFrequency',	ctypes.c_uint32),
+		('MuxSegment',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -9848,15 +9949,15 @@ class LCD_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_lptim_ex.h : 
 
 # empty define __STM32L0xx_HAL_LPTIM_EX_H
-# Skip LPTIM_TRIGSOURCE_SOFTWARE : no need parse
-# Skip LPTIM_TRIGSOURCE_0 : no need parse
-# Skip LPTIM_TRIGSOURCE_1 : no need parse
-# Skip LPTIM_TRIGSOURCE_2 : no need parse
-# Skip LPTIM_TRIGSOURCE_3 : no need parse
-# Skip LPTIM_TRIGSOURCE_4 : no need parse
-# Skip LPTIM_TRIGSOURCE_5 : no need parse
-# Skip LPTIM_TRIGSOURCE_6 : no need parse
-# Skip LPTIM_TRIGSOURCE_7 : no need parse
+LPTIM_TRIGSOURCE_SOFTWARE = 0xFFFF
+LPTIM_TRIGSOURCE_0 = 0x0
+LPTIM_TRIGSOURCE_1 = 0x2000
+LPTIM_TRIGSOURCE_2 = 0x4000
+LPTIM_TRIGSOURCE_3 = 0x6000
+LPTIM_TRIGSOURCE_4 = 0x8000
+LPTIM_TRIGSOURCE_5 = 0xA000
+LPTIM_TRIGSOURCE_6 = 0xC000
+LPTIM_TRIGSOURCE_7 = 0xE000
 # fun define IS_LPTIM_TRG_SOURCE(__TRIG__)           (((__TRIG__) == LPTIM_TRIGSOURCE_SOFTWARE) || \
 #                                                 ((__TRIG__) == LPTIM_TRIGSOURCE_0) || \
 #                                                 ((__TRIG__) == LPTIM_TRIGSOURCE_1) || \
@@ -9886,11 +9987,11 @@ class LCD_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_lptim.h : 
 
 # Enum HAL_LPTIM_StateTypeDef
-# Skip HAL_LPTIM_STATE_RESET : no need parse
-# Skip HAL_LPTIM_STATE_READY : no need parse
-# Skip HAL_LPTIM_STATE_BUSY : no need parse
-# Skip HAL_LPTIM_STATE_TIMEOUT : no need parse
-# Skip HAL_LPTIM_STATE_ERROR : no need parse
+HAL_LPTIM_STATE_RESET = 0x0
+HAL_LPTIM_STATE_READY = 0x1
+HAL_LPTIM_STATE_BUSY = 0x2
+HAL_LPTIM_STATE_TIMEOUT = 0x3
+HAL_LPTIM_STATE_ERROR = 0x4
 # Enum HAL_LPTIM_CallbackIDTypeDef
 # Skip HAL_LPTIM_MSPINIT_CB_ID : no need parse
 # Skip HAL_LPTIM_MSPDEINIT_CB_ID : no need parse
@@ -9902,60 +10003,60 @@ class LCD_InitTypeDef(ctypes.Structure):
 # Skip HAL_LPTIM_DIRECTION_UP_CB_ID : no need parse
 # Skip HAL_LPTIM_DIRECTION_DOWN_CB_ID : no need parse
 # empty define STM32L0xx_HAL_LPTIM_H
-# Skip LPTIM_EXTI_LINE_WAKEUPTIMER_EVENT : no need parse
-# Skip LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC : no need parse
-# Skip LPTIM_CLOCKSOURCE_ULPTIM : no need parse
-# Skip LPTIM_PRESCALER_DIV1 : no need parse
-# Skip LPTIM_PRESCALER_DIV2 : no need parse
-# Skip LPTIM_PRESCALER_DIV4 : no need parse
-# Skip LPTIM_PRESCALER_DIV8 : no need parse
-# Skip LPTIM_PRESCALER_DIV16 : no need parse
-# Skip LPTIM_PRESCALER_DIV32 : no need parse
-# Skip LPTIM_PRESCALER_DIV64 : no need parse
-# Skip LPTIM_PRESCALER_DIV128 : no need parse
-# Skip LPTIM_OUTPUTPOLARITY_HIGH : no need parse
-# Skip LPTIM_OUTPUTPOLARITY_LOW : no need parse
-# Skip LPTIM_CLOCKSAMPLETIME_DIRECTTRANSITION : no need parse
-# Skip LPTIM_CLOCKSAMPLETIME_2TRANSITIONS : no need parse
-# Skip LPTIM_CLOCKSAMPLETIME_4TRANSITIONS : no need parse
-# Skip LPTIM_CLOCKSAMPLETIME_8TRANSITIONS : no need parse
-# Skip LPTIM_CLOCKPOLARITY_RISING : no need parse
-# Skip LPTIM_CLOCKPOLARITY_FALLING : no need parse
-# Skip LPTIM_CLOCKPOLARITY_RISING_FALLING : no need parse
-# Skip LPTIM_TRIGSOURCE_SOFTWARE : no need parse
-# Skip LPTIM_TRIGSOURCE_0 : no need parse
-# Skip LPTIM_TRIGSOURCE_1 : no need parse
-# Skip LPTIM_TRIGSOURCE_2 : no need parse
-# Skip LPTIM_TRIGSOURCE_3 : no need parse
-# Skip LPTIM_TRIGSOURCE_4 : no need parse
-# Skip LPTIM_TRIGSOURCE_5 : no need parse
-# Skip LPTIM_TRIGSOURCE_6 : no need parse
-# Skip LPTIM_TRIGSOURCE_7 : no need parse
-# Skip LPTIM_ACTIVEEDGE_RISING : no need parse
-# Skip LPTIM_ACTIVEEDGE_FALLING : no need parse
-# Skip LPTIM_ACTIVEEDGE_RISING_FALLING : no need parse
-# Skip LPTIM_TRIGSAMPLETIME_DIRECTTRANSITION : no need parse
-# Skip LPTIM_TRIGSAMPLETIME_2TRANSITIONS : no need parse
-# Skip LPTIM_TRIGSAMPLETIME_4TRANSITIONS : no need parse
-# Skip LPTIM_TRIGSAMPLETIME_8TRANSITIONS : no need parse
-# Skip LPTIM_UPDATE_IMMEDIATE : no need parse
-# Skip LPTIM_UPDATE_ENDOFPERIOD : no need parse
-# Skip LPTIM_COUNTERSOURCE_INTERNAL : no need parse
-# Skip LPTIM_COUNTERSOURCE_EXTERNAL : no need parse
-# Skip LPTIM_FLAG_DOWN : no need parse
-# Skip LPTIM_FLAG_UP : no need parse
-# Skip LPTIM_FLAG_ARROK : no need parse
-# Skip LPTIM_FLAG_CMPOK : no need parse
-# Skip LPTIM_FLAG_EXTTRIG : no need parse
-# Skip LPTIM_FLAG_ARRM : no need parse
-# Skip LPTIM_FLAG_CMPM : no need parse
-# Skip LPTIM_IT_DOWN : no need parse
-# Skip LPTIM_IT_UP : no need parse
-# Skip LPTIM_IT_ARROK : no need parse
-# Skip LPTIM_IT_CMPOK : no need parse
-# Skip LPTIM_IT_EXTTRIG : no need parse
-# Skip LPTIM_IT_ARRM : no need parse
-# Skip LPTIM_IT_CMPM : no need parse
+LPTIM_EXTI_LINE_WAKEUPTIMER_EVENT = 0x20000000
+LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC = 0x0
+LPTIM_CLOCKSOURCE_ULPTIM = 0x1
+LPTIM_PRESCALER_DIV1 = 0x0
+LPTIM_PRESCALER_DIV2 = 0x200
+LPTIM_PRESCALER_DIV4 = 0x400
+LPTIM_PRESCALER_DIV8 = 0x600
+LPTIM_PRESCALER_DIV16 = 0x800
+LPTIM_PRESCALER_DIV32 = 0xA00
+LPTIM_PRESCALER_DIV64 = 0xC00
+LPTIM_PRESCALER_DIV128 = 0xE00
+LPTIM_OUTPUTPOLARITY_HIGH = 0x0
+LPTIM_OUTPUTPOLARITY_LOW = 0x200000
+LPTIM_CLOCKSAMPLETIME_DIRECTTRANSITION = 0x0
+LPTIM_CLOCKSAMPLETIME_2TRANSITIONS = 0x8
+LPTIM_CLOCKSAMPLETIME_4TRANSITIONS = 0x10
+LPTIM_CLOCKSAMPLETIME_8TRANSITIONS = 0x18
+LPTIM_CLOCKPOLARITY_RISING = 0x0
+LPTIM_CLOCKPOLARITY_FALLING = 0x2
+LPTIM_CLOCKPOLARITY_RISING_FALLING = 0x4
+LPTIM_TRIGSOURCE_SOFTWARE = 0xFFFF
+LPTIM_TRIGSOURCE_0 = 0x0
+LPTIM_TRIGSOURCE_1 = 0x2000
+LPTIM_TRIGSOURCE_2 = 0x4000
+LPTIM_TRIGSOURCE_3 = 0x6000
+LPTIM_TRIGSOURCE_4 = 0x8000
+LPTIM_TRIGSOURCE_5 = 0xA000
+LPTIM_TRIGSOURCE_6 = 0xC000
+LPTIM_TRIGSOURCE_7 = 0xE000
+LPTIM_ACTIVEEDGE_RISING = 0x20000
+LPTIM_ACTIVEEDGE_FALLING = 0x40000
+LPTIM_ACTIVEEDGE_RISING_FALLING = 0x60000
+LPTIM_TRIGSAMPLETIME_DIRECTTRANSITION = 0x0
+LPTIM_TRIGSAMPLETIME_2TRANSITIONS = 0x40
+LPTIM_TRIGSAMPLETIME_4TRANSITIONS = 0x80
+LPTIM_TRIGSAMPLETIME_8TRANSITIONS = 0xC0
+LPTIM_UPDATE_IMMEDIATE = 0x0
+LPTIM_UPDATE_ENDOFPERIOD = 0x400000
+LPTIM_COUNTERSOURCE_INTERNAL = 0x0
+LPTIM_COUNTERSOURCE_EXTERNAL = 0x800000
+LPTIM_FLAG_DOWN = 0x40
+LPTIM_FLAG_UP = 0x20
+LPTIM_FLAG_ARROK = 0x10
+LPTIM_FLAG_CMPOK = 0x8
+LPTIM_FLAG_EXTTRIG = 0x4
+LPTIM_FLAG_ARRM = 0x2
+LPTIM_FLAG_CMPM = 0x1
+LPTIM_IT_DOWN = 0x40
+LPTIM_IT_UP = 0x20
+LPTIM_IT_ARROK = 0x10
+LPTIM_IT_CMPOK = 0x8
+LPTIM_IT_EXTTRIG = 0x4
+LPTIM_IT_ARRM = 0x2
+LPTIM_IT_CMPM = 0x1
 # fun define __HAL_LPTIM_RESET_HANDLE_STATE(__HANDLE__) do {                                                        \
 #                                                      (__HANDLE__)->State             = HAL_LPTIM_STATE_RESET; \
 #                                                      (__HANDLE__)->MspInitCallback   = NULL;                  \
@@ -10040,6 +10141,8 @@ class LCD_InitTypeDef(ctypes.Structure):
 class LPTIM_ClockConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Source',	ctypes.c_uint32),
+		('Prescaler',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10049,6 +10152,8 @@ class LPTIM_ClockConfigTypeDef(ctypes.Structure):
 class LPTIM_ULPClockConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Polarity',	ctypes.c_uint32),
+		('SampleTime',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10058,6 +10163,9 @@ class LPTIM_ULPClockConfigTypeDef(ctypes.Structure):
 class LPTIM_TriggerConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Source',	ctypes.c_uint32),
+		('ActiveEdge',	ctypes.c_uint32),
+		('SampleTime',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10069,8 +10177,8 @@ class LPTIM_TriggerConfigTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_rcc_ex.h : 
 
 # empty define __STM32L0xx_HAL_RCC_EX_H
-# Skip RCC_CRS_IT_ERROR_MASK : no need parse
-# Skip RCC_CRS_FLAG_ERROR_MASK : no need parse
+RCC_CRS_IT_ERROR_MASK = 0x4
+RCC_CRS_FLAG_ERROR_MASK = 0x700
 # fun define IS_RCC_PERIPHCLOCK(__CLK__) ((__CLK__) <= (RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_LPUART1 | \
 #                                                 RCC_PERIPHCLK_I2C1   | RCC_PERIPHCLK_I2C2 | RCC_PERIPHCLK_RTC       |  \
 #                                                 RCC_PERIPHCLK_USB | RCC_PERIPHCLK_LPTIM1))
@@ -10138,93 +10246,93 @@ class LPTIM_TriggerConfigTypeDef(ctypes.Structure):
 # fun define IS_RCC_CRS_HSI48CALIBRATION(_VALUE_) (((_VALUE_) <= 0x3FU))
 # fun define IS_RCC_CRS_FREQERRORDIR(_DIR_) (((_DIR_) == RCC_CRS_FREQERRORDIR_UP) || \
 #                                        ((_DIR_) == RCC_CRS_FREQERRORDIR_DOWN))
-# Skip RCC_EXTI_LINE_LSECSS : no need parse
-# Skip RCC_PERIPHCLK_USART1 : no need parse
-# Skip RCC_PERIPHCLK_USART2 : no need parse
-# Skip RCC_PERIPHCLK_LPUART1 : no need parse
-# Skip RCC_PERIPHCLK_I2C1 : no need parse
-# Skip RCC_PERIPHCLK_I2C2 : no need parse
-# Skip RCC_PERIPHCLK_RTC : no need parse
-# Skip RCC_PERIPHCLK_USB : no need parse
-# Skip RCC_PERIPHCLK_LPTIM1 : no need parse
-# Skip RCC_PERIPHCLK_LCD : no need parse
+RCC_EXTI_LINE_LSECSS = 0x80000
+RCC_PERIPHCLK_USART1 = 0x1
+RCC_PERIPHCLK_USART2 = 0x2
+RCC_PERIPHCLK_LPUART1 = 0x4
+RCC_PERIPHCLK_I2C1 = 0x8
+RCC_PERIPHCLK_I2C2 = 0x10
+RCC_PERIPHCLK_RTC = 0x20
+RCC_PERIPHCLK_USB = 0x40
+RCC_PERIPHCLK_LPTIM1 = 0x80
+RCC_PERIPHCLK_LCD = 0x800
 # Skip RCC_PERIPHCLK_I2C3 : no need parse
-# Skip RCC_USART1CLKSOURCE_PCLK2 : no need parse
-# Skip RCC_USART1CLKSOURCE_SYSCLK : no need parse
-# Skip RCC_USART1CLKSOURCE_HSI : no need parse
-# Skip RCC_USART1CLKSOURCE_LSE : no need parse
-# Skip RCC_USART2CLKSOURCE_PCLK1 : no need parse
-# Skip RCC_USART2CLKSOURCE_SYSCLK : no need parse
-# Skip RCC_USART2CLKSOURCE_HSI : no need parse
-# Skip RCC_USART2CLKSOURCE_LSE : no need parse
-# Skip RCC_LPUART1CLKSOURCE_PCLK1 : no need parse
-# Skip RCC_LPUART1CLKSOURCE_SYSCLK : no need parse
-# Skip RCC_LPUART1CLKSOURCE_HSI : no need parse
-# Skip RCC_LPUART1CLKSOURCE_LSE : no need parse
-# Skip RCC_I2C1CLKSOURCE_PCLK1 : no need parse
-# Skip RCC_I2C1CLKSOURCE_SYSCLK : no need parse
-# Skip RCC_I2C1CLKSOURCE_HSI : no need parse
+RCC_USART1CLKSOURCE_PCLK2 = 0x0
+RCC_USART1CLKSOURCE_SYSCLK = 0x1
+RCC_USART1CLKSOURCE_HSI = 0x2
+RCC_USART1CLKSOURCE_LSE = 0x3
+RCC_USART2CLKSOURCE_PCLK1 = 0x0
+RCC_USART2CLKSOURCE_SYSCLK = 0x4
+RCC_USART2CLKSOURCE_HSI = 0x8
+RCC_USART2CLKSOURCE_LSE = 0xC
+RCC_LPUART1CLKSOURCE_PCLK1 = 0x0
+RCC_LPUART1CLKSOURCE_SYSCLK = 0x400
+RCC_LPUART1CLKSOURCE_HSI = 0x800
+RCC_LPUART1CLKSOURCE_LSE = 0xC00
+RCC_I2C1CLKSOURCE_PCLK1 = 0x0
+RCC_I2C1CLKSOURCE_SYSCLK = 0x1000
+RCC_I2C1CLKSOURCE_HSI = 0x2000
 # Skip RCC_I2C3CLKSOURCE_PCLK1 : no need parse
 # Skip RCC_I2C3CLKSOURCE_SYSCLK : no need parse
 # Skip RCC_I2C3CLKSOURCE_HSI : no need parse
-# Skip RCC_TIMPRES_DESACTIVATED : no need parse
-# Skip RCC_TIMPRES_ACTIVATED : no need parse
-# Skip RCC_USBCLKSOURCE_HSI48 : no need parse
-# Skip RCC_USBCLKSOURCE_PLL : no need parse
-# Skip RCC_RNGCLKSOURCE_HSI48 : no need parse
-# Skip RCC_RNGCLKSOURCE_PLLCLK : no need parse
-# Skip RCC_FLAG_HSI48 : no need parse
-# Skip RCC_HSI48M_PLL : no need parse
-# Skip RCC_HSI48M_HSI48 : no need parse
-# Skip RCC_LPTIM1CLKSOURCE_PCLK1 : no need parse
-# Skip RCC_LPTIM1CLKSOURCE_LSI : no need parse
-# Skip RCC_LPTIM1CLKSOURCE_HSI : no need parse
-# Skip RCC_LPTIM1CLKSOURCE_LSE : no need parse
-# Skip RCC_STOP_WAKEUPCLOCK_MSI : no need parse
-# Skip RCC_STOP_WAKEUPCLOCK_HSI : no need parse
-# Skip RCC_LSEDRIVE_LOW : no need parse
-# Skip RCC_LSEDRIVE_MEDIUMLOW : no need parse
-# Skip RCC_LSEDRIVE_MEDIUMHIGH : no need parse
-# Skip RCC_LSEDRIVE_HIGH : no need parse
-# Skip RCC_CRS_NONE : no need parse
-# Skip RCC_CRS_TIMEOUT : no need parse
-# Skip RCC_CRS_SYNCOK : no need parse
-# Skip RCC_CRS_SYNCWARN : no need parse
-# Skip RCC_CRS_SYNCERR : no need parse
-# Skip RCC_CRS_SYNCMISS : no need parse
-# Skip RCC_CRS_TRIMOVF : no need parse
-# Skip RCC_CRS_SYNC_SOURCE_GPIO : no need parse
-# Skip RCC_CRS_SYNC_SOURCE_LSE : no need parse
-# Skip RCC_CRS_SYNC_SOURCE_USB : no need parse
-# Skip RCC_CRS_SYNC_DIV1 : no need parse
-# Skip RCC_CRS_SYNC_DIV2 : no need parse
-# Skip RCC_CRS_SYNC_DIV4 : no need parse
-# Skip RCC_CRS_SYNC_DIV8 : no need parse
-# Skip RCC_CRS_SYNC_DIV16 : no need parse
-# Skip RCC_CRS_SYNC_DIV32 : no need parse
-# Skip RCC_CRS_SYNC_DIV64 : no need parse
-# Skip RCC_CRS_SYNC_DIV128 : no need parse
-# Skip RCC_CRS_SYNC_POLARITY_RISING : no need parse
-# Skip RCC_CRS_SYNC_POLARITY_FALLING : no need parse
-# Skip RCC_CRS_RELOADVALUE_DEFAULT : no need parse
-# Skip RCC_CRS_ERRORLIMIT_DEFAULT : no need parse
-# Skip RCC_CRS_HSI48CALIBRATION_DEFAULT : no need parse
-# Skip RCC_CRS_FREQERRORDIR_UP : no need parse
-# Skip RCC_CRS_FREQERRORDIR_DOWN : no need parse
-# Skip RCC_CRS_IT_SYNCOK : no need parse
-# Skip RCC_CRS_IT_SYNCWARN : no need parse
-# Skip RCC_CRS_IT_ERR : no need parse
-# Skip RCC_CRS_IT_ESYNC : no need parse
-# Skip RCC_CRS_IT_SYNCERR : no need parse
-# Skip RCC_CRS_IT_SYNCMISS : no need parse
-# Skip RCC_CRS_IT_TRIMOVF : no need parse
-# Skip RCC_CRS_FLAG_SYNCOK : no need parse
-# Skip RCC_CRS_FLAG_SYNCWARN : no need parse
-# Skip RCC_CRS_FLAG_ERR : no need parse
-# Skip RCC_CRS_FLAG_ESYNC : no need parse
-# Skip RCC_CRS_FLAG_SYNCERR : no need parse
-# Skip RCC_CRS_FLAG_SYNCMISS : no need parse
-# Skip RCC_CRS_FLAG_TRIMOVF : no need parse
+RCC_TIMPRES_DESACTIVATED = 0x0
+RCC_TIMPRES_ACTIVATED = 0x1
+RCC_USBCLKSOURCE_HSI48 = 0x4000000
+RCC_USBCLKSOURCE_PLL = 0x0
+RCC_RNGCLKSOURCE_HSI48 = 0x4000000
+RCC_RNGCLKSOURCE_PLLCLK = 0x0
+RCC_FLAG_HSI48 = 0x40000000
+RCC_HSI48M_PLL = 0x0
+RCC_HSI48M_HSI48 = 0x4000000
+RCC_LPTIM1CLKSOURCE_PCLK1 = 0x0
+RCC_LPTIM1CLKSOURCE_LSI = 0x40000
+RCC_LPTIM1CLKSOURCE_HSI = 0x80000
+RCC_LPTIM1CLKSOURCE_LSE = 0xC0000
+RCC_STOP_WAKEUPCLOCK_MSI = 0x0
+RCC_STOP_WAKEUPCLOCK_HSI = 0x8000
+RCC_LSEDRIVE_LOW = 0x0
+RCC_LSEDRIVE_MEDIUMLOW = 0x800
+RCC_LSEDRIVE_MEDIUMHIGH = 0x1000
+RCC_LSEDRIVE_HIGH = 0x1800
+RCC_CRS_NONE = 0x0
+RCC_CRS_TIMEOUT = 0x1
+RCC_CRS_SYNCOK = 0x2
+RCC_CRS_SYNCWARN = 0x4
+RCC_CRS_SYNCERR = 0x8
+RCC_CRS_SYNCMISS = 0x10
+RCC_CRS_TRIMOVF = 0x20
+RCC_CRS_SYNC_SOURCE_GPIO = 0x0
+RCC_CRS_SYNC_SOURCE_LSE = 0x10000000
+RCC_CRS_SYNC_SOURCE_USB = 0x20000000
+RCC_CRS_SYNC_DIV1 = 0x0
+RCC_CRS_SYNC_DIV2 = 0x1000000
+RCC_CRS_SYNC_DIV4 = 0x2000000
+RCC_CRS_SYNC_DIV8 = 0x3000000
+RCC_CRS_SYNC_DIV16 = 0x4000000
+RCC_CRS_SYNC_DIV32 = 0x5000000
+RCC_CRS_SYNC_DIV64 = 0x6000000
+RCC_CRS_SYNC_DIV128 = 0x7000000
+RCC_CRS_SYNC_POLARITY_RISING = 0x0
+RCC_CRS_SYNC_POLARITY_FALLING = 0x80000000
+RCC_CRS_RELOADVALUE_DEFAULT = 0xBB7F
+RCC_CRS_ERRORLIMIT_DEFAULT = 0x22
+RCC_CRS_HSI48CALIBRATION_DEFAULT = 0x20
+RCC_CRS_FREQERRORDIR_UP = 0x0
+RCC_CRS_FREQERRORDIR_DOWN = 0x8000
+RCC_CRS_IT_SYNCOK = 0x1
+RCC_CRS_IT_SYNCWARN = 0x2
+RCC_CRS_IT_ERR = 0x4
+RCC_CRS_IT_ESYNC = 0x8
+RCC_CRS_IT_SYNCERR = 0x4
+RCC_CRS_IT_SYNCMISS = 0x4
+RCC_CRS_IT_TRIMOVF = 0x4
+RCC_CRS_FLAG_SYNCOK = 0x1
+RCC_CRS_FLAG_SYNCWARN = 0x2
+RCC_CRS_FLAG_ERR = 0x4
+RCC_CRS_FLAG_ESYNC = 0x8
+RCC_CRS_FLAG_SYNCERR = 0x100
+RCC_CRS_FLAG_SYNCMISS = 0x200
+RCC_CRS_FLAG_TRIMOVF = 0x400
 # fun define __HAL_RCC_AES_CLK_ENABLE()   do { \
 #                                        __IO uint32_t tmpreg; \
 #                                        SET_BIT(RCC->AHBENR, RCC_AHBENR_CRYPEN);\
@@ -10781,6 +10889,15 @@ class LPTIM_TriggerConfigTypeDef(ctypes.Structure):
 class RCC_PeriphCLKInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('PeriphClockSelection',	ctypes.c_uint32),
+		('RTCClockSelection',	ctypes.c_uint32),
+		('LCDClockSelection',	ctypes.c_uint32),
+		('Usart1ClockSelection',	ctypes.c_uint32),
+		('Usart2ClockSelection',	ctypes.c_uint32),
+		('Lpuart1ClockSelection',	ctypes.c_uint32),
+		('I2c1ClockSelection',	ctypes.c_uint32),
+		('LptimClockSelection',	ctypes.c_uint32),
+		('UsbClockSelection',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10790,6 +10907,12 @@ class RCC_PeriphCLKInitTypeDef(ctypes.Structure):
 class RCC_CRSInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Prescaler',	ctypes.c_uint32),
+		('Source',	ctypes.c_uint32),
+		('Polarity',	ctypes.c_uint32),
+		('ReloadValue',	ctypes.c_uint32),
+		('ErrorLimitValue',	ctypes.c_uint32),
+		('HSI48CalibrationValue',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10799,6 +10922,10 @@ class RCC_CRSInitTypeDef(ctypes.Structure):
 class RCC_CRSSynchroInfoTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ReloadValue',	ctypes.c_uint32),
+		('HSI48CalibrationValue',	ctypes.c_uint32),
+		('FreqErrorCapture',	ctypes.c_uint32),
+		('FreqErrorDirection',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -10808,25 +10935,25 @@ class RCC_CRSSynchroInfoTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_rcc.h : 
 
 # empty define __STM32L0xx_HAL_RCC_H
-# Skip RCC_DBP_TIMEOUT_VALUE : no need parse
-# Skip RCC_LSE_TIMEOUT_VALUE : no need parse
-# Skip CLOCKSWITCH_TIMEOUT_VALUE : no need parse
-# Skip HSE_TIMEOUT_VALUE : no need parse
-# Skip MSI_TIMEOUT_VALUE : no need parse
-# Skip HSI_TIMEOUT_VALUE : no need parse
-# Skip LSI_TIMEOUT_VALUE : no need parse
-# Skip PLL_TIMEOUT_VALUE : no need parse
-# Skip HSI48_TIMEOUT_VALUE : no need parse
-# Skip RCC_OFFSET : no need parse
-# Skip RCC_CR_OFFSET : no need parse
-# Skip RCC_CFGR_OFFSET : no need parse
-# Skip RCC_CSR_OFFSET : no need parse
-# Skip RCC_CR_BYTE2_ADDRESS : no need parse
-# Skip CIER_BYTE0_ADDRESS : no need parse
-# Skip CR_REG_INDEX : no need parse
-# Skip CSR_REG_INDEX : no need parse
-# Skip CRRCR_REG_INDEX : no need parse
-# Skip RCC_FLAG_MASK : no need parse
+RCC_DBP_TIMEOUT_VALUE = 0x64
+RCC_LSE_TIMEOUT_VALUE = 0x1388
+CLOCKSWITCH_TIMEOUT_VALUE = 0x1388
+HSE_TIMEOUT_VALUE = 0x64
+MSI_TIMEOUT_VALUE = 0x2
+HSI_TIMEOUT_VALUE = 0x2
+LSI_TIMEOUT_VALUE = 0x2
+PLL_TIMEOUT_VALUE = 0x2
+HSI48_TIMEOUT_VALUE = 0x2
+RCC_OFFSET = 0x21000
+RCC_CR_OFFSET = 0x21000
+RCC_CFGR_OFFSET = 0x21008
+RCC_CSR_OFFSET = 0x21074
+RCC_CR_BYTE2_ADDRESS = 0x40023802
+CIER_BYTE0_ADDRESS = 0x40021010
+CR_REG_INDEX = 0x1
+CSR_REG_INDEX = 0x2
+CRRCR_REG_INDEX = 0x3
+RCC_FLAG_MASK = 0x1F
 # fun define IS_RCC_OSCILLATORTYPE(__OSCILLATOR__) (((__OSCILLATOR__) == RCC_OSCILLATORTYPE_NONE)                               || \
 #                                               (((__OSCILLATOR__) & RCC_OSCILLATORTYPE_HSE)   == RCC_OSCILLATORTYPE_HSE)   || \
 #                                               (((__OSCILLATOR__) & RCC_OSCILLATORTYPE_HSI)   == RCC_OSCILLATORTYPE_HSI)   || \
@@ -10913,136 +11040,136 @@ class RCC_CRSSynchroInfoTypeDef(ctypes.Structure):
 #                                         ((__SOURCE__) == RCC_RTCCLKSOURCE_HSE_DIV4) || \
 #                                         ((__SOURCE__) == RCC_RTCCLKSOURCE_HSE_DIV8) || \
 #                                         ((__SOURCE__) == RCC_RTCCLKSOURCE_HSE_DIV16))
-# Skip RCC_PLLSOURCE_HSI : no need parse
-# Skip RCC_PLLSOURCE_HSE : no need parse
-# Skip RCC_OSCILLATORTYPE_NONE : no need parse
-# Skip RCC_OSCILLATORTYPE_HSE : no need parse
-# Skip RCC_OSCILLATORTYPE_HSI : no need parse
-# Skip RCC_OSCILLATORTYPE_LSE : no need parse
-# Skip RCC_OSCILLATORTYPE_LSI : no need parse
-# Skip RCC_OSCILLATORTYPE_MSI : no need parse
-# Skip RCC_OSCILLATORTYPE_HSI48 : no need parse
-# Skip RCC_HSE_OFF : no need parse
-# Skip RCC_HSE_ON : no need parse
-# Skip RCC_HSE_BYPASS : no need parse
-# Skip RCC_LSE_OFF : no need parse
-# Skip RCC_LSE_ON : no need parse
-# Skip RCC_LSE_BYPASS : no need parse
-# Skip RCC_HSI_OFF : no need parse
-# Skip RCC_HSI_ON : no need parse
-# Skip RCC_HSI_DIV4 : no need parse
+RCC_PLLSOURCE_HSI = 0x0
+RCC_PLLSOURCE_HSE = 0x10000
+RCC_OSCILLATORTYPE_NONE = 0x0
+RCC_OSCILLATORTYPE_HSE = 0x1
+RCC_OSCILLATORTYPE_HSI = 0x2
+RCC_OSCILLATORTYPE_LSE = 0x4
+RCC_OSCILLATORTYPE_LSI = 0x8
+RCC_OSCILLATORTYPE_MSI = 0x10
+RCC_OSCILLATORTYPE_HSI48 = 0x20
+RCC_HSE_OFF = 0x0
+RCC_HSE_ON = 0x10000
+RCC_HSE_BYPASS = 0x50000
+RCC_LSE_OFF = 0x0
+RCC_LSE_ON = 0x100
+RCC_LSE_BYPASS = 0x500
+RCC_HSI_OFF = 0x0
+RCC_HSI_ON = 0x1
+RCC_HSI_DIV4 = 0x9
 # Skip RCC_HSI_OUTEN : no need parse
-# Skip RCC_HSICALIBRATION_DEFAULT : no need parse
-# Skip RCC_MSIRANGE_0 : no need parse
-# Skip RCC_MSIRANGE_1 : no need parse
-# Skip RCC_MSIRANGE_2 : no need parse
-# Skip RCC_MSIRANGE_3 : no need parse
-# Skip RCC_MSIRANGE_4 : no need parse
-# Skip RCC_MSIRANGE_5 : no need parse
-# Skip RCC_MSIRANGE_6 : no need parse
-# Skip RCC_LSI_OFF : no need parse
-# Skip RCC_LSI_ON : no need parse
-# Skip RCC_MSI_OFF : no need parse
-# Skip RCC_MSI_ON : no need parse
-# Skip RCC_MSICALIBRATION_DEFAULT : no need parse
-# Skip RCC_HSI48_OFF : no need parse
-# Skip RCC_HSI48_ON : no need parse
-# Skip RCC_PLL_NONE : no need parse
-# Skip RCC_PLL_OFF : no need parse
-# Skip RCC_PLL_ON : no need parse
-# Skip RCC_CLOCKTYPE_SYSCLK : no need parse
-# Skip RCC_CLOCKTYPE_HCLK : no need parse
-# Skip RCC_CLOCKTYPE_PCLK1 : no need parse
-# Skip RCC_CLOCKTYPE_PCLK2 : no need parse
-# Skip RCC_SYSCLKSOURCE_MSI : no need parse
-# Skip RCC_SYSCLKSOURCE_HSI : no need parse
-# Skip RCC_SYSCLKSOURCE_HSE : no need parse
-# Skip RCC_SYSCLKSOURCE_PLLCLK : no need parse
-# Skip RCC_SYSCLKSOURCE_STATUS_MSI : no need parse
-# Skip RCC_SYSCLKSOURCE_STATUS_HSI : no need parse
-# Skip RCC_SYSCLKSOURCE_STATUS_HSE : no need parse
-# Skip RCC_SYSCLKSOURCE_STATUS_PLLCLK : no need parse
-# Skip RCC_SYSCLK_DIV1 : no need parse
-# Skip RCC_SYSCLK_DIV2 : no need parse
-# Skip RCC_SYSCLK_DIV4 : no need parse
-# Skip RCC_SYSCLK_DIV8 : no need parse
-# Skip RCC_SYSCLK_DIV16 : no need parse
-# Skip RCC_SYSCLK_DIV64 : no need parse
-# Skip RCC_SYSCLK_DIV128 : no need parse
-# Skip RCC_SYSCLK_DIV256 : no need parse
-# Skip RCC_SYSCLK_DIV512 : no need parse
-# Skip RCC_HCLK_DIV1 : no need parse
-# Skip RCC_HCLK_DIV2 : no need parse
-# Skip RCC_HCLK_DIV4 : no need parse
-# Skip RCC_HCLK_DIV8 : no need parse
-# Skip RCC_HCLK_DIV16 : no need parse
-# Skip RCC_RTC_HSE_DIV_2 : no need parse
-# Skip RCC_RTC_HSE_DIV_4 : no need parse
-# Skip RCC_RTC_HSE_DIV_8 : no need parse
-# Skip RCC_RTC_HSE_DIV_16 : no need parse
-# Skip RCC_RTCCLKSOURCE_NO_CLK : no need parse
-# Skip RCC_RTCCLKSOURCE_LSE : no need parse
-# Skip RCC_RTCCLKSOURCE_LSI : no need parse
-# Skip RCC_RTCCLKSOURCE_HSE_DIVX : no need parse
-# Skip RCC_RTCCLKSOURCE_HSE_DIV2 : no need parse
-# Skip RCC_RTCCLKSOURCE_HSE_DIV4 : no need parse
-# Skip RCC_RTCCLKSOURCE_HSE_DIV8 : no need parse
-# Skip RCC_RTCCLKSOURCE_HSE_DIV16 : no need parse
-# Skip RCC_PLL_DIV2 : no need parse
-# Skip RCC_PLL_DIV3 : no need parse
-# Skip RCC_PLL_DIV4 : no need parse
-# Skip RCC_PLL_MUL3 : no need parse
-# Skip RCC_PLL_MUL4 : no need parse
-# Skip RCC_PLL_MUL6 : no need parse
-# Skip RCC_PLL_MUL8 : no need parse
-# Skip RCC_PLL_MUL12 : no need parse
-# Skip RCC_PLL_MUL16 : no need parse
-# Skip RCC_PLL_MUL24 : no need parse
-# Skip RCC_PLL_MUL32 : no need parse
-# Skip RCC_PLL_MUL48 : no need parse
-# Skip RCC_MCO1 : no need parse
-# Skip RCC_MCO2 : no need parse
+RCC_HSICALIBRATION_DEFAULT = 0x10
+RCC_MSIRANGE_0 = 0x0
+RCC_MSIRANGE_1 = 0x2000
+RCC_MSIRANGE_2 = 0x4000
+RCC_MSIRANGE_3 = 0x6000
+RCC_MSIRANGE_4 = 0x8000
+RCC_MSIRANGE_5 = 0xA000
+RCC_MSIRANGE_6 = 0xC000
+RCC_LSI_OFF = 0x0
+RCC_LSI_ON = 0x1
+RCC_MSI_OFF = 0x0
+RCC_MSI_ON = 0x1
+RCC_MSICALIBRATION_DEFAULT = 0x0
+RCC_HSI48_OFF = 0x0
+RCC_HSI48_ON = 0x1
+RCC_PLL_NONE = 0x0
+RCC_PLL_OFF = 0x1
+RCC_PLL_ON = 0x2
+RCC_CLOCKTYPE_SYSCLK = 0x1
+RCC_CLOCKTYPE_HCLK = 0x2
+RCC_CLOCKTYPE_PCLK1 = 0x4
+RCC_CLOCKTYPE_PCLK2 = 0x8
+RCC_SYSCLKSOURCE_MSI = 0x0
+RCC_SYSCLKSOURCE_HSI = 0x1
+RCC_SYSCLKSOURCE_HSE = 0x2
+RCC_SYSCLKSOURCE_PLLCLK = 0x3
+RCC_SYSCLKSOURCE_STATUS_MSI = 0x0
+RCC_SYSCLKSOURCE_STATUS_HSI = 0x4
+RCC_SYSCLKSOURCE_STATUS_HSE = 0x8
+RCC_SYSCLKSOURCE_STATUS_PLLCLK = 0xC
+RCC_SYSCLK_DIV1 = 0x0
+RCC_SYSCLK_DIV2 = 0x80
+RCC_SYSCLK_DIV4 = 0x90
+RCC_SYSCLK_DIV8 = 0xA0
+RCC_SYSCLK_DIV16 = 0xB0
+RCC_SYSCLK_DIV64 = 0xC0
+RCC_SYSCLK_DIV128 = 0xD0
+RCC_SYSCLK_DIV256 = 0xE0
+RCC_SYSCLK_DIV512 = 0xF0
+RCC_HCLK_DIV1 = 0x0
+RCC_HCLK_DIV2 = 0x400
+RCC_HCLK_DIV4 = 0x500
+RCC_HCLK_DIV8 = 0x600
+RCC_HCLK_DIV16 = 0x700
+RCC_RTC_HSE_DIV_2 = 0x0
+RCC_RTC_HSE_DIV_4 = 0x100000
+RCC_RTC_HSE_DIV_8 = 0x200000
+RCC_RTC_HSE_DIV_16 = 0x300000
+RCC_RTCCLKSOURCE_NO_CLK = 0x0
+RCC_RTCCLKSOURCE_LSE = 0x10000
+RCC_RTCCLKSOURCE_LSI = 0x20000
+RCC_RTCCLKSOURCE_HSE_DIVX = 0x30000
+RCC_RTCCLKSOURCE_HSE_DIV2 = 0x30000
+RCC_RTCCLKSOURCE_HSE_DIV4 = 0x130000
+RCC_RTCCLKSOURCE_HSE_DIV8 = 0x230000
+RCC_RTCCLKSOURCE_HSE_DIV16 = 0x330000
+RCC_PLL_DIV2 = 0x400000
+RCC_PLL_DIV3 = 0x800000
+RCC_PLL_DIV4 = 0xC00000
+RCC_PLL_MUL3 = 0x0
+RCC_PLL_MUL4 = 0x40000
+RCC_PLL_MUL6 = 0x80000
+RCC_PLL_MUL8 = 0xC0000
+RCC_PLL_MUL12 = 0x100000
+RCC_PLL_MUL16 = 0x140000
+RCC_PLL_MUL24 = 0x180000
+RCC_PLL_MUL32 = 0x1C0000
+RCC_PLL_MUL48 = 0x200000
+RCC_MCO1 = 0x0
+RCC_MCO2 = 0x1
 # Skip RCC_MCO3 : no need parse
-# Skip RCC_MCODIV_1 : no need parse
-# Skip RCC_MCODIV_2 : no need parse
-# Skip RCC_MCODIV_4 : no need parse
-# Skip RCC_MCODIV_8 : no need parse
-# Skip RCC_MCODIV_16 : no need parse
-# Skip RCC_MCO1SOURCE_NOCLOCK : no need parse
-# Skip RCC_MCO1SOURCE_SYSCLK : no need parse
-# Skip RCC_MCO1SOURCE_MSI : no need parse
-# Skip RCC_MCO1SOURCE_HSI : no need parse
-# Skip RCC_MCO1SOURCE_LSE : no need parse
-# Skip RCC_MCO1SOURCE_LSI : no need parse
-# Skip RCC_MCO1SOURCE_HSE : no need parse
-# Skip RCC_MCO1SOURCE_PLLCLK : no need parse
-# Skip RCC_MCO1SOURCE_HSI48 : no need parse
-# Skip RCC_IT_LSIRDY : no need parse
-# Skip RCC_IT_LSERDY : no need parse
-# Skip RCC_IT_HSIRDY : no need parse
-# Skip RCC_IT_HSERDY : no need parse
-# Skip RCC_IT_PLLRDY : no need parse
-# Skip RCC_IT_MSIRDY : no need parse
-# Skip RCC_IT_LSECSS : no need parse
-# Skip RCC_IT_CSS : no need parse
-# Skip RCC_IT_HSI48RDY : no need parse
-# Skip RCC_FLAG_HSIRDY : no need parse
-# Skip RCC_FLAG_HSIDIV : no need parse
-# Skip RCC_FLAG_MSIRDY : no need parse
-# Skip RCC_FLAG_HSERDY : no need parse
-# Skip RCC_FLAG_PLLRDY : no need parse
-# Skip RCC_FLAG_LSIRDY : no need parse
-# Skip RCC_FLAG_LSERDY : no need parse
-# Skip RCC_FLAG_LSECSS : no need parse
-# Skip RCC_FLAG_OBLRST : no need parse
-# Skip RCC_FLAG_PINRST : no need parse
-# Skip RCC_FLAG_PORRST : no need parse
-# Skip RCC_FLAG_SFTRST : no need parse
-# Skip RCC_FLAG_IWDGRST : no need parse
-# Skip RCC_FLAG_WWDGRST : no need parse
-# Skip RCC_FLAG_LPWRRST : no need parse
-# Skip RCC_FLAG_FWRST : no need parse
-# Skip RCC_FLAG_HSI48RDY : no need parse
+RCC_MCODIV_1 = 0x0
+RCC_MCODIV_2 = 0x10000000
+RCC_MCODIV_4 = 0x20000000
+RCC_MCODIV_8 = 0x30000000
+RCC_MCODIV_16 = 0x40000000
+RCC_MCO1SOURCE_NOCLOCK = 0x0
+RCC_MCO1SOURCE_SYSCLK = 0x1000000
+RCC_MCO1SOURCE_MSI = 0x3000000
+RCC_MCO1SOURCE_HSI = 0x2000000
+RCC_MCO1SOURCE_LSE = 0x7000000
+RCC_MCO1SOURCE_LSI = 0x6000000
+RCC_MCO1SOURCE_HSE = 0x4000000
+RCC_MCO1SOURCE_PLLCLK = 0x5000000
+RCC_MCO1SOURCE_HSI48 = 0x8000000
+RCC_IT_LSIRDY = 0x1
+RCC_IT_LSERDY = 0x2
+RCC_IT_HSIRDY = 0x4
+RCC_IT_HSERDY = 0x8
+RCC_IT_PLLRDY = 0x10
+RCC_IT_MSIRDY = 0x20
+RCC_IT_LSECSS = 0x80
+RCC_IT_CSS = 0x100
+RCC_IT_HSI48RDY = 0x40
+RCC_FLAG_HSIRDY = 0x22
+RCC_FLAG_HSIDIV = 0x24
+RCC_FLAG_MSIRDY = 0x29
+RCC_FLAG_HSERDY = 0x31
+RCC_FLAG_PLLRDY = 0x39
+RCC_FLAG_LSIRDY = 0x41
+RCC_FLAG_LSERDY = 0x49
+RCC_FLAG_LSECSS = 0x4E
+RCC_FLAG_OBLRST = 0x59
+RCC_FLAG_PINRST = 0x5A
+RCC_FLAG_PORRST = 0x5B
+RCC_FLAG_SFTRST = 0x5C
+RCC_FLAG_IWDGRST = 0x5D
+RCC_FLAG_WWDGRST = 0x5E
+RCC_FLAG_LPWRRST = 0x5F
+RCC_FLAG_FWRST = 0x58
+RCC_FLAG_HSI48RDY = 0x61
 # fun define __HAL_RCC_DMA1_CLK_ENABLE()   do { \
 #                                        __IO uint32_t tmpreg; \
 #                                        SET_BIT(RCC->AHBENR, RCC_AHBENR_DMA1EN);\
@@ -11303,6 +11430,10 @@ class RCC_CRSSynchroInfoTypeDef(ctypes.Structure):
 class RCC_PLLInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('PLLState',	ctypes.c_uint32),
+		('PLLSource',	ctypes.c_uint32),
+		('PLLMUL',	ctypes.c_uint32),
+		('PLLDIV',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11314,6 +11445,11 @@ class RCC_PLLInitTypeDef(ctypes.Structure):
 class RCC_ClkInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ClockType',	ctypes.c_uint32),
+		('SYSCLKSource',	ctypes.c_uint32),
+		('AHBCLKDivider',	ctypes.c_uint32),
+		('APB1CLKDivider',	ctypes.c_uint32),
+		('APB2CLKDivider',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11323,25 +11459,25 @@ class RCC_ClkInitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_rng.h : 
 
 # Enum HAL_RNG_StateTypeDef
-# Skip HAL_RNG_STATE_RESET : no need parse
-# Skip HAL_RNG_STATE_READY : no need parse
-# Skip HAL_RNG_STATE_BUSY : no need parse
-# Skip HAL_RNG_STATE_TIMEOUT : no need parse
-# Skip HAL_RNG_STATE_ERROR : no need parse
+HAL_RNG_STATE_RESET = 0x0
+HAL_RNG_STATE_READY = 0x1
+HAL_RNG_STATE_BUSY = 0x2
+HAL_RNG_STATE_TIMEOUT = 0x3
+HAL_RNG_STATE_ERROR = 0x4
 # Enum HAL_RNG_CallbackIDTypeDef
 # Skip HAL_RNG_ERROR_CB_ID : no need parse
 # Skip HAL_RNG_MSPINIT_CB_ID : no need parse
 # Skip HAL_RNG_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_RNG_H
-# Skip RNG_IT_DRDY : no need parse
-# Skip RNG_IT_CEI : no need parse
-# Skip RNG_IT_SEI : no need parse
-# Skip RNG_FLAG_DRDY : no need parse
-# Skip RNG_FLAG_CECS : no need parse
-# Skip RNG_FLAG_SECS : no need parse
-# Skip HAL_RNG_ERROR_NONE : no need parse
+RNG_IT_DRDY = 0x1
+RNG_IT_CEI = 0x20
+RNG_IT_SEI = 0x40
+RNG_FLAG_DRDY = 0x1
+RNG_FLAG_CECS = 0x2
+RNG_FLAG_SECS = 0x4
+HAL_RNG_ERROR_NONE = 0x0
 # Skip HAL_RNG_ERROR_INVALID_CALLBACK : no need parse
-# Skip HAL_RNG_ERROR_TIMEOUT : no need parse
+HAL_RNG_ERROR_TIMEOUT = 0x2
 # fun define __HAL_RNG_RESET_HANDLE_STATE(__HANDLE__)  do{                                                   \
 #                                                       (__HANDLE__)->State = HAL_RNG_STATE_RESET;       \
 #                                                       (__HANDLE__)->MspInitCallback = NULL;            \
@@ -11366,6 +11502,11 @@ class RCC_ClkInitTypeDef(ctypes.Structure):
 class RNG_HandleTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Instance',	ctypes.c_uint64),
+		('Lock',	ctypes.c_uint32),
+		('State',	ctypes.c_uint32),
+		('ErrorCode',	ctypes.c_uint32),
+		('RandomNumber',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11375,68 +11516,68 @@ class RNG_HandleTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_rtc_ex.h : 
 
 # empty define STM32L0xx_HAL_RTC_EX_H
-# Skip RTC_OUTPUT_DISABLE : no need parse
-# Skip RTC_OUTPUT_ALARMA : no need parse
-# Skip RTC_OUTPUT_ALARMB : no need parse
-# Skip RTC_OUTPUT_WAKEUP : no need parse
-# Skip RTC_BKP_DR0 : no need parse
-# Skip RTC_BKP_DR1 : no need parse
-# Skip RTC_BKP_DR2 : no need parse
-# Skip RTC_BKP_DR3 : no need parse
-# Skip RTC_BKP_DR4 : no need parse
-# Skip RTC_TIMESTAMPEDGE_RISING : no need parse
-# Skip RTC_TIMESTAMPEDGE_FALLING : no need parse
-# Skip RTC_TIMESTAMPPIN_DEFAULT : no need parse
-# Skip RTC_TAMPER_1 : no need parse
-# Skip RTC_TAMPER_2 : no need parse
+RTC_OUTPUT_DISABLE = 0x0
+RTC_OUTPUT_ALARMA = 0x200000
+RTC_OUTPUT_ALARMB = 0x400000
+RTC_OUTPUT_WAKEUP = 0x600000
+RTC_BKP_DR0 = 0x0
+RTC_BKP_DR1 = 0x1
+RTC_BKP_DR2 = 0x2
+RTC_BKP_DR3 = 0x3
+RTC_BKP_DR4 = 0x4
+RTC_TIMESTAMPEDGE_RISING = 0x0
+RTC_TIMESTAMPEDGE_FALLING = 0x8
+RTC_TIMESTAMPPIN_DEFAULT = 0x0
+RTC_TAMPER_1 = 0x1
+RTC_TAMPER_2 = 0x8
 # Skip RTC_TAMPER_3 : no need parse
-# Skip RTC_TAMPER1_INTERRUPT : no need parse
-# Skip RTC_TAMPER2_INTERRUPT : no need parse
+RTC_TAMPER1_INTERRUPT = 0x10000
+RTC_TAMPER2_INTERRUPT = 0x80000
 # Skip RTC_TAMPER3_INTERRUPT : no need parse
-# Skip RTC_ALL_TAMPER_INTERRUPT : no need parse
-# Skip RTC_TAMPERTRIGGER_RISINGEDGE : no need parse
-# Skip RTC_TAMPERTRIGGER_FALLINGEDGE : no need parse
-# Skip RTC_TAMPERTRIGGER_LOWLEVEL : no need parse
-# Skip RTC_TAMPERTRIGGER_HIGHLEVEL : no need parse
-# Skip RTC_TAMPER_ERASE_BACKUP_ENABLE : no need parse
-# Skip RTC_TAMPER_ERASE_BACKUP_DISABLE : no need parse
-# Skip RTC_TAMPERMASK_FLAG_DISABLE : no need parse
-# Skip RTC_TAMPERMASK_FLAG_ENABLE : no need parse
-# Skip RTC_TAMPERFILTER_DISABLE : no need parse
-# Skip RTC_TAMPERFILTER_2SAMPLE : no need parse
-# Skip RTC_TAMPERFILTER_4SAMPLE : no need parse
-# Skip RTC_TAMPERFILTER_8SAMPLE : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV32768 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV16384 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV8192 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV4096 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV2048 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV1024 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV512 : no need parse
-# Skip RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV256 : no need parse
-# Skip RTC_TAMPERPRECHARGEDURATION_1RTCCLK : no need parse
-# Skip RTC_TAMPERPRECHARGEDURATION_2RTCCLK : no need parse
-# Skip RTC_TAMPERPRECHARGEDURATION_4RTCCLK : no need parse
-# Skip RTC_TAMPERPRECHARGEDURATION_8RTCCLK : no need parse
-# Skip RTC_TIMESTAMPONTAMPERDETECTION_ENABLE : no need parse
-# Skip RTC_TIMESTAMPONTAMPERDETECTION_DISABLE : no need parse
-# Skip RTC_TAMPER_PULLUP_ENABLE : no need parse
-# Skip RTC_TAMPER_PULLUP_DISABLE : no need parse
-# Skip RTC_WAKEUPCLOCK_RTCCLK_DIV16 : no need parse
-# Skip RTC_WAKEUPCLOCK_RTCCLK_DIV8 : no need parse
-# Skip RTC_WAKEUPCLOCK_RTCCLK_DIV4 : no need parse
-# Skip RTC_WAKEUPCLOCK_RTCCLK_DIV2 : no need parse
-# Skip RTC_WAKEUPCLOCK_CK_SPRE_16BITS : no need parse
-# Skip RTC_WAKEUPCLOCK_CK_SPRE_17BITS : no need parse
-# Skip RTC_SMOOTHCALIB_PERIOD_32SEC : no need parse
-# Skip RTC_SMOOTHCALIB_PERIOD_16SEC : no need parse
-# Skip RTC_SMOOTHCALIB_PERIOD_8SEC : no need parse
-# Skip RTC_SMOOTHCALIB_PLUSPULSES_SET : no need parse
-# Skip RTC_SMOOTHCALIB_PLUSPULSES_RESET : no need parse
-# Skip RTC_CALIBOUTPUT_512HZ : no need parse
-# Skip RTC_CALIBOUTPUT_1HZ : no need parse
-# Skip RTC_SHIFTADD1S_RESET : no need parse
-# Skip RTC_SHIFTADD1S_SET : no need parse
+RTC_ALL_TAMPER_INTERRUPT = 0x4
+RTC_TAMPERTRIGGER_RISINGEDGE = 0x0
+RTC_TAMPERTRIGGER_FALLINGEDGE = 0x2
+RTC_TAMPERTRIGGER_LOWLEVEL = 0x0
+RTC_TAMPERTRIGGER_HIGHLEVEL = 0x2
+RTC_TAMPER_ERASE_BACKUP_ENABLE = 0x0
+RTC_TAMPER_ERASE_BACKUP_DISABLE = 0x20000
+RTC_TAMPERMASK_FLAG_DISABLE = 0x0
+RTC_TAMPERMASK_FLAG_ENABLE = 0x40000
+RTC_TAMPERFILTER_DISABLE = 0x0
+RTC_TAMPERFILTER_2SAMPLE = 0x800
+RTC_TAMPERFILTER_4SAMPLE = 0x1000
+RTC_TAMPERFILTER_8SAMPLE = 0x1800
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV32768 = 0x0
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV16384 = 0x100
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV8192 = 0x200
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV4096 = 0x300
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV2048 = 0x400
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV1024 = 0x500
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV512 = 0x600
+RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV256 = 0x700
+RTC_TAMPERPRECHARGEDURATION_1RTCCLK = 0x0
+RTC_TAMPERPRECHARGEDURATION_2RTCCLK = 0x2000
+RTC_TAMPERPRECHARGEDURATION_4RTCCLK = 0x4000
+RTC_TAMPERPRECHARGEDURATION_8RTCCLK = 0x6000
+RTC_TIMESTAMPONTAMPERDETECTION_ENABLE = 0x80
+RTC_TIMESTAMPONTAMPERDETECTION_DISABLE = 0x0
+RTC_TAMPER_PULLUP_ENABLE = 0x0
+RTC_TAMPER_PULLUP_DISABLE = 0x8000
+RTC_WAKEUPCLOCK_RTCCLK_DIV16 = 0x0
+RTC_WAKEUPCLOCK_RTCCLK_DIV8 = 0x1
+RTC_WAKEUPCLOCK_RTCCLK_DIV4 = 0x2
+RTC_WAKEUPCLOCK_RTCCLK_DIV2 = 0x3
+RTC_WAKEUPCLOCK_CK_SPRE_16BITS = 0x4
+RTC_WAKEUPCLOCK_CK_SPRE_17BITS = 0x6
+RTC_SMOOTHCALIB_PERIOD_32SEC = 0x0
+RTC_SMOOTHCALIB_PERIOD_16SEC = 0x2000
+RTC_SMOOTHCALIB_PERIOD_8SEC = 0x4000
+RTC_SMOOTHCALIB_PLUSPULSES_SET = 0x8000
+RTC_SMOOTHCALIB_PLUSPULSES_RESET = 0x0
+RTC_CALIBOUTPUT_512HZ = 0x0
+RTC_CALIBOUTPUT_1HZ = 0x80000
+RTC_SHIFTADD1S_RESET = 0x0
+RTC_SHIFTADD1S_SET = 0x80000000
 # Skip RTC_IT_TAMP3 : no need parse
 # Skip RTC_FLAG_TAMP3F : no need parse
 # fun define __HAL_RTC_WAKEUPTIMER_ENABLE(__HANDLE__)                      ((__HANDLE__)->Instance->CR |= (RTC_CR_WUTE))
@@ -11526,17 +11667,17 @@ class RNG_HandleTypeDef(ctypes.Structure):
 # fun define __HAL_RTC_CLOCKREF_DETECTION_ENABLE(__HANDLE__)               ((__HANDLE__)->Instance->CR |= (RTC_CR_REFCKON))
 # fun define __HAL_RTC_CLOCKREF_DETECTION_DISABLE(__HANDLE__)              ((__HANDLE__)->Instance->CR &= ~(RTC_CR_REFCKON))
 # fun define __HAL_RTC_SHIFT_GET_FLAG(__HANDLE__, __FLAG__)                (((((__HANDLE__)->Instance->ISR) & (__FLAG__)) != 0U)? 1U : 0U)
-# Skip RTC_FLAGS_MASK : no need parse
-# Skip RTC_TAMPCR_TAMPXE : no need parse
-# Skip RTC_TAMPCR_TAMPXIE : no need parse
-# Skip RTC_FLAGS_MASK : no need parse
-# Skip RTC_TAMPCR_TAMPXE : no need parse
-# Skip RTC_TAMPCR_TAMPXIE : no need parse
-# Skip RTC_FLAGS_MASK : no need parse
-# Skip RTC_TAMPCR_TAMPXE : no need parse
-# Skip RTC_TAMPCR_TAMPXIE : no need parse
-# Skip RTC_EXTI_LINE_TAMPER_TIMESTAMP_EVENT : no need parse
-# Skip RTC_EXTI_LINE_WAKEUPTIMER_EVENT : no need parse
+RTC_FLAGS_MASK = 0x17F7F
+RTC_TAMPCR_TAMPXE = 0x9
+RTC_TAMPCR_TAMPXIE = 0x90004
+RTC_FLAGS_MASK = 0x17F7F
+RTC_TAMPCR_TAMPXE = 0x9
+RTC_TAMPCR_TAMPXIE = 0x90004
+RTC_FLAGS_MASK = 0x17F7F
+RTC_TAMPCR_TAMPXE = 0x9
+RTC_TAMPCR_TAMPXIE = 0x90004
+RTC_EXTI_LINE_TAMPER_TIMESTAMP_EVENT = 0x80000
+RTC_EXTI_LINE_WAKEUPTIMER_EVENT = 0x100000
 # fun define IS_RTC_OUTPUT(OUTPUT) (((OUTPUT) == RTC_OUTPUT_DISABLE) || \
 #                               ((OUTPUT) == RTC_OUTPUT_ALARMA)  || \
 #                               ((OUTPUT) == RTC_OUTPUT_ALARMB)  || \
@@ -11598,6 +11739,16 @@ class RNG_HandleTypeDef(ctypes.Structure):
 class RTC_TamperTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Tamper',	ctypes.c_uint32),
+		('Interrupt',	ctypes.c_uint32),
+		('Trigger',	ctypes.c_uint32),
+		('NoErase',	ctypes.c_uint32),
+		('MaskFlag',	ctypes.c_uint32),
+		('Filter',	ctypes.c_uint32),
+		('SamplingFrequency',	ctypes.c_uint32),
+		('PrechargeDuration',	ctypes.c_uint32),
+		('TamperPullUp',	ctypes.c_uint32),
+		('TimeStampOnTamperDetection',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11608,51 +11759,51 @@ class RTC_TamperTypeDef(ctypes.Structure):
 
 # empty define STM32L0xx_HAL_SMARTCARD_EX_H
 # Skip SMARTCARD_TCBGT : no need parse
-# Skip SMARTCARD_TC : no need parse
-# Skip SMARTCARD_ADVFEATURE_NO_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_TXINVERT_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_RXINVERT_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_DATAINVERT_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_SWAP_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_RXOVERRUNDISABLE_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_DMADISABLEONERROR_INIT : no need parse
-# Skip SMARTCARD_ADVFEATURE_MSBFIRST_INIT : no need parse
+SMARTCARD_TC = 0x626
+SMARTCARD_ADVFEATURE_NO_INIT = 0x0
+SMARTCARD_ADVFEATURE_TXINVERT_INIT = 0x1
+SMARTCARD_ADVFEATURE_RXINVERT_INIT = 0x2
+SMARTCARD_ADVFEATURE_DATAINVERT_INIT = 0x4
+SMARTCARD_ADVFEATURE_SWAP_INIT = 0x8
+SMARTCARD_ADVFEATURE_RXOVERRUNDISABLE_INIT = 0x10
+SMARTCARD_ADVFEATURE_DMADISABLEONERROR_INIT = 0x20
+SMARTCARD_ADVFEATURE_MSBFIRST_INIT = 0x80
 # Skip SMARTCARD_ADVFEATURE_TXCOMPLETION : no need parse
 # Skip SMARTCARD_FLAG_TCBGT : no need parse
-# Skip SMARTCARD_FLAG_REACK : no need parse
-# Skip SMARTCARD_FLAG_TEACK : no need parse
-# Skip SMARTCARD_FLAG_BUSY : no need parse
-# Skip SMARTCARD_FLAG_EOBF : no need parse
-# Skip SMARTCARD_FLAG_RTOF : no need parse
-# Skip SMARTCARD_FLAG_TXE : no need parse
-# Skip SMARTCARD_FLAG_TC : no need parse
-# Skip SMARTCARD_FLAG_RXNE : no need parse
-# Skip SMARTCARD_FLAG_IDLE : no need parse
-# Skip SMARTCARD_FLAG_ORE : no need parse
-# Skip SMARTCARD_FLAG_NE : no need parse
-# Skip SMARTCARD_FLAG_FE : no need parse
-# Skip SMARTCARD_FLAG_PE : no need parse
-# Skip SMARTCARD_IT_PE : no need parse
-# Skip SMARTCARD_IT_TXE : no need parse
-# Skip SMARTCARD_IT_TC : no need parse
-# Skip SMARTCARD_IT_RXNE : no need parse
-# Skip SMARTCARD_IT_IDLE : no need parse
-# Skip SMARTCARD_IT_ERR : no need parse
-# Skip SMARTCARD_IT_ORE : no need parse
-# Skip SMARTCARD_IT_NE : no need parse
-# Skip SMARTCARD_IT_FE : no need parse
-# Skip SMARTCARD_IT_EOB : no need parse
-# Skip SMARTCARD_IT_RTO : no need parse
+SMARTCARD_FLAG_REACK = 0x400000
+SMARTCARD_FLAG_TEACK = 0x200000
+SMARTCARD_FLAG_BUSY = 0x10000
+SMARTCARD_FLAG_EOBF = 0x1000
+SMARTCARD_FLAG_RTOF = 0x800
+SMARTCARD_FLAG_TXE = 0x80
+SMARTCARD_FLAG_TC = 0x40
+SMARTCARD_FLAG_RXNE = 0x20
+SMARTCARD_FLAG_IDLE = 0x10
+SMARTCARD_FLAG_ORE = 0x8
+SMARTCARD_FLAG_NE = 0x4
+SMARTCARD_FLAG_FE = 0x2
+SMARTCARD_FLAG_PE = 0x1
+SMARTCARD_IT_PE = 0x28
+SMARTCARD_IT_TXE = 0x727
+SMARTCARD_IT_TC = 0x626
+SMARTCARD_IT_RXNE = 0x525
+SMARTCARD_IT_IDLE = 0x424
+SMARTCARD_IT_ERR = 0x60
+SMARTCARD_IT_ORE = 0x300
+SMARTCARD_IT_NE = 0x200
+SMARTCARD_IT_FE = 0x100
+SMARTCARD_IT_EOB = 0xC3B
+SMARTCARD_IT_RTO = 0xB3A
 # Skip SMARTCARD_IT_TCBGT : no need parse
-# Skip SMARTCARD_CLEAR_PEF : no need parse
-# Skip SMARTCARD_CLEAR_FEF : no need parse
-# Skip SMARTCARD_CLEAR_NEF : no need parse
-# Skip SMARTCARD_CLEAR_OREF : no need parse
-# Skip SMARTCARD_CLEAR_IDLEF : no need parse
-# Skip SMARTCARD_CLEAR_TCF : no need parse
+SMARTCARD_CLEAR_PEF = 0x1
+SMARTCARD_CLEAR_FEF = 0x2
+SMARTCARD_CLEAR_NEF = 0x4
+SMARTCARD_CLEAR_OREF = 0x8
+SMARTCARD_CLEAR_IDLEF = 0x10
+SMARTCARD_CLEAR_TCF = 0x40
 # Skip SMARTCARD_CLEAR_TCBGTF : no need parse
-# Skip SMARTCARD_CLEAR_RTOF : no need parse
-# Skip SMARTCARD_CLEAR_EOBF : no need parse
+SMARTCARD_CLEAR_RTOF = 0x800
+SMARTCARD_CLEAR_EOBF = 0x1000
 # fun define SMARTCARD_TRANSMISSION_COMPLETION_SETTING(__HANDLE__)                                                \
 #  do {                                                                                                       \
 #    if (HAL_IS_BIT_CLR((__HANDLE__)->AdvancedInit.AdvFeatureInit, SMARTCARD_ADVFEATURE_TXCOMPLETION))        \
@@ -11688,70 +11839,70 @@ class RTC_TamperTypeDef(ctypes.Structure):
 # Skip HAL_SMARTCARD_MSPINIT_CB_ID : no need parse
 # Skip HAL_SMARTCARD_MSPDEINIT_CB_ID : no need parse
 # Enum SMARTCARD_ClockSourceTypeDef
-# Skip SMARTCARD_CLOCKSOURCE_PCLK1 : no need parse
-# Skip SMARTCARD_CLOCKSOURCE_PCLK2 : no need parse
-# Skip SMARTCARD_CLOCKSOURCE_HSI : no need parse
-# Skip SMARTCARD_CLOCKSOURCE_SYSCLK : no need parse
-# Skip SMARTCARD_CLOCKSOURCE_LSE : no need parse
-# Skip SMARTCARD_CLOCKSOURCE_UNDEFINED : no need parse
+SMARTCARD_CLOCKSOURCE_PCLK1 = 0x0
+SMARTCARD_CLOCKSOURCE_PCLK2 = 0x1
+SMARTCARD_CLOCKSOURCE_HSI = 0x2
+SMARTCARD_CLOCKSOURCE_SYSCLK = 0x4
+SMARTCARD_CLOCKSOURCE_LSE = 0x8
+SMARTCARD_CLOCKSOURCE_UNDEFINED = 0x10
 # empty define STM32L0xx_HAL_SMARTCARD_H
-# Skip HAL_SMARTCARD_STATE_RESET : no need parse
-# Skip HAL_SMARTCARD_STATE_READY : no need parse
-# Skip HAL_SMARTCARD_STATE_BUSY : no need parse
-# Skip HAL_SMARTCARD_STATE_BUSY_TX : no need parse
-# Skip HAL_SMARTCARD_STATE_BUSY_RX : no need parse
-# Skip HAL_SMARTCARD_STATE_BUSY_TX_RX : no need parse
-# Skip HAL_SMARTCARD_STATE_TIMEOUT : no need parse
-# Skip HAL_SMARTCARD_STATE_ERROR : no need parse
-# Skip HAL_SMARTCARD_ERROR_NONE : no need parse
-# Skip HAL_SMARTCARD_ERROR_PE : no need parse
-# Skip HAL_SMARTCARD_ERROR_NE : no need parse
-# Skip HAL_SMARTCARD_ERROR_FE : no need parse
-# Skip HAL_SMARTCARD_ERROR_ORE : no need parse
-# Skip HAL_SMARTCARD_ERROR_DMA : no need parse
-# Skip HAL_SMARTCARD_ERROR_RTO : no need parse
+HAL_SMARTCARD_STATE_RESET = 0x0
+HAL_SMARTCARD_STATE_READY = 0x20
+HAL_SMARTCARD_STATE_BUSY = 0x24
+HAL_SMARTCARD_STATE_BUSY_TX = 0x21
+HAL_SMARTCARD_STATE_BUSY_RX = 0x22
+HAL_SMARTCARD_STATE_BUSY_TX_RX = 0x23
+HAL_SMARTCARD_STATE_TIMEOUT = 0xA0
+HAL_SMARTCARD_STATE_ERROR = 0xE0
+HAL_SMARTCARD_ERROR_NONE = 0x0
+HAL_SMARTCARD_ERROR_PE = 0x1
+HAL_SMARTCARD_ERROR_NE = 0x2
+HAL_SMARTCARD_ERROR_FE = 0x4
+HAL_SMARTCARD_ERROR_ORE = 0x8
+HAL_SMARTCARD_ERROR_DMA = 0x10
+HAL_SMARTCARD_ERROR_RTO = 0x20
 # Skip HAL_SMARTCARD_ERROR_INVALID_CALLBACK : no need parse
-# Skip SMARTCARD_WORDLENGTH_9B : no need parse
-# Skip SMARTCARD_STOPBITS_0_5 : no need parse
-# Skip SMARTCARD_STOPBITS_1_5 : no need parse
-# Skip SMARTCARD_PARITY_EVEN : no need parse
-# Skip SMARTCARD_PARITY_ODD : no need parse
-# Skip SMARTCARD_MODE_RX : no need parse
-# Skip SMARTCARD_MODE_TX : no need parse
-# Skip SMARTCARD_MODE_TX_RX : no need parse
-# Skip SMARTCARD_POLARITY_LOW : no need parse
-# Skip SMARTCARD_POLARITY_HIGH : no need parse
-# Skip SMARTCARD_PHASE_1EDGE : no need parse
-# Skip SMARTCARD_PHASE_2EDGE : no need parse
-# Skip SMARTCARD_LASTBIT_DISABLE : no need parse
-# Skip SMARTCARD_LASTBIT_ENABLE : no need parse
-# Skip SMARTCARD_ONE_BIT_SAMPLE_DISABLE : no need parse
-# Skip SMARTCARD_ONE_BIT_SAMPLE_ENABLE : no need parse
-# Skip SMARTCARD_NACK_DISABLE : no need parse
-# Skip SMARTCARD_NACK_ENABLE : no need parse
-# Skip SMARTCARD_TIMEOUT_DISABLE : no need parse
-# Skip SMARTCARD_TIMEOUT_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_TXINV_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_TXINV_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_RXINV_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_RXINV_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_DATAINV_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_DATAINV_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_SWAP_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_SWAP_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_OVERRUN_ENABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_OVERRUN_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_DMA_ENABLEONRXERROR : no need parse
-# Skip SMARTCARD_ADVFEATURE_DMA_DISABLEONRXERROR : no need parse
-# Skip SMARTCARD_ADVFEATURE_MSBFIRST_DISABLE : no need parse
-# Skip SMARTCARD_ADVFEATURE_MSBFIRST_ENABLE : no need parse
-# Skip SMARTCARD_RXDATA_FLUSH_REQUEST : no need parse
-# Skip SMARTCARD_TXDATA_FLUSH_REQUEST : no need parse
-# Skip SMARTCARD_IT_MASK : no need parse
-# Skip SMARTCARD_CR_MASK : no need parse
-# Skip SMARTCARD_CR_POS : no need parse
-# Skip SMARTCARD_ISR_MASK : no need parse
-# Skip SMARTCARD_ISR_POS : no need parse
+SMARTCARD_WORDLENGTH_9B = 0x1000
+SMARTCARD_STOPBITS_0_5 = 0x1000
+SMARTCARD_STOPBITS_1_5 = 0x3000
+SMARTCARD_PARITY_EVEN = 0x400
+SMARTCARD_PARITY_ODD = 0x600
+SMARTCARD_MODE_RX = 0x4
+SMARTCARD_MODE_TX = 0x8
+SMARTCARD_MODE_TX_RX = 0xC
+SMARTCARD_POLARITY_LOW = 0x0
+SMARTCARD_POLARITY_HIGH = 0x400
+SMARTCARD_PHASE_1EDGE = 0x0
+SMARTCARD_PHASE_2EDGE = 0x200
+SMARTCARD_LASTBIT_DISABLE = 0x0
+SMARTCARD_LASTBIT_ENABLE = 0x100
+SMARTCARD_ONE_BIT_SAMPLE_DISABLE = 0x0
+SMARTCARD_ONE_BIT_SAMPLE_ENABLE = 0x800
+SMARTCARD_NACK_DISABLE = 0x0
+SMARTCARD_NACK_ENABLE = 0x10
+SMARTCARD_TIMEOUT_DISABLE = 0x0
+SMARTCARD_TIMEOUT_ENABLE = 0x800000
+SMARTCARD_ADVFEATURE_TXINV_DISABLE = 0x0
+SMARTCARD_ADVFEATURE_TXINV_ENABLE = 0x20000
+SMARTCARD_ADVFEATURE_RXINV_DISABLE = 0x0
+SMARTCARD_ADVFEATURE_RXINV_ENABLE = 0x10000
+SMARTCARD_ADVFEATURE_DATAINV_DISABLE = 0x0
+SMARTCARD_ADVFEATURE_DATAINV_ENABLE = 0x40000
+SMARTCARD_ADVFEATURE_SWAP_DISABLE = 0x0
+SMARTCARD_ADVFEATURE_SWAP_ENABLE = 0x8000
+SMARTCARD_ADVFEATURE_OVERRUN_ENABLE = 0x0
+SMARTCARD_ADVFEATURE_OVERRUN_DISABLE = 0x1000
+SMARTCARD_ADVFEATURE_DMA_ENABLEONRXERROR = 0x0
+SMARTCARD_ADVFEATURE_DMA_DISABLEONRXERROR = 0x2000
+SMARTCARD_ADVFEATURE_MSBFIRST_DISABLE = 0x0
+SMARTCARD_ADVFEATURE_MSBFIRST_ENABLE = 0x80000
+SMARTCARD_RXDATA_FLUSH_REQUEST = 0x8
+SMARTCARD_TXDATA_FLUSH_REQUEST = 0x10
+SMARTCARD_IT_MASK = 0x1F
+SMARTCARD_CR_MASK = 0xE0
+SMARTCARD_CR_POS = 0x5
+SMARTCARD_ISR_MASK = 0x1F00
+SMARTCARD_ISR_POS = 0x8
 # fun define __HAL_SMARTCARD_RESET_HANDLE_STATE(__HANDLE__)  do{                                                       \
 #                                                           (__HANDLE__)->gState = HAL_SMARTCARD_STATE_RESET;      \
 #                                                           (__HANDLE__)->RxState = HAL_SMARTCARD_STATE_RESET;     \
@@ -11916,6 +12067,22 @@ class RTC_TamperTypeDef(ctypes.Structure):
 class SMARTCARD_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('BaudRate',	ctypes.c_uint32),
+		('WordLength',	ctypes.c_uint32),
+		('StopBits',	ctypes.c_uint32),
+		('Parity',	ctypes.c_uint16),
+		('Mode',	ctypes.c_uint16),
+		('CLKPolarity',	ctypes.c_uint16),
+		('CLKPhase',	ctypes.c_uint16),
+		('CLKLastBit',	ctypes.c_uint16),
+		('OneBitSampling',	ctypes.c_uint16),
+		('Prescaler',	ctypes.c_uint8),
+		('GuardTime',	ctypes.c_uint8),
+		('NACKEnable',	ctypes.c_uint16),
+		('TimeOutEnable',	ctypes.c_uint32),
+		('TimeOutValue',	ctypes.c_uint32),
+		('BlockLength',	ctypes.c_uint8),
+		('AutoRetryCount',	ctypes.c_uint8),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11925,6 +12092,15 @@ class SMARTCARD_InitTypeDef(ctypes.Structure):
 class SMARTCARD_AdvFeatureInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('AdvFeatureInit',	ctypes.c_uint32),
+		('TxPinLevelInvert',	ctypes.c_uint32),
+		('RxPinLevelInvert',	ctypes.c_uint32),
+		('DataInvert',	ctypes.c_uint32),
+		('Swap',	ctypes.c_uint32),
+		('OverrunDisable',	ctypes.c_uint32),
+		('DMADisableonRxError',	ctypes.c_uint32),
+		('MSBFirst',	ctypes.c_uint32),
+		('TxCompletionIndication',	ctypes.c_uint16),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -11945,95 +12121,95 @@ class SMARTCARD_AdvFeatureInitTypeDef(ctypes.Structure):
 # Skip HAL_SMBUS_MSPINIT_CB_ID : no need parse
 # Skip HAL_SMBUS_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_SMBUS_H
-# Skip HAL_SMBUS_STATE_RESET : no need parse
-# Skip HAL_SMBUS_STATE_READY : no need parse
-# Skip HAL_SMBUS_STATE_BUSY : no need parse
-# Skip HAL_SMBUS_STATE_MASTER_BUSY_TX : no need parse
-# Skip HAL_SMBUS_STATE_MASTER_BUSY_RX : no need parse
-# Skip HAL_SMBUS_STATE_SLAVE_BUSY_TX : no need parse
-# Skip HAL_SMBUS_STATE_SLAVE_BUSY_RX : no need parse
-# Skip HAL_SMBUS_STATE_TIMEOUT : no need parse
-# Skip HAL_SMBUS_STATE_ERROR : no need parse
-# Skip HAL_SMBUS_STATE_LISTEN : no need parse
-# Skip HAL_SMBUS_ERROR_NONE : no need parse
-# Skip HAL_SMBUS_ERROR_BERR : no need parse
-# Skip HAL_SMBUS_ERROR_ARLO : no need parse
-# Skip HAL_SMBUS_ERROR_ACKF : no need parse
-# Skip HAL_SMBUS_ERROR_OVR : no need parse
-# Skip HAL_SMBUS_ERROR_HALTIMEOUT : no need parse
-# Skip HAL_SMBUS_ERROR_BUSTIMEOUT : no need parse
-# Skip HAL_SMBUS_ERROR_ALERT : no need parse
-# Skip HAL_SMBUS_ERROR_PECERR : no need parse
+HAL_SMBUS_STATE_RESET = 0x0
+HAL_SMBUS_STATE_READY = 0x1
+HAL_SMBUS_STATE_BUSY = 0x2
+HAL_SMBUS_STATE_MASTER_BUSY_TX = 0x12
+HAL_SMBUS_STATE_MASTER_BUSY_RX = 0x22
+HAL_SMBUS_STATE_SLAVE_BUSY_TX = 0x32
+HAL_SMBUS_STATE_SLAVE_BUSY_RX = 0x42
+HAL_SMBUS_STATE_TIMEOUT = 0x3
+HAL_SMBUS_STATE_ERROR = 0x4
+HAL_SMBUS_STATE_LISTEN = 0x8
+HAL_SMBUS_ERROR_NONE = 0x0
+HAL_SMBUS_ERROR_BERR = 0x1
+HAL_SMBUS_ERROR_ARLO = 0x2
+HAL_SMBUS_ERROR_ACKF = 0x4
+HAL_SMBUS_ERROR_OVR = 0x8
+HAL_SMBUS_ERROR_HALTIMEOUT = 0x10
+HAL_SMBUS_ERROR_BUSTIMEOUT = 0x20
+HAL_SMBUS_ERROR_ALERT = 0x40
+HAL_SMBUS_ERROR_PECERR = 0x80
 # Skip HAL_SMBUS_ERROR_INVALID_CALLBACK : no need parse
-# Skip HAL_SMBUS_ERROR_INVALID_PARAM : no need parse
-# Skip SMBUS_ANALOGFILTER_ENABLE : no need parse
-# Skip SMBUS_ANALOGFILTER_DISABLE : no need parse
-# Skip SMBUS_ADDRESSINGMODE_7BIT : no need parse
-# Skip SMBUS_ADDRESSINGMODE_10BIT : no need parse
-# Skip SMBUS_DUALADDRESS_DISABLE : no need parse
-# Skip SMBUS_DUALADDRESS_ENABLE : no need parse
-# Skip SMBUS_OA2_NOMASK : no need parse
-# Skip SMBUS_OA2_MASK01 : no need parse
-# Skip SMBUS_OA2_MASK02 : no need parse
-# Skip SMBUS_OA2_MASK03 : no need parse
-# Skip SMBUS_OA2_MASK04 : no need parse
-# Skip SMBUS_OA2_MASK05 : no need parse
-# Skip SMBUS_OA2_MASK06 : no need parse
-# Skip SMBUS_OA2_MASK07 : no need parse
-# Skip SMBUS_GENERALCALL_DISABLE : no need parse
-# Skip SMBUS_GENERALCALL_ENABLE : no need parse
-# Skip SMBUS_NOSTRETCH_DISABLE : no need parse
-# Skip SMBUS_NOSTRETCH_ENABLE : no need parse
-# Skip SMBUS_PEC_DISABLE : no need parse
-# Skip SMBUS_PEC_ENABLE : no need parse
-# Skip SMBUS_PERIPHERAL_MODE_SMBUS_HOST : no need parse
-# Skip SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE : no need parse
-# Skip SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE_ARP : no need parse
-# Skip SMBUS_SOFTEND_MODE : no need parse
-# Skip SMBUS_RELOAD_MODE : no need parse
-# Skip SMBUS_AUTOEND_MODE : no need parse
-# Skip SMBUS_SENDPEC_MODE : no need parse
-# Skip SMBUS_NO_STARTSTOP : no need parse
-# Skip SMBUS_GENERATE_STOP : no need parse
-# Skip SMBUS_GENERATE_START_READ : no need parse
-# Skip SMBUS_GENERATE_START_WRITE : no need parse
-# Skip SMBUS_FIRST_FRAME : no need parse
-# Skip SMBUS_NEXT_FRAME : no need parse
-# Skip SMBUS_FIRST_AND_LAST_FRAME_NO_PEC : no need parse
-# Skip SMBUS_LAST_FRAME_NO_PEC : no need parse
-# Skip SMBUS_FIRST_AND_LAST_FRAME_WITH_PEC : no need parse
-# Skip SMBUS_LAST_FRAME_WITH_PEC : no need parse
-# Skip SMBUS_OTHER_FRAME_NO_PEC : no need parse
-# Skip SMBUS_OTHER_FRAME_WITH_PEC : no need parse
-# Skip SMBUS_OTHER_AND_LAST_FRAME_NO_PEC : no need parse
-# Skip SMBUS_OTHER_AND_LAST_FRAME_WITH_PEC : no need parse
-# Skip SMBUS_IT_ERRI : no need parse
-# Skip SMBUS_IT_TCI : no need parse
-# Skip SMBUS_IT_STOPI : no need parse
-# Skip SMBUS_IT_NACKI : no need parse
-# Skip SMBUS_IT_ADDRI : no need parse
-# Skip SMBUS_IT_RXI : no need parse
-# Skip SMBUS_IT_TXI : no need parse
-# Skip SMBUS_IT_TX : no need parse
-# Skip SMBUS_IT_RX : no need parse
-# Skip SMBUS_IT_ALERT : no need parse
-# Skip SMBUS_IT_ADDR : no need parse
-# Skip SMBUS_FLAG_TXE : no need parse
-# Skip SMBUS_FLAG_TXIS : no need parse
-# Skip SMBUS_FLAG_RXNE : no need parse
-# Skip SMBUS_FLAG_ADDR : no need parse
-# Skip SMBUS_FLAG_AF : no need parse
-# Skip SMBUS_FLAG_STOPF : no need parse
-# Skip SMBUS_FLAG_TC : no need parse
-# Skip SMBUS_FLAG_TCR : no need parse
-# Skip SMBUS_FLAG_BERR : no need parse
-# Skip SMBUS_FLAG_ARLO : no need parse
-# Skip SMBUS_FLAG_OVR : no need parse
-# Skip SMBUS_FLAG_PECERR : no need parse
-# Skip SMBUS_FLAG_TIMEOUT : no need parse
-# Skip SMBUS_FLAG_ALERT : no need parse
-# Skip SMBUS_FLAG_BUSY : no need parse
-# Skip SMBUS_FLAG_DIR : no need parse
+HAL_SMBUS_ERROR_INVALID_PARAM = 0x200
+SMBUS_ANALOGFILTER_ENABLE = 0x0
+SMBUS_ANALOGFILTER_DISABLE = 0x1000
+SMBUS_ADDRESSINGMODE_7BIT = 0x1
+SMBUS_ADDRESSINGMODE_10BIT = 0x2
+SMBUS_DUALADDRESS_DISABLE = 0x0
+SMBUS_DUALADDRESS_ENABLE = 0x8000
+SMBUS_OA2_NOMASK = 0x0
+SMBUS_OA2_MASK01 = 0x1
+SMBUS_OA2_MASK02 = 0x2
+SMBUS_OA2_MASK03 = 0x3
+SMBUS_OA2_MASK04 = 0x4
+SMBUS_OA2_MASK05 = 0x5
+SMBUS_OA2_MASK06 = 0x6
+SMBUS_OA2_MASK07 = 0x7
+SMBUS_GENERALCALL_DISABLE = 0x0
+SMBUS_GENERALCALL_ENABLE = 0x80000
+SMBUS_NOSTRETCH_DISABLE = 0x0
+SMBUS_NOSTRETCH_ENABLE = 0x20000
+SMBUS_PEC_DISABLE = 0x0
+SMBUS_PEC_ENABLE = 0x800000
+SMBUS_PERIPHERAL_MODE_SMBUS_HOST = 0x100000
+SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE = 0x0
+SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE_ARP = 0x200000
+SMBUS_SOFTEND_MODE = 0x0
+SMBUS_RELOAD_MODE = 0x1000000
+SMBUS_AUTOEND_MODE = 0x2000000
+SMBUS_SENDPEC_MODE = 0x4000000
+SMBUS_NO_STARTSTOP = 0x0
+SMBUS_GENERATE_STOP = 0x80004000
+SMBUS_GENERATE_START_READ = 0x80002400
+SMBUS_GENERATE_START_WRITE = 0x80002000
+SMBUS_FIRST_FRAME = 0x0
+SMBUS_NEXT_FRAME = 0x1000000
+SMBUS_FIRST_AND_LAST_FRAME_NO_PEC = 0x2000000
+SMBUS_LAST_FRAME_NO_PEC = 0x2000000
+SMBUS_FIRST_AND_LAST_FRAME_WITH_PEC = 0x6000000
+SMBUS_LAST_FRAME_WITH_PEC = 0x6000000
+SMBUS_OTHER_FRAME_NO_PEC = 0xAA
+SMBUS_OTHER_FRAME_WITH_PEC = 0xAA00
+SMBUS_OTHER_AND_LAST_FRAME_NO_PEC = 0xAA0000
+SMBUS_OTHER_AND_LAST_FRAME_WITH_PEC = 0xAA000000
+SMBUS_IT_ERRI = 0x80
+SMBUS_IT_TCI = 0x40
+SMBUS_IT_STOPI = 0x20
+SMBUS_IT_NACKI = 0x10
+SMBUS_IT_ADDRI = 0x8
+SMBUS_IT_RXI = 0x4
+SMBUS_IT_TXI = 0x2
+SMBUS_IT_TX = 0xF2
+SMBUS_IT_RX = 0xD4
+SMBUS_IT_ALERT = 0x80
+SMBUS_IT_ADDR = 0x38
+SMBUS_FLAG_TXE = 0x1
+SMBUS_FLAG_TXIS = 0x2
+SMBUS_FLAG_RXNE = 0x4
+SMBUS_FLAG_ADDR = 0x8
+SMBUS_FLAG_AF = 0x10
+SMBUS_FLAG_STOPF = 0x20
+SMBUS_FLAG_TC = 0x40
+SMBUS_FLAG_TCR = 0x80
+SMBUS_FLAG_BERR = 0x100
+SMBUS_FLAG_ARLO = 0x200
+SMBUS_FLAG_OVR = 0x400
+SMBUS_FLAG_PECERR = 0x800
+SMBUS_FLAG_TIMEOUT = 0x1000
+SMBUS_FLAG_ALERT = 0x2000
+SMBUS_FLAG_BUSY = 0x8000
+SMBUS_FLAG_DIR = 0x10000
 # fun define __HAL_SMBUS_RESET_HANDLE_STATE(__HANDLE__)           do{                                                   \
 #                                                                (__HANDLE__)->State = HAL_SMBUS_STATE_RESET;       \
 #                                                                (__HANDLE__)->MspInitCallback = NULL;            \
@@ -12043,7 +12219,7 @@ class SMARTCARD_AdvFeatureInitTypeDef(ctypes.Structure):
 # fun define __HAL_SMBUS_ENABLE_IT(__HANDLE__, __INTERRUPT__)   ((__HANDLE__)->Instance->CR1 |= (__INTERRUPT__))
 # fun define __HAL_SMBUS_DISABLE_IT(__HANDLE__, __INTERRUPT__)  ((__HANDLE__)->Instance->CR1 &= (~(__INTERRUPT__)))
 # fun define __HAL_SMBUS_GET_IT_SOURCE(__HANDLE__, __INTERRUPT__) ((((__HANDLE__)->Instance->CR1 & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
-# Skip SMBUS_FLAG_MASK : no need parse
+SMBUS_FLAG_MASK = 0x1FFFF
 # fun define __HAL_SMBUS_GET_FLAG(__HANDLE__, __FLAG__) (((((__HANDLE__)->Instance->ISR) & ((__FLAG__) & SMBUS_FLAG_MASK)) == ((__FLAG__) & SMBUS_FLAG_MASK)) ? SET : RESET)
 # fun define __HAL_SMBUS_CLEAR_FLAG(__HANDLE__, __FLAG__) ((__HANDLE__)->Instance->ICR = (__FLAG__))
 # fun define __HAL_SMBUS_ENABLE(__HANDLE__)                  (SET_BIT((__HANDLE__)->Instance->CR1, I2C_CR1_PE))
@@ -12114,6 +12290,18 @@ class SMARTCARD_AdvFeatureInitTypeDef(ctypes.Structure):
 class SMBUS_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Timing',	ctypes.c_uint32),
+		('AnalogFilter',	ctypes.c_uint32),
+		('OwnAddress1',	ctypes.c_uint32),
+		('AddressingMode',	ctypes.c_uint32),
+		('DualAddressMode',	ctypes.c_uint32),
+		('OwnAddress2',	ctypes.c_uint32),
+		('OwnAddress2Masks',	ctypes.c_uint32),
+		('GeneralCallMode',	ctypes.c_uint32),
+		('NoStretchMode',	ctypes.c_uint32),
+		('PacketErrorCheckMode',	ctypes.c_uint32),
+		('PeripheralMode',	ctypes.c_uint32),
+		('SMBusTimeout',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12125,14 +12313,14 @@ class SMBUS_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_spi.h : 
 
 # Enum HAL_SPI_StateTypeDef
-# Skip HAL_SPI_STATE_RESET : no need parse
-# Skip HAL_SPI_STATE_READY : no need parse
-# Skip HAL_SPI_STATE_BUSY : no need parse
-# Skip HAL_SPI_STATE_BUSY_TX : no need parse
-# Skip HAL_SPI_STATE_BUSY_RX : no need parse
-# Skip HAL_SPI_STATE_BUSY_TX_RX : no need parse
-# Skip HAL_SPI_STATE_ERROR : no need parse
-# Skip HAL_SPI_STATE_ABORT : no need parse
+HAL_SPI_STATE_RESET = 0x0
+HAL_SPI_STATE_READY = 0x1
+HAL_SPI_STATE_BUSY = 0x2
+HAL_SPI_STATE_BUSY_TX = 0x3
+HAL_SPI_STATE_BUSY_RX = 0x4
+HAL_SPI_STATE_BUSY_TX_RX = 0x5
+HAL_SPI_STATE_ERROR = 0x6
+HAL_SPI_STATE_ABORT = 0x7
 # Enum HAL_SPI_CallbackIDTypeDef
 # Skip HAL_SPI_TX_COMPLETE_CB_ID : no need parse
 # Skip HAL_SPI_RX_COMPLETE_CB_ID : no need parse
@@ -12145,54 +12333,54 @@ class SMBUS_InitTypeDef(ctypes.Structure):
 # Skip HAL_SPI_MSPINIT_CB_ID : no need parse
 # Skip HAL_SPI_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_SPI_H
-# Skip HAL_SPI_ERROR_NONE : no need parse
-# Skip HAL_SPI_ERROR_MODF : no need parse
-# Skip HAL_SPI_ERROR_CRC : no need parse
-# Skip HAL_SPI_ERROR_OVR : no need parse
-# Skip HAL_SPI_ERROR_FRE : no need parse
-# Skip HAL_SPI_ERROR_DMA : no need parse
-# Skip HAL_SPI_ERROR_FLAG : no need parse
-# Skip HAL_SPI_ERROR_ABORT : no need parse
+HAL_SPI_ERROR_NONE = 0x0
+HAL_SPI_ERROR_MODF = 0x1
+HAL_SPI_ERROR_CRC = 0x2
+HAL_SPI_ERROR_OVR = 0x4
+HAL_SPI_ERROR_FRE = 0x8
+HAL_SPI_ERROR_DMA = 0x10
+HAL_SPI_ERROR_FLAG = 0x20
+HAL_SPI_ERROR_ABORT = 0x40
 # Skip HAL_SPI_ERROR_INVALID_CALLBACK : no need parse
-# Skip SPI_MODE_SLAVE : no need parse
-# Skip SPI_MODE_MASTER : no need parse
-# Skip SPI_DIRECTION_2LINES : no need parse
-# Skip SPI_DIRECTION_2LINES_RXONLY : no need parse
-# Skip SPI_DIRECTION_1LINE : no need parse
-# Skip SPI_DATASIZE_8BIT : no need parse
-# Skip SPI_DATASIZE_16BIT : no need parse
-# Skip SPI_POLARITY_LOW : no need parse
-# Skip SPI_POLARITY_HIGH : no need parse
-# Skip SPI_PHASE_1EDGE : no need parse
-# Skip SPI_PHASE_2EDGE : no need parse
-# Skip SPI_NSS_SOFT : no need parse
-# Skip SPI_NSS_HARD_INPUT : no need parse
-# Skip SPI_NSS_HARD_OUTPUT : no need parse
-# Skip SPI_BAUDRATEPRESCALER_2 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_4 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_8 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_16 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_32 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_64 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_128 : no need parse
-# Skip SPI_BAUDRATEPRESCALER_256 : no need parse
-# Skip SPI_FIRSTBIT_MSB : no need parse
-# Skip SPI_FIRSTBIT_LSB : no need parse
-# Skip SPI_TIMODE_DISABLE : no need parse
-# Skip SPI_TIMODE_ENABLE : no need parse
-# Skip SPI_CRCCALCULATION_DISABLE : no need parse
-# Skip SPI_CRCCALCULATION_ENABLE : no need parse
-# Skip SPI_IT_TXE : no need parse
-# Skip SPI_IT_RXNE : no need parse
-# Skip SPI_IT_ERR : no need parse
-# Skip SPI_FLAG_RXNE : no need parse
-# Skip SPI_FLAG_TXE : no need parse
-# Skip SPI_FLAG_BSY : no need parse
-# Skip SPI_FLAG_CRCERR : no need parse
-# Skip SPI_FLAG_MODF : no need parse
-# Skip SPI_FLAG_OVR : no need parse
-# Skip SPI_FLAG_FRE : no need parse
-# Skip SPI_FLAG_MASK : no need parse
+SPI_MODE_SLAVE = 0x0
+SPI_MODE_MASTER = 0x104
+SPI_DIRECTION_2LINES = 0x0
+SPI_DIRECTION_2LINES_RXONLY = 0x400
+SPI_DIRECTION_1LINE = 0x8000
+SPI_DATASIZE_8BIT = 0x0
+SPI_DATASIZE_16BIT = 0x800
+SPI_POLARITY_LOW = 0x0
+SPI_POLARITY_HIGH = 0x2
+SPI_PHASE_1EDGE = 0x0
+SPI_PHASE_2EDGE = 0x1
+SPI_NSS_SOFT = 0x200
+SPI_NSS_HARD_INPUT = 0x0
+SPI_NSS_HARD_OUTPUT = 0x40000
+SPI_BAUDRATEPRESCALER_2 = 0x0
+SPI_BAUDRATEPRESCALER_4 = 0x8
+SPI_BAUDRATEPRESCALER_8 = 0x10
+SPI_BAUDRATEPRESCALER_16 = 0x18
+SPI_BAUDRATEPRESCALER_32 = 0x20
+SPI_BAUDRATEPRESCALER_64 = 0x28
+SPI_BAUDRATEPRESCALER_128 = 0x30
+SPI_BAUDRATEPRESCALER_256 = 0x38
+SPI_FIRSTBIT_MSB = 0x0
+SPI_FIRSTBIT_LSB = 0x80
+SPI_TIMODE_DISABLE = 0x0
+SPI_TIMODE_ENABLE = 0x10
+SPI_CRCCALCULATION_DISABLE = 0x0
+SPI_CRCCALCULATION_ENABLE = 0x2000
+SPI_IT_TXE = 0x80
+SPI_IT_RXNE = 0x40
+SPI_IT_ERR = 0x20
+SPI_FLAG_RXNE = 0x1
+SPI_FLAG_TXE = 0x2
+SPI_FLAG_BSY = 0x80
+SPI_FLAG_CRCERR = 0x10
+SPI_FLAG_MODF = 0x20
+SPI_FLAG_OVR = 0x40
+SPI_FLAG_FRE = 0x100
+SPI_FLAG_MASK = 0x1F3
 # fun define __HAL_SPI_RESET_HANDLE_STATE(__HANDLE__)                do{                                                  \
 #                                                                    (__HANDLE__)->State = HAL_SPI_STATE_RESET;       \
 #                                                                    (__HANDLE__)->MspInitCallback = NULL;            \
@@ -12271,6 +12459,17 @@ class SMBUS_InitTypeDef(ctypes.Structure):
 class SPI_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Mode',	ctypes.c_uint32),
+		('Direction',	ctypes.c_uint32),
+		('DataSize',	ctypes.c_uint32),
+		('CLKPolarity',	ctypes.c_uint32),
+		('CLKPhase',	ctypes.c_uint32),
+		('NSS',	ctypes.c_uint32),
+		('BaudRatePrescaler',	ctypes.c_uint32),
+		('FirstBit',	ctypes.c_uint32),
+		('TIMode',	ctypes.c_uint32),
+		('CRCCalculation',	ctypes.c_uint32),
+		('CRCPolynomial',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12282,15 +12481,15 @@ class SPI_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_tim_ex.h : 
 
 # empty define STM32L0xx_HAL_TIM_EX_H
-# Skip TIM2_ETR_GPIO : no need parse
-# Skip TIM2_ETR_HSI48 : no need parse
-# Skip TIM2_ETR_HSI16 : no need parse
-# Skip TIM2_ETR_LSE : no need parse
-# Skip TIM2_ETR_COMP2_OUT : no need parse
-# Skip TIM2_ETR_COMP1_OUT : no need parse
-# Skip TIM2_TI4_GPIO : no need parse
-# Skip TIM2_TI4_COMP2 : no need parse
-# Skip TIM2_TI4_COMP1 : no need parse
+TIM2_ETR_GPIO = 0x0
+TIM2_ETR_HSI48 = 0x4
+TIM2_ETR_HSI16 = 0x3
+TIM2_ETR_LSE = 0x5
+TIM2_ETR_COMP2_OUT = 0x6
+TIM2_ETR_COMP1_OUT = 0x7
+TIM2_TI4_GPIO = 0x0
+TIM2_TI4_COMP2 = 0x8
+TIM2_TI4_COMP1 = 0x10
 # Skip TIM3_TI4_USB_NOE : no need parse
 # Skip TIM3_TI4_GPIOC9_AF2 : no need parse
 # Skip TIM3_TI2_GPIO_DEF : no need parse
@@ -12299,27 +12498,27 @@ class SPI_InitTypeDef(ctypes.Structure):
 # Skip TIM3_TI1_GPIO : no need parse
 # Skip TIM3_ETR_GPIO : no need parse
 # Skip TIM3_ETR_HSI : no need parse
-# Skip TIM21_ETR_GPIO : no need parse
-# Skip TIM21_ETR_COMP2_OUT : no need parse
-# Skip TIM21_ETR_COMP1_OUT : no need parse
-# Skip TIM21_ETR_LSE : no need parse
-# Skip TIM21_TI1_GPIO : no need parse
-# Skip TIM21_TI1_MCO : no need parse
-# Skip TIM21_TI1_RTC_WKUT_IT : no need parse
-# Skip TIM21_TI1_HSE_RTC : no need parse
-# Skip TIM21_TI1_MSI : no need parse
-# Skip TIM21_TI1_LSE : no need parse
-# Skip TIM21_TI1_LSI : no need parse
-# Skip TIM21_TI1_COMP1_OUT : no need parse
-# Skip TIM21_TI2_GPIO : no need parse
-# Skip TIM21_TI2_COMP2_OUT : no need parse
-# Skip TIM22_ETR_GPIO : no need parse
-# Skip TIM22_ETR_COMP2_OUT : no need parse
-# Skip TIM22_ETR_COMP1_OUT : no need parse
-# Skip TIM22_ETR_LSE : no need parse
-# Skip TIM22_TI1_GPIO : no need parse
-# Skip TIM22_TI1_COMP2_OUT : no need parse
-# Skip TIM22_TI1_COMP1_OUT : no need parse
+TIM21_ETR_GPIO = 0x0
+TIM21_ETR_COMP2_OUT = 0x1
+TIM21_ETR_COMP1_OUT = 0x2
+TIM21_ETR_LSE = 0x3
+TIM21_TI1_GPIO = 0x0
+TIM21_TI1_MCO = 0x1C
+TIM21_TI1_RTC_WKUT_IT = 0x4
+TIM21_TI1_HSE_RTC = 0x8
+TIM21_TI1_MSI = 0xC
+TIM21_TI1_LSE = 0x10
+TIM21_TI1_LSI = 0x14
+TIM21_TI1_COMP1_OUT = 0x18
+TIM21_TI2_GPIO = 0x0
+TIM21_TI2_COMP2_OUT = 0x20
+TIM22_ETR_GPIO = 0x0
+TIM22_ETR_COMP2_OUT = 0x1
+TIM22_ETR_COMP1_OUT = 0x2
+TIM22_ETR_LSE = 0x3
+TIM22_TI1_GPIO = 0x0
+TIM22_TI1_COMP2_OUT = 0x4
+TIM22_TI1_COMP1_OUT = 0x8
 # fun define IS_TIM_REMAP(__INSTANCE__, __TIM_REMAP__)               \
 #        ((((__INSTANCE__) == TIM2)   &&  ((__TIM_REMAP__) <=  (TIM2_OR_TI4_RMP  | TIM2_OR_ETR_RMP))) || \
 #         (((__INSTANCE__) == TIM22)  &&  ((__TIM_REMAP__) <=  (TIM22_OR_TI1_RMP | TIM22_OR_ETR_RMP))) || \
@@ -12366,17 +12565,17 @@ class SPI_InitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_tim.h : 
 
 # Enum HAL_TIM_StateTypeDef
-# Skip HAL_TIM_STATE_RESET : no need parse
-# Skip HAL_TIM_STATE_READY : no need parse
-# Skip HAL_TIM_STATE_BUSY : no need parse
-# Skip HAL_TIM_STATE_TIMEOUT : no need parse
-# Skip HAL_TIM_STATE_ERROR : no need parse
+HAL_TIM_STATE_RESET = 0x0
+HAL_TIM_STATE_READY = 0x1
+HAL_TIM_STATE_BUSY = 0x2
+HAL_TIM_STATE_TIMEOUT = 0x3
+HAL_TIM_STATE_ERROR = 0x4
 # Enum HAL_TIM_ActiveChannel
-# Skip HAL_TIM_ACTIVE_CHANNEL_1 : no need parse
-# Skip HAL_TIM_ACTIVE_CHANNEL_2 : no need parse
-# Skip HAL_TIM_ACTIVE_CHANNEL_3 : no need parse
-# Skip HAL_TIM_ACTIVE_CHANNEL_4 : no need parse
-# Skip HAL_TIM_ACTIVE_CHANNEL_CLEARED : no need parse
+HAL_TIM_ACTIVE_CHANNEL_1 = 0x1
+HAL_TIM_ACTIVE_CHANNEL_2 = 0x2
+HAL_TIM_ACTIVE_CHANNEL_3 = 0x4
+HAL_TIM_ACTIVE_CHANNEL_4 = 0x8
+HAL_TIM_ACTIVE_CHANNEL_CLEARED = 0x0
 # Enum HAL_TIM_CallbackIDTypeDef
 # Skip HAL_TIM_BASE_MSPINIT_CB_ID : no need parse
 # Skip HAL_TIM_BASE_MSPDEINIT_CB_ID : no need parse
@@ -12401,196 +12600,196 @@ class SPI_InitTypeDef(ctypes.Structure):
 # Skip HAL_TIM_PWM_PULSE_FINISHED_HALF_CB_ID : no need parse
 # Skip HAL_TIM_ERROR_CB_ID : no need parse
 # empty define STM32L0xx_HAL_TIM_H
-# Skip TIM_CLEARINPUTSOURCE_NONE : no need parse
-# Skip TIM_CLEARINPUTSOURCE_ETR : no need parse
-# Skip TIM_DMABASE_CR1 : no need parse
-# Skip TIM_DMABASE_CR2 : no need parse
-# Skip TIM_DMABASE_SMCR : no need parse
-# Skip TIM_DMABASE_DIER : no need parse
-# Skip TIM_DMABASE_SR : no need parse
-# Skip TIM_DMABASE_EGR : no need parse
-# Skip TIM_DMABASE_CCMR1 : no need parse
-# Skip TIM_DMABASE_CCMR2 : no need parse
-# Skip TIM_DMABASE_CCER : no need parse
-# Skip TIM_DMABASE_CNT : no need parse
-# Skip TIM_DMABASE_PSC : no need parse
-# Skip TIM_DMABASE_ARR : no need parse
-# Skip TIM_DMABASE_CCR1 : no need parse
-# Skip TIM_DMABASE_CCR2 : no need parse
-# Skip TIM_DMABASE_CCR3 : no need parse
-# Skip TIM_DMABASE_CCR4 : no need parse
-# Skip TIM_DMABASE_DCR : no need parse
-# Skip TIM_DMABASE_DMAR : no need parse
-# Skip TIM_DMABASE_OR : no need parse
-# Skip TIM_EVENTSOURCE_UPDATE : no need parse
-# Skip TIM_EVENTSOURCE_CC1 : no need parse
-# Skip TIM_EVENTSOURCE_CC2 : no need parse
-# Skip TIM_EVENTSOURCE_CC3 : no need parse
-# Skip TIM_EVENTSOURCE_CC4 : no need parse
-# Skip TIM_EVENTSOURCE_TRIGGER : no need parse
-# Skip TIM_INPUTCHANNELPOLARITY_RISING : no need parse
-# Skip TIM_INPUTCHANNELPOLARITY_FALLING : no need parse
-# Skip TIM_INPUTCHANNELPOLARITY_BOTHEDGE : no need parse
-# Skip TIM_ETRPOLARITY_INVERTED : no need parse
-# Skip TIM_ETRPOLARITY_NONINVERTED : no need parse
-# Skip TIM_ETRPRESCALER_DIV1 : no need parse
-# Skip TIM_ETRPRESCALER_DIV2 : no need parse
-# Skip TIM_ETRPRESCALER_DIV4 : no need parse
-# Skip TIM_ETRPRESCALER_DIV8 : no need parse
-# Skip TIM_COUNTERMODE_UP : no need parse
-# Skip TIM_COUNTERMODE_DOWN : no need parse
-# Skip TIM_COUNTERMODE_CENTERALIGNED1 : no need parse
-# Skip TIM_COUNTERMODE_CENTERALIGNED2 : no need parse
-# Skip TIM_COUNTERMODE_CENTERALIGNED3 : no need parse
-# Skip TIM_CLOCKDIVISION_DIV1 : no need parse
-# Skip TIM_CLOCKDIVISION_DIV2 : no need parse
-# Skip TIM_CLOCKDIVISION_DIV4 : no need parse
-# Skip TIM_OUTPUTSTATE_DISABLE : no need parse
-# Skip TIM_OUTPUTSTATE_ENABLE : no need parse
-# Skip TIM_AUTORELOAD_PRELOAD_DISABLE : no need parse
-# Skip TIM_AUTORELOAD_PRELOAD_ENABLE : no need parse
-# Skip TIM_OCFAST_DISABLE : no need parse
-# Skip TIM_OCFAST_ENABLE : no need parse
-# Skip TIM_OUTPUTNSTATE_DISABLE : no need parse
+TIM_CLEARINPUTSOURCE_NONE = 0x0
+TIM_CLEARINPUTSOURCE_ETR = 0x1
+TIM_DMABASE_CR1 = 0x0
+TIM_DMABASE_CR2 = 0x1
+TIM_DMABASE_SMCR = 0x2
+TIM_DMABASE_DIER = 0x3
+TIM_DMABASE_SR = 0x4
+TIM_DMABASE_EGR = 0x5
+TIM_DMABASE_CCMR1 = 0x6
+TIM_DMABASE_CCMR2 = 0x7
+TIM_DMABASE_CCER = 0x8
+TIM_DMABASE_CNT = 0x9
+TIM_DMABASE_PSC = 0xA
+TIM_DMABASE_ARR = 0xB
+TIM_DMABASE_CCR1 = 0xD
+TIM_DMABASE_CCR2 = 0xE
+TIM_DMABASE_CCR3 = 0xF
+TIM_DMABASE_CCR4 = 0x10
+TIM_DMABASE_DCR = 0x12
+TIM_DMABASE_DMAR = 0x13
+TIM_DMABASE_OR = 0x14
+TIM_EVENTSOURCE_UPDATE = 0x1
+TIM_EVENTSOURCE_CC1 = 0x2
+TIM_EVENTSOURCE_CC2 = 0x4
+TIM_EVENTSOURCE_CC3 = 0x8
+TIM_EVENTSOURCE_CC4 = 0x10
+TIM_EVENTSOURCE_TRIGGER = 0x40
+TIM_INPUTCHANNELPOLARITY_RISING = 0x0
+TIM_INPUTCHANNELPOLARITY_FALLING = 0x2
+TIM_INPUTCHANNELPOLARITY_BOTHEDGE = 0xA
+TIM_ETRPOLARITY_INVERTED = 0x8000
+TIM_ETRPOLARITY_NONINVERTED = 0x0
+TIM_ETRPRESCALER_DIV1 = 0x0
+TIM_ETRPRESCALER_DIV2 = 0x1000
+TIM_ETRPRESCALER_DIV4 = 0x2000
+TIM_ETRPRESCALER_DIV8 = 0x3000
+TIM_COUNTERMODE_UP = 0x0
+TIM_COUNTERMODE_DOWN = 0x10
+TIM_COUNTERMODE_CENTERALIGNED1 = 0x20
+TIM_COUNTERMODE_CENTERALIGNED2 = 0x40
+TIM_COUNTERMODE_CENTERALIGNED3 = 0x60
+TIM_CLOCKDIVISION_DIV1 = 0x0
+TIM_CLOCKDIVISION_DIV2 = 0x100
+TIM_CLOCKDIVISION_DIV4 = 0x200
+TIM_OUTPUTSTATE_DISABLE = 0x0
+TIM_OUTPUTSTATE_ENABLE = 0x1
+TIM_AUTORELOAD_PRELOAD_DISABLE = 0x0
+TIM_AUTORELOAD_PRELOAD_ENABLE = 0x80
+TIM_OCFAST_DISABLE = 0x0
+TIM_OCFAST_ENABLE = 0x4
+TIM_OUTPUTNSTATE_DISABLE = 0x0
 # Skip TIM_OUTPUTNSTATE_ENABLE : no need parse
-# Skip TIM_OCPOLARITY_HIGH : no need parse
-# Skip TIM_OCPOLARITY_LOW : no need parse
-# Skip TIM_ICPOLARITY_RISING : no need parse
-# Skip TIM_ICPOLARITY_FALLING : no need parse
-# Skip TIM_ICPOLARITY_BOTHEDGE : no need parse
-# Skip TIM_ICSELECTION_DIRECTTI : no need parse
-# Skip TIM_ICSELECTION_INDIRECTTI : no need parse
-# Skip TIM_ICSELECTION_TRC : no need parse
-# Skip TIM_ICPSC_DIV1 : no need parse
-# Skip TIM_ICPSC_DIV2 : no need parse
-# Skip TIM_ICPSC_DIV4 : no need parse
-# Skip TIM_ICPSC_DIV8 : no need parse
-# Skip TIM_OPMODE_SINGLE : no need parse
-# Skip TIM_OPMODE_REPETITIVE : no need parse
-# Skip TIM_ENCODERMODE_TI1 : no need parse
-# Skip TIM_ENCODERMODE_TI2 : no need parse
-# Skip TIM_ENCODERMODE_TI12 : no need parse
-# Skip TIM_IT_UPDATE : no need parse
-# Skip TIM_IT_CC1 : no need parse
-# Skip TIM_IT_CC2 : no need parse
-# Skip TIM_IT_CC3 : no need parse
-# Skip TIM_IT_CC4 : no need parse
-# Skip TIM_IT_TRIGGER : no need parse
-# Skip TIM_DMA_UPDATE : no need parse
-# Skip TIM_DMA_CC1 : no need parse
-# Skip TIM_DMA_CC2 : no need parse
-# Skip TIM_DMA_CC3 : no need parse
-# Skip TIM_DMA_CC4 : no need parse
-# Skip TIM_DMA_TRIGGER : no need parse
-# Skip TIM_FLAG_UPDATE : no need parse
-# Skip TIM_FLAG_CC1 : no need parse
-# Skip TIM_FLAG_CC2 : no need parse
-# Skip TIM_FLAG_CC3 : no need parse
-# Skip TIM_FLAG_CC4 : no need parse
-# Skip TIM_FLAG_TRIGGER : no need parse
-# Skip TIM_FLAG_CC1OF : no need parse
-# Skip TIM_FLAG_CC2OF : no need parse
-# Skip TIM_FLAG_CC3OF : no need parse
-# Skip TIM_FLAG_CC4OF : no need parse
-# Skip TIM_CHANNEL_1 : no need parse
-# Skip TIM_CHANNEL_2 : no need parse
-# Skip TIM_CHANNEL_3 : no need parse
-# Skip TIM_CHANNEL_4 : no need parse
-# Skip TIM_CHANNEL_ALL : no need parse
-# Skip TIM_CLOCKSOURCE_ETRMODE2 : no need parse
-# Skip TIM_CLOCKSOURCE_INTERNAL : no need parse
-# Skip TIM_CLOCKSOURCE_ITR0 : no need parse
-# Skip TIM_CLOCKSOURCE_ITR1 : no need parse
-# Skip TIM_CLOCKSOURCE_ITR2 : no need parse
-# Skip TIM_CLOCKSOURCE_ITR3 : no need parse
-# Skip TIM_CLOCKSOURCE_TI1ED : no need parse
-# Skip TIM_CLOCKSOURCE_TI1 : no need parse
-# Skip TIM_CLOCKSOURCE_TI2 : no need parse
-# Skip TIM_CLOCKSOURCE_ETRMODE1 : no need parse
-# Skip TIM_CLOCKPOLARITY_INVERTED : no need parse
-# Skip TIM_CLOCKPOLARITY_NONINVERTED : no need parse
-# Skip TIM_CLOCKPOLARITY_RISING : no need parse
-# Skip TIM_CLOCKPOLARITY_FALLING : no need parse
-# Skip TIM_CLOCKPOLARITY_BOTHEDGE : no need parse
-# Skip TIM_CLOCKPRESCALER_DIV1 : no need parse
-# Skip TIM_CLOCKPRESCALER_DIV2 : no need parse
-# Skip TIM_CLOCKPRESCALER_DIV4 : no need parse
-# Skip TIM_CLOCKPRESCALER_DIV8 : no need parse
-# Skip TIM_CLEARINPUTPOLARITY_INVERTED : no need parse
-# Skip TIM_CLEARINPUTPOLARITY_NONINVERTED : no need parse
-# Skip TIM_CLEARINPUTPRESCALER_DIV1 : no need parse
-# Skip TIM_CLEARINPUTPRESCALER_DIV2 : no need parse
-# Skip TIM_CLEARINPUTPRESCALER_DIV4 : no need parse
-# Skip TIM_CLEARINPUTPRESCALER_DIV8 : no need parse
-# Skip TIM_TRGO_RESET : no need parse
-# Skip TIM_TRGO_ENABLE : no need parse
-# Skip TIM_TRGO_UPDATE : no need parse
-# Skip TIM_TRGO_OC1 : no need parse
-# Skip TIM_TRGO_OC1REF : no need parse
-# Skip TIM_TRGO_OC2REF : no need parse
-# Skip TIM_TRGO_OC3REF : no need parse
-# Skip TIM_TRGO_OC4REF : no need parse
-# Skip TIM_MASTERSLAVEMODE_ENABLE : no need parse
-# Skip TIM_MASTERSLAVEMODE_DISABLE : no need parse
-# Skip TIM_SLAVEMODE_DISABLE : no need parse
-# Skip TIM_SLAVEMODE_RESET : no need parse
-# Skip TIM_SLAVEMODE_GATED : no need parse
-# Skip TIM_SLAVEMODE_TRIGGER : no need parse
-# Skip TIM_SLAVEMODE_EXTERNAL1 : no need parse
-# Skip TIM_OCMODE_TIMING : no need parse
-# Skip TIM_OCMODE_ACTIVE : no need parse
-# Skip TIM_OCMODE_INACTIVE : no need parse
-# Skip TIM_OCMODE_TOGGLE : no need parse
-# Skip TIM_OCMODE_PWM1 : no need parse
-# Skip TIM_OCMODE_PWM2 : no need parse
-# Skip TIM_OCMODE_FORCED_ACTIVE : no need parse
-# Skip TIM_OCMODE_FORCED_INACTIVE : no need parse
-# Skip TIM_TS_ITR0 : no need parse
-# Skip TIM_TS_ITR1 : no need parse
-# Skip TIM_TS_ITR2 : no need parse
-# Skip TIM_TS_ITR3 : no need parse
-# Skip TIM_TS_TI1F_ED : no need parse
-# Skip TIM_TS_TI1FP1 : no need parse
-# Skip TIM_TS_TI2FP2 : no need parse
-# Skip TIM_TS_ETRF : no need parse
-# Skip TIM_TS_NONE : no need parse
-# Skip TIM_TRIGGERPOLARITY_INVERTED : no need parse
-# Skip TIM_TRIGGERPOLARITY_NONINVERTED : no need parse
-# Skip TIM_TRIGGERPOLARITY_RISING : no need parse
-# Skip TIM_TRIGGERPOLARITY_FALLING : no need parse
-# Skip TIM_TRIGGERPOLARITY_BOTHEDGE : no need parse
-# Skip TIM_TRIGGERPRESCALER_DIV1 : no need parse
-# Skip TIM_TRIGGERPRESCALER_DIV2 : no need parse
-# Skip TIM_TRIGGERPRESCALER_DIV4 : no need parse
-# Skip TIM_TRIGGERPRESCALER_DIV8 : no need parse
-# Skip TIM_TI1SELECTION_CH1 : no need parse
-# Skip TIM_TI1SELECTION_XORCOMBINATION : no need parse
-# Skip TIM_DMABURSTLENGTH_1TRANSFER : no need parse
-# Skip TIM_DMABURSTLENGTH_2TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_3TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_4TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_5TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_6TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_7TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_8TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_9TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_10TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_11TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_12TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_13TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_14TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_15TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_16TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_17TRANSFERS : no need parse
-# Skip TIM_DMABURSTLENGTH_18TRANSFERS : no need parse
-# Skip TIM_DMA_ID_UPDATE : no need parse
-# Skip TIM_DMA_ID_CC1 : no need parse
-# Skip TIM_DMA_ID_CC2 : no need parse
-# Skip TIM_DMA_ID_CC3 : no need parse
-# Skip TIM_DMA_ID_CC4 : no need parse
-# Skip TIM_DMA_ID_TRIGGER : no need parse
-# Skip TIM_CCx_ENABLE : no need parse
-# Skip TIM_CCx_DISABLE : no need parse
+TIM_OCPOLARITY_HIGH = 0x0
+TIM_OCPOLARITY_LOW = 0x2
+TIM_ICPOLARITY_RISING = 0x0
+TIM_ICPOLARITY_FALLING = 0x2
+TIM_ICPOLARITY_BOTHEDGE = 0xA
+TIM_ICSELECTION_DIRECTTI = 0x1
+TIM_ICSELECTION_INDIRECTTI = 0x2
+TIM_ICSELECTION_TRC = 0x3
+TIM_ICPSC_DIV1 = 0x0
+TIM_ICPSC_DIV2 = 0x4
+TIM_ICPSC_DIV4 = 0x8
+TIM_ICPSC_DIV8 = 0xC
+TIM_OPMODE_SINGLE = 0x8
+TIM_OPMODE_REPETITIVE = 0x0
+TIM_ENCODERMODE_TI1 = 0x1
+TIM_ENCODERMODE_TI2 = 0x2
+TIM_ENCODERMODE_TI12 = 0x3
+TIM_IT_UPDATE = 0x1
+TIM_IT_CC1 = 0x2
+TIM_IT_CC2 = 0x4
+TIM_IT_CC3 = 0x8
+TIM_IT_CC4 = 0x10
+TIM_IT_TRIGGER = 0x40
+TIM_DMA_UPDATE = 0x100
+TIM_DMA_CC1 = 0x200
+TIM_DMA_CC2 = 0x400
+TIM_DMA_CC3 = 0x800
+TIM_DMA_CC4 = 0x1000
+TIM_DMA_TRIGGER = 0x4000
+TIM_FLAG_UPDATE = 0x1
+TIM_FLAG_CC1 = 0x2
+TIM_FLAG_CC2 = 0x4
+TIM_FLAG_CC3 = 0x8
+TIM_FLAG_CC4 = 0x10
+TIM_FLAG_TRIGGER = 0x40
+TIM_FLAG_CC1OF = 0x200
+TIM_FLAG_CC2OF = 0x400
+TIM_FLAG_CC3OF = 0x800
+TIM_FLAG_CC4OF = 0x1000
+TIM_CHANNEL_1 = 0x0
+TIM_CHANNEL_2 = 0x4
+TIM_CHANNEL_3 = 0x8
+TIM_CHANNEL_4 = 0xC
+TIM_CHANNEL_ALL = 0x3C
+TIM_CLOCKSOURCE_ETRMODE2 = 0x2000
+TIM_CLOCKSOURCE_INTERNAL = 0x1000
+TIM_CLOCKSOURCE_ITR0 = 0x0
+TIM_CLOCKSOURCE_ITR1 = 0x10
+TIM_CLOCKSOURCE_ITR2 = 0x20
+TIM_CLOCKSOURCE_ITR3 = 0x30
+TIM_CLOCKSOURCE_TI1ED = 0x40
+TIM_CLOCKSOURCE_TI1 = 0x50
+TIM_CLOCKSOURCE_TI2 = 0x60
+TIM_CLOCKSOURCE_ETRMODE1 = 0x70
+TIM_CLOCKPOLARITY_INVERTED = 0x8000
+TIM_CLOCKPOLARITY_NONINVERTED = 0x0
+TIM_CLOCKPOLARITY_RISING = 0x0
+TIM_CLOCKPOLARITY_FALLING = 0x2
+TIM_CLOCKPOLARITY_BOTHEDGE = 0xA
+TIM_CLOCKPRESCALER_DIV1 = 0x0
+TIM_CLOCKPRESCALER_DIV2 = 0x1000
+TIM_CLOCKPRESCALER_DIV4 = 0x2000
+TIM_CLOCKPRESCALER_DIV8 = 0x3000
+TIM_CLEARINPUTPOLARITY_INVERTED = 0x8000
+TIM_CLEARINPUTPOLARITY_NONINVERTED = 0x0
+TIM_CLEARINPUTPRESCALER_DIV1 = 0x0
+TIM_CLEARINPUTPRESCALER_DIV2 = 0x1000
+TIM_CLEARINPUTPRESCALER_DIV4 = 0x2000
+TIM_CLEARINPUTPRESCALER_DIV8 = 0x3000
+TIM_TRGO_RESET = 0x0
+TIM_TRGO_ENABLE = 0x10
+TIM_TRGO_UPDATE = 0x20
+TIM_TRGO_OC1 = 0x30
+TIM_TRGO_OC1REF = 0x40
+TIM_TRGO_OC2REF = 0x50
+TIM_TRGO_OC3REF = 0x60
+TIM_TRGO_OC4REF = 0x70
+TIM_MASTERSLAVEMODE_ENABLE = 0x80
+TIM_MASTERSLAVEMODE_DISABLE = 0x0
+TIM_SLAVEMODE_DISABLE = 0x0
+TIM_SLAVEMODE_RESET = 0x4
+TIM_SLAVEMODE_GATED = 0x5
+TIM_SLAVEMODE_TRIGGER = 0x6
+TIM_SLAVEMODE_EXTERNAL1 = 0x7
+TIM_OCMODE_TIMING = 0x0
+TIM_OCMODE_ACTIVE = 0x10
+TIM_OCMODE_INACTIVE = 0x20
+TIM_OCMODE_TOGGLE = 0x30
+TIM_OCMODE_PWM1 = 0x60
+TIM_OCMODE_PWM2 = 0x70
+TIM_OCMODE_FORCED_ACTIVE = 0x50
+TIM_OCMODE_FORCED_INACTIVE = 0x40
+TIM_TS_ITR0 = 0x0
+TIM_TS_ITR1 = 0x10
+TIM_TS_ITR2 = 0x20
+TIM_TS_ITR3 = 0x30
+TIM_TS_TI1F_ED = 0x40
+TIM_TS_TI1FP1 = 0x50
+TIM_TS_TI2FP2 = 0x60
+TIM_TS_ETRF = 0x70
+TIM_TS_NONE = 0xFFFF
+TIM_TRIGGERPOLARITY_INVERTED = 0x8000
+TIM_TRIGGERPOLARITY_NONINVERTED = 0x0
+TIM_TRIGGERPOLARITY_RISING = 0x0
+TIM_TRIGGERPOLARITY_FALLING = 0x2
+TIM_TRIGGERPOLARITY_BOTHEDGE = 0xA
+TIM_TRIGGERPRESCALER_DIV1 = 0x0
+TIM_TRIGGERPRESCALER_DIV2 = 0x1000
+TIM_TRIGGERPRESCALER_DIV4 = 0x2000
+TIM_TRIGGERPRESCALER_DIV8 = 0x3000
+TIM_TI1SELECTION_CH1 = 0x0
+TIM_TI1SELECTION_XORCOMBINATION = 0x80
+TIM_DMABURSTLENGTH_1TRANSFER = 0x0
+TIM_DMABURSTLENGTH_2TRANSFERS = 0x100
+TIM_DMABURSTLENGTH_3TRANSFERS = 0x200
+TIM_DMABURSTLENGTH_4TRANSFERS = 0x300
+TIM_DMABURSTLENGTH_5TRANSFERS = 0x400
+TIM_DMABURSTLENGTH_6TRANSFERS = 0x500
+TIM_DMABURSTLENGTH_7TRANSFERS = 0x600
+TIM_DMABURSTLENGTH_8TRANSFERS = 0x700
+TIM_DMABURSTLENGTH_9TRANSFERS = 0x800
+TIM_DMABURSTLENGTH_10TRANSFERS = 0x900
+TIM_DMABURSTLENGTH_11TRANSFERS = 0xA00
+TIM_DMABURSTLENGTH_12TRANSFERS = 0xB00
+TIM_DMABURSTLENGTH_13TRANSFERS = 0xC00
+TIM_DMABURSTLENGTH_14TRANSFERS = 0xD00
+TIM_DMABURSTLENGTH_15TRANSFERS = 0xE00
+TIM_DMABURSTLENGTH_16TRANSFERS = 0xF00
+TIM_DMABURSTLENGTH_17TRANSFERS = 0x1000
+TIM_DMABURSTLENGTH_18TRANSFERS = 0x1100
+TIM_DMA_ID_UPDATE = 0x0
+TIM_DMA_ID_CC1 = 0x1
+TIM_DMA_ID_CC2 = 0x2
+TIM_DMA_ID_CC3 = 0x3
+TIM_DMA_ID_CC4 = 0x4
+TIM_DMA_ID_TRIGGER = 0x6
+TIM_CCx_ENABLE = 0x1
+TIM_CCx_DISABLE = 0x0
 # fun define __HAL_TIM_RESET_HANDLE_STATE(__HANDLE__) do {                                                        \
 #                                                      (__HANDLE__)->State             = HAL_TIM_STATE_RESET; \
 #                                                      (__HANDLE__)->Base_MspInitCallback         = NULL;     \
@@ -12682,7 +12881,7 @@ class SPI_InitTypeDef(ctypes.Structure):
 #          TIM_RESET_CAPTUREPOLARITY((__HANDLE__), (__CHANNEL__));               \
 #          TIM_SET_CAPTUREPOLARITY((__HANDLE__), (__CHANNEL__), (__POLARITY__)); \
 #        }while(0)
-# Skip TIM_CCER_CCxE_MASK : no need parse
+TIM_CCER_CCxE_MASK = 0x1111
 # fun define IS_TIM_CLEARINPUT_SOURCE(__MODE__)  (((__MODE__) == TIM_CLEARINPUTSOURCE_NONE)      || \
 #                                             ((__MODE__) == TIM_CLEARINPUTSOURCE_ETR))
 # fun define IS_TIM_DMA_BASE(__BASE__) (((__BASE__) == TIM_DMABASE_CR1)   || \
@@ -12890,6 +13089,11 @@ class SPI_InitTypeDef(ctypes.Structure):
 class TIM_Base_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Prescaler',	ctypes.c_uint32),
+		('CounterMode',	ctypes.c_uint32),
+		('Period',	ctypes.c_uint32),
+		('ClockDivision',	ctypes.c_uint32),
+		('AutoReloadPreload',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12899,6 +13103,10 @@ class TIM_Base_InitTypeDef(ctypes.Structure):
 class TIM_OC_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('OCMode',	ctypes.c_uint32),
+		('Pulse',	ctypes.c_uint32),
+		('OCPolarity',	ctypes.c_uint32),
+		('OCFastMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12908,6 +13116,12 @@ class TIM_OC_InitTypeDef(ctypes.Structure):
 class TIM_OnePulse_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('OCMode',	ctypes.c_uint32),
+		('Pulse',	ctypes.c_uint32),
+		('OCPolarity',	ctypes.c_uint32),
+		('ICPolarity',	ctypes.c_uint32),
+		('ICSelection',	ctypes.c_uint32),
+		('ICFilter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12917,6 +13131,10 @@ class TIM_OnePulse_InitTypeDef(ctypes.Structure):
 class TIM_IC_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ICPolarity',	ctypes.c_uint32),
+		('ICSelection',	ctypes.c_uint32),
+		('ICPrescaler',	ctypes.c_uint32),
+		('ICFilter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12926,6 +13144,15 @@ class TIM_IC_InitTypeDef(ctypes.Structure):
 class TIM_Encoder_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('EncoderMode',	ctypes.c_uint32),
+		('IC1Polarity',	ctypes.c_uint32),
+		('IC1Selection',	ctypes.c_uint32),
+		('IC1Prescaler',	ctypes.c_uint32),
+		('IC1Filter',	ctypes.c_uint32),
+		('IC2Polarity',	ctypes.c_uint32),
+		('IC2Selection',	ctypes.c_uint32),
+		('IC2Prescaler',	ctypes.c_uint32),
+		('IC2Filter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12935,6 +13162,10 @@ class TIM_Encoder_InitTypeDef(ctypes.Structure):
 class TIM_ClockConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ClockSource',	ctypes.c_uint32),
+		('ClockPolarity',	ctypes.c_uint32),
+		('ClockPrescaler',	ctypes.c_uint32),
+		('ClockFilter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12944,6 +13175,11 @@ class TIM_ClockConfigTypeDef(ctypes.Structure):
 class TIM_ClearInputConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ClearInputState',	ctypes.c_uint32),
+		('ClearInputSource',	ctypes.c_uint32),
+		('ClearInputPolarity',	ctypes.c_uint32),
+		('ClearInputPrescaler',	ctypes.c_uint32),
+		('ClearInputFilter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12953,6 +13189,8 @@ class TIM_ClearInputConfigTypeDef(ctypes.Structure):
 class TIM_MasterConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('MasterOutputTrigger',	ctypes.c_uint32),
+		('MasterSlaveMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12962,6 +13200,11 @@ class TIM_MasterConfigTypeDef(ctypes.Structure):
 class TIM_SlaveConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('SlaveMode',	ctypes.c_uint32),
+		('InputTrigger',	ctypes.c_uint32),
+		('TriggerPolarity',	ctypes.c_uint32),
+		('TriggerPrescaler',	ctypes.c_uint32),
+		('TriggerFilter',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -12971,130 +13214,130 @@ class TIM_SlaveConfigTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_tsc.h : 
 
 # Enum HAL_TSC_StateTypeDef
-# Skip HAL_TSC_STATE_RESET : no need parse
-# Skip HAL_TSC_STATE_READY : no need parse
-# Skip HAL_TSC_STATE_BUSY : no need parse
-# Skip HAL_TSC_STATE_ERROR : no need parse
+HAL_TSC_STATE_RESET = 0x0
+HAL_TSC_STATE_READY = 0x1
+HAL_TSC_STATE_BUSY = 0x2
+HAL_TSC_STATE_ERROR = 0x3
 # Enum TSC_GroupStatusTypeDef
-# Skip TSC_GROUP_ONGOING : no need parse
-# Skip TSC_GROUP_COMPLETED : no need parse
+TSC_GROUP_ONGOING = 0x0
+TSC_GROUP_COMPLETED = 0x1
 # Enum TSC_GroupIndexTypeDef
-# Skip TSC_GROUP1_IDX : no need parse
-# Skip TSC_GROUP2_IDX : no need parse
-# Skip TSC_GROUP3_IDX : no need parse
-# Skip TSC_GROUP4_IDX : no need parse
-# Skip TSC_GROUP5_IDX : no need parse
-# Skip TSC_GROUP6_IDX : no need parse
-# Skip TSC_GROUP7_IDX : no need parse
-# Skip TSC_GROUP8_IDX : no need parse
-# Skip TSC_NB_OF_GROUPS : no need parse
+TSC_GROUP1_IDX = 0x0
+TSC_GROUP2_IDX = 0x1
+TSC_GROUP3_IDX = 0x2
+TSC_GROUP4_IDX = 0x3
+TSC_GROUP5_IDX = 0x4
+TSC_GROUP6_IDX = 0x5
+TSC_GROUP7_IDX = 0x6
+TSC_GROUP8_IDX = 0x7
+TSC_NB_OF_GROUPS = 0x8
 # Enum HAL_TSC_CallbackIDTypeDef
 # Skip HAL_TSC_CONV_COMPLETE_CB_ID : no need parse
 # Skip HAL_TSC_ERROR_CB_ID : no need parse
 # Skip HAL_TSC_MSPINIT_CB_ID : no need parse
 # Skip HAL_TSC_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_TSC_H
-# Skip HAL_TSC_ERROR_NONE : no need parse
+HAL_TSC_ERROR_NONE = 0x0
 # Skip HAL_TSC_ERROR_INVALID_CALLBACK : no need parse
-# Skip TSC_CTPH_1CYCLE : no need parse
-# Skip TSC_CTPH_2CYCLES : no need parse
-# Skip TSC_CTPH_3CYCLES : no need parse
-# Skip TSC_CTPH_4CYCLES : no need parse
-# Skip TSC_CTPH_5CYCLES : no need parse
-# Skip TSC_CTPH_6CYCLES : no need parse
-# Skip TSC_CTPH_7CYCLES : no need parse
-# Skip TSC_CTPH_8CYCLES : no need parse
-# Skip TSC_CTPH_9CYCLES : no need parse
-# Skip TSC_CTPH_10CYCLES : no need parse
-# Skip TSC_CTPH_11CYCLES : no need parse
-# Skip TSC_CTPH_12CYCLES : no need parse
-# Skip TSC_CTPH_13CYCLES : no need parse
-# Skip TSC_CTPH_14CYCLES : no need parse
-# Skip TSC_CTPH_15CYCLES : no need parse
-# Skip TSC_CTPH_16CYCLES : no need parse
-# Skip TSC_CTPL_1CYCLE : no need parse
-# Skip TSC_CTPL_2CYCLES : no need parse
-# Skip TSC_CTPL_3CYCLES : no need parse
-# Skip TSC_CTPL_4CYCLES : no need parse
-# Skip TSC_CTPL_5CYCLES : no need parse
-# Skip TSC_CTPL_6CYCLES : no need parse
-# Skip TSC_CTPL_7CYCLES : no need parse
-# Skip TSC_CTPL_8CYCLES : no need parse
-# Skip TSC_CTPL_9CYCLES : no need parse
-# Skip TSC_CTPL_10CYCLES : no need parse
-# Skip TSC_CTPL_11CYCLES : no need parse
-# Skip TSC_CTPL_12CYCLES : no need parse
-# Skip TSC_CTPL_13CYCLES : no need parse
-# Skip TSC_CTPL_14CYCLES : no need parse
-# Skip TSC_CTPL_15CYCLES : no need parse
-# Skip TSC_CTPL_16CYCLES : no need parse
-# Skip TSC_SS_PRESC_DIV1 : no need parse
-# Skip TSC_SS_PRESC_DIV2 : no need parse
-# Skip TSC_PG_PRESC_DIV1 : no need parse
-# Skip TSC_PG_PRESC_DIV2 : no need parse
-# Skip TSC_PG_PRESC_DIV4 : no need parse
-# Skip TSC_PG_PRESC_DIV8 : no need parse
-# Skip TSC_PG_PRESC_DIV16 : no need parse
-# Skip TSC_PG_PRESC_DIV32 : no need parse
-# Skip TSC_PG_PRESC_DIV64 : no need parse
-# Skip TSC_PG_PRESC_DIV128 : no need parse
-# Skip TSC_MCV_255 : no need parse
-# Skip TSC_MCV_511 : no need parse
-# Skip TSC_MCV_1023 : no need parse
-# Skip TSC_MCV_2047 : no need parse
-# Skip TSC_MCV_4095 : no need parse
-# Skip TSC_MCV_8191 : no need parse
-# Skip TSC_MCV_16383 : no need parse
-# Skip TSC_IODEF_OUT_PP_LOW : no need parse
-# Skip TSC_IODEF_IN_FLOAT : no need parse
-# Skip TSC_SYNC_POLARITY_FALLING : no need parse
-# Skip TSC_SYNC_POLARITY_RISING : no need parse
-# Skip TSC_ACQ_MODE_NORMAL : no need parse
-# Skip TSC_ACQ_MODE_SYNCHRO : no need parse
-# Skip TSC_IT_EOA : no need parse
-# Skip TSC_IT_MCE : no need parse
-# Skip TSC_FLAG_EOA : no need parse
-# Skip TSC_FLAG_MCE : no need parse
-# Skip TSC_GROUP1 : no need parse
-# Skip TSC_GROUP2 : no need parse
-# Skip TSC_GROUP3 : no need parse
-# Skip TSC_GROUP4 : no need parse
-# Skip TSC_GROUP5 : no need parse
-# Skip TSC_GROUP6 : no need parse
-# Skip TSC_GROUP7 : no need parse
-# Skip TSC_GROUP8 : no need parse
-# Skip TSC_GROUP1_IO1 : no need parse
-# Skip TSC_GROUP1_IO2 : no need parse
-# Skip TSC_GROUP1_IO3 : no need parse
-# Skip TSC_GROUP1_IO4 : no need parse
-# Skip TSC_GROUP2_IO1 : no need parse
-# Skip TSC_GROUP2_IO2 : no need parse
-# Skip TSC_GROUP2_IO3 : no need parse
-# Skip TSC_GROUP2_IO4 : no need parse
-# Skip TSC_GROUP3_IO1 : no need parse
-# Skip TSC_GROUP3_IO2 : no need parse
-# Skip TSC_GROUP3_IO3 : no need parse
-# Skip TSC_GROUP3_IO4 : no need parse
-# Skip TSC_GROUP4_IO1 : no need parse
-# Skip TSC_GROUP4_IO2 : no need parse
-# Skip TSC_GROUP4_IO3 : no need parse
-# Skip TSC_GROUP4_IO4 : no need parse
-# Skip TSC_GROUP5_IO1 : no need parse
-# Skip TSC_GROUP5_IO2 : no need parse
-# Skip TSC_GROUP5_IO3 : no need parse
-# Skip TSC_GROUP5_IO4 : no need parse
-# Skip TSC_GROUP6_IO1 : no need parse
-# Skip TSC_GROUP6_IO2 : no need parse
-# Skip TSC_GROUP6_IO3 : no need parse
-# Skip TSC_GROUP6_IO4 : no need parse
-# Skip TSC_GROUP7_IO1 : no need parse
-# Skip TSC_GROUP7_IO2 : no need parse
-# Skip TSC_GROUP7_IO3 : no need parse
-# Skip TSC_GROUP7_IO4 : no need parse
-# Skip TSC_GROUP8_IO1 : no need parse
-# Skip TSC_GROUP8_IO2 : no need parse
-# Skip TSC_GROUP8_IO3 : no need parse
-# Skip TSC_GROUP8_IO4 : no need parse
+TSC_CTPH_1CYCLE = 0x0
+TSC_CTPH_2CYCLES = 0x10000000
+TSC_CTPH_3CYCLES = 0x20000000
+TSC_CTPH_4CYCLES = 0x30000000
+TSC_CTPH_5CYCLES = 0x40000000
+TSC_CTPH_6CYCLES = 0x50000000
+TSC_CTPH_7CYCLES = 0x60000000
+TSC_CTPH_8CYCLES = 0x70000000
+TSC_CTPH_9CYCLES = 0x80000000
+TSC_CTPH_10CYCLES = 0x90000000
+TSC_CTPH_11CYCLES = 0xA0000000
+TSC_CTPH_12CYCLES = 0xB0000000
+TSC_CTPH_13CYCLES = 0xC0000000
+TSC_CTPH_14CYCLES = 0xD0000000
+TSC_CTPH_15CYCLES = 0xE0000000
+TSC_CTPH_16CYCLES = 0xF0000000
+TSC_CTPL_1CYCLE = 0x0
+TSC_CTPL_2CYCLES = 0x1000000
+TSC_CTPL_3CYCLES = 0x2000000
+TSC_CTPL_4CYCLES = 0x3000000
+TSC_CTPL_5CYCLES = 0x4000000
+TSC_CTPL_6CYCLES = 0x5000000
+TSC_CTPL_7CYCLES = 0x6000000
+TSC_CTPL_8CYCLES = 0x7000000
+TSC_CTPL_9CYCLES = 0x8000000
+TSC_CTPL_10CYCLES = 0x9000000
+TSC_CTPL_11CYCLES = 0xA000000
+TSC_CTPL_12CYCLES = 0xB000000
+TSC_CTPL_13CYCLES = 0xC000000
+TSC_CTPL_14CYCLES = 0xD000000
+TSC_CTPL_15CYCLES = 0xE000000
+TSC_CTPL_16CYCLES = 0xF000000
+TSC_SS_PRESC_DIV1 = 0x0
+TSC_SS_PRESC_DIV2 = 0x8000
+TSC_PG_PRESC_DIV1 = 0x0
+TSC_PG_PRESC_DIV2 = 0x1000
+TSC_PG_PRESC_DIV4 = 0x2000
+TSC_PG_PRESC_DIV8 = 0x3000
+TSC_PG_PRESC_DIV16 = 0x4000
+TSC_PG_PRESC_DIV32 = 0x5000
+TSC_PG_PRESC_DIV64 = 0x6000
+TSC_PG_PRESC_DIV128 = 0x7000
+TSC_MCV_255 = 0x0
+TSC_MCV_511 = 0x20
+TSC_MCV_1023 = 0x40
+TSC_MCV_2047 = 0x60
+TSC_MCV_4095 = 0x80
+TSC_MCV_8191 = 0xA0
+TSC_MCV_16383 = 0xC0
+TSC_IODEF_OUT_PP_LOW = 0x0
+TSC_IODEF_IN_FLOAT = 0x10
+TSC_SYNC_POLARITY_FALLING = 0x0
+TSC_SYNC_POLARITY_RISING = 0x8
+TSC_ACQ_MODE_NORMAL = 0x0
+TSC_ACQ_MODE_SYNCHRO = 0x4
+TSC_IT_EOA = 0x1
+TSC_IT_MCE = 0x2
+TSC_FLAG_EOA = 0x1
+TSC_FLAG_MCE = 0x2
+TSC_GROUP1 = 0x1
+TSC_GROUP2 = 0x2
+TSC_GROUP3 = 0x4
+TSC_GROUP4 = 0x8
+TSC_GROUP5 = 0x10
+TSC_GROUP6 = 0x20
+TSC_GROUP7 = 0x40
+TSC_GROUP8 = 0x80
+TSC_GROUP1_IO1 = 0x1
+TSC_GROUP1_IO2 = 0x2
+TSC_GROUP1_IO3 = 0x4
+TSC_GROUP1_IO4 = 0x8
+TSC_GROUP2_IO1 = 0x10
+TSC_GROUP2_IO2 = 0x20
+TSC_GROUP2_IO3 = 0x40
+TSC_GROUP2_IO4 = 0x80
+TSC_GROUP3_IO1 = 0x100
+TSC_GROUP3_IO2 = 0x200
+TSC_GROUP3_IO3 = 0x400
+TSC_GROUP3_IO4 = 0x800
+TSC_GROUP4_IO1 = 0x1000
+TSC_GROUP4_IO2 = 0x2000
+TSC_GROUP4_IO3 = 0x4000
+TSC_GROUP4_IO4 = 0x8000
+TSC_GROUP5_IO1 = 0x10000
+TSC_GROUP5_IO2 = 0x20000
+TSC_GROUP5_IO3 = 0x40000
+TSC_GROUP5_IO4 = 0x80000
+TSC_GROUP6_IO1 = 0x100000
+TSC_GROUP6_IO2 = 0x200000
+TSC_GROUP6_IO3 = 0x400000
+TSC_GROUP6_IO4 = 0x800000
+TSC_GROUP7_IO1 = 0x1000000
+TSC_GROUP7_IO2 = 0x2000000
+TSC_GROUP7_IO3 = 0x4000000
+TSC_GROUP7_IO4 = 0x8000000
+TSC_GROUP8_IO1 = 0x10000000
+TSC_GROUP8_IO2 = 0x20000000
+TSC_GROUP8_IO3 = 0x40000000
+TSC_GROUP8_IO4 = 0x80000000
 # fun define __HAL_TSC_RESET_HANDLE_STATE(__HANDLE__)                   do{                                                   \
 #                                                                       (__HANDLE__)->State = HAL_TSC_STATE_RESET;       \
 #                                                                       (__HANDLE__)->MspInitCallback = NULL;            \
@@ -13218,6 +13461,20 @@ class TIM_SlaveConfigTypeDef(ctypes.Structure):
 class TSC_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('CTPulseHighLength',	ctypes.c_uint32),
+		('CTPulseLowLength',	ctypes.c_uint32),
+		('SpreadSpectrum',	ctypes.c_uint32),
+		('SpreadSpectrumDeviation',	ctypes.c_uint32),
+		('SpreadSpectrumPrescaler',	ctypes.c_uint32),
+		('PulseGeneratorPrescaler',	ctypes.c_uint32),
+		('MaxCountValue',	ctypes.c_uint32),
+		('IODefaultMode',	ctypes.c_uint32),
+		('SynchroPinPolarity',	ctypes.c_uint32),
+		('AcquisitionMode',	ctypes.c_uint32),
+		('MaxCountInterrupt',	ctypes.c_uint32),
+		('ChannelIOs',	ctypes.c_uint32),
+		('ShieldIOs',	ctypes.c_uint32),
+		('SamplingIOs',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -13227,6 +13484,9 @@ class TSC_InitTypeDef(ctypes.Structure):
 class TSC_IOConfigTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('ChannelIOs',	ctypes.c_uint32),
+		('ShieldIOs',	ctypes.c_uint32),
+		('SamplingIOs',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -13238,11 +13498,11 @@ class TSC_IOConfigTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_uart_ex.h : 
 
 # empty define __STM32L0xx_HAL_UART_EX_H
-# Skip UART_WORDLENGTH_7B : no need parse
-# Skip UART_WORDLENGTH_8B : no need parse
-# Skip UART_WORDLENGTH_9B : no need parse
-# Skip UART_ADDRESS_DETECT_4B : no need parse
-# Skip UART_ADDRESS_DETECT_7B : no need parse
+UART_WORDLENGTH_7B = 0x10000000
+UART_WORDLENGTH_8B = 0x0
+UART_WORDLENGTH_9B = 0x1000
+UART_ADDRESS_DETECT_4B = 0x0
+UART_ADDRESS_DETECT_7B = 0x10
 # fun define UART_GETCLOCKSOURCE(__HANDLE__,__CLOCKSOURCE__)       \
 #  do {                                                        \
 #    if((__HANDLE__)->Instance == USART2)                      \
@@ -13490,6 +13750,9 @@ class TSC_IOConfigTypeDef(ctypes.Structure):
 class UART_WakeUpTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('WakeUpEvent',	ctypes.c_uint32),
+		('AddressLength',	ctypes.c_uint16),
+		('Address',	ctypes.c_uint8),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -13499,12 +13762,12 @@ class UART_WakeUpTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_uart.h : 
 
 # Enum UART_ClockSourceTypeDef
-# Skip UART_CLOCKSOURCE_PCLK1 : no need parse
-# Skip UART_CLOCKSOURCE_PCLK2 : no need parse
-# Skip UART_CLOCKSOURCE_HSI : no need parse
-# Skip UART_CLOCKSOURCE_SYSCLK : no need parse
-# Skip UART_CLOCKSOURCE_LSE : no need parse
-# Skip UART_CLOCKSOURCE_UNDEFINED : no need parse
+UART_CLOCKSOURCE_PCLK1 = 0x0
+UART_CLOCKSOURCE_PCLK2 = 0x1
+UART_CLOCKSOURCE_HSI = 0x2
+UART_CLOCKSOURCE_SYSCLK = 0x4
+UART_CLOCKSOURCE_LSE = 0x8
+UART_CLOCKSOURCE_UNDEFINED = 0x10
 # Enum HAL_UART_CallbackIDTypeDef
 # Skip HAL_UART_TX_HALFCOMPLETE_CB_ID : no need parse
 # Skip HAL_UART_TX_COMPLETE_CB_ID : no need parse
@@ -13518,146 +13781,146 @@ class UART_WakeUpTypeDef(ctypes.Structure):
 # Skip HAL_UART_MSPINIT_CB_ID : no need parse
 # Skip HAL_UART_MSPDEINIT_CB_ID : no need parse
 # empty define __STM32L0xx_HAL_UART_H
-# Skip HAL_UART_STATE_RESET : no need parse
-# Skip HAL_UART_STATE_READY : no need parse
-# Skip HAL_UART_STATE_BUSY : no need parse
-# Skip HAL_UART_STATE_BUSY_TX : no need parse
-# Skip HAL_UART_STATE_BUSY_RX : no need parse
-# Skip HAL_UART_STATE_BUSY_TX_RX : no need parse
-# Skip HAL_UART_STATE_TIMEOUT : no need parse
-# Skip HAL_UART_STATE_ERROR : no need parse
-# Skip HAL_UART_ERROR_NONE : no need parse
-# Skip HAL_UART_ERROR_PE : no need parse
-# Skip HAL_UART_ERROR_NE : no need parse
-# Skip HAL_UART_ERROR_FE : no need parse
-# Skip HAL_UART_ERROR_ORE : no need parse
-# Skip HAL_UART_ERROR_DMA : no need parse
+HAL_UART_STATE_RESET = 0x0
+HAL_UART_STATE_READY = 0x20
+HAL_UART_STATE_BUSY = 0x24
+HAL_UART_STATE_BUSY_TX = 0x21
+HAL_UART_STATE_BUSY_RX = 0x22
+HAL_UART_STATE_BUSY_TX_RX = 0x23
+HAL_UART_STATE_TIMEOUT = 0xA0
+HAL_UART_STATE_ERROR = 0xE0
+HAL_UART_ERROR_NONE = 0x0
+HAL_UART_ERROR_PE = 0x1
+HAL_UART_ERROR_NE = 0x2
+HAL_UART_ERROR_FE = 0x4
+HAL_UART_ERROR_ORE = 0x8
+HAL_UART_ERROR_DMA = 0x10
 # Skip HAL_UART_ERROR_INVALID_CALLBACK : no need parse
-# Skip UART_STOPBITS_0_5 : no need parse
-# Skip UART_STOPBITS_1 : no need parse
-# Skip UART_STOPBITS_1_5 : no need parse
-# Skip UART_STOPBITS_2 : no need parse
-# Skip UART_PARITY_NONE : no need parse
-# Skip UART_PARITY_EVEN : no need parse
-# Skip UART_PARITY_ODD : no need parse
-# Skip UART_HWCONTROL_NONE : no need parse
-# Skip UART_HWCONTROL_RTS : no need parse
-# Skip UART_HWCONTROL_CTS : no need parse
-# Skip UART_HWCONTROL_RTS_CTS : no need parse
-# Skip UART_MODE_RX : no need parse
-# Skip UART_MODE_TX : no need parse
-# Skip UART_MODE_TX_RX : no need parse
-# Skip UART_STATE_DISABLE : no need parse
-# Skip UART_STATE_ENABLE : no need parse
-# Skip UART_OVERSAMPLING_16 : no need parse
-# Skip UART_OVERSAMPLING_8 : no need parse
-# Skip UART_ONE_BIT_SAMPLE_DISABLE : no need parse
-# Skip UART_ONE_BIT_SAMPLE_ENABLE : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME : no need parse
-# Skip UART_RECEIVER_TIMEOUT_DISABLE : no need parse
-# Skip UART_RECEIVER_TIMEOUT_ENABLE : no need parse
-# Skip UART_LIN_DISABLE : no need parse
-# Skip UART_LIN_ENABLE : no need parse
-# Skip UART_LINBREAKDETECTLENGTH_10B : no need parse
-# Skip UART_LINBREAKDETECTLENGTH_11B : no need parse
-# Skip UART_DMA_TX_DISABLE : no need parse
-# Skip UART_DMA_TX_ENABLE : no need parse
-# Skip UART_DMA_RX_DISABLE : no need parse
-# Skip UART_DMA_RX_ENABLE : no need parse
-# Skip UART_HALF_DUPLEX_DISABLE : no need parse
-# Skip UART_HALF_DUPLEX_ENABLE : no need parse
-# Skip UART_WAKEUPMETHOD_IDLELINE : no need parse
-# Skip UART_WAKEUPMETHOD_ADDRESSMARK : no need parse
-# Skip UART_AUTOBAUD_REQUEST : no need parse
-# Skip UART_SENDBREAK_REQUEST : no need parse
-# Skip UART_MUTE_MODE_REQUEST : no need parse
-# Skip UART_RXDATA_FLUSH_REQUEST : no need parse
-# Skip UART_TXDATA_FLUSH_REQUEST : no need parse
-# Skip UART_ADVFEATURE_NO_INIT : no need parse
-# Skip UART_ADVFEATURE_TXINVERT_INIT : no need parse
-# Skip UART_ADVFEATURE_RXINVERT_INIT : no need parse
-# Skip UART_ADVFEATURE_DATAINVERT_INIT : no need parse
-# Skip UART_ADVFEATURE_SWAP_INIT : no need parse
-# Skip UART_ADVFEATURE_RXOVERRUNDISABLE_INIT : no need parse
-# Skip UART_ADVFEATURE_DMADISABLEONERROR_INIT : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_INIT : no need parse
-# Skip UART_ADVFEATURE_MSBFIRST_INIT : no need parse
-# Skip UART_ADVFEATURE_TXINV_DISABLE : no need parse
-# Skip UART_ADVFEATURE_TXINV_ENABLE : no need parse
-# Skip UART_ADVFEATURE_RXINV_DISABLE : no need parse
-# Skip UART_ADVFEATURE_RXINV_ENABLE : no need parse
-# Skip UART_ADVFEATURE_DATAINV_DISABLE : no need parse
-# Skip UART_ADVFEATURE_DATAINV_ENABLE : no need parse
-# Skip UART_ADVFEATURE_SWAP_DISABLE : no need parse
-# Skip UART_ADVFEATURE_SWAP_ENABLE : no need parse
-# Skip UART_ADVFEATURE_OVERRUN_ENABLE : no need parse
-# Skip UART_ADVFEATURE_OVERRUN_DISABLE : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_DISABLE : no need parse
-# Skip UART_ADVFEATURE_AUTOBAUDRATE_ENABLE : no need parse
-# Skip UART_ADVFEATURE_DMA_ENABLEONRXERROR : no need parse
-# Skip UART_ADVFEATURE_DMA_DISABLEONRXERROR : no need parse
-# Skip UART_ADVFEATURE_MSBFIRST_DISABLE : no need parse
-# Skip UART_ADVFEATURE_MSBFIRST_ENABLE : no need parse
-# Skip UART_ADVFEATURE_STOPMODE_DISABLE : no need parse
-# Skip UART_ADVFEATURE_STOPMODE_ENABLE : no need parse
-# Skip UART_ADVFEATURE_MUTEMODE_DISABLE : no need parse
-# Skip UART_ADVFEATURE_MUTEMODE_ENABLE : no need parse
-# Skip UART_CR2_ADDRESS_LSB_POS : no need parse
-# Skip UART_WAKEUP_ON_ADDRESS : no need parse
-# Skip UART_WAKEUP_ON_STARTBIT : no need parse
-# Skip UART_WAKEUP_ON_READDATA_NONEMPTY : no need parse
-# Skip UART_DE_POLARITY_HIGH : no need parse
-# Skip UART_DE_POLARITY_LOW : no need parse
-# Skip UART_CR1_DEAT_ADDRESS_LSB_POS : no need parse
-# Skip UART_CR1_DEDT_ADDRESS_LSB_POS : no need parse
-# Skip UART_IT_MASK : no need parse
-# Skip HAL_UART_TIMEOUT_VALUE : no need parse
-# Skip UART_FLAG_REACK : no need parse
-# Skip UART_FLAG_TEACK : no need parse
-# Skip UART_FLAG_WUF : no need parse
-# Skip UART_FLAG_RWU : no need parse
-# Skip UART_FLAG_SBKF : no need parse
-# Skip UART_FLAG_CMF : no need parse
-# Skip UART_FLAG_BUSY : no need parse
-# Skip UART_FLAG_ABRF : no need parse
-# Skip UART_FLAG_ABRE : no need parse
-# Skip UART_FLAG_CTS : no need parse
-# Skip UART_FLAG_CTSIF : no need parse
-# Skip UART_FLAG_LBDF : no need parse
-# Skip UART_FLAG_TXE : no need parse
-# Skip UART_FLAG_TC : no need parse
-# Skip UART_FLAG_RXNE : no need parse
-# Skip UART_FLAG_IDLE : no need parse
-# Skip UART_FLAG_ORE : no need parse
-# Skip UART_FLAG_NE : no need parse
-# Skip UART_FLAG_FE : no need parse
-# Skip UART_FLAG_PE : no need parse
-# Skip UART_IT_PE : no need parse
-# Skip UART_IT_TXE : no need parse
-# Skip UART_IT_TC : no need parse
-# Skip UART_IT_RXNE : no need parse
-# Skip UART_IT_IDLE : no need parse
-# Skip UART_IT_LBD : no need parse
-# Skip UART_IT_CTS : no need parse
-# Skip UART_IT_CM : no need parse
-# Skip UART_IT_WUF : no need parse
-# Skip UART_IT_ERR : no need parse
-# Skip UART_IT_ORE : no need parse
-# Skip UART_IT_NE : no need parse
-# Skip UART_IT_FE : no need parse
-# Skip UART_CLEAR_PEF : no need parse
-# Skip UART_CLEAR_FEF : no need parse
-# Skip UART_CLEAR_NEF : no need parse
-# Skip UART_CLEAR_OREF : no need parse
-# Skip UART_CLEAR_IDLEF : no need parse
-# Skip UART_CLEAR_TCF : no need parse
-# Skip UART_CLEAR_LBDF : no need parse
-# Skip UART_CLEAR_CTSF : no need parse
-# Skip UART_CLEAR_CMF : no need parse
-# Skip UART_CLEAR_WUF : no need parse
+UART_STOPBITS_0_5 = 0x1000
+UART_STOPBITS_1 = 0x0
+UART_STOPBITS_1_5 = 0x3000
+UART_STOPBITS_2 = 0x2000
+UART_PARITY_NONE = 0x0
+UART_PARITY_EVEN = 0x400
+UART_PARITY_ODD = 0x600
+UART_HWCONTROL_NONE = 0x0
+UART_HWCONTROL_RTS = 0x100
+UART_HWCONTROL_CTS = 0x200
+UART_HWCONTROL_RTS_CTS = 0x300
+UART_MODE_RX = 0x4
+UART_MODE_TX = 0x8
+UART_MODE_TX_RX = 0xC
+UART_STATE_DISABLE = 0x0
+UART_STATE_ENABLE = 0x1
+UART_OVERSAMPLING_16 = 0x0
+UART_OVERSAMPLING_8 = 0x8000
+UART_ONE_BIT_SAMPLE_DISABLE = 0x0
+UART_ONE_BIT_SAMPLE_ENABLE = 0x800
+UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT = 0x0
+UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE = 0x200000
+UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME = 0x400000
+UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME = 0x600000
+UART_RECEIVER_TIMEOUT_DISABLE = 0x0
+UART_RECEIVER_TIMEOUT_ENABLE = 0x800000
+UART_LIN_DISABLE = 0x0
+UART_LIN_ENABLE = 0x4000
+UART_LINBREAKDETECTLENGTH_10B = 0x0
+UART_LINBREAKDETECTLENGTH_11B = 0x20
+UART_DMA_TX_DISABLE = 0x0
+UART_DMA_TX_ENABLE = 0x80
+UART_DMA_RX_DISABLE = 0x0
+UART_DMA_RX_ENABLE = 0x40
+UART_HALF_DUPLEX_DISABLE = 0x0
+UART_HALF_DUPLEX_ENABLE = 0x8
+UART_WAKEUPMETHOD_IDLELINE = 0x0
+UART_WAKEUPMETHOD_ADDRESSMARK = 0x800
+UART_AUTOBAUD_REQUEST = 0x1
+UART_SENDBREAK_REQUEST = 0x2
+UART_MUTE_MODE_REQUEST = 0x4
+UART_RXDATA_FLUSH_REQUEST = 0x8
+UART_TXDATA_FLUSH_REQUEST = 0x10
+UART_ADVFEATURE_NO_INIT = 0x0
+UART_ADVFEATURE_TXINVERT_INIT = 0x1
+UART_ADVFEATURE_RXINVERT_INIT = 0x2
+UART_ADVFEATURE_DATAINVERT_INIT = 0x4
+UART_ADVFEATURE_SWAP_INIT = 0x8
+UART_ADVFEATURE_RXOVERRUNDISABLE_INIT = 0x10
+UART_ADVFEATURE_DMADISABLEONERROR_INIT = 0x20
+UART_ADVFEATURE_AUTOBAUDRATE_INIT = 0x40
+UART_ADVFEATURE_MSBFIRST_INIT = 0x80
+UART_ADVFEATURE_TXINV_DISABLE = 0x0
+UART_ADVFEATURE_TXINV_ENABLE = 0x20000
+UART_ADVFEATURE_RXINV_DISABLE = 0x0
+UART_ADVFEATURE_RXINV_ENABLE = 0x10000
+UART_ADVFEATURE_DATAINV_DISABLE = 0x0
+UART_ADVFEATURE_DATAINV_ENABLE = 0x40000
+UART_ADVFEATURE_SWAP_DISABLE = 0x0
+UART_ADVFEATURE_SWAP_ENABLE = 0x8000
+UART_ADVFEATURE_OVERRUN_ENABLE = 0x0
+UART_ADVFEATURE_OVERRUN_DISABLE = 0x1000
+UART_ADVFEATURE_AUTOBAUDRATE_DISABLE = 0x0
+UART_ADVFEATURE_AUTOBAUDRATE_ENABLE = 0x100000
+UART_ADVFEATURE_DMA_ENABLEONRXERROR = 0x0
+UART_ADVFEATURE_DMA_DISABLEONRXERROR = 0x2000
+UART_ADVFEATURE_MSBFIRST_DISABLE = 0x0
+UART_ADVFEATURE_MSBFIRST_ENABLE = 0x80000
+UART_ADVFEATURE_STOPMODE_DISABLE = 0x0
+UART_ADVFEATURE_STOPMODE_ENABLE = 0x2
+UART_ADVFEATURE_MUTEMODE_DISABLE = 0x0
+UART_ADVFEATURE_MUTEMODE_ENABLE = 0x2000
+UART_CR2_ADDRESS_LSB_POS = 0x18
+UART_WAKEUP_ON_ADDRESS = 0x0
+UART_WAKEUP_ON_STARTBIT = 0x200000
+UART_WAKEUP_ON_READDATA_NONEMPTY = 0x300000
+UART_DE_POLARITY_HIGH = 0x0
+UART_DE_POLARITY_LOW = 0x8000
+UART_CR1_DEAT_ADDRESS_LSB_POS = 0x15
+UART_CR1_DEDT_ADDRESS_LSB_POS = 0x10
+UART_IT_MASK = 0x1F
+HAL_UART_TIMEOUT_VALUE = 0x1FFFFFF
+UART_FLAG_REACK = 0x400000
+UART_FLAG_TEACK = 0x200000
+UART_FLAG_WUF = 0x100000
+UART_FLAG_RWU = 0x80000
+UART_FLAG_SBKF = 0x40000
+UART_FLAG_CMF = 0x20000
+UART_FLAG_BUSY = 0x10000
+UART_FLAG_ABRF = 0x8000
+UART_FLAG_ABRE = 0x4000
+UART_FLAG_CTS = 0x400
+UART_FLAG_CTSIF = 0x200
+UART_FLAG_LBDF = 0x100
+UART_FLAG_TXE = 0x80
+UART_FLAG_TC = 0x40
+UART_FLAG_RXNE = 0x20
+UART_FLAG_IDLE = 0x10
+UART_FLAG_ORE = 0x8
+UART_FLAG_NE = 0x4
+UART_FLAG_FE = 0x2
+UART_FLAG_PE = 0x1
+UART_IT_PE = 0x28
+UART_IT_TXE = 0x727
+UART_IT_TC = 0x626
+UART_IT_RXNE = 0x525
+UART_IT_IDLE = 0x424
+UART_IT_LBD = 0x846
+UART_IT_CTS = 0x96A
+UART_IT_CM = 0x112E
+UART_IT_WUF = 0x1476
+UART_IT_ERR = 0x60
+UART_IT_ORE = 0x300
+UART_IT_NE = 0x200
+UART_IT_FE = 0x100
+UART_CLEAR_PEF = 0x1
+UART_CLEAR_FEF = 0x2
+UART_CLEAR_NEF = 0x4
+UART_CLEAR_OREF = 0x8
+UART_CLEAR_IDLEF = 0x10
+UART_CLEAR_TCF = 0x40
+UART_CLEAR_LBDF = 0x100
+UART_CLEAR_CTSF = 0x200
+UART_CLEAR_CMF = 0x20000
+UART_CLEAR_WUF = 0x100000
 # fun define __HAL_UART_RESET_HANDLE_STATE(__HANDLE__)  do{                                                   \
 #                                                       (__HANDLE__)->gState = HAL_UART_STATE_RESET;      \
 #                                                       (__HANDLE__)->RxState = HAL_UART_STATE_RESET;     \
@@ -13806,6 +14069,14 @@ class UART_WakeUpTypeDef(ctypes.Structure):
 class UART_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('BaudRate',	ctypes.c_uint32),
+		('WordLength',	ctypes.c_uint32),
+		('StopBits',	ctypes.c_uint32),
+		('Parity',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('HwFlowCtl',	ctypes.c_uint32),
+		('OverSampling',	ctypes.c_uint32),
+		('OneBitSampling',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -13815,6 +14086,16 @@ class UART_InitTypeDef(ctypes.Structure):
 class UART_AdvFeatureInitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('AdvFeatureInit',	ctypes.c_uint32),
+		('TxPinLevelInvert',	ctypes.c_uint32),
+		('RxPinLevelInvert',	ctypes.c_uint32),
+		('DataInvert',	ctypes.c_uint32),
+		('Swap',	ctypes.c_uint32),
+		('OverrunDisable',	ctypes.c_uint32),
+		('DMADisableonRxError',	ctypes.c_uint32),
+		('AutoBaudRateEnable',	ctypes.c_uint32),
+		('AutoBaudRateMode',	ctypes.c_uint32),
+		('MSBFirst',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -13826,9 +14107,9 @@ class UART_AdvFeatureInitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_usart_ex.h : 
 
 # empty define STM32L0xx_HAL_USART_EX_H
-# Skip USART_WORDLENGTH_7B : no need parse
-# Skip USART_WORDLENGTH_8B : no need parse
-# Skip USART_WORDLENGTH_9B : no need parse
+USART_WORDLENGTH_7B = 0x10000000
+USART_WORDLENGTH_8B = 0x0
+USART_WORDLENGTH_9B = 0x1000
 # fun define USART_GETCLOCKSOURCE(__HANDLE__,__CLOCKSOURCE__)       \
 #  do {                                                         \
 #    if((__HANDLE__)->Instance == USART1)                       \
@@ -14011,21 +14292,21 @@ class UART_AdvFeatureInitTypeDef(ctypes.Structure):
 # file stm32l0xx_hal_usart.h : 
 
 # Enum HAL_USART_StateTypeDef
-# Skip HAL_USART_STATE_RESET : no need parse
-# Skip HAL_USART_STATE_READY : no need parse
-# Skip HAL_USART_STATE_BUSY : no need parse
-# Skip HAL_USART_STATE_BUSY_TX : no need parse
-# Skip HAL_USART_STATE_BUSY_RX : no need parse
-# Skip HAL_USART_STATE_BUSY_TX_RX : no need parse
-# Skip HAL_USART_STATE_TIMEOUT : no need parse
-# Skip HAL_USART_STATE_ERROR : no need parse
+HAL_USART_STATE_RESET = 0x0
+HAL_USART_STATE_READY = 0x1
+HAL_USART_STATE_BUSY = 0x2
+HAL_USART_STATE_BUSY_TX = 0x12
+HAL_USART_STATE_BUSY_RX = 0x22
+HAL_USART_STATE_BUSY_TX_RX = 0x32
+HAL_USART_STATE_TIMEOUT = 0x3
+HAL_USART_STATE_ERROR = 0x4
 # Enum USART_ClockSourceTypeDef
-# Skip USART_CLOCKSOURCE_PCLK1 : no need parse
-# Skip USART_CLOCKSOURCE_PCLK2 : no need parse
-# Skip USART_CLOCKSOURCE_HSI : no need parse
-# Skip USART_CLOCKSOURCE_SYSCLK : no need parse
-# Skip USART_CLOCKSOURCE_LSE : no need parse
-# Skip USART_CLOCKSOURCE_UNDEFINED : no need parse
+USART_CLOCKSOURCE_PCLK1 = 0x0
+USART_CLOCKSOURCE_PCLK2 = 0x1
+USART_CLOCKSOURCE_HSI = 0x2
+USART_CLOCKSOURCE_SYSCLK = 0x4
+USART_CLOCKSOURCE_LSE = 0x8
+USART_CLOCKSOURCE_UNDEFINED = 0x10
 # Enum HAL_USART_CallbackIDTypeDef
 # Skip HAL_USART_TX_HALFCOMPLETE_CB_ID : no need parse
 # Skip HAL_USART_TX_COMPLETE_CB_ID : no need parse
@@ -14037,66 +14318,66 @@ class UART_AdvFeatureInitTypeDef(ctypes.Structure):
 # Skip HAL_USART_MSPINIT_CB_ID : no need parse
 # Skip HAL_USART_MSPDEINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_USART_H
-# Skip HAL_USART_ERROR_NONE : no need parse
-# Skip HAL_USART_ERROR_PE : no need parse
-# Skip HAL_USART_ERROR_NE : no need parse
-# Skip HAL_USART_ERROR_FE : no need parse
-# Skip HAL_USART_ERROR_ORE : no need parse
-# Skip HAL_USART_ERROR_DMA : no need parse
+HAL_USART_ERROR_NONE = 0x0
+HAL_USART_ERROR_PE = 0x1
+HAL_USART_ERROR_NE = 0x2
+HAL_USART_ERROR_FE = 0x4
+HAL_USART_ERROR_ORE = 0x8
+HAL_USART_ERROR_DMA = 0x10
 # Skip HAL_USART_ERROR_INVALID_CALLBACK : no need parse
-# Skip USART_STOPBITS_0_5 : no need parse
-# Skip USART_STOPBITS_1 : no need parse
-# Skip USART_STOPBITS_1_5 : no need parse
-# Skip USART_STOPBITS_2 : no need parse
-# Skip USART_PARITY_NONE : no need parse
-# Skip USART_PARITY_EVEN : no need parse
-# Skip USART_PARITY_ODD : no need parse
-# Skip USART_MODE_RX : no need parse
-# Skip USART_MODE_TX : no need parse
-# Skip USART_MODE_TX_RX : no need parse
-# Skip USART_OVERSAMPLING_16 : no need parse
-# Skip USART_OVERSAMPLING_8 : no need parse
-# Skip USART_CLOCK_DISABLE : no need parse
-# Skip USART_CLOCK_ENABLE : no need parse
-# Skip USART_POLARITY_LOW : no need parse
-# Skip USART_POLARITY_HIGH : no need parse
-# Skip USART_PHASE_1EDGE : no need parse
-# Skip USART_PHASE_2EDGE : no need parse
-# Skip USART_LASTBIT_DISABLE : no need parse
-# Skip USART_LASTBIT_ENABLE : no need parse
-# Skip USART_RXDATA_FLUSH_REQUEST : no need parse
-# Skip USART_TXDATA_FLUSH_REQUEST : no need parse
-# Skip USART_FLAG_REACK : no need parse
-# Skip USART_FLAG_TEACK : no need parse
-# Skip USART_FLAG_BUSY : no need parse
-# Skip USART_FLAG_TXE : no need parse
-# Skip USART_FLAG_TC : no need parse
-# Skip USART_FLAG_RXNE : no need parse
-# Skip USART_FLAG_IDLE : no need parse
-# Skip USART_FLAG_ORE : no need parse
-# Skip USART_FLAG_NE : no need parse
-# Skip USART_FLAG_FE : no need parse
-# Skip USART_FLAG_PE : no need parse
-# Skip USART_IT_PE : no need parse
-# Skip USART_IT_TXE : no need parse
-# Skip USART_IT_TC : no need parse
-# Skip USART_IT_RXNE : no need parse
-# Skip USART_IT_IDLE : no need parse
-# Skip USART_IT_ERR : no need parse
-# Skip USART_IT_ORE : no need parse
-# Skip USART_IT_NE : no need parse
-# Skip USART_IT_FE : no need parse
-# Skip USART_CLEAR_PEF : no need parse
-# Skip USART_CLEAR_FEF : no need parse
-# Skip USART_CLEAR_NEF : no need parse
-# Skip USART_CLEAR_OREF : no need parse
-# Skip USART_CLEAR_IDLEF : no need parse
-# Skip USART_CLEAR_TCF : no need parse
-# Skip USART_IT_MASK : no need parse
-# Skip USART_CR_MASK : no need parse
-# Skip USART_CR_POS : no need parse
-# Skip USART_ISR_MASK : no need parse
-# Skip USART_ISR_POS : no need parse
+USART_STOPBITS_0_5 = 0x1000
+USART_STOPBITS_1 = 0x0
+USART_STOPBITS_1_5 = 0x3000
+USART_STOPBITS_2 = 0x2000
+USART_PARITY_NONE = 0x0
+USART_PARITY_EVEN = 0x400
+USART_PARITY_ODD = 0x600
+USART_MODE_RX = 0x4
+USART_MODE_TX = 0x8
+USART_MODE_TX_RX = 0xC
+USART_OVERSAMPLING_16 = 0x0
+USART_OVERSAMPLING_8 = 0x8000
+USART_CLOCK_DISABLE = 0x0
+USART_CLOCK_ENABLE = 0x800
+USART_POLARITY_LOW = 0x0
+USART_POLARITY_HIGH = 0x400
+USART_PHASE_1EDGE = 0x0
+USART_PHASE_2EDGE = 0x200
+USART_LASTBIT_DISABLE = 0x0
+USART_LASTBIT_ENABLE = 0x100
+USART_RXDATA_FLUSH_REQUEST = 0x8
+USART_TXDATA_FLUSH_REQUEST = 0x10
+USART_FLAG_REACK = 0x400000
+USART_FLAG_TEACK = 0x200000
+USART_FLAG_BUSY = 0x10000
+USART_FLAG_TXE = 0x80
+USART_FLAG_TC = 0x40
+USART_FLAG_RXNE = 0x20
+USART_FLAG_IDLE = 0x10
+USART_FLAG_ORE = 0x8
+USART_FLAG_NE = 0x4
+USART_FLAG_FE = 0x2
+USART_FLAG_PE = 0x1
+USART_IT_PE = 0x28
+USART_IT_TXE = 0x727
+USART_IT_TC = 0x626
+USART_IT_RXNE = 0x525
+USART_IT_IDLE = 0x424
+USART_IT_ERR = 0x60
+USART_IT_ORE = 0x300
+USART_IT_NE = 0x200
+USART_IT_FE = 0x100
+USART_CLEAR_PEF = 0x1
+USART_CLEAR_FEF = 0x2
+USART_CLEAR_NEF = 0x4
+USART_CLEAR_OREF = 0x8
+USART_CLEAR_IDLEF = 0x10
+USART_CLEAR_TCF = 0x40
+USART_IT_MASK = 0x1F
+USART_CR_MASK = 0xE0
+USART_CR_POS = 0x5
+USART_ISR_MASK = 0x1F00
+USART_ISR_POS = 0x8
 # fun define __HAL_USART_RESET_HANDLE_STATE(__HANDLE__)  do{                                            \
 #                                                      (__HANDLE__)->State = HAL_USART_STATE_RESET; \
 #                                                      (__HANDLE__)->MspInitCallback = NULL;        \
@@ -14156,6 +14437,14 @@ class UART_AdvFeatureInitTypeDef(ctypes.Structure):
 class USART_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('BaudRate',	ctypes.c_uint32),
+		('WordLength',	ctypes.c_uint32),
+		('StopBits',	ctypes.c_uint32),
+		('Parity',	ctypes.c_uint32),
+		('Mode',	ctypes.c_uint32),
+		('CLKPolarity',	ctypes.c_uint32),
+		('CLKPhase',	ctypes.c_uint32),
+		('CLKLastBit',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -14170,14 +14459,14 @@ class USART_InitTypeDef(ctypes.Structure):
 # Skip HAL_WWDG_EWI_CB_ID : no need parse
 # Skip HAL_WWDG_MSPINIT_CB_ID : no need parse
 # empty define STM32L0xx_HAL_WWDG_H
-# Skip WWDG_IT_EWI : no need parse
-# Skip WWDG_FLAG_EWIF : no need parse
-# Skip WWDG_PRESCALER_1 : no need parse
-# Skip WWDG_PRESCALER_2 : no need parse
-# Skip WWDG_PRESCALER_4 : no need parse
-# Skip WWDG_PRESCALER_8 : no need parse
-# Skip WWDG_EWI_DISABLE : no need parse
-# Skip WWDG_EWI_ENABLE : no need parse
+WWDG_IT_EWI = 0x200
+WWDG_FLAG_EWIF = 0x1
+WWDG_PRESCALER_1 = 0x0
+WWDG_PRESCALER_2 = 0x80
+WWDG_PRESCALER_4 = 0x100
+WWDG_PRESCALER_8 = 0x180
+WWDG_EWI_DISABLE = 0x0
+WWDG_EWI_ENABLE = 0x200
 # fun define IS_WWDG_PRESCALER(__PRESCALER__)    (((__PRESCALER__) == WWDG_PRESCALER_1)  || \
 #                                             ((__PRESCALER__) == WWDG_PRESCALER_2)  || \
 #                                             ((__PRESCALER__) == WWDG_PRESCALER_4)  || \
@@ -14202,6 +14491,10 @@ class USART_InitTypeDef(ctypes.Structure):
 class WWDG_InitTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
+		('Prescaler',	ctypes.c_uint32),
+		('Window',	ctypes.c_uint32),
+		('Counter',	ctypes.c_uint32),
+		('EWIMode',	ctypes.c_uint32),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -18311,49 +18604,826 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'SYSCFG_TypeDef', 'I2C_TypeDef', 'IWDG_TypeDef', 'LCD_TypeDef', 'FIREWALL_TypeDef',
     'PWR_TypeDef', 'RCC_TypeDef', 'RNG_TypeDef', 'RTC_TypeDef', 'SPI_TypeDef',
     'TIM_TypeDef', 'TSC_TypeDef', 'USART_TypeDef', 'WWDG_TypeDef', 'USB_TypeDef',
+    'ADC_SINGLE_ENDED', 'ADC_EXTERNALTRIGCONV_T6_TRGO', 'ADC_EXTERNALTRIGCONV_T21_CC2',
+    'ADC_EXTERNALTRIGCONV_T2_TRGO', 'ADC_EXTERNALTRIGCONV_T2_CC4',
+    'ADC_EXTERNALTRIGCONV_T22_TRGO', 'ADC_EXTERNALTRIGCONV_T3_TRGO',
+    'ADC_EXTERNALTRIGCONV_EXT_IT11', 'ADC_SOFTWARE_START',
+    'ADC_EXTERNALTRIGCONV_T21_TRGO', 'ADC_FLAG_SENSOR', 'ADC_FLAG_VREFINT',
+    'HAL_ADC_STATE_RESET', 'HAL_ADC_STATE_READY', 'HAL_ADC_STATE_BUSY_INTERNAL',
+    'HAL_ADC_STATE_TIMEOUT', 'HAL_ADC_STATE_ERROR_INTERNAL',
+    'HAL_ADC_STATE_ERROR_CONFIG', 'HAL_ADC_STATE_ERROR_DMA', 'HAL_ADC_STATE_REG_BUSY',
+    'HAL_ADC_STATE_REG_EOC', 'HAL_ADC_STATE_REG_OVR', 'HAL_ADC_STATE_REG_EOSMP',
+    'HAL_ADC_STATE_INJ_BUSY', 'HAL_ADC_STATE_INJ_EOC', 'HAL_ADC_STATE_INJ_JQOVF',
+    'HAL_ADC_STATE_AWD1', 'HAL_ADC_STATE_AWD2', 'HAL_ADC_STATE_AWD3',
+    'HAL_ADC_STATE_MULTIMODE_SLAVE', 'HAL_ADC_ERROR_NONE', 'HAL_ADC_ERROR_INTERNAL',
+    'HAL_ADC_ERROR_OVR', 'HAL_ADC_ERROR_DMA', 'ADC_ENABLE_TIMEOUT',
+    'ADC_DISABLE_TIMEOUT', 'ADC_STOP_CONVERSION_TIMEOUT',
+    'ADC_DELAY_10US_MIN_CPU_CYCLES', 'ADC_CLOCK_ASYNC_DIV1', 'ADC_CLOCK_ASYNC_DIV2',
+    'ADC_CLOCK_ASYNC_DIV4', 'ADC_CLOCK_ASYNC_DIV6', 'ADC_CLOCK_ASYNC_DIV8',
+    'ADC_CLOCK_ASYNC_DIV10', 'ADC_CLOCK_ASYNC_DIV12', 'ADC_CLOCK_ASYNC_DIV16',
+    'ADC_CLOCK_ASYNC_DIV32', 'ADC_CLOCK_ASYNC_DIV64', 'ADC_CLOCK_ASYNC_DIV128',
+    'ADC_CLOCK_ASYNC_DIV256', 'ADC_CLOCK_SYNC_PCLK_DIV1', 'ADC_CLOCK_SYNC_PCLK_DIV2',
+    'ADC_CLOCK_SYNC_PCLK_DIV4', 'ADC_RESOLUTION_12B', 'ADC_RESOLUTION_10B',
+    'ADC_RESOLUTION_8B', 'ADC_RESOLUTION_6B', 'ADC_DATAALIGN_RIGHT',
+    'ADC_DATAALIGN_LEFT', 'ADC_EXTERNALTRIGCONVEDGE_NONE',
+    'ADC_EXTERNALTRIGCONVEDGE_RISING', 'ADC_EXTERNALTRIGCONVEDGE_FALLING',
+    'ADC_EXTERNALTRIGCONVEDGE_RISINGFALLING', 'ADC_EOC_SINGLE_CONV', 'ADC_EOC_SEQ_CONV',
+    'ADC_OVR_DATA_PRESERVED', 'ADC_OVR_DATA_OVERWRITTEN', 'ADC_RANK_CHANNEL_NUMBER',
+    'ADC_RANK_NONE', 'ADC_CHANNEL_0', 'ADC_CHANNEL_1', 'ADC_CHANNEL_2', 'ADC_CHANNEL_3',
+    'ADC_CHANNEL_4', 'ADC_CHANNEL_5', 'ADC_CHANNEL_6', 'ADC_CHANNEL_7', 'ADC_CHANNEL_8',
+    'ADC_CHANNEL_9', 'ADC_CHANNEL_10', 'ADC_CHANNEL_11', 'ADC_CHANNEL_12',
+    'ADC_CHANNEL_13', 'ADC_CHANNEL_14', 'ADC_CHANNEL_15', 'ADC_CHANNEL_16',
+    'ADC_CHANNEL_17', 'ADC_CHANNEL_18', 'ADC_CHANNEL_VLCD', 'ADC_CHANNEL_VREFINT',
+    'ADC_CHANNEL_TEMPSENSOR', 'ADC_CHANNEL_MASK', 'ADC_CHANNEL_AWD_MASK',
+    'ADC_SAMPLETIME_1CYCLE_5', 'ADC_SAMPLETIME_3CYCLES_5', 'ADC_SAMPLETIME_7CYCLES_5',
+    'ADC_SAMPLETIME_12CYCLES_5', 'ADC_SAMPLETIME_19CYCLES_5',
+    'ADC_SAMPLETIME_39CYCLES_5', 'ADC_SAMPLETIME_79CYCLES_5',
+    'ADC_SAMPLETIME_160CYCLES_5', 'ADC_SCAN_DIRECTION_FORWARD',
+    'ADC_SCAN_DIRECTION_BACKWARD', 'ADC_SCAN_ENABLE', 'ADC_OVERSAMPLING_RATIO_2',
+    'ADC_OVERSAMPLING_RATIO_4', 'ADC_OVERSAMPLING_RATIO_8', 'ADC_OVERSAMPLING_RATIO_16',
+    'ADC_OVERSAMPLING_RATIO_32', 'ADC_OVERSAMPLING_RATIO_64',
+    'ADC_OVERSAMPLING_RATIO_128', 'ADC_OVERSAMPLING_RATIO_256',
+    'ADC_RIGHTBITSHIFT_NONE', 'ADC_RIGHTBITSHIFT_1', 'ADC_RIGHTBITSHIFT_2',
+    'ADC_RIGHTBITSHIFT_3', 'ADC_RIGHTBITSHIFT_4', 'ADC_RIGHTBITSHIFT_5',
+    'ADC_RIGHTBITSHIFT_6', 'ADC_RIGHTBITSHIFT_7', 'ADC_RIGHTBITSHIFT_8',
+    'ADC_TRIGGEREDMODE_SINGLE_TRIGGER', 'ADC_TRIGGEREDMODE_MULTI_TRIGGER',
+    'ADC_ANALOGWATCHDOG_NONE', 'ADC_ANALOGWATCHDOG_SINGLE_REG',
+    'ADC_ANALOGWATCHDOG_ALL_REG', 'ADC_REGULAR_GROUP', 'ADC_AWD_EVENT', 'ADC_OVR_EVENT',
+    'ADC_IT_RDY', 'ADC_IT_EOSMP', 'ADC_IT_EOC', 'ADC_IT_EOS', 'ADC_IT_OVR',
+    'ADC_IT_AWD', 'ADC_IT_EOCAL', 'ADC_FLAG_RDY', 'ADC_FLAG_EOSMP', 'ADC_FLAG_EOC',
+    'ADC_FLAG_EOS', 'ADC_FLAG_OVR', 'ADC_FLAG_AWD', 'ADC_FLAG_EOCAL', 'ADC_FLAG_ALL',
     'ADC_OversamplingTypeDef', 'ADC_ChannelConfTypeDef', 'ADC_AnalogWDGConfTypeDef',
-    'COMP_InitTypeDef', 'CRC_InitTypeDef', 'CRYP_InitTypeDef', 'DAC_ChannelConfTypeDef',
-    'DMA_InitTypeDef', 'FIREWALL_InitTypeDef', 'FLASH_EraseInitTypeDef',
-    'FLASH_OBProgramInitTypeDef', 'FLASH_AdvOBProgramInitTypeDef',
-    'FLASH_ProcessTypeDef', 'GPIO_InitTypeDef', 'SYSCFG_BOOT_MAINFLASH',
-    'SYSCFG_BOOT_SYSTEMFLASH', 'SYSCFG_BOOT_SRAM', 'DBGMCU_SLEEP', 'DBGMCU_STOP',
-    'DBGMCU_STANDBY', 'SYSCFG_LCD_EXT_CAPA', 'SYSCFG_VLCD_PB2_EXT_CAPA_ON',
-    'SYSCFG_VLCD_PB12_EXT_CAPA_ON', 'SYSCFG_VLCD_PB0_EXT_CAPA_ON',
-    'SYSCFG_VREFINT_OUT_NONE', 'SYSCFG_VREFINT_OUT_PB0', 'SYSCFG_VREFINT_OUT_PB1',
-    'SYSCFG_VREFINT_OUT_PB0_PB1', 'SYSCFG_FLAG_VREFINT_READY',
+    'HAL_COMP_STATE_RESET', 'HAL_COMP_STATE_RESET_LOCKED', 'HAL_COMP_STATE_READY',
+    'HAL_COMP_STATE_READY_LOCKED', 'HAL_COMP_STATE_BUSY', 'HAL_COMP_STATE_BUSY_LOCKED',
+    'COMP_STATE_BITFIELD_LOCK', 'HAL_COMP_ERROR_NONE', 'COMP_WINDOWMODE_DISABLE',
+    'COMP_WINDOWMODE_COMP1_INPUT_PLUS_COMMON', 'COMP_POWERMODE_MEDIUMSPEED',
+    'COMP_POWERMODE_ULTRALOWPOWER', 'COMP_INPUT_PLUS_IO1', 'COMP_INPUT_PLUS_IO2',
+    'COMP_INPUT_PLUS_IO3', 'COMP_INPUT_PLUS_IO4', 'COMP_INPUT_PLUS_IO5',
+    'COMP_INPUT_MINUS_1_4VREFINT', 'COMP_INPUT_MINUS_1_2VREFINT',
+    'COMP_INPUT_MINUS_3_4VREFINT', 'COMP_INPUT_MINUS_VREFINT',
+    'COMP_INPUT_MINUS_DAC1_CH1', 'COMP_INPUT_MINUS_DAC1_CH2', 'COMP_INPUT_MINUS_IO1',
+    'COMP_INPUT_MINUS_IO2', 'COMP_LPTIMCONNECTION_DISABLED',
+    'COMP_LPTIMCONNECTION_IN1_ENABLED', 'COMP_LPTIMCONNECTION_IN2_ENABLED',
+    'COMP_OUTPUTPOL_NONINVERTED', 'COMP_OUTPUTPOL_INVERTED', 'COMP_OUTPUT_LEVEL_LOW',
+    'COMP_OUTPUT_LEVEL_HIGH', 'COMP_TRIGGERMODE_NONE', 'COMP_TRIGGERMODE_IT_RISING',
+    'COMP_TRIGGERMODE_IT_FALLING', 'COMP_TRIGGERMODE_IT_RISING_FALLING',
+    'COMP_TRIGGERMODE_EVENT_RISING', 'COMP_TRIGGERMODE_EVENT_FALLING',
+    'COMP_TRIGGERMODE_EVENT_RISING_FALLING', 'COMP_EXTI_LINE_COMP1',
+    'COMP_EXTI_LINE_COMP2', 'COMP_EXTI_IT', 'COMP_EXTI_EVENT', 'COMP_EXTI_RISING',
+    'COMP_EXTI_FALLING', 'COMP_InitTypeDef', 'CRC_INPUTDATA_INVERSION_NONE',
+    'CRC_INPUTDATA_INVERSION_BYTE', 'CRC_INPUTDATA_INVERSION_HALFWORD',
+    'CRC_INPUTDATA_INVERSION_WORD', 'CRC_OUTPUTDATA_INVERSION_DISABLE',
+    'CRC_OUTPUTDATA_INVERSION_ENABLE', 'HAL_CRC_STATE_RESET', 'HAL_CRC_STATE_READY',
+    'HAL_CRC_STATE_BUSY', 'HAL_CRC_STATE_TIMEOUT', 'HAL_CRC_STATE_ERROR',
+    'DEFAULT_CRC32_POLY', 'DEFAULT_CRC_INITVALUE', 'DEFAULT_POLYNOMIAL_ENABLE',
+    'DEFAULT_POLYNOMIAL_DISABLE', 'DEFAULT_INIT_VALUE_ENABLE',
+    'DEFAULT_INIT_VALUE_DISABLE', 'CRC_POLYLENGTH_32B', 'CRC_POLYLENGTH_16B',
+    'CRC_POLYLENGTH_8B', 'CRC_POLYLENGTH_7B', 'HAL_CRC_LENGTH_32B',
+    'HAL_CRC_LENGTH_16B', 'HAL_CRC_LENGTH_8B', 'HAL_CRC_LENGTH_7B',
+    'CRC_INPUTDATA_FORMAT_UNDEFINED', 'CRC_INPUTDATA_FORMAT_BYTES',
+    'CRC_INPUTDATA_FORMAT_HALFWORDS', 'CRC_INPUTDATA_FORMAT_WORDS', 'CRC_InitTypeDef',
+    'CRYP_InitTypeDef', 'DAC_LFSRUNMASK_BIT0', 'DAC_LFSRUNMASK_BITS1_0',
+    'DAC_LFSRUNMASK_BITS2_0', 'DAC_LFSRUNMASK_BITS3_0', 'DAC_LFSRUNMASK_BITS4_0',
+    'DAC_LFSRUNMASK_BITS5_0', 'DAC_LFSRUNMASK_BITS6_0', 'DAC_LFSRUNMASK_BITS7_0',
+    'DAC_LFSRUNMASK_BITS8_0', 'DAC_LFSRUNMASK_BITS9_0', 'DAC_LFSRUNMASK_BITS10_0',
+    'DAC_LFSRUNMASK_BITS11_0', 'DAC_TRIANGLEAMPLITUDE_1', 'DAC_TRIANGLEAMPLITUDE_3',
+    'DAC_TRIANGLEAMPLITUDE_7', 'DAC_TRIANGLEAMPLITUDE_15', 'DAC_TRIANGLEAMPLITUDE_31',
+    'DAC_TRIANGLEAMPLITUDE_63', 'DAC_TRIANGLEAMPLITUDE_127',
+    'DAC_TRIANGLEAMPLITUDE_255', 'DAC_TRIANGLEAMPLITUDE_511',
+    'DAC_TRIANGLEAMPLITUDE_1023', 'DAC_TRIANGLEAMPLITUDE_2047',
+    'DAC_TRIANGLEAMPLITUDE_4095', 'HAL_DAC_STATE_RESET', 'HAL_DAC_STATE_READY',
+    'HAL_DAC_STATE_BUSY', 'HAL_DAC_STATE_TIMEOUT', 'HAL_DAC_STATE_ERROR',
+    'HAL_DAC_ERROR_NONE', 'HAL_DAC_ERROR_DMAUNDERRUNCH1', 'HAL_DAC_ERROR_DMA',
+    'DAC_TRIGGER_NONE', 'DAC_TRIGGER_T6_TRGO', 'DAC_TRIGGER_T21_TRGO',
+    'DAC_TRIGGER_T2_TRGO', 'DAC_TRIGGER_EXT_IT9', 'DAC_TRIGGER_SOFTWARE',
+    'DAC_OUTPUTBUFFER_ENABLE', 'DAC_OUTPUTBUFFER_DISABLE', 'DAC_CHANNEL_1',
+    'DAC_ALIGN_12B_R', 'DAC_ALIGN_12B_L', 'DAC_ALIGN_8B_R', 'DAC_FLAG_DMAUDR1',
+    'DAC_IT_DMAUDR1', 'DAC_ChannelConfTypeDef', 'HAL_OK', 'HAL_ERROR', 'HAL_BUSY',
+    'HAL_TIMEOUT', 'HAL_UNLOCKED', 'HAL_LOCKED', 'HAL_MAX_DELAY', 'HAL_DMA_STATE_RESET',
+    'HAL_DMA_STATE_READY', 'HAL_DMA_STATE_BUSY', 'HAL_DMA_STATE_TIMEOUT',
+    'HAL_DMA_FULL_TRANSFER', 'HAL_DMA_HALF_TRANSFER', 'HAL_DMA_XFER_CPLT_CB_ID',
+    'HAL_DMA_XFER_HALFCPLT_CB_ID', 'HAL_DMA_XFER_ERROR_CB_ID',
+    'HAL_DMA_XFER_ABORT_CB_ID', 'HAL_DMA_XFER_ALL_CB_ID', 'HAL_DMA_ERROR_NONE',
+    'HAL_DMA_ERROR_TE', 'HAL_DMA_ERROR_NO_XFER', 'HAL_DMA_ERROR_TIMEOUT',
+    'HAL_DMA_ERROR_NOT_SUPPORTED', 'DMA_REQUEST_0', 'DMA_REQUEST_1', 'DMA_REQUEST_4',
+    'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_8', 'DMA_REQUEST_0', 'DMA_REQUEST_1',
+    'DMA_REQUEST_2', 'DMA_REQUEST_3', 'DMA_REQUEST_4', 'DMA_REQUEST_5', 'DMA_REQUEST_6',
+    'DMA_REQUEST_7', 'DMA_REQUEST_8', 'DMA_REQUEST_9', 'DMA_REQUEST_10',
+    'DMA_REQUEST_12', 'DMA_REQUEST_13', 'DMA_REQUEST_14', 'DMA_REQUEST_15',
+    'DMA_REQUEST_0', 'DMA_REQUEST_1', 'DMA_REQUEST_2', 'DMA_REQUEST_3', 'DMA_REQUEST_4',
+    'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_7', 'DMA_REQUEST_8', 'DMA_REQUEST_9',
+    'DMA_REQUEST_10', 'DMA_REQUEST_12', 'DMA_REQUEST_13', 'DMA_REQUEST_14',
+    'DMA_REQUEST_15', 'DMA_PERIPH_TO_MEMORY', 'DMA_MEMORY_TO_PERIPH',
+    'DMA_MEMORY_TO_MEMORY', 'DMA_PINC_ENABLE', 'DMA_PINC_DISABLE', 'DMA_MINC_ENABLE',
+    'DMA_MINC_DISABLE', 'DMA_PDATAALIGN_BYTE', 'DMA_PDATAALIGN_HALFWORD',
+    'DMA_PDATAALIGN_WORD', 'DMA_MDATAALIGN_BYTE', 'DMA_MDATAALIGN_HALFWORD',
+    'DMA_MDATAALIGN_WORD', 'DMA_NORMAL', 'DMA_CIRCULAR', 'DMA_PRIORITY_LOW',
+    'DMA_PRIORITY_MEDIUM', 'DMA_PRIORITY_HIGH', 'DMA_PRIORITY_VERY_HIGH', 'DMA_IT_TC',
+    'DMA_IT_HT', 'DMA_IT_TE', 'DMA_FLAG_GL1', 'DMA_FLAG_TC1', 'DMA_FLAG_HT1',
+    'DMA_FLAG_TE1', 'DMA_FLAG_GL2', 'DMA_FLAG_TC2', 'DMA_FLAG_HT2', 'DMA_FLAG_TE2',
+    'DMA_FLAG_GL3', 'DMA_FLAG_TC3', 'DMA_FLAG_HT3', 'DMA_FLAG_TE3', 'DMA_FLAG_GL4',
+    'DMA_FLAG_TC4', 'DMA_FLAG_HT4', 'DMA_FLAG_TE4', 'DMA_FLAG_GL5', 'DMA_FLAG_TC5',
+    'DMA_FLAG_HT5', 'DMA_FLAG_TE5', 'DMA_FLAG_GL6', 'DMA_FLAG_TC6', 'DMA_FLAG_HT6',
+    'DMA_FLAG_TE6', 'DMA_FLAG_GL7', 'DMA_FLAG_TC7', 'DMA_FLAG_HT7', 'DMA_FLAG_TE7',
+    'DMA_InitTypeDef', 'FIREWALL_VOLATILEDATA_NOT_EXECUTABLE',
+    'FIREWALL_VOLATILEDATA_EXECUTABLE', 'FIREWALL_VOLATILEDATA_NOT_SHARED',
+    'FIREWALL_VOLATILEDATA_SHARED', 'FIREWALL_PRE_ARM_RESET', 'FIREWALL_PRE_ARM_SET',
+    'FIREWALL_InitTypeDef', 'FLASH_SIZE_DATA_REGISTER', 'WRP_MASK_LOW', 'WRP_MASK_HIGH',
+    'FLASH_TYPEERASE_PAGES', 'OPTIONBYTE_WRP', 'OPTIONBYTE_RDP', 'OPTIONBYTE_USER',
+    'OPTIONBYTE_BOR', 'OPTIONBYTE_BOOT_BIT1', 'OB_WRPSTATE_DISABLE',
+    'OB_WRPSTATE_ENABLE', 'OB_WRP_Pages0to31', 'OB_WRP_Pages32to63',
+    'OB_WRP_Pages64to95', 'OB_WRP_Pages96to127', 'OB_WRP_Pages128to159',
+    'OB_WRP_Pages160to191', 'OB_WRP_Pages192to223', 'OB_WRP_Pages224to255',
+    'OB_WRP_AllPages', 'OB_WRP_Pages0to31', 'OB_WRP_Pages32to63', 'OB_WRP_Pages64to95',
+    'OB_WRP_Pages96to127', 'OB_WRP_Pages128to159', 'OB_WRP_Pages160to191',
+    'OB_WRP_Pages192to223', 'OB_WRP_Pages224to255', 'OB_WRP_Pages256to287',
+    'OB_WRP_Pages288to319', 'OB_WRP_Pages320to351', 'OB_WRP_Pages352to383',
+    'OB_WRP_Pages384to415', 'OB_WRP_Pages416to447', 'OB_WRP_Pages448to479',
+    'OB_WRP_Pages480to511', 'OB_WRP_AllPages', 'OB_WRP_Pages0to31',
+    'OB_WRP_Pages32to63', 'OB_WRP_Pages64to95', 'OB_WRP_Pages96to127',
+    'OB_WRP_Pages128to159', 'OB_WRP_Pages160to191', 'OB_WRP_Pages192to223',
+    'OB_WRP_Pages224to255', 'OB_WRP_Pages256to287', 'OB_WRP_Pages288to319',
+    'OB_WRP_Pages320to351', 'OB_WRP_Pages352to383', 'OB_WRP_Pages384to415',
+    'OB_WRP_Pages416to447', 'OB_WRP_Pages448to479', 'OB_WRP_Pages480to511',
+    'OB_WRP_AllPages', 'OB_RDP_LEVEL_0', 'OB_RDP_LEVEL_1', 'OB_RDP_LEVEL_2',
+    'OB_BOR_OFF', 'OB_BOR_LEVEL1', 'OB_BOR_LEVEL2', 'OB_BOR_LEVEL3', 'OB_BOR_LEVEL4',
+    'OB_BOR_LEVEL5', 'OB_IWDG_SW', 'OB_IWDG_HW', 'OB_STOP_NORST', 'OB_STOP_RST',
+    'OB_STDBY_NORST', 'OB_STDBY_RST', 'OPTIONBYTE_PCROP', 'OB_PCROP_STATE_DISABLE',
+    'OB_PCROP_STATE_ENABLE', 'OB_PCROP_DESELECTED', 'OB_PCROP_SELECTED',
+    'OB_PCROP_Pages0to31', 'OB_PCROP_Pages32to63', 'OB_PCROP_Pages64to95',
+    'OB_PCROP_Pages96to127', 'OB_PCROP_Pages128to159', 'OB_PCROP_Pages160to191',
+    'OB_PCROP_Pages192to223', 'OB_PCROP_Pages224to255', 'OB_PCROP_AllPages',
+    'OB_PCROP_Pages0to31', 'OB_PCROP_Pages32to63', 'OB_PCROP_Pages64to95',
+    'OB_PCROP_Pages96to127', 'OB_PCROP_Pages128to159', 'OB_PCROP_Pages160to191',
+    'OB_PCROP_Pages192to223', 'OB_PCROP_Pages224to255', 'OB_PCROP_Pages256to287',
+    'OB_PCROP_Pages288to319', 'OB_PCROP_Pages320to351', 'OB_PCROP_Pages352to383',
+    'OB_PCROP_Pages384to415', 'OB_PCROP_Pages416to447', 'OB_PCROP_Pages448to479',
+    'OB_PCROP_Pages480to511', 'OB_PCROP_AllPages', 'OB_PCROP_Pages0to31',
+    'OB_PCROP_Pages32to63', 'OB_PCROP_Pages64to95', 'OB_PCROP_Pages96to127',
+    'OB_PCROP_Pages128to159', 'OB_PCROP_Pages160to191', 'OB_PCROP_Pages192to223',
+    'OB_PCROP_Pages224to255', 'OB_PCROP_Pages256to287', 'OB_PCROP_Pages288to319',
+    'OB_PCROP_Pages320to351', 'OB_PCROP_Pages352to383', 'OB_PCROP_Pages384to415',
+    'OB_PCROP_Pages416to447', 'OB_PCROP_Pages448to479', 'OB_PCROP_Pages480to511',
+    'OB_PCROP_AllPages', 'OB_BOOT_BIT1_RESET', 'OB_BOOT_BIT1_SET',
+    'FLASH_TYPEPROGRAMDATA_BYTE', 'FLASH_TYPEPROGRAMDATA_HALFWORD',
+    'FLASH_TYPEPROGRAMDATA_WORD', 'FLASH_EraseInitTypeDef',
+    'FLASH_OBProgramInitTypeDef', 'FLASH_AdvOBProgramInitTypeDef', 'FLASH_PROC_NONE',
+    'FLASH_PROC_PAGEERASE', 'FLASH_PROC_PROGRAM', 'FLASH_TIMEOUT_VALUE',
+    'FLASH_SIZE_DATA_REGISTER', 'HAL_FLASH_ERROR_NONE', 'HAL_FLASH_ERROR_PGA',
+    'HAL_FLASH_ERROR_WRP', 'HAL_FLASH_ERROR_OPTV', 'HAL_FLASH_ERROR_SIZE',
+    'HAL_FLASH_ERROR_RD', 'HAL_FLASH_ERROR_FWWERR', 'HAL_FLASH_ERROR_NOTZERO',
+    'FLASH_PAGE_SIZE', 'FLASH_TYPEPROGRAM_WORD', 'FLASH_LATENCY_0', 'FLASH_LATENCY_1',
+    'FLASH_IT_EOP', 'FLASH_IT_ERR', 'FLASH_FLAG_BSY', 'FLASH_FLAG_EOP',
+    'FLASH_FLAG_ENDHV', 'FLASH_FLAG_READY', 'FLASH_FLAG_WRPERR', 'FLASH_FLAG_PGAERR',
+    'FLASH_FLAG_SIZERR', 'FLASH_FLAG_OPTVERR', 'FLASH_FLAG_RDERR', 'FLASH_FLAG_FWWERR',
+    'FLASH_FLAG_NOTZEROERR', 'FLASH_PDKEY1', 'FLASH_PDKEY2', 'FLASH_PEKEY1',
+    'FLASH_PEKEY2', 'FLASH_PRGKEY1', 'FLASH_PRGKEY2', 'FLASH_OPTKEY1', 'FLASH_OPTKEY2',
+    'FLASH_ProcessTypeDef', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1',
+    'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF0_USART1',
+    'GPIO_AF0_SPI2', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_TIM22', 'GPIO_AF0_LPUART1',
+    'GPIO_AF0_USART2', 'GPIO_AF0_TIM2', 'GPIO_AF0_USB', 'GPIO_AF1_I2C1',
+    'GPIO_AF1_SPI2', 'GPIO_AF1_LCD', 'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT',
+    'GPIO_AF2_LPTIM1', 'GPIO_AF2_LPUART1', 'GPIO_AF2_RTC', 'GPIO_AF2_SPI2',
+    'GPIO_AF2_USB', 'GPIO_AF3_EVENTOUT', 'GPIO_AF3_I2C1', 'GPIO_AF3_TSC',
+    'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_USART1', 'GPIO_AF4_EVENTOUT',
+    'GPIO_AF4_TIM22', 'GPIO_AF4_I2C1', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21',
+    'GPIO_AF5_TIM22', 'GPIO_AF5_SPI2', 'GPIO_AF5_I2C2', 'GPIO_AF6_EVENTOUT',
+    'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF7_COMP1', 'GPIO_AF7_COMP2',
+    'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1', 'GPIO_AF0_MCO',
+    'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF0_USART1', 'GPIO_AF0_SPI2',
+    'GPIO_AF0_LPTIM1', 'GPIO_AF0_TIM22', 'GPIO_AF0_LPUART1', 'GPIO_AF0_USART2',
+    'GPIO_AF0_TIM2', 'GPIO_AF0_USB', 'GPIO_AF1_I2C1', 'GPIO_AF1_SPI2', 'GPIO_AF2_TIM2',
+    'GPIO_AF2_EVENTOUT', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_LPUART1', 'GPIO_AF2_RTC',
+    'GPIO_AF2_SPI2', 'GPIO_AF2_USB', 'GPIO_AF3_EVENTOUT', 'GPIO_AF3_I2C1',
+    'GPIO_AF3_TSC', 'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_USART1',
+    'GPIO_AF4_EVENTOUT', 'GPIO_AF4_TIM22', 'GPIO_AF4_I2C1', 'GPIO_AF5_TIM2',
+    'GPIO_AF5_TIM21', 'GPIO_AF5_TIM22', 'GPIO_AF5_SPI2', 'GPIO_AF5_I2C2',
+    'GPIO_AF6_EVENTOUT', 'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF7_COMP1',
+    'GPIO_AF7_COMP2', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1',
+    'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF0_USART1',
+    'GPIO_AF0_SPI2', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_TIM22', 'GPIO_AF0_LPUART1',
+    'GPIO_AF0_USART2', 'GPIO_AF0_TIM2', 'GPIO_AF1_I2C1', 'GPIO_AF1_SPI2',
+    'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_LPUART1',
+    'GPIO_AF2_RTC', 'GPIO_AF2_SPI2', 'GPIO_AF3_EVENTOUT', 'GPIO_AF3_I2C1',
+    'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_USART1', 'GPIO_AF4_EVENTOUT',
+    'GPIO_AF4_TIM22', 'GPIO_AF4_I2C1', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21',
+    'GPIO_AF5_TIM22', 'GPIO_AF5_SPI2', 'GPIO_AF5_I2C2', 'GPIO_AF6_EVENTOUT',
+    'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF7_COMP1', 'GPIO_AF7_COMP2',
+    'GPIO_AF0_SPI1', 'GPIO_AF0_SPI2', 'GPIO_AF0_USART1', 'GPIO_AF0_USART2',
+    'GPIO_AF0_LPUART1', 'GPIO_AF0_USB', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_TSC',
+    'GPIO_AF0_TIM2', 'GPIO_AF0_TIM21', 'GPIO_AF0_TIM22', 'GPIO_AF0_EVENTOUT',
+    'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF1_SPI1',
+    'GPIO_AF1_SPI2', 'GPIO_AF1_I2C1', 'GPIO_AF1_LCD', 'GPIO_AF2_SPI2',
+    'GPIO_AF2_LPUART1', 'GPIO_AF2_USB', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2',
+    'GPIO_AF2_EVENTOUT', 'GPIO_AF2_RTC', 'GPIO_AF3_I2C1', 'GPIO_AF3_TSC',
+    'GPIO_AF3_EVENTOUT', 'GPIO_AF4_I2C1', 'GPIO_AF4_USART1', 'GPIO_AF4_USART2',
+    'GPIO_AF4_LPUART1', 'GPIO_AF4_TIM22', 'GPIO_AF4_EVENTOUT', 'GPIO_AF5_SPI2',
+    'GPIO_AF5_I2C2', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21', 'GPIO_AF5_TIM22',
+    'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF6_EVENTOUT', 'GPIO_AF7_COMP1',
+    'GPIO_AF7_COMP2', 'GPIO_AF0_SPI1', 'GPIO_AF0_SPI2', 'GPIO_AF0_USART1',
+    'GPIO_AF0_USART2', 'GPIO_AF0_LPUART1', 'GPIO_AF0_USB', 'GPIO_AF0_LPTIM1',
+    'GPIO_AF0_TSC', 'GPIO_AF0_TIM2', 'GPIO_AF0_TIM21', 'GPIO_AF0_TIM22',
+    'GPIO_AF0_EVENTOUT', 'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK',
+    'GPIO_AF1_SPI1', 'GPIO_AF1_SPI2', 'GPIO_AF1_I2C1', 'GPIO_AF2_SPI2',
+    'GPIO_AF2_LPUART1', 'GPIO_AF2_USB', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2',
+    'GPIO_AF2_EVENTOUT', 'GPIO_AF2_RTC', 'GPIO_AF3_I2C1', 'GPIO_AF3_TSC',
+    'GPIO_AF3_EVENTOUT', 'GPIO_AF4_I2C1', 'GPIO_AF4_USART1', 'GPIO_AF4_USART2',
+    'GPIO_AF4_LPUART1', 'GPIO_AF4_TIM22', 'GPIO_AF4_EVENTOUT', 'GPIO_AF5_SPI2',
+    'GPIO_AF5_I2C2', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21', 'GPIO_AF5_TIM22',
+    'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF6_EVENTOUT', 'GPIO_AF7_COMP1',
+    'GPIO_AF7_COMP2', 'GPIO_AF0_SPI1', 'GPIO_AF0_SPI2', 'GPIO_AF0_USART1',
+    'GPIO_AF0_USART2', 'GPIO_AF0_LPUART1', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_TIM2',
+    'GPIO_AF0_TIM21', 'GPIO_AF0_TIM22', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_MCO',
+    'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF1_SPI1', 'GPIO_AF1_SPI2',
+    'GPIO_AF1_I2C1', 'GPIO_AF2_SPI2', 'GPIO_AF2_LPUART1', 'GPIO_AF2_USB',
+    'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT', 'GPIO_AF2_RTC',
+    'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT', 'GPIO_AF4_I2C1', 'GPIO_AF4_USART1',
+    'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_TIM22', 'GPIO_AF4_EVENTOUT',
+    'GPIO_AF5_SPI2', 'GPIO_AF5_I2C2', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21',
+    'GPIO_AF5_TIM22', 'GPIO_AF6_I2C2', 'GPIO_AF6_TIM21', 'GPIO_AF6_EVENTOUT',
+    'GPIO_AF7_COMP1', 'GPIO_AF7_COMP2', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21',
+    'GPIO_AF0_SPI1', 'GPIO_AF0_USART2', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_MCO',
+    'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF1_SPI1', 'GPIO_AF1_I2C1',
+    'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT', 'GPIO_AF2_RTC',
+    'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT', 'GPIO_AF4_I2C1', 'GPIO_AF4_USART2',
+    'GPIO_AF4_LPUART1', 'GPIO_AF4_TIM22', 'GPIO_AF4_EVENTOUT', 'GPIO_AF5_TIM2',
+    'GPIO_AF5_TIM21', 'GPIO_AF5_TIM22', 'GPIO_AF6_EVENTOUT', 'GPIO_AF7_COMP1',
+    'GPIO_AF7_COMP2', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1',
+    'GPIO_AF0_USART2', 'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK',
+    'GPIO_AF1_SPI1', 'GPIO_AF1_I2C1', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2',
+    'GPIO_AF2_RTC', 'GPIO_AF2_EVENTOUT', 'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT',
+    'GPIO_AF4_I2C1', 'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_EVENTOUT',
+    'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21', 'GPIO_AF6_EVENTOUT', 'GPIO_AF7_COMP1',
+    'GPIO_AF7_COMP2', 'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1',
+    'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF0_LPTIM1',
+    'GPIO_AF0_TIM22', 'GPIO_AF0_LPUART1', 'GPIO_AF1_I2C1', 'GPIO_AF2_TIM2',
+    'GPIO_AF2_EVENTOUT', 'GPIO_AF2_LPTIM1', 'GPIO_AF2_LPUART1', 'GPIO_AF2_RTC',
+    'GPIO_AF3_EVENTOUT', 'GPIO_AF3_I2C1', 'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1',
+    'GPIO_AF4_EVENTOUT', 'GPIO_AF4_TIM22', 'GPIO_AF4_I2C1', 'GPIO_AF5_TIM2',
+    'GPIO_AF5_TIM21', 'GPIO_AF5_TIM22', 'GPIO_AF6_EVENTOUT', 'GPIO_AF6_TIM21',
+    'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1', 'GPIO_AF0_MCO',
+    'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF0_LPTIM1', 'GPIO_AF0_LPUART1',
+    'GPIO_AF1_I2C1', 'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT', 'GPIO_AF2_LPTIM1',
+    'GPIO_AF2_LPUART1', 'GPIO_AF2_RTC', 'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT',
+    'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1', 'GPIO_AF4_I2C1', 'GPIO_AF4_EVENTOUT',
+    'GPIO_AF5_TIM2', 'GPIO_AF6_TIM21', 'GPIO_AF6_EVENTOUT', 'GPIO_AF0_EVENTOUT',
+    'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1', 'GPIO_AF0_MCO', 'GPIO_AF0_SWDIO',
+    'GPIO_AF0_SWCLK', 'GPIO_AF0_USART2', 'GPIO_AF0_LPTIM1', 'GPIO_AF1_I2C1',
+    'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2', 'GPIO_AF2_EVENTOUT', 'GPIO_AF2_RTC',
+    'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT', 'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1',
+    'GPIO_AF4_I2C1', 'GPIO_AF4_EVENTOUT', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21',
+    'GPIO_AF6_EVENTOUT', 'GPIO_AF7_COMP1', 'GPIO_AF7_COMP2', 'GPIO_AF0_USART2',
+    'GPIO_AF0_EVENTOUT', 'GPIO_AF0_TIM21', 'GPIO_AF0_SPI1', 'GPIO_AF0_MCO',
+    'GPIO_AF0_SWDIO', 'GPIO_AF0_SWCLK', 'GPIO_AF1_SPI1', 'GPIO_AF1_I2C1',
+    'GPIO_AF2_LPTIM1', 'GPIO_AF2_TIM2', 'GPIO_AF2_RTC', 'GPIO_AF2_EVENTOUT',
+    'GPIO_AF3_I2C1', 'GPIO_AF3_EVENTOUT', 'GPIO_AF4_USART2', 'GPIO_AF4_LPUART1',
+    'GPIO_AF4_EVENTOUT', 'GPIO_AF5_TIM2', 'GPIO_AF5_TIM21', 'GPIOA_PIN_AVAILABLE',
+    'GPIOB_PIN_AVAILABLE', 'GPIOC_PIN_AVAILABLE', 'GPIOD_PIN_AVAILABLE',
+    'GPIOH_PIN_AVAILABLE', 'GPIOA_PIN_AVAILABLE', 'GPIOB_PIN_AVAILABLE',
+    'GPIOC_PIN_AVAILABLE', 'GPIOH_PIN_AVAILABLE', 'GPIOA_PIN_AVAILABLE',
+    'GPIOB_PIN_AVAILABLE', 'GPIOC_PIN_AVAILABLE', 'GPIOA_PIN_AVAILABLE',
+    'GPIOB_PIN_AVAILABLE', 'GPIOC_PIN_AVAILABLE', 'GPIOD_PIN_AVAILABLE',
+    'GPIOH_PIN_AVAILABLE', 'GPIO_PIN_RESET', 'GPIO_PIN_SET', 'GPIO_PIN_0', 'GPIO_PIN_1',
+    'GPIO_PIN_2', 'GPIO_PIN_3', 'GPIO_PIN_4', 'GPIO_PIN_5', 'GPIO_PIN_6', 'GPIO_PIN_7',
+    'GPIO_PIN_8', 'GPIO_PIN_9', 'GPIO_PIN_10', 'GPIO_PIN_11', 'GPIO_PIN_12',
+    'GPIO_PIN_13', 'GPIO_PIN_14', 'GPIO_PIN_15', 'GPIO_PIN_All', 'GPIO_PIN_MASK',
+    'GPIO_MODE_INPUT', 'GPIO_MODE_OUTPUT_PP', 'GPIO_MODE_OUTPUT_OD', 'GPIO_MODE_AF_PP',
+    'GPIO_MODE_AF_OD', 'GPIO_MODE_ANALOG', 'GPIO_MODE_IT_RISING',
+    'GPIO_MODE_IT_FALLING', 'GPIO_MODE_IT_RISING_FALLING', 'GPIO_MODE_EVT_RISING',
+    'GPIO_MODE_EVT_FALLING', 'GPIO_MODE_EVT_RISING_FALLING', 'GPIO_SPEED_FREQ_LOW',
+    'GPIO_SPEED_FREQ_MEDIUM', 'GPIO_SPEED_FREQ_HIGH', 'GPIO_SPEED_FREQ_VERY_HIGH',
+    'GPIO_NOPULL', 'GPIO_PULLUP', 'GPIO_PULLDOWN', 'GPIO_InitTypeDef',
+    'SYSCFG_BOOT_MAINFLASH', 'SYSCFG_BOOT_SYSTEMFLASH', 'SYSCFG_BOOT_SRAM',
+    'DBGMCU_SLEEP', 'DBGMCU_STOP', 'DBGMCU_STANDBY', 'SYSCFG_LCD_EXT_CAPA',
+    'SYSCFG_VLCD_PB2_EXT_CAPA_ON', 'SYSCFG_VLCD_PB12_EXT_CAPA_ON',
+    'SYSCFG_VLCD_PB0_EXT_CAPA_ON', 'SYSCFG_VREFINT_OUT_NONE', 'SYSCFG_VREFINT_OUT_PB0',
+    'SYSCFG_VREFINT_OUT_PB1', 'SYSCFG_VREFINT_OUT_PB0_PB1', 'SYSCFG_FLAG_VREFINT_READY',
     'SYSCFG_FASTMODEPLUS_PB6', 'SYSCFG_FASTMODEPLUS_PB7', 'SYSCFG_FASTMODEPLUS_PB8',
-    'SYSCFG_FASTMODEPLUS_PB9', 'I2C_InitTypeDef', 'I2S_InitTypeDef', 'IRDA_InitTypeDef',
-    'IWDG_InitTypeDef', 'LCD_InitTypeDef', 'LPTIM_ClockConfigTypeDef',
-    'LPTIM_ULPClockConfigTypeDef', 'LPTIM_TriggerConfigTypeDef',
+    'SYSCFG_FASTMODEPLUS_PB9', 'I2C_ANALOGFILTER_ENABLE', 'I2C_ANALOGFILTER_DISABLE',
+    'I2C_FMP_NOT_SUPPORTED', 'I2C_FASTMODEPLUS_PB6', 'I2C_FASTMODEPLUS_PB7',
+    'I2C_FASTMODEPLUS_PB6', 'I2C_FASTMODEPLUS_PB7', 'I2C_FASTMODEPLUS_PB8',
+    'I2C_FASTMODEPLUS_PB9', 'I2C_FASTMODEPLUS_PB8', 'I2C_FASTMODEPLUS_PB9',
+    'I2C_FASTMODEPLUS_I2C1', 'I2C_FASTMODEPLUS_I2C1', 'I2C_FASTMODEPLUS_I2C2',
+    'I2C_FASTMODEPLUS_I2C2', 'I2C_FASTMODEPLUS_I2C3', 'I2C_FASTMODEPLUS_I2C3',
+    'HAL_I2C_STATE_RESET', 'HAL_I2C_STATE_READY', 'HAL_I2C_STATE_BUSY',
+    'HAL_I2C_STATE_BUSY_TX', 'HAL_I2C_STATE_BUSY_RX', 'HAL_I2C_STATE_LISTEN',
+    'HAL_I2C_STATE_BUSY_TX_LISTEN', 'HAL_I2C_STATE_BUSY_RX_LISTEN',
+    'HAL_I2C_STATE_ABORT', 'HAL_I2C_STATE_TIMEOUT', 'HAL_I2C_STATE_ERROR',
+    'HAL_I2C_MODE_NONE', 'HAL_I2C_MODE_MASTER', 'HAL_I2C_MODE_SLAVE',
+    'HAL_I2C_MODE_MEM', 'HAL_I2C_ERROR_NONE', 'HAL_I2C_ERROR_BERR',
+    'HAL_I2C_ERROR_ARLO', 'HAL_I2C_ERROR_AF', 'HAL_I2C_ERROR_OVR', 'HAL_I2C_ERROR_DMA',
+    'HAL_I2C_ERROR_TIMEOUT', 'HAL_I2C_ERROR_SIZE', 'HAL_I2C_ERROR_DMA_PARAM',
+    'HAL_I2C_ERROR_INVALID_PARAM', 'I2C_FIRST_FRAME', 'I2C_FIRST_AND_NEXT_FRAME',
+    'I2C_NEXT_FRAME', 'I2C_FIRST_AND_LAST_FRAME', 'I2C_LAST_FRAME',
+    'I2C_LAST_FRAME_NO_STOP', 'I2C_OTHER_FRAME', 'I2C_OTHER_AND_LAST_FRAME',
+    'I2C_ADDRESSINGMODE_7BIT', 'I2C_ADDRESSINGMODE_10BIT', 'I2C_DUALADDRESS_DISABLE',
+    'I2C_DUALADDRESS_ENABLE', 'I2C_OA2_NOMASK', 'I2C_OA2_MASK01', 'I2C_OA2_MASK02',
+    'I2C_OA2_MASK03', 'I2C_OA2_MASK04', 'I2C_OA2_MASK05', 'I2C_OA2_MASK06',
+    'I2C_OA2_MASK07', 'I2C_GENERALCALL_DISABLE', 'I2C_GENERALCALL_ENABLE',
+    'I2C_NOSTRETCH_DISABLE', 'I2C_NOSTRETCH_ENABLE', 'I2C_MEMADD_SIZE_8BIT',
+    'I2C_MEMADD_SIZE_16BIT', 'I2C_DIRECTION_TRANSMIT', 'I2C_DIRECTION_RECEIVE',
+    'I2C_RELOAD_MODE', 'I2C_AUTOEND_MODE', 'I2C_SOFTEND_MODE', 'I2C_NO_STARTSTOP',
+    'I2C_GENERATE_STOP', 'I2C_GENERATE_START_READ', 'I2C_GENERATE_START_WRITE',
+    'I2C_IT_ERRI', 'I2C_IT_TCI', 'I2C_IT_STOPI', 'I2C_IT_NACKI', 'I2C_IT_ADDRI',
+    'I2C_IT_RXI', 'I2C_IT_TXI', 'I2C_FLAG_TXE', 'I2C_FLAG_TXIS', 'I2C_FLAG_RXNE',
+    'I2C_FLAG_ADDR', 'I2C_FLAG_AF', 'I2C_FLAG_STOPF', 'I2C_FLAG_TC', 'I2C_FLAG_TCR',
+    'I2C_FLAG_BERR', 'I2C_FLAG_ARLO', 'I2C_FLAG_OVR', 'I2C_FLAG_PECERR',
+    'I2C_FLAG_TIMEOUT', 'I2C_FLAG_ALERT', 'I2C_FLAG_BUSY', 'I2C_FLAG_DIR',
+    'I2C_FLAG_MASK', 'I2C_InitTypeDef', 'HAL_I2S_STATE_RESET', 'HAL_I2S_STATE_READY',
+    'HAL_I2S_STATE_BUSY', 'HAL_I2S_STATE_BUSY_TX', 'HAL_I2S_STATE_BUSY_RX',
+    'HAL_I2S_STATE_TIMEOUT', 'HAL_I2S_STATE_ERROR', 'HAL_I2S_ERROR_NONE',
+    'HAL_I2S_ERROR_TIMEOUT', 'HAL_I2S_ERROR_OVR', 'HAL_I2S_ERROR_UDR',
+    'HAL_I2S_ERROR_DMA', 'HAL_I2S_ERROR_PRESCALER', 'I2S_MODE_SLAVE_TX',
+    'I2S_MODE_SLAVE_RX', 'I2S_MODE_MASTER_TX', 'I2S_MODE_MASTER_RX',
+    'I2S_STANDARD_PHILIPS', 'I2S_STANDARD_MSB', 'I2S_STANDARD_LSB',
+    'I2S_STANDARD_PCM_SHORT', 'I2S_STANDARD_PCM_LONG', 'I2S_DATAFORMAT_16B',
+    'I2S_DATAFORMAT_16B_EXTENDED', 'I2S_DATAFORMAT_24B', 'I2S_DATAFORMAT_32B',
+    'I2S_MCLKOUTPUT_ENABLE', 'I2S_MCLKOUTPUT_DISABLE', 'I2S_AUDIOFREQ_192K',
+    'I2S_AUDIOFREQ_96K', 'I2S_AUDIOFREQ_48K', 'I2S_AUDIOFREQ_44K', 'I2S_AUDIOFREQ_32K',
+    'I2S_AUDIOFREQ_22K', 'I2S_AUDIOFREQ_16K', 'I2S_AUDIOFREQ_11K', 'I2S_AUDIOFREQ_8K',
+    'I2S_AUDIOFREQ_DEFAULT', 'I2S_CPOL_LOW', 'I2S_CPOL_HIGH', 'I2S_IT_TXE',
+    'I2S_IT_RXNE', 'I2S_IT_ERR', 'I2S_FLAG_TXE', 'I2S_FLAG_RXNE', 'I2S_FLAG_UDR',
+    'I2S_FLAG_OVR', 'I2S_FLAG_FRE', 'I2S_FLAG_CHSIDE', 'I2S_FLAG_BSY',
+    'I2S_InitTypeDef', 'IRDA_WORDLENGTH_7B', 'IRDA_WORDLENGTH_8B', 'IRDA_WORDLENGTH_9B',
+    'IRDA_CLOCKSOURCE_PCLK1', 'IRDA_CLOCKSOURCE_PCLK2', 'IRDA_CLOCKSOURCE_HSI',
+    'IRDA_CLOCKSOURCE_SYSCLK', 'IRDA_CLOCKSOURCE_LSE', 'IRDA_CLOCKSOURCE_UNDEFINED',
+    'HAL_IRDA_STATE_RESET', 'HAL_IRDA_STATE_READY', 'HAL_IRDA_STATE_BUSY',
+    'HAL_IRDA_STATE_BUSY_TX', 'HAL_IRDA_STATE_BUSY_RX', 'HAL_IRDA_STATE_BUSY_TX_RX',
+    'HAL_IRDA_STATE_TIMEOUT', 'HAL_IRDA_STATE_ERROR', 'HAL_IRDA_ERROR_NONE',
+    'HAL_IRDA_ERROR_PE', 'HAL_IRDA_ERROR_NE', 'HAL_IRDA_ERROR_FE', 'HAL_IRDA_ERROR_ORE',
+    'HAL_IRDA_ERROR_DMA', 'HAL_IRDA_ERROR_BUSY', 'IRDA_PARITY_NONE', 'IRDA_PARITY_EVEN',
+    'IRDA_PARITY_ODD', 'IRDA_MODE_RX', 'IRDA_MODE_TX', 'IRDA_MODE_TX_RX',
+    'IRDA_POWERMODE_NORMAL', 'IRDA_POWERMODE_LOWPOWER', 'IRDA_STATE_DISABLE',
+    'IRDA_STATE_ENABLE', 'IRDA_MODE_DISABLE', 'IRDA_MODE_ENABLE',
+    'IRDA_ONE_BIT_SAMPLE_DISABLE', 'IRDA_ONE_BIT_SAMPLE_ENABLE', 'IRDA_DMA_TX_DISABLE',
+    'IRDA_DMA_TX_ENABLE', 'IRDA_DMA_RX_DISABLE', 'IRDA_DMA_RX_ENABLE',
+    'IRDA_AUTOBAUD_REQUEST', 'IRDA_RXDATA_FLUSH_REQUEST', 'IRDA_TXDATA_FLUSH_REQUEST',
+    'IRDA_FLAG_REACK', 'IRDA_FLAG_TEACK', 'IRDA_FLAG_BUSY', 'IRDA_FLAG_ABRF',
+    'IRDA_FLAG_ABRE', 'IRDA_FLAG_TXE', 'IRDA_FLAG_TC', 'IRDA_FLAG_RXNE',
+    'IRDA_FLAG_ORE', 'IRDA_FLAG_NE', 'IRDA_FLAG_FE', 'IRDA_FLAG_PE', 'IRDA_IT_PE',
+    'IRDA_IT_TXE', 'IRDA_IT_TC', 'IRDA_IT_RXNE', 'IRDA_IT_IDLE', 'IRDA_IT_ERR',
+    'IRDA_IT_ORE', 'IRDA_IT_NE', 'IRDA_IT_FE', 'IRDA_CLEAR_PEF', 'IRDA_CLEAR_FEF',
+    'IRDA_CLEAR_NEF', 'IRDA_CLEAR_OREF', 'IRDA_CLEAR_IDLEF', 'IRDA_CLEAR_TCF',
+    'IRDA_IT_MASK', 'IRDA_CR_MASK', 'IRDA_CR_POS', 'IRDA_ISR_MASK', 'IRDA_ISR_POS',
+    'IRDA_InitTypeDef', 'IWDG_PRESCALER_4', 'IWDG_PRESCALER_8', 'IWDG_PRESCALER_16',
+    'IWDG_PRESCALER_32', 'IWDG_PRESCALER_64', 'IWDG_PRESCALER_128',
+    'IWDG_PRESCALER_256', 'IWDG_WINDOW_DISABLE', 'IWDG_KEY_RELOAD', 'IWDG_KEY_ENABLE',
+    'IWDG_KEY_WRITE_ACCESS_ENABLE', 'IWDG_KEY_WRITE_ACCESS_DISABLE', 'IWDG_InitTypeDef',
+    'HAL_LCD_STATE_RESET', 'HAL_LCD_STATE_READY', 'HAL_LCD_STATE_BUSY',
+    'HAL_LCD_STATE_TIMEOUT', 'HAL_LCD_STATE_ERROR', 'HAL_LCD_ERROR_NONE',
+    'HAL_LCD_ERROR_FCRSF', 'HAL_LCD_ERROR_UDR', 'HAL_LCD_ERROR_UDD',
+    'HAL_LCD_ERROR_ENS', 'HAL_LCD_ERROR_RDY', 'LCD_PRESCALER_1', 'LCD_PRESCALER_2',
+    'LCD_PRESCALER_4', 'LCD_PRESCALER_8', 'LCD_PRESCALER_16', 'LCD_PRESCALER_32',
+    'LCD_PRESCALER_64', 'LCD_PRESCALER_128', 'LCD_PRESCALER_256', 'LCD_PRESCALER_512',
+    'LCD_PRESCALER_1024', 'LCD_PRESCALER_2048', 'LCD_PRESCALER_4096',
+    'LCD_PRESCALER_8192', 'LCD_PRESCALER_16384', 'LCD_PRESCALER_32768',
+    'LCD_DIVIDER_16', 'LCD_DIVIDER_17', 'LCD_DIVIDER_18', 'LCD_DIVIDER_19',
+    'LCD_DIVIDER_20', 'LCD_DIVIDER_21', 'LCD_DIVIDER_22', 'LCD_DIVIDER_23',
+    'LCD_DIVIDER_24', 'LCD_DIVIDER_25', 'LCD_DIVIDER_26', 'LCD_DIVIDER_27',
+    'LCD_DIVIDER_28', 'LCD_DIVIDER_29', 'LCD_DIVIDER_30', 'LCD_DIVIDER_31',
+    'LCD_DUTY_STATIC', 'LCD_DUTY_1_2', 'LCD_DUTY_1_3', 'LCD_DUTY_1_4', 'LCD_DUTY_1_8',
+    'LCD_BIAS_1_4', 'LCD_BIAS_1_2', 'LCD_BIAS_1_3', 'LCD_VOLTAGESOURCE_INTERNAL',
+    'LCD_VOLTAGESOURCE_EXTERNAL', 'LCD_IT_SOF', 'LCD_IT_UDD', 'LCD_PULSEONDURATION_0',
+    'LCD_PULSEONDURATION_1', 'LCD_PULSEONDURATION_2', 'LCD_PULSEONDURATION_3',
+    'LCD_PULSEONDURATION_4', 'LCD_PULSEONDURATION_5', 'LCD_PULSEONDURATION_6',
+    'LCD_PULSEONDURATION_7', 'LCD_HIGHDRIVE_0', 'LCD_HIGHDRIVE_1', 'LCD_DEADTIME_0',
+    'LCD_DEADTIME_1', 'LCD_DEADTIME_2', 'LCD_DEADTIME_3', 'LCD_DEADTIME_4',
+    'LCD_DEADTIME_5', 'LCD_DEADTIME_6', 'LCD_DEADTIME_7', 'LCD_BLINKMODE_OFF',
+    'LCD_BLINKMODE_SEG0_COM0', 'LCD_BLINKMODE_SEG0_ALLCOM',
+    'LCD_BLINKMODE_ALLSEG_ALLCOM', 'LCD_BLINKFREQUENCY_DIV8',
+    'LCD_BLINKFREQUENCY_DIV16', 'LCD_BLINKFREQUENCY_DIV32', 'LCD_BLINKFREQUENCY_DIV64',
+    'LCD_BLINKFREQUENCY_DIV128', 'LCD_BLINKFREQUENCY_DIV256',
+    'LCD_BLINKFREQUENCY_DIV512', 'LCD_BLINKFREQUENCY_DIV1024', 'LCD_CONTRASTLEVEL_0',
+    'LCD_CONTRASTLEVEL_1', 'LCD_CONTRASTLEVEL_2', 'LCD_CONTRASTLEVEL_3',
+    'LCD_CONTRASTLEVEL_4', 'LCD_CONTRASTLEVEL_5', 'LCD_CONTRASTLEVEL_6',
+    'LCD_CONTRASTLEVEL_7', 'LCD_MUXSEGMENT_DISABLE', 'LCD_MUXSEGMENT_ENABLE',
+    'LCD_VOLTBUFOUT_DISABLE', 'LCD_VOLTBUFOUT_ENABLE', 'LCD_FLAG_ENS', 'LCD_FLAG_SOF',
+    'LCD_FLAG_UDR', 'LCD_FLAG_UDD', 'LCD_FLAG_RDY', 'LCD_FLAG_FCRSF',
+    'LCD_RAM_REGISTER0', 'LCD_RAM_REGISTER1', 'LCD_RAM_REGISTER2', 'LCD_RAM_REGISTER3',
+    'LCD_RAM_REGISTER4', 'LCD_RAM_REGISTER5', 'LCD_RAM_REGISTER6', 'LCD_RAM_REGISTER7',
+    'LCD_RAM_REGISTER8', 'LCD_RAM_REGISTER9', 'LCD_RAM_REGISTER10',
+    'LCD_RAM_REGISTER11', 'LCD_RAM_REGISTER12', 'LCD_RAM_REGISTER13',
+    'LCD_RAM_REGISTER14', 'LCD_RAM_REGISTER15', 'LCD_InitTypeDef',
+    'LPTIM_TRIGSOURCE_SOFTWARE', 'LPTIM_TRIGSOURCE_0', 'LPTIM_TRIGSOURCE_1',
+    'LPTIM_TRIGSOURCE_2', 'LPTIM_TRIGSOURCE_3', 'LPTIM_TRIGSOURCE_4',
+    'LPTIM_TRIGSOURCE_5', 'LPTIM_TRIGSOURCE_6', 'LPTIM_TRIGSOURCE_7',
+    'HAL_LPTIM_STATE_RESET', 'HAL_LPTIM_STATE_READY', 'HAL_LPTIM_STATE_BUSY',
+    'HAL_LPTIM_STATE_TIMEOUT', 'HAL_LPTIM_STATE_ERROR',
+    'LPTIM_EXTI_LINE_WAKEUPTIMER_EVENT', 'LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC',
+    'LPTIM_CLOCKSOURCE_ULPTIM', 'LPTIM_PRESCALER_DIV1', 'LPTIM_PRESCALER_DIV2',
+    'LPTIM_PRESCALER_DIV4', 'LPTIM_PRESCALER_DIV8', 'LPTIM_PRESCALER_DIV16',
+    'LPTIM_PRESCALER_DIV32', 'LPTIM_PRESCALER_DIV64', 'LPTIM_PRESCALER_DIV128',
+    'LPTIM_OUTPUTPOLARITY_HIGH', 'LPTIM_OUTPUTPOLARITY_LOW',
+    'LPTIM_CLOCKSAMPLETIME_DIRECTTRANSITION', 'LPTIM_CLOCKSAMPLETIME_2TRANSITIONS',
+    'LPTIM_CLOCKSAMPLETIME_4TRANSITIONS', 'LPTIM_CLOCKSAMPLETIME_8TRANSITIONS',
+    'LPTIM_CLOCKPOLARITY_RISING', 'LPTIM_CLOCKPOLARITY_FALLING',
+    'LPTIM_CLOCKPOLARITY_RISING_FALLING', 'LPTIM_TRIGSOURCE_SOFTWARE',
+    'LPTIM_TRIGSOURCE_0', 'LPTIM_TRIGSOURCE_1', 'LPTIM_TRIGSOURCE_2',
+    'LPTIM_TRIGSOURCE_3', 'LPTIM_TRIGSOURCE_4', 'LPTIM_TRIGSOURCE_5',
+    'LPTIM_TRIGSOURCE_6', 'LPTIM_TRIGSOURCE_7', 'LPTIM_ACTIVEEDGE_RISING',
+    'LPTIM_ACTIVEEDGE_FALLING', 'LPTIM_ACTIVEEDGE_RISING_FALLING',
+    'LPTIM_TRIGSAMPLETIME_DIRECTTRANSITION', 'LPTIM_TRIGSAMPLETIME_2TRANSITIONS',
+    'LPTIM_TRIGSAMPLETIME_4TRANSITIONS', 'LPTIM_TRIGSAMPLETIME_8TRANSITIONS',
+    'LPTIM_UPDATE_IMMEDIATE', 'LPTIM_UPDATE_ENDOFPERIOD',
+    'LPTIM_COUNTERSOURCE_INTERNAL', 'LPTIM_COUNTERSOURCE_EXTERNAL', 'LPTIM_FLAG_DOWN',
+    'LPTIM_FLAG_UP', 'LPTIM_FLAG_ARROK', 'LPTIM_FLAG_CMPOK', 'LPTIM_FLAG_EXTTRIG',
+    'LPTIM_FLAG_ARRM', 'LPTIM_FLAG_CMPM', 'LPTIM_IT_DOWN', 'LPTIM_IT_UP',
+    'LPTIM_IT_ARROK', 'LPTIM_IT_CMPOK', 'LPTIM_IT_EXTTRIG', 'LPTIM_IT_ARRM',
+    'LPTIM_IT_CMPM', 'LPTIM_ClockConfigTypeDef', 'LPTIM_ULPClockConfigTypeDef',
+    'LPTIM_TriggerConfigTypeDef', 'RCC_CRS_IT_ERROR_MASK', 'RCC_CRS_FLAG_ERROR_MASK',
+    'RCC_EXTI_LINE_LSECSS', 'RCC_PERIPHCLK_USART1', 'RCC_PERIPHCLK_USART2',
+    'RCC_PERIPHCLK_LPUART1', 'RCC_PERIPHCLK_I2C1', 'RCC_PERIPHCLK_I2C2',
+    'RCC_PERIPHCLK_RTC', 'RCC_PERIPHCLK_USB', 'RCC_PERIPHCLK_LPTIM1',
+    'RCC_PERIPHCLK_LCD', 'RCC_USART1CLKSOURCE_PCLK2', 'RCC_USART1CLKSOURCE_SYSCLK',
+    'RCC_USART1CLKSOURCE_HSI', 'RCC_USART1CLKSOURCE_LSE', 'RCC_USART2CLKSOURCE_PCLK1',
+    'RCC_USART2CLKSOURCE_SYSCLK', 'RCC_USART2CLKSOURCE_HSI', 'RCC_USART2CLKSOURCE_LSE',
+    'RCC_LPUART1CLKSOURCE_PCLK1', 'RCC_LPUART1CLKSOURCE_SYSCLK',
+    'RCC_LPUART1CLKSOURCE_HSI', 'RCC_LPUART1CLKSOURCE_LSE', 'RCC_I2C1CLKSOURCE_PCLK1',
+    'RCC_I2C1CLKSOURCE_SYSCLK', 'RCC_I2C1CLKSOURCE_HSI', 'RCC_TIMPRES_DESACTIVATED',
+    'RCC_TIMPRES_ACTIVATED', 'RCC_USBCLKSOURCE_HSI48', 'RCC_USBCLKSOURCE_PLL',
+    'RCC_RNGCLKSOURCE_HSI48', 'RCC_RNGCLKSOURCE_PLLCLK', 'RCC_FLAG_HSI48',
+    'RCC_HSI48M_PLL', 'RCC_HSI48M_HSI48', 'RCC_LPTIM1CLKSOURCE_PCLK1',
+    'RCC_LPTIM1CLKSOURCE_LSI', 'RCC_LPTIM1CLKSOURCE_HSI', 'RCC_LPTIM1CLKSOURCE_LSE',
+    'RCC_STOP_WAKEUPCLOCK_MSI', 'RCC_STOP_WAKEUPCLOCK_HSI', 'RCC_LSEDRIVE_LOW',
+    'RCC_LSEDRIVE_MEDIUMLOW', 'RCC_LSEDRIVE_MEDIUMHIGH', 'RCC_LSEDRIVE_HIGH',
+    'RCC_CRS_NONE', 'RCC_CRS_TIMEOUT', 'RCC_CRS_SYNCOK', 'RCC_CRS_SYNCWARN',
+    'RCC_CRS_SYNCERR', 'RCC_CRS_SYNCMISS', 'RCC_CRS_TRIMOVF',
+    'RCC_CRS_SYNC_SOURCE_GPIO', 'RCC_CRS_SYNC_SOURCE_LSE', 'RCC_CRS_SYNC_SOURCE_USB',
+    'RCC_CRS_SYNC_DIV1', 'RCC_CRS_SYNC_DIV2', 'RCC_CRS_SYNC_DIV4', 'RCC_CRS_SYNC_DIV8',
+    'RCC_CRS_SYNC_DIV16', 'RCC_CRS_SYNC_DIV32', 'RCC_CRS_SYNC_DIV64',
+    'RCC_CRS_SYNC_DIV128', 'RCC_CRS_SYNC_POLARITY_RISING',
+    'RCC_CRS_SYNC_POLARITY_FALLING', 'RCC_CRS_RELOADVALUE_DEFAULT',
+    'RCC_CRS_ERRORLIMIT_DEFAULT', 'RCC_CRS_HSI48CALIBRATION_DEFAULT',
+    'RCC_CRS_FREQERRORDIR_UP', 'RCC_CRS_FREQERRORDIR_DOWN', 'RCC_CRS_IT_SYNCOK',
+    'RCC_CRS_IT_SYNCWARN', 'RCC_CRS_IT_ERR', 'RCC_CRS_IT_ESYNC', 'RCC_CRS_IT_SYNCERR',
+    'RCC_CRS_IT_SYNCMISS', 'RCC_CRS_IT_TRIMOVF', 'RCC_CRS_FLAG_SYNCOK',
+    'RCC_CRS_FLAG_SYNCWARN', 'RCC_CRS_FLAG_ERR', 'RCC_CRS_FLAG_ESYNC',
+    'RCC_CRS_FLAG_SYNCERR', 'RCC_CRS_FLAG_SYNCMISS', 'RCC_CRS_FLAG_TRIMOVF',
     'RCC_PeriphCLKInitTypeDef', 'RCC_CRSInitTypeDef', 'RCC_CRSSynchroInfoTypeDef',
-    'RCC_PLLInitTypeDef', 'RCC_ClkInitTypeDef', 'RNG_HandleTypeDef',
-    'RTC_TamperTypeDef', 'SMARTCARD_InitTypeDef', 'SMARTCARD_AdvFeatureInitTypeDef',
-    'SMBUS_InitTypeDef', 'SPI_InitTypeDef', 'TIM_Base_InitTypeDef',
+    'RCC_DBP_TIMEOUT_VALUE', 'RCC_LSE_TIMEOUT_VALUE', 'CLOCKSWITCH_TIMEOUT_VALUE',
+    'HSE_TIMEOUT_VALUE', 'MSI_TIMEOUT_VALUE', 'HSI_TIMEOUT_VALUE', 'LSI_TIMEOUT_VALUE',
+    'PLL_TIMEOUT_VALUE', 'HSI48_TIMEOUT_VALUE', 'RCC_OFFSET', 'RCC_CR_OFFSET',
+    'RCC_CFGR_OFFSET', 'RCC_CSR_OFFSET', 'RCC_CR_BYTE2_ADDRESS', 'CIER_BYTE0_ADDRESS',
+    'CR_REG_INDEX', 'CSR_REG_INDEX', 'CRRCR_REG_INDEX', 'RCC_FLAG_MASK',
+    'RCC_PLLSOURCE_HSI', 'RCC_PLLSOURCE_HSE', 'RCC_OSCILLATORTYPE_NONE',
+    'RCC_OSCILLATORTYPE_HSE', 'RCC_OSCILLATORTYPE_HSI', 'RCC_OSCILLATORTYPE_LSE',
+    'RCC_OSCILLATORTYPE_LSI', 'RCC_OSCILLATORTYPE_MSI', 'RCC_OSCILLATORTYPE_HSI48',
+    'RCC_HSE_OFF', 'RCC_HSE_ON', 'RCC_HSE_BYPASS', 'RCC_LSE_OFF', 'RCC_LSE_ON',
+    'RCC_LSE_BYPASS', 'RCC_HSI_OFF', 'RCC_HSI_ON', 'RCC_HSI_DIV4',
+    'RCC_HSICALIBRATION_DEFAULT', 'RCC_MSIRANGE_0', 'RCC_MSIRANGE_1', 'RCC_MSIRANGE_2',
+    'RCC_MSIRANGE_3', 'RCC_MSIRANGE_4', 'RCC_MSIRANGE_5', 'RCC_MSIRANGE_6',
+    'RCC_LSI_OFF', 'RCC_LSI_ON', 'RCC_MSI_OFF', 'RCC_MSI_ON',
+    'RCC_MSICALIBRATION_DEFAULT', 'RCC_HSI48_OFF', 'RCC_HSI48_ON', 'RCC_PLL_NONE',
+    'RCC_PLL_OFF', 'RCC_PLL_ON', 'RCC_CLOCKTYPE_SYSCLK', 'RCC_CLOCKTYPE_HCLK',
+    'RCC_CLOCKTYPE_PCLK1', 'RCC_CLOCKTYPE_PCLK2', 'RCC_SYSCLKSOURCE_MSI',
+    'RCC_SYSCLKSOURCE_HSI', 'RCC_SYSCLKSOURCE_HSE', 'RCC_SYSCLKSOURCE_PLLCLK',
+    'RCC_SYSCLKSOURCE_STATUS_MSI', 'RCC_SYSCLKSOURCE_STATUS_HSI',
+    'RCC_SYSCLKSOURCE_STATUS_HSE', 'RCC_SYSCLKSOURCE_STATUS_PLLCLK', 'RCC_SYSCLK_DIV1',
+    'RCC_SYSCLK_DIV2', 'RCC_SYSCLK_DIV4', 'RCC_SYSCLK_DIV8', 'RCC_SYSCLK_DIV16',
+    'RCC_SYSCLK_DIV64', 'RCC_SYSCLK_DIV128', 'RCC_SYSCLK_DIV256', 'RCC_SYSCLK_DIV512',
+    'RCC_HCLK_DIV1', 'RCC_HCLK_DIV2', 'RCC_HCLK_DIV4', 'RCC_HCLK_DIV8',
+    'RCC_HCLK_DIV16', 'RCC_RTC_HSE_DIV_2', 'RCC_RTC_HSE_DIV_4', 'RCC_RTC_HSE_DIV_8',
+    'RCC_RTC_HSE_DIV_16', 'RCC_RTCCLKSOURCE_NO_CLK', 'RCC_RTCCLKSOURCE_LSE',
+    'RCC_RTCCLKSOURCE_LSI', 'RCC_RTCCLKSOURCE_HSE_DIVX', 'RCC_RTCCLKSOURCE_HSE_DIV2',
+    'RCC_RTCCLKSOURCE_HSE_DIV4', 'RCC_RTCCLKSOURCE_HSE_DIV8',
+    'RCC_RTCCLKSOURCE_HSE_DIV16', 'RCC_PLL_DIV2', 'RCC_PLL_DIV3', 'RCC_PLL_DIV4',
+    'RCC_PLL_MUL3', 'RCC_PLL_MUL4', 'RCC_PLL_MUL6', 'RCC_PLL_MUL8', 'RCC_PLL_MUL12',
+    'RCC_PLL_MUL16', 'RCC_PLL_MUL24', 'RCC_PLL_MUL32', 'RCC_PLL_MUL48', 'RCC_MCO1',
+    'RCC_MCO2', 'RCC_MCODIV_1', 'RCC_MCODIV_2', 'RCC_MCODIV_4', 'RCC_MCODIV_8',
+    'RCC_MCODIV_16', 'RCC_MCO1SOURCE_NOCLOCK', 'RCC_MCO1SOURCE_SYSCLK',
+    'RCC_MCO1SOURCE_MSI', 'RCC_MCO1SOURCE_HSI', 'RCC_MCO1SOURCE_LSE',
+    'RCC_MCO1SOURCE_LSI', 'RCC_MCO1SOURCE_HSE', 'RCC_MCO1SOURCE_PLLCLK',
+    'RCC_MCO1SOURCE_HSI48', 'RCC_IT_LSIRDY', 'RCC_IT_LSERDY', 'RCC_IT_HSIRDY',
+    'RCC_IT_HSERDY', 'RCC_IT_PLLRDY', 'RCC_IT_MSIRDY', 'RCC_IT_LSECSS', 'RCC_IT_CSS',
+    'RCC_IT_HSI48RDY', 'RCC_FLAG_HSIRDY', 'RCC_FLAG_HSIDIV', 'RCC_FLAG_MSIRDY',
+    'RCC_FLAG_HSERDY', 'RCC_FLAG_PLLRDY', 'RCC_FLAG_LSIRDY', 'RCC_FLAG_LSERDY',
+    'RCC_FLAG_LSECSS', 'RCC_FLAG_OBLRST', 'RCC_FLAG_PINRST', 'RCC_FLAG_PORRST',
+    'RCC_FLAG_SFTRST', 'RCC_FLAG_IWDGRST', 'RCC_FLAG_WWDGRST', 'RCC_FLAG_LPWRRST',
+    'RCC_FLAG_FWRST', 'RCC_FLAG_HSI48RDY', 'RCC_PLLInitTypeDef', 'RCC_ClkInitTypeDef',
+    'HAL_RNG_STATE_RESET', 'HAL_RNG_STATE_READY', 'HAL_RNG_STATE_BUSY',
+    'HAL_RNG_STATE_TIMEOUT', 'HAL_RNG_STATE_ERROR', 'RNG_IT_DRDY', 'RNG_IT_CEI',
+    'RNG_IT_SEI', 'RNG_FLAG_DRDY', 'RNG_FLAG_CECS', 'RNG_FLAG_SECS',
+    'HAL_RNG_ERROR_NONE', 'HAL_RNG_ERROR_TIMEOUT', 'RNG_HandleTypeDef',
+    'RTC_OUTPUT_DISABLE', 'RTC_OUTPUT_ALARMA', 'RTC_OUTPUT_ALARMB', 'RTC_OUTPUT_WAKEUP',
+    'RTC_BKP_DR0', 'RTC_BKP_DR1', 'RTC_BKP_DR2', 'RTC_BKP_DR3', 'RTC_BKP_DR4',
+    'RTC_TIMESTAMPEDGE_RISING', 'RTC_TIMESTAMPEDGE_FALLING', 'RTC_TIMESTAMPPIN_DEFAULT',
+    'RTC_TAMPER_1', 'RTC_TAMPER_2', 'RTC_TAMPER1_INTERRUPT', 'RTC_TAMPER2_INTERRUPT',
+    'RTC_ALL_TAMPER_INTERRUPT', 'RTC_TAMPERTRIGGER_RISINGEDGE',
+    'RTC_TAMPERTRIGGER_FALLINGEDGE', 'RTC_TAMPERTRIGGER_LOWLEVEL',
+    'RTC_TAMPERTRIGGER_HIGHLEVEL', 'RTC_TAMPER_ERASE_BACKUP_ENABLE',
+    'RTC_TAMPER_ERASE_BACKUP_DISABLE', 'RTC_TAMPERMASK_FLAG_DISABLE',
+    'RTC_TAMPERMASK_FLAG_ENABLE', 'RTC_TAMPERFILTER_DISABLE',
+    'RTC_TAMPERFILTER_2SAMPLE', 'RTC_TAMPERFILTER_4SAMPLE', 'RTC_TAMPERFILTER_8SAMPLE',
+    'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV32768', 'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV16384',
+    'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV8192', 'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV4096',
+    'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV2048', 'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV1024',
+    'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV512', 'RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV256',
+    'RTC_TAMPERPRECHARGEDURATION_1RTCCLK', 'RTC_TAMPERPRECHARGEDURATION_2RTCCLK',
+    'RTC_TAMPERPRECHARGEDURATION_4RTCCLK', 'RTC_TAMPERPRECHARGEDURATION_8RTCCLK',
+    'RTC_TIMESTAMPONTAMPERDETECTION_ENABLE', 'RTC_TIMESTAMPONTAMPERDETECTION_DISABLE',
+    'RTC_TAMPER_PULLUP_ENABLE', 'RTC_TAMPER_PULLUP_DISABLE',
+    'RTC_WAKEUPCLOCK_RTCCLK_DIV16', 'RTC_WAKEUPCLOCK_RTCCLK_DIV8',
+    'RTC_WAKEUPCLOCK_RTCCLK_DIV4', 'RTC_WAKEUPCLOCK_RTCCLK_DIV2',
+    'RTC_WAKEUPCLOCK_CK_SPRE_16BITS', 'RTC_WAKEUPCLOCK_CK_SPRE_17BITS',
+    'RTC_SMOOTHCALIB_PERIOD_32SEC', 'RTC_SMOOTHCALIB_PERIOD_16SEC',
+    'RTC_SMOOTHCALIB_PERIOD_8SEC', 'RTC_SMOOTHCALIB_PLUSPULSES_SET',
+    'RTC_SMOOTHCALIB_PLUSPULSES_RESET', 'RTC_CALIBOUTPUT_512HZ', 'RTC_CALIBOUTPUT_1HZ',
+    'RTC_SHIFTADD1S_RESET', 'RTC_SHIFTADD1S_SET', 'RTC_FLAGS_MASK', 'RTC_TAMPCR_TAMPXE',
+    'RTC_TAMPCR_TAMPXIE', 'RTC_FLAGS_MASK', 'RTC_TAMPCR_TAMPXE', 'RTC_TAMPCR_TAMPXIE',
+    'RTC_FLAGS_MASK', 'RTC_TAMPCR_TAMPXE', 'RTC_TAMPCR_TAMPXIE',
+    'RTC_EXTI_LINE_TAMPER_TIMESTAMP_EVENT', 'RTC_EXTI_LINE_WAKEUPTIMER_EVENT',
+    'RTC_TamperTypeDef', 'SMARTCARD_TC', 'SMARTCARD_ADVFEATURE_NO_INIT',
+    'SMARTCARD_ADVFEATURE_TXINVERT_INIT', 'SMARTCARD_ADVFEATURE_RXINVERT_INIT',
+    'SMARTCARD_ADVFEATURE_DATAINVERT_INIT', 'SMARTCARD_ADVFEATURE_SWAP_INIT',
+    'SMARTCARD_ADVFEATURE_RXOVERRUNDISABLE_INIT',
+    'SMARTCARD_ADVFEATURE_DMADISABLEONERROR_INIT', 'SMARTCARD_ADVFEATURE_MSBFIRST_INIT',
+    'SMARTCARD_FLAG_REACK', 'SMARTCARD_FLAG_TEACK', 'SMARTCARD_FLAG_BUSY',
+    'SMARTCARD_FLAG_EOBF', 'SMARTCARD_FLAG_RTOF', 'SMARTCARD_FLAG_TXE',
+    'SMARTCARD_FLAG_TC', 'SMARTCARD_FLAG_RXNE', 'SMARTCARD_FLAG_IDLE',
+    'SMARTCARD_FLAG_ORE', 'SMARTCARD_FLAG_NE', 'SMARTCARD_FLAG_FE', 'SMARTCARD_FLAG_PE',
+    'SMARTCARD_IT_PE', 'SMARTCARD_IT_TXE', 'SMARTCARD_IT_TC', 'SMARTCARD_IT_RXNE',
+    'SMARTCARD_IT_IDLE', 'SMARTCARD_IT_ERR', 'SMARTCARD_IT_ORE', 'SMARTCARD_IT_NE',
+    'SMARTCARD_IT_FE', 'SMARTCARD_IT_EOB', 'SMARTCARD_IT_RTO', 'SMARTCARD_CLEAR_PEF',
+    'SMARTCARD_CLEAR_FEF', 'SMARTCARD_CLEAR_NEF', 'SMARTCARD_CLEAR_OREF',
+    'SMARTCARD_CLEAR_IDLEF', 'SMARTCARD_CLEAR_TCF', 'SMARTCARD_CLEAR_RTOF',
+    'SMARTCARD_CLEAR_EOBF', 'SMARTCARD_CLOCKSOURCE_PCLK1',
+    'SMARTCARD_CLOCKSOURCE_PCLK2', 'SMARTCARD_CLOCKSOURCE_HSI',
+    'SMARTCARD_CLOCKSOURCE_SYSCLK', 'SMARTCARD_CLOCKSOURCE_LSE',
+    'SMARTCARD_CLOCKSOURCE_UNDEFINED', 'HAL_SMARTCARD_STATE_RESET',
+    'HAL_SMARTCARD_STATE_READY', 'HAL_SMARTCARD_STATE_BUSY',
+    'HAL_SMARTCARD_STATE_BUSY_TX', 'HAL_SMARTCARD_STATE_BUSY_RX',
+    'HAL_SMARTCARD_STATE_BUSY_TX_RX', 'HAL_SMARTCARD_STATE_TIMEOUT',
+    'HAL_SMARTCARD_STATE_ERROR', 'HAL_SMARTCARD_ERROR_NONE', 'HAL_SMARTCARD_ERROR_PE',
+    'HAL_SMARTCARD_ERROR_NE', 'HAL_SMARTCARD_ERROR_FE', 'HAL_SMARTCARD_ERROR_ORE',
+    'HAL_SMARTCARD_ERROR_DMA', 'HAL_SMARTCARD_ERROR_RTO', 'SMARTCARD_WORDLENGTH_9B',
+    'SMARTCARD_STOPBITS_0_5', 'SMARTCARD_STOPBITS_1_5', 'SMARTCARD_PARITY_EVEN',
+    'SMARTCARD_PARITY_ODD', 'SMARTCARD_MODE_RX', 'SMARTCARD_MODE_TX',
+    'SMARTCARD_MODE_TX_RX', 'SMARTCARD_POLARITY_LOW', 'SMARTCARD_POLARITY_HIGH',
+    'SMARTCARD_PHASE_1EDGE', 'SMARTCARD_PHASE_2EDGE', 'SMARTCARD_LASTBIT_DISABLE',
+    'SMARTCARD_LASTBIT_ENABLE', 'SMARTCARD_ONE_BIT_SAMPLE_DISABLE',
+    'SMARTCARD_ONE_BIT_SAMPLE_ENABLE', 'SMARTCARD_NACK_DISABLE',
+    'SMARTCARD_NACK_ENABLE', 'SMARTCARD_TIMEOUT_DISABLE', 'SMARTCARD_TIMEOUT_ENABLE',
+    'SMARTCARD_ADVFEATURE_TXINV_DISABLE', 'SMARTCARD_ADVFEATURE_TXINV_ENABLE',
+    'SMARTCARD_ADVFEATURE_RXINV_DISABLE', 'SMARTCARD_ADVFEATURE_RXINV_ENABLE',
+    'SMARTCARD_ADVFEATURE_DATAINV_DISABLE', 'SMARTCARD_ADVFEATURE_DATAINV_ENABLE',
+    'SMARTCARD_ADVFEATURE_SWAP_DISABLE', 'SMARTCARD_ADVFEATURE_SWAP_ENABLE',
+    'SMARTCARD_ADVFEATURE_OVERRUN_ENABLE', 'SMARTCARD_ADVFEATURE_OVERRUN_DISABLE',
+    'SMARTCARD_ADVFEATURE_DMA_ENABLEONRXERROR',
+    'SMARTCARD_ADVFEATURE_DMA_DISABLEONRXERROR',
+    'SMARTCARD_ADVFEATURE_MSBFIRST_DISABLE', 'SMARTCARD_ADVFEATURE_MSBFIRST_ENABLE',
+    'SMARTCARD_RXDATA_FLUSH_REQUEST', 'SMARTCARD_TXDATA_FLUSH_REQUEST',
+    'SMARTCARD_IT_MASK', 'SMARTCARD_CR_MASK', 'SMARTCARD_CR_POS', 'SMARTCARD_ISR_MASK',
+    'SMARTCARD_ISR_POS', 'SMARTCARD_InitTypeDef', 'SMARTCARD_AdvFeatureInitTypeDef',
+    'HAL_SMBUS_STATE_RESET', 'HAL_SMBUS_STATE_READY', 'HAL_SMBUS_STATE_BUSY',
+    'HAL_SMBUS_STATE_MASTER_BUSY_TX', 'HAL_SMBUS_STATE_MASTER_BUSY_RX',
+    'HAL_SMBUS_STATE_SLAVE_BUSY_TX', 'HAL_SMBUS_STATE_SLAVE_BUSY_RX',
+    'HAL_SMBUS_STATE_TIMEOUT', 'HAL_SMBUS_STATE_ERROR', 'HAL_SMBUS_STATE_LISTEN',
+    'HAL_SMBUS_ERROR_NONE', 'HAL_SMBUS_ERROR_BERR', 'HAL_SMBUS_ERROR_ARLO',
+    'HAL_SMBUS_ERROR_ACKF', 'HAL_SMBUS_ERROR_OVR', 'HAL_SMBUS_ERROR_HALTIMEOUT',
+    'HAL_SMBUS_ERROR_BUSTIMEOUT', 'HAL_SMBUS_ERROR_ALERT', 'HAL_SMBUS_ERROR_PECERR',
+    'HAL_SMBUS_ERROR_INVALID_PARAM', 'SMBUS_ANALOGFILTER_ENABLE',
+    'SMBUS_ANALOGFILTER_DISABLE', 'SMBUS_ADDRESSINGMODE_7BIT',
+    'SMBUS_ADDRESSINGMODE_10BIT', 'SMBUS_DUALADDRESS_DISABLE',
+    'SMBUS_DUALADDRESS_ENABLE', 'SMBUS_OA2_NOMASK', 'SMBUS_OA2_MASK01',
+    'SMBUS_OA2_MASK02', 'SMBUS_OA2_MASK03', 'SMBUS_OA2_MASK04', 'SMBUS_OA2_MASK05',
+    'SMBUS_OA2_MASK06', 'SMBUS_OA2_MASK07', 'SMBUS_GENERALCALL_DISABLE',
+    'SMBUS_GENERALCALL_ENABLE', 'SMBUS_NOSTRETCH_DISABLE', 'SMBUS_NOSTRETCH_ENABLE',
+    'SMBUS_PEC_DISABLE', 'SMBUS_PEC_ENABLE', 'SMBUS_PERIPHERAL_MODE_SMBUS_HOST',
+    'SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE', 'SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE_ARP',
+    'SMBUS_SOFTEND_MODE', 'SMBUS_RELOAD_MODE', 'SMBUS_AUTOEND_MODE',
+    'SMBUS_SENDPEC_MODE', 'SMBUS_NO_STARTSTOP', 'SMBUS_GENERATE_STOP',
+    'SMBUS_GENERATE_START_READ', 'SMBUS_GENERATE_START_WRITE', 'SMBUS_FIRST_FRAME',
+    'SMBUS_NEXT_FRAME', 'SMBUS_FIRST_AND_LAST_FRAME_NO_PEC', 'SMBUS_LAST_FRAME_NO_PEC',
+    'SMBUS_FIRST_AND_LAST_FRAME_WITH_PEC', 'SMBUS_LAST_FRAME_WITH_PEC',
+    'SMBUS_OTHER_FRAME_NO_PEC', 'SMBUS_OTHER_FRAME_WITH_PEC',
+    'SMBUS_OTHER_AND_LAST_FRAME_NO_PEC', 'SMBUS_OTHER_AND_LAST_FRAME_WITH_PEC',
+    'SMBUS_IT_ERRI', 'SMBUS_IT_TCI', 'SMBUS_IT_STOPI', 'SMBUS_IT_NACKI',
+    'SMBUS_IT_ADDRI', 'SMBUS_IT_RXI', 'SMBUS_IT_TXI', 'SMBUS_IT_TX', 'SMBUS_IT_RX',
+    'SMBUS_IT_ALERT', 'SMBUS_IT_ADDR', 'SMBUS_FLAG_TXE', 'SMBUS_FLAG_TXIS',
+    'SMBUS_FLAG_RXNE', 'SMBUS_FLAG_ADDR', 'SMBUS_FLAG_AF', 'SMBUS_FLAG_STOPF',
+    'SMBUS_FLAG_TC', 'SMBUS_FLAG_TCR', 'SMBUS_FLAG_BERR', 'SMBUS_FLAG_ARLO',
+    'SMBUS_FLAG_OVR', 'SMBUS_FLAG_PECERR', 'SMBUS_FLAG_TIMEOUT', 'SMBUS_FLAG_ALERT',
+    'SMBUS_FLAG_BUSY', 'SMBUS_FLAG_DIR', 'SMBUS_FLAG_MASK', 'SMBUS_InitTypeDef',
+    'HAL_SPI_STATE_RESET', 'HAL_SPI_STATE_READY', 'HAL_SPI_STATE_BUSY',
+    'HAL_SPI_STATE_BUSY_TX', 'HAL_SPI_STATE_BUSY_RX', 'HAL_SPI_STATE_BUSY_TX_RX',
+    'HAL_SPI_STATE_ERROR', 'HAL_SPI_STATE_ABORT', 'HAL_SPI_ERROR_NONE',
+    'HAL_SPI_ERROR_MODF', 'HAL_SPI_ERROR_CRC', 'HAL_SPI_ERROR_OVR', 'HAL_SPI_ERROR_FRE',
+    'HAL_SPI_ERROR_DMA', 'HAL_SPI_ERROR_FLAG', 'HAL_SPI_ERROR_ABORT', 'SPI_MODE_SLAVE',
+    'SPI_MODE_MASTER', 'SPI_DIRECTION_2LINES', 'SPI_DIRECTION_2LINES_RXONLY',
+    'SPI_DIRECTION_1LINE', 'SPI_DATASIZE_8BIT', 'SPI_DATASIZE_16BIT',
+    'SPI_POLARITY_LOW', 'SPI_POLARITY_HIGH', 'SPI_PHASE_1EDGE', 'SPI_PHASE_2EDGE',
+    'SPI_NSS_SOFT', 'SPI_NSS_HARD_INPUT', 'SPI_NSS_HARD_OUTPUT',
+    'SPI_BAUDRATEPRESCALER_2', 'SPI_BAUDRATEPRESCALER_4', 'SPI_BAUDRATEPRESCALER_8',
+    'SPI_BAUDRATEPRESCALER_16', 'SPI_BAUDRATEPRESCALER_32', 'SPI_BAUDRATEPRESCALER_64',
+    'SPI_BAUDRATEPRESCALER_128', 'SPI_BAUDRATEPRESCALER_256', 'SPI_FIRSTBIT_MSB',
+    'SPI_FIRSTBIT_LSB', 'SPI_TIMODE_DISABLE', 'SPI_TIMODE_ENABLE',
+    'SPI_CRCCALCULATION_DISABLE', 'SPI_CRCCALCULATION_ENABLE', 'SPI_IT_TXE',
+    'SPI_IT_RXNE', 'SPI_IT_ERR', 'SPI_FLAG_RXNE', 'SPI_FLAG_TXE', 'SPI_FLAG_BSY',
+    'SPI_FLAG_CRCERR', 'SPI_FLAG_MODF', 'SPI_FLAG_OVR', 'SPI_FLAG_FRE', 'SPI_FLAG_MASK',
+    'SPI_InitTypeDef', 'TIM2_ETR_GPIO', 'TIM2_ETR_HSI48', 'TIM2_ETR_HSI16',
+    'TIM2_ETR_LSE', 'TIM2_ETR_COMP2_OUT', 'TIM2_ETR_COMP1_OUT', 'TIM2_TI4_GPIO',
+    'TIM2_TI4_COMP2', 'TIM2_TI4_COMP1', 'TIM21_ETR_GPIO', 'TIM21_ETR_COMP2_OUT',
+    'TIM21_ETR_COMP1_OUT', 'TIM21_ETR_LSE', 'TIM21_TI1_GPIO', 'TIM21_TI1_MCO',
+    'TIM21_TI1_RTC_WKUT_IT', 'TIM21_TI1_HSE_RTC', 'TIM21_TI1_MSI', 'TIM21_TI1_LSE',
+    'TIM21_TI1_LSI', 'TIM21_TI1_COMP1_OUT', 'TIM21_TI2_GPIO', 'TIM21_TI2_COMP2_OUT',
+    'TIM22_ETR_GPIO', 'TIM22_ETR_COMP2_OUT', 'TIM22_ETR_COMP1_OUT', 'TIM22_ETR_LSE',
+    'TIM22_TI1_GPIO', 'TIM22_TI1_COMP2_OUT', 'TIM22_TI1_COMP1_OUT',
+    'HAL_TIM_STATE_RESET', 'HAL_TIM_STATE_READY', 'HAL_TIM_STATE_BUSY',
+    'HAL_TIM_STATE_TIMEOUT', 'HAL_TIM_STATE_ERROR', 'HAL_TIM_ACTIVE_CHANNEL_1',
+    'HAL_TIM_ACTIVE_CHANNEL_2', 'HAL_TIM_ACTIVE_CHANNEL_3', 'HAL_TIM_ACTIVE_CHANNEL_4',
+    'HAL_TIM_ACTIVE_CHANNEL_CLEARED', 'TIM_CLEARINPUTSOURCE_NONE',
+    'TIM_CLEARINPUTSOURCE_ETR', 'TIM_DMABASE_CR1', 'TIM_DMABASE_CR2',
+    'TIM_DMABASE_SMCR', 'TIM_DMABASE_DIER', 'TIM_DMABASE_SR', 'TIM_DMABASE_EGR',
+    'TIM_DMABASE_CCMR1', 'TIM_DMABASE_CCMR2', 'TIM_DMABASE_CCER', 'TIM_DMABASE_CNT',
+    'TIM_DMABASE_PSC', 'TIM_DMABASE_ARR', 'TIM_DMABASE_CCR1', 'TIM_DMABASE_CCR2',
+    'TIM_DMABASE_CCR3', 'TIM_DMABASE_CCR4', 'TIM_DMABASE_DCR', 'TIM_DMABASE_DMAR',
+    'TIM_DMABASE_OR', 'TIM_EVENTSOURCE_UPDATE', 'TIM_EVENTSOURCE_CC1',
+    'TIM_EVENTSOURCE_CC2', 'TIM_EVENTSOURCE_CC3', 'TIM_EVENTSOURCE_CC4',
+    'TIM_EVENTSOURCE_TRIGGER', 'TIM_INPUTCHANNELPOLARITY_RISING',
+    'TIM_INPUTCHANNELPOLARITY_FALLING', 'TIM_INPUTCHANNELPOLARITY_BOTHEDGE',
+    'TIM_ETRPOLARITY_INVERTED', 'TIM_ETRPOLARITY_NONINVERTED', 'TIM_ETRPRESCALER_DIV1',
+    'TIM_ETRPRESCALER_DIV2', 'TIM_ETRPRESCALER_DIV4', 'TIM_ETRPRESCALER_DIV8',
+    'TIM_COUNTERMODE_UP', 'TIM_COUNTERMODE_DOWN', 'TIM_COUNTERMODE_CENTERALIGNED1',
+    'TIM_COUNTERMODE_CENTERALIGNED2', 'TIM_COUNTERMODE_CENTERALIGNED3',
+    'TIM_CLOCKDIVISION_DIV1', 'TIM_CLOCKDIVISION_DIV2', 'TIM_CLOCKDIVISION_DIV4',
+    'TIM_OUTPUTSTATE_DISABLE', 'TIM_OUTPUTSTATE_ENABLE',
+    'TIM_AUTORELOAD_PRELOAD_DISABLE', 'TIM_AUTORELOAD_PRELOAD_ENABLE',
+    'TIM_OCFAST_DISABLE', 'TIM_OCFAST_ENABLE', 'TIM_OUTPUTNSTATE_DISABLE',
+    'TIM_OCPOLARITY_HIGH', 'TIM_OCPOLARITY_LOW', 'TIM_ICPOLARITY_RISING',
+    'TIM_ICPOLARITY_FALLING', 'TIM_ICPOLARITY_BOTHEDGE', 'TIM_ICSELECTION_DIRECTTI',
+    'TIM_ICSELECTION_INDIRECTTI', 'TIM_ICSELECTION_TRC', 'TIM_ICPSC_DIV1',
+    'TIM_ICPSC_DIV2', 'TIM_ICPSC_DIV4', 'TIM_ICPSC_DIV8', 'TIM_OPMODE_SINGLE',
+    'TIM_OPMODE_REPETITIVE', 'TIM_ENCODERMODE_TI1', 'TIM_ENCODERMODE_TI2',
+    'TIM_ENCODERMODE_TI12', 'TIM_IT_UPDATE', 'TIM_IT_CC1', 'TIM_IT_CC2', 'TIM_IT_CC3',
+    'TIM_IT_CC4', 'TIM_IT_TRIGGER', 'TIM_DMA_UPDATE', 'TIM_DMA_CC1', 'TIM_DMA_CC2',
+    'TIM_DMA_CC3', 'TIM_DMA_CC4', 'TIM_DMA_TRIGGER', 'TIM_FLAG_UPDATE', 'TIM_FLAG_CC1',
+    'TIM_FLAG_CC2', 'TIM_FLAG_CC3', 'TIM_FLAG_CC4', 'TIM_FLAG_TRIGGER',
+    'TIM_FLAG_CC1OF', 'TIM_FLAG_CC2OF', 'TIM_FLAG_CC3OF', 'TIM_FLAG_CC4OF',
+    'TIM_CHANNEL_1', 'TIM_CHANNEL_2', 'TIM_CHANNEL_3', 'TIM_CHANNEL_4',
+    'TIM_CHANNEL_ALL', 'TIM_CLOCKSOURCE_ETRMODE2', 'TIM_CLOCKSOURCE_INTERNAL',
+    'TIM_CLOCKSOURCE_ITR0', 'TIM_CLOCKSOURCE_ITR1', 'TIM_CLOCKSOURCE_ITR2',
+    'TIM_CLOCKSOURCE_ITR3', 'TIM_CLOCKSOURCE_TI1ED', 'TIM_CLOCKSOURCE_TI1',
+    'TIM_CLOCKSOURCE_TI2', 'TIM_CLOCKSOURCE_ETRMODE1', 'TIM_CLOCKPOLARITY_INVERTED',
+    'TIM_CLOCKPOLARITY_NONINVERTED', 'TIM_CLOCKPOLARITY_RISING',
+    'TIM_CLOCKPOLARITY_FALLING', 'TIM_CLOCKPOLARITY_BOTHEDGE',
+    'TIM_CLOCKPRESCALER_DIV1', 'TIM_CLOCKPRESCALER_DIV2', 'TIM_CLOCKPRESCALER_DIV4',
+    'TIM_CLOCKPRESCALER_DIV8', 'TIM_CLEARINPUTPOLARITY_INVERTED',
+    'TIM_CLEARINPUTPOLARITY_NONINVERTED', 'TIM_CLEARINPUTPRESCALER_DIV1',
+    'TIM_CLEARINPUTPRESCALER_DIV2', 'TIM_CLEARINPUTPRESCALER_DIV4',
+    'TIM_CLEARINPUTPRESCALER_DIV8', 'TIM_TRGO_RESET', 'TIM_TRGO_ENABLE',
+    'TIM_TRGO_UPDATE', 'TIM_TRGO_OC1', 'TIM_TRGO_OC1REF', 'TIM_TRGO_OC2REF',
+    'TIM_TRGO_OC3REF', 'TIM_TRGO_OC4REF', 'TIM_MASTERSLAVEMODE_ENABLE',
+    'TIM_MASTERSLAVEMODE_DISABLE', 'TIM_SLAVEMODE_DISABLE', 'TIM_SLAVEMODE_RESET',
+    'TIM_SLAVEMODE_GATED', 'TIM_SLAVEMODE_TRIGGER', 'TIM_SLAVEMODE_EXTERNAL1',
+    'TIM_OCMODE_TIMING', 'TIM_OCMODE_ACTIVE', 'TIM_OCMODE_INACTIVE',
+    'TIM_OCMODE_TOGGLE', 'TIM_OCMODE_PWM1', 'TIM_OCMODE_PWM2',
+    'TIM_OCMODE_FORCED_ACTIVE', 'TIM_OCMODE_FORCED_INACTIVE', 'TIM_TS_ITR0',
+    'TIM_TS_ITR1', 'TIM_TS_ITR2', 'TIM_TS_ITR3', 'TIM_TS_TI1F_ED', 'TIM_TS_TI1FP1',
+    'TIM_TS_TI2FP2', 'TIM_TS_ETRF', 'TIM_TS_NONE', 'TIM_TRIGGERPOLARITY_INVERTED',
+    'TIM_TRIGGERPOLARITY_NONINVERTED', 'TIM_TRIGGERPOLARITY_RISING',
+    'TIM_TRIGGERPOLARITY_FALLING', 'TIM_TRIGGERPOLARITY_BOTHEDGE',
+    'TIM_TRIGGERPRESCALER_DIV1', 'TIM_TRIGGERPRESCALER_DIV2',
+    'TIM_TRIGGERPRESCALER_DIV4', 'TIM_TRIGGERPRESCALER_DIV8', 'TIM_TI1SELECTION_CH1',
+    'TIM_TI1SELECTION_XORCOMBINATION', 'TIM_DMABURSTLENGTH_1TRANSFER',
+    'TIM_DMABURSTLENGTH_2TRANSFERS', 'TIM_DMABURSTLENGTH_3TRANSFERS',
+    'TIM_DMABURSTLENGTH_4TRANSFERS', 'TIM_DMABURSTLENGTH_5TRANSFERS',
+    'TIM_DMABURSTLENGTH_6TRANSFERS', 'TIM_DMABURSTLENGTH_7TRANSFERS',
+    'TIM_DMABURSTLENGTH_8TRANSFERS', 'TIM_DMABURSTLENGTH_9TRANSFERS',
+    'TIM_DMABURSTLENGTH_10TRANSFERS', 'TIM_DMABURSTLENGTH_11TRANSFERS',
+    'TIM_DMABURSTLENGTH_12TRANSFERS', 'TIM_DMABURSTLENGTH_13TRANSFERS',
+    'TIM_DMABURSTLENGTH_14TRANSFERS', 'TIM_DMABURSTLENGTH_15TRANSFERS',
+    'TIM_DMABURSTLENGTH_16TRANSFERS', 'TIM_DMABURSTLENGTH_17TRANSFERS',
+    'TIM_DMABURSTLENGTH_18TRANSFERS', 'TIM_DMA_ID_UPDATE', 'TIM_DMA_ID_CC1',
+    'TIM_DMA_ID_CC2', 'TIM_DMA_ID_CC3', 'TIM_DMA_ID_CC4', 'TIM_DMA_ID_TRIGGER',
+    'TIM_CCx_ENABLE', 'TIM_CCx_DISABLE', 'TIM_CCER_CCxE_MASK', 'TIM_Base_InitTypeDef',
     'TIM_OC_InitTypeDef', 'TIM_OnePulse_InitTypeDef', 'TIM_IC_InitTypeDef',
     'TIM_Encoder_InitTypeDef', 'TIM_ClockConfigTypeDef', 'TIM_ClearInputConfigTypeDef',
-    'TIM_MasterConfigTypeDef', 'TIM_SlaveConfigTypeDef', 'TSC_InitTypeDef',
-    'TSC_IOConfigTypeDef', 'UART_WakeUpTypeDef', 'UART_InitTypeDef',
-    'UART_AdvFeatureInitTypeDef', 'USART_InitTypeDef', 'WWDG_InitTypeDef',
-    'ADC_REG_TRIG_EXT_EDGE_DEFAULT', 'ADC_REG_TRIG_SOURCE_MASK',
-    'ADC_REG_TRIG_EDGE_MASK', 'ADC_REG_TRIG_EXTSEL_BITOFFSET_POS',
-    'ADC_REG_TRIG_EXTEN_BITOFFSET_POS', 'ADC_CHANNEL_ID_NUMBER_MASK',
-    'ADC_CHANNEL_ID_BITFIELD_MASK', 'ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS',
-    'ADC_CHANNEL_ID_MASK', 'ADC_CHANNEL_ID_NUMBER_MASK_POSBIT0',
-    'ADC_CHANNEL_ID_INTERNAL_CH', 'ADC_CHANNEL_ID_INTERNAL_CH_MASK',
-    'ADC_CHANNEL_0_NUMBER', 'ADC_CHANNEL_1_NUMBER', 'ADC_CHANNEL_2_NUMBER',
-    'ADC_CHANNEL_3_NUMBER', 'ADC_CHANNEL_4_NUMBER', 'ADC_CHANNEL_5_NUMBER',
-    'ADC_CHANNEL_6_NUMBER', 'ADC_CHANNEL_7_NUMBER', 'ADC_CHANNEL_8_NUMBER',
-    'ADC_CHANNEL_9_NUMBER', 'ADC_CHANNEL_10_NUMBER', 'ADC_CHANNEL_11_NUMBER',
-    'ADC_CHANNEL_12_NUMBER', 'ADC_CHANNEL_13_NUMBER', 'ADC_CHANNEL_14_NUMBER',
-    'ADC_CHANNEL_15_NUMBER', 'ADC_CHANNEL_16_NUMBER', 'ADC_CHANNEL_17_NUMBER',
-    'ADC_CHANNEL_18_NUMBER', 'ADC_CHANNEL_0_BITFIELD', 'ADC_CHANNEL_1_BITFIELD',
-    'ADC_CHANNEL_2_BITFIELD', 'ADC_CHANNEL_3_BITFIELD', 'ADC_CHANNEL_4_BITFIELD',
-    'ADC_CHANNEL_5_BITFIELD', 'ADC_CHANNEL_6_BITFIELD', 'ADC_CHANNEL_7_BITFIELD',
-    'ADC_CHANNEL_8_BITFIELD', 'ADC_CHANNEL_9_BITFIELD', 'ADC_CHANNEL_10_BITFIELD',
-    'ADC_CHANNEL_11_BITFIELD', 'ADC_CHANNEL_12_BITFIELD', 'ADC_CHANNEL_13_BITFIELD',
-    'ADC_CHANNEL_14_BITFIELD', 'ADC_CHANNEL_15_BITFIELD', 'ADC_CHANNEL_16_BITFIELD',
-    'ADC_CHANNEL_17_BITFIELD', 'ADC_CHANNEL_18_BITFIELD', 'ADC_AWD_CR1_REGOFFSET',
-    'ADC_AWD_CRX_REGOFFSET_MASK', 'ADC_AWD_CR1_CHANNEL_MASK',
+    'TIM_MasterConfigTypeDef', 'TIM_SlaveConfigTypeDef', 'HAL_TSC_STATE_RESET',
+    'HAL_TSC_STATE_READY', 'HAL_TSC_STATE_BUSY', 'HAL_TSC_STATE_ERROR',
+    'TSC_GROUP_ONGOING', 'TSC_GROUP_COMPLETED', 'TSC_GROUP1_IDX', 'TSC_GROUP2_IDX',
+    'TSC_GROUP3_IDX', 'TSC_GROUP4_IDX', 'TSC_GROUP5_IDX', 'TSC_GROUP6_IDX',
+    'TSC_GROUP7_IDX', 'TSC_GROUP8_IDX', 'TSC_NB_OF_GROUPS', 'HAL_TSC_ERROR_NONE',
+    'TSC_CTPH_1CYCLE', 'TSC_CTPH_2CYCLES', 'TSC_CTPH_3CYCLES', 'TSC_CTPH_4CYCLES',
+    'TSC_CTPH_5CYCLES', 'TSC_CTPH_6CYCLES', 'TSC_CTPH_7CYCLES', 'TSC_CTPH_8CYCLES',
+    'TSC_CTPH_9CYCLES', 'TSC_CTPH_10CYCLES', 'TSC_CTPH_11CYCLES', 'TSC_CTPH_12CYCLES',
+    'TSC_CTPH_13CYCLES', 'TSC_CTPH_14CYCLES', 'TSC_CTPH_15CYCLES', 'TSC_CTPH_16CYCLES',
+    'TSC_CTPL_1CYCLE', 'TSC_CTPL_2CYCLES', 'TSC_CTPL_3CYCLES', 'TSC_CTPL_4CYCLES',
+    'TSC_CTPL_5CYCLES', 'TSC_CTPL_6CYCLES', 'TSC_CTPL_7CYCLES', 'TSC_CTPL_8CYCLES',
+    'TSC_CTPL_9CYCLES', 'TSC_CTPL_10CYCLES', 'TSC_CTPL_11CYCLES', 'TSC_CTPL_12CYCLES',
+    'TSC_CTPL_13CYCLES', 'TSC_CTPL_14CYCLES', 'TSC_CTPL_15CYCLES', 'TSC_CTPL_16CYCLES',
+    'TSC_SS_PRESC_DIV1', 'TSC_SS_PRESC_DIV2', 'TSC_PG_PRESC_DIV1', 'TSC_PG_PRESC_DIV2',
+    'TSC_PG_PRESC_DIV4', 'TSC_PG_PRESC_DIV8', 'TSC_PG_PRESC_DIV16',
+    'TSC_PG_PRESC_DIV32', 'TSC_PG_PRESC_DIV64', 'TSC_PG_PRESC_DIV128', 'TSC_MCV_255',
+    'TSC_MCV_511', 'TSC_MCV_1023', 'TSC_MCV_2047', 'TSC_MCV_4095', 'TSC_MCV_8191',
+    'TSC_MCV_16383', 'TSC_IODEF_OUT_PP_LOW', 'TSC_IODEF_IN_FLOAT',
+    'TSC_SYNC_POLARITY_FALLING', 'TSC_SYNC_POLARITY_RISING', 'TSC_ACQ_MODE_NORMAL',
+    'TSC_ACQ_MODE_SYNCHRO', 'TSC_IT_EOA', 'TSC_IT_MCE', 'TSC_FLAG_EOA', 'TSC_FLAG_MCE',
+    'TSC_GROUP1', 'TSC_GROUP2', 'TSC_GROUP3', 'TSC_GROUP4', 'TSC_GROUP5', 'TSC_GROUP6',
+    'TSC_GROUP7', 'TSC_GROUP8', 'TSC_GROUP1_IO1', 'TSC_GROUP1_IO2', 'TSC_GROUP1_IO3',
+    'TSC_GROUP1_IO4', 'TSC_GROUP2_IO1', 'TSC_GROUP2_IO2', 'TSC_GROUP2_IO3',
+    'TSC_GROUP2_IO4', 'TSC_GROUP3_IO1', 'TSC_GROUP3_IO2', 'TSC_GROUP3_IO3',
+    'TSC_GROUP3_IO4', 'TSC_GROUP4_IO1', 'TSC_GROUP4_IO2', 'TSC_GROUP4_IO3',
+    'TSC_GROUP4_IO4', 'TSC_GROUP5_IO1', 'TSC_GROUP5_IO2', 'TSC_GROUP5_IO3',
+    'TSC_GROUP5_IO4', 'TSC_GROUP6_IO1', 'TSC_GROUP6_IO2', 'TSC_GROUP6_IO3',
+    'TSC_GROUP6_IO4', 'TSC_GROUP7_IO1', 'TSC_GROUP7_IO2', 'TSC_GROUP7_IO3',
+    'TSC_GROUP7_IO4', 'TSC_GROUP8_IO1', 'TSC_GROUP8_IO2', 'TSC_GROUP8_IO3',
+    'TSC_GROUP8_IO4', 'TSC_InitTypeDef', 'TSC_IOConfigTypeDef', 'UART_WORDLENGTH_7B',
+    'UART_WORDLENGTH_8B', 'UART_WORDLENGTH_9B', 'UART_ADDRESS_DETECT_4B',
+    'UART_ADDRESS_DETECT_7B', 'UART_WakeUpTypeDef', 'UART_CLOCKSOURCE_PCLK1',
+    'UART_CLOCKSOURCE_PCLK2', 'UART_CLOCKSOURCE_HSI', 'UART_CLOCKSOURCE_SYSCLK',
+    'UART_CLOCKSOURCE_LSE', 'UART_CLOCKSOURCE_UNDEFINED', 'HAL_UART_STATE_RESET',
+    'HAL_UART_STATE_READY', 'HAL_UART_STATE_BUSY', 'HAL_UART_STATE_BUSY_TX',
+    'HAL_UART_STATE_BUSY_RX', 'HAL_UART_STATE_BUSY_TX_RX', 'HAL_UART_STATE_TIMEOUT',
+    'HAL_UART_STATE_ERROR', 'HAL_UART_ERROR_NONE', 'HAL_UART_ERROR_PE',
+    'HAL_UART_ERROR_NE', 'HAL_UART_ERROR_FE', 'HAL_UART_ERROR_ORE',
+    'HAL_UART_ERROR_DMA', 'UART_STOPBITS_0_5', 'UART_STOPBITS_1', 'UART_STOPBITS_1_5',
+    'UART_STOPBITS_2', 'UART_PARITY_NONE', 'UART_PARITY_EVEN', 'UART_PARITY_ODD',
+    'UART_HWCONTROL_NONE', 'UART_HWCONTROL_RTS', 'UART_HWCONTROL_CTS',
+    'UART_HWCONTROL_RTS_CTS', 'UART_MODE_RX', 'UART_MODE_TX', 'UART_MODE_TX_RX',
+    'UART_STATE_DISABLE', 'UART_STATE_ENABLE', 'UART_OVERSAMPLING_16',
+    'UART_OVERSAMPLING_8', 'UART_ONE_BIT_SAMPLE_DISABLE', 'UART_ONE_BIT_SAMPLE_ENABLE',
+    'UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT',
+    'UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE',
+    'UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME',
+    'UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME', 'UART_RECEIVER_TIMEOUT_DISABLE',
+    'UART_RECEIVER_TIMEOUT_ENABLE', 'UART_LIN_DISABLE', 'UART_LIN_ENABLE',
+    'UART_LINBREAKDETECTLENGTH_10B', 'UART_LINBREAKDETECTLENGTH_11B',
+    'UART_DMA_TX_DISABLE', 'UART_DMA_TX_ENABLE', 'UART_DMA_RX_DISABLE',
+    'UART_DMA_RX_ENABLE', 'UART_HALF_DUPLEX_DISABLE', 'UART_HALF_DUPLEX_ENABLE',
+    'UART_WAKEUPMETHOD_IDLELINE', 'UART_WAKEUPMETHOD_ADDRESSMARK',
+    'UART_AUTOBAUD_REQUEST', 'UART_SENDBREAK_REQUEST', 'UART_MUTE_MODE_REQUEST',
+    'UART_RXDATA_FLUSH_REQUEST', 'UART_TXDATA_FLUSH_REQUEST', 'UART_ADVFEATURE_NO_INIT',
+    'UART_ADVFEATURE_TXINVERT_INIT', 'UART_ADVFEATURE_RXINVERT_INIT',
+    'UART_ADVFEATURE_DATAINVERT_INIT', 'UART_ADVFEATURE_SWAP_INIT',
+    'UART_ADVFEATURE_RXOVERRUNDISABLE_INIT', 'UART_ADVFEATURE_DMADISABLEONERROR_INIT',
+    'UART_ADVFEATURE_AUTOBAUDRATE_INIT', 'UART_ADVFEATURE_MSBFIRST_INIT',
+    'UART_ADVFEATURE_TXINV_DISABLE', 'UART_ADVFEATURE_TXINV_ENABLE',
+    'UART_ADVFEATURE_RXINV_DISABLE', 'UART_ADVFEATURE_RXINV_ENABLE',
+    'UART_ADVFEATURE_DATAINV_DISABLE', 'UART_ADVFEATURE_DATAINV_ENABLE',
+    'UART_ADVFEATURE_SWAP_DISABLE', 'UART_ADVFEATURE_SWAP_ENABLE',
+    'UART_ADVFEATURE_OVERRUN_ENABLE', 'UART_ADVFEATURE_OVERRUN_DISABLE',
+    'UART_ADVFEATURE_AUTOBAUDRATE_DISABLE', 'UART_ADVFEATURE_AUTOBAUDRATE_ENABLE',
+    'UART_ADVFEATURE_DMA_ENABLEONRXERROR', 'UART_ADVFEATURE_DMA_DISABLEONRXERROR',
+    'UART_ADVFEATURE_MSBFIRST_DISABLE', 'UART_ADVFEATURE_MSBFIRST_ENABLE',
+    'UART_ADVFEATURE_STOPMODE_DISABLE', 'UART_ADVFEATURE_STOPMODE_ENABLE',
+    'UART_ADVFEATURE_MUTEMODE_DISABLE', 'UART_ADVFEATURE_MUTEMODE_ENABLE',
+    'UART_CR2_ADDRESS_LSB_POS', 'UART_WAKEUP_ON_ADDRESS', 'UART_WAKEUP_ON_STARTBIT',
+    'UART_WAKEUP_ON_READDATA_NONEMPTY', 'UART_DE_POLARITY_HIGH', 'UART_DE_POLARITY_LOW',
+    'UART_CR1_DEAT_ADDRESS_LSB_POS', 'UART_CR1_DEDT_ADDRESS_LSB_POS', 'UART_IT_MASK',
+    'HAL_UART_TIMEOUT_VALUE', 'UART_FLAG_REACK', 'UART_FLAG_TEACK', 'UART_FLAG_WUF',
+    'UART_FLAG_RWU', 'UART_FLAG_SBKF', 'UART_FLAG_CMF', 'UART_FLAG_BUSY',
+    'UART_FLAG_ABRF', 'UART_FLAG_ABRE', 'UART_FLAG_CTS', 'UART_FLAG_CTSIF',
+    'UART_FLAG_LBDF', 'UART_FLAG_TXE', 'UART_FLAG_TC', 'UART_FLAG_RXNE',
+    'UART_FLAG_IDLE', 'UART_FLAG_ORE', 'UART_FLAG_NE', 'UART_FLAG_FE', 'UART_FLAG_PE',
+    'UART_IT_PE', 'UART_IT_TXE', 'UART_IT_TC', 'UART_IT_RXNE', 'UART_IT_IDLE',
+    'UART_IT_LBD', 'UART_IT_CTS', 'UART_IT_CM', 'UART_IT_WUF', 'UART_IT_ERR',
+    'UART_IT_ORE', 'UART_IT_NE', 'UART_IT_FE', 'UART_CLEAR_PEF', 'UART_CLEAR_FEF',
+    'UART_CLEAR_NEF', 'UART_CLEAR_OREF', 'UART_CLEAR_IDLEF', 'UART_CLEAR_TCF',
+    'UART_CLEAR_LBDF', 'UART_CLEAR_CTSF', 'UART_CLEAR_CMF', 'UART_CLEAR_WUF',
+    'UART_InitTypeDef', 'UART_AdvFeatureInitTypeDef', 'USART_WORDLENGTH_7B',
+    'USART_WORDLENGTH_8B', 'USART_WORDLENGTH_9B', 'HAL_USART_STATE_RESET',
+    'HAL_USART_STATE_READY', 'HAL_USART_STATE_BUSY', 'HAL_USART_STATE_BUSY_TX',
+    'HAL_USART_STATE_BUSY_RX', 'HAL_USART_STATE_BUSY_TX_RX', 'HAL_USART_STATE_TIMEOUT',
+    'HAL_USART_STATE_ERROR', 'USART_CLOCKSOURCE_PCLK1', 'USART_CLOCKSOURCE_PCLK2',
+    'USART_CLOCKSOURCE_HSI', 'USART_CLOCKSOURCE_SYSCLK', 'USART_CLOCKSOURCE_LSE',
+    'USART_CLOCKSOURCE_UNDEFINED', 'HAL_USART_ERROR_NONE', 'HAL_USART_ERROR_PE',
+    'HAL_USART_ERROR_NE', 'HAL_USART_ERROR_FE', 'HAL_USART_ERROR_ORE',
+    'HAL_USART_ERROR_DMA', 'USART_STOPBITS_0_5', 'USART_STOPBITS_1',
+    'USART_STOPBITS_1_5', 'USART_STOPBITS_2', 'USART_PARITY_NONE', 'USART_PARITY_EVEN',
+    'USART_PARITY_ODD', 'USART_MODE_RX', 'USART_MODE_TX', 'USART_MODE_TX_RX',
+    'USART_OVERSAMPLING_16', 'USART_OVERSAMPLING_8', 'USART_CLOCK_DISABLE',
+    'USART_CLOCK_ENABLE', 'USART_POLARITY_LOW', 'USART_POLARITY_HIGH',
+    'USART_PHASE_1EDGE', 'USART_PHASE_2EDGE', 'USART_LASTBIT_DISABLE',
+    'USART_LASTBIT_ENABLE', 'USART_RXDATA_FLUSH_REQUEST', 'USART_TXDATA_FLUSH_REQUEST',
+    'USART_FLAG_REACK', 'USART_FLAG_TEACK', 'USART_FLAG_BUSY', 'USART_FLAG_TXE',
+    'USART_FLAG_TC', 'USART_FLAG_RXNE', 'USART_FLAG_IDLE', 'USART_FLAG_ORE',
+    'USART_FLAG_NE', 'USART_FLAG_FE', 'USART_FLAG_PE', 'USART_IT_PE', 'USART_IT_TXE',
+    'USART_IT_TC', 'USART_IT_RXNE', 'USART_IT_IDLE', 'USART_IT_ERR', 'USART_IT_ORE',
+    'USART_IT_NE', 'USART_IT_FE', 'USART_CLEAR_PEF', 'USART_CLEAR_FEF',
+    'USART_CLEAR_NEF', 'USART_CLEAR_OREF', 'USART_CLEAR_IDLEF', 'USART_CLEAR_TCF',
+    'USART_IT_MASK', 'USART_CR_MASK', 'USART_CR_POS', 'USART_ISR_MASK', 'USART_ISR_POS',
+    'USART_InitTypeDef', 'WWDG_IT_EWI', 'WWDG_FLAG_EWIF', 'WWDG_PRESCALER_1',
+    'WWDG_PRESCALER_2', 'WWDG_PRESCALER_4', 'WWDG_PRESCALER_8', 'WWDG_EWI_DISABLE',
+    'WWDG_EWI_ENABLE', 'WWDG_InitTypeDef', 'ADC_REG_TRIG_EXT_EDGE_DEFAULT',
+    'ADC_REG_TRIG_SOURCE_MASK', 'ADC_REG_TRIG_EDGE_MASK',
+    'ADC_REG_TRIG_EXTSEL_BITOFFSET_POS', 'ADC_REG_TRIG_EXTEN_BITOFFSET_POS',
+    'ADC_CHANNEL_ID_NUMBER_MASK', 'ADC_CHANNEL_ID_BITFIELD_MASK',
+    'ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS', 'ADC_CHANNEL_ID_MASK',
+    'ADC_CHANNEL_ID_NUMBER_MASK_POSBIT0', 'ADC_CHANNEL_ID_INTERNAL_CH',
+    'ADC_CHANNEL_ID_INTERNAL_CH_MASK', 'ADC_CHANNEL_0_NUMBER', 'ADC_CHANNEL_1_NUMBER',
+    'ADC_CHANNEL_2_NUMBER', 'ADC_CHANNEL_3_NUMBER', 'ADC_CHANNEL_4_NUMBER',
+    'ADC_CHANNEL_5_NUMBER', 'ADC_CHANNEL_6_NUMBER', 'ADC_CHANNEL_7_NUMBER',
+    'ADC_CHANNEL_8_NUMBER', 'ADC_CHANNEL_9_NUMBER', 'ADC_CHANNEL_10_NUMBER',
+    'ADC_CHANNEL_11_NUMBER', 'ADC_CHANNEL_12_NUMBER', 'ADC_CHANNEL_13_NUMBER',
+    'ADC_CHANNEL_14_NUMBER', 'ADC_CHANNEL_15_NUMBER', 'ADC_CHANNEL_16_NUMBER',
+    'ADC_CHANNEL_17_NUMBER', 'ADC_CHANNEL_18_NUMBER', 'ADC_CHANNEL_0_BITFIELD',
+    'ADC_CHANNEL_1_BITFIELD', 'ADC_CHANNEL_2_BITFIELD', 'ADC_CHANNEL_3_BITFIELD',
+    'ADC_CHANNEL_4_BITFIELD', 'ADC_CHANNEL_5_BITFIELD', 'ADC_CHANNEL_6_BITFIELD',
+    'ADC_CHANNEL_7_BITFIELD', 'ADC_CHANNEL_8_BITFIELD', 'ADC_CHANNEL_9_BITFIELD',
+    'ADC_CHANNEL_10_BITFIELD', 'ADC_CHANNEL_11_BITFIELD', 'ADC_CHANNEL_12_BITFIELD',
+    'ADC_CHANNEL_13_BITFIELD', 'ADC_CHANNEL_14_BITFIELD', 'ADC_CHANNEL_15_BITFIELD',
+    'ADC_CHANNEL_16_BITFIELD', 'ADC_CHANNEL_17_BITFIELD', 'ADC_CHANNEL_18_BITFIELD',
+    'ADC_AWD_CR1_REGOFFSET', 'ADC_AWD_CRX_REGOFFSET_MASK', 'ADC_AWD_CR1_CHANNEL_MASK',
     'ADC_AWD_CR_ALL_CHANNEL_MASK', 'ADC_AWD_TR1_REGOFFSET',
     'ADC_AWD_TRX_REGOFFSET_MASK', 'ADC_CFGR1_RES_BITOFFSET_POS',
     'ADC_CFGR1_AWDSGL_BITOFFSET_POS', 'ADC_TR_HT_BITOFFSET_POS',
