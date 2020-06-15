@@ -36,6 +36,11 @@ parser.add_argument("-c", "--compile-options",
                         help="add header files",
                         default="" )
 
+parser.add_argument("-i", "--include-string",
+                        dest="include_string",
+                        help="add string in begin test code",
+                        default="" )
+
 parser.add_argument("-o", "--output-file",
                         dest="output",
                         default="output.py")
@@ -70,6 +75,8 @@ for d in options.dirs:
 pytext = PyText()
 
 compile_options = compile_options.split(" ")
+
+include_string = options.include_string
 
 debug = int(options.debug_level) > 0
 
@@ -118,7 +125,7 @@ pytext.addValue('DEFAULT_GDB_PORT' , 3333)
 for f in files:
 	base_name = os.path.basename(f)
 	pytext.addComment("file %s : \n" % base_name)
-	parser = ParseHeader(f, compile_options, debug)
+	parser = ParseHeader(f, compile_options, include_string, debug)
 	pt = parser.parse()
 	pytext.add(pt)
 	pytext.addComment(20*"--" + "\n")

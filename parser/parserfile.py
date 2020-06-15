@@ -42,11 +42,12 @@ class PyText(object):
 
 
 class ParseHeader(object):
-	def __init__(self, filename, compile_options=[], debug=False):
+	def __init__(self, filename, compile_options=[], include_string="", debug=False):
 		self.filename = filename
 		self.compile_options = compile_options
 		self.pytext = PyText()
 		self.debug = debug
+		self.include_string = include_string
 	
 	def pEnums(self,enums):
 		if len(enums) == 0:
@@ -105,17 +106,20 @@ class ParseHeader(object):
 			return
 		self.pytext.addComment("Skip " + name + " : " + error)
 
+	def prepareSourceCode(self):
+		ctext = self.include_string + "\n"
+		ctext += '#include "%s" \n' % (self.filename)
+		ctext += '#include "stdio.h"\n'
+		return ctext
 
 	def runtimeValue(self, value):
-		ctext = "#include \"%s\" \n\n" % (self.filename)
-		ctext += '#include "stdio.h"\n'
+		ctext = self.prepareSourceCode()
 		ctext += 'int main(){ printf("0x%%LX", %s); return 0; }' % value
 		result, error = runtimeOutput(ctext, self.compile_options, self.debug)
 		return result, error
 
 	def sizeOfField(self, name_class, name_field):
-		ctext = '#include "%s" \n' % (self.filename)
-		ctext += '#include "stdio.h"\n'
+		ctext = self.prepareSourceCode()
 		ctext += 'int main(){ printf("%%d", sizeof(((%s *)0)->%s)); return 0; }' % (name_class, name_field)
 		result, error = runtimeOutput(ctext, self.compile_options, self.debug)
 		return result, error

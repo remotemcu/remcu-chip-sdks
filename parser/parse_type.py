@@ -33,8 +33,10 @@ def get_size_and_type(string_id):
 
 
 def parse_type_of_field(options, name_class, name_field):
-	ctext = '#include "%s" \n' % (options.filename)
-	ctext += '#include "stdio.h"\n'
+	#ctext = '#include "%s" \n' % (options.filename)
+	#ctext += '#include "stdio.h"\n'
+	ctext  = options.prepareSourceCode()
+
 	ctext += '#include <typeinfo>\n'
 	ctext += 'int main(){ printf("%%s", typeid(((%s *)0)->%s).name()); return 0; }' % (name_class, name_field)
 	rt_type_id, error = runtimeOutput(ctext, options.compile_options, options.debug, compiler=CPP_GPP)
