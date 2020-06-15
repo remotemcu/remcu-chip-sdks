@@ -45,7 +45,10 @@
 #if !defined (STM32L010xB) && !defined (STM32L010x8) && !defined (STM32L010x6) && !defined (STM32L010x4) && !defined (STM32L011xx) && !defined (STM32L021xx) && !defined (STM32L031xx) && !defined (STM32L041xx)
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32l0xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32L0xx_HAL_Driver
   * @{

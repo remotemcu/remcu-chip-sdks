@@ -23,7 +23,7 @@ import ctypes
 
 
 
-__version__ = "v1.11.2-e339fbd6"
+__version__ = "v1.11.2-ea519736"
 __RUN = 0
 __HALT = 1
 __ERROR = 0
@@ -5936,9 +5936,9 @@ class ADC_TypeDef(ctypes.Structure):
 		('TR',	ctypes.c_uint32),
 		('RESERVED3',	ctypes.c_uint32),
 		('CHSELR',	ctypes.c_uint32),
-		('RESERVED4',	ctypes.c_uint8 * 20),
+		('RESERVED4',	ctypes.c_uint32 * 5),
 		('DR',	ctypes.c_uint32),
-		('RESERVED5',	ctypes.c_uint8 * 112),
+		('RESERVED5',	ctypes.c_uint32 * 28),
 		('CALFACT',	ctypes.c_uint32),
 	]
 	def ref(self):
@@ -6014,7 +6014,7 @@ class DAC_TypeDef(ctypes.Structure):
 		('DHR12R1',	ctypes.c_uint32),
 		('DHR12L1',	ctypes.c_uint32),
 		('DHR8R1',	ctypes.c_uint32),
-		('RESERVED0',	ctypes.c_uint8 * 24),
+		('RESERVED0',	ctypes.c_uint32 * 6),
 		('DOR1',	ctypes.c_uint32),
 		('RESERVED1',	ctypes.c_uint32),
 		('SR',	ctypes.c_uint32),
@@ -6127,7 +6127,7 @@ class GPIO_TypeDef(ctypes.Structure):
 		('ODR',	ctypes.c_uint32),
 		('BSRR',	ctypes.c_uint32),
 		('LCKR',	ctypes.c_uint32),
-		('AFR',	ctypes.c_uint64),
+		('AFR',	ctypes.c_uint32 * 2),
 		('BRR',	ctypes.c_uint32),
 	]
 	def ref(self):
@@ -6157,8 +6157,8 @@ class SYSCFG_TypeDef(ctypes.Structure):
 	_fields_ = [
 		('CFGR1',	ctypes.c_uint32),
 		('CFGR2',	ctypes.c_uint32),
-		('EXTICR',	ctypes.c_uint8 * 16),
-		('RESERVED',	ctypes.c_uint64),
+		('EXTICR',	ctypes.c_uint32 * 4),
+		('RESERVED',	ctypes.c_uint32 * 2),
 		('CFGR3',	ctypes.c_uint32),
 	]
 	def ref(self):
@@ -6208,7 +6208,7 @@ class LCD_TypeDef(ctypes.Structure):
 		('SR',	ctypes.c_uint32),
 		('CLR',	ctypes.c_uint32),
 		('RESERVED',	ctypes.c_uint32),
-		('RAM',	ctypes.c_uint8 * 64),
+		('RAM',	ctypes.c_uint32 * 16),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -6384,7 +6384,7 @@ class TSC_TypeDef(ctypes.Structure):
 		('IOCCR',	ctypes.c_uint32),
 		('RESERVED4',	ctypes.c_uint32),
 		('IOGCSR',	ctypes.c_uint32),
-		('IOGXCR',	ctypes.c_uint8 * 32),
+		('IOGXCR',	ctypes.c_uint32 * 8),
 	]
 	def ref(self):
 		return ctypes.byref(self)
@@ -6441,7 +6441,7 @@ class USB_TypeDef(ctypes.Structure):
 		('EP6R',	ctypes.c_uint16),
 		('RESERVED6',	ctypes.c_uint16),
 		('EP7R',	ctypes.c_uint16),
-		('RESERVED7',	ctypes.c_uint8 * 34),
+		('RESERVED7',	ctypes.c_uint16 * 17),
 		('CNTR',	ctypes.c_uint16),
 		('RESERVED8',	ctypes.c_uint16),
 		('ISTR',	ctypes.c_uint16),
@@ -7191,72 +7191,6 @@ class CRC_InitTypeDef(ctypes.Structure):
 
 # struct CRC_HandleTypeDef
 # struct CRC_HandleTypeDef : field is class : Init
-# ----------------------------------------
-
-# file stm32l0xx_hal_cryp_ex.h : 
-
-# empty define __STM32L0xx_HAL_CRYP_EX_H
-# ----------------------------------------
-
-# file stm32l0xx_hal_cryp.h : 
-
-# Enum HAL_CRYP_STATETypeDef
-# Skip HAL_CRYP_STATE_RESET : no need parse
-# Skip HAL_CRYP_STATE_READY : no need parse
-# Skip HAL_CRYP_STATE_BUSY : no need parse
-# Skip HAL_CRYP_STATE_TIMEOUT : no need parse
-# Skip HAL_CRYP_STATE_ERROR : no need parse
-# Enum HAL_PhaseTypeDef
-# Skip HAL_CRYP_PHASE_READY : no need parse
-# Skip HAL_CRYP_PHASE_PROCESS : no need parse
-# empty define __STM32L0xx_HAL_CRYP_H
-# Skip CRYP_DATATYPE_32B : no need parse
-# Skip CRYP_DATATYPE_16B : no need parse
-# Skip CRYP_DATATYPE_8B : no need parse
-# Skip CRYP_DATATYPE_1B : no need parse
-# fun define IS_CRYP_DATATYPE(DATATYPE) (((DATATYPE) == CRYP_DATATYPE_32B) || \
-#                                    ((DATATYPE) == CRYP_DATATYPE_16B) || \
-#                                    ((DATATYPE) == CRYP_DATATYPE_8B)  || \
-#                                    ((DATATYPE) == CRYP_DATATYPE_1B))
-# Skip CRYP_CR_ALGOMODE_DIRECTION : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_ECB_ENCRYPT : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_ECB_KEYDERDECRYPT : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_CBC_ENCRYPT : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_CBC_KEYDERDECRYPT : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_CTR_ENCRYPT : no need parse
-# Skip CRYP_CR_ALGOMODE_AES_CTR_DECRYPT : no need parse
-# Skip CRYP_IT_CC : no need parse
-# Skip CRYP_IT_ERR : no need parse
-# Skip CRYP_FLAG_CCF : no need parse
-# Skip CRYP_FLAG_RDERR : no need parse
-# Skip CRYP_FLAG_WRERR : no need parse
-# Skip CRYP_CLEARFLAG_CCF : no need parse
-# Skip CRYP_CLEARFLAG_RDERR : no need parse
-# Skip CRYP_CLEARFLAG_WRERR : no need parse
-# fun define __HAL_CRYP_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_CRYP_STATE_RESET)
-# fun define __HAL_CRYP_ENABLE(__HANDLE__)                   SET_BIT((__HANDLE__)->Instance->CR, AES_CR_EN)
-# fun define __HAL_CRYP_DISABLE(__HANDLE__)                  CLEAR_BIT((__HANDLE__)->Instance->CR, AES_CR_EN)
-# fun define __HAL_CRYP_SET_MODE(__HANDLE__,__MODE__)             SET_BIT((__HANDLE__)->Instance->CR, (__MODE__))
-# fun define __HAL_CRYP_GET_FLAG(__HANDLE__,__FLAG__)         (((__HANDLE__)->Instance->SR & (__FLAG__)) == (__FLAG__))
-# fun define __HAL_CRYP_CLEAR_FLAG(__HANDLE__, __FLAG__)   SET_BIT((__HANDLE__)->Instance->CR, (__FLAG__))
-# fun define __HAL_CRYP_ENABLE_IT(__HANDLE__,__INTERRUPT__)   SET_BIT((__HANDLE__)->Instance->CR, (__INTERRUPT__))
-# fun define __HAL_CRYP_DISABLE_IT(__HANDLE__,__INTERRUPT__)  CLEAR_BIT((__HANDLE__)->Instance->CR, (__INTERRUPT__))
-# fun define __HAL_CRYP_GET_IT_SOURCE(__HANDLE__, __INTERRUPT__) \
-#    (( ((__HANDLE__)->Instance->CR & (__INTERRUPT__)) == (__INTERRUPT__)       \
-#     )? SET : RESET                                         \
-#    )
-# fun define __HAL_CRYP_CLEAR_IT(__HANDLE__, __IT__) SET_BIT((__HANDLE__)->Instance->CR, (__IT__))
-# struct CRYP_InitTypeDef
-
-class CRYP_InitTypeDef(ctypes.Structure):
-	_pack_ = False
-	_fields_ = [
-	]
-	def ref(self):
-		return ctypes.byref(self)
-
-# struct CRYP_HandleTypeDef
-# struct CRYP_HandleTypeDef : field is class : Init
 # ----------------------------------------
 
 # file stm32l0xx_hal_dac_ex.h : 
@@ -11502,7 +11436,7 @@ HAL_RNG_ERROR_TIMEOUT = 0x2
 class RNG_HandleTypeDef(ctypes.Structure):
 	_pack_ = False
 	_fields_ = [
-		('Instance',	ctypes.c_uint64),
+		('Instance',	ctypes.c_void_p),
 		('Lock',	ctypes.c_uint32),
 		('State',	ctypes.c_uint32),
 		('ErrorCode',	ctypes.c_uint32),
@@ -18682,53 +18616,53 @@ __all__ =  ['__version__', '__RUN', '__HALT', '__ERROR', '__WARNING', '__INFO', 
     'HAL_CRC_LENGTH_16B', 'HAL_CRC_LENGTH_8B', 'HAL_CRC_LENGTH_7B',
     'CRC_INPUTDATA_FORMAT_UNDEFINED', 'CRC_INPUTDATA_FORMAT_BYTES',
     'CRC_INPUTDATA_FORMAT_HALFWORDS', 'CRC_INPUTDATA_FORMAT_WORDS', 'CRC_InitTypeDef',
-    'CRYP_InitTypeDef', 'DAC_LFSRUNMASK_BIT0', 'DAC_LFSRUNMASK_BITS1_0',
-    'DAC_LFSRUNMASK_BITS2_0', 'DAC_LFSRUNMASK_BITS3_0', 'DAC_LFSRUNMASK_BITS4_0',
-    'DAC_LFSRUNMASK_BITS5_0', 'DAC_LFSRUNMASK_BITS6_0', 'DAC_LFSRUNMASK_BITS7_0',
-    'DAC_LFSRUNMASK_BITS8_0', 'DAC_LFSRUNMASK_BITS9_0', 'DAC_LFSRUNMASK_BITS10_0',
-    'DAC_LFSRUNMASK_BITS11_0', 'DAC_TRIANGLEAMPLITUDE_1', 'DAC_TRIANGLEAMPLITUDE_3',
-    'DAC_TRIANGLEAMPLITUDE_7', 'DAC_TRIANGLEAMPLITUDE_15', 'DAC_TRIANGLEAMPLITUDE_31',
-    'DAC_TRIANGLEAMPLITUDE_63', 'DAC_TRIANGLEAMPLITUDE_127',
-    'DAC_TRIANGLEAMPLITUDE_255', 'DAC_TRIANGLEAMPLITUDE_511',
-    'DAC_TRIANGLEAMPLITUDE_1023', 'DAC_TRIANGLEAMPLITUDE_2047',
-    'DAC_TRIANGLEAMPLITUDE_4095', 'HAL_DAC_STATE_RESET', 'HAL_DAC_STATE_READY',
-    'HAL_DAC_STATE_BUSY', 'HAL_DAC_STATE_TIMEOUT', 'HAL_DAC_STATE_ERROR',
-    'HAL_DAC_ERROR_NONE', 'HAL_DAC_ERROR_DMAUNDERRUNCH1', 'HAL_DAC_ERROR_DMA',
-    'DAC_TRIGGER_NONE', 'DAC_TRIGGER_T6_TRGO', 'DAC_TRIGGER_T21_TRGO',
-    'DAC_TRIGGER_T2_TRGO', 'DAC_TRIGGER_EXT_IT9', 'DAC_TRIGGER_SOFTWARE',
-    'DAC_OUTPUTBUFFER_ENABLE', 'DAC_OUTPUTBUFFER_DISABLE', 'DAC_CHANNEL_1',
-    'DAC_ALIGN_12B_R', 'DAC_ALIGN_12B_L', 'DAC_ALIGN_8B_R', 'DAC_FLAG_DMAUDR1',
-    'DAC_IT_DMAUDR1', 'DAC_ChannelConfTypeDef', 'HAL_OK', 'HAL_ERROR', 'HAL_BUSY',
-    'HAL_TIMEOUT', 'HAL_UNLOCKED', 'HAL_LOCKED', 'HAL_MAX_DELAY', 'HAL_DMA_STATE_RESET',
-    'HAL_DMA_STATE_READY', 'HAL_DMA_STATE_BUSY', 'HAL_DMA_STATE_TIMEOUT',
-    'HAL_DMA_FULL_TRANSFER', 'HAL_DMA_HALF_TRANSFER', 'HAL_DMA_XFER_CPLT_CB_ID',
-    'HAL_DMA_XFER_HALFCPLT_CB_ID', 'HAL_DMA_XFER_ERROR_CB_ID',
-    'HAL_DMA_XFER_ABORT_CB_ID', 'HAL_DMA_XFER_ALL_CB_ID', 'HAL_DMA_ERROR_NONE',
-    'HAL_DMA_ERROR_TE', 'HAL_DMA_ERROR_NO_XFER', 'HAL_DMA_ERROR_TIMEOUT',
-    'HAL_DMA_ERROR_NOT_SUPPORTED', 'DMA_REQUEST_0', 'DMA_REQUEST_1', 'DMA_REQUEST_4',
-    'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_8', 'DMA_REQUEST_0', 'DMA_REQUEST_1',
-    'DMA_REQUEST_2', 'DMA_REQUEST_3', 'DMA_REQUEST_4', 'DMA_REQUEST_5', 'DMA_REQUEST_6',
-    'DMA_REQUEST_7', 'DMA_REQUEST_8', 'DMA_REQUEST_9', 'DMA_REQUEST_10',
-    'DMA_REQUEST_12', 'DMA_REQUEST_13', 'DMA_REQUEST_14', 'DMA_REQUEST_15',
+    'DAC_LFSRUNMASK_BIT0', 'DAC_LFSRUNMASK_BITS1_0', 'DAC_LFSRUNMASK_BITS2_0',
+    'DAC_LFSRUNMASK_BITS3_0', 'DAC_LFSRUNMASK_BITS4_0', 'DAC_LFSRUNMASK_BITS5_0',
+    'DAC_LFSRUNMASK_BITS6_0', 'DAC_LFSRUNMASK_BITS7_0', 'DAC_LFSRUNMASK_BITS8_0',
+    'DAC_LFSRUNMASK_BITS9_0', 'DAC_LFSRUNMASK_BITS10_0', 'DAC_LFSRUNMASK_BITS11_0',
+    'DAC_TRIANGLEAMPLITUDE_1', 'DAC_TRIANGLEAMPLITUDE_3', 'DAC_TRIANGLEAMPLITUDE_7',
+    'DAC_TRIANGLEAMPLITUDE_15', 'DAC_TRIANGLEAMPLITUDE_31', 'DAC_TRIANGLEAMPLITUDE_63',
+    'DAC_TRIANGLEAMPLITUDE_127', 'DAC_TRIANGLEAMPLITUDE_255',
+    'DAC_TRIANGLEAMPLITUDE_511', 'DAC_TRIANGLEAMPLITUDE_1023',
+    'DAC_TRIANGLEAMPLITUDE_2047', 'DAC_TRIANGLEAMPLITUDE_4095', 'HAL_DAC_STATE_RESET',
+    'HAL_DAC_STATE_READY', 'HAL_DAC_STATE_BUSY', 'HAL_DAC_STATE_TIMEOUT',
+    'HAL_DAC_STATE_ERROR', 'HAL_DAC_ERROR_NONE', 'HAL_DAC_ERROR_DMAUNDERRUNCH1',
+    'HAL_DAC_ERROR_DMA', 'DAC_TRIGGER_NONE', 'DAC_TRIGGER_T6_TRGO',
+    'DAC_TRIGGER_T21_TRGO', 'DAC_TRIGGER_T2_TRGO', 'DAC_TRIGGER_EXT_IT9',
+    'DAC_TRIGGER_SOFTWARE', 'DAC_OUTPUTBUFFER_ENABLE', 'DAC_OUTPUTBUFFER_DISABLE',
+    'DAC_CHANNEL_1', 'DAC_ALIGN_12B_R', 'DAC_ALIGN_12B_L', 'DAC_ALIGN_8B_R',
+    'DAC_FLAG_DMAUDR1', 'DAC_IT_DMAUDR1', 'DAC_ChannelConfTypeDef', 'HAL_OK',
+    'HAL_ERROR', 'HAL_BUSY', 'HAL_TIMEOUT', 'HAL_UNLOCKED', 'HAL_LOCKED',
+    'HAL_MAX_DELAY', 'HAL_DMA_STATE_RESET', 'HAL_DMA_STATE_READY', 'HAL_DMA_STATE_BUSY',
+    'HAL_DMA_STATE_TIMEOUT', 'HAL_DMA_FULL_TRANSFER', 'HAL_DMA_HALF_TRANSFER',
+    'HAL_DMA_XFER_CPLT_CB_ID', 'HAL_DMA_XFER_HALFCPLT_CB_ID',
+    'HAL_DMA_XFER_ERROR_CB_ID', 'HAL_DMA_XFER_ABORT_CB_ID', 'HAL_DMA_XFER_ALL_CB_ID',
+    'HAL_DMA_ERROR_NONE', 'HAL_DMA_ERROR_TE', 'HAL_DMA_ERROR_NO_XFER',
+    'HAL_DMA_ERROR_TIMEOUT', 'HAL_DMA_ERROR_NOT_SUPPORTED', 'DMA_REQUEST_0',
+    'DMA_REQUEST_1', 'DMA_REQUEST_4', 'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_8',
     'DMA_REQUEST_0', 'DMA_REQUEST_1', 'DMA_REQUEST_2', 'DMA_REQUEST_3', 'DMA_REQUEST_4',
     'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_7', 'DMA_REQUEST_8', 'DMA_REQUEST_9',
     'DMA_REQUEST_10', 'DMA_REQUEST_12', 'DMA_REQUEST_13', 'DMA_REQUEST_14',
-    'DMA_REQUEST_15', 'DMA_PERIPH_TO_MEMORY', 'DMA_MEMORY_TO_PERIPH',
-    'DMA_MEMORY_TO_MEMORY', 'DMA_PINC_ENABLE', 'DMA_PINC_DISABLE', 'DMA_MINC_ENABLE',
-    'DMA_MINC_DISABLE', 'DMA_PDATAALIGN_BYTE', 'DMA_PDATAALIGN_HALFWORD',
-    'DMA_PDATAALIGN_WORD', 'DMA_MDATAALIGN_BYTE', 'DMA_MDATAALIGN_HALFWORD',
-    'DMA_MDATAALIGN_WORD', 'DMA_NORMAL', 'DMA_CIRCULAR', 'DMA_PRIORITY_LOW',
-    'DMA_PRIORITY_MEDIUM', 'DMA_PRIORITY_HIGH', 'DMA_PRIORITY_VERY_HIGH', 'DMA_IT_TC',
-    'DMA_IT_HT', 'DMA_IT_TE', 'DMA_FLAG_GL1', 'DMA_FLAG_TC1', 'DMA_FLAG_HT1',
-    'DMA_FLAG_TE1', 'DMA_FLAG_GL2', 'DMA_FLAG_TC2', 'DMA_FLAG_HT2', 'DMA_FLAG_TE2',
-    'DMA_FLAG_GL3', 'DMA_FLAG_TC3', 'DMA_FLAG_HT3', 'DMA_FLAG_TE3', 'DMA_FLAG_GL4',
-    'DMA_FLAG_TC4', 'DMA_FLAG_HT4', 'DMA_FLAG_TE4', 'DMA_FLAG_GL5', 'DMA_FLAG_TC5',
-    'DMA_FLAG_HT5', 'DMA_FLAG_TE5', 'DMA_FLAG_GL6', 'DMA_FLAG_TC6', 'DMA_FLAG_HT6',
-    'DMA_FLAG_TE6', 'DMA_FLAG_GL7', 'DMA_FLAG_TC7', 'DMA_FLAG_HT7', 'DMA_FLAG_TE7',
-    'DMA_InitTypeDef', 'FIREWALL_VOLATILEDATA_NOT_EXECUTABLE',
-    'FIREWALL_VOLATILEDATA_EXECUTABLE', 'FIREWALL_VOLATILEDATA_NOT_SHARED',
-    'FIREWALL_VOLATILEDATA_SHARED', 'FIREWALL_PRE_ARM_RESET', 'FIREWALL_PRE_ARM_SET',
-    'FIREWALL_InitTypeDef', 'FLASH_SIZE_DATA_REGISTER', 'WRP_MASK_LOW', 'WRP_MASK_HIGH',
+    'DMA_REQUEST_15', 'DMA_REQUEST_0', 'DMA_REQUEST_1', 'DMA_REQUEST_2',
+    'DMA_REQUEST_3', 'DMA_REQUEST_4', 'DMA_REQUEST_5', 'DMA_REQUEST_6', 'DMA_REQUEST_7',
+    'DMA_REQUEST_8', 'DMA_REQUEST_9', 'DMA_REQUEST_10', 'DMA_REQUEST_12',
+    'DMA_REQUEST_13', 'DMA_REQUEST_14', 'DMA_REQUEST_15', 'DMA_PERIPH_TO_MEMORY',
+    'DMA_MEMORY_TO_PERIPH', 'DMA_MEMORY_TO_MEMORY', 'DMA_PINC_ENABLE',
+    'DMA_PINC_DISABLE', 'DMA_MINC_ENABLE', 'DMA_MINC_DISABLE', 'DMA_PDATAALIGN_BYTE',
+    'DMA_PDATAALIGN_HALFWORD', 'DMA_PDATAALIGN_WORD', 'DMA_MDATAALIGN_BYTE',
+    'DMA_MDATAALIGN_HALFWORD', 'DMA_MDATAALIGN_WORD', 'DMA_NORMAL', 'DMA_CIRCULAR',
+    'DMA_PRIORITY_LOW', 'DMA_PRIORITY_MEDIUM', 'DMA_PRIORITY_HIGH',
+    'DMA_PRIORITY_VERY_HIGH', 'DMA_IT_TC', 'DMA_IT_HT', 'DMA_IT_TE', 'DMA_FLAG_GL1',
+    'DMA_FLAG_TC1', 'DMA_FLAG_HT1', 'DMA_FLAG_TE1', 'DMA_FLAG_GL2', 'DMA_FLAG_TC2',
+    'DMA_FLAG_HT2', 'DMA_FLAG_TE2', 'DMA_FLAG_GL3', 'DMA_FLAG_TC3', 'DMA_FLAG_HT3',
+    'DMA_FLAG_TE3', 'DMA_FLAG_GL4', 'DMA_FLAG_TC4', 'DMA_FLAG_HT4', 'DMA_FLAG_TE4',
+    'DMA_FLAG_GL5', 'DMA_FLAG_TC5', 'DMA_FLAG_HT5', 'DMA_FLAG_TE5', 'DMA_FLAG_GL6',
+    'DMA_FLAG_TC6', 'DMA_FLAG_HT6', 'DMA_FLAG_TE6', 'DMA_FLAG_GL7', 'DMA_FLAG_TC7',
+    'DMA_FLAG_HT7', 'DMA_FLAG_TE7', 'DMA_InitTypeDef',
+    'FIREWALL_VOLATILEDATA_NOT_EXECUTABLE', 'FIREWALL_VOLATILEDATA_EXECUTABLE',
+    'FIREWALL_VOLATILEDATA_NOT_SHARED', 'FIREWALL_VOLATILEDATA_SHARED',
+    'FIREWALL_PRE_ARM_RESET', 'FIREWALL_PRE_ARM_SET', 'FIREWALL_InitTypeDef',
+    'FLASH_SIZE_DATA_REGISTER', 'WRP_MASK_LOW', 'WRP_MASK_HIGH',
     'FLASH_TYPEERASE_PAGES', 'OPTIONBYTE_WRP', 'OPTIONBYTE_RDP', 'OPTIONBYTE_USER',
     'OPTIONBYTE_BOR', 'OPTIONBYTE_BOOT_BIT1', 'OB_WRPSTATE_DISABLE',
     'OB_WRPSTATE_ENABLE', 'OB_WRP_Pages0to31', 'OB_WRP_Pages32to63',

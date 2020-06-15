@@ -23,7 +23,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32l0xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #ifdef HAL_PWR_MODULE_ENABLED
 /** @addtogroup STM32L0xx_HAL_Driver

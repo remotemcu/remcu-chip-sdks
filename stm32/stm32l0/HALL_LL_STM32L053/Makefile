@@ -106,8 +106,6 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_comp_ex.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_comp.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_crc_ex.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_crc.h \
-$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_cryp_ex.h \
-$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_cryp.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_dac_ex.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_dac.h \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_def.h \
@@ -171,6 +169,8 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_ll_wwdg.h \
 
 INC_EXTRA = \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_rtc.h \
+$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_cryp_ex.h \
+$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_cryp.h \
 
 FIRST_RUNTIME_STRING = \#include "stm32l0xx_hal.h"
 

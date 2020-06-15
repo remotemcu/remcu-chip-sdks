@@ -70,7 +70,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32l0xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 #if defined (STM32L053xx) || defined (STM32L063xx) || defined (STM32L073xx) || defined (STM32L083xx)
 

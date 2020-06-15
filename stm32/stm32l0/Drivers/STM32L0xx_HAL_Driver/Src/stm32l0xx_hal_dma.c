@@ -81,7 +81,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "remcu_exports_symbol_enter.h"
 #include "stm32l0xx_hal.h"
+#include "remcu_exports_symbol_exit.h"
+
 
 /** @addtogroup STM32L0xx_HAL_Driver
   * @{
