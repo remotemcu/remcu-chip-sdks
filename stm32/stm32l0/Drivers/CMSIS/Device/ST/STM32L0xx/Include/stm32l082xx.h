@@ -765,7 +765,9 @@ typedef struct
 #define FLASH               ((FLASH_TypeDef *) FLASH_R_BASE)
 #define OB                  ((OB_TypeDef *) OB_BASE) 
 #define RCC                 ((RCC_TypeDef *) RCC_BASE)
+#ifndef REMCU_LIB
 #define CRC                 ((CRC_TypeDef *) CRC_BASE)
+#endif //REMCU_LIB
 #define TSC                 ((TSC_TypeDef *) TSC_BASE)
 #define AES                 ((AES_TypeDef *) AES_BASE)
 #define RNG                 ((RNG_TypeDef *) RNG_BASE)

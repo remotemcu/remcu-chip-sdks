@@ -180,6 +180,21 @@ typedef enum
 
 #endif
 
+#if defined(REMCU_LIB) && defined(_WIN32)
+
+  #define __RAM_FUNC
+
+  #define __NOINLINE __attribute__ ( (noinline) )
+
+  #ifndef __weak
+      #define __weak   __attribute__((weak))
+    #endif /* __weak */
+    #ifndef __packed
+      #define __packed __attribute__((__packed__))
+  #endif /* __packed */
+
+#endif //REMCU_LIB
+
 #ifdef __cplusplus
 }
 #endif

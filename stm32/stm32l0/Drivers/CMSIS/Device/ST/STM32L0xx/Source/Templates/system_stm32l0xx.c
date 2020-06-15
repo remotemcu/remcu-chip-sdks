@@ -122,6 +122,7 @@
 /**
   * @}
   */
+#include "remcu_exports_symbol_enter.h"
 
 /** @addtogroup STM32L0xx_System_Private_Functions
   * @{
@@ -264,7 +265,7 @@ void SystemCoreClockUpdate (void)
 }
 
 
-
+#include "remcu_exports_symbol_exit.h"
 /**
   * @}
   */

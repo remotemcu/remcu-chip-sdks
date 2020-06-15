@@ -12,6 +12,7 @@
 
 #ifdef _WIN32
     #include <windows.h>
+    #define sleep _sleep
 #else
     #include <unistd.h>
 #endif
@@ -22,7 +23,7 @@ int main(int argc, char** argv)
 
   printf("-1\n");
 
-remcu_connect2OpenOCD("localhost", 6666, 3);
+remcu_connect2OpenOCD("127.0.0.1", 6666, 3);
 
 
   printf("0\n");
@@ -86,6 +87,8 @@ LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
     printf("toogle\n");
     sleep(1);
-    
+    #ifdef _WIN32
+    sleep(1000);
+    #endif
   }
 }

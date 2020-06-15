@@ -72,7 +72,8 @@
 #ifdef REMCU_LIB
 
   #define __INLINE         inline                                    /*!< inline keyword for COSMIC Compiler. Use -pc99 on compile line */
-  #define __STATIC_INLINE  static inline
+  //#define __STATIC_INLINE  static inline
+  #define __STATIC_INLINE
 
   #define __enable_irq()
 

@@ -552,7 +552,9 @@ typedef struct
 #define FLASH               ((FLASH_TypeDef *) FLASH_R_BASE)
 #define OB                  ((OB_TypeDef *) OB_BASE) 
 #define RCC                 ((RCC_TypeDef *) RCC_BASE)
+#ifndef REMCU_LIB
 #define CRC                 ((CRC_TypeDef *) CRC_BASE)
+#endif //REMCU_LIB
 
 #define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
 #define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
