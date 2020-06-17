@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.5)
 
 set(MCU_TYPE STM32L083xx)
 
-set(MCU_LIB_NAME LowLayer_HAL_drivers)
+set(MCU_LIB_NAME HAL_LL_drivers)
 
 set(MCU_MAJOR_VERSION_LIB v1.11.2)
 
