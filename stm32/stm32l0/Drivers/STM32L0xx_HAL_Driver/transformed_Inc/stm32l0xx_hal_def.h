@@ -180,7 +180,7 @@ typedef enum
 
 #endif
 
-#if defined(REMCU_LIB) && defined(_WIN32)
+#if defined(REMCU_LIB)
 
   #define __RAM_FUNC
 
