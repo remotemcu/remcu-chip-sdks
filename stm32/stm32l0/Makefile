@@ -12,8 +12,6 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_comp.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_comp_ex.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_crc.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_crc_ex.c \
-$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cryp.c \
-$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cryp_ex.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dac.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dac_ex.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.c \
@@ -75,6 +73,8 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_ll_usb.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pcd.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pcd_ex.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.c \
+$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cryp.c \
+$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cryp_ex.c \
 
 
 C_SRC += $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32L0xx/Source/Templates/system_stm32l0xx.c
