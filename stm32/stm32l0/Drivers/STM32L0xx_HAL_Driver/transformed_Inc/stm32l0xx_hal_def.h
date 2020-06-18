@@ -186,10 +186,9 @@ typedef enum
 
   #define __NOINLINE __attribute__ ( (noinline) )
 
-  #ifndef __weak
-      #define __weak   __attribute__((weak))
-    #endif /* __weak */
-    #ifndef __packed
+  #define __weak   __attribute__((weak))
+
+  #ifndef __packed
       #define __packed __attribute__((__packed__))
   #endif /* __packed */
 
