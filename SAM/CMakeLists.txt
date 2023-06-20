@@ -1,0 +1,1 @@
+add_subdirectory(xdk-asf-3.45.0)
