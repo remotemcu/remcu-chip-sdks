@@ -29,7 +29,9 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32h7xx.h"
-#include <math.h>
+#ifndef REMCU_LIB
+ #include <math.h>
+#endif //REMCU_LIB
 
 /** @addtogroup STM32H7xx_LL_Driver
   * @{

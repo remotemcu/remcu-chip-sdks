@@ -1,5 +1,5 @@
 
-include $(TARGET_MK)
+GECKO_SDK_ROOT = $(MCU_SDK_PATH)
 
 INC_PATH += \
 $(GECKO_SDK_ROOT)/platform/CMSIS/Include \
@@ -30,18 +30,5 @@ IR_FILES += $(C_SRC:.c=.ll)
 DEFS += -D$(DEVICE)
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 
-LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)
 
-
-$(OUTPUT): $(IR_FILES)
-	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
-	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
-
-# compile
-#------------------------------------------------------------------------------- 
-%.ll: %.c
-	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
-	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
-	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
-
+include $(TARGET_MK)

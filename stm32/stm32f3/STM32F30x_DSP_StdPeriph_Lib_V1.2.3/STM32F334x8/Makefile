@@ -1,7 +1,5 @@
 
-include $(TARGET_MK)
-
-include $(MCU_UTIL_PATH)/python.mk
+# include $(MCU_UTIL_PATH)/python.mk
 
 # List of C source files.
 C_SRC = \
@@ -52,25 +50,6 @@ DEFS = -DREMCU_LIB -DUSE_STDPERIPH_DRIVER -D$(DEVICE)
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 
-LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)
+include $(TARGET_MK)
 
-IR_FILES += $(C_SRC:.c=.ll)
-
-
-$(OUTPUT): $(IR_FILES) python
-	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
-	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
-
-REMCU_C: $(IR_FILES)
-	@echo done
-
-# compile
-#------------------------------------------------------------------------------- 
-%.ll: %.c
-	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
-	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
-	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).adin.ll -o $(OUTPUT_DIR)/$(notdir $<).remcu.c
-	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX) -o $(OUTPUT_MCU_DIR)/$(notdir $<).mcu.c
-	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.
 

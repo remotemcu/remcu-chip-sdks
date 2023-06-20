@@ -27,6 +27,10 @@
 #include "stm32h7xx_ll_bus.h"
 #include "remcu_exports_symbol_exit.h"
 
+#ifdef REMCU_LIB
+ #include <math.h>
+#endif //REMCU_LIB
+
 #ifdef  USE_FULL_ASSERT
   #include "stm32_assert.h"
 #else

@@ -30,7 +30,9 @@
 #include "stm32h7xx.h"
 #include "Legacy/stm32_hal_legacy.h"
 #include <stddef.h>
-#include <math.h>
+#ifndef REMCU_LIB
+ #include <math.h>
+#endif //REMCU_LIB
 
 /* Exported types ------------------------------------------------------------*/
 
@@ -178,6 +180,15 @@ typedef enum
 #define __RAM_FUNC __attribute__((section(".RamFunc")))
 
 #endif
+
+#ifdef REMCU_LIB
+  #ifndef __weak
+    #define __weak   __attribute__((weak))
+  #endif /* __weak */
+  #ifndef __packed
+    #define __packed __attribute__((__packed__))
+  #endif /* __packed */
+#endif /* REMCU_LIB */
 
 #ifdef __cplusplus
 }

@@ -129,7 +129,7 @@
 /** @addtogroup STM32H7xx_System_Private_Functions
   * @{
   */
-
+#include "remcu_exports_symbol_enter.h"
 /**
   * @brief  Setup the microcontroller system
   *         Initialize the FPU setting and  vector table location
@@ -389,7 +389,7 @@ void SystemCoreClockUpdate (void)
 #endif /* DUAL_CORE && CORE_CM4 */
 }
 
-
+#include "remcu_exports_symbol_exit.h"
 /**
   * @}
   */

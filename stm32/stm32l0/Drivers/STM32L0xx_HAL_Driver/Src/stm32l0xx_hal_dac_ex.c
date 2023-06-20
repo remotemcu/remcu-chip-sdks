@@ -685,7 +685,7 @@ HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef* hdac, uint32_t Channel, ui
   * @retval HAL status
   */
 HAL_StatusTypeDef HAL_DAC_Start(DAC_HandleTypeDef* hdac, uint32_t Channel)
-{
+{@
   uint32_t tmp1 = 0U, tmp2 = 0U;
   
   /* Check the parameters */

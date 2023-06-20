@@ -8,25 +8,9 @@ set(MCU_MAJOR_VERSION_LIB V1.2.3)
 
 set(MCU_MINOR_VERSION_LIB 01)
 
-set(FULL_NAME_MCU_LIB ${MCU_TYPE}-${MCU_LIB_NAME}-${MCU_MAJOR_VERSION_LIB}-${MCU_MINOR_VERSION_LIB} )
-
-set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
-
-set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
-
 set(MCU_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
-include(McuCommon)
-
-add_custom_target( MCU_LIB
-                   COMMAND make all
-                   ${MCU_MAKE_ARGUMENTS}
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-                   COMMENT "---------------- Generating ADIN IR ----------------"
-)
-
-include(shared)
-
+include(${REMCU_VM_PATH}/cmake/mcu_build_target.cmake)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/defines.h.in ${ALL_INCLUDE_DIR}/device_defines.h)
 
@@ -44,7 +28,6 @@ FILE(GLOB COPY_HEADER_FROM_LIB
       ${MCU_SDK_PATH}/Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c
       )
 
-#message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")
 
 file(INSTALL ${COPY_HEADER_FROM_LIB}
             DESTINATION  ${ALL_INCLUDE_DIR}

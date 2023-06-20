@@ -7,31 +7,11 @@ set(MCU_MAJOR_VERSION_LIB 1.3.0)
 
 set(MCU_MINOR_VERSION_LIB 01)
 
-set(FULL_NAME_MCU_LIB ${MCU_TYPE}-${MCU_LIB_NAME}-${MCU_MAJOR_VERSION_LIB}-${MCU_MINOR_VERSION_LIB} )
-
 set(KSDK_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
-set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
+set(MCU_SDK_PATH ${KSDK_ROOT})
 
-set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
-
-include(McuCommon)
-
-add_custom_target( MCU_LIB
-                   COMMAND make all
-	                   MCU_UTIL_PATH=${MCU_UTIL_PATH}
-	                   TARGET_MK=${MCU_INCLUDE_MK_FILE}
-	                   OUTPUT=${MCU_OBJECT_FILE}
-	                   CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-	                   BUILD_DIRECTORY=${BUILD_DIRECTORY}
-	                   DEVICE=${MCU_TYPE}
-	                   KSDK_ROOT=${KSDK_ROOT}
-                   CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-                   COMMENT "---------------- Generating ADIN IR ----------------"
-)
-
-include(shared)
+include(${REMCU_VM_PATH}/cmake/mcu_build_target.cmake)
 
 file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
       DESTINATION ${ALL_INCLUDE_DIR}

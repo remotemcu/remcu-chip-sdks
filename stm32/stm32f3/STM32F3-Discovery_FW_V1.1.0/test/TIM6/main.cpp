@@ -75,12 +75,22 @@ int main(int argc, char** argv)
   } else {
     remcu_connect2GDB(host, port, 3);
   }
+  sleep(2);
+  printf("--------------\n");
 
   remcu_resetRemoteUnit(__HALT);
     //remcu_resetRemoteUnit(__RUN);
   //remcu_setVerboseLevel(__ALL_LOG);
 
+  sleep(2);
+  printf("--- test -----------\n");
+
   assert(remcu_isConnected());
+
+  if(remcu_debuggerTest() != NULL)
+    exit(-1);
+  sleep(2);
+  printf("--------------\n");
 
   SystemInit();
 

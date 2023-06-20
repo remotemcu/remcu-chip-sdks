@@ -8,35 +8,10 @@ set(MCU_MAJOR_VERSION_LIB v2.1.18)
 
 set(MCU_MINOR_VERSION_LIB 01)
 
-set(FULL_NAME_MCU_LIB ${MCU_TYPE}-${MCU_LIB_NAME}-${MCU_MAJOR_VERSION_LIB}-${MCU_MINOR_VERSION_LIB} )
-
-set(CONF_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/conf.cpp)
-
-set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
-
-include(McuCommon)
-
-
 set(XMC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../../)
+set(MCU_SDK_PATH ${XMC_ROOT})
 
-set(CMAKE_INSTALL_MESSAGE >>>>>>>>>>>>>>)
-
-
-add_custom_target( MCU_LIB
-                   COMMAND make all
-                   MCU_UTIL_PATH=${MCU_UTIL_PATH}
-                   TARGET_MK=${MCU_INCLUDE_MK_FILE}
-                   OUTPUT=${MCU_OBJECT_FILE}
-                   CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-                   BUILD_DIRECTORY=${BUILD_DIRECTORY}
-                   DEVICE=${MCU_TYPE}
-                   XMC_ROOT=${XMC_ROOT}
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-                   COMMENT "---------------- Generating ADIN IR ----------------"
-)
-
-include(shared)
-
+include(${REMCU_VM_PATH}/cmake/mcu_build_target.cmake)
 
 file(INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/defines_${MCU_TYPE}.h"
       DESTINATION ${ALL_INCLUDE_DIR}
@@ -53,14 +28,10 @@ FILE(GLOB COPY_HEADER_FROM_LIB
       ${XMC_ROOT}/XMCLib/inc/*.h
       )
 
-#message(COPY_HEADER_FROM_LIB "******* $CONF_SOURCE is not defined! ********")
 
 file(INSTALL ${COPY_HEADER_FROM_LIB}
             DESTINATION  ${ALL_INCLUDE_DIR}
             )
 
 
-#add_subdirectory(${XMC_ROOT}/test test)
 add_subdirectory(test)
-#add_subdirectory(test_adc_light)
-#add_subdirectory(test_dac)

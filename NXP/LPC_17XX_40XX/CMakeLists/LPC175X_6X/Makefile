@@ -1,7 +1,4 @@
 
-include $(TARGET_MK)
-
-
 INC_PATH += \
 $(MCU_SDK_PATH)/CMSIS/CMSIS/Include/  \
 $(MCU_SDK_PATH)/lpc_core/lpc_chip/chip_17xx_40xx/ \
@@ -57,18 +54,4 @@ DEFS +=-DCHIP_$(DEVICE)
 
 INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
 
-LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL)
-
-
-$(OUTPUT): $(IR_FILES)
-	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
-	#$(AR) rcv $@.ar $(BUILD_DIR)/*.adin.o
-
-# compile
-#------------------------------------------------------------------------------- 
-%.ll: %.c
-	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
-	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
-	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
-
+include $(TARGET_MK)

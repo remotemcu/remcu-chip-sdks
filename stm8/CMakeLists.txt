@@ -1,2 +1,1 @@
-
 add_subdirectory(STM8L15X)
