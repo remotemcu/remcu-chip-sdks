@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
 include(MultiBuild)
 
 ExternalProject_Add(LL_STM32H742
-      COMMENT           "Building LL_STM32H742"
+#      COMMENT           "Building LL_STM32H742"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/LL_STM32H742/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -14,7 +14,7 @@ ExternalProject_Add(LL_STM32H742
       )
 
 ExternalProject_Add(LL_STM32H750
-      COMMENT           "Building LL_STM32H750"
+#      COMMENT           "Building LL_STM32H750"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/LL_STM32H750/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -22,7 +22,7 @@ ExternalProject_Add(LL_STM32H750
       )
 
 ExternalProject_Add(LL_STM32H753
-      COMMENT           "Building LL_STM32H753"
+#      COMMENT           "Building LL_STM32H753"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/LL_STM32H753/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -30,7 +30,7 @@ ExternalProject_Add(LL_STM32H753
       )
 
 ExternalProject_Add(LL_STM32H743xx
-      COMMENT           "Building LL_STM32H743xx"
+#      COMMENT           "Building LL_STM32H743xx"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/LL_STM32H743xx/"
       CMAKE_ARGS ${CMAKE_ARGS}

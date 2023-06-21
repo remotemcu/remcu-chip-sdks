@@ -1,6 +1,8 @@
 
 add_subdirectory(stm32)
 
+cmake_minimum_required(VERSION 3.5)
+
 add_subdirectory(stm8)
 
 if(NOT WIN32)

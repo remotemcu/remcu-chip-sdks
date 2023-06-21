@@ -7,7 +7,7 @@ include(MultiBuild)
 
 
 ExternalProject_Add( HALL_LL_STM32L011
-      COMMENT           "Building HALL_LL_STM32L011"
+#      COMMENT           "Building HALL_LL_STM32L011"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L011/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -15,7 +15,7 @@ ExternalProject_Add( HALL_LL_STM32L011
       )
 
 ExternalProject_Add( HALL_LL_STM32L021
-      COMMENT           "Building HALL_LL_STM32L021"
+#      COMMENT           "Building HALL_LL_STM32L021"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L021/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -23,7 +23,7 @@ ExternalProject_Add( HALL_LL_STM32L021
       )
 
 ExternalProject_Add( HALL_LL_STM32L031
-      COMMENT           "Building HALL_LL_STM32L031"
+#      COMMENT           "Building HALL_LL_STM32L031"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L031/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -31,7 +31,7 @@ ExternalProject_Add( HALL_LL_STM32L031
       )
 
 ExternalProject_Add( HALL_LL_STM32L041
-      COMMENT           "Building HALL_LL_STM32L041"
+#      COMMENT           "Building HALL_LL_STM32L041"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L041/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -39,7 +39,7 @@ ExternalProject_Add( HALL_LL_STM32L041
       )
 
 ExternalProject_Add( HALL_LL_STM32L053
-      COMMENT           "Building HALL_LL_STM32L053"
+#      COMMENT           "Building HALL_LL_STM32L053"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L053/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -47,7 +47,7 @@ ExternalProject_Add( HALL_LL_STM32L053
       )
 
 ExternalProject_Add( HALL_LL_STM32L063
-      COMMENT           "Building HALL_LL_STM32L063"
+#      COMMENT           "Building HALL_LL_STM32L063"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L063/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -55,7 +55,7 @@ ExternalProject_Add( HALL_LL_STM32L063
       )
 
 ExternalProject_Add( HALL_LL_STM32L073
-      COMMENT           "Building HALL_LL_STM32L073"
+#      COMMENT           "Building HALL_LL_STM32L073"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L073/"
       CMAKE_ARGS ${CMAKE_ARGS}
@@ -63,7 +63,7 @@ ExternalProject_Add( HALL_LL_STM32L073
       )
 
 ExternalProject_Add( HALL_LL_STM32L083
-      COMMENT           "Building HALL_LL_STM32L083"
+#      COMMENT           "Building HALL_LL_STM32L083"
       DOWNLOAD_COMMAND ""
       SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/HALL_LL_STM32L083/"
       CMAKE_ARGS ${CMAKE_ARGS}
