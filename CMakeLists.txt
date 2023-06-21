@@ -8,7 +8,7 @@ if(NOT WIN32)
 
 	add_subdirectory(SiLabs)
 
-	add_subdirectory(SAM)
+	add_subdirectory(Atmel)
 
 	add_subdirectory(freescale)
 	
