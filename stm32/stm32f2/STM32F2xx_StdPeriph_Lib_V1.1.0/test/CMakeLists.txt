@@ -26,3 +26,7 @@ target_include_directories(CAN_Networking PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(CAN_Networking PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(CAN_Networking remcu)
+
+install(TARGETS CAN_Networking DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS CAN_LOOP DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS DAC_SignalsGeneration DESTINATION ${FULL_ARCHIVE_NAME}/test)

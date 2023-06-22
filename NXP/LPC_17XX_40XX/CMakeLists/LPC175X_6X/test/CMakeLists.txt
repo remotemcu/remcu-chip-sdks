@@ -23,3 +23,7 @@ add_executable(test_dac
 target_include_directories(test_dac PRIVATE ${ALL_INCLUDE_DIR})
 
 target_link_libraries(test_dac remcu)
+
+install(TARGETS test_dac DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_adc DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_gpio DESTINATION ${FULL_ARCHIVE_NAME}/test)

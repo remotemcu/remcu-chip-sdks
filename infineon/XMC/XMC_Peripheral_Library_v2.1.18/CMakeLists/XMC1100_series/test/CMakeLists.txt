@@ -17,3 +17,6 @@ target_include_directories(test_uart PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(test_uart PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(test_uart remcu)
+
+install(TARGETS test_gpio DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_uart DESTINATION ${FULL_ARCHIVE_NAME}/test)

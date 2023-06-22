@@ -6,3 +6,5 @@ add_executable(test_stm8l_discovery_lcd
 	)
 target_include_directories(test_stm8l_discovery_lcd PRIVATE ${ALL_INCLUDE_DIR})
 target_link_libraries(test_stm8l_discovery_lcd remcu)
+
+install(TARGETS test_stm8l_discovery_lcd DESTINATION ${FULL_ARCHIVE_NAME}/test)

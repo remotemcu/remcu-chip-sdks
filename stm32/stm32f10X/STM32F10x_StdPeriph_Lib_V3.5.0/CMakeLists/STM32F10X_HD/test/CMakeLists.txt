@@ -53,3 +53,10 @@ target_include_directories(DAC_DMA_Escalator PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(DAC_DMA_Escalator PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(DAC_DMA_Escalator remcu)
+
+install(TARGETS DAC_DMA_Escalator DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS NoiseWave DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS TriangleWave DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_CAN_Networking DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_CAN_LOOP DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_TIM6 DESTINATION ${FULL_ARCHIVE_NAME}/test)

@@ -9,3 +9,5 @@ target_include_directories(test_clock PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(test_clock PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(test_clock remcu)
+
+install(TARGETS test_clock DESTINATION ${FULL_ARCHIVE_NAME}/test)

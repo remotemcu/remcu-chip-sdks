@@ -9,3 +9,5 @@ target_include_directories(test_display_ssd1306 PRIVATE ${ALL_INCLUDE_DIR})
 target_include_directories(test_display_ssd1306 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(test_display_ssd1306 remcu)
+
+install(TARGETS test_display_ssd1306 DESTINATION ${FULL_ARCHIVE_NAME}/test)
