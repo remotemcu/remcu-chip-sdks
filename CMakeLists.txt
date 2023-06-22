@@ -1,7 +1,8 @@
+cmake_minimum_required(VERSION 3.5)
+
+set(REMCU_OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/output)
 
 add_subdirectory(stm32)
-
-cmake_minimum_required(VERSION 3.5)
 
 add_subdirectory(stm8)
 
