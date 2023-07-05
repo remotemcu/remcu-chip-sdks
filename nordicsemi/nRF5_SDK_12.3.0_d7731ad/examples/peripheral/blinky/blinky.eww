@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>  <project>
+    <path>$WS_DIR$\pca10028\blank\iar\blinky_pca10028.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10031\blank\iar\blinky_pca10031.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10056\blank\iar\blinky_pca10056.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10040\blank\iar\blinky_pca10040.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\nrf6310\blank\iar\blinky_nrf6310.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10031\s130\iar\blinky_pca10031_s130.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10028\s130\iar\blinky_pca10028_s130.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\pca10040\s132\iar\blinky_pca10040_s132.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\pca10001\blank\iar\blinky_pca10001.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\pca10003\blank\iar\blinky_pca10003.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\pca10000\blank\iar\blinky_pca10000.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\arduino_primo\blank\iar\blinky_arduino_primo.ewp</path>
+  </project>  <batchBuild/>
+</workspace>
