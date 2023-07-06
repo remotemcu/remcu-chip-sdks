@@ -174,7 +174,7 @@ FIRST_RUNTIME_STRING = \#include "stm32l0xx_hal.h"
 #-------------------------------------------------------------------------------
 DEFS = -DUSE_FULL_LL_DRIVER -DREMCU_LIB -D$(DEVICE) -DUSE_HAL_DRIVER
 
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 EXTRA_FLAGS = -Werror=implicit-function-declaration -Wno-int-to-pointer-cast -Wno-constant-conversion
 

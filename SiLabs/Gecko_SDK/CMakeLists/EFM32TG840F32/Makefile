@@ -28,7 +28,7 @@ $(GECKO_SDK_ROOT)/platform/emlib/src/em_lcd.c \
 IR_FILES += $(C_SRC:.c=.ll)
 
 DEFS += -D$(DEVICE)
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 
 include $(TARGET_MK)

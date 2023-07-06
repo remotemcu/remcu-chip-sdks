@@ -138,7 +138,7 @@ $(KSDK_ROOT)/platform/drivers/src/wdog/fsl_wdog_common.c \
 
 
 DEFS += -DDEBUG -DCPU_$(DEVICE)
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 
 include $(TARGET_MK)

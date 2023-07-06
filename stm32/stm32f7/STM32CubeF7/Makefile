@@ -119,6 +119,6 @@ INC_EXTRA = \
 DEFS = -DUSE_FULL_LL_DRIVER -DREMCU_LIB -D$(DEVICE)
 # -DUSE_HAL_DRIVER
 
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 include $(TARGET_MK)

@@ -52,6 +52,6 @@ IR_FILES += $(C_SRC:.c=.ll)
 DEFS +=-DCORE_M3
 DEFS +=-DCHIP_$(DEVICE)
 
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 include $(TARGET_MK)

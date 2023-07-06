@@ -52,7 +52,7 @@ INC_EXTRA = \
 
 DEFS = -DREMCU_LIB -DUSE_STDPERIPH_DRIVER
 
-INCLUDE_LOCAL  += $(foreach INC,$(addprefix $(PRJ_PATH),$(INC_PATH)),-I$(INC))
+
 
 
 include $(TARGET_MK)
