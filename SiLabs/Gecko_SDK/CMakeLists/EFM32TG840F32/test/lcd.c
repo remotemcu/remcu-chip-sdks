@@ -37,7 +37,7 @@ int main(int argc, char** argv)
   //reset chip
   remcu_resetRemoteUnit(__HALT);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
   /* Chip errata */
   CHIP_Init();
 

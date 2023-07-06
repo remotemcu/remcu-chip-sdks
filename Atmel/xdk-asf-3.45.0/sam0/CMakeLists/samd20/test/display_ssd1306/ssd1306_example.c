@@ -103,7 +103,7 @@ int main(int argc, char** argv)
   //remcu_setVerboseLevel(__INFO);
   //remcu_setVerboseLevel(__ALL_LOG);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 	//! the page address to write to
 	uint8_t page_address;
 	//! the column address, or the X pixel.

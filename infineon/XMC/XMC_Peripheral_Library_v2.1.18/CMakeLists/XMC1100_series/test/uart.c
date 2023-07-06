@@ -111,7 +111,7 @@ printf("argc : %d\n", argc);
   //remcu_setVerboseLevel(__INFO);
   remcu_setVerboseLevel(__ALL_LOG);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
   SystemInit();
 

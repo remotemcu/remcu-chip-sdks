@@ -59,7 +59,7 @@ remcu_resetRemoteUnit(__HALT);
 //remcu_setVerboseLevel(LevelDebug::__INFO);
 remcu_setVerboseLevel(__ERROR);
 
-  assert(remcu_is_connected());
+  assert(remcu_isConnected());
 
 /* Chip errata */
   CHIP_Init(); //nah
