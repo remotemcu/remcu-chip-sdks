@@ -56,7 +56,7 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_ll_usart.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_ll_utils.c \
 
 
-SRC_IGNORE = \
+SRC_IGNORE_NOT_USED = \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.c \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.c \
@@ -85,7 +85,7 @@ INC_PATH = \
        $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/Inc \
        ./
 
-EXPORT_INC_PATH_NOT = \
+EXPORT_INC_PATH_NOT_NOT_USED = \
 	$(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/ \
 	$(MCU_SDK_PATH)/CMSIS/Include \
 	./
@@ -93,7 +93,7 @@ EXPORT_INC_PATH_NOT = \
 DEVICE_HEADER = $(shell echo $(DEVICE) | tr '[:upper:]' '[:lower:]')
 
 
-EXPORT_INC_FILE = \
+EXPORT_INC_FILE_NOT_USED = \
 $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h \
 $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32L0xx/Include/$(DEVICE_HEADER).h\
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_adc_ex.h \
@@ -165,7 +165,7 @@ $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_ll_wwdg.h \
 
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 $(MCU_SDK_PATH)/STM32L0xx_HAL_Driver/transformed_Inc/stm32l0xx_hal_rtc.h \
 
 FIRST_RUNTIME_STRING = \#include "stm32l0xx_hal.h"
@@ -179,27 +179,4 @@ DEFS = -DUSE_FULL_LL_DRIVER -DREMCU_LIB -D$(DEVICE) -DUSE_HAL_DRIVER
 EXTRA_FLAGS = -Werror=implicit-function-declaration -Wno-int-to-pointer-cast -Wno-constant-conversion
 
 include $(TARGET_MK)
-
-# LOCAL_CFLAGS = $(DEFS) $(INCLUDE_LOCAL) 
-
-# IR_FILES += $(C_SRC:.c=.ll)
-
-
-# $(OUTPUT): $(IR_FILES) python
-# 	$(LD) -v $(BUILD_DIR)/*.adin.ll -S -o $@.ll
-# 	$(CLANG) $(COMPILE_FLAGS) -c $@.ll -o $@
-# 	#gcc $(LOCAL_CFLAGS) -o app $(BUILD_DIR)/* test.c
-
-# REMCU_C: $(IR_FILES)
-# 	@echo done
-
-
-# # compile
-# #------------------------------------------------------------------------------- 
-# %.ll: %.c
-# 	$(CLANG) $(IR_FLAGS) $(LOCAL_CFLAGS) -c $< -o $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX)
-# 	$(OPT) $(OPT_FLAGS) $(BUILD_DIR)/$(notdir $<).ll -o  $(BUILD_DIR)/$(notdir $<).adin.ll
-# 	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).adin.ll -o $(OUTPUT_DIR)/$(notdir $<).remcu.c
-# 	$(CBE) $(CBE_OPTIONS) $(BUILD_DIR)/$(notdir $<).$(IR_SUFFIX) -o $(OUTPUT_MCU_DIR)/$(notdir $<).mcu.c
-# 	#$(CLANG) $(COMPILE_FLAGS) -c $(BUILD_DIR)/$(notdir $<).adin.ll -o $(BUILD_DIR)/$(notdir $<).adin.o
 

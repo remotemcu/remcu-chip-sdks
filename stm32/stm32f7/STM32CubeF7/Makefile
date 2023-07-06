@@ -18,7 +18,7 @@ $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_spi.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_tim.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.c \
 
-C_SRC1 += $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c \
+C_SRC_NOT_USED += $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c \
 $(MCU_SDK_PATH)/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c \
@@ -111,7 +111,7 @@ INC_PATH = \
 
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

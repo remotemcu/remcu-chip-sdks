@@ -33,7 +33,7 @@ $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.c \
 $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c \
 $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmpi2c.c \
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/misc.c \
 $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash_ramfunc.c \
 $(MCU_SDK_PATH)/Libraries//STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dfsdm.c \
@@ -59,7 +59,7 @@ INC_PATH = \
        $(MCU_SDK_PATH)/Project/STM32F4xx_StdPeriph_Templates/
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

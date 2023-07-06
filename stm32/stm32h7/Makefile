@@ -55,7 +55,7 @@ EXPORT_INC_PATH_NOT = \
 
 DEVICE_HEADER = $(shell echo $(DEVICE) | tr '[:upper:]' '[:lower:]')
 
-EXPORT_INC_FILE = \
+EXPORT_INC_FILE_NOT_USED = \
 $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
 $(MCU_SDK_PATH)/CMSIS/Device/ST/STM32H7xx/Include/$(DEVICE_HEADER).h\
 $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_adc.h \
@@ -94,7 +94,7 @@ $(MCU_SDK_PATH)/STM32H7xx_HAL_Driver/transformed_Inc/stm32h7xx_ll_wwdg.h \
 
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

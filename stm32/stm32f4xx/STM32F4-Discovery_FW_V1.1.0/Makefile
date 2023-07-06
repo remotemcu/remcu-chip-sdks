@@ -28,7 +28,7 @@ C_SRC = \
 #./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c \
 #./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.c \
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.c \
 ./Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c \
@@ -45,7 +45,7 @@ INC_PATH = \
        Libraries/inc
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

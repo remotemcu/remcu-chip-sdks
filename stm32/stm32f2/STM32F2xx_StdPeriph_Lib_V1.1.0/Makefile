@@ -24,7 +24,7 @@ Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_syscfg.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_cryp.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_i2c.c
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_pwr.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/misc.c \
 Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_hash_sha1.c \
@@ -45,7 +45,7 @@ INC_PATH = \
        Project/STM32F2xx_StdPeriph_Template/ \
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

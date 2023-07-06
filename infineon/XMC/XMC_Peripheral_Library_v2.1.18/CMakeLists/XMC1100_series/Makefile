@@ -29,7 +29,7 @@ $(XMC_ROOT)/XMCLib/src/xmc_vadc.c \
 $(XMC_ROOT)/XMCLib/src/xmc_wdt.c
 
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 
 
 
@@ -39,7 +39,7 @@ $(XMC_ROOT)/CMSIS/Infineon/XMC1100_series/Include/ \
 $(XMC_ROOT)/CMSIS/Include/ \
 $(XMC_ROOT)/XMCLib/inc/ \
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

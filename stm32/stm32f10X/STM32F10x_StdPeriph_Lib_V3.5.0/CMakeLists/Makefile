@@ -25,7 +25,7 @@ $(MCU_SDK_PATH)/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c \
 $(MCU_SDK_PATH)/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c \
 $(MCU_SDK_PATH)/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 $(MCU_SDK_PATH)/Libraries/STM32F10x_StdPeriph_Driver/src/misc.c \
 $(MCU_SDK_PATH)/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c \
 
@@ -38,7 +38,7 @@ INC_PATH = \
        $(MCU_SDK_PATH)/Project/STM32F10x_StdPeriph_Template/ \
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

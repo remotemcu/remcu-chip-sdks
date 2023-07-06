@@ -109,12 +109,12 @@ $(KSDK_ROOT)/platform/drivers/src/vref/fsl_vref_driver.c \
 C_SRC += $(KSDK_ROOT)/platform/osa/src/fsl_os_abstraction_bm.c \
  $(KSDK_ROOT)/platform/devices/MK64F12/startup/system_MK64F12.c \
 
-SRC_EXTRA +=  \
+SRC_NOT_USED +=  \
      board/gpio_pins.c \
      board/pin_mux.c \
      board/board.c \
 
-SRC_EXTRA += $(KSDK_ROOT)/platform/utilities/src/fsl_misc_utilities.c \
+SRC_NOT_USED += $(KSDK_ROOT)/platform/utilities/src/fsl_misc_utilities.c \
  $(KSDK_ROOT)/platform/utilities/src/fsl_debug_console.c \
  $(KSDK_ROOT)/platform/utilities/src/print_scan.c \
      hello_world/main.c \
@@ -122,14 +122,14 @@ SRC_EXTRA += $(KSDK_ROOT)/platform/utilities/src/fsl_misc_utilities.c \
      hello_world/hardware_init.c \
 
 
-SRC_EXTRA +=  \
+SRC_NOT_USED +=  \
  $(KSDK_ROOT)/platform/hal/src/smc/fsl_smc_hal.c \
 $(KSDK_ROOT)/platform/system/src/hwtimer/fsl_hwtimer_systick.c \
 $(KSDK_ROOT)/platform/system/src/power/fsl_power_manager.c \
 $(KSDK_ROOT)/platform/hal/src/smc/fsl_smc_hal.c \
 $(KSDK_ROOT)/platform/system/src/interrupt/fsl_interrupt_manager.c \
 
-SRC_EXTRA +=  $(KSDK_ROOT)/platform/hal/src/enet/fsl_enet_hal.c \
+SRC_NOT_USED +=  $(KSDK_ROOT)/platform/hal/src/enet/fsl_enet_hal.c \
 $(KSDK_ROOT)/platform/drivers/src/enet/fsl_enet_driver.c \
 $(KSDK_ROOT)/platform/drivers/src/enet/fsl_enet_common.c \
 $(KSDK_ROOT)/platform/hal/src/wdog/fsl_wdog_hal.c \

@@ -25,7 +25,7 @@ $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_gpio.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_can.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_tim.c
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_pwr.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_misc.c \
 $(MCU_SDK_PATH)/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_flash.c \
@@ -39,7 +39,7 @@ INC_PATH = \
        $(MCU_SDK_PATH)/Libraries/
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

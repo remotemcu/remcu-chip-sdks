@@ -14,7 +14,7 @@ C_SRC = \
        $(ASF_ROOT)/sam0/drivers/sercom/sercom.c                       \
        $(ASF_ROOT)/sam0/drivers/sercom/spi/spi.c                      \
 
-SRC_UNCESS = \
+SRC_UNCESS_NOT_USED = \
        $(ASF_ROOT)/sam0/applications/led_toggle/led_toggle.c          \
        $(ASF_ROOT)/sam0/drivers/system/interrupt/system_interrupt.c   \
        $(ASF_ROOT)/common/utils/interrupt/interrupt_sam_nvic.c        \
@@ -51,7 +51,7 @@ INC_PATH = \
        $(ASF_ROOT)/sam0/drivers/sercom/spi                            \
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
        $(ASF_ROOT)/common/boards                                      \
        $(ASF_ROOT)/sam0/drivers/system/interrupt/system_interrupt_samd20 \
        $(ASF_ROOT)/thirdparty/CMSIS/Lib/GCC 							\

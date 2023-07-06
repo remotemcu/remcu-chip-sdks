@@ -26,7 +26,7 @@ $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_wwdg.c \
 $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c \
 $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_usart.c \
 
-SRC_EXTRA = \
+SRC_NOT_USED = \
 $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_flash.c \
 $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_misc.c \
 $(MCU_SDK_PATH)/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_pwr.c \
@@ -41,7 +41,7 @@ INC_PATH = \
 
 
 
-INC_EXTRA = \
+INC_NOT_USED = \
 
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------

@@ -24,7 +24,7 @@ $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_tim1.c \
 $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_rtc.c \
 $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_exti.c
 
-C_SRC_EXTRA = \
+C_SRC_NOT_USED = \
 $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_itc.c \
 $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_wfe.c \
 $(MCU_SDK_PATH)/Libraries/STM8L15x_StdPeriph_Driver/src/stm8l15x_irtim.c \
@@ -38,12 +38,6 @@ INC_PATH = 	\
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-#-DUSE_STDPERIPH_DRIVER
-
-# IR_FILES += $(C_SRC:.c=.ll)
-
 DEFS += -D$(DEVICE)
-
-
 
 include $(TARGET_MK)
