@@ -1,5 +1,5 @@
 
-# REMCU MCU SDK Collection
+# REMCU CHIP SDK Collection
 
 ---
 ![logo](img/logo.png)
@@ -17,7 +17,7 @@
 
 ## Overview
 
-The REMCU MCU SDK Collection is a comprehensive compilation of prepared Microcontroller Unit (MCU) Software Development Kits (SDKs) sourced from various chip vendors. These SDKs have undergone meticulous customization and adaptation to seamlessly integrate with the [REMCU]() library on multiple platforms, including Windows, Linux, and MacOS.This collection  empowers developers to remotely control MCUs from their PC applications using familiar APIs from the vendor SDKs made possible through the technology of [MCU Peripheral Forwarding]().
+The REMCU CHIP SDK Collection is a comprehensive compilation of prepared Microcontroller Unit (MCU) Software Development Kits (SDKs) sourced from various chip vendors. These SDKs have undergone meticulous customization and adaptation to seamlessly integrate with the [REMCU]() library on multiple platforms, including Windows, Linux, and MacOS.This collection  empowers developers to remotely control MCUs from their PC applications using familiar APIs from the vendor SDKs made possible through the technology of [MCU Peripheral Forwarding]().
 
 By leveraging the REMCU library, developers can seamlessly integrate the functions of the vendor SDKs into their PC applications. REMCU interrupts all peripheral operations, including storing and loading from registers, and executes them on the chip using OpenOCD or GDB server. This allows developers to conveniently and efficiently control the MCU's peripherals directly from their PC environment.
 
@@ -44,15 +44,15 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
    docker pull <image_name>
    ```
 3. Obtain the source code:
-   - Clone the REMCU MCU SDKs repository from GitHub using the following command:
+   - Clone the REMCU CHIP SDKs repository from GitHub using the following command:
      ```bash
-     git clone --recurse-submodules https://github.com/  remcu-mcu-sdks
+     git clone --recurse-submodules https://github.com/  remcu-chip-sdks
      ```
 
 4. Run a Docker Container:
    Start a Docker container based on the pulled image using the following command:
    ```bash
-   docker run -it --name remcu-build-docker -v /path/to/remcu-mcu-sdks:/project <image_name>
+   docker run -it --name remcu-build-docker -v /path/to/remcu-chip-sdks:/remcu-chip-sdks remcu_builder
    ```
 
    ![screenshot cmd]()
@@ -67,11 +67,11 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
    - Configure the build using CMake, specifying the your platform toolchain file:
    	for Linux x64
      ```bash
-     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/linux_x64.cmake
+     cmake .. -DCMAKE_TOOLCHAIN_FILE=/remcu-chip-sdks/REMCU/platform/linux_x64.cmake
      ```
      for Raspberry V1:
     ```bash
-     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/raspberry_pi_armv6_bcm2708.cmake
+     cmake .. -DCMAKE_TOOLCHAIN_FILE=/remcu-chip-sdks/REMCU/platform/raspberry_pi_armv6_bcm2708.cmake
      ```
 
 4. To build a specific target, run:
@@ -145,7 +145,7 @@ To build REMCU Library, please follow these steps:
    ```
 
 2. Obtain the source code:
-   - Clone the REMCU MCU SDKs repository from GitHub using the following command:
+   - Clone the REMCU CHIP SDKs repository from GitHub using the following command:
      ```
      git clone --recurse-submodules https://github.com/
      ```
@@ -163,7 +163,7 @@ To build REMCU Library, please follow these steps:
    - Open a terminal and navigate to the directory where you cloned the REMCU Library repository.
    - Create a build directory:
      ```
-     cd remcu-mcu-sdks
+     cd remcu-chip-sdks
      mkdir build
      cd build
      ```
@@ -177,15 +177,15 @@ To build REMCU Library, please follow these steps:
    - Configure the build using CMake, specifying the your platform toolchain file:
    	for Linux x64
      ```sh
-     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/linux_x64.cmake
+     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-chip-sdks/REMCU/platform/linux_x64.cmake
      ```
     for MacOS x64:
     ```sh
-     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/macos_darwin_x64.cmake
+     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-chip-sdks/REMCU/platform/macos_darwin_x64.cmake
      ```
      for Raspberry V1:
     ```sh
-     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/raspberry_pi_armv6_bcm2708.cmake
+     cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-chip-sdks/REMCU/platform/raspberry_pi_armv6_bcm2708.cmake
      ```
 
 
@@ -305,7 +305,7 @@ I build with next version:
 Use CMake to configure the build. CMake generates the necessary build files based on the project's CMakeLists.txt file. Run the following command in the command prompt to configure the build inside the "build" directory:
 
 	```shell
-	cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-mcu-sdks/REMCU/platform/windows_x64.cmake
+	cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-chip-sdks/REMCU/platform/windows_x64.cmake
 	```
 
 ![screenshot cmd](img/remcu-windows-build.PNG)
