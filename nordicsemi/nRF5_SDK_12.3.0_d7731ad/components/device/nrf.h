@@ -48,12 +48,15 @@
     #define NRF52_SERIES
 #endif
 
+#ifndef REMCU_LIB
+    #define NO_REMCU_LIB
+#endif //REMCU_LIB
 
-#if defined(_WIN32)
+#if defined(_WIN32) && defined(NO_REMCU_LIB)
     /* Do not include nrf specific files when building for PC host */
-#elif defined(__unix)
+#elif defined(__unix) && defined(NO_REMCU_LIB)
     /* Do not include nrf specific files when building for PC host */
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) && defined(NO_REMCU_LIB)
     /* Do not include nrf specific files when building for PC host */
 #else
 
