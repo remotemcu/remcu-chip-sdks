@@ -1,6 +1,6 @@
 [submodule "parser"]
 	path = parser
-	url = git@github.com:ser-mk/CxxHeader2Py.git
+	url = https://github.com/ser-mk/CxxHeader2Py.git
 [submodule "REMCU"]
 	path = REMCU
-	url = https://oauth2:glpat-S_74tzdC1AM-gKQVK3TY@gitlab.com/sermk/adinlib.git
+	url = https://github.com/remotemcu/remcu.git
