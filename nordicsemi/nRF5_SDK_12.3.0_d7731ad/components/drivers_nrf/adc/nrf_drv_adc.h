@@ -157,6 +157,7 @@ typedef struct
 {                                                 \
     .interrupt_priority = ADC_CONFIG_IRQ_PRIORITY \
 }
+#include "remcu_exports_symbol_enter.h"
 
 /**
  * @brief User event handler prototype.
@@ -270,6 +271,7 @@ ret_code_t nrf_drv_adc_buffer_convert(nrf_adc_value_t * buffer, uint16_t size);
  */
 bool nrf_drv_adc_is_busy(void);
 
+#include "remcu_exports_symbol_exit.h"
 /**
  * @brief Function for getting the address of the ADC START task.
  *

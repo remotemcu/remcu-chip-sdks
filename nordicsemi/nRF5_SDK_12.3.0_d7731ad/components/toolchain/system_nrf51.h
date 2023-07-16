@@ -39,7 +39,7 @@ extern "C" {
 
 
 extern uint32_t SystemCoreClock;    /*!< System Clock Frequency (Core Clock)  */
-
+#include "remcu_exports_symbol_enter.h"
 /**
  * Initialize the system
  *
@@ -61,7 +61,7 @@ extern void SystemInit (void);
  *         retrieved from cpu registers.
  */
 extern void SystemCoreClockUpdate (void);
-
+#include "remcu_exports_symbol_exit.h"
 #ifdef __cplusplus
 }
 #endif
