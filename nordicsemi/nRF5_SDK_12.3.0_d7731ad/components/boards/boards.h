@@ -79,6 +79,8 @@
 
 #endif
 
+#include "remcu_exports_symbol_enter.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -317,3 +319,5 @@ uint32_t bsp_board_button_idx_to_pin(uint32_t button_idx);
 #endif
 
 #endif
+
+#include "remcu_exports_symbol_exit.h"

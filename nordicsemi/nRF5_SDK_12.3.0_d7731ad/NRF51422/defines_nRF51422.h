@@ -7,3 +7,5 @@
 #define BOARD_PCA10028
 
 #define BSP_DEFINES_ONLY
+
+#define __GNUC__ 4

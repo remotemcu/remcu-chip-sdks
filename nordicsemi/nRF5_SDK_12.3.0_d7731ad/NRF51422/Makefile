@@ -27,6 +27,6 @@ INC_PATH =  \
 # TOOLCHAIN OPTIONS
 #-------------------------------------------------------------------------------
 
-DEFS += -DNRF51 -DNRF51422 -DBOARD_PCA10028 -DBSP_DEFINES_ONLY
+DEFS += -DNRF51 -DNRF51422 -DBOARD_PCA10028 -DBSP_DEFINES_ONLY -D__GNUC__
 
 include $(TARGET_MK)
