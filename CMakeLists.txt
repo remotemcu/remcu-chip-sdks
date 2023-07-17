@@ -14,6 +14,8 @@ add_subdirectory(stm32)
 
 add_subdirectory(stm8)
 
+add_subdirectory(nordicsemi)
+
 if(NOT WIN32)
 	add_subdirectory(NXP)
 
