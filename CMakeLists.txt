@@ -25,3 +25,14 @@ if(NOT WIN32)
 	
 	add_subdirectory(infineon)
 endif(NOT WIN32)
+
+include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
+
+set(CMAKE_MODULE_PATH ${REMCU_VM_PATH}/cmake)
+include(MultiBuild)
+
+ExternalProject_Add(_TEST_LIB_BUILD_ 
+      DOWNLOAD_COMMAND ""
+      SOURCE_DIR "${REMCU_VM_PATH}/test/"
+      CMAKE_ARGS ${CMAKE_ARGS}
+      )
