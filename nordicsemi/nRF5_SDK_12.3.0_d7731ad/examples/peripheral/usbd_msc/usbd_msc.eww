@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>  <project>
+    <path>$WS_DIR$\pca10056\blank\iar\usbd_msc_pca10056.ewp</path>
+  </project>  <project>
+    <path>$WS_DIR$\test\pca10056_fpga\blank\iar\usbd_msc_pca10056_fpga.ewp</path>
+  </project>  <batchBuild/>
+</workspace>
