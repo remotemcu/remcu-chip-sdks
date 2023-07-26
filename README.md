@@ -17,7 +17,7 @@
 
 ## Overview
 
-The REMCU CHIP SDK Collection is a comprehensive compilation of prepared Microcontroller Unit (MCU) Software Development Kits (SDKs) sourced from various chip vendors. These SDKs have undergone meticulous customization and adaptation to seamlessly integrate with the [REMCU]() library on multiple platforms, including Windows, Linux, and MacOS.This collection  empowers developers to remotely control MCUs from their PC applications using familiar APIs from the vendor SDKs made possible through the technology of [MCU Peripheral Forwarding]().
+The REMCU CHIP SDK Collection is a comprehensive compilation of prepared Microcontroller Unit (MCU) Software Development Kits (SDKs) sourced from various chip vendors. These SDKs have undergone meticulous customization and adaptation to seamlessly integrate with the [REMCU](https://github.com/remotemcu/remcu) library on multiple platforms, including Windows, Linux, and MacOS.This collection  empowers developers to remotely control MCUs from their PC applications using familiar APIs from the vendor SDKs made possible through the technology of [MCU Peripheral Forwarding](https://remotemcu.com/chip-peripheral-forwarding).
 
 By leveraging the REMCU library, developers can seamlessly integrate the functions of the vendor SDKs into their PC applications. REMCU interrupts all peripheral operations, including storing and loading from registers, and executes them on the chip using OpenOCD or GDB server. This allows developers to conveniently and efficiently control the MCU's peripherals directly from their PC environment.
 
@@ -107,8 +107,8 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
    ```bash
    $ ls output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
+   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
+   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
@@ -224,8 +224,8 @@ To build REMCU Library, please follow these steps:
    ```bash
    $ ls output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
+   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
+   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
@@ -234,7 +234,7 @@ To build REMCU Library, please follow these steps:
 When using REMCU on a Unix-like system (Linux, macOS, etc.), you should set the LD_LIBRARY_PATH environment variable to the path containing the libremcu.so shared library. This ensures that the test binary can find and load the REMCU library during runtime.
 
 ```shell
-LD_LIBRARY_PATH=output/remcu-STM8L15X_MD-StdPeriph_Driver-V1.4.0-01-0.1a-0b86927-C_INTERFACE-Linux_x64_r-0.1a-c01c7ce-APACHE_2.0/ output/remcu-STM8L15X_MD-StdPeriph_Driver-V1.4.0-01-0.1a-0b86927-C_INTERFACE-Linux_x64_r-0.1a-c01c7ce-APACHE_2.0/test/test_stm8l_discovery_lcd localhost 6666 0
+LD_LIBRARY_PATH=output/remcu-STM8L15X_MD-StdPeriph_Driver-V1.4.0-01/ output/remcu-STM8L15X_MD-StdPeriph_Driver-V1.4.0-01/test/test_stm8l_discovery_lcd localhost 6666 0
 ```
 
 ![cmd](img/run-ubuntu-test.png)
@@ -347,8 +347,8 @@ Use CMake to configure the build. CMake generates the necessary build files base
    ```cmd
    $ dir output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01-0.1a-7314734-C_INTERFACE-Linux_x64_r-0.1a-51b247c-APACHE_2.0
+   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
+   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
