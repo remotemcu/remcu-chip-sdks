@@ -55,8 +55,6 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
    docker run -it --name remcu-build-docker -v remcu-chip-sdks:/remcu-chip-sdks remcu_builder
    ```
 
-   ![screenshot cmd]()
-
 4. Configure REMCU Lib:
    - Create a build directory:
      ```bash
