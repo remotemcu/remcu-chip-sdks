@@ -9,4 +9,4 @@ target_include_directories(test_TIM6 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(test_TIM6 remcu)
 
-install(TARGETS test_TIM6 DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_TIM6 DESTINATION ${DESTINATION_DIR_NAME}/test)

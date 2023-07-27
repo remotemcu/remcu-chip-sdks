@@ -30,5 +30,5 @@ target_include_directories(test_gpio PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/accel_i
 
 target_link_libraries(test_gpio remcu)
 
-install(TARGETS test_gpio DESTINATION ${FULL_ARCHIVE_NAME}/test)
-install(TARGETS test_accel_i2c DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS test_gpio DESTINATION ${DESTINATION_DIR_NAME}/test)
+install(TARGETS test_accel_i2c DESTINATION ${DESTINATION_DIR_NAME}/test)

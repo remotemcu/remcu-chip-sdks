@@ -21,5 +21,5 @@ target_include_directories(Gyro PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(Gyro remcu)
 
-install(TARGETS Gyro DESTINATION ${FULL_ARCHIVE_NAME}/test)
-install(TARGETS test_TIM6 DESTINATION ${FULL_ARCHIVE_NAME}/test)
+install(TARGETS Gyro DESTINATION ${DESTINATION_DIR_NAME}/test)
+install(TARGETS test_TIM6 DESTINATION ${DESTINATION_DIR_NAME}/test)
