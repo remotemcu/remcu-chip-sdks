@@ -1,1 +1,2 @@
+set(DESTINATION_DIR_NAME_PREFIX STM8/)
 add_subdirectory(STM8L15X)

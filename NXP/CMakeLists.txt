@@ -1,1 +1,3 @@
+set(DESTINATION_DIR_NAME_PREFIX NXP/)
+
 add_subdirectory(LPC_17XX_40XX)
