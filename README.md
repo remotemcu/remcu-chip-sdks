@@ -41,7 +41,7 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
 2. Pull the Docker Image:
    Once you have identified the appropriate Docker image, use the following command to pull the image from the Docker registry:
    ```bash
-   docker pull remcu_builder
+   docker pull sermkd/remcu_builder
    ```
 3. Obtain the source code:
    - Clone the REMCU CHIP SDKs repository from GitHub using the following command:
@@ -52,7 +52,7 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
 4. Run a Docker Container:
    Start a Docker container based on the pulled image using the following command:
    ```bash
-   docker run -it --name remcu-build-docker -v remcu-chip-sdks:/remcu-chip-sdks remcu_builder
+   docker run -it --name remcu-build-docker -v $PWD/remcu-chip-sdks:/remcu-chip-sdks -w /remcu-chip-sdks remcu_builder
    ```
 
 4. Configure REMCU Lib:
