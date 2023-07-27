@@ -105,8 +105,8 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize Do
    ```bash
    $ ls output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
+   STM32F030-StdPeriph_Lib-V1.5.0-01
+   STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
@@ -222,8 +222,8 @@ To build REMCU Library, please follow these steps:
    ```bash
    $ ls output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
+   STM32F030-StdPeriph_Lib-V1.5.0-01
+   STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
@@ -345,8 +345,8 @@ Use CMake to configure the build. CMake generates the necessary build files base
    ```cmd
    $ dir output
    ...
-   remcu-STM32F030-StdPeriph_Lib-V1.5.0-01
-   remcu-STM32F042-StdPeriph_Lib-V1.5.0-01
+   STM32F030-StdPeriph_Lib-V1.5.0-01
+   STM32F042-StdPeriph_Lib-V1.5.0-01
    ...
    ```
 
