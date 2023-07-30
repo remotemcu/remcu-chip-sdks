@@ -149,7 +149,7 @@ To build REMCU Library, please follow these steps:
      ```
 
 3. Get the prebuilt [LLVM ADIN fork](https://github.com/remotemcu/adin-llvm):
-   - Visit the ADIN LLVM GitHub repository (https://github.com/) and download the prebuilt LLVM ADIN fork package provided in the release section.
+   - Visit the ADIN LLVM GitHub [release](https://github.com/remotemcu/adin-llvm/releases) and download the prebuilt LLVM ADIN fork package provided in the release section.
    - Extract the LLVM ADIN fork package to a directory of your choice.
 
    **or**
