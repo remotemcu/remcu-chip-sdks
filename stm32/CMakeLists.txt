@@ -12,7 +12,9 @@ add_subdirectory(stm32f4xx)
 
 add_subdirectory(stm32l1)
 
-add_subdirectory(stm32l0)
+if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
+	add_subdirectory(stm32l0)
+endif()
 
 add_subdirectory(stm32f7)
 

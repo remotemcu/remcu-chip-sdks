@@ -14,7 +14,9 @@ add_subdirectory(stm32)
 
 add_subdirectory(stm8)
 
-add_subdirectory(nordicsemi)
+if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
+	add_subdirectory(nordicsemi)
+endif()
 
 if(NOT WIN32)
 	add_subdirectory(NXP)
@@ -23,9 +25,14 @@ if(NOT WIN32)
 
 	add_subdirectory(Atmel)
 
-	add_subdirectory(freescale)
-	
-	add_subdirectory(infineon)
+	if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
+		
+		add_subdirectory(freescale)
+
+		add_subdirectory(infineon)
+		
+	endif()
+
 endif(NOT WIN32)
 
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)

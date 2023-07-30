@@ -39,4 +39,6 @@ file(INSTALL ${COPY_HEADER_FROM_LIB}
             DESTINATION  ${ALL_INCLUDE_DIR}
             )
 
-add_subdirectory(test)
+if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
+      add_subdirectory(test)
+endif()
