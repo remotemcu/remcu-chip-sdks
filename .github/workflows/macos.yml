@@ -1,0 +1,73 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Macos
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macos-11
+    
+    env:
+      LLVM_ADIN_PATH: ${{ github.workspace }}/opt/
+      PRETTY_OUTPUT_DIR: 1
+      # SYSTEM_VERSION_COMPAT: 1
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      # Runs a single command using the runners shell
+      - name: download Adin
+        run: |
+          wget https://github.com/remotemcu/adin-llvm/releases/download/llvm-8.0-adin-1.0/Macos-Darwin-x64.zip
+          unzip Macos-Darwin-x64.zip
+
+      # Runs a set of commands using the runners shell
+      - name: prepare packages
+        run: |
+          brew install micro mc
+
+      - name: prepare llvm
+        run: |
+          brew uninstall llvm@15 ; echo 0
+          sed -i '' 's/disable!/#disable!/g' /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/llvm@8.rb
+          HOMEBREW_NO_INSTALL_FROM_API=1  brew install llvm@8 
+          echo "/usr/local/opt/llvm@8/bin" >> $GITHUB_PATH
+
+      - name: Configure CMake
+        continue-on-error: true
+        # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+        # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+        run: |
+          cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=REMCU/platform/macos_darwin_x64.cmake; echo 0
+
+      - name: Configure CMake
+        run: | 
+          rm -rf ${{github.workspace}}/build
+          export SYSTEM_VERSION_COMPAT=1
+          echo "\n\n\n ==== SYSTEM_VERSION_COMPAT $SYSTEM_VERSION_COMPAT \nn\n\n\n\n"
+          cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=REMCU/platform/macos_darwin_x64.cmake;
+
+    
+      - name: Build
+        # Build your program with the given configuration
+        run: |
+          export SYSTEM_VERSION_COMPAT=1
+          echo "\n\n\n ==== SYSTEM_VERSION_COMPAT $SYSTEM_VERSION_COMPAT \nn\n\n\n\n"
+          cmake --build ${{github.workspace}}/build 
+        
+          
