@@ -1,6 +1,8 @@
 
 # REMCU CHIP SDK Collection
 
+[![Raspberry Pi 1](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/raspberry_pi_armv6_bcm2708.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/raspberry_pi_armv6_bcm2708.yml)
+[![Ubuntu](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml)
 ---
 ![logo](img/logo.png)
 
