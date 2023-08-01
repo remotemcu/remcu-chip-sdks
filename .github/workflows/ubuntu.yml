@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Ubuntu
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+    
+    env:
+      LLVM_ADIN_PATH: ${{ github.workspace }}/Linux_x64/
+      PRETTY_OUTPUT_DIR: 1
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      # Runs a single command using the runners shell
+      - name: download Adin
+        run: |
+          wget https://github.com/remotemcu/adin-llvm/releases/download/llvm-8.0-adin-1.0/Linux_x64.zip
+          unzip Linux_x64.zip
+
+      # Runs a set of commands using the runners shell
+      - name: prepare package
+        run: |
+          sudo apt update
+          sudo apt install micro mc gcc-multilib g++-multilib 
+          sudo apt purge clang-*
+          sudo apt install clang-8
+          echo "/usr/lib/llvm-8/bin/" >> $GITHUB_PATH
+
+      - name: Configure CMake
+        # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+        # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=REMCU/platform/linux_x64.cmake
+    
+      - name: Build
+        # Build your program with the given configuration
+        run: cmake --build ${{github.workspace}}/build 
+        
+      - name: Debugging with tmate
+        # You may pin to the exact commit or the version.
+        # uses: mxschmitt/action-tmate@53a5c23a925969671a6bb98ea70a4f650928ef93
+        uses: mxschmitt/action-tmate@v3
