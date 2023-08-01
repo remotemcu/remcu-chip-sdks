@@ -3,6 +3,10 @@
 
 [![Raspberry Pi 1](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/raspberry_pi_armv6_bcm2708.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/raspberry_pi_armv6_bcm2708.yml)
 [![Ubuntu](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml)
+[![Macos](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/macos.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/macos.yml)
+![GitHub all releases](https://img.shields.io/github/downloads/remotemcu/remcu-chip-sdks/total)
+
+
 ---
 ![logo](img/logo.png)
 
