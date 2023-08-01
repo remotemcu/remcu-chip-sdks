@@ -52,7 +52,3 @@ jobs:
         # Build your program with the given configuration
         run: cmake --build ${{github.workspace}}/build 
         
-      - name: Debugging with tmate
-        # You may pin to the exact commit or the version.
-        # uses: mxschmitt/action-tmate@53a5c23a925969671a6bb98ea70a4f650928ef93
-        uses: mxschmitt/action-tmate@v3
