@@ -19,17 +19,21 @@ if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
 endif()
 
 if(NOT WIN32)
-	add_subdirectory(NXP)
+
+	if(NOT APPLE)
+		add_subdirectory(NXP)
+		add_subdirectory(Atmel)
+	endif()
 
 	add_subdirectory(SiLabs)
-
-	add_subdirectory(Atmel)
 
 	if(NOT ${TARGET_REMCU_OS_NAME} STREQUAL "Raspbian_armv6")
 		
 		add_subdirectory(freescale)
-
-		add_subdirectory(infineon)
+		
+		if(NOT APPLE)
+			add_subdirectory(infineon)
+		endif()
 		
 	endif()
 
