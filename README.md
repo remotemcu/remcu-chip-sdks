@@ -314,6 +314,11 @@ Use CMake to configure the build. CMake generates the necessary build files base
 
 ![screenshot cmd](img/remcu-windows-build.PNG)
 
+If failed, try :
+   ```shell
+   cmake -G "Unix Makefiles" .. -DCMAKE_TOOLCHAIN_FILE=path/to/remcu-chip-sdks/REMCU/platform/windows_x64_clang.cmake
+   ```
+
 5. To build a specific target, run:
 
    ```bash
