@@ -254,7 +254,7 @@ Note that this guide assumes you are building on a Windows system and requires M
 
 Before proceeding with the LLVM Adin Fork build, ensure that you have the following prerequisites installed on your Windows machine:
 
-1. **MSBuild:** Install Microsoft Build Tools or Visual Studio 2017. You can download Visual Studio 2017 Community Edition from the official Microsoft website: [https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/install/use-command-line-parameters-to-install-visual-studio?view=vs-2017](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/install/use-command-line-parameters-to-install-visual-studio?view=vs-2017). Make sure to select the required these components during the installation.
+1. **MSBuild:** Install Microsoft Build Tools or Visual Studio 2017. You can download Visual Studio 2017 Community Edition from the official Microsoft website: [https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/install/use-command-line-parameters-to-install-visual-studio?view=vs-2017](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/install/use-command-line-parameters-to-install-visual-studio?view=vs-2017) or https://aka.ms/vs/15/release/vs_BuildTools.exe. Make sure to select the required these components during the installation.
 
    ![vc-components.PNG](img/vc-components.PNG)
 
