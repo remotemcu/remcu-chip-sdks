@@ -5,7 +5,6 @@
 [![Ubuntu](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/ubuntu.yml)
 [![Macos](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/macos.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/macos.yml)
 [![Windows](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/windows.yml/badge.svg)](https://github.com/remotemcu/remcu-chip-sdks/actions/workflows/windows.yml)
-![GitHub all releases](https://img.shields.io/github/downloads/remotemcu/remcu-chip-sdks/total)
 
 
 ---
