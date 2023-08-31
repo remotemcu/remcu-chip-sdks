@@ -43,7 +43,7 @@ jobs:
       - name: prepare llvm
         run: |
           brew uninstall llvm@15 ; echo 0
-          sed -i '' 's/disable!/#disable!/g' /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/llvm@8.rb
+          sed -i '' 's/disable!/#disable!/g' /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/l/llvm@8.rb
           HOMEBREW_NO_INSTALL_FROM_API=1  brew install llvm@8 
           echo "/usr/local/opt/llvm@8/bin" >> $GITHUB_PATH
 
