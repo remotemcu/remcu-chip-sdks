@@ -28,11 +28,10 @@ The REMCU CHIP SDK Collection is a comprehensive compilation of prepared Microco
 By leveraging the REMCU library, developers can seamlessly integrate the functions of the vendor SDKs into their PC applications. REMCU interrupts all peripheral operations, including storing and loading from registers, and executes them on the chip using OpenOCD or GDB server. This allows developers to conveniently and efficiently control the MCU's peripherals directly from their PC environment.
 
 ## How to use
-
-just need to run some functions:
-
-
 See [remcu examples repo](https://github.com/remotemcu/remcu_examples)
+
+It is highly recommended to use [OpenOCD version v0.10.0-12](https://github.com/ilg-archived/openocd/releases/tag/v0.10.0-12-20190422) or [v0.12.0-1](https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.12.0-1/).
+
 
 ## How to build
 
@@ -379,7 +378,7 @@ to successfully run the test binary that utilizes REMCU, you should ensure that 
       (ERROR)$#/#:141: can't parse answer of server: [31] invalid command name "ocd_mdh"�
    ```
 
-    during the usage of REMCU and the OpenOCD server, it is advisable to check the version of OpenOCD you are using. It is highly recommended to use [OpenOCD version v0.10.0-12](https://github.com/ilg-archived/openocd/releases/tag/v0.10.0-12-20190422).
+    during the usage of REMCU and the OpenOCD server, it is advisable to check the version of OpenOCD you are using. It is highly recommended to use [OpenOCD version v0.10.0-12](https://github.com/ilg-archived/openocd/releases/tag/v0.10.0-12-20190422) or [v0.12.0-1](https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.12.0-1/).
 
     Using the recommended version of OpenOCD ensures better compatibility and stability with REMCU. If you are unable to change the OpenOCD version for any reason, an alternative solution is to utilize the GDB server instead of the OpenOCD server. You can achieve this by utilizing the **remcu_connect2GDB** function to connect to the GDB server.
 
