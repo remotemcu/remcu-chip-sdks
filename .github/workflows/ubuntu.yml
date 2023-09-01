@@ -51,4 +51,19 @@ jobs:
       - name: Build
         # Build your program with the given configuration
         run: cmake --build ${{github.workspace}}/build 
+
+      - name: Commit
+        run: |
+          git clone https://ser-mk:${{ secrets.TOKEN_PUSH }}@github.com/remotemcu/prebuilt_libraries.git
+          git config --global user.email "en.chormonov@gmail.com"
+          git config --global user.name "Evgeny Chormonov"
+          cp -rf build/output/* prebuilt_libraries/
+          cd prebuilt_libraries/
+          git add .
+          git status
+          git commit -m "update linux" || true
+          # git push origin master
+          
+      - name: push/upload
+        run: git push origin master
         
