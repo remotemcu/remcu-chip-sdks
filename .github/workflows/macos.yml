@@ -82,4 +82,6 @@ jobs:
           # git push origin master
           
       - name: push/upload
-        run: git push origin master
+        run: |
+          cd prebuilt_libraries/
+          git push origin master
