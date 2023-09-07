@@ -61,7 +61,8 @@ jobs:
         cmake --build "D:\build"
     
         
-    - name: Commit
+    - name: Commit & push
+      if: github.actor == 'ser-mk'
       run: |
         git clone https://ser-mk:${{ secrets.TOKEN_PUSH }}@github.com/remotemcu/prebuilt_libraries.git
         git config --global user.email "en.chormonov@gmail.com"
@@ -71,9 +72,5 @@ jobs:
         git add .
         git status
         git commit -m "update windows" || true
-        # git push origin master
-        
-    - name: push/upload
-      run: |
-        cd prebuilt_libraries/
         git push origin master
+        
