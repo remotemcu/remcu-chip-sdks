@@ -53,11 +53,12 @@ It is highly recommended to use [OpenOCD version v0.10.0-12](https://github.com/
 6. Refresh the page to check the status of the running workflow. Wait for it to finish
 ![runned action](img/runned_action.png)
 you will see a green icon once the build is completed:
-![](img/)
+![finish workflow](img/finish_workflow.png)
 7. Click on the finished workflow to access the artifacts panel.
 8. In the artifacts panel, locate the zipped build directory. It will be named something like `build_folder.zip`.
-![](img/)
+![artefacts](img/artefacts.png)
 9. Download the zip file and unzip it to access the built libraries and binary tests, which can be found in the `output` directory.
+
 ![output dir](img/output_dir.png)
 
 You have successfully set up and run a workflow using GitHub Actions in your forked repository. You can further customize and modify workflows as needed by editing the workflow files in the .github/workflows directory of your repository.
