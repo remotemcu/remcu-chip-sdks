@@ -60,6 +60,12 @@ jobs:
       run: |
         cmake --build build
 
+    - name: Zip artifacts
+      run: |
+        /c/msys64/usr/bin/zip -qqr build_folder.zip build
+        ls -la build_folder.zip
+        ls -lh build_folder.zip
+
     - uses: actions/upload-artifact@v3
       with:
         name: build_folder

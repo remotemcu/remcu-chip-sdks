@@ -54,6 +54,11 @@ jobs:
         # Build your program with the given configuration
         run: cmake --build ${{github.workspace}}/build 
 
+      - name: Zip artifacts
+        run: |
+          zip -qqr build_folder.zip ${{github.workspace}}/build
+          ls -la build_folder.zip
+          ls -lh build_folder.zip
 
       - uses: actions/upload-artifact@v3
         with:
