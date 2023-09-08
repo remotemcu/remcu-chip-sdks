@@ -78,7 +78,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: build_folder
-          path: ${{github.workspace}}/build/
+          path: build_folder.zip
           if-no-files-found: error
 
         
