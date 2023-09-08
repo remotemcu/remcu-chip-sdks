@@ -53,6 +53,14 @@ jobs:
       - name: Build
         # Build your program with the given configuration
         run: cmake --build ${{github.workspace}}/build 
+
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build_folder
+          path: ${{github.workspace}}/build/
+          if-no-files-found: error
+
         
       - name: Commit & push
         if: github.actor == 'ser-mk'

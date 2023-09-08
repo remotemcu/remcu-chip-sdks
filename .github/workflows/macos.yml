@@ -55,7 +55,7 @@ jobs:
           cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=REMCU/platform/macos_darwin_x64.cmake; echo 0
 
       - name: Configure CMake
-        run: | 
+        run: |
           rm -rf ${{github.workspace}}/build
           export SYSTEM_VERSION_COMPAT=1
           echo "\n\n\n ==== SYSTEM_VERSION_COMPAT $SYSTEM_VERSION_COMPAT \nn\n\n\n\n"
@@ -68,6 +68,13 @@ jobs:
           export SYSTEM_VERSION_COMPAT=1
           echo "\n\n\n ==== SYSTEM_VERSION_COMPAT $SYSTEM_VERSION_COMPAT \nn\n\n\n\n"
           cmake --build ${{github.workspace}}/build 
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build_folder
+          path: ${{github.workspace}}/build/
+          if-no-files-found: error
+
         
       - name: Commit & push
         if: github.actor == 'ser-mk'
