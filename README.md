@@ -118,7 +118,7 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize [D
 
 #### Without Docker
 
-I tested on ubuntu 16.04 and MacOS version
+I tested on Ubuntu and MacOS Darwin x64
 
 To build REMCU Library, please follow these steps:
 
