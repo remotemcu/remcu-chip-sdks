@@ -14,10 +14,11 @@
 1. [Overview](#overview)
 2. [How to use](#how-to-use)
 3. [How to build](#how-to-build)
-   1. [Unix-like OS](#unix-like-os)
+   1. [Universal Easy Way. GitHub Actions](#universal-easy-way-github-actions)
+   2. [Unix-like OS](#unix-like-os)
       1. [Docker way](#docker-way)
       2. [Without Docker](#without-docker)
-   2. [Windows OS](#windows-os)
+   3. [Windows OS](#windows-os)
 4. [Troubleshooting](#troubleshooting)
 
 
@@ -34,6 +35,33 @@ It is highly recommended to use [OpenOCD version v0.10.0-12](https://github.com/
 
 
 ## How to build
+
+
+### Universal Easy Way. GitHub Actions
+
+> Note: This guide assumes you already have a GitHub account. If not, please create one before proceeding.
+
+1. [Fork](https://github.com/remotemcu/remcu-chip-sdks/fork) the repository
+2. Open the "Actions" tab in your forked repository.
+![actions tab](img/action_tab.png)
+3. Click on the `I understand my workflows, go ahead and enable them` button to enable Github Actions for your repository.
+![enable actions](img/enable_actions.png)
+4. In the left panel, you will see a list of available workflows. Choose the platform/workflow that you are interested in building.
+![enable actions](img/action_list.png)
+5. Click the "Run workflow" button to start the build process.
+![run workflow](img/run_workflow.png)
+6. Refresh the page to check the status of the running workflow. Wait for it to finish
+![runned action](img/runned_action.png)
+you will see a green icon once the build is completed:
+![](img/)
+7. Click on the finished workflow to access the artifacts panel.
+8. In the artifacts panel, locate the zipped build directory. It will be named something like `build_folder.zip`.
+![](img/)
+9. Download the zip file and unzip it to access the built libraries and binary tests, which can be found in the `output` directory.
+![output dir](img/output_dir.png)
+
+You have successfully set up and run a workflow using GitHub Actions in your forked repository. You can further customize and modify workflows as needed by editing the workflow files in the .github/workflows directory of your repository.
+
 
 ### Unix-like OS
 
