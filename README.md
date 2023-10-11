@@ -25,7 +25,7 @@
 ## Overview
 
 The REMCU CHIP SDK Collection is a comprehensive compilation of prepared Microcontroller Unit (MCU) Software Development Kits (SDKs) sourced from various chip vendors. These SDKs have undergone meticulous customization and adaptation to seamlessly integrate with the [REMCU](https://github.com/remotemcu/remcu) library on multiple platforms, including Windows, Linux, and MacOS.This collection  empowers developers to remotely control MCUs from their PC applications using familiar APIs from the vendor SDKs made possible through the technology of [MCU Peripheral Forwarding](https://remotemcu.com/chip-peripheral-forwarding).
-More details in [**Memfault Article**](https://interrupt.memfault.com/blog/mcu-peripheral-forwarding)
+More details in [**Memfault Article**](https://interrupt.memfault.com/blog/mcu-peripheral-forwarding).
 
 By leveraging the REMCU library, developers can seamlessly integrate the functions of the vendor SDKs into their PC applications. REMCU interrupts all peripheral operations, including storing and loading from registers, and executes them on the chip using OpenOCD or GDB server. This allows developers to conveniently and efficiently control the MCU's peripherals directly from their PC environment.
 
