@@ -14,6 +14,7 @@
 0. [Overview](#overview)
 1. [How to use](#how-to-use)
 2. [How prepare a MCU driver SDK. Tutorial](https://ser-mk.github.io/remcu/tutorial-preparing-nrf51-sdk/)
+3. [How to build](#how-to-build)
    1. [Universal Easy Way. GitHub Actions](#universal-easy-way-github-actions)
    2. [Unix-like OS](#unix-like-os)
       1. [Docker way](#docker-way)
