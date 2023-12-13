@@ -89,7 +89,7 @@ To facilitate cross-compilation for Linux and Embedded Linux, you can utilize [D
 4. Run a Docker Container:
    Start a Docker container based on the pulled image using the following command:
    ```bash
-   docker run -it --name remcu-build-docker -v $PWD/remcu-chip-sdks:/remcu-chip-sdks -w /remcu-chip-sdks remcu_builder
+   docker run -it --name remcu-build-docker -v $PWD/remcu-chip-sdks:/remcu-chip-sdks -w /remcu-chip-sdks sermkd/remcu_builder
    ```
 
 4. Configure REMCU Lib:
